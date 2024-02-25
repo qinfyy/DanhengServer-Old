@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EggLink.DanhengServer.Util
 {
-    internal class Crypto
+    public class Crypto
     {
         private static Random secureRandom = new();
         public static Logger logger = new("Crypto");

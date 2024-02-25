@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -104,6 +105,11 @@ namespace EggLink.DanhengServer.Util
             {
                 sw.WriteLine(message);
             }
+        }
+
+        public static Logger GetByClassName()
+        {
+            return new Logger(new StackTrace().GetFrame(1).GetMethod().ReflectedType.Name);
         }
     }
 

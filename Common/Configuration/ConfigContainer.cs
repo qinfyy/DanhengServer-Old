@@ -37,7 +37,7 @@ namespace EggLink.DanhengServer.Configuration
         public string BindAddress { get; set; } = "127.0.0.1";
         public int Port { get; set; } = 23301;
         public string PublicAddress { get; set; } = "127.0.0.1";
-        public int PublicPort { get; set; } = 23301;
+        public uint PublicPort { get; set; } = 23301;
         public string GameServerId { get; set; } = "dan_heng";
         public string GameServerName { get; set; } = "DanhengServer";
         public string GameServerDescription { get; set; } = "A re-implementation of StarRail server";

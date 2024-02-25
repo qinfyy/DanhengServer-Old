@@ -4,6 +4,8 @@ using EggLink.DanhengServer.Configuration;
 using EggLink.DanhengServer.WebServer;
 using EggLink.DanhengServer.Database;
 using System.Runtime.InteropServices;
+using EggLink.DanhengServer.Server;
+using EggLink.DanhengServer.Server.Packet;
 
 namespace EggLink.DanhengServer.Program
 {
@@ -11,6 +13,9 @@ namespace EggLink.DanhengServer.Program
     {
         private static Logger logger = new("Program");
         public static DatabaseHelper DatabaseHelper = new();
+        public static Listener Listener = new();
+        public static HandlerManager HandlerManager = new();
+
         public static void Main(string[] args)
         {
             var time = DateTime.Now;
@@ -61,12 +66,14 @@ namespace EggLink.DanhengServer.Program
                 Console.ReadLine();
                 return;
             }
-
             WebProgram.Main([$"--urls=http://{GetConfig().HttpServer.PublicAddress}:{GetConfig().HttpServer.PublicPort}/"]);
             logger.Info($"DispatchServer is running on http://{GetConfig().HttpServer.PublicAddress}:{GetConfig().HttpServer.PublicPort}/");
-            
+
+            Listener.StartListener();
+
             var elapsed = DateTime.Now - time;
             logger.Info($"Done in {elapsed.TotalSeconds.ToString()[..4]}s! Type '/help' to get help of commands.");
+
             while (true)
             {
                 Console.ReadLine();
