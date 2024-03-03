@@ -1,9 +1,11 @@
-﻿using EggLink.DanhengServer.Database;
+﻿using EggLink.DanhengServer.Data;
+using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Database.Player;
 using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Game.Avatar;
 using EggLink.DanhengServer.Game.Inventory;
 using EggLink.DanhengServer.Game.Lineup;
+using EggLink.DanhengServer.Game.Scene;
 using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Server;
 using EggLink.DanhengServer.Server.Packet;
@@ -29,6 +31,7 @@ namespace EggLink.DanhengServer.Game.Player
         #region Datas
 
         public PlayerUnlockData PlayerUnlockData { get; private set; }
+        public SceneInstance SceneInstance { get; private set; }
 
         #endregion
 
@@ -80,6 +83,7 @@ namespace EggLink.DanhengServer.Game.Player
                 unlock = DatabaseHelper.Instance?.GetInstance<PlayerUnlockData>(Uid);
             }
             PlayerUnlockData = unlock!;
+            SceneInstance = new(this, GameData.MazePlaneData[20001], 20001001);
         }
 
 

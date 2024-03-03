@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Reflection;
+using EggLink.DanhengServer.Data.Config;
+using System.Xml.Linq;
 using EggLink.DanhengServer.Util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EggLink.DanhengServer.Data
 {
@@ -13,6 +17,7 @@ namespace EggLink.DanhengServer.Data
         public static void LoadGameData()
         {
             LoadExcel();
+            LoadFloorInfo();
         }
 
         public static void LoadExcel()
@@ -100,5 +105,67 @@ namespace EggLink.DanhengServer.Data
             }
         }
 
+        public static void LoadFloorInfo()
+        {
+            Logger.Info("Loading floor files...");
+            DirectoryInfo directory = new(ConfigManager.Config.Path.ResourcePath + "/Config/LevelOutput/Floor/");
+            bool missingGroupInfos = false;
+
+            if (!directory.Exists)
+            {
+                Logger.Warn($"Floor infos are missing, please check your resources folder: {ConfigManager.Config.Path.ResourcePath}/Config/LevelOutput/Floor. Teleports and natural world spawns may not work!");
+                return;
+            }
+            // Load floor infos
+            foreach (FileInfo file in directory.GetFiles())
+            {
+                try
+                {
+                    using var reader = file.OpenRead();
+                    using StreamReader reader2 = new(reader);
+                    var text = reader2.ReadToEnd();
+                    var info = JsonConvert.DeserializeObject<FloorInfo>(text);
+                    var name = file.Name[..file.Name.IndexOf('.')];
+                    GameData.FloorInfoData.Add(name, info!);
+                } catch (Exception ex)
+                {
+                    Logger.Error("Error in reading" + file.Name, ex);
+                }
+            }
+
+            foreach (var info in  GameData.FloorInfoData.Values)
+            {
+                foreach (var groupInfo in info.GroupList)
+                {
+                    if (groupInfo.IsDelete) { continue; }
+                    FileInfo file = new(ConfigManager.Config.Path.ResourcePath + "/" + groupInfo.GroupPath);
+                    if (!file.Exists) continue;
+                    try
+                    {
+                        using var reader = file.OpenRead();
+                        using StreamReader reader2 = new(reader);
+                        var text = reader2.ReadToEnd();
+                        GroupInfo? group = JsonConvert.DeserializeObject<GroupInfo>(text);
+                        if (group != null)
+                        {
+                            group.Id = groupInfo.ID;
+                            info.Groups.Add(groupInfo.ID, group);
+                        }
+                    } catch (Exception ex)
+                    {
+                        Logger.Error("Error in reading" + file.Name, ex);
+                    }
+                    if (info.Groups.Count == 0)
+                    {
+                        missingGroupInfos = true;
+                    }
+                    info.OnLoad();
+                }
+            }
+            if (missingGroupInfos)
+                Logger.Warn("Group infos are missing, please check your resources folder: {resources}/Config/LevelOutput/Group. Teleports, monster battles, and natural world spawns may not work!");
+
+            Logger.Info("Loaded " + GameData.FloorInfoData.Count + " floor infos.");
+        }
     }
 }
