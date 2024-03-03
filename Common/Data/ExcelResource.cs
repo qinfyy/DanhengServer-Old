@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EggLink.DanhengServer.Data
 {
-    internal abstract class ExcelResource
+    public abstract class ExcelResource
     {
         public abstract int GetId();
 
@@ -15,6 +15,10 @@ namespace EggLink.DanhengServer.Data
         }
 
         public virtual void Finalized()
+        {
+        }
+
+        public virtual void AfterAllDone()
         {
         }
     }

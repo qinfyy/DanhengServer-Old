@@ -11,14 +11,14 @@ namespace EggLink.DanhengServer.WebServer.Handler
         public JsonResult Handle(string account, string password, bool isCrypto)
         {
             LoginResJson res = new();
-            AccountData accountData = (AccountData)AccountData.GetAccountByUserName(account);
+            AccountData? accountData = AccountData.GetAccountByUserName(account);
 
             if (accountData == null)
             {
                 if (ConfigManager.Config.ServerOption.AutoCreateUser)
                 {
                     AccountHelper.CreateAccount(account, 0);
-                    accountData = (AccountData)AccountData.GetAccountByUserName(account);
+                    accountData = AccountData.GetAccountByUserName(account);
                 }
                 else
                 {

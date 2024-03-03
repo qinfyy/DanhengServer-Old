@@ -16,11 +16,9 @@
 
   <ItemGroup>
     <Folder Include="Server\Packet\Recv\Rogue\" />
-    <Folder Include="Server\Packet\Recv\Scene\" />
     <Folder Include="Server\Packet\Recv\Achievement\" />
     <Folder Include="Server\Packet\Recv\ChessRogue\" />
     <Folder Include="Server\Packet\Recv\Tutorial\" />
-    <Folder Include="Server\Packet\Recv\Mission\" />
     <Folder Include="Server\Packet\Recv\Quest\" />
     <Folder Include="Server\Packet\Recv\Mail\" />
     <Folder Include="Server\Packet\Recv\Friend\" />
@@ -31,18 +29,16 @@
     <Folder Include="Server\Packet\Send\ChessRogue\" />
     <Folder Include="Server\Packet\Send\Friend\" />
     <Folder Include="Server\Packet\Send\Mail\" />
-    <Folder Include="Server\Packet\Send\Mission\" />
     <Folder Include="Server\Packet\Send\Others\" />
-    <Folder Include="Server\Packet\Send\Player\" />
     <Folder Include="Server\Packet\Send\Quest\" />
     <Folder Include="Server\Packet\Send\Rogue\" />
-    <Folder Include="Server\Packet\Send\Scene\" />
     <Folder Include="Server\Packet\Send\Tutorial\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="SQLitePCLRaw.core" Version="2.1.8" />
     <PackageReference Include="SQLitePCLRaw.provider.e_sqlite3" Version="2.1.8" />
+    <PackageReference Include="SqlSugarCore" Version="5.1.4.143" />
   </ItemGroup>
 
 </Project>

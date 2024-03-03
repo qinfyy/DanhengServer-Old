@@ -17,7 +17,7 @@ namespace EggLink.DanhengServer.Database.Account
             long newUid = uid;
             if (uid == 0)
             {
-                newUid = 10000;  // start from 10000
+                newUid = 10001;  // start from 10001
                 while (AccountData.GetAccountByUid(newUid) != null)
                 {
                     newUid++;
@@ -25,8 +25,13 @@ namespace EggLink.DanhengServer.Database.Account
             }
             var per = ConfigManager.Config.ServerOption.DefaultPermissions;
             var perStr = string.Join(",", per);
-            var account = new AccountData(username,newUid, permissions: perStr);
-            account.SaveToDatabase();
+            var account = new AccountData() 
+            { 
+                Uid = newUid, 
+                Username = username, 
+                Permissions = perStr
+            };
+            DatabaseHelper.Instance?.SaveInstance(account);
         }
     }
 }

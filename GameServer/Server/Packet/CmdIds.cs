@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EggLink.DanhengServer.Server.Packet
 {
-    public class CmdId
+    public class CmdIds
     {
         // None
         public const int None = 0;

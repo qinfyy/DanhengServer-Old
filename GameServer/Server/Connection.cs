@@ -1,7 +1,8 @@
 ﻿using System.Buffers;
 using System.Net;
+using System.Net.Sockets;
 using System.Reflection;
-using EggLink.DanhengServer.Enums;
+using EggLink.DanhengServer.Common.Enums;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.KcpSharp;
 using EggLink.DanhengServer.Program;
@@ -21,16 +22,14 @@ public partial class Connection
     private readonly CancellationTokenSource CancelToken;
     public readonly IPEndPoint RemoteEndPoint;
     public SessionState State { get; set; } = SessionState.INACTIVE;
-    private bool UseSecretKey { get; set; } = false;
-    private byte[] SecretKey = new byte[0x1000];
-    public Player? Player { get; set; }
+    public PlayerInstance? Player { get; set; }
     public uint ClientTime { get; private set; }
     public long LastPingTime { get; private set; }
     private uint LastClientSeq = 10;
     public static readonly List<int> BANNED_PACKETS = [];
-    private static Logger Logger = new("GameServer");
+    private static readonly Logger Logger = new("GameServer");
 #if DEBUG
-    private static uint LogIndex = 0;
+    private static readonly Dictionary<string, string> LogMap = [];
 #endif
     public Connection(KcpConversation conversation, IPEndPoint remote)
     {
@@ -38,11 +37,14 @@ public partial class Connection
         RemoteEndPoint = remote;
         CancelToken = new CancellationTokenSource();
         Start();
+#if DEBUG
+        JsonConvert.DeserializeObject<JObject>(File.ReadAllText("LogMap.json")).Properties().ToList().ForEach(x => LogMap.Add(x.Name, x.Value.ToString()));
+#endif
     }
 
     private async void Start()
     {
-        Logger.Info($"New connection to {RemoteEndPoint} created with conversation id {Conversation.ConversationId}");
+        Logger.Info($"New connection from {RemoteEndPoint}.");
         State = SessionState.WAITING_FOR_TOKEN;
         await ReceiveLoop();
     }
@@ -72,14 +74,20 @@ public partial class Connection
 #if DEBUG
     public static void LogPacket(string sendOrRecv, ushort opcode, byte[] payload)
     {
-        //Logger.DebugWriteLine($"{sendOrRecv}: {Enum.GetName(typeof(OpCode), opcode)}({opcode})\r\n{Convert.ToHexString(payload)}");
-        Type? typ = AppDomain.CurrentDomain.GetAssemblies().
-       SingleOrDefault(assembly => assembly.GetName().Name == "Shared").GetTypes().First(t => t.Name == $"{Enum.GetName(typeof(CmdId), opcode)}"); //get the type using the packet name
-        MessageDescriptor? descriptor = (MessageDescriptor)typ.GetProperty("Descriptor", BindingFlags.Public | BindingFlags.Static).GetValue(null, null); // get the static property Descriptor
-        IMessage? packet = descriptor.Parser.ParseFrom(payload);
-        JsonFormatter? formatter = JsonFormatter.Default;
-        string? asJson = formatter.Format(packet);
-        Logger.Debug($"{sendOrRecv}: {Enum.GetName(typeof(CmdId), opcode)}({opcode})\r\n{asJson}");
+        try
+        {
+            //Logger.DebugWriteLine($"{sendOrRecv}: {Enum.GetName(typeof(OpCode), opcode)}({opcode})\r\n{Convert.ToHexString(payload)}");
+            Type? typ = AppDomain.CurrentDomain.GetAssemblies().
+           SingleOrDefault(assembly => assembly.GetName().Name == "Common").GetTypes().First(t => t.Name == $"{LogMap[opcode.ToString()]}"); //get the type using the packet name
+            MessageDescriptor? descriptor = (MessageDescriptor)typ.GetProperty("Descriptor", BindingFlags.Public | BindingFlags.Static).GetValue(null, null); // get the static property Descriptor
+            IMessage? packet = descriptor.Parser.ParseFrom(payload);
+            JsonFormatter? formatter = JsonFormatter.Default;
+            string? asJson = formatter.Format(packet);
+            Logger.Debug($"{sendOrRecv}: {LogMap[opcode.ToString()]}({opcode})\r\n{asJson}");
+        } catch (Exception e)
+        {
+            Logger.Debug($"{sendOrRecv}: {LogMap[opcode.ToString()]}({opcode})");
+        }
     }
 
 #endif
@@ -131,8 +139,6 @@ public partial class Connection
     {
         byte[] gamePacket = data.ToArray();
 
-        // Decrypt and turn back into a packet
-        //Crypto.Xor(gamePacket, UseSecretKey ? SecretKey : Crypto.DISPATCH_KEY);
         await using MemoryStream? ms = new(gamePacket);
         using BinaryReader? br = new(ms);
 
@@ -159,8 +165,10 @@ public partial class Connection
                 uint payloadLength = br.ReadUInt32BE();
                 byte[] header = br.ReadBytes(headerLength);
                 byte[] payload = br.ReadBytes((int)payloadLength);
-
-                await HandlePacketAsync(opcode, header, payload);
+#if DEBUG
+                LogPacket("Recv", opcode, payload);
+#endif
+                HandlePacket(opcode, header, payload);
             }
 
         }
@@ -174,7 +182,7 @@ public partial class Connection
         }
     }
 
-    private async Task<bool> HandlePacketAsync(ushort opcode, byte[] header, byte[] payload)
+    private bool HandlePacket(ushort opcode, byte[] header, byte[] payload)
     {
         // Find the Handler for this opcode
         Handler? handler = EntryPoint.HandlerManager.GetHandler(opcode);
@@ -185,7 +193,7 @@ public partial class Connection
             SessionState state = State;
             switch ((int)opcode)
             {
-                case CmdId.PlayerGetTokenCsReq:
+                case CmdIds.PlayerGetTokenCsReq:
                     {
                         if (state != SessionState.WAITING_FOR_TOKEN)
                         {
@@ -193,7 +201,7 @@ public partial class Connection
                         }
                         goto default;
                     }
-                case CmdId.PlayerLoginCsReq:
+                case CmdIds.PlayerLoginCsReq:
                     {
                         if (state != SessionState.WAITING_FOR_LOGIN)
                         {
@@ -204,15 +212,14 @@ public partial class Connection
                 default:
                     break;
             }
-            handler.OnHandle(header, payload);
+            handler.OnHandle(this, header, payload);
             return true;
         }
 
         return false;
     }
 
-
-    public async Task SendPacketAsync(BasePacket packet)
+    public void SendPacket(BasePacket packet)
     {
         // Test
         if (packet.CmdId <= 0)
@@ -226,10 +233,40 @@ public partial class Connection
         {
             return;
         }
-
+#if DEBUG
+        LogPacket("Send", packet.CmdId, packet.Data);
+#endif
         // Header
         byte[] packetBytes = packet.BuildPacket();
 
-        await Conversation.SendAsync(packetBytes, CancelToken.Token);
+#pragma warning disable CA2012
+        _ = Conversation.SendAsync(packetBytes, CancelToken.Token);
+#pragma warning restore CA2012
+    }
+
+    public void SendPacket(int cmdId)
+    {
+        // Test
+        if (cmdId <= 0)
+        {
+            Logger.Debug("Tried to send packet with missing cmd id!");
+            return;
+        }
+
+        // DO NOT REMOVE (unless we find a way to validate code before sending to client which I don't think we can)
+        if (BANNED_PACKETS.Contains(cmdId))
+        {
+            return;
+        }
+#if DEBUG
+        LogPacket("Send", (ushort)cmdId, []);
+#endif
+
+        // Header
+        byte[] packetBytes = new BasePacket((ushort)cmdId).BuildPacket();
+
+#pragma warning disable CA2012
+        _ = Conversation.SendAsync(packetBytes, CancelToken.Token);
+#pragma warning restore CA2012
     }
 }

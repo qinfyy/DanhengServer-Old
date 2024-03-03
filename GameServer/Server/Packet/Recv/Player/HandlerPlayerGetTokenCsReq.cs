@@ -1,20 +1,33 @@
-﻿using EggLink.DanhengServer.Proto;
+﻿using EggLink.DanhengServer.Common.Enums;
+using EggLink.DanhengServer.Database;
+using EggLink.DanhengServer.Database.Player;
+using EggLink.DanhengServer.Game.Player;
+using EggLink.DanhengServer.Proto;
+using EggLink.DanhengServer.Server.Packet.Send.Player;
 using EggLink.DanhengServer.Util;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EggLink.DanhengServer.Server.Packet.Recv.Player
 {
-    [Opcode(CmdId.PlayerGetTokenCsReq)]
+    [Opcode(CmdIds.PlayerGetTokenCsReq)]
     public class HandlerPlayerGetTokenCsReq : Handler
     {
-        public override void OnHandle(byte[] header, byte[] data)
+        public override void OnHandle(Connection connection, byte[] header, byte[] data)
         {
             var req = PlayerGetTokenCsReq.Parser.ParseFrom(data);
-            Logger.GetByClassName().Debug("OnHandle" + req.ToString());
+            connection.State = SessionState.WAITING_FOR_LOGIN;
+            var pd = DatabaseHelper.Instance?.GetInstance<PlayerData>(long.Parse(req.AccountUid));
+            if (pd == null)
+                connection.Player = new PlayerInstance() 
+                { 
+                    Uid = ushort.Parse(req.AccountUid),
+                };
+            else
+            {
+                connection.Player = new PlayerInstance(pd);
+            }
+            connection.Player.OnLogin();
+            connection.Player.Connection = connection;
+            connection.SendPacket(new PacketPlayerGetTokenScRsp(connection));
         }
     }
 }

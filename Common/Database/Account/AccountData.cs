@@ -1,62 +1,53 @@
 ﻿using EggLink.DanhengServer.Util;
 using Microsoft.Data.Sqlite;
+using SqlSugar;
 
 namespace EggLink.DanhengServer.Database.Account
 {
-    [DatabaseEntity("account")]
-    public class AccountData(string username, long uid, string comboToken = "", string dispatchToken = "", string permissions = "") : BaseDatabaseData
+    [SugarTable("Account")]
+    public class AccountData() : BaseDatabaseData
     {
-        public string Username { get; set; } = username;
-        public long Uid { get; set; } = uid;
-        public string ComboToken { get; set; } = comboToken;
-        public string DispatchToken { get; set; } = dispatchToken;
-        public string Permissions { get; set; } = permissions;  // type: permission1,permission2,permission3...
+        public string? Username { get; set; }
 
-        public static BaseDatabaseData? GetAccountByUserName(string username)
+        [SugarColumn(IsNullable = true)]
+        public string? ComboToken { get; set; }
+
+        [SugarColumn(IsNullable = true)]
+        public string? DispatchToken { get; set; }
+
+        [SugarColumn(IsNullable = true)]
+        public string? Permissions { get; set; }  // type: permission1,permission2,permission3...
+
+        public static AccountData? GetAccountByUserName(string username)
         {
-            var connection = DatabaseHelper.Instance.connection;
-            var command = new SqliteCommand("SELECT * FROM account", connection);
-            var reader = command.ExecuteReader();
             AccountData? result = null;
-            while (reader.Read())
+            DatabaseHelper.Instance?.GetAllInstance<AccountData>()?.ForEach((account) =>
             {
-                if (reader.GetString(0) == username)
+                if (account.Username == username)
                 {
-                    result = new(reader.GetString(0), reader.GetInt64(1), reader.GetString(2), reader.GetString(3), reader.GetString(4));
-                    break;
+                    result = account;
                 }
-            }
+            });
             return result;
         }
 
-        public static BaseDatabaseData? GetAccountByUid(long uid)
+        public static AccountData? GetAccountByUid(long uid)
         {
-            var connection = DatabaseHelper.Instance.connection;
-            var command = new SqliteCommand("SELECT * FROM account", connection);
-            var reader = command.ExecuteReader();
-            AccountData? result = null;
-            while (reader.Read())
-            {
-                if (reader.GetInt64(1) == uid)
-                {
-                    result = new(reader.GetString(0), reader.GetInt64(1), reader.GetString(2), reader.GetString(3), reader.GetString(4));
-                    break;
-                }
-            }
+            AccountData? result = DatabaseHelper.Instance?.GetInstance<AccountData>(uid);
             return result;
         }
 
         public string GenerateDispatchToken()
         {
             DispatchToken = Crypto.CreateSessionKey(Uid.ToString());
-            ModifyDatabase(Uid, "dispatchToken", DispatchToken);
+            DatabaseHelper.Instance?.UpdateInstance(this);
             return DispatchToken;
         }
         
         public string GenerateComboToken()
         {
             ComboToken = Crypto.CreateSessionKey(Uid.ToString());
-            ModifyDatabase(Uid, "comboToken", ComboToken);
+            DatabaseHelper.Instance?.UpdateInstance(this);
             return ComboToken;
         }
     }

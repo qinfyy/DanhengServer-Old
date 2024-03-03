@@ -1,14 +1,13 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
-using EggLink.DanhengServer.Program;
 using EggLink.DanhengServer.Util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace EggLink.DanhengServer.Data
 {
-    internal class ResourceManager
+    public class ResourceManager
     {
         public static Logger Logger { get; private set; } = new Logger("ResourceManager");
         public static void LoadGameData()
@@ -21,12 +20,12 @@ namespace EggLink.DanhengServer.Data
             var classes = Assembly.GetExecutingAssembly().GetTypes();  // Get all classes in the assembly
             foreach (var cls in classes)
             {
-                var attribute = (ResourceEntity)Attribute.GetCustomAttribute(cls, typeof(ResourceEntity));
+                var attribute = (ResourceEntity)Attribute.GetCustomAttribute(cls, typeof(ResourceEntity))!;
 
                 if (attribute != null)
                 {
-                    var resource = (ExcelResource)Activator.CreateInstance(cls);
-                    var path = EntryPoint.GetConfig().Path.ResourcePath + "/ExcelOutput/" + attribute.FileName;
+                    var resource = (ExcelResource)Activator.CreateInstance(cls)!;
+                    var path = ConfigManager.Config.Path.ResourcePath + "/ExcelOutput/" + attribute.FileName;
                     var file = new FileInfo(path);
                     if (!file.Exists)
                     {
@@ -52,7 +51,7 @@ namespace EggLink.DanhengServer.Data
                             foreach (var item in jArray)
                             {
                                 var res = JsonConvert.DeserializeObject(item.ToString(), cls);
-                                ((ExcelResource)res).Loaded();
+                                ((ExcelResource?)res)?.Loaded();
                                 count++;
                             }
                         }
@@ -71,9 +70,9 @@ namespace EggLink.DanhengServer.Data
                                     var nestedObject = JsonConvert.DeserializeObject<JObject>(obj.ToString());
 
                                     // Process only if it's a top-level dictionary, not nested
-                                    if (nestedObject.Count > 0 && nestedObject.First.First.Type != JTokenType.Object)
+                                    if (nestedObject?.Count > 0 && nestedObject?.First?.First?.Type != JTokenType.Object)
                                     {
-                                        ((ExcelResource)instance).Loaded();
+                                        ((ExcelResource?)instance)?.Loaded();
                                     }
                                 }
                                 else
@@ -84,7 +83,19 @@ namespace EggLink.DanhengServer.Data
                             }
                         }
                     }
+                    resource.Finalized();
+
                     Logger.Info($"Loaded {count} {cls.Name}s.");
+                }
+            }
+            foreach (var cls in classes)
+            {
+                var attribute = (ResourceEntity)Attribute.GetCustomAttribute(cls, typeof(ResourceEntity))!;
+
+                if (attribute != null)
+                {
+                    var resource = (ExcelResource)Activator.CreateInstance(cls)!;
+                    resource.AfterAllDone();
                 }
             }
         }

@@ -1,6 +1,8 @@
 ﻿using EggLink.DanhengServer.Configuration;
+using EggLink.DanhengServer.Database.Account;
 using EggLink.DanhengServer.Util;
 using Microsoft.Data.Sqlite;
+using SqlSugar;
 using System.Reflection;
 
 namespace EggLink.DanhengServer.Database
@@ -9,8 +11,8 @@ namespace EggLink.DanhengServer.Database
     {
         public Logger logger = new("Database");
         public ConfigContainer config = ConfigManager.Config;
-        public SqliteConnection connection;
-        public static DatabaseHelper Instance;
+        public static SqlSugarScope? sqlSugarScope;
+        public static DatabaseHelper? Instance;
 
         public DatabaseHelper()
         {
@@ -19,7 +21,12 @@ namespace EggLink.DanhengServer.Database
             {
                 f.Directory.Create();
             }
-            connection = new SqliteConnection($"Data Source={f.FullName};");
+            sqlSugarScope = new(new ConnectionConfig()
+            {
+                ConnectionString = $"Data Source={f.FullName};",
+                DbType = DbType.Sqlite,
+                IsAutoCloseConnection = true,
+            });
             Instance = this;
         }
         public void Initialize()
@@ -36,70 +43,65 @@ namespace EggLink.DanhengServer.Database
             }
         }
 
-        public void InitializeSqlite()
+        public static void InitializeSqlite()
         {
-            SQLitePCL.Batteries.Init();
-            connection.Open();
-            var classes = Assembly.GetExecutingAssembly().GetTypes();
-            foreach (var cls in classes) {
-                var attribute = (DatabaseEntity)Attribute.GetCustomAttribute(cls, typeof(DatabaseEntity));
-                if (attribute != null)
-                {
-                    var tableName = attribute.TableName;
-                    var createTable = $"CREATE TABLE IF NOT EXISTS {tableName} (";
-                    var properties = cls.GetProperties();
-                    foreach (var property in properties)
-                    {
-                        createTable += $"{property.Name} {GetSqliteType(property.PropertyType)}, ";
-                    }
-                    createTable = createTable.Substring(0, createTable.Length - 2);
-                    createTable += ")";
-                    var command = new SqliteCommand(createTable, connection);
-                    command.ExecuteNonQuery();
-                }
+            var baseType = typeof(BaseDatabaseData);
+            var assembly = typeof(BaseDatabaseData).Assembly;
+            var types = assembly.GetTypes().Where(t => t.IsSubclassOf(baseType));
+            foreach (var type in types)
+            {
+                typeof(DatabaseHelper).GetMethod("InitializeSqliteTable")?.MakeGenericMethod(type).Invoke(null, null);
             }
         }
 
-        private string GetSqliteType(Type propertyType)
+        public static void InitializeSqliteTable<T>() where T : class, new()
         {
-            if (propertyType == typeof(int))
+            try
             {
-                return "INTEGER";
-            }
-            else if (propertyType == typeof(string))
+                sqlSugarScope?.Queryable<T>().ToList();
+            } catch
             {
-                return "TEXT";
-            }
-            else if (propertyType == typeof(bool))
-            {
-                return "INTEGER";
-            }
-            else if (propertyType == typeof(float))
-            {
-                return "REAL";
-            }
-            else if (propertyType == typeof(double))
-            {
-                return "REAL";
-            }
-            else if (propertyType == typeof(long))
-            {
-                return "INTEGER";
-            }
-            else if (propertyType == typeof(byte[]))
-            {
-                return "BLOB";
-            }
-            else
-            {
-                logger.Error($"Unsupported type {propertyType}");
-                return "TEXT";
+                sqlSugarScope?.CodeFirst.InitTables<T>();
             }
         }
 
-        public void Close()
+        public T? GetInstance<T>(long uid) where T : class, new()
         {
-            connection.Close();
+            try
+            {
+                return sqlSugarScope?.Queryable<T>().Where(it => (it as BaseDatabaseData).Uid == uid).First();
+            } catch
+            {
+                logger.Error("Unsupported type");
+                return null;
+            }
+        }
+
+        public List<T>? GetAllInstance<T>() where T : class, new()
+        {
+            try
+            {
+                return sqlSugarScope?.Queryable<T>().ToList();
+            } catch
+            {
+                logger.Error("Unsupported type");
+                return null;
+            }
+        }
+
+        public void SaveInstance<T>(T instance) where T : class, new()
+        {
+            sqlSugarScope?.Insertable(instance).ExecuteCommand();
+        }
+
+        public void UpdateInstance<T>(T instance) where T : class, new()
+        {
+            sqlSugarScope?.Updateable(instance).ExecuteCommand();
+        }
+
+        public void DeleteInstance<T>(T instance) where T : class, new()
+        {
+            sqlSugarScope?.Deleteable(instance).ExecuteCommand();
         }
     }
 }

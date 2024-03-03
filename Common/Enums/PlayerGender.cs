@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EggLink.DanhengServer.Game.Player
+namespace EggLink.DanhengServer.Enums
 {
-    public class Player
+    public enum PlayerGender
     {
-        public async Task OnLogoutAsync()
-        {
-
-        }
+        PLAYER_MALE = 0,
+        PLAYER_FEMALE = 1,
     }
 }

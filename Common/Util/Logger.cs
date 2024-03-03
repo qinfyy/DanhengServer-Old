@@ -107,10 +107,9 @@ namespace EggLink.DanhengServer.Util
             }
         }
 
-        public static Logger GetByClassName()
-        {
-            return new Logger(new StackTrace().GetFrame(1).GetMethod().ReflectedType.Name);
-        }
+#pragma warning disable CS8602 
+        public static Logger GetByClassName() => new(new StackTrace().GetFrame(1).GetMethod().ReflectedType.Name);
+#pragma warning restore CS8602
     }
 
     public enum LoggerLevel

@@ -3,7 +3,7 @@
 namespace EggLink.DanhengServer.Data.Excel
 {
     [ResourceEntity("StageConfig.json", false)]
-    internal class StageConfigExcel : ExcelResource
+    public class StageConfigExcel : ExcelResource
     {
         public int StageID { get; set; } = 0;
         public HashName StageName { get; set; } = new HashName();
@@ -20,7 +20,7 @@ namespace EggLink.DanhengServer.Data.Excel
         }
     }
 
-    internal class StageMonsterList
+    public class StageMonsterList
     {
         public int Monster0 { get; set; } = 0;
         public int Monster1 { get; set; } = 0;
@@ -29,7 +29,7 @@ namespace EggLink.DanhengServer.Data.Excel
         public int Monster4 { get; set; } = 0;
     }
 
-    internal class HashName
+    public class HashName
     {
         public long Hash { get; set; } = 0;
     }
