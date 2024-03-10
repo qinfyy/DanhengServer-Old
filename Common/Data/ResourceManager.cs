@@ -68,16 +68,18 @@ namespace EggLink.DanhengServer.Data
                             {
                                 var id = int.Parse(item.Key);
                                 var obj = item.Value;
-                                var instance = JsonConvert.DeserializeObject(obj.ToString(), cls);
-                                if (instance == null)
+                                var instance = JsonConvert.DeserializeObject(obj!.ToString(), cls);
+                                
+                                if (((ExcelResource?)instance)?.GetId() == 0 || ((ExcelResource?)instance) == null)
                                 {
                                     // Deserialize as JObject to handle nested dictionaries
                                     var nestedObject = JsonConvert.DeserializeObject<JObject>(obj.ToString());
 
-                                    // Process only if it's a top-level dictionary, not nested
-                                    if (nestedObject?.Count > 0 && nestedObject?.First?.First?.Type != JTokenType.Object)
+                                    foreach (var nestedItem in nestedObject ?? [])
                                     {
-                                        ((ExcelResource?)instance)?.Loaded();
+                                        var nestedInstance = JsonConvert.DeserializeObject(nestedItem.Value!.ToString(), cls);
+                                        ((ExcelResource?)nestedInstance)?.Loaded();
+                                        count++;
                                     }
                                 }
                                 else

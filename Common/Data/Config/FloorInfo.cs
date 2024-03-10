@@ -14,8 +14,8 @@ namespace EggLink.DanhengServer.Data.Config
         public bool Loaded = false;
         public Dictionary<int, GroupInfo> Groups = [];
 
-        private Dictionary<int, PropInfo> CachedTeleports = [];
-        private List<PropInfo> UnlockedCheckpoints = []; // DEBUG
+        public Dictionary<int, PropInfo> CachedTeleports = [];
+        public List<PropInfo> UnlockedCheckpoints = [];
 
         public AnchorInfo? GetAnchorInfo(int groupId, int anchorId)
         {
@@ -47,7 +47,7 @@ namespace EggLink.DanhengServer.Data.Config
                         UnlockedCheckpoints.Add(prop);
 
                         // Force prop to be in the unlocked state
-                        prop.State = PropState.CheckPointEnable;
+                        prop.State = PropStateEnum.CheckPointEnable;
                     }
                     else if (!string.IsNullOrEmpty(prop.InitLevelGraph))
                     {

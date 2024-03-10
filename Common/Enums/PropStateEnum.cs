@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EggLink.DanhengServer.Enums
+﻿namespace EggLink.DanhengServer.Enums
 {
-    public enum PropState
+    public enum PropStateEnum
     {
         Closed = 0,
         Open = 1,
@@ -44,5 +38,4 @@ namespace EggLink.DanhengServer.Enums
         CustomState08 = 108,
         CustomState09 = 109
     }
-
 }

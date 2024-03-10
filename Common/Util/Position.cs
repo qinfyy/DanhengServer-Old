@@ -117,5 +117,22 @@ namespace EggLink.DanhengServer.Util
             Y /= position.Y;
             Z /= position.Z;
         }
+
+        public Vector ToProto()
+        {
+            return new()
+            {
+                X = X,
+                Y = Y,
+                Z = Z
+            };
+        }
+
+        public long GetFast2dDist(Position pos)
+        {
+            long x = X - pos.X;
+            long z = Z - pos.Z;
+            return (x * x) + (z * z);
+        }
     }
 }

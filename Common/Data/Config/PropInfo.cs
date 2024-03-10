@@ -22,7 +22,7 @@ namespace EggLink.DanhengServer.Data.Config
         public string? InitLevelGraph { get; set; }
 
         [JsonConverter(typeof(StringEnumConverter))]
-        public PropState State { get; set; } = PropState.Closed;
+        public PropStateEnum State { get; set; } = PropStateEnum.Closed;
     }
 
     public class PropValueSource

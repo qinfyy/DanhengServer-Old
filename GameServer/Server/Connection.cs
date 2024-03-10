@@ -23,13 +23,10 @@ public partial class Connection
     public readonly IPEndPoint RemoteEndPoint;
     public SessionState State { get; set; } = SessionState.INACTIVE;
     public PlayerInstance? Player { get; set; }
-    public uint ClientTime { get; private set; }
-    public long LastPingTime { get; private set; }
-    private uint LastClientSeq = 10;
     public static readonly List<int> BANNED_PACKETS = [];
     private static readonly Logger Logger = new("GameServer");
 #if DEBUG
-    private static readonly Dictionary<string, string> LogMap = [];
+    public static readonly Dictionary<string, string> LogMap = [];
 #endif
     public Connection(KcpConversation conversation, IPEndPoint remote)
     {
@@ -37,9 +34,6 @@ public partial class Connection
         RemoteEndPoint = remote;
         CancelToken = new CancellationTokenSource();
         Start();
-#if DEBUG
-        JsonConvert.DeserializeObject<JObject>(File.ReadAllText("LogMap.json")).Properties().ToList().ForEach(x => LogMap.Add(x.Name, x.Value.ToString()));
-#endif
     }
 
     private async void Start()
@@ -63,12 +57,6 @@ public partial class Connection
         }
         catch { }
 
-    }
-
-    private void UpdateLastPingTime(uint clientTime)
-    {
-        ClientTime = clientTime;
-        LastPingTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
     }
 
 #if DEBUG
@@ -246,27 +234,6 @@ public partial class Connection
 
     public void SendPacket(int cmdId)
     {
-        // Test
-        if (cmdId <= 0)
-        {
-            Logger.Debug("Tried to send packet with missing cmd id!");
-            return;
-        }
-
-        // DO NOT REMOVE (unless we find a way to validate code before sending to client which I don't think we can)
-        if (BANNED_PACKETS.Contains(cmdId))
-        {
-            return;
-        }
-#if DEBUG
-        LogPacket("Send", (ushort)cmdId, []);
-#endif
-
-        // Header
-        byte[] packetBytes = new BasePacket((ushort)cmdId).BuildPacket();
-
-#pragma warning disable CA2012
-        _ = Conversation.SendAsync(packetBytes, CancelToken.Token);
-#pragma warning restore CA2012
+        SendPacket(new BasePacket((ushort)cmdId));
     }
 }

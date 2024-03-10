@@ -14,7 +14,6 @@ namespace EggLink.DanhengServer.Server
         private static UdpClient? UDPClient;
         private static IPEndPoint? ListenAddress;
         private static IKcpTransport<IKcpMultiplexConnection>? KCPTransport;
-        private static readonly CancellationTokenSource CancelToken = new();
         private static readonly Logger Logger = new("GameServer");
         private static IKcpMultiplexConnection? Multiplex => KCPTransport?.Connection;
         public static readonly SortedList<long, Connection> Connections = [];

@@ -1,6 +1,6 @@
-﻿using EggLink.DanhengServer.Server.Packet.Send.Player;
+﻿using EggLink.DanhengServer.Server.Packet.Send.Avatar;
 
-namespace EggLink.DanhengServer.Server.Packet.Recv.Player
+namespace EggLink.DanhengServer.Server.Packet.Recv.Avatar
 {
     [Opcode(CmdIds.GetHeroBasicTypeInfoCsReq)]
     public class HandlerGetHeroBasicTypeInfoCsReq : Handler

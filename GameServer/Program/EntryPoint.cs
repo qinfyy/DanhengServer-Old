@@ -5,6 +5,9 @@ using EggLink.DanhengServer.WebServer;
 using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Server;
 using EggLink.DanhengServer.Server.Packet;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using EggLink.DanhengServer.Command;
 
 namespace EggLink.DanhengServer.Program
 {
@@ -14,6 +17,7 @@ namespace EggLink.DanhengServer.Program
         public static DatabaseHelper DatabaseHelper = new();
         public static Listener Listener = new();
         public static HandlerManager HandlerManager = new();
+        public static CommandManager CommandManager = new();
 
         public static void Main(string[] args)
         {
@@ -65,6 +69,15 @@ namespace EggLink.DanhengServer.Program
                 Console.ReadLine();
                 return;
             }
+            try
+            {
+                CommandManager.RegisterCommand();
+            } catch (Exception e)
+            {
+                logger.Error("Failed to initialize command manager", e);
+                Console.ReadLine();
+                return;
+            }
             WebProgram.Main([$"--urls=http://{GetConfig().HttpServer.PublicAddress}:{GetConfig().HttpServer.PublicPort}/"]);
             logger.Info($"DispatchServer is running on http://{GetConfig().HttpServer.PublicAddress}:{GetConfig().HttpServer.PublicPort}/");
 
@@ -73,10 +86,10 @@ namespace EggLink.DanhengServer.Program
             var elapsed = DateTime.Now - time;
             logger.Info($"Done in {elapsed.TotalSeconds.ToString()[..4]}s! Type '/help' to get help of commands.");
 
-            while (true)
-            {
-                Console.ReadLine();
-            }
+#if DEBUG
+            JsonConvert.DeserializeObject<JObject>(File.ReadAllText("LogMap.json"))!.Properties().ToList().ForEach(x => Connection.LogMap.Add(x.Name, x.Value.ToString()));
+#endif
+            CommandManager.Start();
         }
 
         public static ConfigContainer GetConfig()

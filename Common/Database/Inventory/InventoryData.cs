@@ -15,7 +15,6 @@ namespace EggLink.DanhengServer.Database.Inventory
 
     public class ItemData
     {
-        [SugarColumn(IsPrimaryKey = true)]
         public int UniqueId { get; set; }
         public int ItemId { get; set; }
         public int Count { get; set; }
@@ -62,6 +61,7 @@ namespace EggLink.DanhengServer.Database.Inventory
             }
             return relic;
         }
+
         public Equipment ToEquipmentProto()
         {
             return new()

@@ -8,7 +8,7 @@ namespace EggLink.DanhengServer.Game.Lineup
     public class LineupManager : BasePlayerManager
     {
         public LineupData LineupData { get; private set; }
-        public LineupInfoJson LineupInfoJson { get; private set; }
+        public Dictionary<int, LineupInfo>  LineupInfo { get; private set; }
 
         public LineupManager(PlayerInstance player) : base(player)
         {
@@ -18,29 +18,29 @@ namespace EggLink.DanhengServer.Game.Lineup
                 LineupData = new()
                 {
                     Uid = player.Uid,
-                    CurLineup = 0,
-                    Lineups = "{}",
+                    CurLineup = 1,
                 };
                 DatabaseHelper.Instance?.SaveInstance(LineupData);
             }
             else
             {
                 LineupData = lineup;
+                if (LineupData.Lineups != null)
+                {
+                    foreach (var lineupInfo in LineupData.Lineups?.Values!)
+                    {
+                        lineupInfo.LineupData = LineupData;
+                        lineupInfo.AvatarData = player.AvatarManager.AvatarData;
+                    }
+                }
             }
-            LineupInfoJson = JsonConvert.DeserializeObject<LineupInfoJson>(LineupData.Lineups ?? "{}") ?? new();
+            LineupInfo = LineupData.Lineups ?? [];
         }
 
         public LineupInfo? GetLineup(int lineupIndex)
         {
-            if (LineupData.Lineups == null)
-            {
-                return null;
-            }
-            if (lineupIndex < 0 || lineupIndex >= LineupInfoJson.Lineups?.Count)
-            {
-                return null;
-            }
-            return LineupInfoJson.Lineups?[lineupIndex];
+            LineupInfo.TryGetValue(lineupIndex, out var lineup);
+            return lineup;
         }
 
         public LineupInfo? GetCurLineup()
@@ -50,7 +50,7 @@ namespace EggLink.DanhengServer.Game.Lineup
 
         public void SetCurLineup(int lineupIndex)
         {
-            if (lineupIndex < 0 || lineupIndex >= LineupInfoJson.Lineups?.Count)
+            if (lineupIndex < 0 || !LineupInfo.ContainsKey(lineupIndex))
             {
                 return;
             }
@@ -60,31 +60,28 @@ namespace EggLink.DanhengServer.Game.Lineup
 
         public void AddAvatar(int lineupIndex, int avatarId)
         {
-            if (lineupIndex < 0 || LineupData == null)
+            if (lineupIndex < 0)
             {
                 return;
             }
-            if (LineupData.Lineups == null)
-            {
-                LineupData.Lineups = "";
-            }
-            LineupInfo? lineup = null;
-            LineupInfoJson.Lineups?.TryGetValue(lineupIndex, out lineup);
+            LineupInfo.TryGetValue(lineupIndex, out LineupInfo? lineup);
             if (lineup == null)
             {
                 lineup = new()
                 {
                     Name = "Lineup " + lineupIndex,
                     LineupType = 0,
-                    BaseAvatars = [avatarId],
+                    BaseAvatars = [new() { BaseAvatarId = avatarId }],
+                    LineupData = LineupData,
+                    AvatarData = Player.AvatarManager.AvatarData,
                 };
-                LineupInfoJson.Lineups?.Add(lineupIndex, lineup);
+                LineupInfo.Add(lineupIndex, lineup);
             } else
             {
-                lineup.BaseAvatars?.Add(avatarId);
+                lineup.BaseAvatars?.Add(new() { BaseAvatarId = avatarId });
+                LineupInfo[lineupIndex] = lineup;
             }
-            LineupData.Lineups = JsonConvert.SerializeObject(LineupInfoJson);
-            DatabaseHelper.Instance?.UpdateInstance(LineupData!);
+            DatabaseHelper.Instance?.UpdateInstance(LineupData);
         }
 
         public void AddAvatarToCurTeam(int avatarId)

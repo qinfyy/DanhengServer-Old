@@ -1,0 +1,86 @@
+﻿using EggLink.DanhengServer.Data;
+using EggLink.DanhengServer.Data.Config;
+using EggLink.DanhengServer.Enums;
+using EggLink.DanhengServer.Proto;
+
+namespace EggLink.DanhengServer.Server.Packet.Send.Scene
+{
+    public class PacketGetSceneMapInfoScRsp : BasePacket
+    {
+        public PacketGetSceneMapInfoScRsp(GetSceneMapInfoCsReq req) : base(CmdIds.GetSceneMapInfoScRsp)
+        {
+            var rsp = new GetSceneMapInfoScRsp();
+            foreach (var entry in req.EntryIdList)
+            {
+                var mazeMap = new MazeMapData()
+                {
+                    EntryId = entry,
+                };
+                GameData.MapEntranceData.TryGetValue((int)entry, out var mapData);
+                if (mapData == null)
+                {
+                    rsp.MapList.Add(mazeMap);
+                    continue;
+                }
+
+                GameData.GetFloorInfo(mapData.PlaneID, mapData.FloorID, out var floorInfo);
+                if (floorInfo == null)
+                {
+                    rsp.MapList.Add(mazeMap);
+                    continue;
+                }
+
+                mazeMap.UnlockedChestList.Add(new MazeChest()
+                {
+                    TotalAmountList = 1,
+                    MapInfoChestType = MapInfoChestType.Normal
+                });
+
+                mazeMap.UnlockedChestList.Add(new MazeChest()
+                {
+                    TotalAmountList = 1,
+                    MapInfoChestType = MapInfoChestType.Puzzle
+                });
+
+                mazeMap.UnlockedChestList.Add(new MazeChest()
+                {
+                    TotalAmountList = 1,
+                    MapInfoChestType = MapInfoChestType.Challenge
+                });
+
+                foreach (GroupInfo groupInfo in floorInfo.Groups.Values)  // all the icons on the map
+                {
+                    var mazeGroup = new MazeGroup()
+                    {
+                        GroupId = (uint)groupInfo.Id,
+                    };
+                    mazeMap.MazeGroupList.Add(mazeGroup);
+                }
+
+                foreach (var teleport in floorInfo.CachedTeleports.Values)
+                {
+                    mazeMap.UnlockedTeleportList.Add((uint)teleport.MappingInfoID);
+                }
+
+                foreach (var prop in floorInfo.UnlockedCheckpoints)
+                {
+                    var mazeProp = new MazeProp()
+                    {
+                        GroupId = (uint)prop.AnchorGroupID,
+                        ConfigId = (uint)prop.ID,
+                        State = (uint)PropStateEnum.CheckPointEnable,
+                    };
+                    mazeMap.MazePropList.Add(mazeProp);
+                }
+
+                for (int i = 0; i < 100; i++)
+                {
+                    mazeMap.LightenSectionList.Add((uint)i);
+                }
+
+                rsp.MapList.Add(mazeMap);
+            }
+            SetData(rsp);
+        }
+    }
+}

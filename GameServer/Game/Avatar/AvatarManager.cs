@@ -8,7 +8,7 @@ namespace EggLink.DanhengServer.Game.Avatar
 {
     public class AvatarManager : BasePlayerManager
     {
-        public AvatarData AvatarData { get; private set; }
+        public AvatarData? AvatarData { get; private set; }
 
         public AvatarManager(PlayerInstance player) : base(player) 
         {
@@ -25,6 +25,11 @@ namespace EggLink.DanhengServer.Game.Avatar
             else
             {
                 AvatarData = avatars;
+                foreach (var avatar in AvatarData?.Avatars ?? [])
+                {
+                    avatar.PlayerData = player.Data;
+                    avatar.Excel = GameData.AvatarConfigData[avatar.AvatarId];
+                }
             }
         }
 
@@ -44,13 +49,18 @@ namespace EggLink.DanhengServer.Game.Avatar
                 CurrentSp = 0
             };
 
-            if (AvatarData.Avatars == null)
+            if (AvatarData?.Avatars == null)
             {
-                AvatarData.Avatars = [];
+                AvatarData!.Avatars = [];
             }
 
             AvatarData.Avatars.Add(avatar);
             DatabaseHelper.Instance?.UpdateInstance(AvatarData);
+        }
+
+        public AvatarInfo? GetAvatar(int baseAvatarId)
+        {
+            return AvatarData?.Avatars?.Find(avatar => avatar.AvatarId == baseAvatarId);
         }
     }
 }

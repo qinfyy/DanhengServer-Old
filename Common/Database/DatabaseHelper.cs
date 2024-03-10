@@ -13,6 +13,7 @@ namespace EggLink.DanhengServer.Database
         public ConfigContainer config = ConfigManager.Config;
         public static SqlSugarScope? sqlSugarScope;
         public static DatabaseHelper? Instance;
+        private static readonly object _lock = new();
 
         public DatabaseHelper()
         {
@@ -69,10 +70,14 @@ namespace EggLink.DanhengServer.Database
         {
             try
             {
-                return sqlSugarScope?.Queryable<T>().Where(it => (it as BaseDatabaseData).Uid == uid).First();
-            } catch
+                lock (_lock)
+                {
+                    return sqlSugarScope?.Queryable<T>().Where(it => (it as BaseDatabaseData).Uid == uid).First();
+                }
+            }
+            catch (Exception e)
             {
-                logger.Error("Unsupported type");
+                logger.Error("Unsupported type", e);
                 return null;
             }
         }
@@ -81,27 +86,39 @@ namespace EggLink.DanhengServer.Database
         {
             try
             {
-                return sqlSugarScope?.Queryable<T>().ToList();
-            } catch
+                lock (_lock)
+                {
+                    return sqlSugarScope?.Queryable<T>().ToList();
+                }
+            } catch(Exception e)
             {
-                logger.Error("Unsupported type");
+                logger.Error("Unsupported type", e);
                 return null;
             }
         }
 
         public void SaveInstance<T>(T instance) where T : class, new()
         {
-            sqlSugarScope?.Insertable(instance).ExecuteCommand();
+            lock (_lock)
+            {
+                sqlSugarScope?.Insertable(instance).ExecuteCommand();
+            }
         }
 
         public void UpdateInstance<T>(T instance) where T : class, new()
         {
-            sqlSugarScope?.Updateable(instance).ExecuteCommand();
+            lock (_lock)
+            {
+                sqlSugarScope?.Updateable(instance).ExecuteCommand();
+            }
         }
 
         public void DeleteInstance<T>(T instance) where T : class, new()
         {
-            sqlSugarScope?.Deleteable(instance).ExecuteCommand();
+            lock (_lock)
+            {
+                sqlSugarScope?.Deleteable(instance).ExecuteCommand();
+            }
         }
     }
 }

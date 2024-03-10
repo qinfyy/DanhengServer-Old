@@ -7,7 +7,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EggLink.DanhengServer.Data.Config
 {
-    public class MonsterInfo : GroupInfo
+    public class MonsterInfo : PositionInfo
     {
         public int NPCMonsterID { get; set; }
         public int EventID { get; set; }

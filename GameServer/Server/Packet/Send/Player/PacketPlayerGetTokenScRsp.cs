@@ -8,8 +8,17 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Player
         {
             var rsp = new PlayerGetTokenScRsp()
             {
-                BlackInfo = new BlackInfo(),
+                BlackInfo = new(),
                 Uid = connection.Player?.Uid ?? 0,
+            };
+
+            SetData(rsp);
+        }
+        public PacketPlayerGetTokenScRsp() : base(CmdIds.PlayerGetTokenScRsp)
+        {
+            var rsp = new PlayerGetTokenScRsp()
+            {
+                Retcode = 114514,
             };
 
             SetData(rsp);

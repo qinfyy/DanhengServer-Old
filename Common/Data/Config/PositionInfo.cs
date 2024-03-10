@@ -1,4 +1,5 @@
 ﻿using EggLink.DanhengServer.Data.Excel;
+using EggLink.DanhengServer.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,25 @@ namespace EggLink.DanhengServer.Data.Config
         public bool IsDelete { get; set; }
         public string Name { get; set; } = "";
         public float RotY { get; set; }
+
+        public Position ToPositionProto()
+        {
+            return new()
+            {
+                X = (int)(PosX * 1000f),
+                Y = (int)(PosY * 1000f),
+                Z = (int)(PosZ * 1000f),
+            };
+        }
+
+        public Position ToRotationProto()
+        {
+            return new()
+            {
+                Y = (int)(RotY * 1000f),
+                X = 0,
+                Z = 0,
+            };
+        }
     }
 }

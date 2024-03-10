@@ -15,27 +15,23 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Server\Packet\Recv\Rogue\" />
     <Folder Include="Server\Packet\Recv\Achievement\" />
     <Folder Include="Server\Packet\Recv\ChessRogue\" />
     <Folder Include="Server\Packet\Recv\Tutorial\" />
-    <Folder Include="Server\Packet\Recv\Quest\" />
     <Folder Include="Server\Packet\Recv\Mail\" />
     <Folder Include="Server\Packet\Recv\Friend\" />
-    <Folder Include="Server\Packet\Recv\Battle\" />
     <Folder Include="Server\Packet\Recv\Others\" />
     <Folder Include="Server\Packet\Send\Achievement\" />
-    <Folder Include="Server\Packet\Send\Battle\" />
     <Folder Include="Server\Packet\Send\ChessRogue\" />
     <Folder Include="Server\Packet\Send\Friend\" />
     <Folder Include="Server\Packet\Send\Mail\" />
     <Folder Include="Server\Packet\Send\Others\" />
-    <Folder Include="Server\Packet\Send\Quest\" />
     <Folder Include="Server\Packet\Send\Rogue\" />
     <Folder Include="Server\Packet\Send\Tutorial\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Spectre.Console" Version="0.48.0" />
     <PackageReference Include="SQLitePCLRaw.core" Version="2.1.8" />
     <PackageReference Include="SQLitePCLRaw.provider.e_sqlite3" Version="2.1.8" />
     <PackageReference Include="SqlSugarCore" Version="5.1.4.143" />

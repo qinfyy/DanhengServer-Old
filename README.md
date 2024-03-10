@@ -10,4 +10,6 @@
 </p>
 
 ## Thanks
-- Weedwacker - offers kcp processor
+- Weedwacker - Provide a kcp implementation for C#
+- [SqlSugar](https://github.com/donet5/SqlSugar) - Provide a ORM for C#
+- [LunarCore](https://github.com/Melledy/LunarCore) - Some data structures and algorithms

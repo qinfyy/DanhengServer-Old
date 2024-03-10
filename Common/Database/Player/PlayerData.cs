@@ -29,9 +29,9 @@ namespace EggLink.DanhengServer.Database.Player
         public double StaminaReserve { get; set; }
         public long NextStaminaRecover { get; set; }
 
-        [SugarColumn(IsNullable = true)]
+        [SugarColumn(IsNullable = true, IsJson = true)]
         public Position? Pos { get; set; }
-        [SugarColumn(IsNullable = true)]
+        [SugarColumn(IsNullable = true, IsJson = true)]
         public Position? Rot { get; set; }
         [SugarColumn(IsNullable = true)]
         public int PlaneId { get; set; }

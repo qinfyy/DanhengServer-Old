@@ -1,4 +1,6 @@
-﻿using System.Buffers.Binary;
+﻿using EggLink.DanhengServer.Proto;
+using Newtonsoft.Json;
+using System.Buffers.Binary;
 
 namespace EggLink.DanhengServer.Util;
 
@@ -66,5 +68,35 @@ public static class Extensions
         Span<byte> data = stackalloc byte[sizeof(ulong)];
         BinaryPrimitives.WriteUInt64BigEndian(data, value);
         bw.Write(data);
+    }
+
+    public static long GetNowTimeMillis(this DateTime dt)
+    {
+        return dt.Ticks / TimeSpan.TicksPerMillisecond;
+    }
+
+    public static Position ToPosition(this Vector vector)
+    {
+        return new Position
+        {
+            X = vector.X,
+            Y = vector.Y,
+            Z = vector.Z
+        };
+    }
+
+    public static T RandomElement<T> (this List<T> values)
+    {
+        var index = new Random().Next(values.Count);
+        return values[index];
+    }
+
+    public static string ToArrayString(this List<string> list)
+    {
+        return list.JoinFormat(", ", "");
+    }
+    public static string ToJsonString(this Dictionary<string, string> dic)
+    {
+        return JsonConvert.SerializeObject(dic);
     }
 }
