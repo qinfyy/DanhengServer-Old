@@ -126,14 +126,8 @@ namespace EggLink.DanhengServer.KcpSharp
                         result = await _udpListener.ReceiveAsync(cancellationToken);
                         bytesReceived = result.Buffer.Length;
                     }
-                    catch (Exception ex)
+                    catch
                     {
-                        /*if (!HandleExceptionWrapper(ex))
-                        {
-                            break;
-                        }
-                        error = true;
-                        */
                     }
 
                     if (bytesReceived != 0 && bytesReceived <= _mtu)

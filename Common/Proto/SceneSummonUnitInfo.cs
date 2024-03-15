@@ -24,16 +24,16 @@ namespace EggLink.DanhengServer.Proto {
     static SceneSummonUnitInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChlTY2VuZVN1bW1vblVuaXRJbmZvLnByb3RvIqoBChNTY2VuZVN1bW1vblVu",
-            "aXRJbmZvEhgKEGF0dGFjaF9lbnRpdHlfaWQYBCABKA0SFAoMbGlmZV90aW1l",
-            "X21zGAYgASgREhgKEGNhc3Rlcl9lbnRpdHlfaWQYDiABKA0SGQoRdHJpZ2dl",
-            "cl9uYW1lX2xpc3QYDCADKAkSFgoOY3JlYXRlX3RpbWVfbXMYByABKAQSFgoO",
-            "c3VtbW9uX3VuaXRfaWQYAyABKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZl",
-            "ci5Qcm90b2IGcHJvdG8z"));
+            "ChlTY2VuZVN1bW1vblVuaXRJbmZvLnByb3RvIp0BChNTY2VuZVN1bW1vblVu",
+            "aXRJbmZvEhMKC0lEREVOQUxHR05GGAQgASgNEhQKDGxpZmVfdGltZV9tcxgG",
+            "IAEoBRITCgtQR0NMSEFQS01CRBgDIAEoDRIZChF0cmlnZ2VyX25hbWVfbGlz",
+            "dBgMIAMoCRIWCg5jcmVhdGVfdGltZV9tcxgHIAEoBBITCgtCUEVETU1FS0tM",
+            "QxgOIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90",
+            "bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SceneSummonUnitInfo), global::EggLink.DanhengServer.Proto.SceneSummonUnitInfo.Parser, new[]{ "AttachEntityId", "LifeTimeMs", "CasterEntityId", "TriggerNameList", "CreateTimeMs", "SummonUnitId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SceneSummonUnitInfo), global::EggLink.DanhengServer.Proto.SceneSummonUnitInfo.Parser, new[]{ "IDDENALGGNF", "LifeTimeMs", "PGCLHAPKMBD", "TriggerNameList", "CreateTimeMs", "BPEDMMEKKLC" }, null, null, null, null)
           }));
     }
     #endregion
@@ -75,12 +75,12 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SceneSummonUnitInfo(SceneSummonUnitInfo other) : this() {
-      attachEntityId_ = other.attachEntityId_;
+      iDDENALGGNF_ = other.iDDENALGGNF_;
       lifeTimeMs_ = other.lifeTimeMs_;
-      casterEntityId_ = other.casterEntityId_;
+      pGCLHAPKMBD_ = other.pGCLHAPKMBD_;
       triggerNameList_ = other.triggerNameList_.Clone();
       createTimeMs_ = other.createTimeMs_;
-      summonUnitId_ = other.summonUnitId_;
+      bPEDMMEKKLC_ = other.bPEDMMEKKLC_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -90,15 +90,15 @@ namespace EggLink.DanhengServer.Proto {
       return new SceneSummonUnitInfo(this);
     }
 
-    /// <summary>Field number for the "attach_entity_id" field.</summary>
-    public const int AttachEntityIdFieldNumber = 4;
-    private uint attachEntityId_;
+    /// <summary>Field number for the "IDDENALGGNF" field.</summary>
+    public const int IDDENALGGNFFieldNumber = 4;
+    private uint iDDENALGGNF_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint AttachEntityId {
-      get { return attachEntityId_; }
+    public uint IDDENALGGNF {
+      get { return iDDENALGGNF_; }
       set {
-        attachEntityId_ = value;
+        iDDENALGGNF_ = value;
       }
     }
 
@@ -114,15 +114,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "caster_entity_id" field.</summary>
-    public const int CasterEntityIdFieldNumber = 14;
-    private uint casterEntityId_;
+    /// <summary>Field number for the "PGCLHAPKMBD" field.</summary>
+    public const int PGCLHAPKMBDFieldNumber = 3;
+    private uint pGCLHAPKMBD_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint CasterEntityId {
-      get { return casterEntityId_; }
+    public uint PGCLHAPKMBD {
+      get { return pGCLHAPKMBD_; }
       set {
-        casterEntityId_ = value;
+        pGCLHAPKMBD_ = value;
       }
     }
 
@@ -149,15 +149,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "summon_unit_id" field.</summary>
-    public const int SummonUnitIdFieldNumber = 3;
-    private uint summonUnitId_;
+    /// <summary>Field number for the "BPEDMMEKKLC" field.</summary>
+    public const int BPEDMMEKKLCFieldNumber = 14;
+    private uint bPEDMMEKKLC_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint SummonUnitId {
-      get { return summonUnitId_; }
+    public uint BPEDMMEKKLC {
+      get { return bPEDMMEKKLC_; }
       set {
-        summonUnitId_ = value;
+        bPEDMMEKKLC_ = value;
       }
     }
 
@@ -176,12 +176,12 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (AttachEntityId != other.AttachEntityId) return false;
+      if (IDDENALGGNF != other.IDDENALGGNF) return false;
       if (LifeTimeMs != other.LifeTimeMs) return false;
-      if (CasterEntityId != other.CasterEntityId) return false;
+      if (PGCLHAPKMBD != other.PGCLHAPKMBD) return false;
       if(!triggerNameList_.Equals(other.triggerNameList_)) return false;
       if (CreateTimeMs != other.CreateTimeMs) return false;
-      if (SummonUnitId != other.SummonUnitId) return false;
+      if (BPEDMMEKKLC != other.BPEDMMEKKLC) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -189,12 +189,12 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (AttachEntityId != 0) hash ^= AttachEntityId.GetHashCode();
+      if (IDDENALGGNF != 0) hash ^= IDDENALGGNF.GetHashCode();
       if (LifeTimeMs != 0) hash ^= LifeTimeMs.GetHashCode();
-      if (CasterEntityId != 0) hash ^= CasterEntityId.GetHashCode();
+      if (PGCLHAPKMBD != 0) hash ^= PGCLHAPKMBD.GetHashCode();
       hash ^= triggerNameList_.GetHashCode();
       if (CreateTimeMs != 0UL) hash ^= CreateTimeMs.GetHashCode();
-      if (SummonUnitId != 0) hash ^= SummonUnitId.GetHashCode();
+      if (BPEDMMEKKLC != 0) hash ^= BPEDMMEKKLC.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -213,26 +213,26 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (SummonUnitId != 0) {
+      if (PGCLHAPKMBD != 0) {
         output.WriteRawTag(24);
-        output.WriteUInt32(SummonUnitId);
+        output.WriteUInt32(PGCLHAPKMBD);
       }
-      if (AttachEntityId != 0) {
+      if (IDDENALGGNF != 0) {
         output.WriteRawTag(32);
-        output.WriteUInt32(AttachEntityId);
+        output.WriteUInt32(IDDENALGGNF);
       }
       if (LifeTimeMs != 0) {
         output.WriteRawTag(48);
-        output.WriteSInt32(LifeTimeMs);
+        output.WriteInt32(LifeTimeMs);
       }
       if (CreateTimeMs != 0UL) {
         output.WriteRawTag(56);
         output.WriteUInt64(CreateTimeMs);
       }
       triggerNameList_.WriteTo(output, _repeated_triggerNameList_codec);
-      if (CasterEntityId != 0) {
+      if (BPEDMMEKKLC != 0) {
         output.WriteRawTag(112);
-        output.WriteUInt32(CasterEntityId);
+        output.WriteUInt32(BPEDMMEKKLC);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -244,26 +244,26 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (SummonUnitId != 0) {
+      if (PGCLHAPKMBD != 0) {
         output.WriteRawTag(24);
-        output.WriteUInt32(SummonUnitId);
+        output.WriteUInt32(PGCLHAPKMBD);
       }
-      if (AttachEntityId != 0) {
+      if (IDDENALGGNF != 0) {
         output.WriteRawTag(32);
-        output.WriteUInt32(AttachEntityId);
+        output.WriteUInt32(IDDENALGGNF);
       }
       if (LifeTimeMs != 0) {
         output.WriteRawTag(48);
-        output.WriteSInt32(LifeTimeMs);
+        output.WriteInt32(LifeTimeMs);
       }
       if (CreateTimeMs != 0UL) {
         output.WriteRawTag(56);
         output.WriteUInt64(CreateTimeMs);
       }
       triggerNameList_.WriteTo(ref output, _repeated_triggerNameList_codec);
-      if (CasterEntityId != 0) {
+      if (BPEDMMEKKLC != 0) {
         output.WriteRawTag(112);
-        output.WriteUInt32(CasterEntityId);
+        output.WriteUInt32(BPEDMMEKKLC);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -275,21 +275,21 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (AttachEntityId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(AttachEntityId);
+      if (IDDENALGGNF != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(IDDENALGGNF);
       }
       if (LifeTimeMs != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeSInt32Size(LifeTimeMs);
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(LifeTimeMs);
       }
-      if (CasterEntityId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(CasterEntityId);
+      if (PGCLHAPKMBD != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PGCLHAPKMBD);
       }
       size += triggerNameList_.CalculateSize(_repeated_triggerNameList_codec);
       if (CreateTimeMs != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(CreateTimeMs);
       }
-      if (SummonUnitId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SummonUnitId);
+      if (BPEDMMEKKLC != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BPEDMMEKKLC);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -303,21 +303,21 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.AttachEntityId != 0) {
-        AttachEntityId = other.AttachEntityId;
+      if (other.IDDENALGGNF != 0) {
+        IDDENALGGNF = other.IDDENALGGNF;
       }
       if (other.LifeTimeMs != 0) {
         LifeTimeMs = other.LifeTimeMs;
       }
-      if (other.CasterEntityId != 0) {
-        CasterEntityId = other.CasterEntityId;
+      if (other.PGCLHAPKMBD != 0) {
+        PGCLHAPKMBD = other.PGCLHAPKMBD;
       }
       triggerNameList_.Add(other.triggerNameList_);
       if (other.CreateTimeMs != 0UL) {
         CreateTimeMs = other.CreateTimeMs;
       }
-      if (other.SummonUnitId != 0) {
-        SummonUnitId = other.SummonUnitId;
+      if (other.BPEDMMEKKLC != 0) {
+        BPEDMMEKKLC = other.BPEDMMEKKLC;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -335,15 +335,15 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 24: {
-            SummonUnitId = input.ReadUInt32();
+            PGCLHAPKMBD = input.ReadUInt32();
             break;
           }
           case 32: {
-            AttachEntityId = input.ReadUInt32();
+            IDDENALGGNF = input.ReadUInt32();
             break;
           }
           case 48: {
-            LifeTimeMs = input.ReadSInt32();
+            LifeTimeMs = input.ReadInt32();
             break;
           }
           case 56: {
@@ -355,7 +355,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 112: {
-            CasterEntityId = input.ReadUInt32();
+            BPEDMMEKKLC = input.ReadUInt32();
             break;
           }
         }
@@ -374,15 +374,15 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 24: {
-            SummonUnitId = input.ReadUInt32();
+            PGCLHAPKMBD = input.ReadUInt32();
             break;
           }
           case 32: {
-            AttachEntityId = input.ReadUInt32();
+            IDDENALGGNF = input.ReadUInt32();
             break;
           }
           case 48: {
-            LifeTimeMs = input.ReadSInt32();
+            LifeTimeMs = input.ReadInt32();
             break;
           }
           case 56: {
@@ -394,7 +394,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 112: {
-            CasterEntityId = input.ReadUInt32();
+            BPEDMMEKKLC = input.ReadUInt32();
             break;
           }
         }

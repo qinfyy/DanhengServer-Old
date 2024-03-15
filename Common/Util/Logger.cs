@@ -11,7 +11,7 @@ namespace EggLink.DanhengServer.Util
     public class Logger
     {
         private readonly string ModuleName;
-        private static FileInfo LogFile;
+        private static FileInfo? LogFile;
 
         public Logger(string moduleName)
         {
@@ -40,53 +40,53 @@ namespace EggLink.DanhengServer.Util
             WriteToFile(logMessage);
         }
 
-        public void Info(string message, Exception e = null)
+        public void Info(string message, Exception? e = null)
         {
             Log(message, LoggerLevel.INFO);
             if (e != null)
             {
                 Log(e.Message, LoggerLevel.INFO);
-                Log(e.StackTrace, LoggerLevel.INFO);
+                Log(e.StackTrace!, LoggerLevel.INFO);
             }
         }
 
-        public void Warn(string message, Exception e = null)
+        public void Warn(string message, Exception? e = null)
         {
             Log(message, LoggerLevel.WARN);
             if (e != null)
             {
                 Log(e.Message, LoggerLevel.WARN);
-                Log(e.StackTrace, LoggerLevel.WARN);
+                Log(e.StackTrace!, LoggerLevel.WARN);
             }
         }
 
-        public void Error(string message, Exception e = null)
+        public void Error(string message, Exception? e = null)
         {
             Log(message, LoggerLevel.ERROR);
             if (e != null)
             {
                 Log(e.Message, LoggerLevel.ERROR);
-                Log(e.StackTrace, LoggerLevel.ERROR);
+                Log(e.StackTrace!, LoggerLevel.ERROR);
             }
         }
 
-        public void Fatal(string message, Exception e = null)
+        public void Fatal(string message, Exception? e = null)
         {
             Log(message, LoggerLevel.FATAL);
             if (e != null)
             {
                 Log(e.Message, LoggerLevel.FATAL);
-                Log(e.StackTrace, LoggerLevel.FATAL);
+                Log(e.StackTrace!, LoggerLevel.FATAL);
             }
         }
 
-        public void Debug(string message, Exception e = null)
+        public void Debug(string message, Exception? e = null)
         {
             Log(message, LoggerLevel.DEBUG);
             if (e != null)
             {
                 Log(e.Message, LoggerLevel.DEBUG);
-                Log(e.StackTrace, LoggerLevel.DEBUG);
+                Log(e.StackTrace!, LoggerLevel.DEBUG);
             }
         }
 

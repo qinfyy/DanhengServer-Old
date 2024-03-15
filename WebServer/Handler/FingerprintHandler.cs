@@ -24,9 +24,9 @@ namespace EggLink.DanhengServer.WebServer.Handler
 
     public class FingerprintResJson
     {
-        public string message { get; set; }
+        public string? message { get; set; }
         public int retcode { get; set; }
-        public FingerprintDataJson data { get; set; }
+        public FingerprintDataJson? data { get; set; }
 
         public class FingerprintDataJson
         {
@@ -34,7 +34,7 @@ namespace EggLink.DanhengServer.WebServer.Handler
             public string message { get; set; }
             public int code { get; set; }
 
-            public FingerprintDataJson(String fp)
+            public FingerprintDataJson(string fp)
             {
                 code = 200;
                 message = "OK";

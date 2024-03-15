@@ -25,7 +25,7 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChpQVkVCYXR0bGVSZXN1bHRTY1JzcC5wcm90bxoVQmF0dGxlRW5kU3RhdHVz",
-            "LnByb3RvGhJCYXR0bGVBdmF0YXIucHJvdG8aDkl0ZW1MaXN0LnByb3RvIvkC",
+            "LnByb3RvGg5JdGVtTGlzdC5wcm90bxoSQmF0dGxlQXZhdGFyLnByb3RvIo4D",
             "ChRQVkVCYXR0bGVSZXN1bHRTY1JzcBIpChJiYXR0bGVfYXZhdGFyX2xpc3QY",
             "CCADKAsyDS5CYXR0bGVBdmF0YXISEAoIZXZlbnRfaWQYBCABKA0SFwoPY2hl",
             "Y2tfaWRlbnRpY2FsGAwgASgIEhsKE21pc21hdGNoX3R1cm5fY291bnQYDyAB",
@@ -34,12 +34,12 @@ namespace EggLink.DanhengServer.Proto {
             "YXR1cxgHIAEoDjIQLkJhdHRsZUVuZFN0YXR1cxIQCghzdGFnZV9pZBgBIAEo",
             "DRIcCglkcm9wX2RhdGEYAiABKAsyCS5JdGVtTGlzdBIXCgR1bmsxGAkgASgL",
             "MgkuSXRlbUxpc3QSFwoEdW5rMhgNIAEoCzIJLkl0ZW1MaXN0EhgKBHVuazMY",
-            "jAQgASgLMgkuSXRlbUxpc3RCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Q",
-            "cm90b2IGcHJvdG8z"));
+            "jAQgASgLMgkuSXRlbUxpc3QSEwoLUEJMTElQSUNHR08YCyABKA1CHqoCG0Vn",
+            "Z0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.BattleEndStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.BattleAvatarReflection.Descriptor, global::EggLink.DanhengServer.Proto.ItemListReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.BattleEndStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.ItemListReflection.Descriptor, global::EggLink.DanhengServer.Proto.BattleAvatarReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.PVEBattleResultScRsp), global::EggLink.DanhengServer.Proto.PVEBattleResultScRsp.Parser, new[]{ "BattleAvatarList", "EventId", "CheckIdentical", "MismatchTurnCount", "Retcode", "BattleId", "BinVersion", "ResVersion", "EndStatus", "StageId", "DropData", "Unk1", "Unk2", "Unk3" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.PVEBattleResultScRsp), global::EggLink.DanhengServer.Proto.PVEBattleResultScRsp.Parser, new[]{ "BattleAvatarList", "EventId", "CheckIdentical", "MismatchTurnCount", "Retcode", "BattleId", "BinVersion", "ResVersion", "EndStatus", "StageId", "DropData", "Unk1", "Unk2", "Unk3", "PBLLIPICGGO" }, null, null, null, null)
           }));
     }
     #endregion
@@ -95,6 +95,7 @@ namespace EggLink.DanhengServer.Proto {
       unk1_ = other.unk1_ != null ? other.unk1_.Clone() : null;
       unk2_ = other.unk2_ != null ? other.unk2_.Clone() : null;
       unk3_ = other.unk3_ != null ? other.unk3_.Clone() : null;
+      pBLLIPICGGO_ = other.pBLLIPICGGO_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -271,6 +272,18 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
+    /// <summary>Field number for the "PBLLIPICGGO" field.</summary>
+    public const int PBLLIPICGGOFieldNumber = 11;
+    private uint pBLLIPICGGO_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint PBLLIPICGGO {
+      get { return pBLLIPICGGO_; }
+      set {
+        pBLLIPICGGO_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -300,6 +313,7 @@ namespace EggLink.DanhengServer.Proto {
       if (!object.Equals(Unk1, other.Unk1)) return false;
       if (!object.Equals(Unk2, other.Unk2)) return false;
       if (!object.Equals(Unk3, other.Unk3)) return false;
+      if (PBLLIPICGGO != other.PBLLIPICGGO) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -321,6 +335,7 @@ namespace EggLink.DanhengServer.Proto {
       if (unk1_ != null) hash ^= Unk1.GetHashCode();
       if (unk2_ != null) hash ^= Unk2.GetHashCode();
       if (unk3_ != null) hash ^= Unk3.GetHashCode();
+      if (PBLLIPICGGO != 0) hash ^= PBLLIPICGGO.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -371,6 +386,10 @@ namespace EggLink.DanhengServer.Proto {
       if (unk1_ != null) {
         output.WriteRawTag(74);
         output.WriteMessage(Unk1);
+      }
+      if (PBLLIPICGGO != 0) {
+        output.WriteRawTag(88);
+        output.WriteUInt32(PBLLIPICGGO);
       }
       if (CheckIdentical != false) {
         output.WriteRawTag(96);
@@ -434,6 +453,10 @@ namespace EggLink.DanhengServer.Proto {
       if (unk1_ != null) {
         output.WriteRawTag(74);
         output.WriteMessage(Unk1);
+      }
+      if (PBLLIPICGGO != 0) {
+        output.WriteRawTag(88);
+        output.WriteUInt32(PBLLIPICGGO);
       }
       if (CheckIdentical != false) {
         output.WriteRawTag(96);
@@ -505,6 +528,9 @@ namespace EggLink.DanhengServer.Proto {
       if (unk3_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Unk3);
       }
+      if (PBLLIPICGGO != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PBLLIPICGGO);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -569,6 +595,9 @@ namespace EggLink.DanhengServer.Proto {
         }
         Unk3.MergeFrom(other.Unk3);
       }
+      if (other.PBLLIPICGGO != 0) {
+        PBLLIPICGGO = other.PBLLIPICGGO;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -624,6 +653,10 @@ namespace EggLink.DanhengServer.Proto {
               Unk1 = new global::EggLink.DanhengServer.Proto.ItemList();
             }
             input.ReadMessage(Unk1);
+            break;
+          }
+          case 88: {
+            PBLLIPICGGO = input.ReadUInt32();
             break;
           }
           case 96: {
@@ -707,6 +740,10 @@ namespace EggLink.DanhengServer.Proto {
               Unk1 = new global::EggLink.DanhengServer.Proto.ItemList();
             }
             input.ReadMessage(Unk1);
+            break;
+          }
+          case 88: {
+            PBLLIPICGGO = input.ReadUInt32();
             break;
           }
           case 96: {

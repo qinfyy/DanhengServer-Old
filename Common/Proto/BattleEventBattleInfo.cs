@@ -24,15 +24,16 @@ namespace EggLink.DanhengServer.Proto {
     static BattleEventBattleInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChtCYXR0bGVFdmVudEJhdHRsZUluZm8ucHJvdG8aG0JhdHRsZUV2ZW50SW5p",
-            "dGVkRGF0YS5wcm90byJYChVCYXR0bGVFdmVudEJhdHRsZUluZm8SFwoPYmF0",
-            "dGxlX2V2ZW50X2lkGAEgASgNEiYKBnN0YXR1cxgCIAEoCzIWLkJhdHRsZUV2",
-            "ZW50SW5pdGVkRGF0YUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3Rv",
-            "YgZwcm90bzM="));
+            "ChtCYXR0bGVFdmVudEJhdHRsZUluZm8ucHJvdG8aEUdBT0FDRkxKR0xMLnBy",
+            "b3RvGhlCYXR0bGVFdmVudFByb3BlcnR5LnByb3RvIngKFUJhdHRsZUV2ZW50",
+            "QmF0dGxlSW5mbxIXCg9iYXR0bGVfZXZlbnRfaWQYASABKA0SJAoGc3RhdHVz",
+            "GAIgASgLMhQuQmF0dGxlRXZlbnRQcm9wZXJ0eRIgCgpza2lsbF9pbmZvGAMg",
+            "AygLMgwuR0FPQUNGTEpHTExCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Q",
+            "cm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.BattleEventInitedDataReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.GAOACFLJGLLReflection.Descriptor, global::EggLink.DanhengServer.Proto.BattleEventPropertyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BattleEventBattleInfo), global::EggLink.DanhengServer.Proto.BattleEventBattleInfo.Parser, new[]{ "BattleEventId", "Status" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BattleEventBattleInfo), global::EggLink.DanhengServer.Proto.BattleEventBattleInfo.Parser, new[]{ "BattleEventId", "Status", "SkillInfo" }, null, null, null, null)
           }));
     }
     #endregion
@@ -76,6 +77,7 @@ namespace EggLink.DanhengServer.Proto {
     public BattleEventBattleInfo(BattleEventBattleInfo other) : this() {
       battleEventId_ = other.battleEventId_;
       status_ = other.status_ != null ? other.status_.Clone() : null;
+      skillInfo_ = other.skillInfo_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -99,14 +101,25 @@ namespace EggLink.DanhengServer.Proto {
 
     /// <summary>Field number for the "status" field.</summary>
     public const int StatusFieldNumber = 2;
-    private global::EggLink.DanhengServer.Proto.BattleEventInitedData status_;
+    private global::EggLink.DanhengServer.Proto.BattleEventProperty status_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.BattleEventInitedData Status {
+    public global::EggLink.DanhengServer.Proto.BattleEventProperty Status {
       get { return status_; }
       set {
         status_ = value;
       }
+    }
+
+    /// <summary>Field number for the "skill_info" field.</summary>
+    public const int SkillInfoFieldNumber = 3;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.GAOACFLJGLL> _repeated_skillInfo_codec
+        = pb::FieldCodec.ForMessage(26, global::EggLink.DanhengServer.Proto.GAOACFLJGLL.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GAOACFLJGLL> skillInfo_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GAOACFLJGLL>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GAOACFLJGLL> SkillInfo {
+      get { return skillInfo_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -126,6 +139,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (BattleEventId != other.BattleEventId) return false;
       if (!object.Equals(Status, other.Status)) return false;
+      if(!skillInfo_.Equals(other.skillInfo_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -135,6 +149,7 @@ namespace EggLink.DanhengServer.Proto {
       int hash = 1;
       if (BattleEventId != 0) hash ^= BattleEventId.GetHashCode();
       if (status_ != null) hash ^= Status.GetHashCode();
+      hash ^= skillInfo_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -161,6 +176,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(18);
         output.WriteMessage(Status);
       }
+      skillInfo_.WriteTo(output, _repeated_skillInfo_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -179,6 +195,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(18);
         output.WriteMessage(Status);
       }
+      skillInfo_.WriteTo(ref output, _repeated_skillInfo_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -195,6 +212,7 @@ namespace EggLink.DanhengServer.Proto {
       if (status_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Status);
       }
+      size += skillInfo_.CalculateSize(_repeated_skillInfo_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -212,10 +230,11 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (other.status_ != null) {
         if (status_ == null) {
-          Status = new global::EggLink.DanhengServer.Proto.BattleEventInitedData();
+          Status = new global::EggLink.DanhengServer.Proto.BattleEventProperty();
         }
         Status.MergeFrom(other.Status);
       }
+      skillInfo_.Add(other.skillInfo_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -237,9 +256,13 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 18: {
             if (status_ == null) {
-              Status = new global::EggLink.DanhengServer.Proto.BattleEventInitedData();
+              Status = new global::EggLink.DanhengServer.Proto.BattleEventProperty();
             }
             input.ReadMessage(Status);
+            break;
+          }
+          case 26: {
+            skillInfo_.AddEntriesFrom(input, _repeated_skillInfo_codec);
             break;
           }
         }
@@ -263,9 +286,13 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 18: {
             if (status_ == null) {
-              Status = new global::EggLink.DanhengServer.Proto.BattleEventInitedData();
+              Status = new global::EggLink.DanhengServer.Proto.BattleEventProperty();
             }
             input.ReadMessage(Status);
+            break;
+          }
+          case 26: {
+            skillInfo_.AddEntriesFrom(ref input, _repeated_skillInfo_codec);
             break;
           }
         }

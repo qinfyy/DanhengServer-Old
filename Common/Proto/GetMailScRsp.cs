@@ -25,15 +25,15 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChJHZXRNYWlsU2NSc3AucHJvdG8aEENsaWVudE1haWwucHJvdG8imAEKDEdl",
-            "dE1haWxTY1JzcBIRCgl0b3RhbF9udW0YCCABKA0SDQoFc3RhcnQYDiABKA0S",
-            "DwoHcmV0Y29kZRgBIAEoDRIeCgltYWlsX2xpc3QYAiADKAsyCy5DbGllbnRN",
-            "YWlsEg4KBmlzX2VuZBgEIAEoCBIlChBub3RpY2VfbWFpbF9saXN0GAYgAygL",
-            "MgsuQ2xpZW50TWFpbEIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3Rv",
+            "dE1haWxTY1JzcBIlChBub3RpY2VfbWFpbF9saXN0GAYgAygLMgsuQ2xpZW50",
+            "TWFpbBIeCgltYWlsX2xpc3QYAiADKAsyCy5DbGllbnRNYWlsEg8KB3JldGNv",
+            "ZGUYASABKA0SDQoFc3RhcnQYDiABKA0SDgoGaXNfZW5kGAQgASgIEhEKCXRv",
+            "dGFsX251bRgIIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3Rv",
             "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ClientMailReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetMailScRsp), global::EggLink.DanhengServer.Proto.GetMailScRsp.Parser, new[]{ "TotalNum", "Start", "Retcode", "MailList", "IsEnd", "NoticeMailList" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetMailScRsp), global::EggLink.DanhengServer.Proto.GetMailScRsp.Parser, new[]{ "NoticeMailList", "MailList", "Retcode", "Start", "IsEnd", "TotalNum" }, null, null, null, null)
           }));
     }
     #endregion
@@ -75,12 +75,12 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetMailScRsp(GetMailScRsp other) : this() {
-      totalNum_ = other.totalNum_;
-      start_ = other.start_;
-      retcode_ = other.retcode_;
-      mailList_ = other.mailList_.Clone();
-      isEnd_ = other.isEnd_;
       noticeMailList_ = other.noticeMailList_.Clone();
+      mailList_ = other.mailList_.Clone();
+      retcode_ = other.retcode_;
+      start_ = other.start_;
+      isEnd_ = other.isEnd_;
+      totalNum_ = other.totalNum_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -90,15 +90,37 @@ namespace EggLink.DanhengServer.Proto {
       return new GetMailScRsp(this);
     }
 
-    /// <summary>Field number for the "total_num" field.</summary>
-    public const int TotalNumFieldNumber = 8;
-    private uint totalNum_;
+    /// <summary>Field number for the "notice_mail_list" field.</summary>
+    public const int NoticeMailListFieldNumber = 6;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.ClientMail> _repeated_noticeMailList_codec
+        = pb::FieldCodec.ForMessage(50, global::EggLink.DanhengServer.Proto.ClientMail.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ClientMail> noticeMailList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ClientMail>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint TotalNum {
-      get { return totalNum_; }
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ClientMail> NoticeMailList {
+      get { return noticeMailList_; }
+    }
+
+    /// <summary>Field number for the "mail_list" field.</summary>
+    public const int MailListFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.ClientMail> _repeated_mailList_codec
+        = pb::FieldCodec.ForMessage(18, global::EggLink.DanhengServer.Proto.ClientMail.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ClientMail> mailList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ClientMail>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ClientMail> MailList {
+      get { return mailList_; }
+    }
+
+    /// <summary>Field number for the "retcode" field.</summary>
+    public const int RetcodeFieldNumber = 1;
+    private uint retcode_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Retcode {
+      get { return retcode_; }
       set {
-        totalNum_ = value;
+        retcode_ = value;
       }
     }
 
@@ -114,29 +136,6 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "retcode" field.</summary>
-    public const int RetcodeFieldNumber = 1;
-    private uint retcode_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Retcode {
-      get { return retcode_; }
-      set {
-        retcode_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "mail_list" field.</summary>
-    public const int MailListFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.ClientMail> _repeated_mailList_codec
-        = pb::FieldCodec.ForMessage(18, global::EggLink.DanhengServer.Proto.ClientMail.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ClientMail> mailList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ClientMail>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ClientMail> MailList {
-      get { return mailList_; }
-    }
-
     /// <summary>Field number for the "is_end" field.</summary>
     public const int IsEndFieldNumber = 4;
     private bool isEnd_;
@@ -149,15 +148,16 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "notice_mail_list" field.</summary>
-    public const int NoticeMailListFieldNumber = 6;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.ClientMail> _repeated_noticeMailList_codec
-        = pb::FieldCodec.ForMessage(50, global::EggLink.DanhengServer.Proto.ClientMail.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ClientMail> noticeMailList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ClientMail>();
+    /// <summary>Field number for the "total_num" field.</summary>
+    public const int TotalNumFieldNumber = 8;
+    private uint totalNum_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ClientMail> NoticeMailList {
-      get { return noticeMailList_; }
+    public uint TotalNum {
+      get { return totalNum_; }
+      set {
+        totalNum_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -175,12 +175,12 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (TotalNum != other.TotalNum) return false;
-      if (Start != other.Start) return false;
-      if (Retcode != other.Retcode) return false;
-      if(!mailList_.Equals(other.mailList_)) return false;
-      if (IsEnd != other.IsEnd) return false;
       if(!noticeMailList_.Equals(other.noticeMailList_)) return false;
+      if(!mailList_.Equals(other.mailList_)) return false;
+      if (Retcode != other.Retcode) return false;
+      if (Start != other.Start) return false;
+      if (IsEnd != other.IsEnd) return false;
+      if (TotalNum != other.TotalNum) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -188,12 +188,12 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (TotalNum != 0) hash ^= TotalNum.GetHashCode();
-      if (Start != 0) hash ^= Start.GetHashCode();
-      if (Retcode != 0) hash ^= Retcode.GetHashCode();
-      hash ^= mailList_.GetHashCode();
-      if (IsEnd != false) hash ^= IsEnd.GetHashCode();
       hash ^= noticeMailList_.GetHashCode();
+      hash ^= mailList_.GetHashCode();
+      if (Retcode != 0) hash ^= Retcode.GetHashCode();
+      if (Start != 0) hash ^= Start.GetHashCode();
+      if (IsEnd != false) hash ^= IsEnd.GetHashCode();
+      if (TotalNum != 0) hash ^= TotalNum.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -268,20 +268,20 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (TotalNum != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(TotalNum);
+      size += noticeMailList_.CalculateSize(_repeated_noticeMailList_codec);
+      size += mailList_.CalculateSize(_repeated_mailList_codec);
+      if (Retcode != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
       if (Start != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Start);
       }
-      if (Retcode != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
-      }
-      size += mailList_.CalculateSize(_repeated_mailList_codec);
       if (IsEnd != false) {
         size += 1 + 1;
       }
-      size += noticeMailList_.CalculateSize(_repeated_noticeMailList_codec);
+      if (TotalNum != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(TotalNum);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -294,20 +294,20 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.TotalNum != 0) {
-        TotalNum = other.TotalNum;
+      noticeMailList_.Add(other.noticeMailList_);
+      mailList_.Add(other.mailList_);
+      if (other.Retcode != 0) {
+        Retcode = other.Retcode;
       }
       if (other.Start != 0) {
         Start = other.Start;
       }
-      if (other.Retcode != 0) {
-        Retcode = other.Retcode;
-      }
-      mailList_.Add(other.mailList_);
       if (other.IsEnd != false) {
         IsEnd = other.IsEnd;
       }
-      noticeMailList_.Add(other.noticeMailList_);
+      if (other.TotalNum != 0) {
+        TotalNum = other.TotalNum;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 

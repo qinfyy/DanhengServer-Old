@@ -14,7 +14,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Scene
         {
             var proto = new GetCurSceneInfoScRsp()
             {
-                Scene = player.SceneInstance.ToProto(),
+                Scene = player.SceneInstance!.ToProto(),
             };
 
             SetData(proto);

@@ -25,13 +25,14 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Ci9DaGVzc1JvZ3VlVXBkYXRlQWxsb3dlZFNlbGVjdENlbGxTY05vdGlmeS5w",
-            "cm90byJSCilDaGVzc1JvZ3VlVXBkYXRlQWxsb3dlZFNlbGVjdENlbGxTY05v",
-            "dGlmeRIUCgxjZWxsX2lkX2xpc3QYCyADKA0SDwoHcm9vbV9pZBgMIAEoDUIe",
-            "qgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "cm90byJlCilDaGVzc1JvZ3VlVXBkYXRlQWxsb3dlZFNlbGVjdENlbGxTY05v",
+            "dGlmeRITCgtLREVHS0lBS0VKQRgJIAEoDRIjChthbGxvd2VkX3NlbGVjdF9j",
+            "ZWxsX2lkX2xpc3QYCiADKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Q",
+            "cm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueUpdateAllowedSelectCellScNotify), global::EggLink.DanhengServer.Proto.ChessRogueUpdateAllowedSelectCellScNotify.Parser, new[]{ "CellIdList", "RoomId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueUpdateAllowedSelectCellScNotify), global::EggLink.DanhengServer.Proto.ChessRogueUpdateAllowedSelectCellScNotify.Parser, new[]{ "KDEGKIAKEJA", "AllowedSelectCellIdList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,8 +74,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ChessRogueUpdateAllowedSelectCellScNotify(ChessRogueUpdateAllowedSelectCellScNotify other) : this() {
-      cellIdList_ = other.cellIdList_.Clone();
-      roomId_ = other.roomId_;
+      kDEGKIAKEJA_ = other.kDEGKIAKEJA_;
+      allowedSelectCellIdList_ = other.allowedSelectCellIdList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,27 +85,27 @@ namespace EggLink.DanhengServer.Proto {
       return new ChessRogueUpdateAllowedSelectCellScNotify(this);
     }
 
-    /// <summary>Field number for the "cell_id_list" field.</summary>
-    public const int CellIdListFieldNumber = 11;
-    private static readonly pb::FieldCodec<uint> _repeated_cellIdList_codec
-        = pb::FieldCodec.ForUInt32(90);
-    private readonly pbc::RepeatedField<uint> cellIdList_ = new pbc::RepeatedField<uint>();
+    /// <summary>Field number for the "KDEGKIAKEJA" field.</summary>
+    public const int KDEGKIAKEJAFieldNumber = 9;
+    private uint kDEGKIAKEJA_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<uint> CellIdList {
-      get { return cellIdList_; }
+    public uint KDEGKIAKEJA {
+      get { return kDEGKIAKEJA_; }
+      set {
+        kDEGKIAKEJA_ = value;
+      }
     }
 
-    /// <summary>Field number for the "room_id" field.</summary>
-    public const int RoomIdFieldNumber = 12;
-    private uint roomId_;
+    /// <summary>Field number for the "allowed_select_cell_id_list" field.</summary>
+    public const int AllowedSelectCellIdListFieldNumber = 10;
+    private static readonly pb::FieldCodec<uint> _repeated_allowedSelectCellIdList_codec
+        = pb::FieldCodec.ForUInt32(82);
+    private readonly pbc::RepeatedField<uint> allowedSelectCellIdList_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint RoomId {
-      get { return roomId_; }
-      set {
-        roomId_ = value;
-      }
+    public pbc::RepeatedField<uint> AllowedSelectCellIdList {
+      get { return allowedSelectCellIdList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -122,8 +123,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!cellIdList_.Equals(other.cellIdList_)) return false;
-      if (RoomId != other.RoomId) return false;
+      if (KDEGKIAKEJA != other.KDEGKIAKEJA) return false;
+      if(!allowedSelectCellIdList_.Equals(other.allowedSelectCellIdList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -131,8 +132,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= cellIdList_.GetHashCode();
-      if (RoomId != 0) hash ^= RoomId.GetHashCode();
+      if (KDEGKIAKEJA != 0) hash ^= KDEGKIAKEJA.GetHashCode();
+      hash ^= allowedSelectCellIdList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -151,11 +152,11 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      cellIdList_.WriteTo(output, _repeated_cellIdList_codec);
-      if (RoomId != 0) {
-        output.WriteRawTag(96);
-        output.WriteUInt32(RoomId);
+      if (KDEGKIAKEJA != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(KDEGKIAKEJA);
       }
+      allowedSelectCellIdList_.WriteTo(output, _repeated_allowedSelectCellIdList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -166,11 +167,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      cellIdList_.WriteTo(ref output, _repeated_cellIdList_codec);
-      if (RoomId != 0) {
-        output.WriteRawTag(96);
-        output.WriteUInt32(RoomId);
+      if (KDEGKIAKEJA != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(KDEGKIAKEJA);
       }
+      allowedSelectCellIdList_.WriteTo(ref output, _repeated_allowedSelectCellIdList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -181,10 +182,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += cellIdList_.CalculateSize(_repeated_cellIdList_codec);
-      if (RoomId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(RoomId);
+      if (KDEGKIAKEJA != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(KDEGKIAKEJA);
       }
+      size += allowedSelectCellIdList_.CalculateSize(_repeated_allowedSelectCellIdList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -197,10 +198,10 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      cellIdList_.Add(other.cellIdList_);
-      if (other.RoomId != 0) {
-        RoomId = other.RoomId;
+      if (other.KDEGKIAKEJA != 0) {
+        KDEGKIAKEJA = other.KDEGKIAKEJA;
       }
+      allowedSelectCellIdList_.Add(other.allowedSelectCellIdList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -216,13 +217,13 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 90:
-          case 88: {
-            cellIdList_.AddEntriesFrom(input, _repeated_cellIdList_codec);
+          case 72: {
+            KDEGKIAKEJA = input.ReadUInt32();
             break;
           }
-          case 96: {
-            RoomId = input.ReadUInt32();
+          case 82:
+          case 80: {
+            allowedSelectCellIdList_.AddEntriesFrom(input, _repeated_allowedSelectCellIdList_codec);
             break;
           }
         }
@@ -240,13 +241,13 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 90:
-          case 88: {
-            cellIdList_.AddEntriesFrom(ref input, _repeated_cellIdList_codec);
+          case 72: {
+            KDEGKIAKEJA = input.ReadUInt32();
             break;
           }
-          case 96: {
-            RoomId = input.ReadUInt32();
+          case 82:
+          case 80: {
+            allowedSelectCellIdList_.AddEntriesFrom(ref input, _repeated_allowedSelectCellIdList_codec);
             break;
           }
         }

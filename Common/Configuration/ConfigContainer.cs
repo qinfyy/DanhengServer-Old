@@ -81,9 +81,9 @@ namespace EggLink.DanhengServer.Configuration
 
     public class DownloadUrlConfig
     {
-        public string AssetBundleUrl { get; set; } = null;
-        public string ExResourceUrl { get; set; } = null;
-        public string LuaUrl { get; set; } = null;
-        public string IfixUrl { get; set; } = null;
+        public string? AssetBundleUrl { get; set; } = null;
+        public string? ExResourceUrl { get; set; } = null;
+        public string? LuaUrl { get; set; } = null;
+        public string? IfixUrl { get; set; } = null;
     }
 }

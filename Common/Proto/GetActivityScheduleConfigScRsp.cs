@@ -25,14 +25,14 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CiRHZXRBY3Rpdml0eVNjaGVkdWxlQ29uZmlnU2NSc3AucHJvdG8aGkFjdGl2",
-            "aXR5U2NoZWR1bGVJbmZvLnByb3RvImgKHkdldEFjdGl2aXR5U2NoZWR1bGVD",
-            "b25maWdTY1JzcBI1ChZhY3Rpdml0eV9zY2hlZHVsZV9saXN0GAkgAygLMhUu",
-            "QWN0aXZpdHlTY2hlZHVsZUluZm8SDwoHcmV0Y29kZRgDIAEoDUIeqgIbRWdn",
-            "TGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "aXR5U2NoZWR1bGVEYXRhLnByb3RvIl8KHkdldEFjdGl2aXR5U2NoZWR1bGVD",
+            "b25maWdTY1JzcBIPCgdyZXRjb2RlGAMgASgNEiwKDXNjaGVkdWxlX2RhdGEY",
+            "CSADKAsyFS5BY3Rpdml0eVNjaGVkdWxlRGF0YUIeqgIbRWdnTGluay5EYW5o",
+            "ZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ActivityScheduleInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ActivityScheduleDataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetActivityScheduleConfigScRsp), global::EggLink.DanhengServer.Proto.GetActivityScheduleConfigScRsp.Parser, new[]{ "ActivityScheduleList", "Retcode" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetActivityScheduleConfigScRsp), global::EggLink.DanhengServer.Proto.GetActivityScheduleConfigScRsp.Parser, new[]{ "Retcode", "ScheduleData" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,8 +74,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetActivityScheduleConfigScRsp(GetActivityScheduleConfigScRsp other) : this() {
-      activityScheduleList_ = other.activityScheduleList_.Clone();
       retcode_ = other.retcode_;
+      scheduleData_ = other.scheduleData_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,17 +83,6 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetActivityScheduleConfigScRsp Clone() {
       return new GetActivityScheduleConfigScRsp(this);
-    }
-
-    /// <summary>Field number for the "activity_schedule_list" field.</summary>
-    public const int ActivityScheduleListFieldNumber = 9;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.ActivityScheduleInfo> _repeated_activityScheduleList_codec
-        = pb::FieldCodec.ForMessage(74, global::EggLink.DanhengServer.Proto.ActivityScheduleInfo.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ActivityScheduleInfo> activityScheduleList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ActivityScheduleInfo>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ActivityScheduleInfo> ActivityScheduleList {
-      get { return activityScheduleList_; }
     }
 
     /// <summary>Field number for the "retcode" field.</summary>
@@ -106,6 +95,17 @@ namespace EggLink.DanhengServer.Proto {
       set {
         retcode_ = value;
       }
+    }
+
+    /// <summary>Field number for the "schedule_data" field.</summary>
+    public const int ScheduleDataFieldNumber = 9;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.ActivityScheduleData> _repeated_scheduleData_codec
+        = pb::FieldCodec.ForMessage(74, global::EggLink.DanhengServer.Proto.ActivityScheduleData.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ActivityScheduleData> scheduleData_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ActivityScheduleData>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ActivityScheduleData> ScheduleData {
+      get { return scheduleData_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -123,8 +123,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!activityScheduleList_.Equals(other.activityScheduleList_)) return false;
       if (Retcode != other.Retcode) return false;
+      if(!scheduleData_.Equals(other.scheduleData_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -132,8 +132,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= activityScheduleList_.GetHashCode();
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
+      hash ^= scheduleData_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -156,7 +156,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(24);
         output.WriteUInt32(Retcode);
       }
-      activityScheduleList_.WriteTo(output, _repeated_activityScheduleList_codec);
+      scheduleData_.WriteTo(output, _repeated_scheduleData_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -171,7 +171,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(24);
         output.WriteUInt32(Retcode);
       }
-      activityScheduleList_.WriteTo(ref output, _repeated_activityScheduleList_codec);
+      scheduleData_.WriteTo(ref output, _repeated_scheduleData_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -182,10 +182,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += activityScheduleList_.CalculateSize(_repeated_activityScheduleList_codec);
       if (Retcode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
+      size += scheduleData_.CalculateSize(_repeated_scheduleData_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -198,10 +198,10 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      activityScheduleList_.Add(other.activityScheduleList_);
       if (other.Retcode != 0) {
         Retcode = other.Retcode;
       }
+      scheduleData_.Add(other.scheduleData_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -222,7 +222,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 74: {
-            activityScheduleList_.AddEntriesFrom(input, _repeated_activityScheduleList_codec);
+            scheduleData_.AddEntriesFrom(input, _repeated_scheduleData_codec);
             break;
           }
         }
@@ -245,7 +245,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 74: {
-            activityScheduleList_.AddEntriesFrom(ref input, _repeated_activityScheduleList_codec);
+            scheduleData_.AddEntriesFrom(ref input, _repeated_scheduleData_codec);
             break;
           }
         }

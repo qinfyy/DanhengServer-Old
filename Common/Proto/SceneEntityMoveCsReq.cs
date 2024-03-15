@@ -25,13 +25,14 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChpTY2VuZUVudGl0eU1vdmVDc1JlcS5wcm90bxoSRW50aXR5TW90aW9uLnBy",
-            "b3RvIlMKFFNjZW5lRW50aXR5TW92ZUNzUmVxEhAKCGVudHJ5X2lkGAggASgN",
-            "EikKEmVudGl0eV9tb3Rpb25fbGlzdBgHIAMoCzINLkVudGl0eU1vdGlvbkIe",
-            "qgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "b3RvImgKFFNjZW5lRW50aXR5TW92ZUNzUmVxEhAKCGVudHJ5X2lkGAggASgN",
+            "EikKEmVudGl0eV9tb3Rpb25fbGlzdBgHIAMoCzINLkVudGl0eU1vdGlvbhIT",
+            "CgtPTEdIUEtEUERDRxgCIAEoBEIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVy",
+            "LlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.EntityMotionReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SceneEntityMoveCsReq), global::EggLink.DanhengServer.Proto.SceneEntityMoveCsReq.Parser, new[]{ "EntryId", "EntityMotionList" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SceneEntityMoveCsReq), global::EggLink.DanhengServer.Proto.SceneEntityMoveCsReq.Parser, new[]{ "EntryId", "EntityMotionList", "OLGHPKDPDCG" }, null, null, null, null)
           }));
     }
     #endregion
@@ -75,6 +76,7 @@ namespace EggLink.DanhengServer.Proto {
     public SceneEntityMoveCsReq(SceneEntityMoveCsReq other) : this() {
       entryId_ = other.entryId_;
       entityMotionList_ = other.entityMotionList_.Clone();
+      oLGHPKDPDCG_ = other.oLGHPKDPDCG_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -107,6 +109,18 @@ namespace EggLink.DanhengServer.Proto {
       get { return entityMotionList_; }
     }
 
+    /// <summary>Field number for the "OLGHPKDPDCG" field.</summary>
+    public const int OLGHPKDPDCGFieldNumber = 2;
+    private ulong oLGHPKDPDCG_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong OLGHPKDPDCG {
+      get { return oLGHPKDPDCG_; }
+      set {
+        oLGHPKDPDCG_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -124,6 +138,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (EntryId != other.EntryId) return false;
       if(!entityMotionList_.Equals(other.entityMotionList_)) return false;
+      if (OLGHPKDPDCG != other.OLGHPKDPDCG) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -133,6 +148,7 @@ namespace EggLink.DanhengServer.Proto {
       int hash = 1;
       if (EntryId != 0) hash ^= EntryId.GetHashCode();
       hash ^= entityMotionList_.GetHashCode();
+      if (OLGHPKDPDCG != 0UL) hash ^= OLGHPKDPDCG.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -151,6 +167,10 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (OLGHPKDPDCG != 0UL) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(OLGHPKDPDCG);
+      }
       entityMotionList_.WriteTo(output, _repeated_entityMotionList_codec);
       if (EntryId != 0) {
         output.WriteRawTag(64);
@@ -166,6 +186,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (OLGHPKDPDCG != 0UL) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(OLGHPKDPDCG);
+      }
       entityMotionList_.WriteTo(ref output, _repeated_entityMotionList_codec);
       if (EntryId != 0) {
         output.WriteRawTag(64);
@@ -185,6 +209,9 @@ namespace EggLink.DanhengServer.Proto {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EntryId);
       }
       size += entityMotionList_.CalculateSize(_repeated_entityMotionList_codec);
+      if (OLGHPKDPDCG != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OLGHPKDPDCG);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -201,6 +228,9 @@ namespace EggLink.DanhengServer.Proto {
         EntryId = other.EntryId;
       }
       entityMotionList_.Add(other.entityMotionList_);
+      if (other.OLGHPKDPDCG != 0UL) {
+        OLGHPKDPDCG = other.OLGHPKDPDCG;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -216,6 +246,10 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 16: {
+            OLGHPKDPDCG = input.ReadUInt64();
+            break;
+          }
           case 58: {
             entityMotionList_.AddEntriesFrom(input, _repeated_entityMotionList_codec);
             break;
@@ -239,6 +273,10 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
+          case 16: {
+            OLGHPKDPDCG = input.ReadUInt64();
+            break;
+          }
           case 58: {
             entityMotionList_.AddEntriesFrom(ref input, _repeated_entityMotionList_codec);
             break;

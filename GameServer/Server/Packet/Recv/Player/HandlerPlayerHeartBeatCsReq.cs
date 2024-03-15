@@ -13,7 +13,7 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Player
     {
         public override void OnHandle(Connection connection, byte[] header, byte[] data)
         {
-            var req = PlayerHeartbeatCsReq.Parser.ParseFrom(data);
+            var req = PlayerHeartBeatCsReq.Parser.ParseFrom(data);
             if (req != null)
             {
                 connection.SendPacket(new PacketPlayerHeartBeatScRsp((long)req.ClientTimeMs));

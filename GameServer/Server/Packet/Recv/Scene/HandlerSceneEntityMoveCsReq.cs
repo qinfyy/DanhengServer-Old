@@ -18,7 +18,7 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Scene
             {
                 foreach (var motion in req.EntityMotionList) 
                 {
-                    var avatar = connection?.Player?.SceneInstance.AvatarInfo.ToList().Find(x => x.Value.AvatarInfo.EntityId == motion.EntityId);
+                    var avatar = connection?.Player?.SceneInstance!.AvatarInfo.ToList().Find(x => x.Value.AvatarInfo.EntityId == motion.EntityId);
                     if (avatar != null)
                     {
                         connection!.Player!.Data.Pos = motion.Motion.Pos.ToPosition();

@@ -25,6 +25,34 @@ namespace EggLink.DanhengServer.Game.Scene
 
         public void LoadGroup(GroupInfo info)
         {
+            if (info.LoadCondition.Conditions.Count > 0)
+            {
+                bool canLoad = info.LoadCondition.Operation == OperationEnum.And;
+                // check load condition
+                foreach (var condition in info.LoadCondition.Conditions)
+                {
+                    if (scene.Player.MissionManager!.GetMissionStatus(condition.ID) != condition.Phase)
+                    {
+                        if (info.LoadCondition.Operation == OperationEnum.And)
+                        {
+                            canLoad = false;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        if (info.LoadCondition.Operation == OperationEnum.Or)
+                        {
+                            canLoad = true;
+                            break;
+                        }
+                    }
+                }
+                if (!canLoad)
+                {
+                    return;
+                }
+            }
             foreach (var npc in info.NPCList)
             {
                 try
@@ -122,7 +150,19 @@ namespace EggLink.DanhengServer.Game.Scene
                 scene.HealingSprings.Add(prop);
                 prop.State = PropStateEnum.CheckPointEnable;
             } else
-                prop.State = PropStateEnum.Open;
+            {
+                prop.State = info.State;
+            }
+
+            if (group.SaveType == SaveTypeEnum.Save)
+            {
+                // load from database
+                var propData = scene.Player.GetScenePropData(scene.FloorId, group.Id, info.ID);
+                if (propData != null)
+                {
+                    prop.State = propData.State;
+                }
+            }
         }
     }
 }

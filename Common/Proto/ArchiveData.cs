@@ -24,18 +24,16 @@ namespace EggLink.DanhengServer.Proto {
     static ArchiveDataReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFBcmNoaXZlRGF0YS5wcm90bxoSUmVsaWNBcmNoaXZlLnByb3RvGhRNb25z",
-            "dGVyQXJjaGl2ZS5wcm90byLYAQoLQXJjaGl2ZURhdGESJgoeYXJjaGl2ZV9t",
-            "aXNzaW5nX2F2YXRhcl9pZF9saXN0GAcgAygNEikKIWFyY2hpdmVfbWlzc2lu",
-            "Z19lcXVpcG1lbnRfaWRfbGlzdBgLIAMoDRIwChdhcmNoaXZlX21vbnN0ZXJf",
-            "aWRfbGlzdBgOIAMoCzIPLk1vbnN0ZXJBcmNoaXZlEiEKCnJlbGljX2xpc3QY",
-            "ASADKAsyDS5SZWxpY0FyY2hpdmUSIQoZYXJjaGl2ZV9lcXVpcG1lbnRfaWRf",
-            "bGlzdBgEIAMoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZw",
-            "cm90bzM="));
+            "ChFBcmNoaXZlRGF0YS5wcm90bxoPUmVsaWNMaXN0LnByb3RvGhVLaWxsTW9u",
+            "c3Rlckxpc3QucHJvdG8imQEKC0FyY2hpdmVEYXRhEhMKC0NNRE1CT01PR0lC",
+            "GAcgAygNEhMKC0FMRkNCSEFDR0ZPGAsgAygNEisKEWtpbGxfbW9uc3Rlcl9s",
+            "aXN0GA4gAygLMhAuS2lsbE1vbnN0ZXJMaXN0Eh4KCnJlbGljX2xpc3QYASAD",
+            "KAsyCi5SZWxpY0xpc3QSEwoLT0pKQk5GUEJDS0sYBCADKA1CHqoCG0VnZ0xp",
+            "bmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RelicArchiveReflection.Descriptor, global::EggLink.DanhengServer.Proto.MonsterArchiveReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RelicListReflection.Descriptor, global::EggLink.DanhengServer.Proto.KillMonsterListReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ArchiveData), global::EggLink.DanhengServer.Proto.ArchiveData.Parser, new[]{ "ArchiveMissingAvatarIdList", "ArchiveMissingEquipmentIdList", "ArchiveMonsterIdList", "RelicList", "ArchiveEquipmentIdList" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ArchiveData), global::EggLink.DanhengServer.Proto.ArchiveData.Parser, new[]{ "CMDMBOMOGIB", "ALFCBHACGFO", "KillMonsterList", "RelicList", "OJJBNFPBCKK" }, null, null, null, null)
           }));
     }
     #endregion
@@ -77,11 +75,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ArchiveData(ArchiveData other) : this() {
-      archiveMissingAvatarIdList_ = other.archiveMissingAvatarIdList_.Clone();
-      archiveMissingEquipmentIdList_ = other.archiveMissingEquipmentIdList_.Clone();
-      archiveMonsterIdList_ = other.archiveMonsterIdList_.Clone();
+      cMDMBOMOGIB_ = other.cMDMBOMOGIB_.Clone();
+      aLFCBHACGFO_ = other.aLFCBHACGFO_.Clone();
+      killMonsterList_ = other.killMonsterList_.Clone();
       relicList_ = other.relicList_.Clone();
-      archiveEquipmentIdList_ = other.archiveEquipmentIdList_.Clone();
+      oJJBNFPBCKK_ = other.oJJBNFPBCKK_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -91,59 +89,59 @@ namespace EggLink.DanhengServer.Proto {
       return new ArchiveData(this);
     }
 
-    /// <summary>Field number for the "archive_missing_avatar_id_list" field.</summary>
-    public const int ArchiveMissingAvatarIdListFieldNumber = 7;
-    private static readonly pb::FieldCodec<uint> _repeated_archiveMissingAvatarIdList_codec
+    /// <summary>Field number for the "CMDMBOMOGIB" field.</summary>
+    public const int CMDMBOMOGIBFieldNumber = 7;
+    private static readonly pb::FieldCodec<uint> _repeated_cMDMBOMOGIB_codec
         = pb::FieldCodec.ForUInt32(58);
-    private readonly pbc::RepeatedField<uint> archiveMissingAvatarIdList_ = new pbc::RepeatedField<uint>();
+    private readonly pbc::RepeatedField<uint> cMDMBOMOGIB_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<uint> ArchiveMissingAvatarIdList {
-      get { return archiveMissingAvatarIdList_; }
+    public pbc::RepeatedField<uint> CMDMBOMOGIB {
+      get { return cMDMBOMOGIB_; }
     }
 
-    /// <summary>Field number for the "archive_missing_equipment_id_list" field.</summary>
-    public const int ArchiveMissingEquipmentIdListFieldNumber = 11;
-    private static readonly pb::FieldCodec<uint> _repeated_archiveMissingEquipmentIdList_codec
+    /// <summary>Field number for the "ALFCBHACGFO" field.</summary>
+    public const int ALFCBHACGFOFieldNumber = 11;
+    private static readonly pb::FieldCodec<uint> _repeated_aLFCBHACGFO_codec
         = pb::FieldCodec.ForUInt32(90);
-    private readonly pbc::RepeatedField<uint> archiveMissingEquipmentIdList_ = new pbc::RepeatedField<uint>();
+    private readonly pbc::RepeatedField<uint> aLFCBHACGFO_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<uint> ArchiveMissingEquipmentIdList {
-      get { return archiveMissingEquipmentIdList_; }
+    public pbc::RepeatedField<uint> ALFCBHACGFO {
+      get { return aLFCBHACGFO_; }
     }
 
-    /// <summary>Field number for the "archive_monster_id_list" field.</summary>
-    public const int ArchiveMonsterIdListFieldNumber = 14;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.MonsterArchive> _repeated_archiveMonsterIdList_codec
-        = pb::FieldCodec.ForMessage(114, global::EggLink.DanhengServer.Proto.MonsterArchive.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.MonsterArchive> archiveMonsterIdList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.MonsterArchive>();
+    /// <summary>Field number for the "kill_monster_list" field.</summary>
+    public const int KillMonsterListFieldNumber = 14;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.KillMonsterList> _repeated_killMonsterList_codec
+        = pb::FieldCodec.ForMessage(114, global::EggLink.DanhengServer.Proto.KillMonsterList.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.KillMonsterList> killMonsterList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.KillMonsterList>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.MonsterArchive> ArchiveMonsterIdList {
-      get { return archiveMonsterIdList_; }
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.KillMonsterList> KillMonsterList {
+      get { return killMonsterList_; }
     }
 
     /// <summary>Field number for the "relic_list" field.</summary>
     public const int RelicListFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.RelicArchive> _repeated_relicList_codec
-        = pb::FieldCodec.ForMessage(10, global::EggLink.DanhengServer.Proto.RelicArchive.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RelicArchive> relicList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RelicArchive>();
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.RelicList> _repeated_relicList_codec
+        = pb::FieldCodec.ForMessage(10, global::EggLink.DanhengServer.Proto.RelicList.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RelicList> relicList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RelicList>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RelicArchive> RelicList {
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RelicList> RelicList {
       get { return relicList_; }
     }
 
-    /// <summary>Field number for the "archive_equipment_id_list" field.</summary>
-    public const int ArchiveEquipmentIdListFieldNumber = 4;
-    private static readonly pb::FieldCodec<uint> _repeated_archiveEquipmentIdList_codec
+    /// <summary>Field number for the "OJJBNFPBCKK" field.</summary>
+    public const int OJJBNFPBCKKFieldNumber = 4;
+    private static readonly pb::FieldCodec<uint> _repeated_oJJBNFPBCKK_codec
         = pb::FieldCodec.ForUInt32(34);
-    private readonly pbc::RepeatedField<uint> archiveEquipmentIdList_ = new pbc::RepeatedField<uint>();
+    private readonly pbc::RepeatedField<uint> oJJBNFPBCKK_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<uint> ArchiveEquipmentIdList {
-      get { return archiveEquipmentIdList_; }
+    public pbc::RepeatedField<uint> OJJBNFPBCKK {
+      get { return oJJBNFPBCKK_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -161,11 +159,11 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!archiveMissingAvatarIdList_.Equals(other.archiveMissingAvatarIdList_)) return false;
-      if(!archiveMissingEquipmentIdList_.Equals(other.archiveMissingEquipmentIdList_)) return false;
-      if(!archiveMonsterIdList_.Equals(other.archiveMonsterIdList_)) return false;
+      if(!cMDMBOMOGIB_.Equals(other.cMDMBOMOGIB_)) return false;
+      if(!aLFCBHACGFO_.Equals(other.aLFCBHACGFO_)) return false;
+      if(!killMonsterList_.Equals(other.killMonsterList_)) return false;
       if(!relicList_.Equals(other.relicList_)) return false;
-      if(!archiveEquipmentIdList_.Equals(other.archiveEquipmentIdList_)) return false;
+      if(!oJJBNFPBCKK_.Equals(other.oJJBNFPBCKK_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -173,11 +171,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= archiveMissingAvatarIdList_.GetHashCode();
-      hash ^= archiveMissingEquipmentIdList_.GetHashCode();
-      hash ^= archiveMonsterIdList_.GetHashCode();
+      hash ^= cMDMBOMOGIB_.GetHashCode();
+      hash ^= aLFCBHACGFO_.GetHashCode();
+      hash ^= killMonsterList_.GetHashCode();
       hash ^= relicList_.GetHashCode();
-      hash ^= archiveEquipmentIdList_.GetHashCode();
+      hash ^= oJJBNFPBCKK_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -197,10 +195,10 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       relicList_.WriteTo(output, _repeated_relicList_codec);
-      archiveEquipmentIdList_.WriteTo(output, _repeated_archiveEquipmentIdList_codec);
-      archiveMissingAvatarIdList_.WriteTo(output, _repeated_archiveMissingAvatarIdList_codec);
-      archiveMissingEquipmentIdList_.WriteTo(output, _repeated_archiveMissingEquipmentIdList_codec);
-      archiveMonsterIdList_.WriteTo(output, _repeated_archiveMonsterIdList_codec);
+      oJJBNFPBCKK_.WriteTo(output, _repeated_oJJBNFPBCKK_codec);
+      cMDMBOMOGIB_.WriteTo(output, _repeated_cMDMBOMOGIB_codec);
+      aLFCBHACGFO_.WriteTo(output, _repeated_aLFCBHACGFO_codec);
+      killMonsterList_.WriteTo(output, _repeated_killMonsterList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -212,10 +210,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       relicList_.WriteTo(ref output, _repeated_relicList_codec);
-      archiveEquipmentIdList_.WriteTo(ref output, _repeated_archiveEquipmentIdList_codec);
-      archiveMissingAvatarIdList_.WriteTo(ref output, _repeated_archiveMissingAvatarIdList_codec);
-      archiveMissingEquipmentIdList_.WriteTo(ref output, _repeated_archiveMissingEquipmentIdList_codec);
-      archiveMonsterIdList_.WriteTo(ref output, _repeated_archiveMonsterIdList_codec);
+      oJJBNFPBCKK_.WriteTo(ref output, _repeated_oJJBNFPBCKK_codec);
+      cMDMBOMOGIB_.WriteTo(ref output, _repeated_cMDMBOMOGIB_codec);
+      aLFCBHACGFO_.WriteTo(ref output, _repeated_aLFCBHACGFO_codec);
+      killMonsterList_.WriteTo(ref output, _repeated_killMonsterList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -226,11 +224,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += archiveMissingAvatarIdList_.CalculateSize(_repeated_archiveMissingAvatarIdList_codec);
-      size += archiveMissingEquipmentIdList_.CalculateSize(_repeated_archiveMissingEquipmentIdList_codec);
-      size += archiveMonsterIdList_.CalculateSize(_repeated_archiveMonsterIdList_codec);
+      size += cMDMBOMOGIB_.CalculateSize(_repeated_cMDMBOMOGIB_codec);
+      size += aLFCBHACGFO_.CalculateSize(_repeated_aLFCBHACGFO_codec);
+      size += killMonsterList_.CalculateSize(_repeated_killMonsterList_codec);
       size += relicList_.CalculateSize(_repeated_relicList_codec);
-      size += archiveEquipmentIdList_.CalculateSize(_repeated_archiveEquipmentIdList_codec);
+      size += oJJBNFPBCKK_.CalculateSize(_repeated_oJJBNFPBCKK_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -243,11 +241,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      archiveMissingAvatarIdList_.Add(other.archiveMissingAvatarIdList_);
-      archiveMissingEquipmentIdList_.Add(other.archiveMissingEquipmentIdList_);
-      archiveMonsterIdList_.Add(other.archiveMonsterIdList_);
+      cMDMBOMOGIB_.Add(other.cMDMBOMOGIB_);
+      aLFCBHACGFO_.Add(other.aLFCBHACGFO_);
+      killMonsterList_.Add(other.killMonsterList_);
       relicList_.Add(other.relicList_);
-      archiveEquipmentIdList_.Add(other.archiveEquipmentIdList_);
+      oJJBNFPBCKK_.Add(other.oJJBNFPBCKK_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -269,21 +267,21 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 34:
           case 32: {
-            archiveEquipmentIdList_.AddEntriesFrom(input, _repeated_archiveEquipmentIdList_codec);
+            oJJBNFPBCKK_.AddEntriesFrom(input, _repeated_oJJBNFPBCKK_codec);
             break;
           }
           case 58:
           case 56: {
-            archiveMissingAvatarIdList_.AddEntriesFrom(input, _repeated_archiveMissingAvatarIdList_codec);
+            cMDMBOMOGIB_.AddEntriesFrom(input, _repeated_cMDMBOMOGIB_codec);
             break;
           }
           case 90:
           case 88: {
-            archiveMissingEquipmentIdList_.AddEntriesFrom(input, _repeated_archiveMissingEquipmentIdList_codec);
+            aLFCBHACGFO_.AddEntriesFrom(input, _repeated_aLFCBHACGFO_codec);
             break;
           }
           case 114: {
-            archiveMonsterIdList_.AddEntriesFrom(input, _repeated_archiveMonsterIdList_codec);
+            killMonsterList_.AddEntriesFrom(input, _repeated_killMonsterList_codec);
             break;
           }
         }
@@ -307,21 +305,21 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 34:
           case 32: {
-            archiveEquipmentIdList_.AddEntriesFrom(ref input, _repeated_archiveEquipmentIdList_codec);
+            oJJBNFPBCKK_.AddEntriesFrom(ref input, _repeated_oJJBNFPBCKK_codec);
             break;
           }
           case 58:
           case 56: {
-            archiveMissingAvatarIdList_.AddEntriesFrom(ref input, _repeated_archiveMissingAvatarIdList_codec);
+            cMDMBOMOGIB_.AddEntriesFrom(ref input, _repeated_cMDMBOMOGIB_codec);
             break;
           }
           case 90:
           case 88: {
-            archiveMissingEquipmentIdList_.AddEntriesFrom(ref input, _repeated_archiveMissingEquipmentIdList_codec);
+            aLFCBHACGFO_.AddEntriesFrom(ref input, _repeated_aLFCBHACGFO_codec);
             break;
           }
           case 114: {
-            archiveMonsterIdList_.AddEntriesFrom(ref input, _repeated_archiveMonsterIdList_codec);
+            killMonsterList_.AddEntriesFrom(ref input, _repeated_killMonsterList_codec);
             break;
           }
         }

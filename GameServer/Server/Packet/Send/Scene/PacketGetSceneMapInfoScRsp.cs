@@ -59,7 +59,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Scene
 
                 foreach (var teleport in floorInfo.CachedTeleports.Values)
                 {
-                    mazeMap.UnlockedTeleportList.Add((uint)teleport.MappingInfoID);
+                    mazeMap.UnlockTeleportList.Add((uint)teleport.MappingInfoID);
                 }
 
                 foreach (var prop in floorInfo.UnlockedCheckpoints)

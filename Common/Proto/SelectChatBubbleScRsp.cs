@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static SelectChatBubbleScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChtTZWxlY3RDaGF0QnViYmxlU2NSc3AucHJvdG8iQQoVU2VsZWN0Q2hhdEJ1",
-            "YmJsZVNjUnNwEg8KB3JldGNvZGUYCyABKA0SFwoPY3VyX2NoYXRfYnViYmxl",
-            "GA8gASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3Rv",
-            "Mw=="));
+            "ChtTZWxlY3RDaGF0QnViYmxlU2NSc3AucHJvdG8iUgoVU2VsZWN0Q2hhdEJ1",
+            "YmJsZVNjUnNwEhMKC1BMQUNNTExPTEZEGAMgASgNEg8KB3JldGNvZGUYCyAB",
+            "KA0SEwoLSENETU1KRkdNTkwYDyABKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1Nl",
+            "cnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SelectChatBubbleScRsp), global::EggLink.DanhengServer.Proto.SelectChatBubbleScRsp.Parser, new[]{ "Retcode", "CurChatBubble" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SelectChatBubbleScRsp), global::EggLink.DanhengServer.Proto.SelectChatBubbleScRsp.Parser, new[]{ "PLACMLLOLFD", "Retcode", "HCDMMJFGMNL" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,8 +73,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SelectChatBubbleScRsp(SelectChatBubbleScRsp other) : this() {
+      pLACMLLOLFD_ = other.pLACMLLOLFD_;
       retcode_ = other.retcode_;
-      curChatBubble_ = other.curChatBubble_;
+      hCDMMJFGMNL_ = other.hCDMMJFGMNL_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -82,6 +83,18 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SelectChatBubbleScRsp Clone() {
       return new SelectChatBubbleScRsp(this);
+    }
+
+    /// <summary>Field number for the "PLACMLLOLFD" field.</summary>
+    public const int PLACMLLOLFDFieldNumber = 3;
+    private uint pLACMLLOLFD_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint PLACMLLOLFD {
+      get { return pLACMLLOLFD_; }
+      set {
+        pLACMLLOLFD_ = value;
+      }
     }
 
     /// <summary>Field number for the "retcode" field.</summary>
@@ -96,15 +109,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "cur_chat_bubble" field.</summary>
-    public const int CurChatBubbleFieldNumber = 15;
-    private uint curChatBubble_;
+    /// <summary>Field number for the "HCDMMJFGMNL" field.</summary>
+    public const int HCDMMJFGMNLFieldNumber = 15;
+    private uint hCDMMJFGMNL_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint CurChatBubble {
-      get { return curChatBubble_; }
+    public uint HCDMMJFGMNL {
+      get { return hCDMMJFGMNL_; }
       set {
-        curChatBubble_ = value;
+        hCDMMJFGMNL_ = value;
       }
     }
 
@@ -123,8 +136,9 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (PLACMLLOLFD != other.PLACMLLOLFD) return false;
       if (Retcode != other.Retcode) return false;
-      if (CurChatBubble != other.CurChatBubble) return false;
+      if (HCDMMJFGMNL != other.HCDMMJFGMNL) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -132,8 +146,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (PLACMLLOLFD != 0) hash ^= PLACMLLOLFD.GetHashCode();
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
-      if (CurChatBubble != 0) hash ^= CurChatBubble.GetHashCode();
+      if (HCDMMJFGMNL != 0) hash ^= HCDMMJFGMNL.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -152,13 +167,17 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (PLACMLLOLFD != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(PLACMLLOLFD);
+      }
       if (Retcode != 0) {
         output.WriteRawTag(88);
         output.WriteUInt32(Retcode);
       }
-      if (CurChatBubble != 0) {
+      if (HCDMMJFGMNL != 0) {
         output.WriteRawTag(120);
-        output.WriteUInt32(CurChatBubble);
+        output.WriteUInt32(HCDMMJFGMNL);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -170,13 +189,17 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (PLACMLLOLFD != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(PLACMLLOLFD);
+      }
       if (Retcode != 0) {
         output.WriteRawTag(88);
         output.WriteUInt32(Retcode);
       }
-      if (CurChatBubble != 0) {
+      if (HCDMMJFGMNL != 0) {
         output.WriteRawTag(120);
-        output.WriteUInt32(CurChatBubble);
+        output.WriteUInt32(HCDMMJFGMNL);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -188,11 +211,14 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (PLACMLLOLFD != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PLACMLLOLFD);
+      }
       if (Retcode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
-      if (CurChatBubble != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(CurChatBubble);
+      if (HCDMMJFGMNL != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(HCDMMJFGMNL);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -206,11 +232,14 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
+      if (other.PLACMLLOLFD != 0) {
+        PLACMLLOLFD = other.PLACMLLOLFD;
+      }
       if (other.Retcode != 0) {
         Retcode = other.Retcode;
       }
-      if (other.CurChatBubble != 0) {
-        CurChatBubble = other.CurChatBubble;
+      if (other.HCDMMJFGMNL != 0) {
+        HCDMMJFGMNL = other.HCDMMJFGMNL;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -227,12 +256,16 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 24: {
+            PLACMLLOLFD = input.ReadUInt32();
+            break;
+          }
           case 88: {
             Retcode = input.ReadUInt32();
             break;
           }
           case 120: {
-            CurChatBubble = input.ReadUInt32();
+            HCDMMJFGMNL = input.ReadUInt32();
             break;
           }
         }
@@ -250,12 +283,16 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
+          case 24: {
+            PLACMLLOLFD = input.ReadUInt32();
+            break;
+          }
           case 88: {
             Retcode = input.ReadUInt32();
             break;
           }
           case 120: {
-            CurChatBubble = input.ReadUInt32();
+            HCDMMJFGMNL = input.ReadUInt32();
             break;
           }
         }

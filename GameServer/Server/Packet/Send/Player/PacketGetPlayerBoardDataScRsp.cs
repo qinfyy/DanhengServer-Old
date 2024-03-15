@@ -13,17 +13,17 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Player
                 Signature = player.Data.Signature,
             };
 
-            player.PlayerUnlockData.HeadIcons.ForEach(id =>
+            player.PlayerUnlockData?.HeadIcons.ForEach(id =>
             {
-                HeadIcon headIcon = new() { Id = (uint)id };
+                HeadIconData headIcon = new() { Id = (uint)id };
                 proto.UnlockedHeadIconList.Add(headIcon);
             });
 
             proto.DisplayAvatarVec = new();
             var pos = 0;
-            player.AvatarManager.AvatarData.DisplayAvatars.ForEach(avatar =>
+            player.AvatarManager?.AvatarData!.DisplayAvatars.ForEach(avatar =>
             {
-                DisplayAvatar displayAvatar = new()
+                DisplayAvatarData displayAvatar = new()
                 {
                     AvatarId = (uint)avatar,
                     Pos = (uint)pos++,

@@ -46,16 +46,15 @@ namespace EggLink.DanhengServer.Command
             if (con != null)
             {
                 Target = con;
-            } else
+            }
+
+            CharacterArgs.TryGetValue("@", out var target);
+            if (target != null)
             {
-                CharacterArgs.TryGetValue("@", out var target);
-                if (target != null)
+                var connection = Listener.Connections.Values.ToList().Find(item => item.Player?.Uid.ToString() == target);
+                if (connection != null)
                 {
-                    var connection = Listener.Connections.Values.ToList().Find(item => item.Player?.Uid.ToString() == target);
-                    if (connection != null)
-                    {
-                        Target = connection;
-                    }
+                    Target = connection;
                 }
             }
         }

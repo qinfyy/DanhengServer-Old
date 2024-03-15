@@ -72,7 +72,7 @@ namespace EggLink.DanhengServer.Database
             {
                 lock (_lock)
                 {
-                    return sqlSugarScope?.Queryable<T>().Where(it => (it as BaseDatabaseData).Uid == uid).First();
+                    return sqlSugarScope?.Queryable<T>().Where(it => (it as BaseDatabaseData)!.Uid == uid).First();
                 }
             }
             catch (Exception e)

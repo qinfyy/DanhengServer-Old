@@ -287,9 +287,6 @@ namespace EggLink.DanhengServer.Proto {
     /// <summary>Field number for the "unk5" field.</summary>
     public const int Unk5FieldNumber = 929;
     private bool unk5_;
-    /// <summary>
-    ///bool unk5 = 646;
-    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Unk5 {

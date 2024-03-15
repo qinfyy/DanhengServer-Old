@@ -24,17 +24,19 @@ namespace EggLink.DanhengServer.Proto {
     static GetHeroBasicTypeInfoScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Ch9HZXRIZXJvQmFzaWNUeXBlSW5mb1NjUnNwLnByb3RvGhNIZXJvQmFzaWNU",
-            "eXBlLnByb3RvGgxHZW5kZXIucHJvdG8aF0hlcm9CYXNpY1R5cGVJbmZvLnBy",
-            "b3RvIp8BChlHZXRIZXJvQmFzaWNUeXBlSW5mb1NjUnNwEiYKDmN1cl9iYXNp",
-            "Y190eXBlGAcgASgOMg4uSGVyb0Jhc2ljVHlwZRIwChRiYXNpY190eXBlX2lu",
-            "Zm9fbGlzdBgCIAMoCzISLkhlcm9CYXNpY1R5cGVJbmZvEhcKBmdlbmRlchgB",
-            "IAEoDjIHLkdlbmRlchIPCgdyZXRjb2RlGAsgASgNQh6qAhtFZ2dMaW5rLkRh",
-            "bmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "Ch9HZXRIZXJvQmFzaWNUeXBlSW5mb1NjUnNwLnByb3RvGgxHZW5kZXIucHJv",
+            "dG8aHVBsYXllckhlcm9CYXNpY1R5cGVJbmZvLnByb3RvGhNIZXJvQmFzaWNU",
+            "eXBlLnByb3RvIuIBChlHZXRIZXJvQmFzaWNUeXBlSW5mb1NjUnNwEg8KB3Jl",
+            "dGNvZGUYCyABKA0SNgoUYmFzaWNfdHlwZV9pbmZvX2xpc3QYAiADKAsyGC5Q",
+            "bGF5ZXJIZXJvQmFzaWNUeXBlSW5mbxIaChJpc19nZW5kZXJfbW9kaWZpZWQY",
+            "DiABKAgSJgoOY3VyX2Jhc2ljX3R5cGUYByABKA4yDi5IZXJvQmFzaWNUeXBl",
+            "Eh8KF2lzX3BsYXllcl9pbmZvX21vZGlmaWVkGA8gASgIEhcKBmdlbmRlchgB",
+            "IAEoDjIHLkdlbmRlckIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3Rv",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.HeroBasicTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.GenderReflection.Descriptor, global::EggLink.DanhengServer.Proto.HeroBasicTypeInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.GenderReflection.Descriptor, global::EggLink.DanhengServer.Proto.PlayerHeroBasicTypeInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.HeroBasicTypeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetHeroBasicTypeInfoScRsp), global::EggLink.DanhengServer.Proto.GetHeroBasicTypeInfoScRsp.Parser, new[]{ "CurBasicType", "BasicTypeInfoList", "Gender", "Retcode" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetHeroBasicTypeInfoScRsp), global::EggLink.DanhengServer.Proto.GetHeroBasicTypeInfoScRsp.Parser, new[]{ "Retcode", "BasicTypeInfoList", "IsGenderModified", "CurBasicType", "IsPlayerInfoModified", "Gender" }, null, null, null, null)
           }));
     }
     #endregion
@@ -76,10 +78,12 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetHeroBasicTypeInfoScRsp(GetHeroBasicTypeInfoScRsp other) : this() {
-      curBasicType_ = other.curBasicType_;
-      basicTypeInfoList_ = other.basicTypeInfoList_.Clone();
-      gender_ = other.gender_;
       retcode_ = other.retcode_;
+      basicTypeInfoList_ = other.basicTypeInfoList_.Clone();
+      isGenderModified_ = other.isGenderModified_;
+      curBasicType_ = other.curBasicType_;
+      isPlayerInfoModified_ = other.isPlayerInfoModified_;
+      gender_ = other.gender_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -87,6 +91,41 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetHeroBasicTypeInfoScRsp Clone() {
       return new GetHeroBasicTypeInfoScRsp(this);
+    }
+
+    /// <summary>Field number for the "retcode" field.</summary>
+    public const int RetcodeFieldNumber = 11;
+    private uint retcode_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Retcode {
+      get { return retcode_; }
+      set {
+        retcode_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "basic_type_info_list" field.</summary>
+    public const int BasicTypeInfoListFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.PlayerHeroBasicTypeInfo> _repeated_basicTypeInfoList_codec
+        = pb::FieldCodec.ForMessage(18, global::EggLink.DanhengServer.Proto.PlayerHeroBasicTypeInfo.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.PlayerHeroBasicTypeInfo> basicTypeInfoList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.PlayerHeroBasicTypeInfo>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.PlayerHeroBasicTypeInfo> BasicTypeInfoList {
+      get { return basicTypeInfoList_; }
+    }
+
+    /// <summary>Field number for the "is_gender_modified" field.</summary>
+    public const int IsGenderModifiedFieldNumber = 14;
+    private bool isGenderModified_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsGenderModified {
+      get { return isGenderModified_; }
+      set {
+        isGenderModified_ = value;
+      }
     }
 
     /// <summary>Field number for the "cur_basic_type" field.</summary>
@@ -101,15 +140,16 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "basic_type_info_list" field.</summary>
-    public const int BasicTypeInfoListFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.HeroBasicTypeInfo> _repeated_basicTypeInfoList_codec
-        = pb::FieldCodec.ForMessage(18, global::EggLink.DanhengServer.Proto.HeroBasicTypeInfo.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.HeroBasicTypeInfo> basicTypeInfoList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.HeroBasicTypeInfo>();
+    /// <summary>Field number for the "is_player_info_modified" field.</summary>
+    public const int IsPlayerInfoModifiedFieldNumber = 15;
+    private bool isPlayerInfoModified_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.HeroBasicTypeInfo> BasicTypeInfoList {
-      get { return basicTypeInfoList_; }
+    public bool IsPlayerInfoModified {
+      get { return isPlayerInfoModified_; }
+      set {
+        isPlayerInfoModified_ = value;
+      }
     }
 
     /// <summary>Field number for the "gender" field.</summary>
@@ -121,18 +161,6 @@ namespace EggLink.DanhengServer.Proto {
       get { return gender_; }
       set {
         gender_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "retcode" field.</summary>
-    public const int RetcodeFieldNumber = 11;
-    private uint retcode_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Retcode {
-      get { return retcode_; }
-      set {
-        retcode_ = value;
       }
     }
 
@@ -151,10 +179,12 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (CurBasicType != other.CurBasicType) return false;
-      if(!basicTypeInfoList_.Equals(other.basicTypeInfoList_)) return false;
-      if (Gender != other.Gender) return false;
       if (Retcode != other.Retcode) return false;
+      if(!basicTypeInfoList_.Equals(other.basicTypeInfoList_)) return false;
+      if (IsGenderModified != other.IsGenderModified) return false;
+      if (CurBasicType != other.CurBasicType) return false;
+      if (IsPlayerInfoModified != other.IsPlayerInfoModified) return false;
+      if (Gender != other.Gender) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -162,10 +192,12 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (CurBasicType != global::EggLink.DanhengServer.Proto.HeroBasicType.None) hash ^= CurBasicType.GetHashCode();
-      hash ^= basicTypeInfoList_.GetHashCode();
-      if (Gender != global::EggLink.DanhengServer.Proto.Gender.None) hash ^= Gender.GetHashCode();
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
+      hash ^= basicTypeInfoList_.GetHashCode();
+      if (IsGenderModified != false) hash ^= IsGenderModified.GetHashCode();
+      if (CurBasicType != global::EggLink.DanhengServer.Proto.HeroBasicType.None) hash ^= CurBasicType.GetHashCode();
+      if (IsPlayerInfoModified != false) hash ^= IsPlayerInfoModified.GetHashCode();
+      if (Gender != global::EggLink.DanhengServer.Proto.Gender.None) hash ^= Gender.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -197,6 +229,14 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(88);
         output.WriteUInt32(Retcode);
       }
+      if (IsGenderModified != false) {
+        output.WriteRawTag(112);
+        output.WriteBool(IsGenderModified);
+      }
+      if (IsPlayerInfoModified != false) {
+        output.WriteRawTag(120);
+        output.WriteBool(IsPlayerInfoModified);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -220,6 +260,14 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(88);
         output.WriteUInt32(Retcode);
       }
+      if (IsGenderModified != false) {
+        output.WriteRawTag(112);
+        output.WriteBool(IsGenderModified);
+      }
+      if (IsPlayerInfoModified != false) {
+        output.WriteRawTag(120);
+        output.WriteBool(IsPlayerInfoModified);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -230,15 +278,21 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (Retcode != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
+      }
+      size += basicTypeInfoList_.CalculateSize(_repeated_basicTypeInfoList_codec);
+      if (IsGenderModified != false) {
+        size += 1 + 1;
+      }
       if (CurBasicType != global::EggLink.DanhengServer.Proto.HeroBasicType.None) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) CurBasicType);
       }
-      size += basicTypeInfoList_.CalculateSize(_repeated_basicTypeInfoList_codec);
+      if (IsPlayerInfoModified != false) {
+        size += 1 + 1;
+      }
       if (Gender != global::EggLink.DanhengServer.Proto.Gender.None) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Gender);
-      }
-      if (Retcode != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -252,15 +306,21 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
+      if (other.Retcode != 0) {
+        Retcode = other.Retcode;
+      }
+      basicTypeInfoList_.Add(other.basicTypeInfoList_);
+      if (other.IsGenderModified != false) {
+        IsGenderModified = other.IsGenderModified;
+      }
       if (other.CurBasicType != global::EggLink.DanhengServer.Proto.HeroBasicType.None) {
         CurBasicType = other.CurBasicType;
       }
-      basicTypeInfoList_.Add(other.basicTypeInfoList_);
+      if (other.IsPlayerInfoModified != false) {
+        IsPlayerInfoModified = other.IsPlayerInfoModified;
+      }
       if (other.Gender != global::EggLink.DanhengServer.Proto.Gender.None) {
         Gender = other.Gender;
-      }
-      if (other.Retcode != 0) {
-        Retcode = other.Retcode;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -293,6 +353,14 @@ namespace EggLink.DanhengServer.Proto {
             Retcode = input.ReadUInt32();
             break;
           }
+          case 112: {
+            IsGenderModified = input.ReadBool();
+            break;
+          }
+          case 120: {
+            IsPlayerInfoModified = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -322,6 +390,14 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 88: {
             Retcode = input.ReadUInt32();
+            break;
+          }
+          case 112: {
+            IsGenderModified = input.ReadBool();
+            break;
+          }
+          case 120: {
+            IsPlayerInfoModified = input.ReadBool();
             break;
           }
         }

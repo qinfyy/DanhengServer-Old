@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueUpdateMoneyInfoScNotifyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CidDaGVzc1JvZ3VlVXBkYXRlTW9uZXlJbmZvU2NOb3RpZnkucHJvdG8aGUNo",
-            "ZXNzUm9ndWVNb25leUluZm8ucHJvdG8iTQohQ2hlc3NSb2d1ZVVwZGF0ZU1v",
-            "bmV5SW5mb1NjTm90aWZ5EigKCm1vbmV5X2luZm8YDCABKAsyFC5DaGVzc1Jv",
-            "Z3VlTW9uZXlJbmZvQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9i",
+            "CidDaGVzc1JvZ3VlVXBkYXRlTW9uZXlJbmZvU2NOb3RpZnkucHJvdG8aGUdh",
+            "bWVWaXJ0dWFsSXRlbUluZm8ucHJvdG8iTQohQ2hlc3NSb2d1ZVVwZGF0ZU1v",
+            "bmV5SW5mb1NjTm90aWZ5EigKCm1vbmV5X2luZm8YBSABKAsyFC5HYW1lVmly",
+            "dHVhbEl0ZW1JbmZvQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9i",
             "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChessRogueMoneyInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.GameVirtualItemInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueUpdateMoneyInfoScNotify), global::EggLink.DanhengServer.Proto.ChessRogueUpdateMoneyInfoScNotify.Parser, new[]{ "MoneyInfo" }, null, null, null, null)
           }));
@@ -85,11 +85,11 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "money_info" field.</summary>
-    public const int MoneyInfoFieldNumber = 12;
-    private global::EggLink.DanhengServer.Proto.ChessRogueMoneyInfo moneyInfo_;
+    public const int MoneyInfoFieldNumber = 5;
+    private global::EggLink.DanhengServer.Proto.GameVirtualItemInfo moneyInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.ChessRogueMoneyInfo MoneyInfo {
+    public global::EggLink.DanhengServer.Proto.GameVirtualItemInfo MoneyInfo {
       get { return moneyInfo_; }
       set {
         moneyInfo_ = value;
@@ -139,7 +139,7 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (moneyInfo_ != null) {
-        output.WriteRawTag(98);
+        output.WriteRawTag(42);
         output.WriteMessage(MoneyInfo);
       }
       if (_unknownFields != null) {
@@ -153,7 +153,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (moneyInfo_ != null) {
-        output.WriteRawTag(98);
+        output.WriteRawTag(42);
         output.WriteMessage(MoneyInfo);
       }
       if (_unknownFields != null) {
@@ -183,7 +183,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (other.moneyInfo_ != null) {
         if (moneyInfo_ == null) {
-          MoneyInfo = new global::EggLink.DanhengServer.Proto.ChessRogueMoneyInfo();
+          MoneyInfo = new global::EggLink.DanhengServer.Proto.GameVirtualItemInfo();
         }
         MoneyInfo.MergeFrom(other.MoneyInfo);
       }
@@ -202,9 +202,9 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 98: {
+          case 42: {
             if (moneyInfo_ == null) {
-              MoneyInfo = new global::EggLink.DanhengServer.Proto.ChessRogueMoneyInfo();
+              MoneyInfo = new global::EggLink.DanhengServer.Proto.GameVirtualItemInfo();
             }
             input.ReadMessage(MoneyInfo);
             break;
@@ -224,9 +224,9 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 98: {
+          case 42: {
             if (moneyInfo_ == null) {
-              MoneyInfo = new global::EggLink.DanhengServer.Proto.ChessRogueMoneyInfo();
+              MoneyInfo = new global::EggLink.DanhengServer.Proto.GameVirtualItemInfo();
             }
             input.ReadMessage(MoneyInfo);
             break;

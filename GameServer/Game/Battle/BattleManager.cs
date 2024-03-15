@@ -113,9 +113,9 @@ namespace EggLink.DanhengServer.Game.Battle
             {
                 var lineup = player.LineupManager.GetCurLineup()!;
                 // Update battle status
-                foreach (var avatar in req.Stt.BattleAvatarList)
+                foreach (var avatar in req.Stt.AvatarBattleList)
                 {
-                    var avatarInstance = player.AvatarManager.GetAvatar((int)avatar.Id);
+                    var avatarInstance = player.AvatarManager!.GetAvatar((int)avatar.Id);
                     if (avatarInstance == null) continue;
 
                     var prop = avatar.AvatarStatus;
@@ -126,12 +126,12 @@ namespace EggLink.DanhengServer.Game.Battle
                     avatarInstance.SetCurSp(curSp, lineup.LineupType != 0);
                 }
 
-                DatabaseHelper.Instance?.UpdateInstance(Player.AvatarManager.AvatarData!);
+                DatabaseHelper.Instance?.UpdateInstance(Player.AvatarManager!.AvatarData!);
                 Player.SendPacket(new PacketSyncLineupNotify(battle.Lineup));
             }
             if (teleportToAnchor)
             {
-                var anchorProp = player.SceneInstance.GetNearestSpring(long.MaxValue);
+                var anchorProp = player.SceneInstance?.GetNearestSpring(long.MaxValue);
                 if (anchorProp != null && anchorProp.PropInfo != null)
                 {
                     var anchor = player?.SceneInstance?.FloorInfo?.GetAnchorInfo(

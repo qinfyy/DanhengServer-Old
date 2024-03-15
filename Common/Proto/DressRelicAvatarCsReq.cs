@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static DressRelicAvatarCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChtEcmVzc1JlbGljQXZhdGFyQ3NSZXEucHJvdG8aEFJlbGljUGFyYW0ucHJv",
-            "dG8iUAoVRHJlc3NSZWxpY0F2YXRhckNzUmVxEh8KCnBhcmFtX2xpc3QYCiAD",
-            "KAsyCy5SZWxpY1BhcmFtEhYKDmJhc2VfYXZhdGFyX2lkGAMgASgNQh6qAhtF",
-            "Z2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "ChtEcmVzc1JlbGljQXZhdGFyQ3NSZXEucHJvdG8aFURyZXNzUmVsaWNQYXJh",
+            "bS5wcm90byJWChVEcmVzc1JlbGljQXZhdGFyQ3NSZXESFgoOYmFzZV9hdmF0",
+            "YXJfaWQYAyABKA0SJQoLc3dpdGNoX2xpc3QYCiADKAsyEC5EcmVzc1JlbGlj",
+            "UGFyYW1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RelicParamReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.DressRelicParamReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.DressRelicAvatarCsReq), global::EggLink.DanhengServer.Proto.DressRelicAvatarCsReq.Parser, new[]{ "ParamList", "BaseAvatarId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.DressRelicAvatarCsReq), global::EggLink.DanhengServer.Proto.DressRelicAvatarCsReq.Parser, new[]{ "BaseAvatarId", "SwitchList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,8 +73,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public DressRelicAvatarCsReq(DressRelicAvatarCsReq other) : this() {
-      paramList_ = other.paramList_.Clone();
       baseAvatarId_ = other.baseAvatarId_;
+      switchList_ = other.switchList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -82,17 +82,6 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public DressRelicAvatarCsReq Clone() {
       return new DressRelicAvatarCsReq(this);
-    }
-
-    /// <summary>Field number for the "param_list" field.</summary>
-    public const int ParamListFieldNumber = 10;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.RelicParam> _repeated_paramList_codec
-        = pb::FieldCodec.ForMessage(82, global::EggLink.DanhengServer.Proto.RelicParam.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RelicParam> paramList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RelicParam>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RelicParam> ParamList {
-      get { return paramList_; }
     }
 
     /// <summary>Field number for the "base_avatar_id" field.</summary>
@@ -105,6 +94,17 @@ namespace EggLink.DanhengServer.Proto {
       set {
         baseAvatarId_ = value;
       }
+    }
+
+    /// <summary>Field number for the "switch_list" field.</summary>
+    public const int SwitchListFieldNumber = 10;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.DressRelicParam> _repeated_switchList_codec
+        = pb::FieldCodec.ForMessage(82, global::EggLink.DanhengServer.Proto.DressRelicParam.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DressRelicParam> switchList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DressRelicParam>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DressRelicParam> SwitchList {
+      get { return switchList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -122,8 +122,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!paramList_.Equals(other.paramList_)) return false;
       if (BaseAvatarId != other.BaseAvatarId) return false;
+      if(!switchList_.Equals(other.switchList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -131,8 +131,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= paramList_.GetHashCode();
       if (BaseAvatarId != 0) hash ^= BaseAvatarId.GetHashCode();
+      hash ^= switchList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -155,7 +155,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(24);
         output.WriteUInt32(BaseAvatarId);
       }
-      paramList_.WriteTo(output, _repeated_paramList_codec);
+      switchList_.WriteTo(output, _repeated_switchList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -170,7 +170,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(24);
         output.WriteUInt32(BaseAvatarId);
       }
-      paramList_.WriteTo(ref output, _repeated_paramList_codec);
+      switchList_.WriteTo(ref output, _repeated_switchList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -181,10 +181,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += paramList_.CalculateSize(_repeated_paramList_codec);
       if (BaseAvatarId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BaseAvatarId);
       }
+      size += switchList_.CalculateSize(_repeated_switchList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -197,10 +197,10 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      paramList_.Add(other.paramList_);
       if (other.BaseAvatarId != 0) {
         BaseAvatarId = other.BaseAvatarId;
       }
+      switchList_.Add(other.switchList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -221,7 +221,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 82: {
-            paramList_.AddEntriesFrom(input, _repeated_paramList_codec);
+            switchList_.AddEntriesFrom(input, _repeated_switchList_codec);
             break;
           }
         }
@@ -244,7 +244,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 82: {
-            paramList_.AddEntriesFrom(ref input, _repeated_paramList_codec);
+            switchList_.AddEntriesFrom(ref input, _repeated_switchList_codec);
             break;
           }
         }

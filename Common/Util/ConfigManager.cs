@@ -19,7 +19,7 @@ namespace EggLink.DanhengServer.Util
             using (var reader = new StreamReader(file.OpenRead()))
             {
                 var json = reader.ReadToEnd();
-                Config = JsonConvert.DeserializeObject<ConfigContainer>(json);
+                Config = JsonConvert.DeserializeObject<ConfigContainer>(json)!;
             }
         }
 

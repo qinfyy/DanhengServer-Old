@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static EnhanceRogueBuffCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChtFbmhhbmNlUm9ndWVCdWZmQ3NSZXEucHJvdG8iKAoVRW5oYW5jZVJvZ3Vl",
-            "QnVmZkNzUmVxEg8KB2J1ZmZfaWQYCiABKA1CHqoCG0VnZ0xpbmsuRGFuaGVu",
-            "Z1NlcnZlci5Qcm90b2IGcHJvdG8z"));
+            "ChtFbmhhbmNlUm9ndWVCdWZmQ3NSZXEucHJvdG8iLQoVRW5oYW5jZVJvZ3Vl",
+            "QnVmZkNzUmVxEhQKDG1hemVfYnVmZl9pZBgEIAEoDUIeqgIbRWdnTGluay5E",
+            "YW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.EnhanceRogueBuffCsReq), global::EggLink.DanhengServer.Proto.EnhanceRogueBuffCsReq.Parser, new[]{ "BuffId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.EnhanceRogueBuffCsReq), global::EggLink.DanhengServer.Proto.EnhanceRogueBuffCsReq.Parser, new[]{ "MazeBuffId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,7 +72,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public EnhanceRogueBuffCsReq(EnhanceRogueBuffCsReq other) : this() {
-      buffId_ = other.buffId_;
+      mazeBuffId_ = other.mazeBuffId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -82,15 +82,15 @@ namespace EggLink.DanhengServer.Proto {
       return new EnhanceRogueBuffCsReq(this);
     }
 
-    /// <summary>Field number for the "buff_id" field.</summary>
-    public const int BuffIdFieldNumber = 10;
-    private uint buffId_;
+    /// <summary>Field number for the "maze_buff_id" field.</summary>
+    public const int MazeBuffIdFieldNumber = 4;
+    private uint mazeBuffId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint BuffId {
-      get { return buffId_; }
+    public uint MazeBuffId {
+      get { return mazeBuffId_; }
       set {
-        buffId_ = value;
+        mazeBuffId_ = value;
       }
     }
 
@@ -109,7 +109,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (BuffId != other.BuffId) return false;
+      if (MazeBuffId != other.MazeBuffId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -117,7 +117,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (BuffId != 0) hash ^= BuffId.GetHashCode();
+      if (MazeBuffId != 0) hash ^= MazeBuffId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -136,9 +136,9 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (BuffId != 0) {
-        output.WriteRawTag(80);
-        output.WriteUInt32(BuffId);
+      if (MazeBuffId != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(MazeBuffId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -150,9 +150,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (BuffId != 0) {
-        output.WriteRawTag(80);
-        output.WriteUInt32(BuffId);
+      if (MazeBuffId != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(MazeBuffId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -164,8 +164,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (BuffId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BuffId);
+      if (MazeBuffId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MazeBuffId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -179,8 +179,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.BuffId != 0) {
-        BuffId = other.BuffId;
+      if (other.MazeBuffId != 0) {
+        MazeBuffId = other.MazeBuffId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -197,8 +197,8 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 80: {
-            BuffId = input.ReadUInt32();
+          case 32: {
+            MazeBuffId = input.ReadUInt32();
             break;
           }
         }
@@ -216,8 +216,8 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 80: {
-            BuffId = input.ReadUInt32();
+          case 32: {
+            MazeBuffId = input.ReadUInt32();
             break;
           }
         }

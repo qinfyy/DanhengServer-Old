@@ -25,14 +25,14 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CiBDaGVzc1JvZ3VlQ29uZmlybVJvbGxTY1JzcC5wcm90bxoYQ2hlc3NSb2d1",
-            "ZU5vdXNEaWNlLnByb3RvIlUKGkNoZXNzUm9ndWVDb25maXJtUm9sbFNjUnNw",
-            "Eg8KB3JldGNvZGUYDSABKA0SJgoJbm91c19kaWNlGAUgASgLMhMuQ2hlc3NS",
-            "b2d1ZU5vdXNEaWNlQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9i",
+            "ZURpY2VEYXRhLnByb3RvIlUKGkNoZXNzUm9ndWVDb25maXJtUm9sbFNjUnNw",
+            "EiYKCWRpY2VfZGF0YRgCIAEoCzITLkNoZXNzUm9ndWVEaWNlRGF0YRIPCgdy",
+            "ZXRjb2RlGA4gASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9i",
             "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChessRogueNousDiceReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChessRogueDiceDataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueConfirmRollScRsp), global::EggLink.DanhengServer.Proto.ChessRogueConfirmRollScRsp.Parser, new[]{ "Retcode", "NousDice" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueConfirmRollScRsp), global::EggLink.DanhengServer.Proto.ChessRogueConfirmRollScRsp.Parser, new[]{ "DiceData", "Retcode" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,8 +74,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ChessRogueConfirmRollScRsp(ChessRogueConfirmRollScRsp other) : this() {
+      diceData_ = other.diceData_ != null ? other.diceData_.Clone() : null;
       retcode_ = other.retcode_;
-      nousDice_ = other.nousDice_ != null ? other.nousDice_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -85,8 +85,20 @@ namespace EggLink.DanhengServer.Proto {
       return new ChessRogueConfirmRollScRsp(this);
     }
 
+    /// <summary>Field number for the "dice_data" field.</summary>
+    public const int DiceDataFieldNumber = 2;
+    private global::EggLink.DanhengServer.Proto.ChessRogueDiceData diceData_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::EggLink.DanhengServer.Proto.ChessRogueDiceData DiceData {
+      get { return diceData_; }
+      set {
+        diceData_ = value;
+      }
+    }
+
     /// <summary>Field number for the "retcode" field.</summary>
-    public const int RetcodeFieldNumber = 13;
+    public const int RetcodeFieldNumber = 14;
     private uint retcode_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -94,18 +106,6 @@ namespace EggLink.DanhengServer.Proto {
       get { return retcode_; }
       set {
         retcode_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "nous_dice" field.</summary>
-    public const int NousDiceFieldNumber = 5;
-    private global::EggLink.DanhengServer.Proto.ChessRogueNousDice nousDice_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.ChessRogueNousDice NousDice {
-      get { return nousDice_; }
-      set {
-        nousDice_ = value;
       }
     }
 
@@ -124,8 +124,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (!object.Equals(DiceData, other.DiceData)) return false;
       if (Retcode != other.Retcode) return false;
-      if (!object.Equals(NousDice, other.NousDice)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -133,8 +133,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (diceData_ != null) hash ^= DiceData.GetHashCode();
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
-      if (nousDice_ != null) hash ^= NousDice.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -153,12 +153,12 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (nousDice_ != null) {
-        output.WriteRawTag(42);
-        output.WriteMessage(NousDice);
+      if (diceData_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(DiceData);
       }
       if (Retcode != 0) {
-        output.WriteRawTag(104);
+        output.WriteRawTag(112);
         output.WriteUInt32(Retcode);
       }
       if (_unknownFields != null) {
@@ -171,12 +171,12 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (nousDice_ != null) {
-        output.WriteRawTag(42);
-        output.WriteMessage(NousDice);
+      if (diceData_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(DiceData);
       }
       if (Retcode != 0) {
-        output.WriteRawTag(104);
+        output.WriteRawTag(112);
         output.WriteUInt32(Retcode);
       }
       if (_unknownFields != null) {
@@ -189,11 +189,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (diceData_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DiceData);
+      }
       if (Retcode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
-      }
-      if (nousDice_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(NousDice);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -207,14 +207,14 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
+      if (other.diceData_ != null) {
+        if (diceData_ == null) {
+          DiceData = new global::EggLink.DanhengServer.Proto.ChessRogueDiceData();
+        }
+        DiceData.MergeFrom(other.DiceData);
+      }
       if (other.Retcode != 0) {
         Retcode = other.Retcode;
-      }
-      if (other.nousDice_ != null) {
-        if (nousDice_ == null) {
-          NousDice = new global::EggLink.DanhengServer.Proto.ChessRogueNousDice();
-        }
-        NousDice.MergeFrom(other.NousDice);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -231,14 +231,14 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 42: {
-            if (nousDice_ == null) {
-              NousDice = new global::EggLink.DanhengServer.Proto.ChessRogueNousDice();
+          case 18: {
+            if (diceData_ == null) {
+              DiceData = new global::EggLink.DanhengServer.Proto.ChessRogueDiceData();
             }
-            input.ReadMessage(NousDice);
+            input.ReadMessage(DiceData);
             break;
           }
-          case 104: {
+          case 112: {
             Retcode = input.ReadUInt32();
             break;
           }
@@ -257,14 +257,14 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 42: {
-            if (nousDice_ == null) {
-              NousDice = new global::EggLink.DanhengServer.Proto.ChessRogueNousDice();
+          case 18: {
+            if (diceData_ == null) {
+              DiceData = new global::EggLink.DanhengServer.Proto.ChessRogueDiceData();
             }
-            input.ReadMessage(NousDice);
+            input.ReadMessage(DiceData);
             break;
           }
-          case 104: {
+          case 112: {
             Retcode = input.ReadUInt32();
             break;
           }

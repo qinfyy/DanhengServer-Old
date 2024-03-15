@@ -25,8 +25,8 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChJQcm9wQWVvbkluZm8ucHJvdG8iSwoMUHJvcEFlb25JbmZvEhkKEWRpYWxv",
-            "Z3VlX2dyb3VwX2lkGA4gASgNEg8KB2Flb25faWQYByABKA0SDwoHYWRkX2V4",
-            "cBgNIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90",
+            "Z3VlX2dyb3VwX2lkGAUgASgNEg8KB2Flb25faWQYBCABKA0SDwoHYWRkX2V4",
+            "cBgPIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90",
             "bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -86,7 +86,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "dialogue_group_id" field.</summary>
-    public const int DialogueGroupIdFieldNumber = 14;
+    public const int DialogueGroupIdFieldNumber = 5;
     private uint dialogueGroupId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -98,7 +98,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "aeon_id" field.</summary>
-    public const int AeonIdFieldNumber = 7;
+    public const int AeonIdFieldNumber = 4;
     private uint aeonId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -110,7 +110,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "add_exp" field.</summary>
-    public const int AddExpFieldNumber = 13;
+    public const int AddExpFieldNumber = 15;
     private uint addExp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -168,16 +168,16 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (AeonId != 0) {
-        output.WriteRawTag(56);
+        output.WriteRawTag(32);
         output.WriteUInt32(AeonId);
       }
-      if (AddExp != 0) {
-        output.WriteRawTag(104);
-        output.WriteUInt32(AddExp);
-      }
       if (DialogueGroupId != 0) {
-        output.WriteRawTag(112);
+        output.WriteRawTag(40);
         output.WriteUInt32(DialogueGroupId);
+      }
+      if (AddExp != 0) {
+        output.WriteRawTag(120);
+        output.WriteUInt32(AddExp);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -190,16 +190,16 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (AeonId != 0) {
-        output.WriteRawTag(56);
+        output.WriteRawTag(32);
         output.WriteUInt32(AeonId);
       }
-      if (AddExp != 0) {
-        output.WriteRawTag(104);
-        output.WriteUInt32(AddExp);
-      }
       if (DialogueGroupId != 0) {
-        output.WriteRawTag(112);
+        output.WriteRawTag(40);
         output.WriteUInt32(DialogueGroupId);
+      }
+      if (AddExp != 0) {
+        output.WriteRawTag(120);
+        output.WriteUInt32(AddExp);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -256,16 +256,16 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 56: {
+          case 32: {
             AeonId = input.ReadUInt32();
             break;
           }
-          case 104: {
-            AddExp = input.ReadUInt32();
+          case 40: {
+            DialogueGroupId = input.ReadUInt32();
             break;
           }
-          case 112: {
-            DialogueGroupId = input.ReadUInt32();
+          case 120: {
+            AddExp = input.ReadUInt32();
             break;
           }
         }
@@ -283,16 +283,16 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 56: {
+          case 32: {
             AeonId = input.ReadUInt32();
             break;
           }
-          case 104: {
-            AddExp = input.ReadUInt32();
+          case 40: {
+            DialogueGroupId = input.ReadUInt32();
             break;
           }
-          case 112: {
-            DialogueGroupId = input.ReadUInt32();
+          case 120: {
+            AddExp = input.ReadUInt32();
             break;
           }
         }

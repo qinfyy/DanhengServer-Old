@@ -25,13 +25,13 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Ch1TeW5jQXBwbHlGcmllbmRTY05vdGlmeS5wcm90bxoVRnJpZW5kQXBwbHlJ",
-            "bmZvLnByb3RvIkYKF1N5bmNBcHBseUZyaWVuZFNjTm90aWZ5EisKEWZyaWVu",
-            "ZF9hcHBseV9pbmZvGAwgASgLMhAuRnJpZW5kQXBwbHlJbmZvQh6qAhtFZ2dM",
-            "aW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "bmZvLnByb3RvIj8KF1N5bmNBcHBseUZyaWVuZFNjTm90aWZ5EiQKCmFwcGx5",
+            "X2luZm8YDCABKAsyEC5GcmllbmRBcHBseUluZm9CHqoCG0VnZ0xpbmsuRGFu",
+            "aGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.FriendApplyInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SyncApplyFriendScNotify), global::EggLink.DanhengServer.Proto.SyncApplyFriendScNotify.Parser, new[]{ "FriendApplyInfo" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SyncApplyFriendScNotify), global::EggLink.DanhengServer.Proto.SyncApplyFriendScNotify.Parser, new[]{ "ApplyInfo" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SyncApplyFriendScNotify(SyncApplyFriendScNotify other) : this() {
-      friendApplyInfo_ = other.friendApplyInfo_ != null ? other.friendApplyInfo_.Clone() : null;
+      applyInfo_ = other.applyInfo_ != null ? other.applyInfo_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,15 +83,15 @@ namespace EggLink.DanhengServer.Proto {
       return new SyncApplyFriendScNotify(this);
     }
 
-    /// <summary>Field number for the "friend_apply_info" field.</summary>
-    public const int FriendApplyInfoFieldNumber = 12;
-    private global::EggLink.DanhengServer.Proto.FriendApplyInfo friendApplyInfo_;
+    /// <summary>Field number for the "apply_info" field.</summary>
+    public const int ApplyInfoFieldNumber = 12;
+    private global::EggLink.DanhengServer.Proto.FriendApplyInfo applyInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.FriendApplyInfo FriendApplyInfo {
-      get { return friendApplyInfo_; }
+    public global::EggLink.DanhengServer.Proto.FriendApplyInfo ApplyInfo {
+      get { return applyInfo_; }
       set {
-        friendApplyInfo_ = value;
+        applyInfo_ = value;
       }
     }
 
@@ -110,7 +110,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(FriendApplyInfo, other.FriendApplyInfo)) return false;
+      if (!object.Equals(ApplyInfo, other.ApplyInfo)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -118,7 +118,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (friendApplyInfo_ != null) hash ^= FriendApplyInfo.GetHashCode();
+      if (applyInfo_ != null) hash ^= ApplyInfo.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -137,9 +137,9 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (friendApplyInfo_ != null) {
+      if (applyInfo_ != null) {
         output.WriteRawTag(98);
-        output.WriteMessage(FriendApplyInfo);
+        output.WriteMessage(ApplyInfo);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -151,9 +151,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (friendApplyInfo_ != null) {
+      if (applyInfo_ != null) {
         output.WriteRawTag(98);
-        output.WriteMessage(FriendApplyInfo);
+        output.WriteMessage(ApplyInfo);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -165,8 +165,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (friendApplyInfo_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(FriendApplyInfo);
+      if (applyInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ApplyInfo);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -180,11 +180,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.friendApplyInfo_ != null) {
-        if (friendApplyInfo_ == null) {
-          FriendApplyInfo = new global::EggLink.DanhengServer.Proto.FriendApplyInfo();
+      if (other.applyInfo_ != null) {
+        if (applyInfo_ == null) {
+          ApplyInfo = new global::EggLink.DanhengServer.Proto.FriendApplyInfo();
         }
-        FriendApplyInfo.MergeFrom(other.FriendApplyInfo);
+        ApplyInfo.MergeFrom(other.ApplyInfo);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -202,10 +202,10 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 98: {
-            if (friendApplyInfo_ == null) {
-              FriendApplyInfo = new global::EggLink.DanhengServer.Proto.FriendApplyInfo();
+            if (applyInfo_ == null) {
+              ApplyInfo = new global::EggLink.DanhengServer.Proto.FriendApplyInfo();
             }
-            input.ReadMessage(FriendApplyInfo);
+            input.ReadMessage(ApplyInfo);
             break;
           }
         }
@@ -224,10 +224,10 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 98: {
-            if (friendApplyInfo_ == null) {
-              FriendApplyInfo = new global::EggLink.DanhengServer.Proto.FriendApplyInfo();
+            if (applyInfo_ == null) {
+              ApplyInfo = new global::EggLink.DanhengServer.Proto.FriendApplyInfo();
             }
-            input.ReadMessage(FriendApplyInfo);
+            input.ReadMessage(ApplyInfo);
             break;
           }
         }

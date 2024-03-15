@@ -24,21 +24,21 @@ namespace EggLink.DanhengServer.Proto {
     static SceneEntityInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVTY2VuZUVudGl0eUluZm8ucHJvdG8aEE1vdGlvbkluZm8ucHJvdG8aGVNj",
-            "ZW5lU3VtbW9uVW5pdEluZm8ucHJvdG8aFFNjZW5lQWN0b3JJbmZvLnByb3Rv",
-            "GhlTY2VuZU5wY01vbnN0ZXJJbmZvLnByb3RvGhJTY2VuZU5wY0luZm8ucHJv",
-            "dG8aE1NjZW5lUHJvcEluZm8ucHJvdG8ilAIKD1NjZW5lRW50aXR5SW5mbxIR",
-            "CgllbnRpdHlfaWQYBiABKA0SEAoIZ3JvdXBfaWQYCyABKA0SGwoGbW90aW9u",
-            "GAggASgLMgsuTW90aW9uSW5mbxIPCgdpbnN0X2lkGAQgASgNEh4KBWFjdG9y",
+            "ChVTY2VuZUVudGl0eUluZm8ucHJvdG8aGVNjZW5lTnBjTW9uc3RlckluZm8u",
+            "cHJvdG8aEE1vdGlvbkluZm8ucHJvdG8aGVNjZW5lU3VtbW9uVW5pdEluZm8u",
+            "cHJvdG8aElNjZW5lTnBjSW5mby5wcm90bxoTU2NlbmVQcm9wSW5mby5wcm90",
+            "bxoUU2NlbmVBY3RvckluZm8ucHJvdG8ilAIKD1NjZW5lRW50aXR5SW5mbxIP",
+            "CgdpbnN0X2lkGAQgASgNEhAKCGdyb3VwX2lkGAsgASgNEhsKBm1vdGlvbhgI",
+            "IAEoCzILLk1vdGlvbkluZm8SEQoJZW50aXR5X2lkGAYgASgNEh4KBWFjdG9y",
             "GA0gASgLMg8uU2NlbmVBY3RvckluZm8SKQoLbnBjX21vbnN0ZXIYCSABKAsy",
             "FC5TY2VuZU5wY01vbnN0ZXJJbmZvEhoKA25wYxgOIAEoCzINLlNjZW5lTnBj",
             "SW5mbxIcCgRwcm9wGAUgASgLMg4uU2NlbmVQcm9wSW5mbxIpCgtzdW1tb25f",
             "dW5pdBgMIAEoCzIULlNjZW5lU3VtbW9uVW5pdEluZm9CHqoCG0VnZ0xpbmsu",
             "RGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MotionInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.SceneSummonUnitInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.SceneActorInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.SceneNpcMonsterInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.SceneNpcInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ScenePropInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.SceneNpcMonsterInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.MotionInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.SceneSummonUnitInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.SceneNpcInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ScenePropInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.SceneActorInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SceneEntityInfo), global::EggLink.DanhengServer.Proto.SceneEntityInfo.Parser, new[]{ "EntityId", "GroupId", "Motion", "InstId", "Actor", "NpcMonster", "Npc", "Prop", "SummonUnit" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SceneEntityInfo), global::EggLink.DanhengServer.Proto.SceneEntityInfo.Parser, new[]{ "InstId", "GroupId", "Motion", "EntityId", "Actor", "NpcMonster", "Npc", "Prop", "SummonUnit" }, null, null, null, null)
           }));
     }
     #endregion
@@ -80,10 +80,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SceneEntityInfo(SceneEntityInfo other) : this() {
-      entityId_ = other.entityId_;
+      instId_ = other.instId_;
       groupId_ = other.groupId_;
       motion_ = other.motion_ != null ? other.motion_.Clone() : null;
-      instId_ = other.instId_;
+      entityId_ = other.entityId_;
       actor_ = other.actor_ != null ? other.actor_.Clone() : null;
       npcMonster_ = other.npcMonster_ != null ? other.npcMonster_.Clone() : null;
       npc_ = other.npc_ != null ? other.npc_.Clone() : null;
@@ -98,15 +98,15 @@ namespace EggLink.DanhengServer.Proto {
       return new SceneEntityInfo(this);
     }
 
-    /// <summary>Field number for the "entity_id" field.</summary>
-    public const int EntityIdFieldNumber = 6;
-    private uint entityId_;
+    /// <summary>Field number for the "inst_id" field.</summary>
+    public const int InstIdFieldNumber = 4;
+    private uint instId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint EntityId {
-      get { return entityId_; }
+    public uint InstId {
+      get { return instId_; }
       set {
-        entityId_ = value;
+        instId_ = value;
       }
     }
 
@@ -134,15 +134,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "inst_id" field.</summary>
-    public const int InstIdFieldNumber = 4;
-    private uint instId_;
+    /// <summary>Field number for the "entity_id" field.</summary>
+    public const int EntityIdFieldNumber = 6;
+    private uint entityId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint InstId {
-      get { return instId_; }
+    public uint EntityId {
+      get { return entityId_; }
       set {
-        instId_ = value;
+        entityId_ = value;
       }
     }
 
@@ -221,10 +221,10 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (EntityId != other.EntityId) return false;
+      if (InstId != other.InstId) return false;
       if (GroupId != other.GroupId) return false;
       if (!object.Equals(Motion, other.Motion)) return false;
-      if (InstId != other.InstId) return false;
+      if (EntityId != other.EntityId) return false;
       if (!object.Equals(Actor, other.Actor)) return false;
       if (!object.Equals(NpcMonster, other.NpcMonster)) return false;
       if (!object.Equals(Npc, other.Npc)) return false;
@@ -237,10 +237,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (EntityId != 0) hash ^= EntityId.GetHashCode();
+      if (InstId != 0) hash ^= InstId.GetHashCode();
       if (GroupId != 0) hash ^= GroupId.GetHashCode();
       if (motion_ != null) hash ^= Motion.GetHashCode();
-      if (InstId != 0) hash ^= InstId.GetHashCode();
+      if (EntityId != 0) hash ^= EntityId.GetHashCode();
       if (actor_ != null) hash ^= Actor.GetHashCode();
       if (npcMonster_ != null) hash ^= NpcMonster.GetHashCode();
       if (npc_ != null) hash ^= Npc.GetHashCode();
@@ -356,8 +356,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (EntityId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EntityId);
+      if (InstId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(InstId);
       }
       if (GroupId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GroupId);
@@ -365,8 +365,8 @@ namespace EggLink.DanhengServer.Proto {
       if (motion_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Motion);
       }
-      if (InstId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(InstId);
+      if (EntityId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EntityId);
       }
       if (actor_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Actor);
@@ -395,8 +395,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.EntityId != 0) {
-        EntityId = other.EntityId;
+      if (other.InstId != 0) {
+        InstId = other.InstId;
       }
       if (other.GroupId != 0) {
         GroupId = other.GroupId;
@@ -407,8 +407,8 @@ namespace EggLink.DanhengServer.Proto {
         }
         Motion.MergeFrom(other.Motion);
       }
-      if (other.InstId != 0) {
-        InstId = other.InstId;
+      if (other.EntityId != 0) {
+        EntityId = other.EntityId;
       }
       if (other.actor_ != null) {
         if (actor_ == null) {

@@ -24,14 +24,15 @@ namespace EggLink.DanhengServer.Proto {
     static InteractChargerScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChpJbnRlcmFjdENoYXJnZXJTY1JzcC5wcm90bxoRQ2hhcmdlckluZm8ucHJv",
-            "dG8iSwoUSW50ZXJhY3RDaGFyZ2VyU2NSc3ASDwoHcmV0Y29kZRgMIAEoDRIi",
-            "CgxjaGFyZ2VyX2luZm8YDSABKAsyDC5DaGFyZ2VySW5mb0IeqgIbRWdnTGlu",
-            "ay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "ChpJbnRlcmFjdENoYXJnZXJTY1JzcC5wcm90bxoRRUNLTkZIQ0RKRkgucHJv",
+            "dG8aEUdMT0dJQUZOS0hBLnByb3RvIm0KFEludGVyYWN0Q2hhcmdlclNjUnNw",
+            "EiEKC09FS0hBRkFMT0ZCGAYgASgLMgwuRUNLTkZIQ0RKRkgSDwoHcmV0Y29k",
+            "ZRgMIAEoDRIhCgtEUEdBREFFT0xGTxgNIAEoCzIMLkdMT0dJQUZOS0hBQh6q",
+            "AhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChargerInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ECKNFHCDJFHReflection.Descriptor, global::EggLink.DanhengServer.Proto.GLOGIAFNKHAReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.InteractChargerScRsp), global::EggLink.DanhengServer.Proto.InteractChargerScRsp.Parser, new[]{ "Retcode", "ChargerInfo" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.InteractChargerScRsp), global::EggLink.DanhengServer.Proto.InteractChargerScRsp.Parser, new[]{ "OEKHAFALOFB", "Retcode", "DPGADAEOLFO" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,8 +74,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public InteractChargerScRsp(InteractChargerScRsp other) : this() {
+      oEKHAFALOFB_ = other.oEKHAFALOFB_ != null ? other.oEKHAFALOFB_.Clone() : null;
       retcode_ = other.retcode_;
-      chargerInfo_ = other.chargerInfo_ != null ? other.chargerInfo_.Clone() : null;
+      dPGADAEOLFO_ = other.dPGADAEOLFO_ != null ? other.dPGADAEOLFO_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -82,6 +84,18 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public InteractChargerScRsp Clone() {
       return new InteractChargerScRsp(this);
+    }
+
+    /// <summary>Field number for the "OEKHAFALOFB" field.</summary>
+    public const int OEKHAFALOFBFieldNumber = 6;
+    private global::EggLink.DanhengServer.Proto.ECKNFHCDJFH oEKHAFALOFB_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::EggLink.DanhengServer.Proto.ECKNFHCDJFH OEKHAFALOFB {
+      get { return oEKHAFALOFB_; }
+      set {
+        oEKHAFALOFB_ = value;
+      }
     }
 
     /// <summary>Field number for the "retcode" field.</summary>
@@ -96,15 +110,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "charger_info" field.</summary>
-    public const int ChargerInfoFieldNumber = 13;
-    private global::EggLink.DanhengServer.Proto.ChargerInfo chargerInfo_;
+    /// <summary>Field number for the "DPGADAEOLFO" field.</summary>
+    public const int DPGADAEOLFOFieldNumber = 13;
+    private global::EggLink.DanhengServer.Proto.GLOGIAFNKHA dPGADAEOLFO_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.ChargerInfo ChargerInfo {
-      get { return chargerInfo_; }
+    public global::EggLink.DanhengServer.Proto.GLOGIAFNKHA DPGADAEOLFO {
+      get { return dPGADAEOLFO_; }
       set {
-        chargerInfo_ = value;
+        dPGADAEOLFO_ = value;
       }
     }
 
@@ -123,8 +137,9 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (!object.Equals(OEKHAFALOFB, other.OEKHAFALOFB)) return false;
       if (Retcode != other.Retcode) return false;
-      if (!object.Equals(ChargerInfo, other.ChargerInfo)) return false;
+      if (!object.Equals(DPGADAEOLFO, other.DPGADAEOLFO)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -132,8 +147,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (oEKHAFALOFB_ != null) hash ^= OEKHAFALOFB.GetHashCode();
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
-      if (chargerInfo_ != null) hash ^= ChargerInfo.GetHashCode();
+      if (dPGADAEOLFO_ != null) hash ^= DPGADAEOLFO.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -152,13 +168,17 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (oEKHAFALOFB_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(OEKHAFALOFB);
+      }
       if (Retcode != 0) {
         output.WriteRawTag(96);
         output.WriteUInt32(Retcode);
       }
-      if (chargerInfo_ != null) {
+      if (dPGADAEOLFO_ != null) {
         output.WriteRawTag(106);
-        output.WriteMessage(ChargerInfo);
+        output.WriteMessage(DPGADAEOLFO);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -170,13 +190,17 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (oEKHAFALOFB_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(OEKHAFALOFB);
+      }
       if (Retcode != 0) {
         output.WriteRawTag(96);
         output.WriteUInt32(Retcode);
       }
-      if (chargerInfo_ != null) {
+      if (dPGADAEOLFO_ != null) {
         output.WriteRawTag(106);
-        output.WriteMessage(ChargerInfo);
+        output.WriteMessage(DPGADAEOLFO);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -188,11 +212,14 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (oEKHAFALOFB_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(OEKHAFALOFB);
+      }
       if (Retcode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
-      if (chargerInfo_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ChargerInfo);
+      if (dPGADAEOLFO_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DPGADAEOLFO);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -206,14 +233,20 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
+      if (other.oEKHAFALOFB_ != null) {
+        if (oEKHAFALOFB_ == null) {
+          OEKHAFALOFB = new global::EggLink.DanhengServer.Proto.ECKNFHCDJFH();
+        }
+        OEKHAFALOFB.MergeFrom(other.OEKHAFALOFB);
+      }
       if (other.Retcode != 0) {
         Retcode = other.Retcode;
       }
-      if (other.chargerInfo_ != null) {
-        if (chargerInfo_ == null) {
-          ChargerInfo = new global::EggLink.DanhengServer.Proto.ChargerInfo();
+      if (other.dPGADAEOLFO_ != null) {
+        if (dPGADAEOLFO_ == null) {
+          DPGADAEOLFO = new global::EggLink.DanhengServer.Proto.GLOGIAFNKHA();
         }
-        ChargerInfo.MergeFrom(other.ChargerInfo);
+        DPGADAEOLFO.MergeFrom(other.DPGADAEOLFO);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -230,15 +263,22 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 50: {
+            if (oEKHAFALOFB_ == null) {
+              OEKHAFALOFB = new global::EggLink.DanhengServer.Proto.ECKNFHCDJFH();
+            }
+            input.ReadMessage(OEKHAFALOFB);
+            break;
+          }
           case 96: {
             Retcode = input.ReadUInt32();
             break;
           }
           case 106: {
-            if (chargerInfo_ == null) {
-              ChargerInfo = new global::EggLink.DanhengServer.Proto.ChargerInfo();
+            if (dPGADAEOLFO_ == null) {
+              DPGADAEOLFO = new global::EggLink.DanhengServer.Proto.GLOGIAFNKHA();
             }
-            input.ReadMessage(ChargerInfo);
+            input.ReadMessage(DPGADAEOLFO);
             break;
           }
         }
@@ -256,15 +296,22 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
+          case 50: {
+            if (oEKHAFALOFB_ == null) {
+              OEKHAFALOFB = new global::EggLink.DanhengServer.Proto.ECKNFHCDJFH();
+            }
+            input.ReadMessage(OEKHAFALOFB);
+            break;
+          }
           case 96: {
             Retcode = input.ReadUInt32();
             break;
           }
           case 106: {
-            if (chargerInfo_ == null) {
-              ChargerInfo = new global::EggLink.DanhengServer.Proto.ChargerInfo();
+            if (dPGADAEOLFO_ == null) {
+              DPGADAEOLFO = new global::EggLink.DanhengServer.Proto.GLOGIAFNKHA();
             }
-            input.ReadMessage(ChargerInfo);
+            input.ReadMessage(DPGADAEOLFO);
             break;
           }
         }

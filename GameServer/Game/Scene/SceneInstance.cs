@@ -11,6 +11,8 @@ namespace EggLink.DanhengServer.Game.Scene
 {
     public class SceneInstance
     {
+        #region Data
+
         public PlayerInstance Player;
         public MazePlaneExcel Excel;
         public FloorInfo? FloorInfo;
@@ -51,6 +53,10 @@ namespace EggLink.DanhengServer.Game.Scene
             EntityLoader.LoadEntity();
         }
 
+        #endregion
+
+        #region Scene Actions
+
         public void SyncLineup()
         {
             AvatarInfo = [];
@@ -84,6 +90,10 @@ namespace EggLink.DanhengServer.Game.Scene
             LeaderAvatarId = Player.LineupManager?.GetCurLineup()?.LeaderAvatarId ?? 0;
         }
 
+        #endregion
+
+        #region Scene Details
+
         public EntityProp? GetNearestSpring(long minDistSq)
         {
             EntityProp? spring = null;
@@ -103,6 +113,10 @@ namespace EggLink.DanhengServer.Game.Scene
 
             return spring;
         }
+
+        #endregion
+
+        #region Entity Management
 
         public void AddEntity(IGameEntity entity)
         {
@@ -135,7 +149,9 @@ namespace EggLink.DanhengServer.Game.Scene
             return entities;
         }
 
-        #region Proto Convert
+        #endregion
+
+        #region Serialization
 
         public SceneInfo ToProto()
         {

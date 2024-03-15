@@ -2,9 +2,9 @@
 {
     public class LoginResJson
     {
-        public string message { get; set; }
+        public string? message { get; set; }
         public int retcode { get; set; }
-        public VerifyData data { get; set; }
+        public VerifyData? data { get; set; }
 
         public class VerifyData
         {
@@ -24,15 +24,15 @@
 
         public class VerifyAccountData
         {
-            public string uid { get; set; }
+            public string? uid { get; set; }
             public string name { get; set; } = "";
             public string email { get; set; } = "";
             public string mobile { get; set; } = "";
             public string is_email_verify { get; set; } = "0";
             public string realname { get; set; } = "";
             public string identity_card { get; set; } = "";
-            public string token { get; set; }
-            public string safe_mobile { get; set; } = "";
+            public string? token { get; set; }
+            public string? safe_mobile { get; set; } = "";
             public string facebook_name { get; set; } = "";
             public string twitter_name { get; set; } = "";
             public string game_center_name { get; set; } = "";

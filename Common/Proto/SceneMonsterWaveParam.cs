@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static SceneMonsterWaveParamReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChtTY2VuZU1vbnN0ZXJXYXZlUGFyYW0ucHJvdG8iVQoVU2NlbmVNb25zdGVy",
+            "ChtTY2VuZU1vbnN0ZXJXYXZlUGFyYW0ucHJvdG8iagoVU2NlbmVNb25zdGVy",
             "V2F2ZVBhcmFtEhgKEGhhcmRfbGV2ZWxfZ3JvdXAYAyABKA0SDQoFbGV2ZWwY",
-            "CCABKA0SEwoLZWxpdGVfZ3JvdXAYCiABKA1CHqoCG0VnZ0xpbmsuRGFuaGVu",
-            "Z1NlcnZlci5Qcm90b2IGcHJvdG8z"));
+            "CCABKA0SEwoLZWxpdGVfZ3JvdXAYCiABKA0SEwoLS0FCRE9QSUtKSkkYCSAB",
+            "KA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SceneMonsterWaveParam), global::EggLink.DanhengServer.Proto.SceneMonsterWaveParam.Parser, new[]{ "HardLevelGroup", "Level", "EliteGroup" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SceneMonsterWaveParam), global::EggLink.DanhengServer.Proto.SceneMonsterWaveParam.Parser, new[]{ "HardLevelGroup", "Level", "EliteGroup", "KABDOPIKJJI" }, null, null, null, null)
           }));
     }
     #endregion
@@ -76,6 +76,7 @@ namespace EggLink.DanhengServer.Proto {
       hardLevelGroup_ = other.hardLevelGroup_;
       level_ = other.level_;
       eliteGroup_ = other.eliteGroup_;
+      kABDOPIKJJI_ = other.kABDOPIKJJI_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -121,6 +122,18 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
+    /// <summary>Field number for the "KABDOPIKJJI" field.</summary>
+    public const int KABDOPIKJJIFieldNumber = 9;
+    private uint kABDOPIKJJI_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint KABDOPIKJJI {
+      get { return kABDOPIKJJI_; }
+      set {
+        kABDOPIKJJI_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -139,6 +152,7 @@ namespace EggLink.DanhengServer.Proto {
       if (HardLevelGroup != other.HardLevelGroup) return false;
       if (Level != other.Level) return false;
       if (EliteGroup != other.EliteGroup) return false;
+      if (KABDOPIKJJI != other.KABDOPIKJJI) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -149,6 +163,7 @@ namespace EggLink.DanhengServer.Proto {
       if (HardLevelGroup != 0) hash ^= HardLevelGroup.GetHashCode();
       if (Level != 0) hash ^= Level.GetHashCode();
       if (EliteGroup != 0) hash ^= EliteGroup.GetHashCode();
+      if (KABDOPIKJJI != 0) hash ^= KABDOPIKJJI.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -175,6 +190,10 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(64);
         output.WriteUInt32(Level);
       }
+      if (KABDOPIKJJI != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(KABDOPIKJJI);
+      }
       if (EliteGroup != 0) {
         output.WriteRawTag(80);
         output.WriteUInt32(EliteGroup);
@@ -196,6 +215,10 @@ namespace EggLink.DanhengServer.Proto {
       if (Level != 0) {
         output.WriteRawTag(64);
         output.WriteUInt32(Level);
+      }
+      if (KABDOPIKJJI != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(KABDOPIKJJI);
       }
       if (EliteGroup != 0) {
         output.WriteRawTag(80);
@@ -220,6 +243,9 @@ namespace EggLink.DanhengServer.Proto {
       if (EliteGroup != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EliteGroup);
       }
+      if (KABDOPIKJJI != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(KABDOPIKJJI);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -240,6 +266,9 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (other.EliteGroup != 0) {
         EliteGroup = other.EliteGroup;
+      }
+      if (other.KABDOPIKJJI != 0) {
+        KABDOPIKJJI = other.KABDOPIKJJI;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -262,6 +291,10 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 64: {
             Level = input.ReadUInt32();
+            break;
+          }
+          case 72: {
+            KABDOPIKJJI = input.ReadUInt32();
             break;
           }
           case 80: {
@@ -289,6 +322,10 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 64: {
             Level = input.ReadUInt32();
+            break;
+          }
+          case 72: {
+            KABDOPIKJJI = input.ReadUInt32();
             break;
           }
           case 80: {

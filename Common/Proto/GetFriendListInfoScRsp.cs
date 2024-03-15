@@ -24,14 +24,16 @@ namespace EggLink.DanhengServer.Proto {
     static GetFriendListInfoScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChxHZXRGcmllbmRMaXN0SW5mb1NjUnNwLnByb3RvGhRGcmllbmRMaXN0SW5m",
-            "by5wcm90byJPChZHZXRGcmllbmRMaXN0SW5mb1NjUnNwEg8KB3JldGNvZGUY",
-            "BiABKA0SJAoLZnJpZW5kX2xpc3QYAiADKAsyDy5GcmllbmRMaXN0SW5mb0Ie",
-            "qgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "ChxHZXRGcmllbmRMaXN0SW5mb1NjUnNwLnByb3RvGhZGcmllbmRTaW1wbGVJ",
+            "bmZvLnByb3RvGhZQbGF5ZXJTaW1wbGVJbmZvLnByb3RvIngKFkdldEZyaWVu",
+            "ZExpc3RJbmZvU2NSc3ASDwoHcmV0Y29kZRgGIAEoDRImCgtmcmllbmRfbGlz",
+            "dBgCIAMoCzIRLkZyaWVuZFNpbXBsZUluZm8SJQoKYmxhY2tfbGlzdBgBIAMo",
+            "CzIRLlBsYXllclNpbXBsZUluZm9CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZl",
+            "ci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.FriendListInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.FriendSimpleInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.PlayerSimpleInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetFriendListInfoScRsp), global::EggLink.DanhengServer.Proto.GetFriendListInfoScRsp.Parser, new[]{ "Retcode", "FriendList" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetFriendListInfoScRsp), global::EggLink.DanhengServer.Proto.GetFriendListInfoScRsp.Parser, new[]{ "Retcode", "FriendList", "BlackList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -75,6 +77,7 @@ namespace EggLink.DanhengServer.Proto {
     public GetFriendListInfoScRsp(GetFriendListInfoScRsp other) : this() {
       retcode_ = other.retcode_;
       friendList_ = other.friendList_.Clone();
+      blackList_ = other.blackList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -98,13 +101,24 @@ namespace EggLink.DanhengServer.Proto {
 
     /// <summary>Field number for the "friend_list" field.</summary>
     public const int FriendListFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.FriendListInfo> _repeated_friendList_codec
-        = pb::FieldCodec.ForMessage(18, global::EggLink.DanhengServer.Proto.FriendListInfo.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FriendListInfo> friendList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FriendListInfo>();
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.FriendSimpleInfo> _repeated_friendList_codec
+        = pb::FieldCodec.ForMessage(18, global::EggLink.DanhengServer.Proto.FriendSimpleInfo.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FriendSimpleInfo> friendList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FriendSimpleInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FriendListInfo> FriendList {
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FriendSimpleInfo> FriendList {
       get { return friendList_; }
+    }
+
+    /// <summary>Field number for the "black_list" field.</summary>
+    public const int BlackListFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.PlayerSimpleInfo> _repeated_blackList_codec
+        = pb::FieldCodec.ForMessage(10, global::EggLink.DanhengServer.Proto.PlayerSimpleInfo.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.PlayerSimpleInfo> blackList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.PlayerSimpleInfo>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.PlayerSimpleInfo> BlackList {
+      get { return blackList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -124,6 +138,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (Retcode != other.Retcode) return false;
       if(!friendList_.Equals(other.friendList_)) return false;
+      if(!blackList_.Equals(other.blackList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -133,6 +148,7 @@ namespace EggLink.DanhengServer.Proto {
       int hash = 1;
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
       hash ^= friendList_.GetHashCode();
+      hash ^= blackList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -151,6 +167,7 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      blackList_.WriteTo(output, _repeated_blackList_codec);
       friendList_.WriteTo(output, _repeated_friendList_codec);
       if (Retcode != 0) {
         output.WriteRawTag(48);
@@ -166,6 +183,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      blackList_.WriteTo(ref output, _repeated_blackList_codec);
       friendList_.WriteTo(ref output, _repeated_friendList_codec);
       if (Retcode != 0) {
         output.WriteRawTag(48);
@@ -185,6 +203,7 @@ namespace EggLink.DanhengServer.Proto {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
       size += friendList_.CalculateSize(_repeated_friendList_codec);
+      size += blackList_.CalculateSize(_repeated_blackList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -201,6 +220,7 @@ namespace EggLink.DanhengServer.Proto {
         Retcode = other.Retcode;
       }
       friendList_.Add(other.friendList_);
+      blackList_.Add(other.blackList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -216,6 +236,10 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 10: {
+            blackList_.AddEntriesFrom(input, _repeated_blackList_codec);
+            break;
+          }
           case 18: {
             friendList_.AddEntriesFrom(input, _repeated_friendList_codec);
             break;
@@ -239,6 +263,10 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
+          case 10: {
+            blackList_.AddEntriesFrom(ref input, _repeated_blackList_codec);
+            break;
+          }
           case 18: {
             friendList_.AddEntriesFrom(ref input, _repeated_friendList_codec);
             break;

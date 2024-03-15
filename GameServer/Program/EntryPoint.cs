@@ -8,10 +8,11 @@ using EggLink.DanhengServer.Server.Packet;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using EggLink.DanhengServer.Command;
+using System.Runtime.InteropServices;
 
 namespace EggLink.DanhengServer.Program
 {
-    public class EntryPoint
+    public partial class EntryPoint
     {
         private static Logger logger = new("Program");
         public static DatabaseHelper DatabaseHelper = new();
@@ -78,6 +79,7 @@ namespace EggLink.DanhengServer.Program
                 Console.ReadLine();
                 return;
             }
+            SetConsoleCtrlHandler(new ConsoleCtrlDelegate(ConsoleCtrlHandler), true);
             WebProgram.Main([$"--urls=http://{GetConfig().HttpServer.PublicAddress}:{GetConfig().HttpServer.PublicPort}/"]);
             logger.Info($"DispatchServer is running on http://{GetConfig().HttpServer.PublicAddress}:{GetConfig().HttpServer.PublicPort}/");
 
@@ -89,12 +91,27 @@ namespace EggLink.DanhengServer.Program
 #if DEBUG
             JsonConvert.DeserializeObject<JObject>(File.ReadAllText("LogMap.json"))!.Properties().ToList().ForEach(x => Connection.LogMap.Add(x.Name, x.Value.ToString()));
 #endif
+
             CommandManager.Start();
         }
 
         public static ConfigContainer GetConfig()
         {
             return ConfigManager.Config;
+        }
+
+        private delegate bool ConsoleCtrlDelegate(int ctrlType);
+
+        [LibraryImport("Kernel32")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static partial bool SetConsoleCtrlHandler(ConsoleCtrlDelegate handler, [MarshalAs(UnmanagedType.Bool)] bool add);
+
+        private static bool ConsoleCtrlHandler(int ctrlType)
+        {
+            logger.Info("Shutting down...");
+            Listener.Connections.Values.ToList().ForEach(x => x.Stop());
+            Environment.Exit(0);
+            return false;
         }
     }
 }

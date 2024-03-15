@@ -25,14 +25,14 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChJHYWNoYUNlaWxpbmcucHJvdG8aGEdhY2hhQ2VpbGluZ0F2YXRhci5wcm90",
-            "byJhCgxHYWNoYUNlaWxpbmcSEgoKaXNfY2xhaW1lZBgDIAEoCBIoCgthdmF0",
-            "YXJfbGlzdBgBIAMoCzITLkdhY2hhQ2VpbGluZ0F2YXRhchITCgtjZWlsaW5n",
-            "X251bRgEIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZw",
-            "cm90bzM="));
+            "byJiCgxHYWNoYUNlaWxpbmcSEwoLQUlEQ0dISk1IS0EYBCABKA0SEwoLTk9C",
+            "S0pDS0ZJRU4YAyABKAgSKAoLYXZhdGFyX2xpc3QYASADKAsyEy5HYWNoYUNl",
+            "aWxpbmdBdmF0YXJCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.GachaCeilingAvatarReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GachaCeiling), global::EggLink.DanhengServer.Proto.GachaCeiling.Parser, new[]{ "IsClaimed", "AvatarList", "CeilingNum" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GachaCeiling), global::EggLink.DanhengServer.Proto.GachaCeiling.Parser, new[]{ "AIDCGHJMHKA", "NOBKJCKFIEN", "AvatarList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,9 +74,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GachaCeiling(GachaCeiling other) : this() {
-      isClaimed_ = other.isClaimed_;
+      aIDCGHJMHKA_ = other.aIDCGHJMHKA_;
+      nOBKJCKFIEN_ = other.nOBKJCKFIEN_;
       avatarList_ = other.avatarList_.Clone();
-      ceilingNum_ = other.ceilingNum_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -86,15 +86,27 @@ namespace EggLink.DanhengServer.Proto {
       return new GachaCeiling(this);
     }
 
-    /// <summary>Field number for the "is_claimed" field.</summary>
-    public const int IsClaimedFieldNumber = 3;
-    private bool isClaimed_;
+    /// <summary>Field number for the "AIDCGHJMHKA" field.</summary>
+    public const int AIDCGHJMHKAFieldNumber = 4;
+    private uint aIDCGHJMHKA_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool IsClaimed {
-      get { return isClaimed_; }
+    public uint AIDCGHJMHKA {
+      get { return aIDCGHJMHKA_; }
       set {
-        isClaimed_ = value;
+        aIDCGHJMHKA_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "NOBKJCKFIEN" field.</summary>
+    public const int NOBKJCKFIENFieldNumber = 3;
+    private bool nOBKJCKFIEN_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool NOBKJCKFIEN {
+      get { return nOBKJCKFIEN_; }
+      set {
+        nOBKJCKFIEN_ = value;
       }
     }
 
@@ -107,18 +119,6 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GachaCeilingAvatar> AvatarList {
       get { return avatarList_; }
-    }
-
-    /// <summary>Field number for the "ceiling_num" field.</summary>
-    public const int CeilingNumFieldNumber = 4;
-    private uint ceilingNum_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint CeilingNum {
-      get { return ceilingNum_; }
-      set {
-        ceilingNum_ = value;
-      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -136,9 +136,9 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (IsClaimed != other.IsClaimed) return false;
+      if (AIDCGHJMHKA != other.AIDCGHJMHKA) return false;
+      if (NOBKJCKFIEN != other.NOBKJCKFIEN) return false;
       if(!avatarList_.Equals(other.avatarList_)) return false;
-      if (CeilingNum != other.CeilingNum) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -146,9 +146,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (IsClaimed != false) hash ^= IsClaimed.GetHashCode();
+      if (AIDCGHJMHKA != 0) hash ^= AIDCGHJMHKA.GetHashCode();
+      if (NOBKJCKFIEN != false) hash ^= NOBKJCKFIEN.GetHashCode();
       hash ^= avatarList_.GetHashCode();
-      if (CeilingNum != 0) hash ^= CeilingNum.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -168,13 +168,13 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       avatarList_.WriteTo(output, _repeated_avatarList_codec);
-      if (IsClaimed != false) {
+      if (NOBKJCKFIEN != false) {
         output.WriteRawTag(24);
-        output.WriteBool(IsClaimed);
+        output.WriteBool(NOBKJCKFIEN);
       }
-      if (CeilingNum != 0) {
+      if (AIDCGHJMHKA != 0) {
         output.WriteRawTag(32);
-        output.WriteUInt32(CeilingNum);
+        output.WriteUInt32(AIDCGHJMHKA);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -187,13 +187,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       avatarList_.WriteTo(ref output, _repeated_avatarList_codec);
-      if (IsClaimed != false) {
+      if (NOBKJCKFIEN != false) {
         output.WriteRawTag(24);
-        output.WriteBool(IsClaimed);
+        output.WriteBool(NOBKJCKFIEN);
       }
-      if (CeilingNum != 0) {
+      if (AIDCGHJMHKA != 0) {
         output.WriteRawTag(32);
-        output.WriteUInt32(CeilingNum);
+        output.WriteUInt32(AIDCGHJMHKA);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -205,13 +205,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (IsClaimed != false) {
+      if (AIDCGHJMHKA != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(AIDCGHJMHKA);
+      }
+      if (NOBKJCKFIEN != false) {
         size += 1 + 1;
       }
       size += avatarList_.CalculateSize(_repeated_avatarList_codec);
-      if (CeilingNum != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(CeilingNum);
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -224,13 +224,13 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.IsClaimed != false) {
-        IsClaimed = other.IsClaimed;
+      if (other.AIDCGHJMHKA != 0) {
+        AIDCGHJMHKA = other.AIDCGHJMHKA;
+      }
+      if (other.NOBKJCKFIEN != false) {
+        NOBKJCKFIEN = other.NOBKJCKFIEN;
       }
       avatarList_.Add(other.avatarList_);
-      if (other.CeilingNum != 0) {
-        CeilingNum = other.CeilingNum;
-      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -251,11 +251,11 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 24: {
-            IsClaimed = input.ReadBool();
+            NOBKJCKFIEN = input.ReadBool();
             break;
           }
           case 32: {
-            CeilingNum = input.ReadUInt32();
+            AIDCGHJMHKA = input.ReadUInt32();
             break;
           }
         }
@@ -278,11 +278,11 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 24: {
-            IsClaimed = input.ReadBool();
+            NOBKJCKFIEN = input.ReadBool();
             break;
           }
           case 32: {
-            CeilingNum = input.ReadUInt32();
+            AIDCGHJMHKA = input.ReadUInt32();
             break;
           }
         }

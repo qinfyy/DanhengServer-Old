@@ -30,68 +30,70 @@ namespace EggLink.DanhengServer.Data
                 if (attribute != null)
                 {
                     var resource = (ExcelResource)Activator.CreateInstance(cls)!;
-                    var path = ConfigManager.Config.Path.ResourcePath + "/ExcelOutput/" + attribute.FileName;
-                    var file = new FileInfo(path);
-                    if (!file.Exists)
-                    {
-                        if (attribute.IsCritical)
-                        {
-                            throw new FileNotFoundException($"File {path} not found");
-                        }
-                        else
-                        {
-                            Logger.Warn($"File {path} not found");
-                            continue;
-                        }
-                    }
-                    var json = file.OpenText().ReadToEnd();
                     var count = 0;
-                    using (var reader = new JsonTextReader(new StringReader(json)))
+                    foreach (var fileName in attribute.FileName)
                     {
-                        reader.Read();
-                        if (reader.TokenType == JsonToken.StartArray)
+                        var path = ConfigManager.Config.Path.ResourcePath + "/ExcelOutput/" + fileName;
+                        var file = new FileInfo(path);
+                        if (!file.Exists)
                         {
-                            // array
-                            var jArray = JArray.Parse(json);
-                            foreach (var item in jArray)
+                            if (attribute.IsCritical)
                             {
-                                var res = JsonConvert.DeserializeObject(item.ToString(), cls);
-                                ((ExcelResource?)res)?.Loaded();
-                                count++;
+                                throw new FileNotFoundException($"File {path} not found");
+                            }
+                            else
+                            {
+                                Logger.Warn($"File {path} not found");
+                                continue;
                             }
                         }
-                        else if (reader.TokenType == JsonToken.StartObject)
+                        var json = file.OpenText().ReadToEnd();
+                        using (var reader = new JsonTextReader(new StringReader(json)))
                         {
-                            // dictionary
-                            var jObject = JObject.Parse(json);
-                            foreach (var item in jObject)
+                            reader.Read();
+                            if (reader.TokenType == JsonToken.StartArray)
                             {
-                                var id = int.Parse(item.Key);
-                                var obj = item.Value;
-                                var instance = JsonConvert.DeserializeObject(obj!.ToString(), cls);
-                                
-                                if (((ExcelResource?)instance)?.GetId() == 0 || ((ExcelResource?)instance) == null)
+                                // array
+                                var jArray = JArray.Parse(json);
+                                foreach (var item in jArray)
                                 {
-                                    // Deserialize as JObject to handle nested dictionaries
-                                    var nestedObject = JsonConvert.DeserializeObject<JObject>(obj.ToString());
+                                    var res = JsonConvert.DeserializeObject(item.ToString(), cls);
+                                    ((ExcelResource?)res)?.Loaded();
+                                    count++;
+                                }
+                            }
+                            else if (reader.TokenType == JsonToken.StartObject)
+                            {
+                                // dictionary
+                                var jObject = JObject.Parse(json);
+                                foreach (var item in jObject)
+                                {
+                                    var id = int.Parse(item.Key);
+                                    var obj = item.Value;
+                                    var instance = JsonConvert.DeserializeObject(obj!.ToString(), cls);
 
-                                    foreach (var nestedItem in nestedObject ?? [])
+                                    if (((ExcelResource?)instance)?.GetId() == 0 || ((ExcelResource?)instance) == null)
                                     {
-                                        var nestedInstance = JsonConvert.DeserializeObject(nestedItem.Value!.ToString(), cls);
-                                        ((ExcelResource?)nestedInstance)?.Loaded();
-                                        count++;
+                                        // Deserialize as JObject to handle nested dictionaries
+                                        var nestedObject = JsonConvert.DeserializeObject<JObject>(obj.ToString());
+
+                                        foreach (var nestedItem in nestedObject ?? [])
+                                        {
+                                            var nestedInstance = JsonConvert.DeserializeObject(nestedItem.Value!.ToString(), cls);
+                                            ((ExcelResource?)nestedInstance)?.Loaded();
+                                            count++;
+                                        }
                                     }
+                                    else
+                                    {
+                                        ((ExcelResource)instance).Loaded();
+                                    }
+                                    count++;
                                 }
-                                else
-                                {
-                                    ((ExcelResource)instance).Loaded();
-                                }
-                                count++;
                             }
                         }
+                        resource.Finalized();
                     }
-                    resource.Finalized();
-
                     Logger.Info($"Loaded {count} {cls.Name}s.");
                 }
             }
@@ -152,6 +154,7 @@ namespace EggLink.DanhengServer.Data
                         {
                             group.Id = groupInfo.ID;
                             info.Groups.Add(groupInfo.ID, group);
+                            group.Load();
                         }
                     } catch (Exception ex)
                     {

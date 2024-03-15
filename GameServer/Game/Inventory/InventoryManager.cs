@@ -21,6 +21,9 @@ namespace EggLink.DanhengServer.Game.Inventory
             Data = inventory!;
         }
 
+        public void AddItem(int itemId, int count)
+        {
 
+        }
     }
 }

@@ -25,14 +25,14 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CiBHZXRGYXJtU3RhZ2VHYWNoYUluZm9TY1JzcC5wcm90bxoYRmFybVN0YWdl",
-            "R2FjaGFJbmZvLnByb3RvImYKGkdldEZhcm1TdGFnZUdhY2hhSW5mb1NjUnNw",
-            "Eg8KB3JldGNvZGUYBSABKA0SNwoaZmFybV9zdGFnZV9nYWNoYV9pbmZvX2xp",
-            "c3QYDCADKAsyEy5GYXJtU3RhZ2VHYWNoYUluZm9CHqoCG0VnZ0xpbmsuRGFu",
-            "aGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
+            "R2FjaGFJbmZvLnByb3RvImEKGkdldEZhcm1TdGFnZUdhY2hhSW5mb1NjUnNw",
+            "EjIKFWZhcm1fc3RhZ2VfZ2FjaGFfaW5mbxgMIAMoCzITLkZhcm1TdGFnZUdh",
+            "Y2hhSW5mbxIPCgdyZXRjb2RlGAUgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdT",
+            "ZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.FarmStageGachaInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetFarmStageGachaInfoScRsp), global::EggLink.DanhengServer.Proto.GetFarmStageGachaInfoScRsp.Parser, new[]{ "Retcode", "FarmStageGachaInfoList" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetFarmStageGachaInfoScRsp), global::EggLink.DanhengServer.Proto.GetFarmStageGachaInfoScRsp.Parser, new[]{ "FarmStageGachaInfo", "Retcode" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,8 +74,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetFarmStageGachaInfoScRsp(GetFarmStageGachaInfoScRsp other) : this() {
+      farmStageGachaInfo_ = other.farmStageGachaInfo_.Clone();
       retcode_ = other.retcode_;
-      farmStageGachaInfoList_ = other.farmStageGachaInfoList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,6 +83,17 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetFarmStageGachaInfoScRsp Clone() {
       return new GetFarmStageGachaInfoScRsp(this);
+    }
+
+    /// <summary>Field number for the "farm_stage_gacha_info" field.</summary>
+    public const int FarmStageGachaInfoFieldNumber = 12;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.FarmStageGachaInfo> _repeated_farmStageGachaInfo_codec
+        = pb::FieldCodec.ForMessage(98, global::EggLink.DanhengServer.Proto.FarmStageGachaInfo.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FarmStageGachaInfo> farmStageGachaInfo_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FarmStageGachaInfo>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FarmStageGachaInfo> FarmStageGachaInfo {
+      get { return farmStageGachaInfo_; }
     }
 
     /// <summary>Field number for the "retcode" field.</summary>
@@ -95,17 +106,6 @@ namespace EggLink.DanhengServer.Proto {
       set {
         retcode_ = value;
       }
-    }
-
-    /// <summary>Field number for the "farm_stage_gacha_info_list" field.</summary>
-    public const int FarmStageGachaInfoListFieldNumber = 12;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.FarmStageGachaInfo> _repeated_farmStageGachaInfoList_codec
-        = pb::FieldCodec.ForMessage(98, global::EggLink.DanhengServer.Proto.FarmStageGachaInfo.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FarmStageGachaInfo> farmStageGachaInfoList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FarmStageGachaInfo>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FarmStageGachaInfo> FarmStageGachaInfoList {
-      get { return farmStageGachaInfoList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -123,8 +123,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if(!farmStageGachaInfo_.Equals(other.farmStageGachaInfo_)) return false;
       if (Retcode != other.Retcode) return false;
-      if(!farmStageGachaInfoList_.Equals(other.farmStageGachaInfoList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -132,8 +132,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      hash ^= farmStageGachaInfo_.GetHashCode();
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
-      hash ^= farmStageGachaInfoList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -156,7 +156,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(40);
         output.WriteUInt32(Retcode);
       }
-      farmStageGachaInfoList_.WriteTo(output, _repeated_farmStageGachaInfoList_codec);
+      farmStageGachaInfo_.WriteTo(output, _repeated_farmStageGachaInfo_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -171,7 +171,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(40);
         output.WriteUInt32(Retcode);
       }
-      farmStageGachaInfoList_.WriteTo(ref output, _repeated_farmStageGachaInfoList_codec);
+      farmStageGachaInfo_.WriteTo(ref output, _repeated_farmStageGachaInfo_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -182,10 +182,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      size += farmStageGachaInfo_.CalculateSize(_repeated_farmStageGachaInfo_codec);
       if (Retcode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
-      size += farmStageGachaInfoList_.CalculateSize(_repeated_farmStageGachaInfoList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -198,10 +198,10 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
+      farmStageGachaInfo_.Add(other.farmStageGachaInfo_);
       if (other.Retcode != 0) {
         Retcode = other.Retcode;
       }
-      farmStageGachaInfoList_.Add(other.farmStageGachaInfoList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -222,7 +222,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 98: {
-            farmStageGachaInfoList_.AddEntriesFrom(input, _repeated_farmStageGachaInfoList_codec);
+            farmStageGachaInfo_.AddEntriesFrom(input, _repeated_farmStageGachaInfo_codec);
             break;
           }
         }
@@ -245,7 +245,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 98: {
-            farmStageGachaInfoList_.AddEntriesFrom(ref input, _repeated_farmStageGachaInfoList_codec);
+            farmStageGachaInfo_.AddEntriesFrom(ref input, _repeated_farmStageGachaInfo_codec);
             break;
           }
         }

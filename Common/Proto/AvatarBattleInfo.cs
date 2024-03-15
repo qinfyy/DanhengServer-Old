@@ -24,17 +24,44 @@ namespace EggLink.DanhengServer.Proto {
     static AvatarBattleInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChZBdmF0YXJCYXR0bGVJbmZvLnByb3RvGhRBdmF0YXJQcm9wZXJ0eS5wcm90",
-            "bxoQQXZhdGFyVHlwZS5wcm90byKtAQoQQXZhdGFyQmF0dGxlSW5mbxIgCgth",
-            "dmF0YXJfdHlwZRgBIAEoDjILLkF2YXRhclR5cGUSCgoCaWQYAiABKA0SFAoM",
-            "YXZhdGFyX2xldmVsGAMgASgNEhMKC2F2YXRhcl9yYW5rGAQgASgNEhgKEGF2",
-            "YXRhcl9wcm9tb3Rpb24YBSABKA0SJgoNYXZhdGFyX3N0YXR1cxgGIAEoCzIP",
-            "LkF2YXRhclByb3BlcnR5Qh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJv",
-            "dG9iBnByb3RvMw=="));
+            "ChZBdmF0YXJCYXR0bGVJbmZvLnByb3RvGhNBYmlsaXR5VXNlU3R0LnByb3Rv",
+            "GhpBdHRhY2tEYW1hZ2VQcm9wZXJ0eS5wcm90bxoRU3BBZGRTb3VyY2UucHJv",
+            "dG8aFlNraWxsVXNlUHJvcGVydHkucHJvdG8aFEF2YXRhclByb3BlcnR5LnBy",
+            "b3RvGhFCYXR0bGVSZWxpYy5wcm90bxoXRXF1aXBtZW50UHJvcGVydHkucHJv",
+            "dG8aEEF2YXRhclR5cGUucHJvdG8aFUF2YXRhclNraWxsVHJlZS5wcm90byLS",
+            "CQoQQXZhdGFyQmF0dGxlSW5mbxIgCgthdmF0YXJfdHlwZRgBIAEoDjILLkF2",
+            "YXRhclR5cGUSCgoCaWQYAiABKA0SFAoMYXZhdGFyX2xldmVsGAMgASgNEhMK",
+            "C2F2YXRhcl9yYW5rGAQgASgNEhgKEGF2YXRhcl9wcm9tb3Rpb24YBSABKA0S",
+            "JgoNYXZhdGFyX3N0YXR1cxgGIAEoCzIPLkF2YXRhclByb3BlcnR5EiYKDGF2",
+            "YXRhcl9za2lsbBgHIAMoCzIQLkF2YXRhclNraWxsVHJlZRIsChBhdmF0YXJf",
+            "ZXF1aXBtZW50GAggAygLMhIuRXF1aXBtZW50UHJvcGVydHkSEwoLdG90YWxf",
+            "dHVybnMYCSABKA0SFAoMdG90YWxfZGFtYWdlGAogASgBEhIKCnRvdGFsX2hl",
+            "YWwYCyABKAESGgoSdG90YWxfZGFtYWdlX3Rha2VuGAwgASgBEhgKEHRvdGFs",
+            "X2hwX3JlY292ZXIYDSABKAESFQoNdG90YWxfc3BfY29zdBgOIAEoARIQCghz",
+            "dGFnZV9pZBgPIAEoDRISCgpzdGFnZV90eXBlGBAgASgNEhoKEnRvdGFsX2Jy",
+            "ZWFrX2RhbWFnZRgRIAEoARIxChJhdHRhY2tfdHlwZV9kYW1hZ2UYEiADKAsy",
+            "FS5BdHRhY2tEYW1hZ2VQcm9wZXJ0eRI3ChhhdHRhY2tfdHlwZV9icmVha19k",
+            "YW1hZ2UYEyADKAsyFS5BdHRhY2tEYW1hZ2VQcm9wZXJ0eRI1ChZhdHRhY2tf",
+            "dHlwZV9tYXhfZGFtYWdlGBQgAygLMhUuQXR0YWNrRGFtYWdlUHJvcGVydHkS",
+            "JgoLc2tpbGxfdGltZXMYFSADKAsyES5Ta2lsbFVzZVByb3BlcnR5EhYKDmRl",
+            "bGF5X2N1bXVsYXRlGBYgASgBEhQKDHRvdGFsX3NwX2FkZBgXIAEoDRIjCg1z",
+            "cF9hZGRfc291cmNlGBggAygLMgwuU3BBZGRTb3VyY2USFQoNdG90YWxfYnBf",
+            "Y29zdBgZIAEoDRIRCglkaWVfdGltZXMYGiABKA0SFAoMcmV2aXZlX3RpbWVz",
+            "GBsgASgNEhMKC2JyZWFrX3RpbWVzGBwgASgNEhMKC2V4dHJhX3R1cm5zGB0g",
+            "ASgNEhQKDHRvdGFsX3NoaWVsZBgeIAEoARIaChJ0b3RhbF9zaGllbGRfdGFr",
+            "ZW4YHyABKAESGwoTdG90YWxfc2hpZWxkX2RhbWFnZRggIAEoARInCg5pbml0",
+            "aWFsX3N0YXR1cxghIAEoCzIPLkF2YXRhclByb3BlcnR5EhwKBnJlbGljcxgi",
+            "IAMoCzIMLkJhdHRsZVJlbGljEhIKCmFzc2lzdF91aWQYIyABKA0SKgoLS0JG",
+            "TENHSE1BTFAYJCADKAsyFS5BdHRhY2tEYW1hZ2VQcm9wZXJ0eRITCgtFQUhC",
+            "RU5BS0ZFTBglIAEoARITCgtFR0ZLREhFRklCRRgmIAEoARITCgtGTE5GQUlJ",
+            "RkNCSRgnIAEoARITCgtFSEJLQlBDSUlHRhgoIAEoARIjCgtBSElHTURMTEpH",
+            "SBgpIAMoCzIOLkFiaWxpdHlVc2VTdHQSEwoLQkNQSVBBS0dLQkQYKiABKA0S",
+            "EwoLUE5MQkZDRklLTE8YKyABKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZl",
+            "ci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.AvatarPropertyReflection.Descriptor, global::EggLink.DanhengServer.Proto.AvatarTypeReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.AbilityUseSttReflection.Descriptor, global::EggLink.DanhengServer.Proto.AttackDamagePropertyReflection.Descriptor, global::EggLink.DanhengServer.Proto.SpAddSourceReflection.Descriptor, global::EggLink.DanhengServer.Proto.SkillUsePropertyReflection.Descriptor, global::EggLink.DanhengServer.Proto.AvatarPropertyReflection.Descriptor, global::EggLink.DanhengServer.Proto.BattleRelicReflection.Descriptor, global::EggLink.DanhengServer.Proto.EquipmentPropertyReflection.Descriptor, global::EggLink.DanhengServer.Proto.AvatarTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.AvatarSkillTreeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.AvatarBattleInfo), global::EggLink.DanhengServer.Proto.AvatarBattleInfo.Parser, new[]{ "AvatarType", "Id", "AvatarLevel", "AvatarRank", "AvatarPromotion", "AvatarStatus" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.AvatarBattleInfo), global::EggLink.DanhengServer.Proto.AvatarBattleInfo.Parser, new[]{ "AvatarType", "Id", "AvatarLevel", "AvatarRank", "AvatarPromotion", "AvatarStatus", "AvatarSkill", "AvatarEquipment", "TotalTurns", "TotalDamage", "TotalHeal", "TotalDamageTaken", "TotalHpRecover", "TotalSpCost", "StageId", "StageType", "TotalBreakDamage", "AttackTypeDamage", "AttackTypeBreakDamage", "AttackTypeMaxDamage", "SkillTimes", "DelayCumulate", "TotalSpAdd", "SpAddSource", "TotalBpCost", "DieTimes", "ReviveTimes", "BreakTimes", "ExtraTurns", "TotalShield", "TotalShieldTaken", "TotalShieldDamage", "InitialStatus", "Relics", "AssistUid", "KBFLCGHMALP", "EAHBENAKFEL", "EGFKDHEFIBE", "FLNFAIIFCBI", "EHBKBPCIIGF", "AHIGMDLLJGH", "BCPIPAKGKBD", "PNLBFCFIKLO" }, null, null, null, null)
           }));
     }
     #endregion
@@ -82,6 +109,43 @@ namespace EggLink.DanhengServer.Proto {
       avatarRank_ = other.avatarRank_;
       avatarPromotion_ = other.avatarPromotion_;
       avatarStatus_ = other.avatarStatus_ != null ? other.avatarStatus_.Clone() : null;
+      avatarSkill_ = other.avatarSkill_.Clone();
+      avatarEquipment_ = other.avatarEquipment_.Clone();
+      totalTurns_ = other.totalTurns_;
+      totalDamage_ = other.totalDamage_;
+      totalHeal_ = other.totalHeal_;
+      totalDamageTaken_ = other.totalDamageTaken_;
+      totalHpRecover_ = other.totalHpRecover_;
+      totalSpCost_ = other.totalSpCost_;
+      stageId_ = other.stageId_;
+      stageType_ = other.stageType_;
+      totalBreakDamage_ = other.totalBreakDamage_;
+      attackTypeDamage_ = other.attackTypeDamage_.Clone();
+      attackTypeBreakDamage_ = other.attackTypeBreakDamage_.Clone();
+      attackTypeMaxDamage_ = other.attackTypeMaxDamage_.Clone();
+      skillTimes_ = other.skillTimes_.Clone();
+      delayCumulate_ = other.delayCumulate_;
+      totalSpAdd_ = other.totalSpAdd_;
+      spAddSource_ = other.spAddSource_.Clone();
+      totalBpCost_ = other.totalBpCost_;
+      dieTimes_ = other.dieTimes_;
+      reviveTimes_ = other.reviveTimes_;
+      breakTimes_ = other.breakTimes_;
+      extraTurns_ = other.extraTurns_;
+      totalShield_ = other.totalShield_;
+      totalShieldTaken_ = other.totalShieldTaken_;
+      totalShieldDamage_ = other.totalShieldDamage_;
+      initialStatus_ = other.initialStatus_ != null ? other.initialStatus_.Clone() : null;
+      relics_ = other.relics_.Clone();
+      assistUid_ = other.assistUid_;
+      kBFLCGHMALP_ = other.kBFLCGHMALP_.Clone();
+      eAHBENAKFEL_ = other.eAHBENAKFEL_;
+      eGFKDHEFIBE_ = other.eGFKDHEFIBE_;
+      fLNFAIIFCBI_ = other.fLNFAIIFCBI_;
+      eHBKBPCIIGF_ = other.eHBKBPCIIGF_;
+      aHIGMDLLJGH_ = other.aHIGMDLLJGH_.Clone();
+      bCPIPAKGKBD_ = other.bCPIPAKGKBD_;
+      pNLBFCFIKLO_ = other.pNLBFCFIKLO_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -163,6 +227,440 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
+    /// <summary>Field number for the "avatar_skill" field.</summary>
+    public const int AvatarSkillFieldNumber = 7;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.AvatarSkillTree> _repeated_avatarSkill_codec
+        = pb::FieldCodec.ForMessage(58, global::EggLink.DanhengServer.Proto.AvatarSkillTree.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AvatarSkillTree> avatarSkill_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AvatarSkillTree>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AvatarSkillTree> AvatarSkill {
+      get { return avatarSkill_; }
+    }
+
+    /// <summary>Field number for the "avatar_equipment" field.</summary>
+    public const int AvatarEquipmentFieldNumber = 8;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.EquipmentProperty> _repeated_avatarEquipment_codec
+        = pb::FieldCodec.ForMessage(66, global::EggLink.DanhengServer.Proto.EquipmentProperty.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.EquipmentProperty> avatarEquipment_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.EquipmentProperty>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.EquipmentProperty> AvatarEquipment {
+      get { return avatarEquipment_; }
+    }
+
+    /// <summary>Field number for the "total_turns" field.</summary>
+    public const int TotalTurnsFieldNumber = 9;
+    private uint totalTurns_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint TotalTurns {
+      get { return totalTurns_; }
+      set {
+        totalTurns_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "total_damage" field.</summary>
+    public const int TotalDamageFieldNumber = 10;
+    private double totalDamage_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double TotalDamage {
+      get { return totalDamage_; }
+      set {
+        totalDamage_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "total_heal" field.</summary>
+    public const int TotalHealFieldNumber = 11;
+    private double totalHeal_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double TotalHeal {
+      get { return totalHeal_; }
+      set {
+        totalHeal_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "total_damage_taken" field.</summary>
+    public const int TotalDamageTakenFieldNumber = 12;
+    private double totalDamageTaken_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double TotalDamageTaken {
+      get { return totalDamageTaken_; }
+      set {
+        totalDamageTaken_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "total_hp_recover" field.</summary>
+    public const int TotalHpRecoverFieldNumber = 13;
+    private double totalHpRecover_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double TotalHpRecover {
+      get { return totalHpRecover_; }
+      set {
+        totalHpRecover_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "total_sp_cost" field.</summary>
+    public const int TotalSpCostFieldNumber = 14;
+    private double totalSpCost_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double TotalSpCost {
+      get { return totalSpCost_; }
+      set {
+        totalSpCost_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "stage_id" field.</summary>
+    public const int StageIdFieldNumber = 15;
+    private uint stageId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint StageId {
+      get { return stageId_; }
+      set {
+        stageId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "stage_type" field.</summary>
+    public const int StageTypeFieldNumber = 16;
+    private uint stageType_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint StageType {
+      get { return stageType_; }
+      set {
+        stageType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "total_break_damage" field.</summary>
+    public const int TotalBreakDamageFieldNumber = 17;
+    private double totalBreakDamage_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double TotalBreakDamage {
+      get { return totalBreakDamage_; }
+      set {
+        totalBreakDamage_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "attack_type_damage" field.</summary>
+    public const int AttackTypeDamageFieldNumber = 18;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.AttackDamageProperty> _repeated_attackTypeDamage_codec
+        = pb::FieldCodec.ForMessage(146, global::EggLink.DanhengServer.Proto.AttackDamageProperty.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AttackDamageProperty> attackTypeDamage_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AttackDamageProperty>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AttackDamageProperty> AttackTypeDamage {
+      get { return attackTypeDamage_; }
+    }
+
+    /// <summary>Field number for the "attack_type_break_damage" field.</summary>
+    public const int AttackTypeBreakDamageFieldNumber = 19;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.AttackDamageProperty> _repeated_attackTypeBreakDamage_codec
+        = pb::FieldCodec.ForMessage(154, global::EggLink.DanhengServer.Proto.AttackDamageProperty.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AttackDamageProperty> attackTypeBreakDamage_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AttackDamageProperty>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AttackDamageProperty> AttackTypeBreakDamage {
+      get { return attackTypeBreakDamage_; }
+    }
+
+    /// <summary>Field number for the "attack_type_max_damage" field.</summary>
+    public const int AttackTypeMaxDamageFieldNumber = 20;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.AttackDamageProperty> _repeated_attackTypeMaxDamage_codec
+        = pb::FieldCodec.ForMessage(162, global::EggLink.DanhengServer.Proto.AttackDamageProperty.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AttackDamageProperty> attackTypeMaxDamage_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AttackDamageProperty>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AttackDamageProperty> AttackTypeMaxDamage {
+      get { return attackTypeMaxDamage_; }
+    }
+
+    /// <summary>Field number for the "skill_times" field.</summary>
+    public const int SkillTimesFieldNumber = 21;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.SkillUseProperty> _repeated_skillTimes_codec
+        = pb::FieldCodec.ForMessage(170, global::EggLink.DanhengServer.Proto.SkillUseProperty.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.SkillUseProperty> skillTimes_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.SkillUseProperty>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.SkillUseProperty> SkillTimes {
+      get { return skillTimes_; }
+    }
+
+    /// <summary>Field number for the "delay_cumulate" field.</summary>
+    public const int DelayCumulateFieldNumber = 22;
+    private double delayCumulate_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double DelayCumulate {
+      get { return delayCumulate_; }
+      set {
+        delayCumulate_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "total_sp_add" field.</summary>
+    public const int TotalSpAddFieldNumber = 23;
+    private uint totalSpAdd_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint TotalSpAdd {
+      get { return totalSpAdd_; }
+      set {
+        totalSpAdd_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "sp_add_source" field.</summary>
+    public const int SpAddSourceFieldNumber = 24;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.SpAddSource> _repeated_spAddSource_codec
+        = pb::FieldCodec.ForMessage(194, global::EggLink.DanhengServer.Proto.SpAddSource.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.SpAddSource> spAddSource_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.SpAddSource>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.SpAddSource> SpAddSource {
+      get { return spAddSource_; }
+    }
+
+    /// <summary>Field number for the "total_bp_cost" field.</summary>
+    public const int TotalBpCostFieldNumber = 25;
+    private uint totalBpCost_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint TotalBpCost {
+      get { return totalBpCost_; }
+      set {
+        totalBpCost_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "die_times" field.</summary>
+    public const int DieTimesFieldNumber = 26;
+    private uint dieTimes_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint DieTimes {
+      get { return dieTimes_; }
+      set {
+        dieTimes_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "revive_times" field.</summary>
+    public const int ReviveTimesFieldNumber = 27;
+    private uint reviveTimes_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint ReviveTimes {
+      get { return reviveTimes_; }
+      set {
+        reviveTimes_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "break_times" field.</summary>
+    public const int BreakTimesFieldNumber = 28;
+    private uint breakTimes_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint BreakTimes {
+      get { return breakTimes_; }
+      set {
+        breakTimes_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "extra_turns" field.</summary>
+    public const int ExtraTurnsFieldNumber = 29;
+    private uint extraTurns_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint ExtraTurns {
+      get { return extraTurns_; }
+      set {
+        extraTurns_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "total_shield" field.</summary>
+    public const int TotalShieldFieldNumber = 30;
+    private double totalShield_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double TotalShield {
+      get { return totalShield_; }
+      set {
+        totalShield_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "total_shield_taken" field.</summary>
+    public const int TotalShieldTakenFieldNumber = 31;
+    private double totalShieldTaken_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double TotalShieldTaken {
+      get { return totalShieldTaken_; }
+      set {
+        totalShieldTaken_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "total_shield_damage" field.</summary>
+    public const int TotalShieldDamageFieldNumber = 32;
+    private double totalShieldDamage_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double TotalShieldDamage {
+      get { return totalShieldDamage_; }
+      set {
+        totalShieldDamage_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "initial_status" field.</summary>
+    public const int InitialStatusFieldNumber = 33;
+    private global::EggLink.DanhengServer.Proto.AvatarProperty initialStatus_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::EggLink.DanhengServer.Proto.AvatarProperty InitialStatus {
+      get { return initialStatus_; }
+      set {
+        initialStatus_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "relics" field.</summary>
+    public const int RelicsFieldNumber = 34;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.BattleRelic> _repeated_relics_codec
+        = pb::FieldCodec.ForMessage(274, global::EggLink.DanhengServer.Proto.BattleRelic.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.BattleRelic> relics_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.BattleRelic>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.BattleRelic> Relics {
+      get { return relics_; }
+    }
+
+    /// <summary>Field number for the "assist_uid" field.</summary>
+    public const int AssistUidFieldNumber = 35;
+    private uint assistUid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint AssistUid {
+      get { return assistUid_; }
+      set {
+        assistUid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "KBFLCGHMALP" field.</summary>
+    public const int KBFLCGHMALPFieldNumber = 36;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.AttackDamageProperty> _repeated_kBFLCGHMALP_codec
+        = pb::FieldCodec.ForMessage(290, global::EggLink.DanhengServer.Proto.AttackDamageProperty.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AttackDamageProperty> kBFLCGHMALP_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AttackDamageProperty>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AttackDamageProperty> KBFLCGHMALP {
+      get { return kBFLCGHMALP_; }
+    }
+
+    /// <summary>Field number for the "EAHBENAKFEL" field.</summary>
+    public const int EAHBENAKFELFieldNumber = 37;
+    private double eAHBENAKFEL_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double EAHBENAKFEL {
+      get { return eAHBENAKFEL_; }
+      set {
+        eAHBENAKFEL_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "EGFKDHEFIBE" field.</summary>
+    public const int EGFKDHEFIBEFieldNumber = 38;
+    private double eGFKDHEFIBE_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double EGFKDHEFIBE {
+      get { return eGFKDHEFIBE_; }
+      set {
+        eGFKDHEFIBE_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "FLNFAIIFCBI" field.</summary>
+    public const int FLNFAIIFCBIFieldNumber = 39;
+    private double fLNFAIIFCBI_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double FLNFAIIFCBI {
+      get { return fLNFAIIFCBI_; }
+      set {
+        fLNFAIIFCBI_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "EHBKBPCIIGF" field.</summary>
+    public const int EHBKBPCIIGFFieldNumber = 40;
+    private double eHBKBPCIIGF_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double EHBKBPCIIGF {
+      get { return eHBKBPCIIGF_; }
+      set {
+        eHBKBPCIIGF_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "AHIGMDLLJGH" field.</summary>
+    public const int AHIGMDLLJGHFieldNumber = 41;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.AbilityUseStt> _repeated_aHIGMDLLJGH_codec
+        = pb::FieldCodec.ForMessage(330, global::EggLink.DanhengServer.Proto.AbilityUseStt.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AbilityUseStt> aHIGMDLLJGH_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AbilityUseStt>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AbilityUseStt> AHIGMDLLJGH {
+      get { return aHIGMDLLJGH_; }
+    }
+
+    /// <summary>Field number for the "BCPIPAKGKBD" field.</summary>
+    public const int BCPIPAKGKBDFieldNumber = 42;
+    private uint bCPIPAKGKBD_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint BCPIPAKGKBD {
+      get { return bCPIPAKGKBD_; }
+      set {
+        bCPIPAKGKBD_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "PNLBFCFIKLO" field.</summary>
+    public const int PNLBFCFIKLOFieldNumber = 43;
+    private uint pNLBFCFIKLO_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint PNLBFCFIKLO {
+      get { return pNLBFCFIKLO_; }
+      set {
+        pNLBFCFIKLO_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -184,6 +682,43 @@ namespace EggLink.DanhengServer.Proto {
       if (AvatarRank != other.AvatarRank) return false;
       if (AvatarPromotion != other.AvatarPromotion) return false;
       if (!object.Equals(AvatarStatus, other.AvatarStatus)) return false;
+      if(!avatarSkill_.Equals(other.avatarSkill_)) return false;
+      if(!avatarEquipment_.Equals(other.avatarEquipment_)) return false;
+      if (TotalTurns != other.TotalTurns) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(TotalDamage, other.TotalDamage)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(TotalHeal, other.TotalHeal)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(TotalDamageTaken, other.TotalDamageTaken)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(TotalHpRecover, other.TotalHpRecover)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(TotalSpCost, other.TotalSpCost)) return false;
+      if (StageId != other.StageId) return false;
+      if (StageType != other.StageType) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(TotalBreakDamage, other.TotalBreakDamage)) return false;
+      if(!attackTypeDamage_.Equals(other.attackTypeDamage_)) return false;
+      if(!attackTypeBreakDamage_.Equals(other.attackTypeBreakDamage_)) return false;
+      if(!attackTypeMaxDamage_.Equals(other.attackTypeMaxDamage_)) return false;
+      if(!skillTimes_.Equals(other.skillTimes_)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(DelayCumulate, other.DelayCumulate)) return false;
+      if (TotalSpAdd != other.TotalSpAdd) return false;
+      if(!spAddSource_.Equals(other.spAddSource_)) return false;
+      if (TotalBpCost != other.TotalBpCost) return false;
+      if (DieTimes != other.DieTimes) return false;
+      if (ReviveTimes != other.ReviveTimes) return false;
+      if (BreakTimes != other.BreakTimes) return false;
+      if (ExtraTurns != other.ExtraTurns) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(TotalShield, other.TotalShield)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(TotalShieldTaken, other.TotalShieldTaken)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(TotalShieldDamage, other.TotalShieldDamage)) return false;
+      if (!object.Equals(InitialStatus, other.InitialStatus)) return false;
+      if(!relics_.Equals(other.relics_)) return false;
+      if (AssistUid != other.AssistUid) return false;
+      if(!kBFLCGHMALP_.Equals(other.kBFLCGHMALP_)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(EAHBENAKFEL, other.EAHBENAKFEL)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(EGFKDHEFIBE, other.EGFKDHEFIBE)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(FLNFAIIFCBI, other.FLNFAIIFCBI)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(EHBKBPCIIGF, other.EHBKBPCIIGF)) return false;
+      if(!aHIGMDLLJGH_.Equals(other.aHIGMDLLJGH_)) return false;
+      if (BCPIPAKGKBD != other.BCPIPAKGKBD) return false;
+      if (PNLBFCFIKLO != other.PNLBFCFIKLO) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -197,6 +732,43 @@ namespace EggLink.DanhengServer.Proto {
       if (AvatarRank != 0) hash ^= AvatarRank.GetHashCode();
       if (AvatarPromotion != 0) hash ^= AvatarPromotion.GetHashCode();
       if (avatarStatus_ != null) hash ^= AvatarStatus.GetHashCode();
+      hash ^= avatarSkill_.GetHashCode();
+      hash ^= avatarEquipment_.GetHashCode();
+      if (TotalTurns != 0) hash ^= TotalTurns.GetHashCode();
+      if (TotalDamage != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(TotalDamage);
+      if (TotalHeal != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(TotalHeal);
+      if (TotalDamageTaken != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(TotalDamageTaken);
+      if (TotalHpRecover != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(TotalHpRecover);
+      if (TotalSpCost != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(TotalSpCost);
+      if (StageId != 0) hash ^= StageId.GetHashCode();
+      if (StageType != 0) hash ^= StageType.GetHashCode();
+      if (TotalBreakDamage != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(TotalBreakDamage);
+      hash ^= attackTypeDamage_.GetHashCode();
+      hash ^= attackTypeBreakDamage_.GetHashCode();
+      hash ^= attackTypeMaxDamage_.GetHashCode();
+      hash ^= skillTimes_.GetHashCode();
+      if (DelayCumulate != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(DelayCumulate);
+      if (TotalSpAdd != 0) hash ^= TotalSpAdd.GetHashCode();
+      hash ^= spAddSource_.GetHashCode();
+      if (TotalBpCost != 0) hash ^= TotalBpCost.GetHashCode();
+      if (DieTimes != 0) hash ^= DieTimes.GetHashCode();
+      if (ReviveTimes != 0) hash ^= ReviveTimes.GetHashCode();
+      if (BreakTimes != 0) hash ^= BreakTimes.GetHashCode();
+      if (ExtraTurns != 0) hash ^= ExtraTurns.GetHashCode();
+      if (TotalShield != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(TotalShield);
+      if (TotalShieldTaken != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(TotalShieldTaken);
+      if (TotalShieldDamage != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(TotalShieldDamage);
+      if (initialStatus_ != null) hash ^= InitialStatus.GetHashCode();
+      hash ^= relics_.GetHashCode();
+      if (AssistUid != 0) hash ^= AssistUid.GetHashCode();
+      hash ^= kBFLCGHMALP_.GetHashCode();
+      if (EAHBENAKFEL != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(EAHBENAKFEL);
+      if (EGFKDHEFIBE != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(EGFKDHEFIBE);
+      if (FLNFAIIFCBI != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(FLNFAIIFCBI);
+      if (EHBKBPCIIGF != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(EHBKBPCIIGF);
+      hash ^= aHIGMDLLJGH_.GetHashCode();
+      if (BCPIPAKGKBD != 0) hash ^= BCPIPAKGKBD.GetHashCode();
+      if (PNLBFCFIKLO != 0) hash ^= PNLBFCFIKLO.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -239,6 +811,124 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(50);
         output.WriteMessage(AvatarStatus);
       }
+      avatarSkill_.WriteTo(output, _repeated_avatarSkill_codec);
+      avatarEquipment_.WriteTo(output, _repeated_avatarEquipment_codec);
+      if (TotalTurns != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(TotalTurns);
+      }
+      if (TotalDamage != 0D) {
+        output.WriteRawTag(81);
+        output.WriteDouble(TotalDamage);
+      }
+      if (TotalHeal != 0D) {
+        output.WriteRawTag(89);
+        output.WriteDouble(TotalHeal);
+      }
+      if (TotalDamageTaken != 0D) {
+        output.WriteRawTag(97);
+        output.WriteDouble(TotalDamageTaken);
+      }
+      if (TotalHpRecover != 0D) {
+        output.WriteRawTag(105);
+        output.WriteDouble(TotalHpRecover);
+      }
+      if (TotalSpCost != 0D) {
+        output.WriteRawTag(113);
+        output.WriteDouble(TotalSpCost);
+      }
+      if (StageId != 0) {
+        output.WriteRawTag(120);
+        output.WriteUInt32(StageId);
+      }
+      if (StageType != 0) {
+        output.WriteRawTag(128, 1);
+        output.WriteUInt32(StageType);
+      }
+      if (TotalBreakDamage != 0D) {
+        output.WriteRawTag(137, 1);
+        output.WriteDouble(TotalBreakDamage);
+      }
+      attackTypeDamage_.WriteTo(output, _repeated_attackTypeDamage_codec);
+      attackTypeBreakDamage_.WriteTo(output, _repeated_attackTypeBreakDamage_codec);
+      attackTypeMaxDamage_.WriteTo(output, _repeated_attackTypeMaxDamage_codec);
+      skillTimes_.WriteTo(output, _repeated_skillTimes_codec);
+      if (DelayCumulate != 0D) {
+        output.WriteRawTag(177, 1);
+        output.WriteDouble(DelayCumulate);
+      }
+      if (TotalSpAdd != 0) {
+        output.WriteRawTag(184, 1);
+        output.WriteUInt32(TotalSpAdd);
+      }
+      spAddSource_.WriteTo(output, _repeated_spAddSource_codec);
+      if (TotalBpCost != 0) {
+        output.WriteRawTag(200, 1);
+        output.WriteUInt32(TotalBpCost);
+      }
+      if (DieTimes != 0) {
+        output.WriteRawTag(208, 1);
+        output.WriteUInt32(DieTimes);
+      }
+      if (ReviveTimes != 0) {
+        output.WriteRawTag(216, 1);
+        output.WriteUInt32(ReviveTimes);
+      }
+      if (BreakTimes != 0) {
+        output.WriteRawTag(224, 1);
+        output.WriteUInt32(BreakTimes);
+      }
+      if (ExtraTurns != 0) {
+        output.WriteRawTag(232, 1);
+        output.WriteUInt32(ExtraTurns);
+      }
+      if (TotalShield != 0D) {
+        output.WriteRawTag(241, 1);
+        output.WriteDouble(TotalShield);
+      }
+      if (TotalShieldTaken != 0D) {
+        output.WriteRawTag(249, 1);
+        output.WriteDouble(TotalShieldTaken);
+      }
+      if (TotalShieldDamage != 0D) {
+        output.WriteRawTag(129, 2);
+        output.WriteDouble(TotalShieldDamage);
+      }
+      if (initialStatus_ != null) {
+        output.WriteRawTag(138, 2);
+        output.WriteMessage(InitialStatus);
+      }
+      relics_.WriteTo(output, _repeated_relics_codec);
+      if (AssistUid != 0) {
+        output.WriteRawTag(152, 2);
+        output.WriteUInt32(AssistUid);
+      }
+      kBFLCGHMALP_.WriteTo(output, _repeated_kBFLCGHMALP_codec);
+      if (EAHBENAKFEL != 0D) {
+        output.WriteRawTag(169, 2);
+        output.WriteDouble(EAHBENAKFEL);
+      }
+      if (EGFKDHEFIBE != 0D) {
+        output.WriteRawTag(177, 2);
+        output.WriteDouble(EGFKDHEFIBE);
+      }
+      if (FLNFAIIFCBI != 0D) {
+        output.WriteRawTag(185, 2);
+        output.WriteDouble(FLNFAIIFCBI);
+      }
+      if (EHBKBPCIIGF != 0D) {
+        output.WriteRawTag(193, 2);
+        output.WriteDouble(EHBKBPCIIGF);
+      }
+      aHIGMDLLJGH_.WriteTo(output, _repeated_aHIGMDLLJGH_codec);
+      if (BCPIPAKGKBD != 0) {
+        output.WriteRawTag(208, 2);
+        output.WriteUInt32(BCPIPAKGKBD);
+      }
+      if (PNLBFCFIKLO != 0) {
+        output.WriteRawTag(216, 2);
+        output.WriteUInt32(PNLBFCFIKLO);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -273,6 +963,124 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(50);
         output.WriteMessage(AvatarStatus);
       }
+      avatarSkill_.WriteTo(ref output, _repeated_avatarSkill_codec);
+      avatarEquipment_.WriteTo(ref output, _repeated_avatarEquipment_codec);
+      if (TotalTurns != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(TotalTurns);
+      }
+      if (TotalDamage != 0D) {
+        output.WriteRawTag(81);
+        output.WriteDouble(TotalDamage);
+      }
+      if (TotalHeal != 0D) {
+        output.WriteRawTag(89);
+        output.WriteDouble(TotalHeal);
+      }
+      if (TotalDamageTaken != 0D) {
+        output.WriteRawTag(97);
+        output.WriteDouble(TotalDamageTaken);
+      }
+      if (TotalHpRecover != 0D) {
+        output.WriteRawTag(105);
+        output.WriteDouble(TotalHpRecover);
+      }
+      if (TotalSpCost != 0D) {
+        output.WriteRawTag(113);
+        output.WriteDouble(TotalSpCost);
+      }
+      if (StageId != 0) {
+        output.WriteRawTag(120);
+        output.WriteUInt32(StageId);
+      }
+      if (StageType != 0) {
+        output.WriteRawTag(128, 1);
+        output.WriteUInt32(StageType);
+      }
+      if (TotalBreakDamage != 0D) {
+        output.WriteRawTag(137, 1);
+        output.WriteDouble(TotalBreakDamage);
+      }
+      attackTypeDamage_.WriteTo(ref output, _repeated_attackTypeDamage_codec);
+      attackTypeBreakDamage_.WriteTo(ref output, _repeated_attackTypeBreakDamage_codec);
+      attackTypeMaxDamage_.WriteTo(ref output, _repeated_attackTypeMaxDamage_codec);
+      skillTimes_.WriteTo(ref output, _repeated_skillTimes_codec);
+      if (DelayCumulate != 0D) {
+        output.WriteRawTag(177, 1);
+        output.WriteDouble(DelayCumulate);
+      }
+      if (TotalSpAdd != 0) {
+        output.WriteRawTag(184, 1);
+        output.WriteUInt32(TotalSpAdd);
+      }
+      spAddSource_.WriteTo(ref output, _repeated_spAddSource_codec);
+      if (TotalBpCost != 0) {
+        output.WriteRawTag(200, 1);
+        output.WriteUInt32(TotalBpCost);
+      }
+      if (DieTimes != 0) {
+        output.WriteRawTag(208, 1);
+        output.WriteUInt32(DieTimes);
+      }
+      if (ReviveTimes != 0) {
+        output.WriteRawTag(216, 1);
+        output.WriteUInt32(ReviveTimes);
+      }
+      if (BreakTimes != 0) {
+        output.WriteRawTag(224, 1);
+        output.WriteUInt32(BreakTimes);
+      }
+      if (ExtraTurns != 0) {
+        output.WriteRawTag(232, 1);
+        output.WriteUInt32(ExtraTurns);
+      }
+      if (TotalShield != 0D) {
+        output.WriteRawTag(241, 1);
+        output.WriteDouble(TotalShield);
+      }
+      if (TotalShieldTaken != 0D) {
+        output.WriteRawTag(249, 1);
+        output.WriteDouble(TotalShieldTaken);
+      }
+      if (TotalShieldDamage != 0D) {
+        output.WriteRawTag(129, 2);
+        output.WriteDouble(TotalShieldDamage);
+      }
+      if (initialStatus_ != null) {
+        output.WriteRawTag(138, 2);
+        output.WriteMessage(InitialStatus);
+      }
+      relics_.WriteTo(ref output, _repeated_relics_codec);
+      if (AssistUid != 0) {
+        output.WriteRawTag(152, 2);
+        output.WriteUInt32(AssistUid);
+      }
+      kBFLCGHMALP_.WriteTo(ref output, _repeated_kBFLCGHMALP_codec);
+      if (EAHBENAKFEL != 0D) {
+        output.WriteRawTag(169, 2);
+        output.WriteDouble(EAHBENAKFEL);
+      }
+      if (EGFKDHEFIBE != 0D) {
+        output.WriteRawTag(177, 2);
+        output.WriteDouble(EGFKDHEFIBE);
+      }
+      if (FLNFAIIFCBI != 0D) {
+        output.WriteRawTag(185, 2);
+        output.WriteDouble(FLNFAIIFCBI);
+      }
+      if (EHBKBPCIIGF != 0D) {
+        output.WriteRawTag(193, 2);
+        output.WriteDouble(EHBKBPCIIGF);
+      }
+      aHIGMDLLJGH_.WriteTo(ref output, _repeated_aHIGMDLLJGH_codec);
+      if (BCPIPAKGKBD != 0) {
+        output.WriteRawTag(208, 2);
+        output.WriteUInt32(BCPIPAKGKBD);
+      }
+      if (PNLBFCFIKLO != 0) {
+        output.WriteRawTag(216, 2);
+        output.WriteUInt32(PNLBFCFIKLO);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -300,6 +1108,97 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (avatarStatus_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(AvatarStatus);
+      }
+      size += avatarSkill_.CalculateSize(_repeated_avatarSkill_codec);
+      size += avatarEquipment_.CalculateSize(_repeated_avatarEquipment_codec);
+      if (TotalTurns != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(TotalTurns);
+      }
+      if (TotalDamage != 0D) {
+        size += 1 + 8;
+      }
+      if (TotalHeal != 0D) {
+        size += 1 + 8;
+      }
+      if (TotalDamageTaken != 0D) {
+        size += 1 + 8;
+      }
+      if (TotalHpRecover != 0D) {
+        size += 1 + 8;
+      }
+      if (TotalSpCost != 0D) {
+        size += 1 + 8;
+      }
+      if (StageId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(StageId);
+      }
+      if (StageType != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(StageType);
+      }
+      if (TotalBreakDamage != 0D) {
+        size += 2 + 8;
+      }
+      size += attackTypeDamage_.CalculateSize(_repeated_attackTypeDamage_codec);
+      size += attackTypeBreakDamage_.CalculateSize(_repeated_attackTypeBreakDamage_codec);
+      size += attackTypeMaxDamage_.CalculateSize(_repeated_attackTypeMaxDamage_codec);
+      size += skillTimes_.CalculateSize(_repeated_skillTimes_codec);
+      if (DelayCumulate != 0D) {
+        size += 2 + 8;
+      }
+      if (TotalSpAdd != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(TotalSpAdd);
+      }
+      size += spAddSource_.CalculateSize(_repeated_spAddSource_codec);
+      if (TotalBpCost != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(TotalBpCost);
+      }
+      if (DieTimes != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(DieTimes);
+      }
+      if (ReviveTimes != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(ReviveTimes);
+      }
+      if (BreakTimes != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(BreakTimes);
+      }
+      if (ExtraTurns != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(ExtraTurns);
+      }
+      if (TotalShield != 0D) {
+        size += 2 + 8;
+      }
+      if (TotalShieldTaken != 0D) {
+        size += 2 + 8;
+      }
+      if (TotalShieldDamage != 0D) {
+        size += 2 + 8;
+      }
+      if (initialStatus_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(InitialStatus);
+      }
+      size += relics_.CalculateSize(_repeated_relics_codec);
+      if (AssistUid != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(AssistUid);
+      }
+      size += kBFLCGHMALP_.CalculateSize(_repeated_kBFLCGHMALP_codec);
+      if (EAHBENAKFEL != 0D) {
+        size += 2 + 8;
+      }
+      if (EGFKDHEFIBE != 0D) {
+        size += 2 + 8;
+      }
+      if (FLNFAIIFCBI != 0D) {
+        size += 2 + 8;
+      }
+      if (EHBKBPCIIGF != 0D) {
+        size += 2 + 8;
+      }
+      size += aHIGMDLLJGH_.CalculateSize(_repeated_aHIGMDLLJGH_codec);
+      if (BCPIPAKGKBD != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(BCPIPAKGKBD);
+      }
+      if (PNLBFCFIKLO != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(PNLBFCFIKLO);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -333,6 +1232,100 @@ namespace EggLink.DanhengServer.Proto {
           AvatarStatus = new global::EggLink.DanhengServer.Proto.AvatarProperty();
         }
         AvatarStatus.MergeFrom(other.AvatarStatus);
+      }
+      avatarSkill_.Add(other.avatarSkill_);
+      avatarEquipment_.Add(other.avatarEquipment_);
+      if (other.TotalTurns != 0) {
+        TotalTurns = other.TotalTurns;
+      }
+      if (other.TotalDamage != 0D) {
+        TotalDamage = other.TotalDamage;
+      }
+      if (other.TotalHeal != 0D) {
+        TotalHeal = other.TotalHeal;
+      }
+      if (other.TotalDamageTaken != 0D) {
+        TotalDamageTaken = other.TotalDamageTaken;
+      }
+      if (other.TotalHpRecover != 0D) {
+        TotalHpRecover = other.TotalHpRecover;
+      }
+      if (other.TotalSpCost != 0D) {
+        TotalSpCost = other.TotalSpCost;
+      }
+      if (other.StageId != 0) {
+        StageId = other.StageId;
+      }
+      if (other.StageType != 0) {
+        StageType = other.StageType;
+      }
+      if (other.TotalBreakDamage != 0D) {
+        TotalBreakDamage = other.TotalBreakDamage;
+      }
+      attackTypeDamage_.Add(other.attackTypeDamage_);
+      attackTypeBreakDamage_.Add(other.attackTypeBreakDamage_);
+      attackTypeMaxDamage_.Add(other.attackTypeMaxDamage_);
+      skillTimes_.Add(other.skillTimes_);
+      if (other.DelayCumulate != 0D) {
+        DelayCumulate = other.DelayCumulate;
+      }
+      if (other.TotalSpAdd != 0) {
+        TotalSpAdd = other.TotalSpAdd;
+      }
+      spAddSource_.Add(other.spAddSource_);
+      if (other.TotalBpCost != 0) {
+        TotalBpCost = other.TotalBpCost;
+      }
+      if (other.DieTimes != 0) {
+        DieTimes = other.DieTimes;
+      }
+      if (other.ReviveTimes != 0) {
+        ReviveTimes = other.ReviveTimes;
+      }
+      if (other.BreakTimes != 0) {
+        BreakTimes = other.BreakTimes;
+      }
+      if (other.ExtraTurns != 0) {
+        ExtraTurns = other.ExtraTurns;
+      }
+      if (other.TotalShield != 0D) {
+        TotalShield = other.TotalShield;
+      }
+      if (other.TotalShieldTaken != 0D) {
+        TotalShieldTaken = other.TotalShieldTaken;
+      }
+      if (other.TotalShieldDamage != 0D) {
+        TotalShieldDamage = other.TotalShieldDamage;
+      }
+      if (other.initialStatus_ != null) {
+        if (initialStatus_ == null) {
+          InitialStatus = new global::EggLink.DanhengServer.Proto.AvatarProperty();
+        }
+        InitialStatus.MergeFrom(other.InitialStatus);
+      }
+      relics_.Add(other.relics_);
+      if (other.AssistUid != 0) {
+        AssistUid = other.AssistUid;
+      }
+      kBFLCGHMALP_.Add(other.kBFLCGHMALP_);
+      if (other.EAHBENAKFEL != 0D) {
+        EAHBENAKFEL = other.EAHBENAKFEL;
+      }
+      if (other.EGFKDHEFIBE != 0D) {
+        EGFKDHEFIBE = other.EGFKDHEFIBE;
+      }
+      if (other.FLNFAIIFCBI != 0D) {
+        FLNFAIIFCBI = other.FLNFAIIFCBI;
+      }
+      if (other.EHBKBPCIIGF != 0D) {
+        EHBKBPCIIGF = other.EHBKBPCIIGF;
+      }
+      aHIGMDLLJGH_.Add(other.aHIGMDLLJGH_);
+      if (other.BCPIPAKGKBD != 0) {
+        BCPIPAKGKBD = other.BCPIPAKGKBD;
+      }
+      if (other.PNLBFCFIKLO != 0) {
+        PNLBFCFIKLO = other.PNLBFCFIKLO;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -376,6 +1369,157 @@ namespace EggLink.DanhengServer.Proto {
             input.ReadMessage(AvatarStatus);
             break;
           }
+          case 58: {
+            avatarSkill_.AddEntriesFrom(input, _repeated_avatarSkill_codec);
+            break;
+          }
+          case 66: {
+            avatarEquipment_.AddEntriesFrom(input, _repeated_avatarEquipment_codec);
+            break;
+          }
+          case 72: {
+            TotalTurns = input.ReadUInt32();
+            break;
+          }
+          case 81: {
+            TotalDamage = input.ReadDouble();
+            break;
+          }
+          case 89: {
+            TotalHeal = input.ReadDouble();
+            break;
+          }
+          case 97: {
+            TotalDamageTaken = input.ReadDouble();
+            break;
+          }
+          case 105: {
+            TotalHpRecover = input.ReadDouble();
+            break;
+          }
+          case 113: {
+            TotalSpCost = input.ReadDouble();
+            break;
+          }
+          case 120: {
+            StageId = input.ReadUInt32();
+            break;
+          }
+          case 128: {
+            StageType = input.ReadUInt32();
+            break;
+          }
+          case 137: {
+            TotalBreakDamage = input.ReadDouble();
+            break;
+          }
+          case 146: {
+            attackTypeDamage_.AddEntriesFrom(input, _repeated_attackTypeDamage_codec);
+            break;
+          }
+          case 154: {
+            attackTypeBreakDamage_.AddEntriesFrom(input, _repeated_attackTypeBreakDamage_codec);
+            break;
+          }
+          case 162: {
+            attackTypeMaxDamage_.AddEntriesFrom(input, _repeated_attackTypeMaxDamage_codec);
+            break;
+          }
+          case 170: {
+            skillTimes_.AddEntriesFrom(input, _repeated_skillTimes_codec);
+            break;
+          }
+          case 177: {
+            DelayCumulate = input.ReadDouble();
+            break;
+          }
+          case 184: {
+            TotalSpAdd = input.ReadUInt32();
+            break;
+          }
+          case 194: {
+            spAddSource_.AddEntriesFrom(input, _repeated_spAddSource_codec);
+            break;
+          }
+          case 200: {
+            TotalBpCost = input.ReadUInt32();
+            break;
+          }
+          case 208: {
+            DieTimes = input.ReadUInt32();
+            break;
+          }
+          case 216: {
+            ReviveTimes = input.ReadUInt32();
+            break;
+          }
+          case 224: {
+            BreakTimes = input.ReadUInt32();
+            break;
+          }
+          case 232: {
+            ExtraTurns = input.ReadUInt32();
+            break;
+          }
+          case 241: {
+            TotalShield = input.ReadDouble();
+            break;
+          }
+          case 249: {
+            TotalShieldTaken = input.ReadDouble();
+            break;
+          }
+          case 257: {
+            TotalShieldDamage = input.ReadDouble();
+            break;
+          }
+          case 266: {
+            if (initialStatus_ == null) {
+              InitialStatus = new global::EggLink.DanhengServer.Proto.AvatarProperty();
+            }
+            input.ReadMessage(InitialStatus);
+            break;
+          }
+          case 274: {
+            relics_.AddEntriesFrom(input, _repeated_relics_codec);
+            break;
+          }
+          case 280: {
+            AssistUid = input.ReadUInt32();
+            break;
+          }
+          case 290: {
+            kBFLCGHMALP_.AddEntriesFrom(input, _repeated_kBFLCGHMALP_codec);
+            break;
+          }
+          case 297: {
+            EAHBENAKFEL = input.ReadDouble();
+            break;
+          }
+          case 305: {
+            EGFKDHEFIBE = input.ReadDouble();
+            break;
+          }
+          case 313: {
+            FLNFAIIFCBI = input.ReadDouble();
+            break;
+          }
+          case 321: {
+            EHBKBPCIIGF = input.ReadDouble();
+            break;
+          }
+          case 330: {
+            aHIGMDLLJGH_.AddEntriesFrom(input, _repeated_aHIGMDLLJGH_codec);
+            break;
+          }
+          case 336: {
+            BCPIPAKGKBD = input.ReadUInt32();
+            break;
+          }
+          case 344: {
+            PNLBFCFIKLO = input.ReadUInt32();
+            break;
+          }
         }
       }
     #endif
@@ -416,6 +1560,157 @@ namespace EggLink.DanhengServer.Proto {
               AvatarStatus = new global::EggLink.DanhengServer.Proto.AvatarProperty();
             }
             input.ReadMessage(AvatarStatus);
+            break;
+          }
+          case 58: {
+            avatarSkill_.AddEntriesFrom(ref input, _repeated_avatarSkill_codec);
+            break;
+          }
+          case 66: {
+            avatarEquipment_.AddEntriesFrom(ref input, _repeated_avatarEquipment_codec);
+            break;
+          }
+          case 72: {
+            TotalTurns = input.ReadUInt32();
+            break;
+          }
+          case 81: {
+            TotalDamage = input.ReadDouble();
+            break;
+          }
+          case 89: {
+            TotalHeal = input.ReadDouble();
+            break;
+          }
+          case 97: {
+            TotalDamageTaken = input.ReadDouble();
+            break;
+          }
+          case 105: {
+            TotalHpRecover = input.ReadDouble();
+            break;
+          }
+          case 113: {
+            TotalSpCost = input.ReadDouble();
+            break;
+          }
+          case 120: {
+            StageId = input.ReadUInt32();
+            break;
+          }
+          case 128: {
+            StageType = input.ReadUInt32();
+            break;
+          }
+          case 137: {
+            TotalBreakDamage = input.ReadDouble();
+            break;
+          }
+          case 146: {
+            attackTypeDamage_.AddEntriesFrom(ref input, _repeated_attackTypeDamage_codec);
+            break;
+          }
+          case 154: {
+            attackTypeBreakDamage_.AddEntriesFrom(ref input, _repeated_attackTypeBreakDamage_codec);
+            break;
+          }
+          case 162: {
+            attackTypeMaxDamage_.AddEntriesFrom(ref input, _repeated_attackTypeMaxDamage_codec);
+            break;
+          }
+          case 170: {
+            skillTimes_.AddEntriesFrom(ref input, _repeated_skillTimes_codec);
+            break;
+          }
+          case 177: {
+            DelayCumulate = input.ReadDouble();
+            break;
+          }
+          case 184: {
+            TotalSpAdd = input.ReadUInt32();
+            break;
+          }
+          case 194: {
+            spAddSource_.AddEntriesFrom(ref input, _repeated_spAddSource_codec);
+            break;
+          }
+          case 200: {
+            TotalBpCost = input.ReadUInt32();
+            break;
+          }
+          case 208: {
+            DieTimes = input.ReadUInt32();
+            break;
+          }
+          case 216: {
+            ReviveTimes = input.ReadUInt32();
+            break;
+          }
+          case 224: {
+            BreakTimes = input.ReadUInt32();
+            break;
+          }
+          case 232: {
+            ExtraTurns = input.ReadUInt32();
+            break;
+          }
+          case 241: {
+            TotalShield = input.ReadDouble();
+            break;
+          }
+          case 249: {
+            TotalShieldTaken = input.ReadDouble();
+            break;
+          }
+          case 257: {
+            TotalShieldDamage = input.ReadDouble();
+            break;
+          }
+          case 266: {
+            if (initialStatus_ == null) {
+              InitialStatus = new global::EggLink.DanhengServer.Proto.AvatarProperty();
+            }
+            input.ReadMessage(InitialStatus);
+            break;
+          }
+          case 274: {
+            relics_.AddEntriesFrom(ref input, _repeated_relics_codec);
+            break;
+          }
+          case 280: {
+            AssistUid = input.ReadUInt32();
+            break;
+          }
+          case 290: {
+            kBFLCGHMALP_.AddEntriesFrom(ref input, _repeated_kBFLCGHMALP_codec);
+            break;
+          }
+          case 297: {
+            EAHBENAKFEL = input.ReadDouble();
+            break;
+          }
+          case 305: {
+            EGFKDHEFIBE = input.ReadDouble();
+            break;
+          }
+          case 313: {
+            FLNFAIIFCBI = input.ReadDouble();
+            break;
+          }
+          case 321: {
+            EHBKBPCIIGF = input.ReadDouble();
+            break;
+          }
+          case 330: {
+            aHIGMDLLJGH_.AddEntriesFrom(ref input, _repeated_aHIGMDLLJGH_codec);
+            break;
+          }
+          case 336: {
+            BCPIPAKGKBD = input.ReadUInt32();
+            break;
+          }
+          case 344: {
+            PNLBFCFIKLO = input.ReadUInt32();
             break;
           }
         }

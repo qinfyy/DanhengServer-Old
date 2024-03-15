@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static GetUnlockTeleportScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChxHZXRVbmxvY2tUZWxlcG9ydFNjUnNwLnByb3RvIkkKFkdldFVubG9ja1Rl",
-            "bGVwb3J0U2NSc3ASHgoWdW5sb2NrZWRfdGVsZXBvcnRfbGlzdBgDIAMoDRIP",
-            "CgdyZXRjb2RlGAYgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJv",
-            "dG9iBnByb3RvMw=="));
+            "ChxHZXRVbmxvY2tUZWxlcG9ydFNjUnNwLnByb3RvIkcKFkdldFVubG9ja1Rl",
+            "bGVwb3J0U2NSc3ASDwoHcmV0Y29kZRgGIAEoDRIcChR1bmxvY2tfdGVsZXBv",
+            "cnRfbGlzdBgDIAMoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3Rv",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetUnlockTeleportScRsp), global::EggLink.DanhengServer.Proto.GetUnlockTeleportScRsp.Parser, new[]{ "UnlockedTeleportList", "Retcode" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetUnlockTeleportScRsp), global::EggLink.DanhengServer.Proto.GetUnlockTeleportScRsp.Parser, new[]{ "Retcode", "UnlockTeleportList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,8 +73,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetUnlockTeleportScRsp(GetUnlockTeleportScRsp other) : this() {
-      unlockedTeleportList_ = other.unlockedTeleportList_.Clone();
       retcode_ = other.retcode_;
+      unlockTeleportList_ = other.unlockTeleportList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -82,17 +82,6 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetUnlockTeleportScRsp Clone() {
       return new GetUnlockTeleportScRsp(this);
-    }
-
-    /// <summary>Field number for the "unlocked_teleport_list" field.</summary>
-    public const int UnlockedTeleportListFieldNumber = 3;
-    private static readonly pb::FieldCodec<uint> _repeated_unlockedTeleportList_codec
-        = pb::FieldCodec.ForUInt32(26);
-    private readonly pbc::RepeatedField<uint> unlockedTeleportList_ = new pbc::RepeatedField<uint>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<uint> UnlockedTeleportList {
-      get { return unlockedTeleportList_; }
     }
 
     /// <summary>Field number for the "retcode" field.</summary>
@@ -105,6 +94,17 @@ namespace EggLink.DanhengServer.Proto {
       set {
         retcode_ = value;
       }
+    }
+
+    /// <summary>Field number for the "unlock_teleport_list" field.</summary>
+    public const int UnlockTeleportListFieldNumber = 3;
+    private static readonly pb::FieldCodec<uint> _repeated_unlockTeleportList_codec
+        = pb::FieldCodec.ForUInt32(26);
+    private readonly pbc::RepeatedField<uint> unlockTeleportList_ = new pbc::RepeatedField<uint>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<uint> UnlockTeleportList {
+      get { return unlockTeleportList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -122,8 +122,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!unlockedTeleportList_.Equals(other.unlockedTeleportList_)) return false;
       if (Retcode != other.Retcode) return false;
+      if(!unlockTeleportList_.Equals(other.unlockTeleportList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -131,8 +131,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= unlockedTeleportList_.GetHashCode();
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
+      hash ^= unlockTeleportList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -151,7 +151,7 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      unlockedTeleportList_.WriteTo(output, _repeated_unlockedTeleportList_codec);
+      unlockTeleportList_.WriteTo(output, _repeated_unlockTeleportList_codec);
       if (Retcode != 0) {
         output.WriteRawTag(48);
         output.WriteUInt32(Retcode);
@@ -166,7 +166,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      unlockedTeleportList_.WriteTo(ref output, _repeated_unlockedTeleportList_codec);
+      unlockTeleportList_.WriteTo(ref output, _repeated_unlockTeleportList_codec);
       if (Retcode != 0) {
         output.WriteRawTag(48);
         output.WriteUInt32(Retcode);
@@ -181,10 +181,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += unlockedTeleportList_.CalculateSize(_repeated_unlockedTeleportList_codec);
       if (Retcode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
+      size += unlockTeleportList_.CalculateSize(_repeated_unlockTeleportList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -197,10 +197,10 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      unlockedTeleportList_.Add(other.unlockedTeleportList_);
       if (other.Retcode != 0) {
         Retcode = other.Retcode;
       }
+      unlockTeleportList_.Add(other.unlockTeleportList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -218,7 +218,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           case 26:
           case 24: {
-            unlockedTeleportList_.AddEntriesFrom(input, _repeated_unlockedTeleportList_codec);
+            unlockTeleportList_.AddEntriesFrom(input, _repeated_unlockTeleportList_codec);
             break;
           }
           case 48: {
@@ -242,7 +242,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           case 26:
           case 24: {
-            unlockedTeleportList_.AddEntriesFrom(ref input, _repeated_unlockedTeleportList_codec);
+            unlockTeleportList_.AddEntriesFrom(ref input, _repeated_unlockTeleportList_codec);
             break;
           }
           case 48: {

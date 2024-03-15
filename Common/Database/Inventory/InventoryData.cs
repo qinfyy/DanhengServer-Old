@@ -11,6 +11,8 @@ namespace EggLink.DanhengServer.Database.Inventory
         public List<ItemData> EquipmentItems { get; set; } = [];
         [SugarColumn(IsJson = true)]
         public List<ItemData> RelicItems { get; set; } = [];
+
+        public int NextUniqueId { get; set; } = 100;
     }
 
     public class ItemData

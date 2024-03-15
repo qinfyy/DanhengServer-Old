@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static DailyActiveInfoNotifyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChtEYWlseUFjdGl2ZUluZm9Ob3RpZnkucHJvdG8aF0RhaWx5QWN0aXZpdHlJ",
-            "bmZvLnByb3RvIowBChVEYWlseUFjdGl2ZUluZm9Ob3RpZnkSGgoSZGFpbHlf",
-            "YWN0aXZlX3BvaW50GA4gASgNEiIKGmRhaWx5X2FjdGl2ZV9xdWVzdF9pZF9s",
-            "aXN0GAwgAygNEjMKF2RhaWx5X2FjdGl2ZV9sZXZlbF9saXN0GA8gAygLMhIu",
-            "RGFpbHlBY3Rpdml0eUluZm9CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Q",
-            "cm90b2IGcHJvdG8z"));
+            "ChtEYWlseUFjdGl2ZUluZm9Ob3RpZnkucHJvdG8aFkRhaWx5QWN0aXZlTGV2",
+            "ZWwucHJvdG8iiwEKFURhaWx5QWN0aXZlSW5mb05vdGlmeRIaChJkYWlseV9h",
+            "Y3RpdmVfcG9pbnQYDiABKA0SIgoaZGFpbHlfYWN0aXZlX3F1ZXN0X2lkX2xp",
+            "c3QYDCADKA0SMgoXZGFpbHlfYWN0aXZlX2xldmVsX2xpc3QYDyADKAsyES5E",
+            "YWlseUFjdGl2ZUxldmVsQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJv",
+            "dG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.DailyActivityInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.DailyActiveLevelReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.DailyActiveInfoNotify), global::EggLink.DanhengServer.Proto.DailyActiveInfoNotify.Parser, new[]{ "DailyActivePoint", "DailyActiveQuestIdList", "DailyActiveLevelList" }, null, null, null, null)
           }));
@@ -112,12 +112,12 @@ namespace EggLink.DanhengServer.Proto {
 
     /// <summary>Field number for the "daily_active_level_list" field.</summary>
     public const int DailyActiveLevelListFieldNumber = 15;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.DailyActivityInfo> _repeated_dailyActiveLevelList_codec
-        = pb::FieldCodec.ForMessage(122, global::EggLink.DanhengServer.Proto.DailyActivityInfo.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DailyActivityInfo> dailyActiveLevelList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DailyActivityInfo>();
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.DailyActiveLevel> _repeated_dailyActiveLevelList_codec
+        = pb::FieldCodec.ForMessage(122, global::EggLink.DanhengServer.Proto.DailyActiveLevel.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DailyActiveLevel> dailyActiveLevelList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DailyActiveLevel>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DailyActivityInfo> DailyActiveLevelList {
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DailyActiveLevel> DailyActiveLevelList {
       get { return dailyActiveLevelList_; }
     }
 

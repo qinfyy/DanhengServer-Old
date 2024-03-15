@@ -37,7 +37,7 @@ namespace EggLink.DanhengServer.Database.Avatar
         public Dictionary<int, int> Relic { get; set; } = [];
 
         [JsonIgnore()]
-        public AvatarConfigExcel Excel;
+        public AvatarConfigExcel? Excel;
         [JsonIgnore()]
         public int EntityId;
         [JsonIgnore()]

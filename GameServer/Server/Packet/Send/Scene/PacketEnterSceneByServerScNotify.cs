@@ -11,7 +11,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Scene
             var notify = new EnterSceneByServerScNotify()
             {
                 Scene = sceneInfo,
-                Lineup = scene.Player.LineupManager.GetCurLineup()!.ToProto(),
+                Lineup = scene.Player.LineupManager!.GetCurLineup()!.ToProto(),
             };
 
             SetData(notify);

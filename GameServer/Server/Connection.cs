@@ -65,14 +65,20 @@ public partial class Connection
         try
         {
             //Logger.DebugWriteLine($"{sendOrRecv}: {Enum.GetName(typeof(OpCode), opcode)}({opcode})\r\n{Convert.ToHexString(payload)}");
+            if (opcode == CmdIds.PlayerHeartBeatCsReq || opcode == CmdIds.PlayerHeartBeatScRsp || opcode == CmdIds.SceneEntityMoveCsReq || opcode == CmdIds.SceneEntityMoveScRsp)
+            {
+                return;
+            }
+#pragma warning disable CS8600
             Type? typ = AppDomain.CurrentDomain.GetAssemblies().
-           SingleOrDefault(assembly => assembly.GetName().Name == "Common").GetTypes().First(t => t.Name == $"{LogMap[opcode.ToString()]}"); //get the type using the packet name
-            MessageDescriptor? descriptor = (MessageDescriptor)typ.GetProperty("Descriptor", BindingFlags.Public | BindingFlags.Static).GetValue(null, null); // get the static property Descriptor
-            IMessage? packet = descriptor.Parser.ParseFrom(payload);
+           SingleOrDefault(assembly => assembly.GetName().Name == "Common")!.GetTypes().First(t => t.Name == $"{LogMap[opcode.ToString()]}"); //get the type using the packet name
+            MessageDescriptor? descriptor = (MessageDescriptor)typ.GetProperty("Descriptor", BindingFlags.Public | BindingFlags.Static)!.GetValue(null, null); // get the static property Descriptor
+            IMessage? packet = descriptor!.Parser.ParseFrom(payload);
+#pragma warning restore CS8600
             JsonFormatter? formatter = JsonFormatter.Default;
             string? asJson = formatter.Format(packet);
             Logger.Debug($"{sendOrRecv}: {LogMap[opcode.ToString()]}({opcode})\r\n{asJson}");
-        } catch (Exception e)
+        } catch
         {
             Logger.Debug($"{sendOrRecv}: {LogMap[opcode.ToString()]}({opcode})");
         }

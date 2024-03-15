@@ -24,13 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static GetSceneMapInfoCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChpHZXRTY2VuZU1hcEluZm9Dc1JlcS5wcm90byI/ChRHZXRTY2VuZU1hcElu",
-            "Zm9Dc1JlcRIQCghlbnRyeV9pZBgPIAEoDRIVCg1lbnRyeV9pZF9saXN0GAgg",
-            "AygNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "ChpHZXRTY2VuZU1hcEluZm9Dc1JlcS5wcm90byJpChRHZXRTY2VuZU1hcElu",
+            "Zm9Dc1JlcRITCgtMSlBOSkxFSE1JShgLIAEoDRITCgtLTUVHUEFOS1BNTRgN",
+            "IAEoCBIQCghlbnRyeV9pZBgPIAEoDRIVCg1lbnRyeV9pZF9saXN0GAggAygN",
+            "Qh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetSceneMapInfoCsReq), global::EggLink.DanhengServer.Proto.GetSceneMapInfoCsReq.Parser, new[]{ "EntryId", "EntryIdList" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetSceneMapInfoCsReq), global::EggLink.DanhengServer.Proto.GetSceneMapInfoCsReq.Parser, new[]{ "LJPNJLEHMIJ", "KMEGPANKPMM", "EntryId", "EntryIdList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,6 +73,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetSceneMapInfoCsReq(GetSceneMapInfoCsReq other) : this() {
+      lJPNJLEHMIJ_ = other.lJPNJLEHMIJ_;
+      kMEGPANKPMM_ = other.kMEGPANKPMM_;
       entryId_ = other.entryId_;
       entryIdList_ = other.entryIdList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -81,6 +84,30 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetSceneMapInfoCsReq Clone() {
       return new GetSceneMapInfoCsReq(this);
+    }
+
+    /// <summary>Field number for the "LJPNJLEHMIJ" field.</summary>
+    public const int LJPNJLEHMIJFieldNumber = 11;
+    private uint lJPNJLEHMIJ_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint LJPNJLEHMIJ {
+      get { return lJPNJLEHMIJ_; }
+      set {
+        lJPNJLEHMIJ_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "KMEGPANKPMM" field.</summary>
+    public const int KMEGPANKPMMFieldNumber = 13;
+    private bool kMEGPANKPMM_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool KMEGPANKPMM {
+      get { return kMEGPANKPMM_; }
+      set {
+        kMEGPANKPMM_ = value;
+      }
     }
 
     /// <summary>Field number for the "entry_id" field.</summary>
@@ -121,6 +148,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (LJPNJLEHMIJ != other.LJPNJLEHMIJ) return false;
+      if (KMEGPANKPMM != other.KMEGPANKPMM) return false;
       if (EntryId != other.EntryId) return false;
       if(!entryIdList_.Equals(other.entryIdList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -130,6 +159,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (LJPNJLEHMIJ != 0) hash ^= LJPNJLEHMIJ.GetHashCode();
+      if (KMEGPANKPMM != false) hash ^= KMEGPANKPMM.GetHashCode();
       if (EntryId != 0) hash ^= EntryId.GetHashCode();
       hash ^= entryIdList_.GetHashCode();
       if (_unknownFields != null) {
@@ -151,6 +182,14 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       entryIdList_.WriteTo(output, _repeated_entryIdList_codec);
+      if (LJPNJLEHMIJ != 0) {
+        output.WriteRawTag(88);
+        output.WriteUInt32(LJPNJLEHMIJ);
+      }
+      if (KMEGPANKPMM != false) {
+        output.WriteRawTag(104);
+        output.WriteBool(KMEGPANKPMM);
+      }
       if (EntryId != 0) {
         output.WriteRawTag(120);
         output.WriteUInt32(EntryId);
@@ -166,6 +205,14 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       entryIdList_.WriteTo(ref output, _repeated_entryIdList_codec);
+      if (LJPNJLEHMIJ != 0) {
+        output.WriteRawTag(88);
+        output.WriteUInt32(LJPNJLEHMIJ);
+      }
+      if (KMEGPANKPMM != false) {
+        output.WriteRawTag(104);
+        output.WriteBool(KMEGPANKPMM);
+      }
       if (EntryId != 0) {
         output.WriteRawTag(120);
         output.WriteUInt32(EntryId);
@@ -180,6 +227,12 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (LJPNJLEHMIJ != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LJPNJLEHMIJ);
+      }
+      if (KMEGPANKPMM != false) {
+        size += 1 + 1;
+      }
       if (EntryId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EntryId);
       }
@@ -195,6 +248,12 @@ namespace EggLink.DanhengServer.Proto {
     public void MergeFrom(GetSceneMapInfoCsReq other) {
       if (other == null) {
         return;
+      }
+      if (other.LJPNJLEHMIJ != 0) {
+        LJPNJLEHMIJ = other.LJPNJLEHMIJ;
+      }
+      if (other.KMEGPANKPMM != false) {
+        KMEGPANKPMM = other.KMEGPANKPMM;
       }
       if (other.EntryId != 0) {
         EntryId = other.EntryId;
@@ -220,6 +279,14 @@ namespace EggLink.DanhengServer.Proto {
             entryIdList_.AddEntriesFrom(input, _repeated_entryIdList_codec);
             break;
           }
+          case 88: {
+            LJPNJLEHMIJ = input.ReadUInt32();
+            break;
+          }
+          case 104: {
+            KMEGPANKPMM = input.ReadBool();
+            break;
+          }
           case 120: {
             EntryId = input.ReadUInt32();
             break;
@@ -242,6 +309,14 @@ namespace EggLink.DanhengServer.Proto {
           case 66:
           case 64: {
             entryIdList_.AddEntriesFrom(ref input, _repeated_entryIdList_codec);
+            break;
+          }
+          case 88: {
+            LJPNJLEHMIJ = input.ReadUInt32();
+            break;
+          }
+          case 104: {
+            KMEGPANKPMM = input.ReadBool();
             break;
           }
           case 120: {

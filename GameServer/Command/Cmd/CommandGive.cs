@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EggLink.DanhengServer.Command.Cmd
+﻿namespace EggLink.DanhengServer.Command.Cmd
 {
     [CommandInfo("give", "Give item to player", "give <item> l<level> r<rank> p<promotion> x<amount>")]
     public class CommandGive : ICommand

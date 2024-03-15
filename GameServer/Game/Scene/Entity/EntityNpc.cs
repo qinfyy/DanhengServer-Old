@@ -37,9 +37,9 @@ namespace EggLink.DanhengServer.Game.Scene.Entity
             {
                 var rogue = new NpcRogueInfo()
                 {
-                    RogueNpcId = (uint)RogueNpcId,
-                    FinishDialogue = IsFinishedTalk,
-                    UniqueId = (uint)EventUniqueId,
+                    EventId = (uint)RogueNpcId,
+                    IsFinished = IsFinishedTalk,
+                    EventUniqueId = (uint)EventUniqueId,
                 };
 
                 npc.ExtraInfo.RogueInfo = rogue;

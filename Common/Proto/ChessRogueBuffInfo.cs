@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueBuffInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChhDaGVzc1JvZ3VlQnVmZkluZm8ucHJvdG8aGENoZXNzUm9ndWVCdWZmRGF0",
-            "YS5wcm90byI8ChJDaGVzc1JvZ3VlQnVmZkluZm8SJgoJYnVmZl9kYXRhGAEg",
-            "ASgLMhMuQ2hlc3NSb2d1ZUJ1ZmZEYXRhQh6qAhtFZ2dMaW5rLkRhbmhlbmdT",
-            "ZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "ChhDaGVzc1JvZ3VlQnVmZkluZm8ucHJvdG8aE1JvZ3VlQnVmZkluZm8ucHJv",
+            "dG8iOAoSQ2hlc3NSb2d1ZUJ1ZmZJbmZvEiIKCnJvZ3VlX2J1ZmYYBSABKAsy",
+            "Di5Sb2d1ZUJ1ZmZJbmZvQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJv",
+            "dG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChessRogueBuffDataReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RogueBuffInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueBuffInfo), global::EggLink.DanhengServer.Proto.ChessRogueBuffInfo.Parser, new[]{ "BuffData" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueBuffInfo), global::EggLink.DanhengServer.Proto.ChessRogueBuffInfo.Parser, new[]{ "RogueBuff" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ChessRogueBuffInfo(ChessRogueBuffInfo other) : this() {
-      buffData_ = other.buffData_ != null ? other.buffData_.Clone() : null;
+      rogueBuff_ = other.rogueBuff_ != null ? other.rogueBuff_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,15 +83,15 @@ namespace EggLink.DanhengServer.Proto {
       return new ChessRogueBuffInfo(this);
     }
 
-    /// <summary>Field number for the "buff_data" field.</summary>
-    public const int BuffDataFieldNumber = 1;
-    private global::EggLink.DanhengServer.Proto.ChessRogueBuffData buffData_;
+    /// <summary>Field number for the "rogue_buff" field.</summary>
+    public const int RogueBuffFieldNumber = 5;
+    private global::EggLink.DanhengServer.Proto.RogueBuffInfo rogueBuff_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.ChessRogueBuffData BuffData {
-      get { return buffData_; }
+    public global::EggLink.DanhengServer.Proto.RogueBuffInfo RogueBuff {
+      get { return rogueBuff_; }
       set {
-        buffData_ = value;
+        rogueBuff_ = value;
       }
     }
 
@@ -110,7 +110,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(BuffData, other.BuffData)) return false;
+      if (!object.Equals(RogueBuff, other.RogueBuff)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -118,7 +118,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (buffData_ != null) hash ^= BuffData.GetHashCode();
+      if (rogueBuff_ != null) hash ^= RogueBuff.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -137,9 +137,9 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (buffData_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(BuffData);
+      if (rogueBuff_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(RogueBuff);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -151,9 +151,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (buffData_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(BuffData);
+      if (rogueBuff_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(RogueBuff);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -165,8 +165,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (buffData_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BuffData);
+      if (rogueBuff_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(RogueBuff);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -180,11 +180,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.buffData_ != null) {
-        if (buffData_ == null) {
-          BuffData = new global::EggLink.DanhengServer.Proto.ChessRogueBuffData();
+      if (other.rogueBuff_ != null) {
+        if (rogueBuff_ == null) {
+          RogueBuff = new global::EggLink.DanhengServer.Proto.RogueBuffInfo();
         }
-        BuffData.MergeFrom(other.BuffData);
+        RogueBuff.MergeFrom(other.RogueBuff);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -201,11 +201,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (buffData_ == null) {
-              BuffData = new global::EggLink.DanhengServer.Proto.ChessRogueBuffData();
+          case 42: {
+            if (rogueBuff_ == null) {
+              RogueBuff = new global::EggLink.DanhengServer.Proto.RogueBuffInfo();
             }
-            input.ReadMessage(BuffData);
+            input.ReadMessage(RogueBuff);
             break;
           }
         }
@@ -223,11 +223,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            if (buffData_ == null) {
-              BuffData = new global::EggLink.DanhengServer.Proto.ChessRogueBuffData();
+          case 42: {
+            if (rogueBuff_ == null) {
+              RogueBuff = new global::EggLink.DanhengServer.Proto.RogueBuffInfo();
             }
-            input.ReadMessage(BuffData);
+            input.ReadMessage(RogueBuff);
             break;
           }
         }

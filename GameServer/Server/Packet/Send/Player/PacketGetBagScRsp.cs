@@ -9,7 +9,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Player
         {
             var proto = new GetBagScRsp();
 
-            player.InventoryManager.Data.MaterialItems.ForEach(item =>
+            player.InventoryManager!.Data.MaterialItems.ForEach(item =>
             {
                 proto.MaterialList.Add(item.ToMaterialProto());
             });

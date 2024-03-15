@@ -30,7 +30,7 @@ namespace EggLink.DanhengServer.Game.Lineup
                     foreach (var lineupInfo in LineupData.Lineups?.Values!)
                     {
                         lineupInfo.LineupData = LineupData;
-                        lineupInfo.AvatarData = player.AvatarManager.AvatarData;
+                        lineupInfo.AvatarData = player.AvatarManager!.AvatarData;
                     }
                 }
             }
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Game.Lineup
                     LineupType = 0,
                     BaseAvatars = [new() { BaseAvatarId = avatarId }],
                     LineupData = LineupData,
-                    AvatarData = Player.AvatarManager.AvatarData,
+                    AvatarData = Player.AvatarManager!.AvatarData,
                 };
                 LineupInfo.Add(lineupIndex, lineup);
             } else

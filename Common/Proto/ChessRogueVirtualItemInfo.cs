@@ -24,17 +24,15 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueVirtualItemInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Ch9DaGVzc1JvZ3VlVmlydHVhbEl0ZW1JbmZvLnByb3RvGhhDaGVzc1JvZ3Vl",
-            "QnVmZkluZm8ucHJvdG8aG0NoZXNzUm9ndWVNaXJhY2xlSW5mby5wcm90bxoY",
-            "Q2hlc3NSb2d1ZUl0ZW1JbmZvLnByb3RvIpkBChlDaGVzc1JvZ3VlVmlydHVh",
-            "bEl0ZW1JbmZvEiYKCWJ1ZmZfaW5mbxgJIAEoCzITLkNoZXNzUm9ndWVCdWZm",
-            "SW5mbxIsCgxtaXJhY2xlX2luZm8YDSABKAsyFi5DaGVzc1JvZ3VlTWlyYWNs",
-            "ZUluZm8SJgoJaXRlbV9pbmZvGAYgASgLMhMuQ2hlc3NSb2d1ZUl0ZW1JbmZv",
-            "Qh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "Ch9DaGVzc1JvZ3VlVmlydHVhbEl0ZW1JbmZvLnByb3RvIoYBChlDaGVzc1Jv",
+            "Z3VlVmlydHVhbEl0ZW1JbmZvEjkKCGl0ZW1fbWFwGAcgAygLMicuQ2hlc3NS",
+            "b2d1ZVZpcnR1YWxJdGVtSW5mby5JdGVtTWFwRW50cnkaLgoMSXRlbU1hcEVu",
+            "dHJ5EgsKA2tleRgBIAEoDRINCgV2YWx1ZRgCIAEoDToCOAFCHqoCG0VnZ0xp",
+            "bmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChessRogueBuffInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueMiracleInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueItemInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueVirtualItemInfo), global::EggLink.DanhengServer.Proto.ChessRogueVirtualItemInfo.Parser, new[]{ "BuffInfo", "MiracleInfo", "ItemInfo" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueVirtualItemInfo), global::EggLink.DanhengServer.Proto.ChessRogueVirtualItemInfo.Parser, new[]{ "ItemMap" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
           }));
     }
     #endregion
@@ -76,9 +74,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ChessRogueVirtualItemInfo(ChessRogueVirtualItemInfo other) : this() {
-      buffInfo_ = other.buffInfo_ != null ? other.buffInfo_.Clone() : null;
-      miracleInfo_ = other.miracleInfo_ != null ? other.miracleInfo_.Clone() : null;
-      itemInfo_ = other.itemInfo_ != null ? other.itemInfo_.Clone() : null;
+      itemMap_ = other.itemMap_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -88,44 +84,15 @@ namespace EggLink.DanhengServer.Proto {
       return new ChessRogueVirtualItemInfo(this);
     }
 
-    /// <summary>Field number for the "buff_info" field.</summary>
-    public const int BuffInfoFieldNumber = 9;
-    private global::EggLink.DanhengServer.Proto.ChessRogueBuffInfo buffInfo_;
+    /// <summary>Field number for the "item_map" field.</summary>
+    public const int ItemMapFieldNumber = 7;
+    private static readonly pbc::MapField<uint, uint>.Codec _map_itemMap_codec
+        = new pbc::MapField<uint, uint>.Codec(pb::FieldCodec.ForUInt32(8, 0), pb::FieldCodec.ForUInt32(16, 0), 58);
+    private readonly pbc::MapField<uint, uint> itemMap_ = new pbc::MapField<uint, uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.ChessRogueBuffInfo BuffInfo {
-      get { return buffInfo_; }
-      set {
-        buffInfo_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "miracle_info" field.</summary>
-    public const int MiracleInfoFieldNumber = 13;
-    private global::EggLink.DanhengServer.Proto.ChessRogueMiracleInfo miracleInfo_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.ChessRogueMiracleInfo MiracleInfo {
-      get { return miracleInfo_; }
-      set {
-        miracleInfo_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "item_info" field.</summary>
-    public const int ItemInfoFieldNumber = 6;
-    private global::EggLink.DanhengServer.Proto.ChessRogueItemInfo itemInfo_;
-    /// <summary>
-    ///LNGAAJMILOC CKJPPDKJIOH = 8;
-    ///NNGLIKCIBCA JNAGMIALOII = 14;
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.ChessRogueItemInfo ItemInfo {
-      get { return itemInfo_; }
-      set {
-        itemInfo_ = value;
-      }
+    public pbc::MapField<uint, uint> ItemMap {
+      get { return itemMap_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -143,9 +110,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(BuffInfo, other.BuffInfo)) return false;
-      if (!object.Equals(MiracleInfo, other.MiracleInfo)) return false;
-      if (!object.Equals(ItemInfo, other.ItemInfo)) return false;
+      if (!ItemMap.Equals(other.ItemMap)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -153,9 +118,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (buffInfo_ != null) hash ^= BuffInfo.GetHashCode();
-      if (miracleInfo_ != null) hash ^= MiracleInfo.GetHashCode();
-      if (itemInfo_ != null) hash ^= ItemInfo.GetHashCode();
+      hash ^= ItemMap.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -174,18 +137,7 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (itemInfo_ != null) {
-        output.WriteRawTag(50);
-        output.WriteMessage(ItemInfo);
-      }
-      if (buffInfo_ != null) {
-        output.WriteRawTag(74);
-        output.WriteMessage(BuffInfo);
-      }
-      if (miracleInfo_ != null) {
-        output.WriteRawTag(106);
-        output.WriteMessage(MiracleInfo);
-      }
+      itemMap_.WriteTo(output, _map_itemMap_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -196,18 +148,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (itemInfo_ != null) {
-        output.WriteRawTag(50);
-        output.WriteMessage(ItemInfo);
-      }
-      if (buffInfo_ != null) {
-        output.WriteRawTag(74);
-        output.WriteMessage(BuffInfo);
-      }
-      if (miracleInfo_ != null) {
-        output.WriteRawTag(106);
-        output.WriteMessage(MiracleInfo);
-      }
+      itemMap_.WriteTo(ref output, _map_itemMap_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -218,15 +159,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (buffInfo_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BuffInfo);
-      }
-      if (miracleInfo_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(MiracleInfo);
-      }
-      if (itemInfo_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ItemInfo);
-      }
+      size += itemMap_.CalculateSize(_map_itemMap_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -239,24 +172,7 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.buffInfo_ != null) {
-        if (buffInfo_ == null) {
-          BuffInfo = new global::EggLink.DanhengServer.Proto.ChessRogueBuffInfo();
-        }
-        BuffInfo.MergeFrom(other.BuffInfo);
-      }
-      if (other.miracleInfo_ != null) {
-        if (miracleInfo_ == null) {
-          MiracleInfo = new global::EggLink.DanhengServer.Proto.ChessRogueMiracleInfo();
-        }
-        MiracleInfo.MergeFrom(other.MiracleInfo);
-      }
-      if (other.itemInfo_ != null) {
-        if (itemInfo_ == null) {
-          ItemInfo = new global::EggLink.DanhengServer.Proto.ChessRogueItemInfo();
-        }
-        ItemInfo.MergeFrom(other.ItemInfo);
-      }
+      itemMap_.MergeFrom(other.itemMap_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -272,25 +188,8 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 50: {
-            if (itemInfo_ == null) {
-              ItemInfo = new global::EggLink.DanhengServer.Proto.ChessRogueItemInfo();
-            }
-            input.ReadMessage(ItemInfo);
-            break;
-          }
-          case 74: {
-            if (buffInfo_ == null) {
-              BuffInfo = new global::EggLink.DanhengServer.Proto.ChessRogueBuffInfo();
-            }
-            input.ReadMessage(BuffInfo);
-            break;
-          }
-          case 106: {
-            if (miracleInfo_ == null) {
-              MiracleInfo = new global::EggLink.DanhengServer.Proto.ChessRogueMiracleInfo();
-            }
-            input.ReadMessage(MiracleInfo);
+          case 58: {
+            itemMap_.AddEntriesFrom(input, _map_itemMap_codec);
             break;
           }
         }
@@ -308,25 +207,8 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 50: {
-            if (itemInfo_ == null) {
-              ItemInfo = new global::EggLink.DanhengServer.Proto.ChessRogueItemInfo();
-            }
-            input.ReadMessage(ItemInfo);
-            break;
-          }
-          case 74: {
-            if (buffInfo_ == null) {
-              BuffInfo = new global::EggLink.DanhengServer.Proto.ChessRogueBuffInfo();
-            }
-            input.ReadMessage(BuffInfo);
-            break;
-          }
-          case 106: {
-            if (miracleInfo_ == null) {
-              MiracleInfo = new global::EggLink.DanhengServer.Proto.ChessRogueMiracleInfo();
-            }
-            input.ReadMessage(MiracleInfo);
+          case 58: {
+            itemMap_.AddEntriesFrom(ref input, _map_itemMap_codec);
             break;
           }
         }

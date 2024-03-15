@@ -24,17 +24,18 @@ namespace EggLink.DanhengServer.Proto {
     static GetPlayerBoardDataScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Ch1HZXRQbGF5ZXJCb2FyZERhdGFTY1JzcC5wcm90bxoOSGVhZEljb24ucHJv",
-            "dG8aFkRpc3BsYXlBdmF0YXJWZWMucHJvdG8itgEKF0dldFBsYXllckJvYXJk",
-            "RGF0YVNjUnNwEhEKCXNpZ25hdHVyZRgPIAEoCRIqChd1bmxvY2tlZF9oZWFk",
-            "X2ljb25fbGlzdBgDIAMoCzIJLkhlYWRJY29uEhwKFGN1cnJlbnRfaGVhZF9p",
-            "Y29uX2lkGAIgASgNEi0KEmRpc3BsYXlfYXZhdGFyX3ZlYxgNIAEoCzIRLkRp",
-            "c3BsYXlBdmF0YXJWZWMSDwoHcmV0Y29kZRgJIAEoDUIeqgIbRWdnTGluay5E",
-            "YW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "Ch1HZXRQbGF5ZXJCb2FyZERhdGFTY1JzcC5wcm90bxoWRGlzcGxheUF2YXRh",
+            "clZlYy5wcm90bxoSSGVhZEljb25EYXRhLnByb3RvIs8BChdHZXRQbGF5ZXJC",
+            "b2FyZERhdGFTY1JzcBITCgtESUdJUEVNQU9GQRgLIAMoDRIPCgdyZXRjb2Rl",
+            "GAkgASgNEhEKCXNpZ25hdHVyZRgPIAEoCRIuChd1bmxvY2tlZF9oZWFkX2lj",
+            "b25fbGlzdBgDIAMoCzINLkhlYWRJY29uRGF0YRIcChRjdXJyZW50X2hlYWRf",
+            "aWNvbl9pZBgCIAEoDRItChJkaXNwbGF5X2F2YXRhcl92ZWMYDSABKAsyES5E",
+            "aXNwbGF5QXZhdGFyVmVjQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJv",
+            "dG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.HeadIconReflection.Descriptor, global::EggLink.DanhengServer.Proto.DisplayAvatarVecReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.DisplayAvatarVecReflection.Descriptor, global::EggLink.DanhengServer.Proto.HeadIconDataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetPlayerBoardDataScRsp), global::EggLink.DanhengServer.Proto.GetPlayerBoardDataScRsp.Parser, new[]{ "Signature", "UnlockedHeadIconList", "CurrentHeadIconId", "DisplayAvatarVec", "Retcode" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetPlayerBoardDataScRsp), global::EggLink.DanhengServer.Proto.GetPlayerBoardDataScRsp.Parser, new[]{ "DIGIPEMAOFA", "Retcode", "Signature", "UnlockedHeadIconList", "CurrentHeadIconId", "DisplayAvatarVec" }, null, null, null, null)
           }));
     }
     #endregion
@@ -76,11 +77,12 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetPlayerBoardDataScRsp(GetPlayerBoardDataScRsp other) : this() {
+      dIGIPEMAOFA_ = other.dIGIPEMAOFA_.Clone();
+      retcode_ = other.retcode_;
       signature_ = other.signature_;
       unlockedHeadIconList_ = other.unlockedHeadIconList_.Clone();
       currentHeadIconId_ = other.currentHeadIconId_;
       displayAvatarVec_ = other.displayAvatarVec_ != null ? other.displayAvatarVec_.Clone() : null;
-      retcode_ = other.retcode_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -88,6 +90,29 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetPlayerBoardDataScRsp Clone() {
       return new GetPlayerBoardDataScRsp(this);
+    }
+
+    /// <summary>Field number for the "DIGIPEMAOFA" field.</summary>
+    public const int DIGIPEMAOFAFieldNumber = 11;
+    private static readonly pb::FieldCodec<uint> _repeated_dIGIPEMAOFA_codec
+        = pb::FieldCodec.ForUInt32(90);
+    private readonly pbc::RepeatedField<uint> dIGIPEMAOFA_ = new pbc::RepeatedField<uint>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<uint> DIGIPEMAOFA {
+      get { return dIGIPEMAOFA_; }
+    }
+
+    /// <summary>Field number for the "retcode" field.</summary>
+    public const int RetcodeFieldNumber = 9;
+    private uint retcode_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Retcode {
+      get { return retcode_; }
+      set {
+        retcode_ = value;
+      }
     }
 
     /// <summary>Field number for the "signature" field.</summary>
@@ -104,12 +129,12 @@ namespace EggLink.DanhengServer.Proto {
 
     /// <summary>Field number for the "unlocked_head_icon_list" field.</summary>
     public const int UnlockedHeadIconListFieldNumber = 3;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.HeadIcon> _repeated_unlockedHeadIconList_codec
-        = pb::FieldCodec.ForMessage(26, global::EggLink.DanhengServer.Proto.HeadIcon.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.HeadIcon> unlockedHeadIconList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.HeadIcon>();
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.HeadIconData> _repeated_unlockedHeadIconList_codec
+        = pb::FieldCodec.ForMessage(26, global::EggLink.DanhengServer.Proto.HeadIconData.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.HeadIconData> unlockedHeadIconList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.HeadIconData>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.HeadIcon> UnlockedHeadIconList {
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.HeadIconData> UnlockedHeadIconList {
       get { return unlockedHeadIconList_; }
     }
 
@@ -137,18 +162,6 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "retcode" field.</summary>
-    public const int RetcodeFieldNumber = 9;
-    private uint retcode_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Retcode {
-      get { return retcode_; }
-      set {
-        retcode_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -164,11 +177,12 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if(!dIGIPEMAOFA_.Equals(other.dIGIPEMAOFA_)) return false;
+      if (Retcode != other.Retcode) return false;
       if (Signature != other.Signature) return false;
       if(!unlockedHeadIconList_.Equals(other.unlockedHeadIconList_)) return false;
       if (CurrentHeadIconId != other.CurrentHeadIconId) return false;
       if (!object.Equals(DisplayAvatarVec, other.DisplayAvatarVec)) return false;
-      if (Retcode != other.Retcode) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -176,11 +190,12 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      hash ^= dIGIPEMAOFA_.GetHashCode();
+      if (Retcode != 0) hash ^= Retcode.GetHashCode();
       if (Signature.Length != 0) hash ^= Signature.GetHashCode();
       hash ^= unlockedHeadIconList_.GetHashCode();
       if (CurrentHeadIconId != 0) hash ^= CurrentHeadIconId.GetHashCode();
       if (displayAvatarVec_ != null) hash ^= DisplayAvatarVec.GetHashCode();
-      if (Retcode != 0) hash ^= Retcode.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -208,6 +223,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(72);
         output.WriteUInt32(Retcode);
       }
+      dIGIPEMAOFA_.WriteTo(output, _repeated_dIGIPEMAOFA_codec);
       if (displayAvatarVec_ != null) {
         output.WriteRawTag(106);
         output.WriteMessage(DisplayAvatarVec);
@@ -235,6 +251,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(72);
         output.WriteUInt32(Retcode);
       }
+      dIGIPEMAOFA_.WriteTo(ref output, _repeated_dIGIPEMAOFA_codec);
       if (displayAvatarVec_ != null) {
         output.WriteRawTag(106);
         output.WriteMessage(DisplayAvatarVec);
@@ -253,6 +270,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      size += dIGIPEMAOFA_.CalculateSize(_repeated_dIGIPEMAOFA_codec);
+      if (Retcode != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
+      }
       if (Signature.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Signature);
       }
@@ -262,9 +283,6 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (displayAvatarVec_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(DisplayAvatarVec);
-      }
-      if (Retcode != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -278,6 +296,10 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
+      dIGIPEMAOFA_.Add(other.dIGIPEMAOFA_);
+      if (other.Retcode != 0) {
+        Retcode = other.Retcode;
+      }
       if (other.Signature.Length != 0) {
         Signature = other.Signature;
       }
@@ -290,9 +312,6 @@ namespace EggLink.DanhengServer.Proto {
           DisplayAvatarVec = new global::EggLink.DanhengServer.Proto.DisplayAvatarVec();
         }
         DisplayAvatarVec.MergeFrom(other.DisplayAvatarVec);
-      }
-      if (other.Retcode != 0) {
-        Retcode = other.Retcode;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -319,6 +338,11 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 72: {
             Retcode = input.ReadUInt32();
+            break;
+          }
+          case 90:
+          case 88: {
+            dIGIPEMAOFA_.AddEntriesFrom(input, _repeated_dIGIPEMAOFA_codec);
             break;
           }
           case 106: {
@@ -357,6 +381,11 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 72: {
             Retcode = input.ReadUInt32();
+            break;
+          }
+          case 90:
+          case 88: {
+            dIGIPEMAOFA_.AddEntriesFrom(ref input, _repeated_dIGIPEMAOFA_codec);
             break;
           }
           case 106: {

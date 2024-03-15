@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static SearchPlayerCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChdTZWFyY2hQbGF5ZXJDc1JlcS5wcm90byIsChFTZWFyY2hQbGF5ZXJDc1Jl",
-            "cRIXCg9zZWFyY2hfdWlkX2xpc3QYBSADKA1CHqoCG0VnZ0xpbmsuRGFuaGVu",
-            "Z1NlcnZlci5Qcm90b2IGcHJvdG8z"));
+            "ChdTZWFyY2hQbGF5ZXJDc1JlcS5wcm90byI6ChFTZWFyY2hQbGF5ZXJDc1Jl",
+            "cRIQCgh1aWRfbGlzdBgFIAMoDRITCgtCUEFOQVBOR0lOThgIIAEoCEIeqgIb",
+            "RWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SearchPlayerCsReq), global::EggLink.DanhengServer.Proto.SearchPlayerCsReq.Parser, new[]{ "SearchUidList" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SearchPlayerCsReq), global::EggLink.DanhengServer.Proto.SearchPlayerCsReq.Parser, new[]{ "UidList", "BPANAPNGINN" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,7 +72,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SearchPlayerCsReq(SearchPlayerCsReq other) : this() {
-      searchUidList_ = other.searchUidList_.Clone();
+      uidList_ = other.uidList_.Clone();
+      bPANAPNGINN_ = other.bPANAPNGINN_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -82,15 +83,27 @@ namespace EggLink.DanhengServer.Proto {
       return new SearchPlayerCsReq(this);
     }
 
-    /// <summary>Field number for the "search_uid_list" field.</summary>
-    public const int SearchUidListFieldNumber = 5;
-    private static readonly pb::FieldCodec<uint> _repeated_searchUidList_codec
+    /// <summary>Field number for the "uid_list" field.</summary>
+    public const int UidListFieldNumber = 5;
+    private static readonly pb::FieldCodec<uint> _repeated_uidList_codec
         = pb::FieldCodec.ForUInt32(42);
-    private readonly pbc::RepeatedField<uint> searchUidList_ = new pbc::RepeatedField<uint>();
+    private readonly pbc::RepeatedField<uint> uidList_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<uint> SearchUidList {
-      get { return searchUidList_; }
+    public pbc::RepeatedField<uint> UidList {
+      get { return uidList_; }
+    }
+
+    /// <summary>Field number for the "BPANAPNGINN" field.</summary>
+    public const int BPANAPNGINNFieldNumber = 8;
+    private bool bPANAPNGINN_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool BPANAPNGINN {
+      get { return bPANAPNGINN_; }
+      set {
+        bPANAPNGINN_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -108,7 +121,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!searchUidList_.Equals(other.searchUidList_)) return false;
+      if(!uidList_.Equals(other.uidList_)) return false;
+      if (BPANAPNGINN != other.BPANAPNGINN) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -116,7 +130,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= searchUidList_.GetHashCode();
+      hash ^= uidList_.GetHashCode();
+      if (BPANAPNGINN != false) hash ^= BPANAPNGINN.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -135,7 +150,11 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      searchUidList_.WriteTo(output, _repeated_searchUidList_codec);
+      uidList_.WriteTo(output, _repeated_uidList_codec);
+      if (BPANAPNGINN != false) {
+        output.WriteRawTag(64);
+        output.WriteBool(BPANAPNGINN);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -146,7 +165,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      searchUidList_.WriteTo(ref output, _repeated_searchUidList_codec);
+      uidList_.WriteTo(ref output, _repeated_uidList_codec);
+      if (BPANAPNGINN != false) {
+        output.WriteRawTag(64);
+        output.WriteBool(BPANAPNGINN);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -157,7 +180,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += searchUidList_.CalculateSize(_repeated_searchUidList_codec);
+      size += uidList_.CalculateSize(_repeated_uidList_codec);
+      if (BPANAPNGINN != false) {
+        size += 1 + 1;
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -170,7 +196,10 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      searchUidList_.Add(other.searchUidList_);
+      uidList_.Add(other.uidList_);
+      if (other.BPANAPNGINN != false) {
+        BPANAPNGINN = other.BPANAPNGINN;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -188,7 +217,11 @@ namespace EggLink.DanhengServer.Proto {
             break;
           case 42:
           case 40: {
-            searchUidList_.AddEntriesFrom(input, _repeated_searchUidList_codec);
+            uidList_.AddEntriesFrom(input, _repeated_uidList_codec);
+            break;
+          }
+          case 64: {
+            BPANAPNGINN = input.ReadBool();
             break;
           }
         }
@@ -208,7 +241,11 @@ namespace EggLink.DanhengServer.Proto {
             break;
           case 42:
           case 40: {
-            searchUidList_.AddEntriesFrom(ref input, _repeated_searchUidList_codec);
+            uidList_.AddEntriesFrom(ref input, _repeated_uidList_codec);
+            break;
+          }
+          case 64: {
+            BPANAPNGINN = input.ReadBool();
             break;
           }
         }

@@ -24,16 +24,16 @@ namespace EggLink.DanhengServer.Proto {
     static ComposeSelectedRelicCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Ch9Db21wb3NlU2VsZWN0ZWRSZWxpY0NzUmVxLnByb3RvGhJJdGVtQ29zdExp",
-            "c3QucHJvdG8imQEKGUNvbXBvc2VTZWxlY3RlZFJlbGljQ3NSZXESEgoKY29t",
-            "cG9zZV9pZBgKIAEoDRIoChFjb21wb3NlX2l0ZW1fbGlzdBgGIAEoCzINLkl0",
-            "ZW1Db3N0TGlzdBIVCg1tYWluX2FmZml4X2lkGA0gASgNEhgKEGNvbXBvc2Vf",
-            "cmVsaWNfaWQYDiABKA0SDQoFY291bnQYCSABKA1CHqoCG0VnZ0xpbmsuRGFu",
-            "aGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
+            "Ch9Db21wb3NlU2VsZWN0ZWRSZWxpY0NzUmVxLnByb3RvGhJJdGVtQ29zdERh",
+            "dGEucHJvdG8imAEKGUNvbXBvc2VTZWxlY3RlZFJlbGljQ3NSZXESLAoVc3Bl",
+            "Y2lhbF9tYXRlcmlhbF9jb3N0GAYgASgLMg0uSXRlbUNvc3REYXRhEhMKC0pK",
+            "RkVORUZJRFBCGA4gASgNEhUKDW1haW5fYWZmaXhfaWQYDSABKA0SDQoFY291",
+            "bnQYCSABKA0SEgoKY29tcG9zZV9pZBgKIAEoDUIeqgIbRWdnTGluay5EYW5o",
+            "ZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ItemCostListReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ItemCostDataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ComposeSelectedRelicCsReq), global::EggLink.DanhengServer.Proto.ComposeSelectedRelicCsReq.Parser, new[]{ "ComposeId", "ComposeItemList", "MainAffixId", "ComposeRelicId", "Count" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ComposeSelectedRelicCsReq), global::EggLink.DanhengServer.Proto.ComposeSelectedRelicCsReq.Parser, new[]{ "SpecialMaterialCost", "JJFENEFIDPB", "MainAffixId", "Count", "ComposeId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -75,11 +75,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ComposeSelectedRelicCsReq(ComposeSelectedRelicCsReq other) : this() {
-      composeId_ = other.composeId_;
-      composeItemList_ = other.composeItemList_ != null ? other.composeItemList_.Clone() : null;
+      specialMaterialCost_ = other.specialMaterialCost_ != null ? other.specialMaterialCost_.Clone() : null;
+      jJFENEFIDPB_ = other.jJFENEFIDPB_;
       mainAffixId_ = other.mainAffixId_;
-      composeRelicId_ = other.composeRelicId_;
       count_ = other.count_;
+      composeId_ = other.composeId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -89,27 +89,27 @@ namespace EggLink.DanhengServer.Proto {
       return new ComposeSelectedRelicCsReq(this);
     }
 
-    /// <summary>Field number for the "compose_id" field.</summary>
-    public const int ComposeIdFieldNumber = 10;
-    private uint composeId_;
+    /// <summary>Field number for the "special_material_cost" field.</summary>
+    public const int SpecialMaterialCostFieldNumber = 6;
+    private global::EggLink.DanhengServer.Proto.ItemCostData specialMaterialCost_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint ComposeId {
-      get { return composeId_; }
+    public global::EggLink.DanhengServer.Proto.ItemCostData SpecialMaterialCost {
+      get { return specialMaterialCost_; }
       set {
-        composeId_ = value;
+        specialMaterialCost_ = value;
       }
     }
 
-    /// <summary>Field number for the "compose_item_list" field.</summary>
-    public const int ComposeItemListFieldNumber = 6;
-    private global::EggLink.DanhengServer.Proto.ItemCostList composeItemList_;
+    /// <summary>Field number for the "JJFENEFIDPB" field.</summary>
+    public const int JJFENEFIDPBFieldNumber = 14;
+    private uint jJFENEFIDPB_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.ItemCostList ComposeItemList {
-      get { return composeItemList_; }
+    public uint JJFENEFIDPB {
+      get { return jJFENEFIDPB_; }
       set {
-        composeItemList_ = value;
+        jJFENEFIDPB_ = value;
       }
     }
 
@@ -125,18 +125,6 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "compose_relic_id" field.</summary>
-    public const int ComposeRelicIdFieldNumber = 14;
-    private uint composeRelicId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint ComposeRelicId {
-      get { return composeRelicId_; }
-      set {
-        composeRelicId_ = value;
-      }
-    }
-
     /// <summary>Field number for the "count" field.</summary>
     public const int CountFieldNumber = 9;
     private uint count_;
@@ -146,6 +134,18 @@ namespace EggLink.DanhengServer.Proto {
       get { return count_; }
       set {
         count_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "compose_id" field.</summary>
+    public const int ComposeIdFieldNumber = 10;
+    private uint composeId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint ComposeId {
+      get { return composeId_; }
+      set {
+        composeId_ = value;
       }
     }
 
@@ -164,11 +164,11 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (ComposeId != other.ComposeId) return false;
-      if (!object.Equals(ComposeItemList, other.ComposeItemList)) return false;
+      if (!object.Equals(SpecialMaterialCost, other.SpecialMaterialCost)) return false;
+      if (JJFENEFIDPB != other.JJFENEFIDPB) return false;
       if (MainAffixId != other.MainAffixId) return false;
-      if (ComposeRelicId != other.ComposeRelicId) return false;
       if (Count != other.Count) return false;
+      if (ComposeId != other.ComposeId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -176,11 +176,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (ComposeId != 0) hash ^= ComposeId.GetHashCode();
-      if (composeItemList_ != null) hash ^= ComposeItemList.GetHashCode();
+      if (specialMaterialCost_ != null) hash ^= SpecialMaterialCost.GetHashCode();
+      if (JJFENEFIDPB != 0) hash ^= JJFENEFIDPB.GetHashCode();
       if (MainAffixId != 0) hash ^= MainAffixId.GetHashCode();
-      if (ComposeRelicId != 0) hash ^= ComposeRelicId.GetHashCode();
       if (Count != 0) hash ^= Count.GetHashCode();
+      if (ComposeId != 0) hash ^= ComposeId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -199,9 +199,9 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (composeItemList_ != null) {
+      if (specialMaterialCost_ != null) {
         output.WriteRawTag(50);
-        output.WriteMessage(ComposeItemList);
+        output.WriteMessage(SpecialMaterialCost);
       }
       if (Count != 0) {
         output.WriteRawTag(72);
@@ -215,9 +215,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(104);
         output.WriteUInt32(MainAffixId);
       }
-      if (ComposeRelicId != 0) {
+      if (JJFENEFIDPB != 0) {
         output.WriteRawTag(112);
-        output.WriteUInt32(ComposeRelicId);
+        output.WriteUInt32(JJFENEFIDPB);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -229,9 +229,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (composeItemList_ != null) {
+      if (specialMaterialCost_ != null) {
         output.WriteRawTag(50);
-        output.WriteMessage(ComposeItemList);
+        output.WriteMessage(SpecialMaterialCost);
       }
       if (Count != 0) {
         output.WriteRawTag(72);
@@ -245,9 +245,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(104);
         output.WriteUInt32(MainAffixId);
       }
-      if (ComposeRelicId != 0) {
+      if (JJFENEFIDPB != 0) {
         output.WriteRawTag(112);
-        output.WriteUInt32(ComposeRelicId);
+        output.WriteUInt32(JJFENEFIDPB);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -259,20 +259,20 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (ComposeId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ComposeId);
+      if (specialMaterialCost_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SpecialMaterialCost);
       }
-      if (composeItemList_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ComposeItemList);
+      if (JJFENEFIDPB != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(JJFENEFIDPB);
       }
       if (MainAffixId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MainAffixId);
       }
-      if (ComposeRelicId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ComposeRelicId);
-      }
       if (Count != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Count);
+      }
+      if (ComposeId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ComposeId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -286,23 +286,23 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.ComposeId != 0) {
-        ComposeId = other.ComposeId;
-      }
-      if (other.composeItemList_ != null) {
-        if (composeItemList_ == null) {
-          ComposeItemList = new global::EggLink.DanhengServer.Proto.ItemCostList();
+      if (other.specialMaterialCost_ != null) {
+        if (specialMaterialCost_ == null) {
+          SpecialMaterialCost = new global::EggLink.DanhengServer.Proto.ItemCostData();
         }
-        ComposeItemList.MergeFrom(other.ComposeItemList);
+        SpecialMaterialCost.MergeFrom(other.SpecialMaterialCost);
+      }
+      if (other.JJFENEFIDPB != 0) {
+        JJFENEFIDPB = other.JJFENEFIDPB;
       }
       if (other.MainAffixId != 0) {
         MainAffixId = other.MainAffixId;
       }
-      if (other.ComposeRelicId != 0) {
-        ComposeRelicId = other.ComposeRelicId;
-      }
       if (other.Count != 0) {
         Count = other.Count;
+      }
+      if (other.ComposeId != 0) {
+        ComposeId = other.ComposeId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -320,10 +320,10 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 50: {
-            if (composeItemList_ == null) {
-              ComposeItemList = new global::EggLink.DanhengServer.Proto.ItemCostList();
+            if (specialMaterialCost_ == null) {
+              SpecialMaterialCost = new global::EggLink.DanhengServer.Proto.ItemCostData();
             }
-            input.ReadMessage(ComposeItemList);
+            input.ReadMessage(SpecialMaterialCost);
             break;
           }
           case 72: {
@@ -339,7 +339,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 112: {
-            ComposeRelicId = input.ReadUInt32();
+            JJFENEFIDPB = input.ReadUInt32();
             break;
           }
         }
@@ -358,10 +358,10 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 50: {
-            if (composeItemList_ == null) {
-              ComposeItemList = new global::EggLink.DanhengServer.Proto.ItemCostList();
+            if (specialMaterialCost_ == null) {
+              SpecialMaterialCost = new global::EggLink.DanhengServer.Proto.ItemCostData();
             }
-            input.ReadMessage(ComposeItemList);
+            input.ReadMessage(SpecialMaterialCost);
             break;
           }
           case 72: {
@@ -377,7 +377,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 112: {
-            ComposeRelicId = input.ReadUInt32();
+            JJFENEFIDPB = input.ReadUInt32();
             break;
           }
         }

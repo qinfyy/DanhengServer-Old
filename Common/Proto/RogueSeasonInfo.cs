@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static RogueSeasonInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVSb2d1ZVNlYXNvbkluZm8ucHJvdG8iSgoPUm9ndWVTZWFzb25JbmZvEhIK",
-            "CmJlZ2luX3RpbWUYBiABKAMSEAoIZW5kX3RpbWUYCiABKAMSEQoJc2Vhc29u",
-            "X2lkGAsgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnBy",
-            "b3RvMw=="));
+            "ChVSb2d1ZVNlYXNvbkluZm8ucHJvdG8iRwoPUm9ndWVTZWFzb25JbmZvEhAK",
+            "CGVuZF90aW1lGAogASgDEhIKCmJlZ2luX3RpbWUYByABKAMSDgoGc2Vhc29u",
+            "GA0gASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueSeasonInfo), global::EggLink.DanhengServer.Proto.RogueSeasonInfo.Parser, new[]{ "BeginTime", "EndTime", "SeasonId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueSeasonInfo), global::EggLink.DanhengServer.Proto.RogueSeasonInfo.Parser, new[]{ "EndTime", "BeginTime", "Season" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,9 +73,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public RogueSeasonInfo(RogueSeasonInfo other) : this() {
-      beginTime_ = other.beginTime_;
       endTime_ = other.endTime_;
-      seasonId_ = other.seasonId_;
+      beginTime_ = other.beginTime_;
+      season_ = other.season_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,18 +83,6 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public RogueSeasonInfo Clone() {
       return new RogueSeasonInfo(this);
-    }
-
-    /// <summary>Field number for the "begin_time" field.</summary>
-    public const int BeginTimeFieldNumber = 6;
-    private long beginTime_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public long BeginTime {
-      get { return beginTime_; }
-      set {
-        beginTime_ = value;
-      }
     }
 
     /// <summary>Field number for the "end_time" field.</summary>
@@ -109,15 +97,27 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "season_id" field.</summary>
-    public const int SeasonIdFieldNumber = 11;
-    private uint seasonId_;
+    /// <summary>Field number for the "begin_time" field.</summary>
+    public const int BeginTimeFieldNumber = 7;
+    private long beginTime_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint SeasonId {
-      get { return seasonId_; }
+    public long BeginTime {
+      get { return beginTime_; }
       set {
-        seasonId_ = value;
+        beginTime_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "season" field.</summary>
+    public const int SeasonFieldNumber = 13;
+    private uint season_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Season {
+      get { return season_; }
+      set {
+        season_ = value;
       }
     }
 
@@ -136,9 +136,9 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (BeginTime != other.BeginTime) return false;
       if (EndTime != other.EndTime) return false;
-      if (SeasonId != other.SeasonId) return false;
+      if (BeginTime != other.BeginTime) return false;
+      if (Season != other.Season) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -146,9 +146,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (BeginTime != 0L) hash ^= BeginTime.GetHashCode();
       if (EndTime != 0L) hash ^= EndTime.GetHashCode();
-      if (SeasonId != 0) hash ^= SeasonId.GetHashCode();
+      if (BeginTime != 0L) hash ^= BeginTime.GetHashCode();
+      if (Season != 0) hash ^= Season.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -168,16 +168,16 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (BeginTime != 0L) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(56);
         output.WriteInt64(BeginTime);
       }
       if (EndTime != 0L) {
         output.WriteRawTag(80);
         output.WriteInt64(EndTime);
       }
-      if (SeasonId != 0) {
-        output.WriteRawTag(88);
-        output.WriteUInt32(SeasonId);
+      if (Season != 0) {
+        output.WriteRawTag(104);
+        output.WriteUInt32(Season);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -190,16 +190,16 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (BeginTime != 0L) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(56);
         output.WriteInt64(BeginTime);
       }
       if (EndTime != 0L) {
         output.WriteRawTag(80);
         output.WriteInt64(EndTime);
       }
-      if (SeasonId != 0) {
-        output.WriteRawTag(88);
-        output.WriteUInt32(SeasonId);
+      if (Season != 0) {
+        output.WriteRawTag(104);
+        output.WriteUInt32(Season);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -211,14 +211,14 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (BeginTime != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(BeginTime);
-      }
       if (EndTime != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(EndTime);
       }
-      if (SeasonId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SeasonId);
+      if (BeginTime != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(BeginTime);
+      }
+      if (Season != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Season);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -232,14 +232,14 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.BeginTime != 0L) {
-        BeginTime = other.BeginTime;
-      }
       if (other.EndTime != 0L) {
         EndTime = other.EndTime;
       }
-      if (other.SeasonId != 0) {
-        SeasonId = other.SeasonId;
+      if (other.BeginTime != 0L) {
+        BeginTime = other.BeginTime;
+      }
+      if (other.Season != 0) {
+        Season = other.Season;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -256,7 +256,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 48: {
+          case 56: {
             BeginTime = input.ReadInt64();
             break;
           }
@@ -264,8 +264,8 @@ namespace EggLink.DanhengServer.Proto {
             EndTime = input.ReadInt64();
             break;
           }
-          case 88: {
-            SeasonId = input.ReadUInt32();
+          case 104: {
+            Season = input.ReadUInt32();
             break;
           }
         }
@@ -283,7 +283,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 48: {
+          case 56: {
             BeginTime = input.ReadInt64();
             break;
           }
@@ -291,8 +291,8 @@ namespace EggLink.DanhengServer.Proto {
             EndTime = input.ReadInt64();
             break;
           }
-          case 88: {
-            SeasonId = input.ReadUInt32();
+          case 104: {
+            Season = input.ReadUInt32();
             break;
           }
         }

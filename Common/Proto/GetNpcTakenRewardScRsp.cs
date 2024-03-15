@@ -24,13 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static GetNpcTakenRewardScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChxHZXROcGNUYWtlblJld2FyZFNjUnNwLnByb3RvIjkKFkdldE5wY1Rha2Vu",
-            "UmV3YXJkU2NSc3ASDgoGbnBjX2lkGA0gASgNEg8KB3JldGNvZGUYAyABKA1C",
-            "HqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
+            "ChxHZXROcGNUYWtlblJld2FyZFNjUnNwLnByb3RvIlIKFkdldE5wY1Rha2Vu",
+            "UmV3YXJkU2NSc3ASDgoGbnBjX2lkGA0gASgNEg8KB3JldGNvZGUYAyABKA0S",
+            "FwoPdGFsa19ldmVudF9saXN0GA4gAygNQh6qAhtFZ2dMaW5rLkRhbmhlbmdT",
+            "ZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetNpcTakenRewardScRsp), global::EggLink.DanhengServer.Proto.GetNpcTakenRewardScRsp.Parser, new[]{ "NpcId", "Retcode" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetNpcTakenRewardScRsp), global::EggLink.DanhengServer.Proto.GetNpcTakenRewardScRsp.Parser, new[]{ "NpcId", "Retcode", "TalkEventList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,6 +75,7 @@ namespace EggLink.DanhengServer.Proto {
     public GetNpcTakenRewardScRsp(GetNpcTakenRewardScRsp other) : this() {
       npcId_ = other.npcId_;
       retcode_ = other.retcode_;
+      talkEventList_ = other.talkEventList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -107,6 +109,17 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
+    /// <summary>Field number for the "talk_event_list" field.</summary>
+    public const int TalkEventListFieldNumber = 14;
+    private static readonly pb::FieldCodec<uint> _repeated_talkEventList_codec
+        = pb::FieldCodec.ForUInt32(114);
+    private readonly pbc::RepeatedField<uint> talkEventList_ = new pbc::RepeatedField<uint>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<uint> TalkEventList {
+      get { return talkEventList_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -124,6 +137,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (NpcId != other.NpcId) return false;
       if (Retcode != other.Retcode) return false;
+      if(!talkEventList_.Equals(other.talkEventList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -133,6 +147,7 @@ namespace EggLink.DanhengServer.Proto {
       int hash = 1;
       if (NpcId != 0) hash ^= NpcId.GetHashCode();
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
+      hash ^= talkEventList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -159,6 +174,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(104);
         output.WriteUInt32(NpcId);
       }
+      talkEventList_.WriteTo(output, _repeated_talkEventList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -177,6 +193,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(104);
         output.WriteUInt32(NpcId);
       }
+      talkEventList_.WriteTo(ref output, _repeated_talkEventList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -193,6 +210,7 @@ namespace EggLink.DanhengServer.Proto {
       if (Retcode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
+      size += talkEventList_.CalculateSize(_repeated_talkEventList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -211,6 +229,7 @@ namespace EggLink.DanhengServer.Proto {
       if (other.Retcode != 0) {
         Retcode = other.Retcode;
       }
+      talkEventList_.Add(other.talkEventList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -234,6 +253,11 @@ namespace EggLink.DanhengServer.Proto {
             NpcId = input.ReadUInt32();
             break;
           }
+          case 114:
+          case 112: {
+            talkEventList_.AddEntriesFrom(input, _repeated_talkEventList_codec);
+            break;
+          }
         }
       }
     #endif
@@ -255,6 +279,11 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 104: {
             NpcId = input.ReadUInt32();
+            break;
+          }
+          case 114:
+          case 112: {
+            talkEventList_.AddEntriesFrom(ref input, _repeated_talkEventList_codec);
             break;
           }
         }

@@ -11,7 +11,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Player
     {
         public PacketPlayerHeartBeatScRsp(long clientTime) : base(CmdIds.PlayerHeartBeatScRsp)
         {
-            var data = new PlayerHeartbeatScRsp()
+            var data = new PlayerHeartBeatScRsp()
             {
                 ClientTimeMs = (ulong)clientTime,
                 ServerTimeMs = (ulong)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond),

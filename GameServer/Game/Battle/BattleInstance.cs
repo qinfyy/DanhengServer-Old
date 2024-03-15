@@ -44,10 +44,10 @@ namespace EggLink.DanhengServer.Game.Battle
 
             foreach (var avatar in Lineup.BaseAvatars!)
             {
-                var avatarInstance = Player.AvatarManager.GetAvatar(avatar.BaseAvatarId);
+                var avatarInstance = Player.AvatarManager!.GetAvatar(avatar.BaseAvatarId);
                 if (avatarInstance == null) continue;
 
-                proto.BattleAvatarList.Add(avatarInstance.ToBattleProto(Player.LineupManager.GetCurLineup()!, Player.InventoryManager.Data));
+                proto.BattleAvatarList.Add(avatarInstance.ToBattleProto(Player.LineupManager!.GetCurLineup()!, Player.InventoryManager!.Data));
             }
 
             return proto;

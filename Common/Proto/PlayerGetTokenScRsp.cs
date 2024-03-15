@@ -25,14 +25,14 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChlQbGF5ZXJHZXRUb2tlblNjUnNwLnByb3RvGg9CbGFja0luZm8ucHJvdG8i",
-            "eQoTUGxheWVyR2V0VG9rZW5TY1JzcBIXCg9zZWNyZXRfa2V5X3NlZWQYCiAB",
-            "KAQSHgoKYmxhY2tfaW5mbxgHIAEoCzIKLkJsYWNrSW5mbxILCgN1aWQYAyAB",
-            "KA0SCwoDbXNnGAggASgJEg8KB3JldGNvZGUYASABKA1CHqoCG0VnZ0xpbmsu",
+            "eQoTUGxheWVyR2V0VG9rZW5TY1JzcBIPCgdyZXRjb2RlGAEgASgNEh4KCmJs",
+            "YWNrX2luZm8YByABKAsyCi5CbGFja0luZm8SCwoDdWlkGAMgASgNEhcKD3Nl",
+            "Y3JldF9rZXlfc2VlZBgKIAEoBBILCgNtc2cYCCABKAlCHqoCG0VnZ0xpbmsu",
             "RGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.BlackInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.PlayerGetTokenScRsp), global::EggLink.DanhengServer.Proto.PlayerGetTokenScRsp.Parser, new[]{ "SecretKeySeed", "BlackInfo", "Uid", "Msg", "Retcode" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.PlayerGetTokenScRsp), global::EggLink.DanhengServer.Proto.PlayerGetTokenScRsp.Parser, new[]{ "Retcode", "BlackInfo", "Uid", "SecretKeySeed", "Msg" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,11 +74,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PlayerGetTokenScRsp(PlayerGetTokenScRsp other) : this() {
-      secretKeySeed_ = other.secretKeySeed_;
+      retcode_ = other.retcode_;
       blackInfo_ = other.blackInfo_ != null ? other.blackInfo_.Clone() : null;
       uid_ = other.uid_;
+      secretKeySeed_ = other.secretKeySeed_;
       msg_ = other.msg_;
-      retcode_ = other.retcode_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -88,15 +88,15 @@ namespace EggLink.DanhengServer.Proto {
       return new PlayerGetTokenScRsp(this);
     }
 
-    /// <summary>Field number for the "secret_key_seed" field.</summary>
-    public const int SecretKeySeedFieldNumber = 10;
-    private ulong secretKeySeed_;
+    /// <summary>Field number for the "retcode" field.</summary>
+    public const int RetcodeFieldNumber = 1;
+    private uint retcode_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong SecretKeySeed {
-      get { return secretKeySeed_; }
+    public uint Retcode {
+      get { return retcode_; }
       set {
-        secretKeySeed_ = value;
+        retcode_ = value;
       }
     }
 
@@ -124,6 +124,18 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
+    /// <summary>Field number for the "secret_key_seed" field.</summary>
+    public const int SecretKeySeedFieldNumber = 10;
+    private ulong secretKeySeed_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong SecretKeySeed {
+      get { return secretKeySeed_; }
+      set {
+        secretKeySeed_ = value;
+      }
+    }
+
     /// <summary>Field number for the "msg" field.</summary>
     public const int MsgFieldNumber = 8;
     private string msg_ = "";
@@ -133,18 +145,6 @@ namespace EggLink.DanhengServer.Proto {
       get { return msg_; }
       set {
         msg_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "retcode" field.</summary>
-    public const int RetcodeFieldNumber = 1;
-    private uint retcode_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Retcode {
-      get { return retcode_; }
-      set {
-        retcode_ = value;
       }
     }
 
@@ -163,11 +163,11 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (SecretKeySeed != other.SecretKeySeed) return false;
+      if (Retcode != other.Retcode) return false;
       if (!object.Equals(BlackInfo, other.BlackInfo)) return false;
       if (Uid != other.Uid) return false;
+      if (SecretKeySeed != other.SecretKeySeed) return false;
       if (Msg != other.Msg) return false;
-      if (Retcode != other.Retcode) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -175,11 +175,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (SecretKeySeed != 0UL) hash ^= SecretKeySeed.GetHashCode();
+      if (Retcode != 0) hash ^= Retcode.GetHashCode();
       if (blackInfo_ != null) hash ^= BlackInfo.GetHashCode();
       if (Uid != 0) hash ^= Uid.GetHashCode();
+      if (SecretKeySeed != 0UL) hash ^= SecretKeySeed.GetHashCode();
       if (Msg.Length != 0) hash ^= Msg.GetHashCode();
-      if (Retcode != 0) hash ^= Retcode.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -258,8 +258,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (SecretKeySeed != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(SecretKeySeed);
+      if (Retcode != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
       if (blackInfo_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(BlackInfo);
@@ -267,11 +267,11 @@ namespace EggLink.DanhengServer.Proto {
       if (Uid != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Uid);
       }
+      if (SecretKeySeed != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(SecretKeySeed);
+      }
       if (Msg.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Msg);
-      }
-      if (Retcode != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -285,8 +285,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.SecretKeySeed != 0UL) {
-        SecretKeySeed = other.SecretKeySeed;
+      if (other.Retcode != 0) {
+        Retcode = other.Retcode;
       }
       if (other.blackInfo_ != null) {
         if (blackInfo_ == null) {
@@ -297,11 +297,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other.Uid != 0) {
         Uid = other.Uid;
       }
+      if (other.SecretKeySeed != 0UL) {
+        SecretKeySeed = other.SecretKeySeed;
+      }
       if (other.Msg.Length != 0) {
         Msg = other.Msg;
-      }
-      if (other.Retcode != 0) {
-        Retcode = other.Retcode;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }

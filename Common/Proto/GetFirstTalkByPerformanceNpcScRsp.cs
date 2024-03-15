@@ -26,13 +26,13 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "CidHZXRGaXJzdFRhbGtCeVBlcmZvcm1hbmNlTnBjU2NSc3AucHJvdG8aEU5w",
             "Y1RhbGtJbmZvLnByb3RvIl4KIUdldEZpcnN0VGFsa0J5UGVyZm9ybWFuY2VO",
-            "cGNTY1JzcBIPCgdyZXRjb2RlGA4gASgNEigKEm5wY190YWxrX2luZm9fbGlz",
-            "dBgEIAMoCzIMLk5wY1RhbGtJbmZvQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2",
+            "cGNTY1JzcBIoChJucGNfdGFsa19pbmZvX2xpc3QYBCADKAsyDC5OcGNUYWxr",
+            "SW5mbxIPCgdyZXRjb2RlGA4gASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2",
             "ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.NpcTalkInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetFirstTalkByPerformanceNpcScRsp), global::EggLink.DanhengServer.Proto.GetFirstTalkByPerformanceNpcScRsp.Parser, new[]{ "Retcode", "NpcTalkInfoList" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetFirstTalkByPerformanceNpcScRsp), global::EggLink.DanhengServer.Proto.GetFirstTalkByPerformanceNpcScRsp.Parser, new[]{ "NpcTalkInfoList", "Retcode" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,8 +74,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetFirstTalkByPerformanceNpcScRsp(GetFirstTalkByPerformanceNpcScRsp other) : this() {
-      retcode_ = other.retcode_;
       npcTalkInfoList_ = other.npcTalkInfoList_.Clone();
+      retcode_ = other.retcode_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,6 +83,17 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetFirstTalkByPerformanceNpcScRsp Clone() {
       return new GetFirstTalkByPerformanceNpcScRsp(this);
+    }
+
+    /// <summary>Field number for the "npc_talk_info_list" field.</summary>
+    public const int NpcTalkInfoListFieldNumber = 4;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.NpcTalkInfo> _repeated_npcTalkInfoList_codec
+        = pb::FieldCodec.ForMessage(34, global::EggLink.DanhengServer.Proto.NpcTalkInfo.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.NpcTalkInfo> npcTalkInfoList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.NpcTalkInfo>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.NpcTalkInfo> NpcTalkInfoList {
+      get { return npcTalkInfoList_; }
     }
 
     /// <summary>Field number for the "retcode" field.</summary>
@@ -95,17 +106,6 @@ namespace EggLink.DanhengServer.Proto {
       set {
         retcode_ = value;
       }
-    }
-
-    /// <summary>Field number for the "npc_talk_info_list" field.</summary>
-    public const int NpcTalkInfoListFieldNumber = 4;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.NpcTalkInfo> _repeated_npcTalkInfoList_codec
-        = pb::FieldCodec.ForMessage(34, global::EggLink.DanhengServer.Proto.NpcTalkInfo.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.NpcTalkInfo> npcTalkInfoList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.NpcTalkInfo>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.NpcTalkInfo> NpcTalkInfoList {
-      get { return npcTalkInfoList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -123,8 +123,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Retcode != other.Retcode) return false;
       if(!npcTalkInfoList_.Equals(other.npcTalkInfoList_)) return false;
+      if (Retcode != other.Retcode) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -132,8 +132,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Retcode != 0) hash ^= Retcode.GetHashCode();
       hash ^= npcTalkInfoList_.GetHashCode();
+      if (Retcode != 0) hash ^= Retcode.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -182,10 +182,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      size += npcTalkInfoList_.CalculateSize(_repeated_npcTalkInfoList_codec);
       if (Retcode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
-      size += npcTalkInfoList_.CalculateSize(_repeated_npcTalkInfoList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -198,10 +198,10 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
+      npcTalkInfoList_.Add(other.npcTalkInfoList_);
       if (other.Retcode != 0) {
         Retcode = other.Retcode;
       }
-      npcTalkInfoList_.Add(other.npcTalkInfoList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 

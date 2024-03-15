@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static MaterialReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg5NYXRlcmlhbC5wcm90byIkCghNYXRlcmlhbBILCgN0aWQYCiABKA0SCwoD",
-            "bnVtGAQgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnBy",
-            "b3RvMw=="));
+            "Cg5NYXRlcmlhbC5wcm90byI5CghNYXRlcmlhbBITCgtleHBpcmVfdGltZRgN",
+            "IAEoBBILCgNudW0YBCABKA0SCwoDdGlkGAogASgNQh6qAhtFZ2dMaW5rLkRh",
+            "bmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.Material), global::EggLink.DanhengServer.Proto.Material.Parser, new[]{ "Tid", "Num" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.Material), global::EggLink.DanhengServer.Proto.Material.Parser, new[]{ "ExpireTime", "Num", "Tid" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,8 +72,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public Material(Material other) : this() {
-      tid_ = other.tid_;
+      expireTime_ = other.expireTime_;
       num_ = other.num_;
+      tid_ = other.tid_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,15 +84,15 @@ namespace EggLink.DanhengServer.Proto {
       return new Material(this);
     }
 
-    /// <summary>Field number for the "tid" field.</summary>
-    public const int TidFieldNumber = 10;
-    private uint tid_;
+    /// <summary>Field number for the "expire_time" field.</summary>
+    public const int ExpireTimeFieldNumber = 13;
+    private ulong expireTime_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Tid {
-      get { return tid_; }
+    public ulong ExpireTime {
+      get { return expireTime_; }
       set {
-        tid_ = value;
+        expireTime_ = value;
       }
     }
 
@@ -104,6 +105,18 @@ namespace EggLink.DanhengServer.Proto {
       get { return num_; }
       set {
         num_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "tid" field.</summary>
+    public const int TidFieldNumber = 10;
+    private uint tid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Tid {
+      get { return tid_; }
+      set {
+        tid_ = value;
       }
     }
 
@@ -122,8 +135,9 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Tid != other.Tid) return false;
+      if (ExpireTime != other.ExpireTime) return false;
       if (Num != other.Num) return false;
+      if (Tid != other.Tid) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -131,8 +145,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Tid != 0) hash ^= Tid.GetHashCode();
+      if (ExpireTime != 0UL) hash ^= ExpireTime.GetHashCode();
       if (Num != 0) hash ^= Num.GetHashCode();
+      if (Tid != 0) hash ^= Tid.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -159,6 +174,10 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(80);
         output.WriteUInt32(Tid);
       }
+      if (ExpireTime != 0UL) {
+        output.WriteRawTag(104);
+        output.WriteUInt64(ExpireTime);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -177,6 +196,10 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(80);
         output.WriteUInt32(Tid);
       }
+      if (ExpireTime != 0UL) {
+        output.WriteRawTag(104);
+        output.WriteUInt64(ExpireTime);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -187,11 +210,14 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Tid != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Tid);
+      if (ExpireTime != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ExpireTime);
       }
       if (Num != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Num);
+      }
+      if (Tid != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Tid);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -205,11 +231,14 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.Tid != 0) {
-        Tid = other.Tid;
+      if (other.ExpireTime != 0UL) {
+        ExpireTime = other.ExpireTime;
       }
       if (other.Num != 0) {
         Num = other.Num;
+      }
+      if (other.Tid != 0) {
+        Tid = other.Tid;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -234,6 +263,10 @@ namespace EggLink.DanhengServer.Proto {
             Tid = input.ReadUInt32();
             break;
           }
+          case 104: {
+            ExpireTime = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -255,6 +288,10 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 80: {
             Tid = input.ReadUInt32();
+            break;
+          }
+          case 104: {
+            ExpireTime = input.ReadUInt64();
             break;
           }
         }

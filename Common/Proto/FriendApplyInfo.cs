@@ -24,13 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static FriendApplyInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVGcmllbmRBcHBseUluZm8ucHJvdG8aEFNpbXBsZUluZm8ucHJvdG8iMwoP",
-            "RnJpZW5kQXBwbHlJbmZvEiAKC3NpbXBsZV9pbmZvGA4gASgLMgsuU2ltcGxl",
-            "SW5mb0IeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "ChVGcmllbmRBcHBseUluZm8ucHJvdG8aFlBsYXllclNpbXBsZUluZm8ucHJv",
+            "dG8iTQoPRnJpZW5kQXBwbHlJbmZvEiYKC3BsYXllcl9pbmZvGA4gASgLMhEu",
+            "UGxheWVyU2ltcGxlSW5mbxISCgphcHBseV90aW1lGA8gASgDQh6qAhtFZ2dM",
+            "aW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.SimpleInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.PlayerSimpleInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.FriendApplyInfo), global::EggLink.DanhengServer.Proto.FriendApplyInfo.Parser, new[]{ "SimpleInfo" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.FriendApplyInfo), global::EggLink.DanhengServer.Proto.FriendApplyInfo.Parser, new[]{ "PlayerInfo", "ApplyTime" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,7 +73,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public FriendApplyInfo(FriendApplyInfo other) : this() {
-      simpleInfo_ = other.simpleInfo_ != null ? other.simpleInfo_.Clone() : null;
+      playerInfo_ = other.playerInfo_ != null ? other.playerInfo_.Clone() : null;
+      applyTime_ = other.applyTime_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -82,15 +84,27 @@ namespace EggLink.DanhengServer.Proto {
       return new FriendApplyInfo(this);
     }
 
-    /// <summary>Field number for the "simple_info" field.</summary>
-    public const int SimpleInfoFieldNumber = 14;
-    private global::EggLink.DanhengServer.Proto.SimpleInfo simpleInfo_;
+    /// <summary>Field number for the "player_info" field.</summary>
+    public const int PlayerInfoFieldNumber = 14;
+    private global::EggLink.DanhengServer.Proto.PlayerSimpleInfo playerInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.SimpleInfo SimpleInfo {
-      get { return simpleInfo_; }
+    public global::EggLink.DanhengServer.Proto.PlayerSimpleInfo PlayerInfo {
+      get { return playerInfo_; }
       set {
-        simpleInfo_ = value;
+        playerInfo_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "apply_time" field.</summary>
+    public const int ApplyTimeFieldNumber = 15;
+    private long applyTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long ApplyTime {
+      get { return applyTime_; }
+      set {
+        applyTime_ = value;
       }
     }
 
@@ -109,7 +123,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(SimpleInfo, other.SimpleInfo)) return false;
+      if (!object.Equals(PlayerInfo, other.PlayerInfo)) return false;
+      if (ApplyTime != other.ApplyTime) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -117,7 +132,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (simpleInfo_ != null) hash ^= SimpleInfo.GetHashCode();
+      if (playerInfo_ != null) hash ^= PlayerInfo.GetHashCode();
+      if (ApplyTime != 0L) hash ^= ApplyTime.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -136,9 +152,13 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (simpleInfo_ != null) {
+      if (playerInfo_ != null) {
         output.WriteRawTag(114);
-        output.WriteMessage(SimpleInfo);
+        output.WriteMessage(PlayerInfo);
+      }
+      if (ApplyTime != 0L) {
+        output.WriteRawTag(120);
+        output.WriteInt64(ApplyTime);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -150,9 +170,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (simpleInfo_ != null) {
+      if (playerInfo_ != null) {
         output.WriteRawTag(114);
-        output.WriteMessage(SimpleInfo);
+        output.WriteMessage(PlayerInfo);
+      }
+      if (ApplyTime != 0L) {
+        output.WriteRawTag(120);
+        output.WriteInt64(ApplyTime);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -164,8 +188,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (simpleInfo_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SimpleInfo);
+      if (playerInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(PlayerInfo);
+      }
+      if (ApplyTime != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ApplyTime);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -179,11 +206,14 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.simpleInfo_ != null) {
-        if (simpleInfo_ == null) {
-          SimpleInfo = new global::EggLink.DanhengServer.Proto.SimpleInfo();
+      if (other.playerInfo_ != null) {
+        if (playerInfo_ == null) {
+          PlayerInfo = new global::EggLink.DanhengServer.Proto.PlayerSimpleInfo();
         }
-        SimpleInfo.MergeFrom(other.SimpleInfo);
+        PlayerInfo.MergeFrom(other.PlayerInfo);
+      }
+      if (other.ApplyTime != 0L) {
+        ApplyTime = other.ApplyTime;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -201,10 +231,14 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 114: {
-            if (simpleInfo_ == null) {
-              SimpleInfo = new global::EggLink.DanhengServer.Proto.SimpleInfo();
+            if (playerInfo_ == null) {
+              PlayerInfo = new global::EggLink.DanhengServer.Proto.PlayerSimpleInfo();
             }
-            input.ReadMessage(SimpleInfo);
+            input.ReadMessage(PlayerInfo);
+            break;
+          }
+          case 120: {
+            ApplyTime = input.ReadInt64();
             break;
           }
         }
@@ -223,10 +257,14 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 114: {
-            if (simpleInfo_ == null) {
-              SimpleInfo = new global::EggLink.DanhengServer.Proto.SimpleInfo();
+            if (playerInfo_ == null) {
+              PlayerInfo = new global::EggLink.DanhengServer.Proto.PlayerSimpleInfo();
             }
-            input.ReadMessage(SimpleInfo);
+            input.ReadMessage(PlayerInfo);
+            break;
+          }
+          case 120: {
+            ApplyTime = input.ReadInt64();
             break;
           }
         }

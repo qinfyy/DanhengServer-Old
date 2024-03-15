@@ -24,14 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static LockEquipmentCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChhMb2NrRXF1aXBtZW50Q3NSZXEucHJvdG8iRwoSTG9ja0VxdWlwbWVudENz",
-            "UmVxEhQKDGlzX3Byb3RlY3RlZBgLIAEoCBIbChNlcXVpcG1lbnRfdW5pcXVl",
-            "X2lkGAQgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnBy",
-            "b3RvMw=="));
+            "ChhMb2NrRXF1aXBtZW50Q3NSZXEucHJvdG8iQgoSTG9ja0VxdWlwbWVudENz",
+            "UmVxEg8KB2lzX2xvY2sYCyABKAgSGwoTZXF1aXBtZW50X3VuaXF1ZV9pZBgE",
+            "IAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.LockEquipmentCsReq), global::EggLink.DanhengServer.Proto.LockEquipmentCsReq.Parser, new[]{ "IsProtected", "EquipmentUniqueId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.LockEquipmentCsReq), global::EggLink.DanhengServer.Proto.LockEquipmentCsReq.Parser, new[]{ "IsLock", "EquipmentUniqueId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +72,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public LockEquipmentCsReq(LockEquipmentCsReq other) : this() {
-      isProtected_ = other.isProtected_;
+      isLock_ = other.isLock_;
       equipmentUniqueId_ = other.equipmentUniqueId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -84,15 +83,15 @@ namespace EggLink.DanhengServer.Proto {
       return new LockEquipmentCsReq(this);
     }
 
-    /// <summary>Field number for the "is_protected" field.</summary>
-    public const int IsProtectedFieldNumber = 11;
-    private bool isProtected_;
+    /// <summary>Field number for the "is_lock" field.</summary>
+    public const int IsLockFieldNumber = 11;
+    private bool isLock_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool IsProtected {
-      get { return isProtected_; }
+    public bool IsLock {
+      get { return isLock_; }
       set {
-        isProtected_ = value;
+        isLock_ = value;
       }
     }
 
@@ -123,7 +122,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (IsProtected != other.IsProtected) return false;
+      if (IsLock != other.IsLock) return false;
       if (EquipmentUniqueId != other.EquipmentUniqueId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -132,7 +131,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (IsProtected != false) hash ^= IsProtected.GetHashCode();
+      if (IsLock != false) hash ^= IsLock.GetHashCode();
       if (EquipmentUniqueId != 0) hash ^= EquipmentUniqueId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -156,9 +155,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(32);
         output.WriteUInt32(EquipmentUniqueId);
       }
-      if (IsProtected != false) {
+      if (IsLock != false) {
         output.WriteRawTag(88);
-        output.WriteBool(IsProtected);
+        output.WriteBool(IsLock);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -174,9 +173,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(32);
         output.WriteUInt32(EquipmentUniqueId);
       }
-      if (IsProtected != false) {
+      if (IsLock != false) {
         output.WriteRawTag(88);
-        output.WriteBool(IsProtected);
+        output.WriteBool(IsLock);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -188,7 +187,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (IsProtected != false) {
+      if (IsLock != false) {
         size += 1 + 1;
       }
       if (EquipmentUniqueId != 0) {
@@ -206,8 +205,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.IsProtected != false) {
-        IsProtected = other.IsProtected;
+      if (other.IsLock != false) {
+        IsLock = other.IsLock;
       }
       if (other.EquipmentUniqueId != 0) {
         EquipmentUniqueId = other.EquipmentUniqueId;
@@ -232,7 +231,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 88: {
-            IsProtected = input.ReadBool();
+            IsLock = input.ReadBool();
             break;
           }
         }
@@ -255,7 +254,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 88: {
-            IsProtected = input.ReadBool();
+            IsLock = input.ReadBool();
             break;
           }
         }

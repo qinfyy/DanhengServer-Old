@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static SyncClientResVersionCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Ch9TeW5jQ2xpZW50UmVzVmVyc2lvbkNzUmVxLnByb3RvIjcKGVN5bmNDbGll",
-            "bnRSZXNWZXJzaW9uQ3NSZXESGgoSY2xpZW50X3Jlc192ZXJzaW9uGA8gASgN",
-            "Qh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "Ch9TeW5jQ2xpZW50UmVzVmVyc2lvbkNzUmVxLnByb3RvIjAKGVN5bmNDbGll",
+            "bnRSZXNWZXJzaW9uQ3NSZXESEwoLcmVzX3ZlcnNpb24YDyABKA1CHqoCG0Vn",
+            "Z0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SyncClientResVersionCsReq), global::EggLink.DanhengServer.Proto.SyncClientResVersionCsReq.Parser, new[]{ "ClientResVersion" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SyncClientResVersionCsReq), global::EggLink.DanhengServer.Proto.SyncClientResVersionCsReq.Parser, new[]{ "ResVersion" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,7 +72,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SyncClientResVersionCsReq(SyncClientResVersionCsReq other) : this() {
-      clientResVersion_ = other.clientResVersion_;
+      resVersion_ = other.resVersion_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -82,15 +82,15 @@ namespace EggLink.DanhengServer.Proto {
       return new SyncClientResVersionCsReq(this);
     }
 
-    /// <summary>Field number for the "client_res_version" field.</summary>
-    public const int ClientResVersionFieldNumber = 15;
-    private uint clientResVersion_;
+    /// <summary>Field number for the "res_version" field.</summary>
+    public const int ResVersionFieldNumber = 15;
+    private uint resVersion_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint ClientResVersion {
-      get { return clientResVersion_; }
+    public uint ResVersion {
+      get { return resVersion_; }
       set {
-        clientResVersion_ = value;
+        resVersion_ = value;
       }
     }
 
@@ -109,7 +109,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (ClientResVersion != other.ClientResVersion) return false;
+      if (ResVersion != other.ResVersion) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -117,7 +117,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (ClientResVersion != 0) hash ^= ClientResVersion.GetHashCode();
+      if (ResVersion != 0) hash ^= ResVersion.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -136,9 +136,9 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (ClientResVersion != 0) {
+      if (ResVersion != 0) {
         output.WriteRawTag(120);
-        output.WriteUInt32(ClientResVersion);
+        output.WriteUInt32(ResVersion);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -150,9 +150,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (ClientResVersion != 0) {
+      if (ResVersion != 0) {
         output.WriteRawTag(120);
-        output.WriteUInt32(ClientResVersion);
+        output.WriteUInt32(ResVersion);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -164,8 +164,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (ClientResVersion != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ClientResVersion);
+      if (ResVersion != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ResVersion);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -179,8 +179,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.ClientResVersion != 0) {
-        ClientResVersion = other.ClientResVersion;
+      if (other.ResVersion != 0) {
+        ResVersion = other.ResVersion;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -198,7 +198,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 120: {
-            ClientResVersion = input.ReadUInt32();
+            ResVersion = input.ReadUInt32();
             break;
           }
         }
@@ -217,7 +217,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 120: {
-            ClientResVersion = input.ReadUInt32();
+            ResVersion = input.ReadUInt32();
             break;
           }
         }

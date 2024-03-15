@@ -16,6 +16,7 @@ namespace EggLink.DanhengServer.Game.Scene.Entity
         public int InstId { get; set; } = prop.ID;
         public MazePropExcel Excel { get; set; } = excel;
         public PropInfo PropInfo { get; set; } = prop;
+        public GroupInfo Group { get; set; } = group;
 
         public PropRogueInfo? RogueInfo { get; set; }
 

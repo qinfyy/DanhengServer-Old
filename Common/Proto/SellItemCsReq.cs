@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static SellItemCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChNTZWxsSXRlbUNzUmVxLnByb3RvGhJJdGVtQ29zdExpc3QucHJvdG8iSwoN",
-            "U2VsbEl0ZW1Dc1JlcRITCgt0b19tYXRlcmlhbBgBIAEoCBIlCg5pdGVtX2Nv",
-            "c3RfbGlzdBgIIAEoCzINLkl0ZW1Db3N0TGlzdEIeqgIbRWdnTGluay5EYW5o",
-            "ZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "ChNTZWxsSXRlbUNzUmVxLnByb3RvGhJJdGVtQ29zdERhdGEucHJvdG8iRgoN",
+            "U2VsbEl0ZW1Dc1JlcRITCgtNQktGS05BSkFQThgBIAEoCBIgCgljb3N0X2Rh",
+            "dGEYCCABKAsyDS5JdGVtQ29zdERhdGFCHqoCG0VnZ0xpbmsuRGFuaGVuZ1Nl",
+            "cnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ItemCostListReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ItemCostDataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SellItemCsReq), global::EggLink.DanhengServer.Proto.SellItemCsReq.Parser, new[]{ "ToMaterial", "ItemCostList" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SellItemCsReq), global::EggLink.DanhengServer.Proto.SellItemCsReq.Parser, new[]{ "MBKFKNAJAPN", "CostData" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,8 +73,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SellItemCsReq(SellItemCsReq other) : this() {
-      toMaterial_ = other.toMaterial_;
-      itemCostList_ = other.itemCostList_ != null ? other.itemCostList_.Clone() : null;
+      mBKFKNAJAPN_ = other.mBKFKNAJAPN_;
+      costData_ = other.costData_ != null ? other.costData_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,27 +84,27 @@ namespace EggLink.DanhengServer.Proto {
       return new SellItemCsReq(this);
     }
 
-    /// <summary>Field number for the "to_material" field.</summary>
-    public const int ToMaterialFieldNumber = 1;
-    private bool toMaterial_;
+    /// <summary>Field number for the "MBKFKNAJAPN" field.</summary>
+    public const int MBKFKNAJAPNFieldNumber = 1;
+    private bool mBKFKNAJAPN_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool ToMaterial {
-      get { return toMaterial_; }
+    public bool MBKFKNAJAPN {
+      get { return mBKFKNAJAPN_; }
       set {
-        toMaterial_ = value;
+        mBKFKNAJAPN_ = value;
       }
     }
 
-    /// <summary>Field number for the "item_cost_list" field.</summary>
-    public const int ItemCostListFieldNumber = 8;
-    private global::EggLink.DanhengServer.Proto.ItemCostList itemCostList_;
+    /// <summary>Field number for the "cost_data" field.</summary>
+    public const int CostDataFieldNumber = 8;
+    private global::EggLink.DanhengServer.Proto.ItemCostData costData_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.ItemCostList ItemCostList {
-      get { return itemCostList_; }
+    public global::EggLink.DanhengServer.Proto.ItemCostData CostData {
+      get { return costData_; }
       set {
-        itemCostList_ = value;
+        costData_ = value;
       }
     }
 
@@ -123,8 +123,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (ToMaterial != other.ToMaterial) return false;
-      if (!object.Equals(ItemCostList, other.ItemCostList)) return false;
+      if (MBKFKNAJAPN != other.MBKFKNAJAPN) return false;
+      if (!object.Equals(CostData, other.CostData)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -132,8 +132,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (ToMaterial != false) hash ^= ToMaterial.GetHashCode();
-      if (itemCostList_ != null) hash ^= ItemCostList.GetHashCode();
+      if (MBKFKNAJAPN != false) hash ^= MBKFKNAJAPN.GetHashCode();
+      if (costData_ != null) hash ^= CostData.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -152,13 +152,13 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (ToMaterial != false) {
+      if (MBKFKNAJAPN != false) {
         output.WriteRawTag(8);
-        output.WriteBool(ToMaterial);
+        output.WriteBool(MBKFKNAJAPN);
       }
-      if (itemCostList_ != null) {
+      if (costData_ != null) {
         output.WriteRawTag(66);
-        output.WriteMessage(ItemCostList);
+        output.WriteMessage(CostData);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -170,13 +170,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (ToMaterial != false) {
+      if (MBKFKNAJAPN != false) {
         output.WriteRawTag(8);
-        output.WriteBool(ToMaterial);
+        output.WriteBool(MBKFKNAJAPN);
       }
-      if (itemCostList_ != null) {
+      if (costData_ != null) {
         output.WriteRawTag(66);
-        output.WriteMessage(ItemCostList);
+        output.WriteMessage(CostData);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -188,11 +188,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (ToMaterial != false) {
+      if (MBKFKNAJAPN != false) {
         size += 1 + 1;
       }
-      if (itemCostList_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ItemCostList);
+      if (costData_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CostData);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -206,14 +206,14 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.ToMaterial != false) {
-        ToMaterial = other.ToMaterial;
+      if (other.MBKFKNAJAPN != false) {
+        MBKFKNAJAPN = other.MBKFKNAJAPN;
       }
-      if (other.itemCostList_ != null) {
-        if (itemCostList_ == null) {
-          ItemCostList = new global::EggLink.DanhengServer.Proto.ItemCostList();
+      if (other.costData_ != null) {
+        if (costData_ == null) {
+          CostData = new global::EggLink.DanhengServer.Proto.ItemCostData();
         }
-        ItemCostList.MergeFrom(other.ItemCostList);
+        CostData.MergeFrom(other.CostData);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -231,14 +231,14 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            ToMaterial = input.ReadBool();
+            MBKFKNAJAPN = input.ReadBool();
             break;
           }
           case 66: {
-            if (itemCostList_ == null) {
-              ItemCostList = new global::EggLink.DanhengServer.Proto.ItemCostList();
+            if (costData_ == null) {
+              CostData = new global::EggLink.DanhengServer.Proto.ItemCostData();
             }
-            input.ReadMessage(ItemCostList);
+            input.ReadMessage(CostData);
             break;
           }
         }
@@ -257,14 +257,14 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            ToMaterial = input.ReadBool();
+            MBKFKNAJAPN = input.ReadBool();
             break;
           }
           case 66: {
-            if (itemCostList_ == null) {
-              ItemCostList = new global::EggLink.DanhengServer.Proto.ItemCostList();
+            if (costData_ == null) {
+              CostData = new global::EggLink.DanhengServer.Proto.ItemCostData();
             }
-            input.ReadMessage(ItemCostList);
+            input.ReadMessage(CostData);
             break;
           }
         }

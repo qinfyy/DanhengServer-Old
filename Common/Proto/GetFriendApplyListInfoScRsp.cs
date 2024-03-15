@@ -25,14 +25,14 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CiFHZXRGcmllbmRBcHBseUxpc3RJbmZvU2NSc3AucHJvdG8aFUZyaWVuZEFw",
-            "cGx5SW5mby5wcm90byJbChtHZXRGcmllbmRBcHBseUxpc3RJbmZvU2NSc3AS",
-            "DwoHcmV0Y29kZRgJIAEoDRIrChFmcmllbmRfYXBwbHlfbGlzdBgFIAMoCzIQ",
-            "LkZyaWVuZEFwcGx5SW5mb0IeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlBy",
-            "b3RvYgZwcm90bzM="));
+            "cGx5SW5mby5wcm90byJ1ChtHZXRGcmllbmRBcHBseUxpc3RJbmZvU2NSc3AS",
+            "FwoPc2VuZF9hcHBseV9saXN0GAIgAygNEiwKEnJlY2VpdmVfYXBwbHlfbGlz",
+            "dBgFIAMoCzIQLkZyaWVuZEFwcGx5SW5mbxIPCgdyZXRjb2RlGAkgASgNQh6q",
+            "AhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.FriendApplyInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetFriendApplyListInfoScRsp), global::EggLink.DanhengServer.Proto.GetFriendApplyListInfoScRsp.Parser, new[]{ "Retcode", "FriendApplyList" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetFriendApplyListInfoScRsp), global::EggLink.DanhengServer.Proto.GetFriendApplyListInfoScRsp.Parser, new[]{ "SendApplyList", "ReceiveApplyList", "Retcode" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,8 +74,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetFriendApplyListInfoScRsp(GetFriendApplyListInfoScRsp other) : this() {
+      sendApplyList_ = other.sendApplyList_.Clone();
+      receiveApplyList_ = other.receiveApplyList_.Clone();
       retcode_ = other.retcode_;
-      friendApplyList_ = other.friendApplyList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,6 +84,28 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetFriendApplyListInfoScRsp Clone() {
       return new GetFriendApplyListInfoScRsp(this);
+    }
+
+    /// <summary>Field number for the "send_apply_list" field.</summary>
+    public const int SendApplyListFieldNumber = 2;
+    private static readonly pb::FieldCodec<uint> _repeated_sendApplyList_codec
+        = pb::FieldCodec.ForUInt32(18);
+    private readonly pbc::RepeatedField<uint> sendApplyList_ = new pbc::RepeatedField<uint>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<uint> SendApplyList {
+      get { return sendApplyList_; }
+    }
+
+    /// <summary>Field number for the "receive_apply_list" field.</summary>
+    public const int ReceiveApplyListFieldNumber = 5;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.FriendApplyInfo> _repeated_receiveApplyList_codec
+        = pb::FieldCodec.ForMessage(42, global::EggLink.DanhengServer.Proto.FriendApplyInfo.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FriendApplyInfo> receiveApplyList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FriendApplyInfo>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FriendApplyInfo> ReceiveApplyList {
+      get { return receiveApplyList_; }
     }
 
     /// <summary>Field number for the "retcode" field.</summary>
@@ -95,17 +118,6 @@ namespace EggLink.DanhengServer.Proto {
       set {
         retcode_ = value;
       }
-    }
-
-    /// <summary>Field number for the "friend_apply_list" field.</summary>
-    public const int FriendApplyListFieldNumber = 5;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.FriendApplyInfo> _repeated_friendApplyList_codec
-        = pb::FieldCodec.ForMessage(42, global::EggLink.DanhengServer.Proto.FriendApplyInfo.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FriendApplyInfo> friendApplyList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FriendApplyInfo>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FriendApplyInfo> FriendApplyList {
-      get { return friendApplyList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -123,8 +135,9 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if(!sendApplyList_.Equals(other.sendApplyList_)) return false;
+      if(!receiveApplyList_.Equals(other.receiveApplyList_)) return false;
       if (Retcode != other.Retcode) return false;
-      if(!friendApplyList_.Equals(other.friendApplyList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -132,8 +145,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      hash ^= sendApplyList_.GetHashCode();
+      hash ^= receiveApplyList_.GetHashCode();
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
-      hash ^= friendApplyList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -152,7 +166,8 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      friendApplyList_.WriteTo(output, _repeated_friendApplyList_codec);
+      sendApplyList_.WriteTo(output, _repeated_sendApplyList_codec);
+      receiveApplyList_.WriteTo(output, _repeated_receiveApplyList_codec);
       if (Retcode != 0) {
         output.WriteRawTag(72);
         output.WriteUInt32(Retcode);
@@ -167,7 +182,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      friendApplyList_.WriteTo(ref output, _repeated_friendApplyList_codec);
+      sendApplyList_.WriteTo(ref output, _repeated_sendApplyList_codec);
+      receiveApplyList_.WriteTo(ref output, _repeated_receiveApplyList_codec);
       if (Retcode != 0) {
         output.WriteRawTag(72);
         output.WriteUInt32(Retcode);
@@ -182,10 +198,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      size += sendApplyList_.CalculateSize(_repeated_sendApplyList_codec);
+      size += receiveApplyList_.CalculateSize(_repeated_receiveApplyList_codec);
       if (Retcode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
-      size += friendApplyList_.CalculateSize(_repeated_friendApplyList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -198,10 +215,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
+      sendApplyList_.Add(other.sendApplyList_);
+      receiveApplyList_.Add(other.receiveApplyList_);
       if (other.Retcode != 0) {
         Retcode = other.Retcode;
       }
-      friendApplyList_.Add(other.friendApplyList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -217,8 +235,13 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 18:
+          case 16: {
+            sendApplyList_.AddEntriesFrom(input, _repeated_sendApplyList_codec);
+            break;
+          }
           case 42: {
-            friendApplyList_.AddEntriesFrom(input, _repeated_friendApplyList_codec);
+            receiveApplyList_.AddEntriesFrom(input, _repeated_receiveApplyList_codec);
             break;
           }
           case 72: {
@@ -240,8 +263,13 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
+          case 18:
+          case 16: {
+            sendApplyList_.AddEntriesFrom(ref input, _repeated_sendApplyList_codec);
+            break;
+          }
           case 42: {
-            friendApplyList_.AddEntriesFrom(ref input, _repeated_friendApplyList_codec);
+            receiveApplyList_.AddEntriesFrom(ref input, _repeated_receiveApplyList_codec);
             break;
           }
           case 72: {

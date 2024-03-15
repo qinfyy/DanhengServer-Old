@@ -24,15 +24,18 @@ namespace EggLink.DanhengServer.Proto {
     static SyncRogueCommonActionResultScNotifyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CilTeW5jUm9ndWVDb21tb25BY3Rpb25SZXN1bHRTY05vdGlmeS5wcm90bxoX",
-            "Um9ndWVBY3Rpb25SZXN1bHQucHJvdG8iXgojU3luY1JvZ3VlQ29tbW9uQWN0",
-            "aW9uUmVzdWx0U2NOb3RpZnkSIgoGYWN0aW9uGAsgASgLMhIuUm9ndWVBY3Rp",
-            "b25SZXN1bHQSEwoLT0NQQk5CUEFNRU4YBSABKA1CHqoCG0VnZ0xpbmsuRGFu",
-            "aGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
+            "CilTeW5jUm9ndWVDb21tb25BY3Rpb25SZXN1bHRTY05vdGlmeS5wcm90bxoo",
+            "Um9ndWVDb21tb25BY3Rpb25SZXN1bHREaXNwbGF5VHlwZS5wcm90bxodUm9n",
+            "dWVDb21tb25BY3Rpb25SZXN1bHQucHJvdG8iqwEKI1N5bmNSb2d1ZUNvbW1v",
+            "bkFjdGlvblJlc3VsdFNjTm90aWZ5EhgKEHJvZ3VlX3ZlcnNpb25faWQYCSAB",
+            "KA0SLwoNcmVzdWx0X2FjdGlvbhgDIAMoCzIYLlJvZ3VlQ29tbW9uQWN0aW9u",
+            "UmVzdWx0EjkKDGRpc3BsYXlfdHlwZRgIIAEoDjIjLlJvZ3VlQ29tbW9uQWN0",
+            "aW9uUmVzdWx0RGlzcGxheVR5cGVCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZl",
+            "ci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RogueActionResultReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RogueCommonActionResultDisplayTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueCommonActionResultReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SyncRogueCommonActionResultScNotify), global::EggLink.DanhengServer.Proto.SyncRogueCommonActionResultScNotify.Parser, new[]{ "Action", "OCPBNBPAMEN" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SyncRogueCommonActionResultScNotify), global::EggLink.DanhengServer.Proto.SyncRogueCommonActionResultScNotify.Parser, new[]{ "RogueVersionId", "ResultAction", "DisplayType" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,8 +77,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SyncRogueCommonActionResultScNotify(SyncRogueCommonActionResultScNotify other) : this() {
-      action_ = other.action_ != null ? other.action_.Clone() : null;
-      oCPBNBPAMEN_ = other.oCPBNBPAMEN_;
+      rogueVersionId_ = other.rogueVersionId_;
+      resultAction_ = other.resultAction_.Clone();
+      displayType_ = other.displayType_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -85,30 +89,38 @@ namespace EggLink.DanhengServer.Proto {
       return new SyncRogueCommonActionResultScNotify(this);
     }
 
-    /// <summary>Field number for the "action" field.</summary>
-    public const int ActionFieldNumber = 11;
-    private global::EggLink.DanhengServer.Proto.RogueActionResult action_;
+    /// <summary>Field number for the "rogue_version_id" field.</summary>
+    public const int RogueVersionIdFieldNumber = 9;
+    private uint rogueVersionId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.RogueActionResult Action {
-      get { return action_; }
+    public uint RogueVersionId {
+      get { return rogueVersionId_; }
       set {
-        action_ = value;
+        rogueVersionId_ = value;
       }
     }
 
-    /// <summary>Field number for the "OCPBNBPAMEN" field.</summary>
-    public const int OCPBNBPAMENFieldNumber = 5;
-    private uint oCPBNBPAMEN_;
-    /// <summary>
-    ///PBCHNCIJKNA MDBPDPDDHBC = 12;
-    /// </summary>
+    /// <summary>Field number for the "result_action" field.</summary>
+    public const int ResultActionFieldNumber = 3;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.RogueCommonActionResult> _repeated_resultAction_codec
+        = pb::FieldCodec.ForMessage(26, global::EggLink.DanhengServer.Proto.RogueCommonActionResult.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RogueCommonActionResult> resultAction_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RogueCommonActionResult>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint OCPBNBPAMEN {
-      get { return oCPBNBPAMEN_; }
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RogueCommonActionResult> ResultAction {
+      get { return resultAction_; }
+    }
+
+    /// <summary>Field number for the "display_type" field.</summary>
+    public const int DisplayTypeFieldNumber = 8;
+    private global::EggLink.DanhengServer.Proto.RogueCommonActionResultDisplayType displayType_ = global::EggLink.DanhengServer.Proto.RogueCommonActionResultDisplayType.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::EggLink.DanhengServer.Proto.RogueCommonActionResultDisplayType DisplayType {
+      get { return displayType_; }
       set {
-        oCPBNBPAMEN_ = value;
+        displayType_ = value;
       }
     }
 
@@ -127,8 +139,9 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(Action, other.Action)) return false;
-      if (OCPBNBPAMEN != other.OCPBNBPAMEN) return false;
+      if (RogueVersionId != other.RogueVersionId) return false;
+      if(!resultAction_.Equals(other.resultAction_)) return false;
+      if (DisplayType != other.DisplayType) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -136,8 +149,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (action_ != null) hash ^= Action.GetHashCode();
-      if (OCPBNBPAMEN != 0) hash ^= OCPBNBPAMEN.GetHashCode();
+      if (RogueVersionId != 0) hash ^= RogueVersionId.GetHashCode();
+      hash ^= resultAction_.GetHashCode();
+      if (DisplayType != global::EggLink.DanhengServer.Proto.RogueCommonActionResultDisplayType.None) hash ^= DisplayType.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -156,13 +170,14 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (OCPBNBPAMEN != 0) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(OCPBNBPAMEN);
+      resultAction_.WriteTo(output, _repeated_resultAction_codec);
+      if (DisplayType != global::EggLink.DanhengServer.Proto.RogueCommonActionResultDisplayType.None) {
+        output.WriteRawTag(64);
+        output.WriteEnum((int) DisplayType);
       }
-      if (action_ != null) {
-        output.WriteRawTag(90);
-        output.WriteMessage(Action);
+      if (RogueVersionId != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(RogueVersionId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -174,13 +189,14 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (OCPBNBPAMEN != 0) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(OCPBNBPAMEN);
+      resultAction_.WriteTo(ref output, _repeated_resultAction_codec);
+      if (DisplayType != global::EggLink.DanhengServer.Proto.RogueCommonActionResultDisplayType.None) {
+        output.WriteRawTag(64);
+        output.WriteEnum((int) DisplayType);
       }
-      if (action_ != null) {
-        output.WriteRawTag(90);
-        output.WriteMessage(Action);
+      if (RogueVersionId != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(RogueVersionId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -192,11 +208,12 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (action_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Action);
+      if (RogueVersionId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(RogueVersionId);
       }
-      if (OCPBNBPAMEN != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OCPBNBPAMEN);
+      size += resultAction_.CalculateSize(_repeated_resultAction_codec);
+      if (DisplayType != global::EggLink.DanhengServer.Proto.RogueCommonActionResultDisplayType.None) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) DisplayType);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -210,14 +227,12 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.action_ != null) {
-        if (action_ == null) {
-          Action = new global::EggLink.DanhengServer.Proto.RogueActionResult();
-        }
-        Action.MergeFrom(other.Action);
+      if (other.RogueVersionId != 0) {
+        RogueVersionId = other.RogueVersionId;
       }
-      if (other.OCPBNBPAMEN != 0) {
-        OCPBNBPAMEN = other.OCPBNBPAMEN;
+      resultAction_.Add(other.resultAction_);
+      if (other.DisplayType != global::EggLink.DanhengServer.Proto.RogueCommonActionResultDisplayType.None) {
+        DisplayType = other.DisplayType;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -234,15 +249,16 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 40: {
-            OCPBNBPAMEN = input.ReadUInt32();
+          case 26: {
+            resultAction_.AddEntriesFrom(input, _repeated_resultAction_codec);
             break;
           }
-          case 90: {
-            if (action_ == null) {
-              Action = new global::EggLink.DanhengServer.Proto.RogueActionResult();
-            }
-            input.ReadMessage(Action);
+          case 64: {
+            DisplayType = (global::EggLink.DanhengServer.Proto.RogueCommonActionResultDisplayType) input.ReadEnum();
+            break;
+          }
+          case 72: {
+            RogueVersionId = input.ReadUInt32();
             break;
           }
         }
@@ -260,15 +276,16 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 40: {
-            OCPBNBPAMEN = input.ReadUInt32();
+          case 26: {
+            resultAction_.AddEntriesFrom(ref input, _repeated_resultAction_codec);
             break;
           }
-          case 90: {
-            if (action_ == null) {
-              Action = new global::EggLink.DanhengServer.Proto.RogueActionResult();
-            }
-            input.ReadMessage(Action);
+          case 64: {
+            DisplayType = (global::EggLink.DanhengServer.Proto.RogueCommonActionResultDisplayType) input.ReadEnum();
+            break;
+          }
+          case 72: {
+            RogueVersionId = input.ReadUInt32();
             break;
           }
         }

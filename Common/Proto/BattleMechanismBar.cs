@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static BattleMechanismBarReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChhCYXR0bGVNZWNoYW5pc21CYXIucHJvdG8iPgoSQmF0dGxlTWVjaGFuaXNt",
-            "QmFyEhMKC09NTUVMQkNNTk5NGAEgASgNEhMKC0FNTUFBS1BBS0FBGAIgASgN",
-            "Qh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "ChhCYXR0bGVNZWNoYW5pc21CYXIucHJvdG8iPQoSQmF0dGxlTWVjaGFuaXNt",
+            "QmFyEhgKEG1lY2hhaW5zbV9iYXJfaWQYASABKA0SDQoFdmFsdWUYAiABKA1C",
+            "HqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BattleMechanismBar), global::EggLink.DanhengServer.Proto.BattleMechanismBar.Parser, new[]{ "OMMELBCMNNM", "AMMAAKPAKAA" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BattleMechanismBar), global::EggLink.DanhengServer.Proto.BattleMechanismBar.Parser, new[]{ "MechainsmBarId", "Value" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,8 +72,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public BattleMechanismBar(BattleMechanismBar other) : this() {
-      oMMELBCMNNM_ = other.oMMELBCMNNM_;
-      aMMAAKPAKAA_ = other.aMMAAKPAKAA_;
+      mechainsmBarId_ = other.mechainsmBarId_;
+      value_ = other.value_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,27 +83,27 @@ namespace EggLink.DanhengServer.Proto {
       return new BattleMechanismBar(this);
     }
 
-    /// <summary>Field number for the "OMMELBCMNNM" field.</summary>
-    public const int OMMELBCMNNMFieldNumber = 1;
-    private uint oMMELBCMNNM_;
+    /// <summary>Field number for the "mechainsm_bar_id" field.</summary>
+    public const int MechainsmBarIdFieldNumber = 1;
+    private uint mechainsmBarId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint OMMELBCMNNM {
-      get { return oMMELBCMNNM_; }
+    public uint MechainsmBarId {
+      get { return mechainsmBarId_; }
       set {
-        oMMELBCMNNM_ = value;
+        mechainsmBarId_ = value;
       }
     }
 
-    /// <summary>Field number for the "AMMAAKPAKAA" field.</summary>
-    public const int AMMAAKPAKAAFieldNumber = 2;
-    private uint aMMAAKPAKAA_;
+    /// <summary>Field number for the "value" field.</summary>
+    public const int ValueFieldNumber = 2;
+    private uint value_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint AMMAAKPAKAA {
-      get { return aMMAAKPAKAA_; }
+    public uint Value {
+      get { return value_; }
       set {
-        aMMAAKPAKAA_ = value;
+        value_ = value;
       }
     }
 
@@ -122,8 +122,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (OMMELBCMNNM != other.OMMELBCMNNM) return false;
-      if (AMMAAKPAKAA != other.AMMAAKPAKAA) return false;
+      if (MechainsmBarId != other.MechainsmBarId) return false;
+      if (Value != other.Value) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -131,8 +131,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (OMMELBCMNNM != 0) hash ^= OMMELBCMNNM.GetHashCode();
-      if (AMMAAKPAKAA != 0) hash ^= AMMAAKPAKAA.GetHashCode();
+      if (MechainsmBarId != 0) hash ^= MechainsmBarId.GetHashCode();
+      if (Value != 0) hash ^= Value.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -151,13 +151,13 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (OMMELBCMNNM != 0) {
+      if (MechainsmBarId != 0) {
         output.WriteRawTag(8);
-        output.WriteUInt32(OMMELBCMNNM);
+        output.WriteUInt32(MechainsmBarId);
       }
-      if (AMMAAKPAKAA != 0) {
+      if (Value != 0) {
         output.WriteRawTag(16);
-        output.WriteUInt32(AMMAAKPAKAA);
+        output.WriteUInt32(Value);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -169,13 +169,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (OMMELBCMNNM != 0) {
+      if (MechainsmBarId != 0) {
         output.WriteRawTag(8);
-        output.WriteUInt32(OMMELBCMNNM);
+        output.WriteUInt32(MechainsmBarId);
       }
-      if (AMMAAKPAKAA != 0) {
+      if (Value != 0) {
         output.WriteRawTag(16);
-        output.WriteUInt32(AMMAAKPAKAA);
+        output.WriteUInt32(Value);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -187,11 +187,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (OMMELBCMNNM != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OMMELBCMNNM);
+      if (MechainsmBarId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MechainsmBarId);
       }
-      if (AMMAAKPAKAA != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(AMMAAKPAKAA);
+      if (Value != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Value);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -205,11 +205,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.OMMELBCMNNM != 0) {
-        OMMELBCMNNM = other.OMMELBCMNNM;
+      if (other.MechainsmBarId != 0) {
+        MechainsmBarId = other.MechainsmBarId;
       }
-      if (other.AMMAAKPAKAA != 0) {
-        AMMAAKPAKAA = other.AMMAAKPAKAA;
+      if (other.Value != 0) {
+        Value = other.Value;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -227,11 +227,11 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            OMMELBCMNNM = input.ReadUInt32();
+            MechainsmBarId = input.ReadUInt32();
             break;
           }
           case 16: {
-            AMMAAKPAKAA = input.ReadUInt32();
+            Value = input.ReadUInt32();
             break;
           }
         }
@@ -250,11 +250,11 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            OMMELBCMNNM = input.ReadUInt32();
+            MechainsmBarId = input.ReadUInt32();
             break;
           }
           case 16: {
-            AMMAAKPAKAA = input.ReadUInt32();
+            Value = input.ReadUInt32();
             break;
           }
         }

@@ -25,14 +25,14 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChNCdXlHb29kc1NjUnNwLnByb3RvGg5JdGVtTGlzdC5wcm90byKBAQoNQnV5",
-            "R29vZHNTY1JzcBIjChByZXR1cm5faXRlbV9saXN0GAQgASgLMgkuSXRlbUxp",
-            "c3QSDwoHcmV0Y29kZRgDIAEoDRIPCgdzaG9wX2lkGA8gASgNEhAKCGdvb2Rz",
-            "X2lkGA4gASgNEhcKD2dvb2RzX2J1eV90aW1lcxgIIAEoDUIeqgIbRWdnTGlu",
+            "R29vZHNTY1JzcBIXCg9nb29kc19idXlfdGltZXMYCCABKA0SDwoHc2hvcF9p",
+            "ZBgPIAEoDRIjChByZXR1cm5faXRlbV9saXN0GAQgASgLMgkuSXRlbUxpc3QS",
+            "EAoIZ29vZHNfaWQYDiABKA0SDwoHcmV0Y29kZRgDIAEoDUIeqgIbRWdnTGlu",
             "ay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ItemListReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BuyGoodsScRsp), global::EggLink.DanhengServer.Proto.BuyGoodsScRsp.Parser, new[]{ "ReturnItemList", "Retcode", "ShopId", "GoodsId", "GoodsBuyTimes" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BuyGoodsScRsp), global::EggLink.DanhengServer.Proto.BuyGoodsScRsp.Parser, new[]{ "GoodsBuyTimes", "ShopId", "ReturnItemList", "GoodsId", "Retcode" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,11 +74,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public BuyGoodsScRsp(BuyGoodsScRsp other) : this() {
-      returnItemList_ = other.returnItemList_ != null ? other.returnItemList_.Clone() : null;
-      retcode_ = other.retcode_;
-      shopId_ = other.shopId_;
-      goodsId_ = other.goodsId_;
       goodsBuyTimes_ = other.goodsBuyTimes_;
+      shopId_ = other.shopId_;
+      returnItemList_ = other.returnItemList_ != null ? other.returnItemList_.Clone() : null;
+      goodsId_ = other.goodsId_;
+      retcode_ = other.retcode_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -88,27 +88,15 @@ namespace EggLink.DanhengServer.Proto {
       return new BuyGoodsScRsp(this);
     }
 
-    /// <summary>Field number for the "return_item_list" field.</summary>
-    public const int ReturnItemListFieldNumber = 4;
-    private global::EggLink.DanhengServer.Proto.ItemList returnItemList_;
+    /// <summary>Field number for the "goods_buy_times" field.</summary>
+    public const int GoodsBuyTimesFieldNumber = 8;
+    private uint goodsBuyTimes_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.ItemList ReturnItemList {
-      get { return returnItemList_; }
+    public uint GoodsBuyTimes {
+      get { return goodsBuyTimes_; }
       set {
-        returnItemList_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "retcode" field.</summary>
-    public const int RetcodeFieldNumber = 3;
-    private uint retcode_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Retcode {
-      get { return retcode_; }
-      set {
-        retcode_ = value;
+        goodsBuyTimes_ = value;
       }
     }
 
@@ -124,6 +112,18 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
+    /// <summary>Field number for the "return_item_list" field.</summary>
+    public const int ReturnItemListFieldNumber = 4;
+    private global::EggLink.DanhengServer.Proto.ItemList returnItemList_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::EggLink.DanhengServer.Proto.ItemList ReturnItemList {
+      get { return returnItemList_; }
+      set {
+        returnItemList_ = value;
+      }
+    }
+
     /// <summary>Field number for the "goods_id" field.</summary>
     public const int GoodsIdFieldNumber = 14;
     private uint goodsId_;
@@ -136,15 +136,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "goods_buy_times" field.</summary>
-    public const int GoodsBuyTimesFieldNumber = 8;
-    private uint goodsBuyTimes_;
+    /// <summary>Field number for the "retcode" field.</summary>
+    public const int RetcodeFieldNumber = 3;
+    private uint retcode_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint GoodsBuyTimes {
-      get { return goodsBuyTimes_; }
+    public uint Retcode {
+      get { return retcode_; }
       set {
-        goodsBuyTimes_ = value;
+        retcode_ = value;
       }
     }
 
@@ -163,11 +163,11 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(ReturnItemList, other.ReturnItemList)) return false;
-      if (Retcode != other.Retcode) return false;
-      if (ShopId != other.ShopId) return false;
-      if (GoodsId != other.GoodsId) return false;
       if (GoodsBuyTimes != other.GoodsBuyTimes) return false;
+      if (ShopId != other.ShopId) return false;
+      if (!object.Equals(ReturnItemList, other.ReturnItemList)) return false;
+      if (GoodsId != other.GoodsId) return false;
+      if (Retcode != other.Retcode) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -175,11 +175,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (returnItemList_ != null) hash ^= ReturnItemList.GetHashCode();
-      if (Retcode != 0) hash ^= Retcode.GetHashCode();
-      if (ShopId != 0) hash ^= ShopId.GetHashCode();
-      if (GoodsId != 0) hash ^= GoodsId.GetHashCode();
       if (GoodsBuyTimes != 0) hash ^= GoodsBuyTimes.GetHashCode();
+      if (ShopId != 0) hash ^= ShopId.GetHashCode();
+      if (returnItemList_ != null) hash ^= ReturnItemList.GetHashCode();
+      if (GoodsId != 0) hash ^= GoodsId.GetHashCode();
+      if (Retcode != 0) hash ^= Retcode.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -258,20 +258,20 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (returnItemList_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ReturnItemList);
-      }
-      if (Retcode != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
+      if (GoodsBuyTimes != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GoodsBuyTimes);
       }
       if (ShopId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ShopId);
       }
+      if (returnItemList_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ReturnItemList);
+      }
       if (GoodsId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GoodsId);
       }
-      if (GoodsBuyTimes != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GoodsBuyTimes);
+      if (Retcode != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -285,23 +285,23 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
+      if (other.GoodsBuyTimes != 0) {
+        GoodsBuyTimes = other.GoodsBuyTimes;
+      }
+      if (other.ShopId != 0) {
+        ShopId = other.ShopId;
+      }
       if (other.returnItemList_ != null) {
         if (returnItemList_ == null) {
           ReturnItemList = new global::EggLink.DanhengServer.Proto.ItemList();
         }
         ReturnItemList.MergeFrom(other.ReturnItemList);
       }
-      if (other.Retcode != 0) {
-        Retcode = other.Retcode;
-      }
-      if (other.ShopId != 0) {
-        ShopId = other.ShopId;
-      }
       if (other.GoodsId != 0) {
         GoodsId = other.GoodsId;
       }
-      if (other.GoodsBuyTimes != 0) {
-        GoodsBuyTimes = other.GoodsBuyTimes;
+      if (other.Retcode != 0) {
+        Retcode = other.Retcode;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }

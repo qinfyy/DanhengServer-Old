@@ -24,12 +24,12 @@ namespace EggLink.DanhengServer.Proto {
     static DisplayAvatarVecReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChZEaXNwbGF5QXZhdGFyVmVjLnByb3RvGhNEaXNwbGF5QXZhdGFyLnByb3Rv",
-            "IlMKEERpc3BsYXlBdmF0YXJWZWMSKwoTZGlzcGxheV9hdmF0YXJfbGlzdBgP",
-            "IAMoCzIOLkRpc3BsYXlBdmF0YXISEgoKaXNfZGlzcGxheRgDIAEoCEIeqgIb",
-            "RWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "ChZEaXNwbGF5QXZhdGFyVmVjLnByb3RvGhdEaXNwbGF5QXZhdGFyRGF0YS5w",
+            "cm90byJXChBEaXNwbGF5QXZhdGFyVmVjEi8KE2Rpc3BsYXlfYXZhdGFyX2xp",
+            "c3QYDyADKAsyEi5EaXNwbGF5QXZhdGFyRGF0YRISCgppc19kaXNwbGF5GAMg",
+            "ASgIQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.DisplayAvatarReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.DisplayAvatarDataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.DisplayAvatarVec), global::EggLink.DanhengServer.Proto.DisplayAvatarVec.Parser, new[]{ "DisplayAvatarList", "IsDisplay" }, null, null, null, null)
           }));
@@ -86,12 +86,12 @@ namespace EggLink.DanhengServer.Proto {
 
     /// <summary>Field number for the "display_avatar_list" field.</summary>
     public const int DisplayAvatarListFieldNumber = 15;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.DisplayAvatar> _repeated_displayAvatarList_codec
-        = pb::FieldCodec.ForMessage(122, global::EggLink.DanhengServer.Proto.DisplayAvatar.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DisplayAvatar> displayAvatarList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DisplayAvatar>();
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.DisplayAvatarData> _repeated_displayAvatarList_codec
+        = pb::FieldCodec.ForMessage(122, global::EggLink.DanhengServer.Proto.DisplayAvatarData.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DisplayAvatarData> displayAvatarList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DisplayAvatarData>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DisplayAvatar> DisplayAvatarList {
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DisplayAvatarData> DisplayAvatarList {
       get { return displayAvatarList_; }
     }
 

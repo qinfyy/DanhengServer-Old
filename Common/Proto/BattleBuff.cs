@@ -24,17 +24,17 @@ namespace EggLink.DanhengServer.Proto {
     static BattleBuffReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChBCYXR0bGVCdWZmLnByb3RvItUBCgpCYXR0bGVCdWZmEgoKAmlkGAEgASgN",
-            "Eg0KBWxldmVsGAIgASgNEhAKCG93bmVyX2lkGAMgASgNEhEKCXdhdmVfZmxh",
-            "ZxgEIAEoDRIZChF0YXJnZXRfaW5kZXhfbGlzdBgFIAMoDRI2Cg5keW5hbWlj",
-            "X3ZhbHVlcxgGIAMoCzIeLkJhdHRsZUJ1ZmYuRHluYW1pY1ZhbHVlc0VudHJ5",
-            "GjQKEkR5bmFtaWNWYWx1ZXNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUY",
-            "AiABKAI6AjgBQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnBy",
-            "b3RvMw=="));
+            "ChBCYXR0bGVCdWZmLnByb3RvItgBCgpCYXR0bGVCdWZmEgoKAmlkGAEgASgN",
+            "Eg0KBWxldmVsGAIgASgNEhMKC293bmVyX2luZGV4GAMgASgNEhEKCXdhdmVf",
+            "ZmxhZxgEIAEoDRIZChF0YXJnZXRfaW5kZXhfbGlzdBgFIAMoDRI2Cg5keW5h",
+            "bWljX3ZhbHVlcxgGIAMoCzIeLkJhdHRsZUJ1ZmYuRHluYW1pY1ZhbHVlc0Vu",
+            "dHJ5GjQKEkR5bmFtaWNWYWx1ZXNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFs",
+            "dWUYAiABKAI6AjgBQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9i",
+            "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BattleBuff), global::EggLink.DanhengServer.Proto.BattleBuff.Parser, new[]{ "Id", "Level", "OwnerId", "WaveFlag", "TargetIndexList", "DynamicValues" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BattleBuff), global::EggLink.DanhengServer.Proto.BattleBuff.Parser, new[]{ "Id", "Level", "OwnerIndex", "WaveFlag", "TargetIndexList", "DynamicValues" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
           }));
     }
     #endregion
@@ -78,7 +78,7 @@ namespace EggLink.DanhengServer.Proto {
     public BattleBuff(BattleBuff other) : this() {
       id_ = other.id_;
       level_ = other.level_;
-      ownerId_ = other.ownerId_;
+      ownerIndex_ = other.ownerIndex_;
       waveFlag_ = other.waveFlag_;
       targetIndexList_ = other.targetIndexList_.Clone();
       dynamicValues_ = other.dynamicValues_.Clone();
@@ -115,15 +115,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "owner_id" field.</summary>
-    public const int OwnerIdFieldNumber = 3;
-    private uint ownerId_;
+    /// <summary>Field number for the "owner_index" field.</summary>
+    public const int OwnerIndexFieldNumber = 3;
+    private uint ownerIndex_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint OwnerId {
-      get { return ownerId_; }
+    public uint OwnerIndex {
+      get { return ownerIndex_; }
       set {
-        ownerId_ = value;
+        ownerIndex_ = value;
       }
     }
 
@@ -178,7 +178,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (Id != other.Id) return false;
       if (Level != other.Level) return false;
-      if (OwnerId != other.OwnerId) return false;
+      if (OwnerIndex != other.OwnerIndex) return false;
       if (WaveFlag != other.WaveFlag) return false;
       if(!targetIndexList_.Equals(other.targetIndexList_)) return false;
       if (!DynamicValues.Equals(other.DynamicValues)) return false;
@@ -191,7 +191,7 @@ namespace EggLink.DanhengServer.Proto {
       int hash = 1;
       if (Id != 0) hash ^= Id.GetHashCode();
       if (Level != 0) hash ^= Level.GetHashCode();
-      if (OwnerId != 0) hash ^= OwnerId.GetHashCode();
+      if (OwnerIndex != 0) hash ^= OwnerIndex.GetHashCode();
       if (WaveFlag != 0) hash ^= WaveFlag.GetHashCode();
       hash ^= targetIndexList_.GetHashCode();
       hash ^= DynamicValues.GetHashCode();
@@ -221,9 +221,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(16);
         output.WriteUInt32(Level);
       }
-      if (OwnerId != 0) {
+      if (OwnerIndex != 0) {
         output.WriteRawTag(24);
-        output.WriteUInt32(OwnerId);
+        output.WriteUInt32(OwnerIndex);
       }
       if (WaveFlag != 0) {
         output.WriteRawTag(32);
@@ -249,9 +249,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(16);
         output.WriteUInt32(Level);
       }
-      if (OwnerId != 0) {
+      if (OwnerIndex != 0) {
         output.WriteRawTag(24);
-        output.WriteUInt32(OwnerId);
+        output.WriteUInt32(OwnerIndex);
       }
       if (WaveFlag != 0) {
         output.WriteRawTag(32);
@@ -275,8 +275,8 @@ namespace EggLink.DanhengServer.Proto {
       if (Level != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Level);
       }
-      if (OwnerId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OwnerId);
+      if (OwnerIndex != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OwnerIndex);
       }
       if (WaveFlag != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(WaveFlag);
@@ -301,8 +301,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other.Level != 0) {
         Level = other.Level;
       }
-      if (other.OwnerId != 0) {
-        OwnerId = other.OwnerId;
+      if (other.OwnerIndex != 0) {
+        OwnerIndex = other.OwnerIndex;
       }
       if (other.WaveFlag != 0) {
         WaveFlag = other.WaveFlag;
@@ -333,7 +333,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 24: {
-            OwnerId = input.ReadUInt32();
+            OwnerIndex = input.ReadUInt32();
             break;
           }
           case 32: {
@@ -373,7 +373,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 24: {
-            OwnerId = input.ReadUInt32();
+            OwnerIndex = input.ReadUInt32();
             break;
           }
           case 32: {

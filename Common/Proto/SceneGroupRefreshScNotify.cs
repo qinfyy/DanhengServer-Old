@@ -24,15 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static SceneGroupRefreshScNotifyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Ch9TY2VuZUdyb3VwUmVmcmVzaFNjTm90aWZ5LnByb3RvGhtTY2VuZUdyb3Vw",
-            "UmVmcmVzaEluZm8ucHJvdG8iTwoZU2NlbmVHcm91cFJlZnJlc2hTY05vdGlm",
-            "eRIyChJncm91cF9yZWZyZXNoX2luZm8YBSADKAsyFi5TY2VuZUdyb3VwUmVm",
-            "cmVzaEluZm9CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJv",
-            "dG8z"));
+            "Ch9TY2VuZUdyb3VwUmVmcmVzaFNjTm90aWZ5LnByb3RvGhZHcm91cFJlZnJl",
+            "c2hJbmZvLnByb3RvIkoKGVNjZW5lR3JvdXBSZWZyZXNoU2NOb3RpZnkSLQoS",
+            "Z3JvdXBfcmVmcmVzaF9saXN0GAUgAygLMhEuR3JvdXBSZWZyZXNoSW5mb0Ie",
+            "qgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.SceneGroupRefreshInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.GroupRefreshInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SceneGroupRefreshScNotify), global::EggLink.DanhengServer.Proto.SceneGroupRefreshScNotify.Parser, new[]{ "GroupRefreshInfo" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SceneGroupRefreshScNotify), global::EggLink.DanhengServer.Proto.SceneGroupRefreshScNotify.Parser, new[]{ "GroupRefreshList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SceneGroupRefreshScNotify(SceneGroupRefreshScNotify other) : this() {
-      groupRefreshInfo_ = other.groupRefreshInfo_.Clone();
+      groupRefreshList_ = other.groupRefreshList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,15 +83,15 @@ namespace EggLink.DanhengServer.Proto {
       return new SceneGroupRefreshScNotify(this);
     }
 
-    /// <summary>Field number for the "group_refresh_info" field.</summary>
-    public const int GroupRefreshInfoFieldNumber = 5;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.SceneGroupRefreshInfo> _repeated_groupRefreshInfo_codec
-        = pb::FieldCodec.ForMessage(42, global::EggLink.DanhengServer.Proto.SceneGroupRefreshInfo.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.SceneGroupRefreshInfo> groupRefreshInfo_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.SceneGroupRefreshInfo>();
+    /// <summary>Field number for the "group_refresh_list" field.</summary>
+    public const int GroupRefreshListFieldNumber = 5;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.GroupRefreshInfo> _repeated_groupRefreshList_codec
+        = pb::FieldCodec.ForMessage(42, global::EggLink.DanhengServer.Proto.GroupRefreshInfo.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GroupRefreshInfo> groupRefreshList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GroupRefreshInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.SceneGroupRefreshInfo> GroupRefreshInfo {
-      get { return groupRefreshInfo_; }
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GroupRefreshInfo> GroupRefreshList {
+      get { return groupRefreshList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -110,7 +109,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!groupRefreshInfo_.Equals(other.groupRefreshInfo_)) return false;
+      if(!groupRefreshList_.Equals(other.groupRefreshList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -118,7 +117,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= groupRefreshInfo_.GetHashCode();
+      hash ^= groupRefreshList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -137,7 +136,7 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      groupRefreshInfo_.WriteTo(output, _repeated_groupRefreshInfo_codec);
+      groupRefreshList_.WriteTo(output, _repeated_groupRefreshList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -148,7 +147,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      groupRefreshInfo_.WriteTo(ref output, _repeated_groupRefreshInfo_codec);
+      groupRefreshList_.WriteTo(ref output, _repeated_groupRefreshList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -159,7 +158,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += groupRefreshInfo_.CalculateSize(_repeated_groupRefreshInfo_codec);
+      size += groupRefreshList_.CalculateSize(_repeated_groupRefreshList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -172,7 +171,7 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      groupRefreshInfo_.Add(other.groupRefreshInfo_);
+      groupRefreshList_.Add(other.groupRefreshList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -189,7 +188,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 42: {
-            groupRefreshInfo_.AddEntriesFrom(input, _repeated_groupRefreshInfo_codec);
+            groupRefreshList_.AddEntriesFrom(input, _repeated_groupRefreshList_codec);
             break;
           }
         }
@@ -208,7 +207,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 42: {
-            groupRefreshInfo_.AddEntriesFrom(ref input, _repeated_groupRefreshInfo_codec);
+            groupRefreshList_.AddEntriesFrom(ref input, _repeated_groupRefreshList_codec);
             break;
           }
         }

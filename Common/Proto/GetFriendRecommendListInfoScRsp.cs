@@ -25,14 +25,14 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CiVHZXRGcmllbmRSZWNvbW1lbmRMaXN0SW5mb1NjUnNwLnByb3RvGhlGcmll",
-            "bmRSZWNvbW1lbmRJbmZvLnByb3RvImcKH0dldEZyaWVuZFJlY29tbWVuZExp",
-            "c3RJbmZvU2NSc3ASMwoVZnJpZW5kX3JlY29tbWVuZF9saXN0GAogAygLMhQu",
-            "RnJpZW5kUmVjb21tZW5kSW5mbxIPCgdyZXRjb2RlGAggASgNQh6qAhtFZ2dM",
-            "aW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "bmRSZWNvbW1lbmRJbmZvLnByb3RvIl0KH0dldEZyaWVuZFJlY29tbWVuZExp",
+            "c3RJbmZvU2NSc3ASKQoLcGxheWVyX2xpc3QYCiADKAsyFC5GcmllbmRSZWNv",
+            "bW1lbmRJbmZvEg8KB3JldGNvZGUYCCABKA1CHqoCG0VnZ0xpbmsuRGFuaGVu",
+            "Z1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.FriendRecommendInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetFriendRecommendListInfoScRsp), global::EggLink.DanhengServer.Proto.GetFriendRecommendListInfoScRsp.Parser, new[]{ "FriendRecommendList", "Retcode" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetFriendRecommendListInfoScRsp), global::EggLink.DanhengServer.Proto.GetFriendRecommendListInfoScRsp.Parser, new[]{ "PlayerList", "Retcode" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,7 +74,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetFriendRecommendListInfoScRsp(GetFriendRecommendListInfoScRsp other) : this() {
-      friendRecommendList_ = other.friendRecommendList_.Clone();
+      playerList_ = other.playerList_.Clone();
       retcode_ = other.retcode_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -85,15 +85,15 @@ namespace EggLink.DanhengServer.Proto {
       return new GetFriendRecommendListInfoScRsp(this);
     }
 
-    /// <summary>Field number for the "friend_recommend_list" field.</summary>
-    public const int FriendRecommendListFieldNumber = 10;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.FriendRecommendInfo> _repeated_friendRecommendList_codec
+    /// <summary>Field number for the "player_list" field.</summary>
+    public const int PlayerListFieldNumber = 10;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.FriendRecommendInfo> _repeated_playerList_codec
         = pb::FieldCodec.ForMessage(82, global::EggLink.DanhengServer.Proto.FriendRecommendInfo.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FriendRecommendInfo> friendRecommendList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FriendRecommendInfo>();
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FriendRecommendInfo> playerList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FriendRecommendInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FriendRecommendInfo> FriendRecommendList {
-      get { return friendRecommendList_; }
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.FriendRecommendInfo> PlayerList {
+      get { return playerList_; }
     }
 
     /// <summary>Field number for the "retcode" field.</summary>
@@ -123,7 +123,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!friendRecommendList_.Equals(other.friendRecommendList_)) return false;
+      if(!playerList_.Equals(other.playerList_)) return false;
       if (Retcode != other.Retcode) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -132,7 +132,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= friendRecommendList_.GetHashCode();
+      hash ^= playerList_.GetHashCode();
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -156,7 +156,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(64);
         output.WriteUInt32(Retcode);
       }
-      friendRecommendList_.WriteTo(output, _repeated_friendRecommendList_codec);
+      playerList_.WriteTo(output, _repeated_playerList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -171,7 +171,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(64);
         output.WriteUInt32(Retcode);
       }
-      friendRecommendList_.WriteTo(ref output, _repeated_friendRecommendList_codec);
+      playerList_.WriteTo(ref output, _repeated_playerList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -182,7 +182,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += friendRecommendList_.CalculateSize(_repeated_friendRecommendList_codec);
+      size += playerList_.CalculateSize(_repeated_playerList_codec);
       if (Retcode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
@@ -198,7 +198,7 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      friendRecommendList_.Add(other.friendRecommendList_);
+      playerList_.Add(other.playerList_);
       if (other.Retcode != 0) {
         Retcode = other.Retcode;
       }
@@ -222,7 +222,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 82: {
-            friendRecommendList_.AddEntriesFrom(input, _repeated_friendRecommendList_codec);
+            playerList_.AddEntriesFrom(input, _repeated_playerList_codec);
             break;
           }
         }
@@ -245,7 +245,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 82: {
-            friendRecommendList_.AddEntriesFrom(ref input, _repeated_friendRecommendList_codec);
+            playerList_.AddEntriesFrom(ref input, _repeated_playerList_codec);
             break;
           }
         }

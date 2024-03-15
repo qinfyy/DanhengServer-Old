@@ -24,15 +24,16 @@ namespace EggLink.DanhengServer.Proto {
     static SendMsgCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChJTZW5kTXNnQ3NSZXEucHJvdG8aDkNoYXRUeXBlLnByb3RvGg1Nc2dUeXBl",
-            "LnByb3RvInoKDFNlbmRNc2dDc1JlcRITCgt0b191aWRfbGlzdBgEIAMoDRIN",
-            "CgVlbW90ZRgNIAEoDRIaCghtc2dfdHlwZRgFIAEoDjIILk1zZ1R5cGUSDAoE",
-            "dGV4dBgMIAEoCRIcCgljaGF0X3R5cGUYBiABKA4yCS5DaGF0VHlwZUIeqgIb",
-            "RWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "ChJTZW5kTXNnQ3NSZXEucHJvdG8aDU1zZ1R5cGUucHJvdG8aDkNoYXRUeXBl",
+            "LnByb3RvIokBCgxTZW5kTXNnQ3NSZXESEAoIZXh0cmFfaWQYDSABKA0SEwoL",
+            "RUdDQ0pITUdCRE4YBCADKA0SHgoMbWVzc2FnZV90eXBlGAUgASgOMgguTXNn",
+            "VHlwZRIUCgxtZXNzYWdlX3RleHQYDCABKAkSHAoJY2hhdF90eXBlGAYgASgO",
+            "MgkuQ2hhdFR5cGVCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChatTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.MsgTypeReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MsgTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChatTypeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SendMsgCsReq), global::EggLink.DanhengServer.Proto.SendMsgCsReq.Parser, new[]{ "ToUidList", "Emote", "MsgType", "Text", "ChatType" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SendMsgCsReq), global::EggLink.DanhengServer.Proto.SendMsgCsReq.Parser, new[]{ "ExtraId", "EGCCJHMGBDN", "MessageType", "MessageText", "ChatType" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,10 +75,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SendMsgCsReq(SendMsgCsReq other) : this() {
-      toUidList_ = other.toUidList_.Clone();
-      emote_ = other.emote_;
-      msgType_ = other.msgType_;
-      text_ = other.text_;
+      extraId_ = other.extraId_;
+      eGCCJHMGBDN_ = other.eGCCJHMGBDN_.Clone();
+      messageType_ = other.messageType_;
+      messageText_ = other.messageText_;
       chatType_ = other.chatType_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -88,50 +89,50 @@ namespace EggLink.DanhengServer.Proto {
       return new SendMsgCsReq(this);
     }
 
-    /// <summary>Field number for the "to_uid_list" field.</summary>
-    public const int ToUidListFieldNumber = 4;
-    private static readonly pb::FieldCodec<uint> _repeated_toUidList_codec
+    /// <summary>Field number for the "extra_id" field.</summary>
+    public const int ExtraIdFieldNumber = 13;
+    private uint extraId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint ExtraId {
+      get { return extraId_; }
+      set {
+        extraId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "EGCCJHMGBDN" field.</summary>
+    public const int EGCCJHMGBDNFieldNumber = 4;
+    private static readonly pb::FieldCodec<uint> _repeated_eGCCJHMGBDN_codec
         = pb::FieldCodec.ForUInt32(34);
-    private readonly pbc::RepeatedField<uint> toUidList_ = new pbc::RepeatedField<uint>();
+    private readonly pbc::RepeatedField<uint> eGCCJHMGBDN_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<uint> ToUidList {
-      get { return toUidList_; }
+    public pbc::RepeatedField<uint> EGCCJHMGBDN {
+      get { return eGCCJHMGBDN_; }
     }
 
-    /// <summary>Field number for the "emote" field.</summary>
-    public const int EmoteFieldNumber = 13;
-    private uint emote_;
+    /// <summary>Field number for the "message_type" field.</summary>
+    public const int MessageTypeFieldNumber = 5;
+    private global::EggLink.DanhengServer.Proto.MsgType messageType_ = global::EggLink.DanhengServer.Proto.MsgType.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Emote {
-      get { return emote_; }
+    public global::EggLink.DanhengServer.Proto.MsgType MessageType {
+      get { return messageType_; }
       set {
-        emote_ = value;
+        messageType_ = value;
       }
     }
 
-    /// <summary>Field number for the "msg_type" field.</summary>
-    public const int MsgTypeFieldNumber = 5;
-    private global::EggLink.DanhengServer.Proto.MsgType msgType_ = global::EggLink.DanhengServer.Proto.MsgType.None;
+    /// <summary>Field number for the "message_text" field.</summary>
+    public const int MessageTextFieldNumber = 12;
+    private string messageText_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.MsgType MsgType {
-      get { return msgType_; }
+    public string MessageText {
+      get { return messageText_; }
       set {
-        msgType_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "text" field.</summary>
-    public const int TextFieldNumber = 12;
-    private string text_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Text {
-      get { return text_; }
-      set {
-        text_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        messageText_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -162,10 +163,10 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!toUidList_.Equals(other.toUidList_)) return false;
-      if (Emote != other.Emote) return false;
-      if (MsgType != other.MsgType) return false;
-      if (Text != other.Text) return false;
+      if (ExtraId != other.ExtraId) return false;
+      if(!eGCCJHMGBDN_.Equals(other.eGCCJHMGBDN_)) return false;
+      if (MessageType != other.MessageType) return false;
+      if (MessageText != other.MessageText) return false;
       if (ChatType != other.ChatType) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -174,10 +175,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= toUidList_.GetHashCode();
-      if (Emote != 0) hash ^= Emote.GetHashCode();
-      if (MsgType != global::EggLink.DanhengServer.Proto.MsgType.None) hash ^= MsgType.GetHashCode();
-      if (Text.Length != 0) hash ^= Text.GetHashCode();
+      if (ExtraId != 0) hash ^= ExtraId.GetHashCode();
+      hash ^= eGCCJHMGBDN_.GetHashCode();
+      if (MessageType != global::EggLink.DanhengServer.Proto.MsgType.None) hash ^= MessageType.GetHashCode();
+      if (MessageText.Length != 0) hash ^= MessageText.GetHashCode();
       if (ChatType != global::EggLink.DanhengServer.Proto.ChatType.None) hash ^= ChatType.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -197,22 +198,22 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      toUidList_.WriteTo(output, _repeated_toUidList_codec);
-      if (MsgType != global::EggLink.DanhengServer.Proto.MsgType.None) {
+      eGCCJHMGBDN_.WriteTo(output, _repeated_eGCCJHMGBDN_codec);
+      if (MessageType != global::EggLink.DanhengServer.Proto.MsgType.None) {
         output.WriteRawTag(40);
-        output.WriteEnum((int) MsgType);
+        output.WriteEnum((int) MessageType);
       }
       if (ChatType != global::EggLink.DanhengServer.Proto.ChatType.None) {
         output.WriteRawTag(48);
         output.WriteEnum((int) ChatType);
       }
-      if (Text.Length != 0) {
+      if (MessageText.Length != 0) {
         output.WriteRawTag(98);
-        output.WriteString(Text);
+        output.WriteString(MessageText);
       }
-      if (Emote != 0) {
+      if (ExtraId != 0) {
         output.WriteRawTag(104);
-        output.WriteUInt32(Emote);
+        output.WriteUInt32(ExtraId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -224,22 +225,22 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      toUidList_.WriteTo(ref output, _repeated_toUidList_codec);
-      if (MsgType != global::EggLink.DanhengServer.Proto.MsgType.None) {
+      eGCCJHMGBDN_.WriteTo(ref output, _repeated_eGCCJHMGBDN_codec);
+      if (MessageType != global::EggLink.DanhengServer.Proto.MsgType.None) {
         output.WriteRawTag(40);
-        output.WriteEnum((int) MsgType);
+        output.WriteEnum((int) MessageType);
       }
       if (ChatType != global::EggLink.DanhengServer.Proto.ChatType.None) {
         output.WriteRawTag(48);
         output.WriteEnum((int) ChatType);
       }
-      if (Text.Length != 0) {
+      if (MessageText.Length != 0) {
         output.WriteRawTag(98);
-        output.WriteString(Text);
+        output.WriteString(MessageText);
       }
-      if (Emote != 0) {
+      if (ExtraId != 0) {
         output.WriteRawTag(104);
-        output.WriteUInt32(Emote);
+        output.WriteUInt32(ExtraId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -251,15 +252,15 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += toUidList_.CalculateSize(_repeated_toUidList_codec);
-      if (Emote != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Emote);
+      if (ExtraId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ExtraId);
       }
-      if (MsgType != global::EggLink.DanhengServer.Proto.MsgType.None) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) MsgType);
+      size += eGCCJHMGBDN_.CalculateSize(_repeated_eGCCJHMGBDN_codec);
+      if (MessageType != global::EggLink.DanhengServer.Proto.MsgType.None) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) MessageType);
       }
-      if (Text.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Text);
+      if (MessageText.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(MessageText);
       }
       if (ChatType != global::EggLink.DanhengServer.Proto.ChatType.None) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ChatType);
@@ -276,15 +277,15 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      toUidList_.Add(other.toUidList_);
-      if (other.Emote != 0) {
-        Emote = other.Emote;
+      if (other.ExtraId != 0) {
+        ExtraId = other.ExtraId;
       }
-      if (other.MsgType != global::EggLink.DanhengServer.Proto.MsgType.None) {
-        MsgType = other.MsgType;
+      eGCCJHMGBDN_.Add(other.eGCCJHMGBDN_);
+      if (other.MessageType != global::EggLink.DanhengServer.Proto.MsgType.None) {
+        MessageType = other.MessageType;
       }
-      if (other.Text.Length != 0) {
-        Text = other.Text;
+      if (other.MessageText.Length != 0) {
+        MessageText = other.MessageText;
       }
       if (other.ChatType != global::EggLink.DanhengServer.Proto.ChatType.None) {
         ChatType = other.ChatType;
@@ -306,11 +307,11 @@ namespace EggLink.DanhengServer.Proto {
             break;
           case 34:
           case 32: {
-            toUidList_.AddEntriesFrom(input, _repeated_toUidList_codec);
+            eGCCJHMGBDN_.AddEntriesFrom(input, _repeated_eGCCJHMGBDN_codec);
             break;
           }
           case 40: {
-            MsgType = (global::EggLink.DanhengServer.Proto.MsgType) input.ReadEnum();
+            MessageType = (global::EggLink.DanhengServer.Proto.MsgType) input.ReadEnum();
             break;
           }
           case 48: {
@@ -318,11 +319,11 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 98: {
-            Text = input.ReadString();
+            MessageText = input.ReadString();
             break;
           }
           case 104: {
-            Emote = input.ReadUInt32();
+            ExtraId = input.ReadUInt32();
             break;
           }
         }
@@ -342,11 +343,11 @@ namespace EggLink.DanhengServer.Proto {
             break;
           case 34:
           case 32: {
-            toUidList_.AddEntriesFrom(ref input, _repeated_toUidList_codec);
+            eGCCJHMGBDN_.AddEntriesFrom(ref input, _repeated_eGCCJHMGBDN_codec);
             break;
           }
           case 40: {
-            MsgType = (global::EggLink.DanhengServer.Proto.MsgType) input.ReadEnum();
+            MessageType = (global::EggLink.DanhengServer.Proto.MsgType) input.ReadEnum();
             break;
           }
           case 48: {
@@ -354,11 +355,11 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 98: {
-            Text = input.ReadString();
+            MessageText = input.ReadString();
             break;
           }
           case 104: {
-            Emote = input.ReadUInt32();
+            ExtraId = input.ReadUInt32();
             break;
           }
         }

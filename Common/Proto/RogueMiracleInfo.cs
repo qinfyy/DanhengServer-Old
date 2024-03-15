@@ -24,14 +24,15 @@ namespace EggLink.DanhengServer.Proto {
     static RogueMiracleInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChZSb2d1ZU1pcmFjbGVJbmZvLnByb3RvGhpSb2d1ZU1pcmFjbGVJbmZvRGF0",
-            "YS5wcm90byJFChBSb2d1ZU1pcmFjbGVJbmZvEjEKEnJvZ3VlX21pcmFjbGVf",
-            "aW5mbxgEIAEoCzIVLlJvZ3VlTWlyYWNsZUluZm9EYXRhQh6qAhtFZ2dMaW5r",
-            "LkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "ChZSb2d1ZU1pcmFjbGVJbmZvLnByb3RvGhJSb2d1ZU1pcmFjbGUucHJvdG8i",
+            "bAoQUm9ndWVNaXJhY2xlSW5mbxIYChB0b3RhbF9zbG90X2NvdW50GAogASgN",
+            "EhkKEXVubG9ja19zbG90X2NvdW50GAkgASgNEiMKDG1pcmFjbGVfbGlzdBgO",
+            "IAMoCzINLlJvZ3VlTWlyYWNsZUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVy",
+            "LlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RogueMiracleInfoDataReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RogueMiracleReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueMiracleInfo), global::EggLink.DanhengServer.Proto.RogueMiracleInfo.Parser, new[]{ "RogueMiracleInfo_" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueMiracleInfo), global::EggLink.DanhengServer.Proto.RogueMiracleInfo.Parser, new[]{ "TotalSlotCount", "UnlockSlotCount", "MiracleList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +74,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public RogueMiracleInfo(RogueMiracleInfo other) : this() {
-      rogueMiracleInfo_ = other.rogueMiracleInfo_ != null ? other.rogueMiracleInfo_.Clone() : null;
+      totalSlotCount_ = other.totalSlotCount_;
+      unlockSlotCount_ = other.unlockSlotCount_;
+      miracleList_ = other.miracleList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,16 +86,39 @@ namespace EggLink.DanhengServer.Proto {
       return new RogueMiracleInfo(this);
     }
 
-    /// <summary>Field number for the "rogue_miracle_info" field.</summary>
-    public const int RogueMiracleInfo_FieldNumber = 4;
-    private global::EggLink.DanhengServer.Proto.RogueMiracleInfoData rogueMiracleInfo_;
+    /// <summary>Field number for the "total_slot_count" field.</summary>
+    public const int TotalSlotCountFieldNumber = 10;
+    private uint totalSlotCount_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.RogueMiracleInfoData RogueMiracleInfo_ {
-      get { return rogueMiracleInfo_; }
+    public uint TotalSlotCount {
+      get { return totalSlotCount_; }
       set {
-        rogueMiracleInfo_ = value;
+        totalSlotCount_ = value;
       }
+    }
+
+    /// <summary>Field number for the "unlock_slot_count" field.</summary>
+    public const int UnlockSlotCountFieldNumber = 9;
+    private uint unlockSlotCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint UnlockSlotCount {
+      get { return unlockSlotCount_; }
+      set {
+        unlockSlotCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "miracle_list" field.</summary>
+    public const int MiracleListFieldNumber = 14;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.RogueMiracle> _repeated_miracleList_codec
+        = pb::FieldCodec.ForMessage(114, global::EggLink.DanhengServer.Proto.RogueMiracle.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RogueMiracle> miracleList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RogueMiracle>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RogueMiracle> MiracleList {
+      get { return miracleList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -110,7 +136,9 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(RogueMiracleInfo_, other.RogueMiracleInfo_)) return false;
+      if (TotalSlotCount != other.TotalSlotCount) return false;
+      if (UnlockSlotCount != other.UnlockSlotCount) return false;
+      if(!miracleList_.Equals(other.miracleList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -118,7 +146,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (rogueMiracleInfo_ != null) hash ^= RogueMiracleInfo_.GetHashCode();
+      if (TotalSlotCount != 0) hash ^= TotalSlotCount.GetHashCode();
+      if (UnlockSlotCount != 0) hash ^= UnlockSlotCount.GetHashCode();
+      hash ^= miracleList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -137,10 +167,15 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (rogueMiracleInfo_ != null) {
-        output.WriteRawTag(34);
-        output.WriteMessage(RogueMiracleInfo_);
+      if (UnlockSlotCount != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(UnlockSlotCount);
       }
+      if (TotalSlotCount != 0) {
+        output.WriteRawTag(80);
+        output.WriteUInt32(TotalSlotCount);
+      }
+      miracleList_.WriteTo(output, _repeated_miracleList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -151,10 +186,15 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (rogueMiracleInfo_ != null) {
-        output.WriteRawTag(34);
-        output.WriteMessage(RogueMiracleInfo_);
+      if (UnlockSlotCount != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(UnlockSlotCount);
       }
+      if (TotalSlotCount != 0) {
+        output.WriteRawTag(80);
+        output.WriteUInt32(TotalSlotCount);
+      }
+      miracleList_.WriteTo(ref output, _repeated_miracleList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -165,9 +205,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (rogueMiracleInfo_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(RogueMiracleInfo_);
+      if (TotalSlotCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(TotalSlotCount);
       }
+      if (UnlockSlotCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(UnlockSlotCount);
+      }
+      size += miracleList_.CalculateSize(_repeated_miracleList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -180,12 +224,13 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.rogueMiracleInfo_ != null) {
-        if (rogueMiracleInfo_ == null) {
-          RogueMiracleInfo_ = new global::EggLink.DanhengServer.Proto.RogueMiracleInfoData();
-        }
-        RogueMiracleInfo_.MergeFrom(other.RogueMiracleInfo_);
+      if (other.TotalSlotCount != 0) {
+        TotalSlotCount = other.TotalSlotCount;
       }
+      if (other.UnlockSlotCount != 0) {
+        UnlockSlotCount = other.UnlockSlotCount;
+      }
+      miracleList_.Add(other.miracleList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -201,11 +246,16 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 34: {
-            if (rogueMiracleInfo_ == null) {
-              RogueMiracleInfo_ = new global::EggLink.DanhengServer.Proto.RogueMiracleInfoData();
-            }
-            input.ReadMessage(RogueMiracleInfo_);
+          case 72: {
+            UnlockSlotCount = input.ReadUInt32();
+            break;
+          }
+          case 80: {
+            TotalSlotCount = input.ReadUInt32();
+            break;
+          }
+          case 114: {
+            miracleList_.AddEntriesFrom(input, _repeated_miracleList_codec);
             break;
           }
         }
@@ -223,11 +273,16 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 34: {
-            if (rogueMiracleInfo_ == null) {
-              RogueMiracleInfo_ = new global::EggLink.DanhengServer.Proto.RogueMiracleInfoData();
-            }
-            input.ReadMessage(RogueMiracleInfo_);
+          case 72: {
+            UnlockSlotCount = input.ReadUInt32();
+            break;
+          }
+          case 80: {
+            TotalSlotCount = input.ReadUInt32();
+            break;
+          }
+          case 114: {
+            miracleList_.AddEntriesFrom(ref input, _repeated_miracleList_codec);
             break;
           }
         }

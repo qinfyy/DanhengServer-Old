@@ -1,4 +1,5 @@
 ﻿using EggLink.DanhengServer.Enums;
+using EggLink.DanhengServer.Util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
@@ -23,6 +24,21 @@ namespace EggLink.DanhengServer.Data.Config
 
         [JsonConverter(typeof(StringEnumConverter))]
         public PropStateEnum State { get; set; } = PropStateEnum.Closed;
+
+        [JsonIgnore()]
+        public int UnlockDoorID { get; set; }
+
+        public void Load()
+        {
+            if (InitLevelGraph?.Contains("_OpenDoor_") == true)
+            {
+                var va = ValueSource?.Values.First()["Value"];
+                if (va != null)
+                {
+                    UnlockDoorID = int.Parse(va.ToString().Split(",")[1]);
+                }
+            }
+        }
     }
 
     public class PropValueSource

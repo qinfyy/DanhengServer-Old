@@ -12,7 +12,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Scene
             {
                 rsp.NpcTalkInfoList.Add(new NpcTalkInfo
                 {
-                    NpcTalkId = id,
+                    MeetId = id,
                 });
             }
 

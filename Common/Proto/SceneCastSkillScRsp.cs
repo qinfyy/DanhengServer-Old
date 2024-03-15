@@ -24,15 +24,16 @@ namespace EggLink.DanhengServer.Proto {
     static SceneCastSkillScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChlTY2VuZUNhc3RTa2lsbFNjUnNwLnByb3RvGhVTY2VuZUJhdHRsZUluZm8u",
-            "cHJvdG8iaAoTU2NlbmVDYXN0U2tpbGxTY1JzcBIZChFhdHRhY2tlZF9ncm91",
-            "cF9pZBgGIAEoDRIPCgdyZXRjb2RlGAwgASgNEiUKC2JhdHRsZV9pbmZvGAUg",
-            "ASgLMhAuU2NlbmVCYXR0bGVJbmZvQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2",
-            "ZXIuUHJvdG9iBnByb3RvMw=="));
+            "ChlTY2VuZUNhc3RTa2lsbFNjUnNwLnByb3RvGhFDTUlHR1BNRkRESS5wcm90",
+            "bxoVU2NlbmVCYXR0bGVJbmZvLnByb3RvIogBChNTY2VuZUNhc3RTa2lsbFNj",
+            "UnNwEg8KB3JldGNvZGUYDCABKA0SJQoLYmF0dGxlX2luZm8YBSABKAsyEC5T",
+            "Y2VuZUJhdHRsZUluZm8SFgoOY2FzdF9lbnRpdHlfaWQYBiABKA0SIQoLSE9F",
+            "RU1LUENJQUMYASADKAsyDC5DTUlHR1BNRkRESUIeqgIbRWdnTGluay5EYW5o",
+            "ZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.SceneBattleInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.CMIGGPMFDDIReflection.Descriptor, global::EggLink.DanhengServer.Proto.SceneBattleInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SceneCastSkillScRsp), global::EggLink.DanhengServer.Proto.SceneCastSkillScRsp.Parser, new[]{ "AttackedGroupId", "Retcode", "BattleInfo" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SceneCastSkillScRsp), global::EggLink.DanhengServer.Proto.SceneCastSkillScRsp.Parser, new[]{ "Retcode", "BattleInfo", "CastEntityId", "HOEEMKPCIAC" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,9 +75,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SceneCastSkillScRsp(SceneCastSkillScRsp other) : this() {
-      attackedGroupId_ = other.attackedGroupId_;
       retcode_ = other.retcode_;
       battleInfo_ = other.battleInfo_ != null ? other.battleInfo_.Clone() : null;
+      castEntityId_ = other.castEntityId_;
+      hOEEMKPCIAC_ = other.hOEEMKPCIAC_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,18 +86,6 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SceneCastSkillScRsp Clone() {
       return new SceneCastSkillScRsp(this);
-    }
-
-    /// <summary>Field number for the "attacked_group_id" field.</summary>
-    public const int AttackedGroupIdFieldNumber = 6;
-    private uint attackedGroupId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint AttackedGroupId {
-      get { return attackedGroupId_; }
-      set {
-        attackedGroupId_ = value;
-      }
     }
 
     /// <summary>Field number for the "retcode" field.</summary>
@@ -122,6 +112,29 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
+    /// <summary>Field number for the "cast_entity_id" field.</summary>
+    public const int CastEntityIdFieldNumber = 6;
+    private uint castEntityId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint CastEntityId {
+      get { return castEntityId_; }
+      set {
+        castEntityId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "HOEEMKPCIAC" field.</summary>
+    public const int HOEEMKPCIACFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.CMIGGPMFDDI> _repeated_hOEEMKPCIAC_codec
+        = pb::FieldCodec.ForMessage(10, global::EggLink.DanhengServer.Proto.CMIGGPMFDDI.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.CMIGGPMFDDI> hOEEMKPCIAC_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.CMIGGPMFDDI>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.CMIGGPMFDDI> HOEEMKPCIAC {
+      get { return hOEEMKPCIAC_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -137,9 +150,10 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (AttackedGroupId != other.AttackedGroupId) return false;
       if (Retcode != other.Retcode) return false;
       if (!object.Equals(BattleInfo, other.BattleInfo)) return false;
+      if (CastEntityId != other.CastEntityId) return false;
+      if(!hOEEMKPCIAC_.Equals(other.hOEEMKPCIAC_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -147,9 +161,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (AttackedGroupId != 0) hash ^= AttackedGroupId.GetHashCode();
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
       if (battleInfo_ != null) hash ^= BattleInfo.GetHashCode();
+      if (CastEntityId != 0) hash ^= CastEntityId.GetHashCode();
+      hash ^= hOEEMKPCIAC_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -168,13 +183,14 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      hOEEMKPCIAC_.WriteTo(output, _repeated_hOEEMKPCIAC_codec);
       if (battleInfo_ != null) {
         output.WriteRawTag(42);
         output.WriteMessage(BattleInfo);
       }
-      if (AttackedGroupId != 0) {
+      if (CastEntityId != 0) {
         output.WriteRawTag(48);
-        output.WriteUInt32(AttackedGroupId);
+        output.WriteUInt32(CastEntityId);
       }
       if (Retcode != 0) {
         output.WriteRawTag(96);
@@ -190,13 +206,14 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      hOEEMKPCIAC_.WriteTo(ref output, _repeated_hOEEMKPCIAC_codec);
       if (battleInfo_ != null) {
         output.WriteRawTag(42);
         output.WriteMessage(BattleInfo);
       }
-      if (AttackedGroupId != 0) {
+      if (CastEntityId != 0) {
         output.WriteRawTag(48);
-        output.WriteUInt32(AttackedGroupId);
+        output.WriteUInt32(CastEntityId);
       }
       if (Retcode != 0) {
         output.WriteRawTag(96);
@@ -212,15 +229,16 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (AttackedGroupId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(AttackedGroupId);
-      }
       if (Retcode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
       if (battleInfo_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(BattleInfo);
       }
+      if (CastEntityId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(CastEntityId);
+      }
+      size += hOEEMKPCIAC_.CalculateSize(_repeated_hOEEMKPCIAC_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -233,9 +251,6 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.AttackedGroupId != 0) {
-        AttackedGroupId = other.AttackedGroupId;
-      }
       if (other.Retcode != 0) {
         Retcode = other.Retcode;
       }
@@ -245,6 +260,10 @@ namespace EggLink.DanhengServer.Proto {
         }
         BattleInfo.MergeFrom(other.BattleInfo);
       }
+      if (other.CastEntityId != 0) {
+        CastEntityId = other.CastEntityId;
+      }
+      hOEEMKPCIAC_.Add(other.hOEEMKPCIAC_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -260,6 +279,10 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 10: {
+            hOEEMKPCIAC_.AddEntriesFrom(input, _repeated_hOEEMKPCIAC_codec);
+            break;
+          }
           case 42: {
             if (battleInfo_ == null) {
               BattleInfo = new global::EggLink.DanhengServer.Proto.SceneBattleInfo();
@@ -268,7 +291,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 48: {
-            AttackedGroupId = input.ReadUInt32();
+            CastEntityId = input.ReadUInt32();
             break;
           }
           case 96: {
@@ -290,6 +313,10 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
+          case 10: {
+            hOEEMKPCIAC_.AddEntriesFrom(ref input, _repeated_hOEEMKPCIAC_codec);
+            break;
+          }
           case 42: {
             if (battleInfo_ == null) {
               BattleInfo = new global::EggLink.DanhengServer.Proto.SceneBattleInfo();
@@ -298,7 +325,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 48: {
-            AttackedGroupId = input.ReadUInt32();
+            CastEntityId = input.ReadUInt32();
             break;
           }
           case 96: {

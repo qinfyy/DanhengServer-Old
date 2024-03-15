@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static DelMailCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChJEZWxNYWlsQ3NSZXEucHJvdG8iHwoMRGVsTWFpbENzUmVxEg8KB2lkX2xp",
-            "c3QYCCADKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJv",
-            "dG8z"));
+            "ChJEZWxNYWlsQ3NSZXEucHJvdG8iIwoMRGVsTWFpbENzUmVxEhMKC2RlbF9p",
+            "ZF9saXN0GAggAygNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9i",
+            "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.DelMailCsReq), global::EggLink.DanhengServer.Proto.DelMailCsReq.Parser, new[]{ "IdList" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.DelMailCsReq), global::EggLink.DanhengServer.Proto.DelMailCsReq.Parser, new[]{ "DelIdList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,7 +72,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public DelMailCsReq(DelMailCsReq other) : this() {
-      idList_ = other.idList_.Clone();
+      delIdList_ = other.delIdList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -82,15 +82,15 @@ namespace EggLink.DanhengServer.Proto {
       return new DelMailCsReq(this);
     }
 
-    /// <summary>Field number for the "id_list" field.</summary>
-    public const int IdListFieldNumber = 8;
-    private static readonly pb::FieldCodec<uint> _repeated_idList_codec
+    /// <summary>Field number for the "del_id_list" field.</summary>
+    public const int DelIdListFieldNumber = 8;
+    private static readonly pb::FieldCodec<uint> _repeated_delIdList_codec
         = pb::FieldCodec.ForUInt32(66);
-    private readonly pbc::RepeatedField<uint> idList_ = new pbc::RepeatedField<uint>();
+    private readonly pbc::RepeatedField<uint> delIdList_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<uint> IdList {
-      get { return idList_; }
+    public pbc::RepeatedField<uint> DelIdList {
+      get { return delIdList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -108,7 +108,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!idList_.Equals(other.idList_)) return false;
+      if(!delIdList_.Equals(other.delIdList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -116,7 +116,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= idList_.GetHashCode();
+      hash ^= delIdList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -135,7 +135,7 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      idList_.WriteTo(output, _repeated_idList_codec);
+      delIdList_.WriteTo(output, _repeated_delIdList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -146,7 +146,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      idList_.WriteTo(ref output, _repeated_idList_codec);
+      delIdList_.WriteTo(ref output, _repeated_delIdList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -157,7 +157,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += idList_.CalculateSize(_repeated_idList_codec);
+      size += delIdList_.CalculateSize(_repeated_delIdList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -170,7 +170,7 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      idList_.Add(other.idList_);
+      delIdList_.Add(other.delIdList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -188,7 +188,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           case 66:
           case 64: {
-            idList_.AddEntriesFrom(input, _repeated_idList_codec);
+            delIdList_.AddEntriesFrom(input, _repeated_delIdList_codec);
             break;
           }
         }
@@ -208,7 +208,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           case 66:
           case 64: {
-            idList_.AddEntriesFrom(ref input, _repeated_idList_codec);
+            delIdList_.AddEntriesFrom(ref input, _repeated_delIdList_codec);
             break;
           }
         }

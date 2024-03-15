@@ -25,13 +25,13 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChlSb2d1ZVVubG9ja1Byb2dyZXNzLnByb3RvIkoKE1JvZ3VlVW5sb2NrUHJv",
-            "Z3Jlc3MSDgoGZmluaXNoGAwgASgIEhAKCHByb2dyZXNzGAkgASgNEhEKCXVu",
+            "Z3Jlc3MSEAoIcHJvZ3Jlc3MYCSABKA0SDgoGZmluaXNoGAwgASgIEhEKCXVu",
             "bG9ja19pZBgIIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3Rv",
             "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueUnlockProgress), global::EggLink.DanhengServer.Proto.RogueUnlockProgress.Parser, new[]{ "Finish", "Progress", "UnlockId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueUnlockProgress), global::EggLink.DanhengServer.Proto.RogueUnlockProgress.Parser, new[]{ "Progress", "Finish", "UnlockId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,8 +73,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public RogueUnlockProgress(RogueUnlockProgress other) : this() {
-      finish_ = other.finish_;
       progress_ = other.progress_;
+      finish_ = other.finish_;
       unlockId_ = other.unlockId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -83,18 +83,6 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public RogueUnlockProgress Clone() {
       return new RogueUnlockProgress(this);
-    }
-
-    /// <summary>Field number for the "finish" field.</summary>
-    public const int FinishFieldNumber = 12;
-    private bool finish_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Finish {
-      get { return finish_; }
-      set {
-        finish_ = value;
-      }
     }
 
     /// <summary>Field number for the "progress" field.</summary>
@@ -106,6 +94,18 @@ namespace EggLink.DanhengServer.Proto {
       get { return progress_; }
       set {
         progress_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "finish" field.</summary>
+    public const int FinishFieldNumber = 12;
+    private bool finish_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Finish {
+      get { return finish_; }
+      set {
+        finish_ = value;
       }
     }
 
@@ -136,8 +136,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Finish != other.Finish) return false;
       if (Progress != other.Progress) return false;
+      if (Finish != other.Finish) return false;
       if (UnlockId != other.UnlockId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -146,8 +146,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Finish != false) hash ^= Finish.GetHashCode();
       if (Progress != 0) hash ^= Progress.GetHashCode();
+      if (Finish != false) hash ^= Finish.GetHashCode();
       if (UnlockId != 0) hash ^= UnlockId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -211,11 +211,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Finish != false) {
-        size += 1 + 1;
-      }
       if (Progress != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Progress);
+      }
+      if (Finish != false) {
+        size += 1 + 1;
       }
       if (UnlockId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(UnlockId);
@@ -232,11 +232,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.Finish != false) {
-        Finish = other.Finish;
-      }
       if (other.Progress != 0) {
         Progress = other.Progress;
+      }
+      if (other.Finish != false) {
+        Finish = other.Finish;
       }
       if (other.UnlockId != 0) {
         UnlockId = other.UnlockId;

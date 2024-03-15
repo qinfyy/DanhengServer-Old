@@ -21,7 +21,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Battle
             var proto = new PVEBattleResultScRsp()
             {
                 DropData = battle.GetDropItemList(),
-                ResVersion = req.ClientResVersion.ToString(),
+                ResVersion = req.ResVersion.ToString(),
                 BinVersion = "",
                 StageId = req.StageId,
                 BattleId = req.BattleId,

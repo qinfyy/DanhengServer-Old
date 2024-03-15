@@ -14,7 +14,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Lineup
         {
             var data = new GetCurLineupDataScRsp()
             {
-                Lineup = player.LineupManager.GetCurLineup()!.ToProto(),
+                Lineup = player.LineupManager!.GetCurLineup()!.ToProto(),
             };
 
             SetData(data);

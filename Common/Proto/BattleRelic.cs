@@ -24,15 +24,16 @@ namespace EggLink.DanhengServer.Proto {
     static BattleRelicReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFCYXR0bGVSZWxpYy5wcm90bxoQUmVsaWNBZmZpeC5wcm90byJ3CgtCYXR0",
-            "bGVSZWxpYxIKCgJpZBgBIAEoDRINCgVsZXZlbBgCIAEoDRIVCg1tYWluX2Fm",
-            "Zml4X2lkGAMgASgNEiMKDnN1Yl9hZmZpeF9saXN0GAQgAygLMgsuUmVsaWNB",
-            "ZmZpeBIRCgl1bmlxdWVfaWQYBSABKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1Nl",
-            "cnZlci5Qcm90b2IGcHJvdG8z"));
+            "ChFCYXR0bGVSZWxpYy5wcm90bxoQUmVsaWNBZmZpeC5wcm90byKlAQoLQmF0",
+            "dGxlUmVsaWMSCgoCaWQYASABKA0SDQoFbGV2ZWwYAiABKA0SFQoNbWFpbl9h",
+            "ZmZpeF9pZBgDIAEoDRIjCg5zdWJfYWZmaXhfbGlzdBgEIAMoCzILLlJlbGlj",
+            "QWZmaXgSEQoJdW5pcXVlX2lkGAUgASgNEg4KBnNldF9pZBgGIAEoDRIMCgR0",
+            "eXBlGAcgASgNEg4KBnJhcml0eRgIIAEoDUIeqgIbRWdnTGluay5EYW5oZW5n",
+            "U2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RelicAffixReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BattleRelic), global::EggLink.DanhengServer.Proto.BattleRelic.Parser, new[]{ "Id", "Level", "MainAffixId", "SubAffixList", "UniqueId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BattleRelic), global::EggLink.DanhengServer.Proto.BattleRelic.Parser, new[]{ "Id", "Level", "MainAffixId", "SubAffixList", "UniqueId", "SetId", "Type", "Rarity" }, null, null, null, null)
           }));
     }
     #endregion
@@ -79,6 +80,9 @@ namespace EggLink.DanhengServer.Proto {
       mainAffixId_ = other.mainAffixId_;
       subAffixList_ = other.subAffixList_.Clone();
       uniqueId_ = other.uniqueId_;
+      setId_ = other.setId_;
+      type_ = other.type_;
+      rarity_ = other.rarity_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -147,6 +151,42 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
+    /// <summary>Field number for the "set_id" field.</summary>
+    public const int SetIdFieldNumber = 6;
+    private uint setId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint SetId {
+      get { return setId_; }
+      set {
+        setId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "type" field.</summary>
+    public const int TypeFieldNumber = 7;
+    private uint type_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Type {
+      get { return type_; }
+      set {
+        type_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "rarity" field.</summary>
+    public const int RarityFieldNumber = 8;
+    private uint rarity_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Rarity {
+      get { return rarity_; }
+      set {
+        rarity_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -167,6 +207,9 @@ namespace EggLink.DanhengServer.Proto {
       if (MainAffixId != other.MainAffixId) return false;
       if(!subAffixList_.Equals(other.subAffixList_)) return false;
       if (UniqueId != other.UniqueId) return false;
+      if (SetId != other.SetId) return false;
+      if (Type != other.Type) return false;
+      if (Rarity != other.Rarity) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -179,6 +222,9 @@ namespace EggLink.DanhengServer.Proto {
       if (MainAffixId != 0) hash ^= MainAffixId.GetHashCode();
       hash ^= subAffixList_.GetHashCode();
       if (UniqueId != 0) hash ^= UniqueId.GetHashCode();
+      if (SetId != 0) hash ^= SetId.GetHashCode();
+      if (Type != 0) hash ^= Type.GetHashCode();
+      if (Rarity != 0) hash ^= Rarity.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -214,6 +260,18 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(40);
         output.WriteUInt32(UniqueId);
       }
+      if (SetId != 0) {
+        output.WriteRawTag(48);
+        output.WriteUInt32(SetId);
+      }
+      if (Type != 0) {
+        output.WriteRawTag(56);
+        output.WriteUInt32(Type);
+      }
+      if (Rarity != 0) {
+        output.WriteRawTag(64);
+        output.WriteUInt32(Rarity);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -241,6 +299,18 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(40);
         output.WriteUInt32(UniqueId);
       }
+      if (SetId != 0) {
+        output.WriteRawTag(48);
+        output.WriteUInt32(SetId);
+      }
+      if (Type != 0) {
+        output.WriteRawTag(56);
+        output.WriteUInt32(Type);
+      }
+      if (Rarity != 0) {
+        output.WriteRawTag(64);
+        output.WriteUInt32(Rarity);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -263,6 +333,15 @@ namespace EggLink.DanhengServer.Proto {
       size += subAffixList_.CalculateSize(_repeated_subAffixList_codec);
       if (UniqueId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(UniqueId);
+      }
+      if (SetId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SetId);
+      }
+      if (Type != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Type);
+      }
+      if (Rarity != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Rarity);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -288,6 +367,15 @@ namespace EggLink.DanhengServer.Proto {
       subAffixList_.Add(other.subAffixList_);
       if (other.UniqueId != 0) {
         UniqueId = other.UniqueId;
+      }
+      if (other.SetId != 0) {
+        SetId = other.SetId;
+      }
+      if (other.Type != 0) {
+        Type = other.Type;
+      }
+      if (other.Rarity != 0) {
+        Rarity = other.Rarity;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -324,6 +412,18 @@ namespace EggLink.DanhengServer.Proto {
             UniqueId = input.ReadUInt32();
             break;
           }
+          case 48: {
+            SetId = input.ReadUInt32();
+            break;
+          }
+          case 56: {
+            Type = input.ReadUInt32();
+            break;
+          }
+          case 64: {
+            Rarity = input.ReadUInt32();
+            break;
+          }
         }
       }
     #endif
@@ -357,6 +457,18 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 40: {
             UniqueId = input.ReadUInt32();
+            break;
+          }
+          case 48: {
+            SetId = input.ReadUInt32();
+            break;
+          }
+          case 56: {
+            Type = input.ReadUInt32();
+            break;
+          }
+          case 64: {
+            Rarity = input.ReadUInt32();
             break;
           }
         }

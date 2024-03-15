@@ -24,20 +24,15 @@ namespace EggLink.DanhengServer.Proto {
     static RotateMapCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChRSb3RhdGVNYXBDc1JlcS5wcm90bxoQTW90aW9uSW5mby5wcm90bxoMVmVj",
-            "dG9yLnByb3RvIqQCCg5Sb3RhdGVNYXBDc1JlcRIPCgd1bmtfaW50GAggASgN",
-            "EhsKBm1vdGlvbhgCIAEoCzILLk1vdGlvbkluZm8SLgoJcm9ndWVfbWFwGAkg",
-            "ASgLMhsuUm90YXRlTWFwQ3NSZXEuTEhCTEdCUEtFQUwSEAoIZ3JvdXBfaWQY",
-            "CyABKA0aQwoLSUNPRkJCQ01FTkYSCQoBeBgPIAEoAhITCgtGQUFGS0lBRU5F",
-            "TxgCIAEoAhIJCgF6GAQgASgCEgkKAXkYAyABKAIaXQoLTEhCTEdCUEtFQUwS",
-            "HAoLSUVOTEpBRklCT0wYDyABKAsyBy5WZWN0b3ISMAoLSkJDQUJPQUJJREkY",
-            "CSABKAsyGy5Sb3RhdGVNYXBDc1JlcS5JQ09GQkJDTUVORkIeqgIbRWdnTGlu",
-            "ay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "ChRSb3RhdGVNYXBDc1JlcS5wcm90bxoQTW90aW9uSW5mby5wcm90bxoRTEhC",
+            "TEdCUEtFQUwucHJvdG8idQoOUm90YXRlTWFwQ3NSZXESEwoLQlBGQURKREVH",
+            "SFAYCCABKA0SGwoGbW90aW9uGAIgASgLMgsuTW90aW9uSW5mbxIfCglyb2d1",
+            "ZV9tYXAYCSABKAsyDC5MSEJMR0JQS0VBTBIQCghncm91cF9pZBgLIAEoDUIe",
+            "qgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MotionInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.VectorReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MotionInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.LHBLGBPKEALReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RotateMapCsReq), global::EggLink.DanhengServer.Proto.RotateMapCsReq.Parser, new[]{ "UnkInt", "Motion", "RogueMap", "GroupId" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RotateMapCsReq.Types.ICOFBBCMENF), global::EggLink.DanhengServer.Proto.RotateMapCsReq.Types.ICOFBBCMENF.Parser, new[]{ "X", "FAAFKIAENEO", "Z", "Y" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RotateMapCsReq.Types.LHBLGBPKEAL), global::EggLink.DanhengServer.Proto.RotateMapCsReq.Types.LHBLGBPKEAL.Parser, new[]{ "IENLJAFIBOL", "JBCABOABIDI" }, null, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RotateMapCsReq), global::EggLink.DanhengServer.Proto.RotateMapCsReq.Parser, new[]{ "BPFADJDEGHP", "Motion", "RogueMap", "GroupId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -79,7 +74,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public RotateMapCsReq(RotateMapCsReq other) : this() {
-      unkInt_ = other.unkInt_;
+      bPFADJDEGHP_ = other.bPFADJDEGHP_;
       motion_ = other.motion_ != null ? other.motion_.Clone() : null;
       rogueMap_ = other.rogueMap_ != null ? other.rogueMap_.Clone() : null;
       groupId_ = other.groupId_;
@@ -92,15 +87,15 @@ namespace EggLink.DanhengServer.Proto {
       return new RotateMapCsReq(this);
     }
 
-    /// <summary>Field number for the "unk_int" field.</summary>
-    public const int UnkIntFieldNumber = 8;
-    private uint unkInt_;
+    /// <summary>Field number for the "BPFADJDEGHP" field.</summary>
+    public const int BPFADJDEGHPFieldNumber = 8;
+    private uint bPFADJDEGHP_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint UnkInt {
-      get { return unkInt_; }
+    public uint BPFADJDEGHP {
+      get { return bPFADJDEGHP_; }
       set {
-        unkInt_ = value;
+        bPFADJDEGHP_ = value;
       }
     }
 
@@ -118,10 +113,10 @@ namespace EggLink.DanhengServer.Proto {
 
     /// <summary>Field number for the "rogue_map" field.</summary>
     public const int RogueMapFieldNumber = 9;
-    private global::EggLink.DanhengServer.Proto.RotateMapCsReq.Types.LHBLGBPKEAL rogueMap_;
+    private global::EggLink.DanhengServer.Proto.LHBLGBPKEAL rogueMap_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.RotateMapCsReq.Types.LHBLGBPKEAL RogueMap {
+    public global::EggLink.DanhengServer.Proto.LHBLGBPKEAL RogueMap {
       get { return rogueMap_; }
       set {
         rogueMap_ = value;
@@ -155,7 +150,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (UnkInt != other.UnkInt) return false;
+      if (BPFADJDEGHP != other.BPFADJDEGHP) return false;
       if (!object.Equals(Motion, other.Motion)) return false;
       if (!object.Equals(RogueMap, other.RogueMap)) return false;
       if (GroupId != other.GroupId) return false;
@@ -166,7 +161,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (UnkInt != 0) hash ^= UnkInt.GetHashCode();
+      if (BPFADJDEGHP != 0) hash ^= BPFADJDEGHP.GetHashCode();
       if (motion_ != null) hash ^= Motion.GetHashCode();
       if (rogueMap_ != null) hash ^= RogueMap.GetHashCode();
       if (GroupId != 0) hash ^= GroupId.GetHashCode();
@@ -192,9 +187,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(18);
         output.WriteMessage(Motion);
       }
-      if (UnkInt != 0) {
+      if (BPFADJDEGHP != 0) {
         output.WriteRawTag(64);
-        output.WriteUInt32(UnkInt);
+        output.WriteUInt32(BPFADJDEGHP);
       }
       if (rogueMap_ != null) {
         output.WriteRawTag(74);
@@ -218,9 +213,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(18);
         output.WriteMessage(Motion);
       }
-      if (UnkInt != 0) {
+      if (BPFADJDEGHP != 0) {
         output.WriteRawTag(64);
-        output.WriteUInt32(UnkInt);
+        output.WriteUInt32(BPFADJDEGHP);
       }
       if (rogueMap_ != null) {
         output.WriteRawTag(74);
@@ -240,8 +235,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (UnkInt != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(UnkInt);
+      if (BPFADJDEGHP != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BPFADJDEGHP);
       }
       if (motion_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Motion);
@@ -264,8 +259,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.UnkInt != 0) {
-        UnkInt = other.UnkInt;
+      if (other.BPFADJDEGHP != 0) {
+        BPFADJDEGHP = other.BPFADJDEGHP;
       }
       if (other.motion_ != null) {
         if (motion_ == null) {
@@ -275,7 +270,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (other.rogueMap_ != null) {
         if (rogueMap_ == null) {
-          RogueMap = new global::EggLink.DanhengServer.Proto.RotateMapCsReq.Types.LHBLGBPKEAL();
+          RogueMap = new global::EggLink.DanhengServer.Proto.LHBLGBPKEAL();
         }
         RogueMap.MergeFrom(other.RogueMap);
       }
@@ -305,12 +300,12 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 64: {
-            UnkInt = input.ReadUInt32();
+            BPFADJDEGHP = input.ReadUInt32();
             break;
           }
           case 74: {
             if (rogueMap_ == null) {
-              RogueMap = new global::EggLink.DanhengServer.Proto.RotateMapCsReq.Types.LHBLGBPKEAL();
+              RogueMap = new global::EggLink.DanhengServer.Proto.LHBLGBPKEAL();
             }
             input.ReadMessage(RogueMap);
             break;
@@ -342,12 +337,12 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 64: {
-            UnkInt = input.ReadUInt32();
+            BPFADJDEGHP = input.ReadUInt32();
             break;
           }
           case 74: {
             if (rogueMap_ == null) {
-              RogueMap = new global::EggLink.DanhengServer.Proto.RotateMapCsReq.Types.LHBLGBPKEAL();
+              RogueMap = new global::EggLink.DanhengServer.Proto.LHBLGBPKEAL();
             }
             input.ReadMessage(RogueMap);
             break;
@@ -360,560 +355,6 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
     #endif
-
-    #region Nested types
-    /// <summary>Container for nested types declared in the RotateMapCsReq message type.</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static partial class Types {
-      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
-      public sealed partial class ICOFBBCMENF : pb::IMessage<ICOFBBCMENF>
-      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          , pb::IBufferMessage
-      #endif
-      {
-        private static readonly pb::MessageParser<ICOFBBCMENF> _parser = new pb::MessageParser<ICOFBBCMENF>(() => new ICOFBBCMENF());
-        private pb::UnknownFieldSet _unknownFields;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public static pb::MessageParser<ICOFBBCMENF> Parser { get { return _parser; } }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public static pbr::MessageDescriptor Descriptor {
-          get { return global::EggLink.DanhengServer.Proto.RotateMapCsReq.Descriptor.NestedTypes[0]; }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        pbr::MessageDescriptor pb::IMessage.Descriptor {
-          get { return Descriptor; }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public ICOFBBCMENF() {
-          OnConstruction();
-        }
-
-        partial void OnConstruction();
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public ICOFBBCMENF(ICOFBBCMENF other) : this() {
-          x_ = other.x_;
-          fAAFKIAENEO_ = other.fAAFKIAENEO_;
-          z_ = other.z_;
-          y_ = other.y_;
-          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public ICOFBBCMENF Clone() {
-          return new ICOFBBCMENF(this);
-        }
-
-        /// <summary>Field number for the "x" field.</summary>
-        public const int XFieldNumber = 15;
-        private float x_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public float X {
-          get { return x_; }
-          set {
-            x_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "FAAFKIAENEO" field.</summary>
-        public const int FAAFKIAENEOFieldNumber = 2;
-        private float fAAFKIAENEO_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public float FAAFKIAENEO {
-          get { return fAAFKIAENEO_; }
-          set {
-            fAAFKIAENEO_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "z" field.</summary>
-        public const int ZFieldNumber = 4;
-        private float z_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public float Z {
-          get { return z_; }
-          set {
-            z_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "y" field.</summary>
-        public const int YFieldNumber = 3;
-        private float y_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public float Y {
-          get { return y_; }
-          set {
-            y_ = value;
-          }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public override bool Equals(object other) {
-          return Equals(other as ICOFBBCMENF);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public bool Equals(ICOFBBCMENF other) {
-          if (ReferenceEquals(other, null)) {
-            return false;
-          }
-          if (ReferenceEquals(other, this)) {
-            return true;
-          }
-          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(X, other.X)) return false;
-          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(FAAFKIAENEO, other.FAAFKIAENEO)) return false;
-          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Z, other.Z)) return false;
-          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Y, other.Y)) return false;
-          return Equals(_unknownFields, other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public override int GetHashCode() {
-          int hash = 1;
-          if (X != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(X);
-          if (FAAFKIAENEO != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(FAAFKIAENEO);
-          if (Z != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Z);
-          if (Y != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Y);
-          if (_unknownFields != null) {
-            hash ^= _unknownFields.GetHashCode();
-          }
-          return hash;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public override string ToString() {
-          return pb::JsonFormatter.ToDiagnosticString(this);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public void WriteTo(pb::CodedOutputStream output) {
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          output.WriteRawMessage(this);
-        #else
-          if (FAAFKIAENEO != 0F) {
-            output.WriteRawTag(21);
-            output.WriteFloat(FAAFKIAENEO);
-          }
-          if (Y != 0F) {
-            output.WriteRawTag(29);
-            output.WriteFloat(Y);
-          }
-          if (Z != 0F) {
-            output.WriteRawTag(37);
-            output.WriteFloat(Z);
-          }
-          if (X != 0F) {
-            output.WriteRawTag(125);
-            output.WriteFloat(X);
-          }
-          if (_unknownFields != null) {
-            _unknownFields.WriteTo(output);
-          }
-        #endif
-        }
-
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-          if (FAAFKIAENEO != 0F) {
-            output.WriteRawTag(21);
-            output.WriteFloat(FAAFKIAENEO);
-          }
-          if (Y != 0F) {
-            output.WriteRawTag(29);
-            output.WriteFloat(Y);
-          }
-          if (Z != 0F) {
-            output.WriteRawTag(37);
-            output.WriteFloat(Z);
-          }
-          if (X != 0F) {
-            output.WriteRawTag(125);
-            output.WriteFloat(X);
-          }
-          if (_unknownFields != null) {
-            _unknownFields.WriteTo(ref output);
-          }
-        }
-        #endif
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public int CalculateSize() {
-          int size = 0;
-          if (X != 0F) {
-            size += 1 + 4;
-          }
-          if (FAAFKIAENEO != 0F) {
-            size += 1 + 4;
-          }
-          if (Z != 0F) {
-            size += 1 + 4;
-          }
-          if (Y != 0F) {
-            size += 1 + 4;
-          }
-          if (_unknownFields != null) {
-            size += _unknownFields.CalculateSize();
-          }
-          return size;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public void MergeFrom(ICOFBBCMENF other) {
-          if (other == null) {
-            return;
-          }
-          if (other.X != 0F) {
-            X = other.X;
-          }
-          if (other.FAAFKIAENEO != 0F) {
-            FAAFKIAENEO = other.FAAFKIAENEO;
-          }
-          if (other.Z != 0F) {
-            Z = other.Z;
-          }
-          if (other.Y != 0F) {
-            Y = other.Y;
-          }
-          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public void MergeFrom(pb::CodedInputStream input) {
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          input.ReadRawMessage(this);
-        #else
-          uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-            switch(tag) {
-              default:
-                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-                break;
-              case 21: {
-                FAAFKIAENEO = input.ReadFloat();
-                break;
-              }
-              case 29: {
-                Y = input.ReadFloat();
-                break;
-              }
-              case 37: {
-                Z = input.ReadFloat();
-                break;
-              }
-              case 125: {
-                X = input.ReadFloat();
-                break;
-              }
-            }
-          }
-        #endif
-        }
-
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-          uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-            switch(tag) {
-              default:
-                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-                break;
-              case 21: {
-                FAAFKIAENEO = input.ReadFloat();
-                break;
-              }
-              case 29: {
-                Y = input.ReadFloat();
-                break;
-              }
-              case 37: {
-                Z = input.ReadFloat();
-                break;
-              }
-              case 125: {
-                X = input.ReadFloat();
-                break;
-              }
-            }
-          }
-        }
-        #endif
-
-      }
-
-      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
-      public sealed partial class LHBLGBPKEAL : pb::IMessage<LHBLGBPKEAL>
-      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          , pb::IBufferMessage
-      #endif
-      {
-        private static readonly pb::MessageParser<LHBLGBPKEAL> _parser = new pb::MessageParser<LHBLGBPKEAL>(() => new LHBLGBPKEAL());
-        private pb::UnknownFieldSet _unknownFields;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public static pb::MessageParser<LHBLGBPKEAL> Parser { get { return _parser; } }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public static pbr::MessageDescriptor Descriptor {
-          get { return global::EggLink.DanhengServer.Proto.RotateMapCsReq.Descriptor.NestedTypes[1]; }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        pbr::MessageDescriptor pb::IMessage.Descriptor {
-          get { return Descriptor; }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public LHBLGBPKEAL() {
-          OnConstruction();
-        }
-
-        partial void OnConstruction();
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public LHBLGBPKEAL(LHBLGBPKEAL other) : this() {
-          iENLJAFIBOL_ = other.iENLJAFIBOL_ != null ? other.iENLJAFIBOL_.Clone() : null;
-          jBCABOABIDI_ = other.jBCABOABIDI_ != null ? other.jBCABOABIDI_.Clone() : null;
-          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public LHBLGBPKEAL Clone() {
-          return new LHBLGBPKEAL(this);
-        }
-
-        /// <summary>Field number for the "IENLJAFIBOL" field.</summary>
-        public const int IENLJAFIBOLFieldNumber = 15;
-        private global::EggLink.DanhengServer.Proto.Vector iENLJAFIBOL_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::EggLink.DanhengServer.Proto.Vector IENLJAFIBOL {
-          get { return iENLJAFIBOL_; }
-          set {
-            iENLJAFIBOL_ = value;
-          }
-        }
-
-        /// <summary>Field number for the "JBCABOABIDI" field.</summary>
-        public const int JBCABOABIDIFieldNumber = 9;
-        private global::EggLink.DanhengServer.Proto.RotateMapCsReq.Types.ICOFBBCMENF jBCABOABIDI_;
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::EggLink.DanhengServer.Proto.RotateMapCsReq.Types.ICOFBBCMENF JBCABOABIDI {
-          get { return jBCABOABIDI_; }
-          set {
-            jBCABOABIDI_ = value;
-          }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public override bool Equals(object other) {
-          return Equals(other as LHBLGBPKEAL);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public bool Equals(LHBLGBPKEAL other) {
-          if (ReferenceEquals(other, null)) {
-            return false;
-          }
-          if (ReferenceEquals(other, this)) {
-            return true;
-          }
-          if (!object.Equals(IENLJAFIBOL, other.IENLJAFIBOL)) return false;
-          if (!object.Equals(JBCABOABIDI, other.JBCABOABIDI)) return false;
-          return Equals(_unknownFields, other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public override int GetHashCode() {
-          int hash = 1;
-          if (iENLJAFIBOL_ != null) hash ^= IENLJAFIBOL.GetHashCode();
-          if (jBCABOABIDI_ != null) hash ^= JBCABOABIDI.GetHashCode();
-          if (_unknownFields != null) {
-            hash ^= _unknownFields.GetHashCode();
-          }
-          return hash;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public override string ToString() {
-          return pb::JsonFormatter.ToDiagnosticString(this);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public void WriteTo(pb::CodedOutputStream output) {
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          output.WriteRawMessage(this);
-        #else
-          if (jBCABOABIDI_ != null) {
-            output.WriteRawTag(74);
-            output.WriteMessage(JBCABOABIDI);
-          }
-          if (iENLJAFIBOL_ != null) {
-            output.WriteRawTag(122);
-            output.WriteMessage(IENLJAFIBOL);
-          }
-          if (_unknownFields != null) {
-            _unknownFields.WriteTo(output);
-          }
-        #endif
-        }
-
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-          if (jBCABOABIDI_ != null) {
-            output.WriteRawTag(74);
-            output.WriteMessage(JBCABOABIDI);
-          }
-          if (iENLJAFIBOL_ != null) {
-            output.WriteRawTag(122);
-            output.WriteMessage(IENLJAFIBOL);
-          }
-          if (_unknownFields != null) {
-            _unknownFields.WriteTo(ref output);
-          }
-        }
-        #endif
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public int CalculateSize() {
-          int size = 0;
-          if (iENLJAFIBOL_ != null) {
-            size += 1 + pb::CodedOutputStream.ComputeMessageSize(IENLJAFIBOL);
-          }
-          if (jBCABOABIDI_ != null) {
-            size += 1 + pb::CodedOutputStream.ComputeMessageSize(JBCABOABIDI);
-          }
-          if (_unknownFields != null) {
-            size += _unknownFields.CalculateSize();
-          }
-          return size;
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public void MergeFrom(LHBLGBPKEAL other) {
-          if (other == null) {
-            return;
-          }
-          if (other.iENLJAFIBOL_ != null) {
-            if (iENLJAFIBOL_ == null) {
-              IENLJAFIBOL = new global::EggLink.DanhengServer.Proto.Vector();
-            }
-            IENLJAFIBOL.MergeFrom(other.IENLJAFIBOL);
-          }
-          if (other.jBCABOABIDI_ != null) {
-            if (jBCABOABIDI_ == null) {
-              JBCABOABIDI = new global::EggLink.DanhengServer.Proto.RotateMapCsReq.Types.ICOFBBCMENF();
-            }
-            JBCABOABIDI.MergeFrom(other.JBCABOABIDI);
-          }
-          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public void MergeFrom(pb::CodedInputStream input) {
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-          input.ReadRawMessage(this);
-        #else
-          uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-            switch(tag) {
-              default:
-                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-                break;
-              case 74: {
-                if (jBCABOABIDI_ == null) {
-                  JBCABOABIDI = new global::EggLink.DanhengServer.Proto.RotateMapCsReq.Types.ICOFBBCMENF();
-                }
-                input.ReadMessage(JBCABOABIDI);
-                break;
-              }
-              case 122: {
-                if (iENLJAFIBOL_ == null) {
-                  IENLJAFIBOL = new global::EggLink.DanhengServer.Proto.Vector();
-                }
-                input.ReadMessage(IENLJAFIBOL);
-                break;
-              }
-            }
-          }
-        #endif
-        }
-
-        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-          uint tag;
-          while ((tag = input.ReadTag()) != 0) {
-            switch(tag) {
-              default:
-                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-                break;
-              case 74: {
-                if (jBCABOABIDI_ == null) {
-                  JBCABOABIDI = new global::EggLink.DanhengServer.Proto.RotateMapCsReq.Types.ICOFBBCMENF();
-                }
-                input.ReadMessage(JBCABOABIDI);
-                break;
-              }
-              case 122: {
-                if (iENLJAFIBOL_ == null) {
-                  IENLJAFIBOL = new global::EggLink.DanhengServer.Proto.Vector();
-                }
-                input.ReadMessage(IENLJAFIBOL);
-                break;
-              }
-            }
-          }
-        }
-        #endif
-
-      }
-
-    }
-    #endregion
 
   }
 

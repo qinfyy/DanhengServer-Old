@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static HandleFriendCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChdIYW5kbGVGcmllbmRDc1JlcS5wcm90byI3ChFIYW5kbGVGcmllbmRDc1Jl",
-            "cRILCgN1aWQYAiABKA0SFQoNaGFuZGxlX3Jlc3VsdBgMIAEoCEIeqgIbRWdn",
-            "TGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "ChdIYW5kbGVGcmllbmRDc1JlcS5wcm90byIzChFIYW5kbGVGcmllbmRDc1Jl",
+            "cRILCgN1aWQYAiABKA0SEQoJaXNfYWNjZXB0GAwgASgIQh6qAhtFZ2dMaW5r",
+            "LkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.HandleFriendCsReq), global::EggLink.DanhengServer.Proto.HandleFriendCsReq.Parser, new[]{ "Uid", "HandleResult" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.HandleFriendCsReq), global::EggLink.DanhengServer.Proto.HandleFriendCsReq.Parser, new[]{ "Uid", "IsAccept" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public HandleFriendCsReq(HandleFriendCsReq other) : this() {
       uid_ = other.uid_;
-      handleResult_ = other.handleResult_;
+      isAccept_ = other.isAccept_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -95,15 +95,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "handle_result" field.</summary>
-    public const int HandleResultFieldNumber = 12;
-    private bool handleResult_;
+    /// <summary>Field number for the "is_accept" field.</summary>
+    public const int IsAcceptFieldNumber = 12;
+    private bool isAccept_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HandleResult {
-      get { return handleResult_; }
+    public bool IsAccept {
+      get { return isAccept_; }
       set {
-        handleResult_ = value;
+        isAccept_ = value;
       }
     }
 
@@ -123,7 +123,7 @@ namespace EggLink.DanhengServer.Proto {
         return true;
       }
       if (Uid != other.Uid) return false;
-      if (HandleResult != other.HandleResult) return false;
+      if (IsAccept != other.IsAccept) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -132,7 +132,7 @@ namespace EggLink.DanhengServer.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (Uid != 0) hash ^= Uid.GetHashCode();
-      if (HandleResult != false) hash ^= HandleResult.GetHashCode();
+      if (IsAccept != false) hash ^= IsAccept.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -155,9 +155,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(16);
         output.WriteUInt32(Uid);
       }
-      if (HandleResult != false) {
+      if (IsAccept != false) {
         output.WriteRawTag(96);
-        output.WriteBool(HandleResult);
+        output.WriteBool(IsAccept);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -173,9 +173,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(16);
         output.WriteUInt32(Uid);
       }
-      if (HandleResult != false) {
+      if (IsAccept != false) {
         output.WriteRawTag(96);
-        output.WriteBool(HandleResult);
+        output.WriteBool(IsAccept);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -190,7 +190,7 @@ namespace EggLink.DanhengServer.Proto {
       if (Uid != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Uid);
       }
-      if (HandleResult != false) {
+      if (IsAccept != false) {
         size += 1 + 1;
       }
       if (_unknownFields != null) {
@@ -208,8 +208,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other.Uid != 0) {
         Uid = other.Uid;
       }
-      if (other.HandleResult != false) {
-        HandleResult = other.HandleResult;
+      if (other.IsAccept != false) {
+        IsAccept = other.IsAccept;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -231,7 +231,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 96: {
-            HandleResult = input.ReadBool();
+            IsAccept = input.ReadBool();
             break;
           }
         }
@@ -254,7 +254,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 96: {
-            HandleResult = input.ReadBool();
+            IsAccept = input.ReadBool();
             break;
           }
         }

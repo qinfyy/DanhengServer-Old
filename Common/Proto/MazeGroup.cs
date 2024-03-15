@@ -24,13 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static MazeGroupReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg9NYXplR3JvdXAucHJvdG8iMgoJTWF6ZUdyb3VwEhAKCGdyb3VwX2lkGAYg",
-            "ASgNEhMKC21vZGlmeV90aW1lGAIgASgDQh6qAhtFZ2dMaW5rLkRhbmhlbmdT",
-            "ZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "Cg9NYXplR3JvdXAucHJvdG8iXAoJTWF6ZUdyb3VwEhMKC0JITEVITkJJSkZG",
+            "GA0gAygNEhMKC0tGSkJFSEVFSUFNGAogASgIEhAKCGdyb3VwX2lkGAYgASgN",
+            "EhMKC21vZGlmeV90aW1lGAIgASgDQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2",
+            "ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.MazeGroup), global::EggLink.DanhengServer.Proto.MazeGroup.Parser, new[]{ "GroupId", "ModifyTime" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.MazeGroup), global::EggLink.DanhengServer.Proto.MazeGroup.Parser, new[]{ "BHLEHNBIJFF", "KFJBEHEEIAM", "GroupId", "ModifyTime" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,6 +73,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public MazeGroup(MazeGroup other) : this() {
+      bHLEHNBIJFF_ = other.bHLEHNBIJFF_.Clone();
+      kFJBEHEEIAM_ = other.kFJBEHEEIAM_;
       groupId_ = other.groupId_;
       modifyTime_ = other.modifyTime_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -81,6 +84,29 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public MazeGroup Clone() {
       return new MazeGroup(this);
+    }
+
+    /// <summary>Field number for the "BHLEHNBIJFF" field.</summary>
+    public const int BHLEHNBIJFFFieldNumber = 13;
+    private static readonly pb::FieldCodec<uint> _repeated_bHLEHNBIJFF_codec
+        = pb::FieldCodec.ForUInt32(106);
+    private readonly pbc::RepeatedField<uint> bHLEHNBIJFF_ = new pbc::RepeatedField<uint>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<uint> BHLEHNBIJFF {
+      get { return bHLEHNBIJFF_; }
+    }
+
+    /// <summary>Field number for the "KFJBEHEEIAM" field.</summary>
+    public const int KFJBEHEEIAMFieldNumber = 10;
+    private bool kFJBEHEEIAM_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool KFJBEHEEIAM {
+      get { return kFJBEHEEIAM_; }
+      set {
+        kFJBEHEEIAM_ = value;
+      }
     }
 
     /// <summary>Field number for the "group_id" field.</summary>
@@ -122,6 +148,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if(!bHLEHNBIJFF_.Equals(other.bHLEHNBIJFF_)) return false;
+      if (KFJBEHEEIAM != other.KFJBEHEEIAM) return false;
       if (GroupId != other.GroupId) return false;
       if (ModifyTime != other.ModifyTime) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -131,6 +159,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      hash ^= bHLEHNBIJFF_.GetHashCode();
+      if (KFJBEHEEIAM != false) hash ^= KFJBEHEEIAM.GetHashCode();
       if (GroupId != 0) hash ^= GroupId.GetHashCode();
       if (ModifyTime != 0L) hash ^= ModifyTime.GetHashCode();
       if (_unknownFields != null) {
@@ -159,6 +189,11 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(48);
         output.WriteUInt32(GroupId);
       }
+      if (KFJBEHEEIAM != false) {
+        output.WriteRawTag(80);
+        output.WriteBool(KFJBEHEEIAM);
+      }
+      bHLEHNBIJFF_.WriteTo(output, _repeated_bHLEHNBIJFF_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -177,6 +212,11 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(48);
         output.WriteUInt32(GroupId);
       }
+      if (KFJBEHEEIAM != false) {
+        output.WriteRawTag(80);
+        output.WriteBool(KFJBEHEEIAM);
+      }
+      bHLEHNBIJFF_.WriteTo(ref output, _repeated_bHLEHNBIJFF_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -187,6 +227,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      size += bHLEHNBIJFF_.CalculateSize(_repeated_bHLEHNBIJFF_codec);
+      if (KFJBEHEEIAM != false) {
+        size += 1 + 1;
+      }
       if (GroupId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GroupId);
       }
@@ -204,6 +248,10 @@ namespace EggLink.DanhengServer.Proto {
     public void MergeFrom(MazeGroup other) {
       if (other == null) {
         return;
+      }
+      bHLEHNBIJFF_.Add(other.bHLEHNBIJFF_);
+      if (other.KFJBEHEEIAM != false) {
+        KFJBEHEEIAM = other.KFJBEHEEIAM;
       }
       if (other.GroupId != 0) {
         GroupId = other.GroupId;
@@ -234,6 +282,15 @@ namespace EggLink.DanhengServer.Proto {
             GroupId = input.ReadUInt32();
             break;
           }
+          case 80: {
+            KFJBEHEEIAM = input.ReadBool();
+            break;
+          }
+          case 106:
+          case 104: {
+            bHLEHNBIJFF_.AddEntriesFrom(input, _repeated_bHLEHNBIJFF_codec);
+            break;
+          }
         }
       }
     #endif
@@ -255,6 +312,15 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 48: {
             GroupId = input.ReadUInt32();
+            break;
+          }
+          case 80: {
+            KFJBEHEEIAM = input.ReadBool();
+            break;
+          }
+          case 106:
+          case 104: {
+            bHLEHNBIJFF_.AddEntriesFrom(ref input, _repeated_bHLEHNBIJFF_codec);
             break;
           }
         }
