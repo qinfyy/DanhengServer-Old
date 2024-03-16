@@ -11,7 +11,7 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Mission
             var req = GetMissionStatusCsReq.Parser.ParseFrom(data);
             if (req != null)
             {
-                connection.SendPacket(new PacketGetMissionStatusScRsp(req));
+                connection.SendPacket(new PacketGetMissionStatusScRsp(req, connection.Player!));
             }
         }
     }

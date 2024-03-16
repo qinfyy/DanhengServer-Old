@@ -31,5 +31,10 @@ namespace EggLink.DanhengServer.Data.Excel
         {
             return ID;
         }
+
+        public override void Loaded()
+        {
+            GameData.ItemConfigData[ID] = this;
+        }
     }
 }

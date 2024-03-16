@@ -2,6 +2,7 @@
 using EggLink.DanhengServer.Data.Config;
 using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Game.Scene.Entity;
+using EggLink.DanhengServer.Server.Packet.Send.Scene;
 
 namespace EggLink.DanhengServer.Game.Scene
 {
@@ -23,36 +24,59 @@ namespace EggLink.DanhengServer.Game.Scene
             scene.IsLoaded = true;
         }
 
-        public void LoadGroup(GroupInfo info)
+        public void SyncEntity()
         {
-            if (info.LoadCondition.Conditions.Count > 0)
+            bool refreshed = false;
+            var oldGroupId = new List<int>();
+            foreach (var entity in scene.Entities.Values)
             {
-                bool canLoad = info.LoadCondition.Operation == OperationEnum.And;
-                // check load condition
-                foreach (var condition in info.LoadCondition.Conditions)
+                if (!oldGroupId.Contains(entity.GroupID))
+                    oldGroupId.Add(entity.GroupID);
+            }
+
+            var removeList = new List<IGameEntity>();
+
+            foreach (var group in scene.FloorInfo!.Groups.Values)
+            {
+                if (group.LoadSide == GroupLoadSideEnum.Client)
                 {
-                    if (scene.Player.MissionManager!.GetMissionStatus(condition.ID) != condition.Phase)
-                    {
-                        if (info.LoadCondition.Operation == OperationEnum.And)
-                        {
-                            canLoad = false;
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        if (info.LoadCondition.Operation == OperationEnum.Or)
-                        {
-                            canLoad = true;
-                            break;
-                        }
-                    }
+                    continue;
                 }
-                if (!canLoad)
+
+                if (oldGroupId.Contains(group.Id))  // check if it should be unloaded
                 {
-                    return;
+                    if (group.UnloadCondition.IsTrue(scene.Player.MissionManager!.Data, false) || group.ForceUnloadCondition.IsTrue(scene.Player.MissionManager!.Data, false))
+                    {
+                        foreach (var entity in scene.Entities.Values)
+                        {
+                            if (entity.GroupID == group.Id)
+                            {
+                                scene.RemoveEntity(entity);
+                                removeList.Add(entity);
+                                refreshed = true;
+                            }
+                        }
+                    }
+                } else  // check if it should be loaded
+                {
+                    refreshed = LoadGroup(group) || refreshed;
+                    // LoadGroup will send the packet
                 }
             }
+            if (refreshed)
+            {
+                scene.Player.SendPacket(new PacketSceneGroupRefreshScNotify(null, removeList));
+            }
+        }
+
+        public bool LoadGroup(GroupInfo info)
+        {
+            var missionData = scene.Player.MissionManager!.Data;
+            if (!info.LoadCondition.IsTrue(missionData) || info.UnloadCondition.IsTrue(missionData, false) || info.ForceUnloadCondition.IsTrue(missionData, false))
+            {
+                return false;
+            }
+
             foreach (var npc in info.NPCList)
             {
                 try
@@ -82,6 +106,8 @@ namespace EggLink.DanhengServer.Game.Scene
                 {
                 }
             }
+
+            return true;
         }
 
         public void LoadNpc(NpcInfo info, GroupInfo group)
@@ -148,10 +174,10 @@ namespace EggLink.DanhengServer.Game.Scene
             if (excel.PropType == PropTypeEnum.PROP_SPRING)
             {
                 scene.HealingSprings.Add(prop);
-                prop.State = PropStateEnum.CheckPointEnable;
+                prop.SetState(PropStateEnum.CheckPointEnable);
             } else
             {
-                prop.State = info.State;
+                prop.SetState(info.State);
             }
 
             if (group.SaveType == SaveTypeEnum.Save)
@@ -160,7 +186,7 @@ namespace EggLink.DanhengServer.Game.Scene
                 var propData = scene.Player.GetScenePropData(scene.FloorId, group.Id, info.ID);
                 if (propData != null)
                 {
-                    prop.State = propData.State;
+                    prop.SetState(propData.State);
                 }
             }
         }

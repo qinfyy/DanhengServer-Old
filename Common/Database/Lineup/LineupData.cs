@@ -1,4 +1,6 @@
-﻿using EggLink.DanhengServer.Database.Avatar;
+﻿using EggLink.DanhengServer.Data;
+using EggLink.DanhengServer.Database.Avatar;
+using EggLink.DanhengServer.Proto;
 using Newtonsoft.Json;
 using SqlSugar;
 using System;
@@ -43,7 +45,7 @@ namespace EggLink.DanhengServer.Database.Lineup
             {
                 foreach (var avatar in BaseAvatars)
                 {
-                    var avatarInfo = AvatarData?.Avatars?.Find(item => item.AvatarId == avatar.BaseAvatarId);
+                    var avatarInfo = AvatarData?.Avatars?.Find(item => item.GetAvatarId() == avatar.BaseAvatarId);
                     if (avatarInfo != null)
                     {
                         if (avatarInfo.CurrentHp <= 0 && !allowRevive)
@@ -75,7 +77,7 @@ namespace EggLink.DanhengServer.Database.Lineup
                 Name = Name,
                 MaxMp = 5,
                 Mp = (uint)(LineupData?.Mp ?? 0),
-                ExtraLineupType = Proto.ExtraLineupType.LineupNone,
+                ExtraLineupType = ExtraLineupType.LineupNone,
                 Index = (uint)(LineupData?.Lineups?.Values.ToList().IndexOf(this) ?? 0),
             };
             if (BaseAvatars?.Find(item => item.BaseAvatarId == LeaderAvatarId) != null)
@@ -94,11 +96,15 @@ namespace EggLink.DanhengServer.Database.Lineup
                         var assistPlayer = DatabaseHelper.Instance?.GetInstance<AvatarData>(avatar.AssistUid);
                         if (assistPlayer != null)
                         {
-                            info.AvatarList.Add(assistPlayer?.Avatars?.Find(item => item.AvatarId == avatar.BaseAvatarId)?.ToLineupInfo(BaseAvatars.IndexOf(avatar), this, Proto.AvatarType.AvatarAssistType));
+                            info.AvatarList.Add(assistPlayer?.Avatars?.Find(item => item.GetAvatarId() == avatar.BaseAvatarId)?.ToLineupInfo(BaseAvatars.IndexOf(avatar), this, Proto.AvatarType.AvatarAssistType));
                         }
                     } else if (avatar.SpecialAvatarId != 0)
                     {
-
+                        var specialAvatar = GameData.SpecialAvatarData[avatar.SpecialAvatarId];
+                        if (specialAvatar != null)
+                        {
+                            info.AvatarList.Add(specialAvatar.ToAvatarData().ToLineupInfo(BaseAvatars.IndexOf(avatar), this, AvatarType.AvatarTrialType));
+                        }
                     } else
                     {
                         info.AvatarList.Add(AvatarData?.Avatars?.Find(item => item.AvatarId == avatar.BaseAvatarId)?.ToLineupInfo(BaseAvatars.IndexOf(avatar), this));

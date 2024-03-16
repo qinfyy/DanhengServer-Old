@@ -93,7 +93,13 @@ namespace EggLink.DanhengServer.Command
                             if (canRun)
                             {
                                 isFound = true;
-                                method.Invoke(command, [arg]);
+                                try
+                                {
+                                    method.Invoke(command, [arg]);
+                                } catch
+                                {
+                                    Logger.Error($"An error happened when execute command \"{input}\"");
+                                }
                                 break;
                             }
                         }
@@ -114,7 +120,7 @@ namespace EggLink.DanhengServer.Command
                 }
                 else
                 {
-                    Logger.Info($"Command {cmd} not found.");
+                    Logger.Info($"Command \"{cmd}\" not found.");
                 }
             }
         }

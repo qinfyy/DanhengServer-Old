@@ -1,39 +1,45 @@
 ﻿using EggLink.DanhengServer.Game.Scene.Entity;
 using EggLink.DanhengServer.Proto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EggLink.DanhengServer.Server.Packet.Send.Scene
 {
     public class PacketSceneGroupRefreshScNotify : BasePacket
     {
-        public PacketSceneGroupRefreshScNotify(List<IGameEntity> entity, bool isAdd = true) : base(CmdIds.SceneGroupRefreshScNotify)
+        public PacketSceneGroupRefreshScNotify(List<IGameEntity>? addEntity = null, List<IGameEntity>? removeEntity = null) : base(CmdIds.SceneGroupRefreshScNotify)
         {
             var proto = new SceneGroupRefreshScNotify();
             Dictionary<int, GroupRefreshInfo> refreshInfo = [];
-            foreach (var e in entity)
+            foreach (var e in addEntity ?? [])
             {
                 var group = new GroupRefreshInfo()
                 {
                     GroupId = (uint)e.GroupID
                 };
-                if (isAdd)
+                group.RefreshEntity.Add(new SceneEntityRefreshInfo()
                 {
-                    group.RefreshEntity.Add(new SceneEntityRefreshInfo()
-                    {
-                        AddEntity = e.ToProto()
-                    });
+                    AddEntity = e.ToProto()
+                });
+
+                if (refreshInfo.TryGetValue(e.GroupID, out GroupRefreshInfo? value))
+                {
+                    value.RefreshEntity.AddRange(group.RefreshEntity);
                 }
                 else
                 {
-                    group.RefreshEntity.Add(new SceneEntityRefreshInfo()
-                    {
-                        DelEntity = (uint)e.EntityID
-                    });
+                    refreshInfo[e.GroupID] = group;
                 }
+            }
+
+            foreach (var e in removeEntity ?? [])
+            {
+                var group = new GroupRefreshInfo()
+                {
+                    GroupId = (uint)e.GroupID
+                };
+                group.RefreshEntity.Add(new SceneEntityRefreshInfo()
+                {
+                    DelEntity = (uint)e.EntityID
+                });
 
                 if (refreshInfo.TryGetValue(e.GroupID, out GroupRefreshInfo? value))
                 {
@@ -50,28 +56,9 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Scene
             SetData(proto);
         }
 
-        public PacketSceneGroupRefreshScNotify(IGameEntity entity, bool isAdd = true) : base(CmdIds.SceneGroupRefreshScNotify)
+        public PacketSceneGroupRefreshScNotify(IGameEntity? addEntity = null, IGameEntity? removeEntity = null) :
+            this(addEntity == null ? [] : [addEntity], removeEntity == null ? [] : [removeEntity])
         {
-            var proto = new SceneGroupRefreshScNotify();
-            var group = new GroupRefreshInfo();
-            if (isAdd)
-            {
-                group.RefreshEntity.Add(new SceneEntityRefreshInfo()
-                {
-                    AddEntity = entity.ToProto()
-                });
-            }
-            else
-            {
-                group.RefreshEntity.Add(new SceneEntityRefreshInfo()
-                {
-                    DelEntity = (uint)entity.EntityID
-                });
-            }
-            group.GroupId = (uint)entity.GroupID;
-            proto.GroupRefreshList.Add(group);
-
-            SetData(proto);
         }
     }
 }

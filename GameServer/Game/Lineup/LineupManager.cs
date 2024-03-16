@@ -1,7 +1,6 @@
 ﻿using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Database.Lineup;
 using EggLink.DanhengServer.Game.Player;
-using Newtonsoft.Json;
 
 namespace EggLink.DanhengServer.Game.Lineup
 {
@@ -87,6 +86,28 @@ namespace EggLink.DanhengServer.Game.Lineup
         public void AddAvatarToCurTeam(int avatarId)
         {
             AddAvatar(LineupData.CurLineup, avatarId);
+        }
+
+        public void AddSpecialAvatarToCurTeam(int specialAvatarId)
+        {
+            LineupInfo.TryGetValue(LineupData.CurLineup, out LineupInfo? lineup);
+            if (lineup == null)
+            {
+                lineup = new()
+                {
+                    Name = "Lineup " + LineupData.CurLineup,
+                    LineupType = 0,
+                    BaseAvatars = [new() { BaseAvatarId = specialAvatarId, SpecialAvatarId = specialAvatarId }],
+                    LineupData = LineupData,
+                    AvatarData = Player.AvatarManager!.AvatarData,
+                };
+                LineupInfo.Add(LineupData.CurLineup, lineup);
+            } else
+            {
+                lineup.BaseAvatars?.Add(new() { BaseAvatarId = specialAvatarId, SpecialAvatarId = specialAvatarId });
+                LineupInfo[LineupData.CurLineup] = lineup;
+            }
+            DatabaseHelper.Instance?.UpdateInstance(LineupData);
         }
     }
 }

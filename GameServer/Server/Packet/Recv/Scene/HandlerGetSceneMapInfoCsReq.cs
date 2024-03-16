@@ -9,7 +9,7 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Scene
         public override void OnHandle(Connection connection, byte[] header, byte[] data)
         {
             var req = GetSceneMapInfoCsReq.Parser.ParseFrom(data);
-            connection.SendPacket(new PacketGetSceneMapInfoScRsp(req));
+            connection.SendPacket(new PacketGetSceneMapInfoScRsp(req, connection.Player!));
         }
     }
 }

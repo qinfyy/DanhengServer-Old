@@ -6,17 +6,36 @@ using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Server.Packet.Send.Battle;
 using EggLink.DanhengServer.Server.Packet.Send.Lineup;
 using EggLink.DanhengServer.Util;
-using SqlSugar;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EggLink.DanhengServer.Game.Battle
 {
     public class BattleManager(PlayerInstance player) : BasePlayerManager(player)
     {
+        public void StartStage(int eventId)
+        {
+            if (Player.BattleInstance != null) return;
+
+            GameData.StageConfigData.TryGetValue(eventId, out var stageConfig);
+            if (stageConfig == null)
+            {
+                GameData.StageConfigData.TryGetValue(eventId * 10 + Player.Data.WorldLevel, out stageConfig);
+                if (stageConfig == null)
+                {
+                    Player.SendPacket(new PacketSceneEnterStageScRsp());
+                    return;
+                }
+            }
+
+            BattleInstance battleInstance = new(Player, Player.LineupManager!.GetCurLineup()!, [stageConfig])
+            {
+                WorldLevel = Player.Data.WorldLevel,
+            };
+
+            Player.BattleInstance = battleInstance;
+
+            Player.SendPacket(new PacketSceneEnterStageScRsp(battleInstance));
+        }
+
         public void StartCocoonStage(int cocoonId, int wave, int worldLevel)
         {
             if (Player.BattleInstance != null) return;
@@ -52,7 +71,7 @@ namespace EggLink.DanhengServer.Game.Battle
                 return;
             }
 
-            BattleInstance battleInstance = new(Player, Player.LineupManager.GetCurLineup()!, stageConfigExcels)
+            BattleInstance battleInstance = new(Player, Player.LineupManager!.GetCurLineup()!, stageConfigExcels)
             {
                 StaminaCost = cost,
                 WorldLevel = config.WorldLevel,
@@ -111,7 +130,7 @@ namespace EggLink.DanhengServer.Game.Battle
 
             if (updateStatus)
             {
-                var lineup = player.LineupManager.GetCurLineup()!;
+                var lineup = player.LineupManager!.GetCurLineup()!;
                 // Update battle status
                 foreach (var avatar in req.Stt.AvatarBattleList)
                 {
@@ -119,7 +138,7 @@ namespace EggLink.DanhengServer.Game.Battle
                     if (avatarInstance == null) continue;
 
                     var prop = avatar.AvatarStatus;
-                    int curHp = (int)Math.Round(prop.LeftHp / prop.MaxHp * 10000);
+                    int curHp = (int)Math.Min(Math.Round(prop.LeftHp / prop.MaxHp * 10000), minimumHp);
                     int curSp = (int)prop.LeftSp * 100;
 
                     avatarInstance.SetCurHp(curHp, lineup.LineupType != 0);
@@ -144,6 +163,8 @@ namespace EggLink.DanhengServer.Game.Battle
                     }
                 }
             }
+            // call battle end
+            Player.MissionManager!.OnBattleFinish(req);
 
             Player.BattleInstance = null;
             Player.SendPacket(new PacketPVEBattleResultScRsp(req, Player, battle));

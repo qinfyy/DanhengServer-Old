@@ -1,6 +1,8 @@
-﻿using EggLink.DanhengServer.Enums;
+﻿using EggLink.DanhengServer.Database.Mission;
+using EggLink.DanhengServer.Enums;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace EggLink.DanhengServer.Data.Config
 {
@@ -36,6 +38,69 @@ namespace EggLink.DanhengServer.Data.Config
 
         [JsonConverter(typeof(StringEnumConverter))]
         public OperationEnum Operation { get; set; } = OperationEnum.And;
+
+        public bool IsTrue(MissionData mission, bool defaultResult = true)
+        {
+            if (Conditions.Count == 0)
+            {
+                return defaultResult;
+            }
+            bool canLoad = Operation == OperationEnum.And;
+            // check load condition
+            foreach (var condition in Conditions)
+            {
+                if (condition.Type == ConditionTypeEnum.MainMission)
+                {
+                    mission.MainMissionInfo.TryGetValue(condition.ID, out var info);
+                    if (info != condition.Phase)
+                    {
+                        if (Operation == OperationEnum.And)
+                        {
+                            canLoad = false;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        if (Operation == OperationEnum.Or)
+                        {
+                            canLoad = true;
+                            break;
+                        }
+                    }
+                } else
+                {
+                    // sub mission
+                    var mainMissionId = int.Parse(condition.ID.ToString()[..^2]);
+                    mission.MissionInfo.TryGetValue(mainMissionId, out var info);
+                    info ??= new() { { mainMissionId, new()
+                    {
+                        MissionId = condition.ID,
+                        Status = MissionPhaseEnum.None
+                    }} };
+                    if (info.TryGetValue(condition.ID, out var missionInfo))
+                    {
+                        if (missionInfo.Status != condition.Phase)
+                        {
+                            if (Operation == OperationEnum.And)
+                            {
+                                canLoad = false;
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            if (Operation == OperationEnum.Or)
+                            {
+                                canLoad = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            return canLoad;
+        }
     }
 
     public class Condition

@@ -26,16 +26,31 @@ namespace EggLink.DanhengServer.Data.Config
         public PropStateEnum State { get; set; } = PropStateEnum.Closed;
 
         [JsonIgnore()]
-        public int UnlockDoorID { get; set; }
+        public List<int> UnlockDoorID { get; set; } = [];
 
         public void Load()
         {
-            if (InitLevelGraph?.Contains("_OpenDoor_") == true)
+            if (ValueSource != null)
             {
-                var va = ValueSource?.Values.First()["Value"];
-                if (va != null)
+                foreach (var v in ValueSource.Values)
                 {
-                    UnlockDoorID = int.Parse(va.ToString().Split(",")[1]);
+                    try
+                    {
+                        if (v["Value"] != null && v["Key"] != null)
+                        {
+                            if (v["Key"]?.ToString().Contains("Door") == true)
+                            {
+                                try
+                                {
+                                    UnlockDoorID.Add(int.Parse(v["Value"]!.ToString().Split(",")[1]));
+                                }
+                                catch
+                                {
+                                }
+                            }
+                        }
+                    }
+                    catch { }
                 }
             }
         }

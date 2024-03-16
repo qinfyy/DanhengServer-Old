@@ -91,6 +91,11 @@ public static class Extensions
         return values[index];
     }
 
+    public static int RandomInt (int from, int to)
+    {
+        return new Random().Next(from, to);
+    }
+
     public static string ToArrayString(this List<string> list)
     {
         return list.JoinFormat(", ", "");

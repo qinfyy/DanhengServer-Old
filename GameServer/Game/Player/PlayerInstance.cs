@@ -4,6 +4,7 @@ using EggLink.DanhengServer.Data.Excel;
 using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Database.Player;
 using EggLink.DanhengServer.Database.Scene;
+using EggLink.DanhengServer.Database.Tutorial;
 using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Game.Avatar;
 using EggLink.DanhengServer.Game.Battle;
@@ -40,6 +41,7 @@ namespace EggLink.DanhengServer.Game.Player
         public PlayerData Data { get; set; } = data;
         public PlayerUnlockData? PlayerUnlockData { get; private set; }
         public SceneData? SceneData { get; private set; }
+        public TutorialData? TutorialData { get; private set; }
         public SceneInstance? SceneInstance { get; private set; }
         public ushort Uid { get; set; }
         public Connection? Connection { get; set; }
@@ -80,11 +82,13 @@ namespace EggLink.DanhengServer.Game.Player
 
             InitialPlayerManager();
 
-            AddAvatar(1005);
+            //AddAvatar(8001);
             LineupManager?.SetCurLineup(1);
-            LineupManager?.AddAvatarToCurTeam(1005);
+            //LineupManager?.AddAvatarToCurTeam(8001);
+            LineupManager?.AddSpecialAvatarToCurTeam(10010050);
 
             EnterScene(2000101, 0, false);
+            MissionManager!.AcceptMainMission(1000101);
 
             Initialized = true;
         }
@@ -119,6 +123,19 @@ namespace EggLink.DanhengServer.Game.Player
                 scene = DatabaseHelper.Instance?.GetInstance<SceneData>(Uid);
             }
             SceneData = scene!;
+
+            var tutorial = DatabaseHelper.Instance?.GetInstance<TutorialData>(Uid);
+            if (tutorial == null)
+            {
+                DatabaseHelper.Instance?.SaveInstance(new TutorialData()
+                {
+                    Uid = Uid,
+                });
+                tutorial = DatabaseHelper.Instance?.GetInstance<TutorialData>(Uid);
+            }
+            TutorialData = tutorial!;
+
+
 
             if (!IsNewPlayer)
             {
@@ -203,10 +220,11 @@ namespace EggLink.DanhengServer.Game.Player
                 {
                     GameData.InteractConfigData.TryGetValue(interactId, out var config);
                     if (config == null || config.SrcState != prop.State) return prop;
-
                     var oldState = prop.State;
-                    var newState = prop.State = config.TargetState;
+                    prop.SetState(config.TargetState);
+                    var newState = prop.State;
                     SendPacket(new PacketGroupStateChangeScNotify(Data.EntryId, prop.GroupID, prop.State));
+
                     switch (prop.Excel.PropType)
                     {
                         case PropTypeEnum.PROP_TREASURE_CHEST:
@@ -218,7 +236,7 @@ namespace EggLink.DanhengServer.Game.Player
                         case PropTypeEnum.PROP_DESTRUCT:
                             if (newState == PropStateEnum.Closed)
                             {
-                                prop.State = PropStateEnum.Open;
+                                prop.SetState(PropStateEnum.Open);
                             }
                             break;
                         case PropTypeEnum.PROP_MAZE_PUZZLE:
@@ -228,7 +246,7 @@ namespace EggLink.DanhengServer.Game.Player
                                 {
                                     if (p.Excel.PropType == PropTypeEnum.PROP_TREASURE_CHEST)
                                     {
-                                        p.State = PropStateEnum.ChestUsed;
+                                        p.SetState(PropStateEnum.ChestUsed);
                                     }
                                     else if (p.Excel.PropType == PropTypeEnum.PROP_MAZE_PUZZLE)
                                     {
@@ -236,16 +254,36 @@ namespace EggLink.DanhengServer.Game.Player
                                     }
                                     else
                                     {
-                                        p.State = PropStateEnum.Open;
+                                        p.SetState(PropStateEnum.Open);
                                     }
                                 }
                             }
                             break;
                     }
 
-                    if (prop.Group.SaveType == SaveTypeEnum.Save)
+                    // for door unlock
+                    if (prop.PropInfo.UnlockDoorID.Count > 0)
                     {
-                        SetScenePropData(SceneInstance.FloorId, prop.GroupID, prop.PropInfo.ID, prop.State);
+                        foreach (var id in prop.PropInfo.UnlockDoorID)
+                        {
+                            foreach (var p in SceneInstance.GetEntitiesInGroup<EntityProp>(prop.GroupID))
+                            {
+                                if (id == p.PropInfo.ID)
+                                {
+                                    p.SetState(PropStateEnum.Open);
+                                }
+                            }
+                        }
+                    }
+                    foreach (var id in MissionManager!.GetRunningSubMissionIdList())
+                    {
+                        if (MissionManager.GetSubMissionInfo(id)?.FinishType == MissionFinishTypeEnum.PropState)
+                        {
+                            if (MissionManager.GetSubMissionInfo(id)?.ParamInt2 == prop.PropInfo.ID)
+                            {
+                                MissionManager.FinishSubMission(id);
+                            }
+                        }
                     }
                     return prop;
                 }
@@ -357,6 +395,37 @@ namespace EggLink.DanhengServer.Game.Player
                 {
                     propData.State = state;
                 }
+                DatabaseHelper.Instance?.UpdateInstance(SceneData);
+            }
+        }
+
+        public void EnterSection(int sectionId)
+        {
+            if (SceneInstance != null)
+            {
+                SceneData!.UnlockSectionIdList.TryGetValue(SceneInstance.FloorId, out var unlockList);
+                if (unlockList == null)
+                {
+                    unlockList = [sectionId];
+                    SceneData.UnlockSectionIdList.Add(SceneInstance.FloorId, unlockList);
+                } else
+                {
+                    SceneData.UnlockSectionIdList[SceneInstance.FloorId].Add(sectionId);
+                }
+                DatabaseHelper.Instance?.UpdateInstance(SceneData);
+            }
+        }
+
+        public void SetCustomSaveData(int entryId, int groupId, string data)
+        {
+            if (SceneData != null)
+            {
+                if (!SceneData.CustomSaveData.TryGetValue(entryId, out var entryData))
+                {
+                    entryData = [];
+                    SceneData.CustomSaveData.Add(entryId, entryData);
+                }
+                entryData[groupId] = data;
                 DatabaseHelper.Instance?.UpdateInstance(SceneData);
             }
         }

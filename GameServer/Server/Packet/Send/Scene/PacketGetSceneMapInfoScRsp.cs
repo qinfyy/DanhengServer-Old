@@ -1,13 +1,14 @@
 ﻿using EggLink.DanhengServer.Data;
 using EggLink.DanhengServer.Data.Config;
 using EggLink.DanhengServer.Enums;
+using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Proto;
 
 namespace EggLink.DanhengServer.Server.Packet.Send.Scene
 {
     public class PacketGetSceneMapInfoScRsp : BasePacket
     {
-        public PacketGetSceneMapInfoScRsp(GetSceneMapInfoCsReq req) : base(CmdIds.GetSceneMapInfoScRsp)
+        public PacketGetSceneMapInfoScRsp(GetSceneMapInfoCsReq req, PlayerInstance player) : base(CmdIds.GetSceneMapInfoScRsp)
         {
             var rsp = new GetSceneMapInfoScRsp();
             foreach (var entry in req.EntryIdList)
@@ -73,11 +74,11 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Scene
                     mazeMap.MazePropList.Add(mazeProp);
                 }
 
-                for (int i = 0; i < 100; i++)
+                player.SceneData!.UnlockSectionIdList.TryGetValue(mapData.FloorID, out var sections);
+                foreach (var section in sections ?? [])
                 {
-                    mazeMap.LightenSectionList.Add((uint)i);
+                    mazeMap.LightenSectionList.Add((uint)section);
                 }
-
                 rsp.MapList.Add(mazeMap);
             }
             SetData(rsp);

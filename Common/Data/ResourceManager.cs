@@ -18,6 +18,7 @@ namespace EggLink.DanhengServer.Data
         {
             LoadExcel();
             LoadFloorInfo();
+            LoadMissionInfo();
         }
 
         public static void LoadExcel()
@@ -168,9 +169,44 @@ namespace EggLink.DanhengServer.Data
                 }
             }
             if (missingGroupInfos)
-                Logger.Warn("Group infos are missing, please check your resources folder: {resources}/Config/LevelOutput/Group. Teleports, monster battles, and natural world spawns may not work!");
+                Logger.Warn($"Group infos are missing, please check your resources folder: {ConfigManager.Config.Path.ResourcePath}/Config/LevelOutput/Group. Teleports, monster battles, and natural world spawns may not work!");
 
             Logger.Info("Loaded " + GameData.FloorInfoData.Count + " floor infos.");
+        }
+
+        public static void LoadMissionInfo()
+        {
+            Logger.Info("Loading mission files...");
+            DirectoryInfo directory = new(ConfigManager.Config.Path.ResourcePath + "/Config/Level/Mission");
+            if (!directory.Exists)
+            {
+                Logger.Warn($"Mission infos are missing, please check your resources folder: {ConfigManager.Config.Path.ResourcePath}/Config/Level/Mission. Missions may not work!");
+                return;
+            }
+            bool missingMissionInfos = false;
+            var count = 0;
+            foreach (var missionExcel in GameData.MainMissionData)
+            {
+                var path = $"{ConfigManager.Config.Path.ResourcePath}/Config/Level/Mission/{missionExcel.Key}/MissionInfo_{missionExcel.Key}.json";
+                if (!File.Exists(path))
+                {
+                    missingMissionInfos = true;
+                    continue;
+                }
+                var json = File.ReadAllText(path);
+                var missionInfo = JsonConvert.DeserializeObject<MissionInfo>(json);
+                if (missionInfo != null)
+                {
+                    GameData.MainMissionData[missionExcel.Key].MissionInfo = missionInfo;
+                    count++;
+                } else
+                {
+                    missingMissionInfos = true;
+                }
+            }
+            if (missingMissionInfos)
+                Logger.Warn($"Mission infos are missing, please check your resources folder: {ConfigManager.Config.Path.ResourcePath}/Config/Level/Mission. Missions may not work!");
+            Logger.Info("Loaded " + count + " mission infos.");
         }
     }
 }

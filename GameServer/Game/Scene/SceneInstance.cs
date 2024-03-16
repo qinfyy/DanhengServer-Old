@@ -6,6 +6,7 @@ using EggLink.DanhengServer.Database.Avatar;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Game.Scene.Entity;
 using EggLink.DanhengServer.Proto;
+using EggLink.DanhengServer.Server.Packet;
 
 namespace EggLink.DanhengServer.Game.Scene
 {
@@ -67,19 +68,25 @@ namespace EggLink.DanhengServer.Game.Scene
                     var assistPlayer = DatabaseHelper.Instance?.GetInstance<AvatarData>(avatar.AssistUid);
                     if (assistPlayer != null)
                     {
-                        var assistAvatar = assistPlayer.Avatars?.Find(x => x.AvatarId == avatar.BaseAvatarId);
+                        var assistAvatar = assistPlayer.Avatars?.Find(x => x.GetAvatarId() == avatar.BaseAvatarId);
                         if (assistAvatar != null)
                         {
-                            AvatarInfo.Add(assistAvatar.AvatarId, new(assistAvatar, AvatarType.AvatarAssistType));
+                            AvatarInfo.Add(assistAvatar.GetAvatarId(), new(assistAvatar, AvatarType.AvatarAssistType));
                         }
                     }
                 } else if (avatar.SpecialAvatarId != 0)
                 {
-
+                    var specialAvatar = GameData.SpecialAvatarData[avatar.SpecialAvatarId];
+                    if (specialAvatar != null)
+                    {
+                        var avatarData = specialAvatar.ToAvatarData();
+                        avatarData.EntityId = ++LastEntityId;
+                        AvatarInfo.Add(avatarData.EntityId, new(avatarData, AvatarType.AvatarTrialType));
+                    }
                 } else
                 {
                     var avatarData = Player.AvatarManager?.GetAvatar(avatar.BaseAvatarId);
-                    if (avatarData?.AvatarId == avatar.BaseAvatarId)
+                    if (avatarData?.GetAvatarId() == avatar.BaseAvatarId)
                     {
                         avatarData.EntityId = ++LastEntityId;
                         AvatarInfo.Add(avatarData.EntityId, new(avatarData, AvatarType.AvatarFormalType));
@@ -88,6 +95,11 @@ namespace EggLink.DanhengServer.Game.Scene
             };
 
             LeaderAvatarId = Player.LineupManager?.GetCurLineup()?.LeaderAvatarId ?? 0;
+        }
+
+        public void SyncGroupInfo()
+        {
+            EntityLoader?.SyncEntity();
         }
 
         #endregion
@@ -168,19 +180,23 @@ namespace EggLink.DanhengServer.Game.Scene
             {
                 playerGroupInfo.EntityList.Add(avatar.Value.AvatarInfo.ToSceneEntityInfo(avatar.Value.AvatarType));
             }
-
-            if (LeaderAvatarId != 0)
+            if (playerGroupInfo.EntityList.Count > 0)
             {
-                sceneInfo.LeaderEntityId = (uint)LeaderAvatarId;
-            } else
-            {
-                LeaderAvatarId = AvatarInfo.Keys.First();
-                sceneInfo.LeaderEntityId = (uint)LeaderAvatarId;
+                if (LeaderAvatarId != 0)
+                {
+                    sceneInfo.LeaderEntityId = (uint)LeaderAvatarId;
+                }
+                else
+                {
+                    LeaderAvatarId = AvatarInfo.Keys.First();
+                    sceneInfo.LeaderEntityId = (uint)LeaderAvatarId;
+                }
             }
             sceneInfo.EntityGroupList.Add(playerGroupInfo);
 
             List<SceneEntityGroupInfo> groups = [];  // other groups
 
+            // add entities to groups
             foreach (var entity in Entities)
             {
                 if (entity.Value.GroupID == 0) continue;
@@ -197,6 +213,31 @@ namespace EggLink.DanhengServer.Game.Scene
             foreach (var group in groups)
             {
                 sceneInfo.EntityGroupList.Add(group);
+            }
+
+            // custom save data
+            Player.SceneData!.CustomSaveData.TryGetValue(EntryId, out var data);
+
+            if (data != null)
+            {
+                foreach (var customData in data)
+                {
+                    sceneInfo.CustomSaveData.Add(new CustomSaveData()
+                    {
+                        GroupId = (uint)customData.Key,
+                        SaveData = customData.Value
+                    });
+                }
+            }
+
+            // unlock section
+            Player.SceneData!.UnlockSectionIdList.TryGetValue(FloorId, out var unlockSectionList);
+            if (unlockSectionList != null)
+            {
+                foreach (var sectionId in unlockSectionList)
+                {
+                    sceneInfo.LightenSectionList.Add((uint)sectionId);
+                }
             }
 
             return sceneInfo;

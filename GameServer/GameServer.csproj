@@ -18,7 +18,6 @@
   <ItemGroup>
     <Folder Include="Server\Packet\Recv\Achievement\" />
     <Folder Include="Server\Packet\Recv\ChessRogue\" />
-    <Folder Include="Server\Packet\Recv\Tutorial\" />
     <Folder Include="Server\Packet\Recv\Mail\" />
     <Folder Include="Server\Packet\Recv\Friend\" />
     <Folder Include="Server\Packet\Recv\Others\" />
@@ -28,7 +27,6 @@
     <Folder Include="Server\Packet\Send\Mail\" />
     <Folder Include="Server\Packet\Send\Others\" />
     <Folder Include="Server\Packet\Send\Rogue\" />
-    <Folder Include="Server\Packet\Send\Tutorial\" />
   </ItemGroup>
 
   <ItemGroup>

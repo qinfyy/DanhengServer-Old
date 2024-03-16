@@ -22,6 +22,7 @@ namespace EggLink.DanhengServer.Database.Avatar
     public class AvatarInfo
     {
         public int AvatarId { get; set; }
+        public int HeroId { get; set; }
         public int Level { get; set; }
         public int Exp { get; set; }
         public int Promotion { get; set; }
@@ -35,6 +36,9 @@ namespace EggLink.DanhengServer.Database.Avatar
         public Dictionary<int, int> SkillTree { get; set; } = [];
         public int EquipId { get; set; } = 0;
         public Dictionary<int, int> Relic { get; set; } = [];
+
+        [JsonIgnore()]
+        public ItemData? EquipData { get; set; }  // for special avatar
 
         [JsonIgnore()]
         public AvatarConfigExcel? Excel;
@@ -73,6 +77,11 @@ namespace EggLink.DanhengServer.Database.Avatar
             return isExtraLineup ? ExtraLineupSp : CurrentSp;
         }
 
+        public int GetAvatarId()
+        {
+            return HeroId > 0 ? HeroId : AvatarId;
+        }
+
         public void SetCurHp(int value, bool isExtraLineup)
         {
             if (isExtraLineup)
@@ -101,7 +110,7 @@ namespace EggLink.DanhengServer.Database.Avatar
         {
             var proto = new Proto.Avatar()
             {
-                BaseAvatarId = (uint)(AvatarId == 1005 ? 8001 : AvatarId),  // 1005 will trigger npe
+                BaseAvatarId = (uint)GetAvatarId(),  // 1005 will trigger npe
                 Level = (uint)Level,
                 Exp = (uint)Exp,
                 Promotion = (uint)Promotion,
@@ -155,7 +164,7 @@ namespace EggLink.DanhengServer.Database.Avatar
                 },
                 Actor = new()
                 {
-                    BaseAvatarId = (uint)(AvatarId == 1005? 8001 : AvatarId),
+                    BaseAvatarId = (uint)GetAvatarId(),
                     AvatarType = avatarType
                 }
             };
@@ -165,7 +174,7 @@ namespace EggLink.DanhengServer.Database.Avatar
         {
             return new()
             {
-                Id = (uint)(AvatarId == 1005 ? 8001 : AvatarId),
+                Id = (uint)GetAvatarId(),
                 Slot = (uint)slot,
                 AvatarType = avatarType,
                 Hp = info.IsExtraLineup() ? (uint)ExtraLineupHp : (uint)CurrentHp,
@@ -181,12 +190,12 @@ namespace EggLink.DanhengServer.Database.Avatar
         {
             var proto = new BattleAvatar()
             {
-                Id = (uint)(AvatarId == 1005 ? 8001 : AvatarId),
+                Id = (uint)GetAvatarId(),
                 AvatarType = avatarType,
                 Level = (uint)Level,
                 Promotion = (uint)Promotion,
                 Rank = (uint)Rank,
-                Index = (uint)lineup.GetSlot(AvatarId),
+                Index = (uint)lineup.GetSlot(GetAvatarId()),
                 Hp = (uint)GetCurHp(lineup.LineupType != 0),
                 SpBar = new()
                 {
@@ -243,6 +252,35 @@ namespace EggLink.DanhengServer.Database.Avatar
                         Rank = (uint)item.Rank,
                     });
                 }
+            } else if (EquipData != null)
+            {
+                proto.EquipmentList.Add(new BattleEquipment()
+                {
+                    Id = (uint)EquipData.ItemId,
+                    Level = (uint)EquipData.Level,
+                    Promotion = (uint)EquipData.Promotion,
+                    Rank = (uint)EquipData.Rank,
+                });
+            }
+
+            return proto;
+        }
+
+        public PlayerHeroBasicTypeInfo ToHeroProto()
+        {
+            var proto = new PlayerHeroBasicTypeInfo()
+            {
+                BasicType = (HeroBasicType)HeroId,
+                Rank = (uint)Rank,
+            };
+
+            foreach (var skill in SkillTree)
+            {
+                proto.SkillTree.Add(new AvatarSkillTree()
+                {
+                    PointId = (uint)skill.Key,
+                    Level = (uint)skill.Value
+                });
             }
 
             return proto;
