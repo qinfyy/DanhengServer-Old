@@ -24,9 +24,9 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueEnterNextLayerScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiNDaGVzc1JvZ3VlRW50ZXJOZXh0TGF5ZXJTY1JzcC5wcm90bxoYQ2hlc3NS",
-            "b2d1ZUdhbWVJbmZvLnByb3RvGhhDaGVzc1JvZ3VlQ2VsbEluZm8ucHJvdG8a",
-            "FENoZXNzUm9ndWVJbmZvLnByb3RvGhFNQVBGSURHRUdHQy5wcm90byLOAQod",
+            "CiNDaGVzc1JvZ3VlRW50ZXJOZXh0TGF5ZXJTY1JzcC5wcm90bxoRTUFQRklE",
+            "R0VHR0MucHJvdG8aGENoZXNzUm9ndWVHYW1lSW5mby5wcm90bxoYQ2hlc3NS",
+            "b2d1ZUNlbGxJbmZvLnByb3RvGhRDaGVzc1JvZ3VlSW5mby5wcm90byLOAQod",
             "Q2hlc3NSb2d1ZUVudGVyTmV4dExheWVyU2NSc3ASLAoPcm9ndWVfZ2FtZV9p",
             "bmZvGAEgASgLMhMuQ2hlc3NSb2d1ZUdhbWVJbmZvEiMKCnJvZ3VlX2luZm8Y",
             "CyABKAsyDy5DaGVzc1JvZ3VlSW5mbxImCgljZWxsX2luZm8YDiABKAsyEy5D",
@@ -34,7 +34,7 @@ namespace EggLink.DanhengServer.Proto {
             "QURMShgIIAEoCzIMLk1BUEZJREdFR0dDQh6qAhtFZ2dMaW5rLkRhbmhlbmdT",
             "ZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChessRogueGameInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueCellInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.MAPFIDGEGGCReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MAPFIDGEGGCReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueGameInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueCellInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueEnterNextLayerScRsp), global::EggLink.DanhengServer.Proto.ChessRogueEnterNextLayerScRsp.Parser, new[]{ "RogueGameInfo", "RogueInfo", "CellInfo", "Retcode", "ONJFCNEADLJ" }, null, null, null, null)
           }));

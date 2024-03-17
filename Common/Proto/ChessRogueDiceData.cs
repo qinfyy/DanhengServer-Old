@@ -24,9 +24,9 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueDiceDataReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChhDaGVzc1JvZ3VlRGljZURhdGEucHJvdG8aFk1vZmlNb2RpZmllckxpc3Qu",
-            "cHJvdG8aGENoZXNzUm9ndWVEaWNlVHlwZS5wcm90bxoUQ2hlc3NSb2d1ZURp",
-            "Y2UucHJvdG8aGkNoZXNzUm9ndWVEaWNlU3RhdHVzLnByb3RvIuQDChJDaGVz",
+            "ChhDaGVzc1JvZ3VlRGljZURhdGEucHJvdG8aFENoZXNzUm9ndWVEaWNlLnBy",
+            "b3RvGhpDaGVzc1JvZ3VlRGljZVN0YXR1cy5wcm90bxoWTW9maU1vZGlmaWVy",
+            "TGlzdC5wcm90bxoYQ2hlc3NSb2d1ZURpY2VUeXBlLnByb3RvIuQDChJDaGVz",
             "c1JvZ3VlRGljZURhdGESEwoLY3VyX3N1cmZhY2UYCSABKA0SFAoLQkNITU5N",
             "QkVMTEYYugMgAygNEiIKCGN1cl9kaWNlGIkMIAEoCzIPLkNoZXNzUm9ndWVE",
             "aWNlEhMKC0dLQU9DUEJLTk1MGAIgASgNEhQKC0VOS0JPTENQS0ZCGK4NIAEo",
@@ -40,7 +40,7 @@ namespace EggLink.DanhengServer.Proto {
             "ThgEIAEoDRITCgtPR0xKQ0VJRE5OQhgBIAEoDUIeqgIbRWdnTGluay5EYW5o",
             "ZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MofiModifierListReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueDiceTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueDiceReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueDiceStatusReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChessRogueDiceReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueDiceStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.MofiModifierListReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueDiceTypeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueDiceData), global::EggLink.DanhengServer.Proto.ChessRogueDiceData.Parser, new[]{ "CurSurface", "BCHMNMBELLF", "CurDice", "GKAOCPBKNML", "ENKBOLCPKFB", "LFAJDOAPDCE", "BranchId", "RerollCount", "PHPGNFGDPLC", "CheatCount", "FFLMNAJODPF", "AddDiceModifier", "DiceBranchId", "DiceType", "DiceStatus", "KNNJJCBONHN", "OGLJCEIDNNB" }, null, null, null, null)
           }));

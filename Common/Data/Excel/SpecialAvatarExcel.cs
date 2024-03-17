@@ -31,6 +31,11 @@ namespace EggLink.DanhengServer.Data.Excel
         public int RelicPropertyType { get; set; }
         public int RelicPropertyTypeExtra { get; set; }
 
+        [JsonIgnore()]
+        public Dictionary<int, int> CurHp { get; set; } = [];
+        [JsonIgnore()]
+        public Dictionary<int, int> CurSp { get; set; } = [];
+
         public override int GetId()
         {
             return SpecialAvatarID * 10 + WorldLevel;
@@ -46,11 +51,14 @@ namespace EggLink.DanhengServer.Data.Excel
             // TODO Relic handler
         }
 
-        public AvatarInfo ToAvatarData()
+        public AvatarInfo ToAvatarData(int uid)
         {
+            CurHp.TryGetValue(uid, out var hp);
+            CurSp.TryGetValue(uid, out var sp);
             return new()
             {
                 AvatarId = SpecialAvatarID,
+                SpecialBaseAvatarId = AvatarID,
                 Level = Level,
                 Promotion = Promotion,
                 Rank = Rank,
@@ -60,7 +68,9 @@ namespace EggLink.DanhengServer.Data.Excel
                     Level = EquipmentLevel,
                     Promotion = EquipmentPromotion,
                     Rank = EquipmentRank
-                }
+                },
+                CurrentHp = hp == 0 ? 10000 : hp,
+                CurrentSp = sp
             };
         }
     }

@@ -25,8 +25,8 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChlDaGVzc1JvZ3VlQm9hcmREYXRhLnByb3RvGhBDZWxsU3RhdHVzLnByb3Rv",
-            "GhZDaGVzc0JvYXJkTGF5b3V0LnByb3RvGhVIaXN0b3J5Q2VsbERhdGEucHJv",
-            "dG8aFUNoZXNzUm9ndWVUaGVtZS5wcm90byL+AQoTQ2hlc3NSb2d1ZUJvYXJk",
+            "GhZDaGVzc0JvYXJkTGF5b3V0LnByb3RvGhVDaGVzc1JvZ3VlVGhlbWUucHJv",
+            "dG8aFUhpc3RvcnlDZWxsRGF0YS5wcm90byL+AQoTQ2hlc3NSb2d1ZUJvYXJk",
             "RGF0YRImCgxoaXN0b3J5X2NlbGwYBCADKAsyEC5IaXN0b3J5Q2VsbERhdGES",
             "EwoLTERMSU9JRU1ITEoYAiABKA0SIAoLY2VsbF9zdGF0dXMYByABKA4yCy5D",
             "ZWxsU3RhdHVzEhMKC0xITEpISkVLTUZKGA0gASgNEicKDGJvYXJkX2xheW91",
@@ -35,7 +35,7 @@ namespace EggLink.DanhengServer.Proto {
             "ZF9saXN0GAwgAygNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9i",
             "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.CellStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessBoardLayoutReflection.Descriptor, global::EggLink.DanhengServer.Proto.HistoryCellDataReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueThemeReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.CellStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessBoardLayoutReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueThemeReflection.Descriptor, global::EggLink.DanhengServer.Proto.HistoryCellDataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueBoardData), global::EggLink.DanhengServer.Proto.ChessRogueBoardData.Parser, new[]{ "HistoryCell", "LDLIOIEMHLJ", "CellStatus", "LHLJHJEKMFJ", "BoardLayout", "MHIDMCBIOBG", "AllowedSelectCellIdList" }, null, null, null, null)
           }));

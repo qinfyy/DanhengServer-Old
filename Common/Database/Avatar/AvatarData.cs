@@ -22,6 +22,7 @@ namespace EggLink.DanhengServer.Database.Avatar
     public class AvatarInfo
     {
         public int AvatarId { get; set; }
+        public int SpecialBaseAvatarId { get; set; }
         public int HeroId { get; set; }
         public int Level { get; set; }
         public int Exp { get; set; }
@@ -164,7 +165,7 @@ namespace EggLink.DanhengServer.Database.Avatar
                 },
                 Actor = new()
                 {
-                    BaseAvatarId = (uint)GetAvatarId(),
+                    BaseAvatarId = (uint)(SpecialBaseAvatarId > 0 ? SpecialBaseAvatarId : GetAvatarId()),
                     AvatarType = avatarType
                 }
             };

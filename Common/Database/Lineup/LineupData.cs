@@ -103,7 +103,7 @@ namespace EggLink.DanhengServer.Database.Lineup
                         var specialAvatar = GameData.SpecialAvatarData[avatar.SpecialAvatarId];
                         if (specialAvatar != null)
                         {
-                            info.AvatarList.Add(specialAvatar.ToAvatarData().ToLineupInfo(BaseAvatars.IndexOf(avatar), this, AvatarType.AvatarTrialType));
+                            info.AvatarList.Add(specialAvatar.ToAvatarData((int)LineupData!.Uid).ToLineupInfo(BaseAvatars.IndexOf(avatar), this, AvatarType.AvatarTrialType));
                         }
                     } else
                     {

@@ -24,15 +24,15 @@ namespace EggLink.DanhengServer.Proto {
     static TakeMailAttachmentScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Ch1UYWtlTWFpbEF0dGFjaG1lbnRTY1JzcC5wcm90bxoeQ2xpZW50TWFpbEF0",
-            "dGFjaG1lbnRJdGVtLnByb3RvGg5JdGVtTGlzdC5wcm90byKXAQoXVGFrZU1h",
+            "Ch1UYWtlTWFpbEF0dGFjaG1lbnRTY1JzcC5wcm90bxoOSXRlbUxpc3QucHJv",
+            "dG8aHkNsaWVudE1haWxBdHRhY2htZW50SXRlbS5wcm90byKXAQoXVGFrZU1h",
             "aWxBdHRhY2htZW50U2NSc3ASDwoHcmV0Y29kZRgJIAEoDRIZChFzdWNjX21h",
             "aWxfaWRfbGlzdBgNIAMoDRIdCgphdHRhY2htZW50GAUgASgLMgkuSXRlbUxp",
             "c3QSMQoOZmFpbF9tYWlsX2xpc3QYAiADKAsyGS5DbGllbnRNYWlsQXR0YWNo",
             "bWVudEl0ZW1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJv",
             "dG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ClientMailAttachmentItemReflection.Descriptor, global::EggLink.DanhengServer.Proto.ItemListReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ItemListReflection.Descriptor, global::EggLink.DanhengServer.Proto.ClientMailAttachmentItemReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.TakeMailAttachmentScRsp), global::EggLink.DanhengServer.Proto.TakeMailAttachmentScRsp.Parser, new[]{ "Retcode", "SuccMailIdList", "Attachment", "FailMailList" }, null, null, null, null)
           }));

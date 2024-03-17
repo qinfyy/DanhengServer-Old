@@ -1,7 +1,7 @@
 ﻿using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Game.Player;
 
-namespace EggLink.DanhengServer.Game.Mission
+namespace EggLink.DanhengServer.Game.Mission.FinishAction
 {
     public abstract class MissionFinishActionHandler
     {

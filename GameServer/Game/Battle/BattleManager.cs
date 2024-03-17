@@ -2,6 +2,7 @@
 using EggLink.DanhengServer.Data.Excel;
 using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Game.Player;
+using EggLink.DanhengServer.Game.Scene.Entity;
 using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Server.Packet.Send.Battle;
 using EggLink.DanhengServer.Server.Packet.Send.Lineup;
@@ -11,6 +12,80 @@ namespace EggLink.DanhengServer.Game.Battle
 {
     public class BattleManager(PlayerInstance player) : BasePlayerManager(player)
     {
+        public void StartBattle(SceneCastSkillCsReq req)
+        {
+            if (Player.BattleInstance != null) return;
+            var targetList = new List<EntityMonster>();
+            var propList = new List<EntityProp>();
+            var isPlayerCast = false;
+            if (Player.SceneInstance!.AvatarInfo.ContainsKey((int)req.AttackedByEntityId))
+            {
+                isPlayerCast = true;
+
+                foreach (var entity in req.HitTargetEntityIdList)
+                {
+                    Player.SceneInstance!.Entities.TryGetValue((int)entity, out var entityInstance);
+                    if (entityInstance is EntityMonster monster)
+                    {
+                        targetList.Add(monster);
+                    } else if (entityInstance is EntityProp prop)
+                    {
+                        propList.Add(prop);
+                    }
+                }
+
+                foreach (var entity in req.AssistMonsterEntityIdList)
+                {
+                    Player.SceneInstance!.Entities.TryGetValue((int)entity, out var entityInstance);
+                    if (entityInstance is EntityMonster monster)
+                    {
+                        targetList.Add(monster);
+                    }
+                }
+            } else
+            {
+                bool isAmbushed = false;
+                foreach (var entity in req.HitTargetEntityIdList)
+                {
+                    if (Player.SceneInstance!.AvatarInfo.ContainsKey((int)entity)) 
+                    {
+                        isAmbushed = true;
+                        break;
+                    }
+                }
+                if (isAmbushed)
+                {
+                    Player.SendPacket(new PacketSceneCastSkillScRsp(req.CastEntityId));
+                    return;
+                }
+                var monsterEntity = Player.SceneInstance!.Entities[(int)req.AttackedByEntityId];
+                if (monsterEntity is EntityMonster monster)
+                {
+                    targetList.Add(monster);
+                }
+            }
+            if (targetList.Count == 0 && propList.Count == 0)
+            {
+                Player.SendPacket(new PacketSceneCastSkillScRsp(req.CastEntityId));
+                return;
+            }
+            foreach (var prop in propList)
+            {
+                Player.SceneInstance!.RemoveEntity(prop);
+            }
+            if (targetList.Count > 0)
+            {
+                // Skill handle
+
+                BattleInstance battleInstance = new(Player, Player.LineupManager!.GetCurLineup()!, targetList)
+                {
+                    WorldLevel = Player.Data.WorldLevel,
+                };
+                Player.BattleInstance = battleInstance;
+                Player.SendPacket(new PacketSceneCastSkillScRsp(req.CastEntityId, battleInstance));
+            }
+        }
+
         public void StartStage(int eventId)
         {
             if (Player.BattleInstance != null) return;
@@ -112,7 +187,7 @@ namespace EggLink.DanhengServer.Game.Battle
                     // Spend stamina
                     if (battle.StaminaCost > 0)
                     {
-                        player.SpendStamina(battle.StaminaCost);
+                        Player.SpendStamina(battle.StaminaCost);
                     }
                     break;
                 case BattleEndStatus.BattleEndLose:
@@ -130,19 +205,25 @@ namespace EggLink.DanhengServer.Game.Battle
 
             if (updateStatus)
             {
-                var lineup = player.LineupManager!.GetCurLineup()!;
+                var lineup = Player.LineupManager!.GetCurLineup()!;
                 // Update battle status
                 foreach (var avatar in req.Stt.AvatarBattleList)
                 {
-                    var avatarInstance = player.AvatarManager!.GetAvatar((int)avatar.Id);
-                    if (avatarInstance == null) continue;
-
+                    var avatarInstance = Player.AvatarManager!.GetAvatar((int)avatar.Id);
                     var prop = avatar.AvatarStatus;
                     int curHp = (int)Math.Min(Math.Round(prop.LeftHp / prop.MaxHp * 10000), minimumHp);
                     int curSp = (int)prop.LeftSp * 100;
-
-                    avatarInstance.SetCurHp(curHp, lineup.LineupType != 0);
-                    avatarInstance.SetCurSp(curSp, lineup.LineupType != 0);
+                    if (avatarInstance == null)
+                    {
+                        GameData.SpecialAvatarData.TryGetValue((int)(avatar.Id * 10 + Player.Data.WorldLevel), out var specialAvatar);
+                        if (specialAvatar == null) continue;
+                        specialAvatar.CurHp[Player.Uid] = curHp;
+                        specialAvatar.CurSp[Player.Uid] = curSp;
+                    } else
+                    {
+                        avatarInstance.SetCurHp(curHp, lineup.LineupType != 0);
+                        avatarInstance.SetCurSp(curSp, lineup.LineupType != 0);
+                    }
                 }
 
                 DatabaseHelper.Instance?.UpdateInstance(Player.AvatarManager!.AvatarData!);
@@ -150,10 +231,10 @@ namespace EggLink.DanhengServer.Game.Battle
             }
             if (teleportToAnchor)
             {
-                var anchorProp = player.SceneInstance?.GetNearestSpring(long.MaxValue);
+                var anchorProp = Player.SceneInstance?.GetNearestSpring(long.MaxValue);
                 if (anchorProp != null && anchorProp.PropInfo != null)
                 {
-                    var anchor = player?.SceneInstance?.FloorInfo?.GetAnchorInfo(
+                    var anchor = Player!.SceneInstance?.FloorInfo?.GetAnchorInfo(
                             anchorProp.PropInfo.AnchorGroupID,
                             anchorProp.PropInfo.AnchorID
                     );

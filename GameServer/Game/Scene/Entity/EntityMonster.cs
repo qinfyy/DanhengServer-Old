@@ -20,6 +20,11 @@ namespace EggLink.DanhengServer.Game.Scene.Entity
         public NPCMonsterDataExcel MonsterData { get; set; } = excel;
         public MonsterInfo Info { get; set; } = info;
 
+        public int GetStageId()
+        {
+            return Info.EventID * 10 + scene.Player.Data.WorldLevel;
+        }
+
         public SceneEntityInfo ToProto()
         {
             return new()

@@ -21,6 +21,7 @@ namespace EggLink.DanhengServer.Data.Config
         public MissionFinishTypeEnum FinishType { get; set; }
         public int ParamInt1 { get; set; }
         public int ParamInt2 { get; set; }
+        public int ParamInt3 { get; set; }
         public List<FinishActionInfo> FinishActionList { get; set; } = [];
     }
 

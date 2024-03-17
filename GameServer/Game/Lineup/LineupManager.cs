@@ -1,4 +1,5 @@
-﻿using EggLink.DanhengServer.Database;
+﻿using EggLink.DanhengServer.Data;
+using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Database.Lineup;
 using EggLink.DanhengServer.Game.Player;
 
@@ -91,20 +92,25 @@ namespace EggLink.DanhengServer.Game.Lineup
         public void AddSpecialAvatarToCurTeam(int specialAvatarId)
         {
             LineupInfo.TryGetValue(LineupData.CurLineup, out LineupInfo? lineup);
+            GameData.SpecialAvatarData.TryGetValue(specialAvatarId, out var specialAvatar);
+            if (specialAvatar == null)
+            {
+                return;
+            }
             if (lineup == null)
             {
                 lineup = new()
                 {
                     Name = "Lineup " + LineupData.CurLineup,
                     LineupType = 0,
-                    BaseAvatars = [new() { BaseAvatarId = specialAvatarId, SpecialAvatarId = specialAvatarId }],
+                    BaseAvatars = [new() { BaseAvatarId = specialAvatar.AvatarID, SpecialAvatarId = specialAvatarId }],
                     LineupData = LineupData,
                     AvatarData = Player.AvatarManager!.AvatarData,
                 };
                 LineupInfo.Add(LineupData.CurLineup, lineup);
             } else
             {
-                lineup.BaseAvatars?.Add(new() { BaseAvatarId = specialAvatarId, SpecialAvatarId = specialAvatarId });
+                lineup.BaseAvatars?.Add(new() { BaseAvatarId = specialAvatar.AvatarID, SpecialAvatarId = specialAvatarId });
                 LineupInfo[LineupData.CurLineup] = lineup;
             }
             DatabaseHelper.Instance?.UpdateInstance(LineupData);

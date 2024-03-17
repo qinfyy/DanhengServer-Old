@@ -35,6 +35,7 @@ namespace EggLink.DanhengServer.Game.Scene
             }
 
             var removeList = new List<IGameEntity>();
+            var addList = new List<IGameEntity>();
 
             foreach (var group in scene.FloorInfo!.Groups.Values)
             {
@@ -59,66 +60,71 @@ namespace EggLink.DanhengServer.Game.Scene
                     }
                 } else  // check if it should be loaded
                 {
-                    refreshed = LoadGroup(group) || refreshed;
-                    // LoadGroup will send the packet
+                    var groupList = LoadGroup(group);
+                    refreshed = groupList != null || refreshed;
+                    addList.AddRange(groupList ?? []);
                 }
             }
             if (refreshed)
             {
-                scene.Player.SendPacket(new PacketSceneGroupRefreshScNotify(null, removeList));
+                scene.Player.SendPacket(new PacketSceneGroupRefreshScNotify(addList, removeList));
             }
         }
 
-        public bool LoadGroup(GroupInfo info)
+        public List<IGameEntity>? LoadGroup(GroupInfo info)
         {
             var missionData = scene.Player.MissionManager!.Data;
             if (!info.LoadCondition.IsTrue(missionData) || info.UnloadCondition.IsTrue(missionData, false) || info.ForceUnloadCondition.IsTrue(missionData, false))
             {
-                return false;
+                return null;
             }
-
+            var entityList = new List<IGameEntity>();
             foreach (var npc in info.NPCList)
             {
                 try
                 {
-                    LoadNpc(npc, info);
-                } catch
-                {
-                }
+                    if (LoadNpc(npc, info) is EntityNpc entity)
+                    {
+                        entityList.Add(entity);
+                    }
+                } catch{ }
             }
 
             foreach (var monster in info.MonsterList)
             {
                 try
                 {
-                    LoadMonster(monster, info);
-                } catch
-                {
-                }
+                    if (LoadMonster(monster, info) is EntityMonster entity)
+                    {
+                        entityList.Add(entity);
+                    }
+                } 
+                catch { }
             }
 
             foreach (var prop in info.PropList)
             {
                 try
                 {
-                    LoadProp(prop, info);
-                } catch
-                {
-                }
+                    if (LoadProp(prop, info) is EntityProp entity)
+                    {
+                        entityList.Add(entity);
+                    }
+                } catch { }
             }
 
-            return true;
+            return entityList;
         }
 
-        public void LoadNpc(NpcInfo info, GroupInfo group)
+        public EntityNpc? LoadNpc(NpcInfo info, GroupInfo group, bool sendPacket = false)
         {
             if (info.IsClientOnly || info.IsDelete)
             {
-                return;
+                return null;
             }
             if (!GameData.NpcDataData.ContainsKey(info.NPCID))
             {
-                return;
+                return null;
             }
             bool hasDuplicateNpcId = false;
             foreach (IGameEntity entity in scene.Entities.Values)
@@ -131,64 +137,66 @@ namespace EggLink.DanhengServer.Game.Scene
             }
             if (hasDuplicateNpcId)
             {
-                return;
+                return null;
             }
             EntityNpc npc = new(scene, group, info);
-            scene.AddEntity(npc);
+            scene.AddEntity(npc, sendPacket);
+
+            return npc;
         }
 
-        public void LoadMonster(MonsterInfo info, GroupInfo group)
+        public EntityMonster? LoadMonster(MonsterInfo info, GroupInfo group, bool sendPacket = false)
         {
             if (info.IsClientOnly || info.IsDelete)
             {
-                return;
+                return null;
             }
 
             GameData.NpcMonsterDataData.TryGetValue(info.NPCMonsterID, out var excel);
             if (excel == null)
             {
-                return;
+                return null;
             }
 
-            EntityMonster entity = new(scene ,info.ToPositionProto(), info.ToRotationProto(), group.Id, excel.ID, excel, info);
-            scene.AddEntity(entity);
+            EntityMonster entity = new(scene, info.ToPositionProto(), info.ToRotationProto(), group.Id, info.ID, excel, info);
+            scene.AddEntity(entity, sendPacket);
+            return entity;
         }
 
-        public void LoadProp(PropInfo info, GroupInfo group)
+        public EntityProp? LoadProp(PropInfo info, GroupInfo group, bool sendPacket = false)
         {
             if (info.IsClientOnly || info.IsDelete)
             {
-                return;
+                return null;
             }
 
             GameData.MazePropData.TryGetValue(info.PropID, out var excel);
             if (excel == null)
             {
-                return;
+                return null;
             }
 
             var prop = new EntityProp(scene, excel, group, info);
 
-            scene.AddEntity(prop);
+            scene.AddEntity(prop, sendPacket);
 
             if (excel.PropType == PropTypeEnum.PROP_SPRING)
             {
                 scene.HealingSprings.Add(prop);
                 prop.SetState(PropStateEnum.CheckPointEnable);
-            } else
+            }
+            else
             {
                 prop.SetState(info.State);
             }
 
-            if (group.SaveType == SaveTypeEnum.Save)
+            // load from database
+            var propData = scene.Player.GetScenePropData(scene.FloorId, group.Id, info.ID);
+            if (propData != null)
             {
-                // load from database
-                var propData = scene.Player.GetScenePropData(scene.FloorId, group.Id, info.ID);
-                if (propData != null)
-                {
-                    prop.SetState(propData.State);
-                }
+                prop.SetState(propData.State);
             }
+            return prop;
         }
     }
 }

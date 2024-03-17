@@ -275,16 +275,10 @@ namespace EggLink.DanhengServer.Game.Player
                             }
                         }
                     }
-                    foreach (var id in MissionManager!.GetRunningSubMissionIdList())
-                    {
-                        if (MissionManager.GetSubMissionInfo(id)?.FinishType == MissionFinishTypeEnum.PropState)
-                        {
-                            if (MissionManager.GetSubMissionInfo(id)?.ParamInt2 == prop.PropInfo.ID)
-                            {
-                                MissionManager.FinishSubMission(id);
-                            }
-                        }
-                    }
+
+                    // for mission
+                    MissionManager!.OnPlayerInteractWithProp(prop.PropInfo);
+
                     return prop;
                 }
             }

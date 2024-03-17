@@ -4,7 +4,7 @@ using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Proto;
 
-namespace EggLink.DanhengServer.Game.Mission.Handler
+namespace EggLink.DanhengServer.Game.Mission.FinishAction.Handler
 {
     [MissionFinishAction(FinishActionTypeEnum.ChangeLineup)]
     public class MissionHandlerChangeLineup : MissionFinishActionHandler
@@ -27,7 +27,8 @@ namespace EggLink.DanhengServer.Game.Mission.Handler
                     {
                         BaseAvatarId = avatarId,
                     });
-                } else
+                }
+                else
                 {
                     avatars.Add(new Database.Lineup.AvatarInfo()
                     {
@@ -40,7 +41,8 @@ namespace EggLink.DanhengServer.Game.Mission.Handler
             if (leaderAvatar == null)
             {
                 Player.LineupManager!.GetCurLineup()!.LeaderAvatarId = Params[4];
-            } else
+            }
+            else
             {
                 Player.LineupManager!.GetCurLineup()!.LeaderAvatarId = leaderAvatar.AvatarID;
             }

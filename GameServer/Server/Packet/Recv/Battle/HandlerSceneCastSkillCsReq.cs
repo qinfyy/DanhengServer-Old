@@ -1,4 +1,5 @@
-﻿using EggLink.DanhengServer.Server.Packet.Send.Battle;
+﻿using EggLink.DanhengServer.Proto;
+using EggLink.DanhengServer.Server.Packet.Send.Battle;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,11 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Battle
     {
         public override void OnHandle(Connection connection, byte[] header, byte[] data)
         {
-            connection.SendPacket(new PacketSceneCastSkillScRsp());
+            var req = SceneCastSkillCsReq.Parser.ParseFrom(data);
+            if (req != null)
+            {
+                connection.Player!.BattleManager!.StartBattle(req);
+            }
         }
     }
 }

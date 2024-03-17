@@ -8,6 +8,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Tutorial
         public PacketGetTutorialScRsp(PlayerInstance player) : base(CmdIds.GetTutorialScRsp)
         {
             var proto = new GetTutorialScRsp();
+
             foreach (var item in player.TutorialData!.Tutorials)
             {
                 proto.TutorialList.Add(new Proto.Tutorial()

@@ -25,8 +25,8 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChpHZXRTY2VuZU1hcEluZm9TY1JzcC5wcm90bxoPTWF6ZUdyb3VwLnByb3Rv",
-            "Gg9NYXplQ2hlc3QucHJvdG8aEU1hemVNYXBEYXRhLnByb3RvGg5NYXplUHJv",
-            "cC5wcm90byLBAgoUR2V0U2NlbmVNYXBJbmZvU2NSc3ASIwoPbWF6ZV9ncm91",
+            "Gg5NYXplUHJvcC5wcm90bxoRTWF6ZU1hcERhdGEucHJvdG8aD01hemVDaGVz",
+            "dC5wcm90byLBAgoUR2V0U2NlbmVNYXBJbmZvU2NSc3ASIwoPbWF6ZV9ncm91",
             "cF9saXN0GA8gAygLMgouTWF6ZUdyb3VwEh4KCmNoZXN0X2xpc3QYDCADKAsy",
             "Ci5NYXplQ2hlc3QSEwoLTEpQTkpMRUhNSUoYBiABKA0SEAoIZW50cnlfaWQY",
             "CiABKA0SHAoUdW5sb2NrX3RlbGVwb3J0X2xpc3QYDSADKA0SEwoLS01FR1BB",
@@ -36,7 +36,7 @@ namespace EggLink.DanhengServer.Proto {
             "cF9lbnRyeV9pZBgJIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlBy",
             "b3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MazeGroupReflection.Descriptor, global::EggLink.DanhengServer.Proto.MazeChestReflection.Descriptor, global::EggLink.DanhengServer.Proto.MazeMapDataReflection.Descriptor, global::EggLink.DanhengServer.Proto.MazePropReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MazeGroupReflection.Descriptor, global::EggLink.DanhengServer.Proto.MazePropReflection.Descriptor, global::EggLink.DanhengServer.Proto.MazeMapDataReflection.Descriptor, global::EggLink.DanhengServer.Proto.MazeChestReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetSceneMapInfoScRsp), global::EggLink.DanhengServer.Proto.GetSceneMapInfoScRsp.Parser, new[]{ "MazeGroupList", "ChestList", "LJPNJLEHMIJ", "EntryId", "UnlockTeleportList", "KMEGPANKPMM", "MapList", "Retcode", "MazePropList", "LightenSectionList", "CurMapEntryId" }, null, null, null, null)
           }));

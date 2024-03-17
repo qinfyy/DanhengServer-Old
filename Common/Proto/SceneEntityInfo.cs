@@ -25,8 +25,8 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChVTY2VuZUVudGl0eUluZm8ucHJvdG8aGVNjZW5lTnBjTW9uc3RlckluZm8u",
-            "cHJvdG8aEE1vdGlvbkluZm8ucHJvdG8aGVNjZW5lU3VtbW9uVW5pdEluZm8u",
-            "cHJvdG8aElNjZW5lTnBjSW5mby5wcm90bxoTU2NlbmVQcm9wSW5mby5wcm90",
+            "cHJvdG8aEE1vdGlvbkluZm8ucHJvdG8aElNjZW5lTnBjSW5mby5wcm90bxoZ",
+            "U2NlbmVTdW1tb25Vbml0SW5mby5wcm90bxoTU2NlbmVQcm9wSW5mby5wcm90",
             "bxoUU2NlbmVBY3RvckluZm8ucHJvdG8ilAIKD1NjZW5lRW50aXR5SW5mbxIP",
             "CgdpbnN0X2lkGAQgASgNEhAKCGdyb3VwX2lkGAsgASgNEhsKBm1vdGlvbhgI",
             "IAEoCzILLk1vdGlvbkluZm8SEQoJZW50aXR5X2lkGAYgASgNEh4KBWFjdG9y",
@@ -36,7 +36,7 @@ namespace EggLink.DanhengServer.Proto {
             "dW5pdBgMIAEoCzIULlNjZW5lU3VtbW9uVW5pdEluZm9CHqoCG0VnZ0xpbmsu",
             "RGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.SceneNpcMonsterInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.MotionInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.SceneSummonUnitInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.SceneNpcInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ScenePropInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.SceneActorInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.SceneNpcMonsterInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.MotionInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.SceneNpcInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.SceneSummonUnitInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ScenePropInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.SceneActorInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SceneEntityInfo), global::EggLink.DanhengServer.Proto.SceneEntityInfo.Parser, new[]{ "InstId", "GroupId", "Motion", "EntityId", "Actor", "NpcMonster", "Npc", "Prop", "SummonUnit" }, null, null, null, null)
           }));

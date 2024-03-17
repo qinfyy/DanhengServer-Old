@@ -16,9 +16,25 @@
     }
 
     [AttributeUsage(AttributeTargets.Method)]
-    public class CommandMethod(List<CommandCondition> conditions) : Attribute
+    public class CommandMethod(CommandCondition conditions) : Attribute
     {
-        public List<CommandCondition> Conditions { get; } = conditions;
+        public List<CommandCondition> Conditions { get; } = [conditions];
+        public CommandMethod(string condition) : this(new CommandCondition())
+        {
+            var index = 0;
+            var conditions = condition.Split(' ');
+            foreach (var c in conditions)
+            {
+                if (int.TryParse(c, out var i))
+                {
+                    Conditions[index].Index = i;
+                }
+                else if (c is string s)
+                {
+                    Conditions[index++].ShouldBe = s;
+                }
+            }
+        }
     }
 
     [AttributeUsage(AttributeTargets.Method)]

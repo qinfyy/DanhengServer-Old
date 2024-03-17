@@ -24,9 +24,9 @@ namespace EggLink.DanhengServer.Proto {
     static CurChallengeReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChJDdXJDaGFsbGVuZ2UucHJvdG8aFUNoYWxsZW5nZVN0YXR1cy5wcm90bxoR",
-            "R05BRk5NUElJQ0MucHJvdG8aFUV4dHJhTGluZXVwVHlwZS5wcm90bxoVS2ls",
-            "bE1vbnN0ZXJJbmZvLnByb3RvIpICCgxDdXJDaGFsbGVuZ2USKwoRZXh0cmFf",
+            "ChJDdXJDaGFsbGVuZ2UucHJvdG8aFUV4dHJhTGluZXVwVHlwZS5wcm90bxoV",
+            "Q2hhbGxlbmdlU3RhdHVzLnByb3RvGhVLaWxsTW9uc3RlckluZm8ucHJvdG8a",
+            "EUdOQUZOTVBJSUNDLnByb3RvIpICCgxDdXJDaGFsbGVuZ2USKwoRZXh0cmFf",
             "bGluZXVwX3R5cGUYBCABKA4yEC5FeHRyYUxpbmV1cFR5cGUSEwoLSUZHSUtN",
             "SElOSEsYAiABKA0SHwoJY2VsbF9pbmZvGAYgASgLMgwuR05BRk5NUElJQ0MS",
             "IAoGc3RhdHVzGAogASgOMhAuQ2hhbGxlbmdlU3RhdHVzEisKEWtpbGxfbW9u",
@@ -35,7 +35,7 @@ namespace EggLink.DanhengServer.Proto {
             "ASgNEhQKDGNoYWxsZW5nZV9pZBgOIAEoDUIeqgIbRWdnTGluay5EYW5oZW5n",
             "U2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChallengeStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.GNAFNMPIICCReflection.Descriptor, global::EggLink.DanhengServer.Proto.ExtraLineupTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.KillMonsterInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ExtraLineupTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChallengeStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.KillMonsterInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.GNAFNMPIICCReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.CurChallenge), global::EggLink.DanhengServer.Proto.CurChallenge.Parser, new[]{ "ExtraLineupType", "IFGIKMHINHK", "CellInfo", "Status", "KillMonsterList", "EPIBHGGDLHC", "FIOOIEMCCGM", "ScoreId", "ChallengeId" }, null, null, null, null)
           }));

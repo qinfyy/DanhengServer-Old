@@ -2,8 +2,9 @@
 using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Database.Mission;
 using EggLink.DanhengServer.Enums;
+using EggLink.DanhengServer.Game.Mission.FinishAction;
+using EggLink.DanhengServer.Game.Mission.FinishType;
 using EggLink.DanhengServer.Game.Player;
-using EggLink.DanhengServer.Game.Scene.Entity;
 using EggLink.DanhengServer.Server.Packet.Send.Mission;
 using EggLink.DanhengServer.Server.Packet.Send.Player;
 using System.Reflection;
@@ -12,8 +13,11 @@ namespace EggLink.DanhengServer.Game.Mission
 {
     public class MissionManager : BasePlayerManager
     {
+        #region Initializer & Properties
+
         public MissionData Data;
         public Dictionary<FinishActionTypeEnum, MissionFinishActionHandler> ActionHandlers = [];
+        public Dictionary<MissionFinishTypeEnum, MissionFinishTypeHandler> FinishTypeHandlers = [];
         public MissionManager(PlayerInstance player) : base(player)
         {
             var mission = DatabaseHelper.Instance?.GetInstance<MissionData>(player.Uid);
@@ -36,8 +40,18 @@ namespace EggLink.DanhengServer.Game.Mission
                     var handler = (MissionFinishActionHandler)Activator.CreateInstance(type, null)!;
                     ActionHandlers.Add(attr.FinishAction, handler);
                 }
+                var attr2 = type.GetCustomAttribute<MissionFinishTypeAttribute>();
+                if (attr2 != null)
+                {
+                    var handler = (MissionFinishTypeHandler)Activator.CreateInstance(type, null)!;
+                    FinishTypeHandlers.Add(attr2.FinishType, handler);
+                }
             }
         }
+
+        #endregion
+
+        #region Mission Actions
 
         public void AcceptMainMission(int missionId)
         {
@@ -47,6 +61,7 @@ namespace EggLink.DanhengServer.Game.Mission
             if (mission == null) return;
 
             Data.MissionInfo.Add(missionId, []);
+            Data.MainMissionInfo.Add(missionId, MissionPhaseEnum.Doing);
             mission.MissionInfo?.StartSubMissionList.ForEach(AcceptSubMission);
         }
 
@@ -121,16 +136,8 @@ namespace EggLink.DanhengServer.Game.Mission
                             Status = Proto.MissionStatus.MissionDoing,
                         });
                     }
-                }
-                if (nextMission.FinishType == MissionFinishTypeEnum.PropState)
-                {
-                    foreach (var entity in Player.SceneInstance!.Entities.Values)
-                    {
-                        if (entity is EntityProp prop && prop.PropInfo.ID == nextMission.ParamInt2)
-                        {
-                            prop.SetState(PropStateEnum.Closed);
-                        }
-                    }
+                    FinishTypeHandlers.TryGetValue(nextMission.FinishType, out var handler);
+                    handler?.HandleFinishType(Player, nextMission.ParamInt1, nextMission.ParamInt2, nextMission.ParamInt3, nextMission.ID);
                 }
             }
             if (mainMission.MissionInfo != null)
@@ -141,7 +148,7 @@ namespace EggLink.DanhengServer.Game.Mission
             DatabaseHelper.Instance?.UpdateInstance(Data);
         }
 
-        public void HandleFinishAction(Data.Config.MissionInfo info, int subMissionId) 
+        public void HandleFinishAction(Data.Config.MissionInfo info, int subMissionId)
         {
             var subMission = info.SubMissionList.Find(x => x.ID == subMissionId);
             if (subMission == null) return;
@@ -157,6 +164,10 @@ namespace EggLink.DanhengServer.Game.Mission
             ActionHandlers.TryGetValue(actionInfo.FinishActionType, out var handler);
             handler?.OnHandle(actionInfo.FinishActionPara, Player);
         }
+
+        #endregion
+
+        #region Mission Status
 
         public MissionPhaseEnum GetMainMissionStatus(int missionId)
         {
@@ -206,6 +217,10 @@ namespace EggLink.DanhengServer.Game.Mission
             return list;
         }
 
+        #endregion
+
+        #region Handlers
+
         public void OnBattleFinish(Proto.PVEBattleResultCsReq req)
         {
             foreach (var mission in GetRunningSubMissionIdList())
@@ -217,5 +232,21 @@ namespace EggLink.DanhengServer.Game.Mission
                 }
             }
         }
+
+        public void OnPlayerInteractWithProp(Data.Config.PropInfo prop)
+        {
+            foreach (var id in GetRunningSubMissionIdList())
+            {
+                if (GetSubMissionInfo(id)?.FinishType == MissionFinishTypeEnum.PropState)
+                {
+                    if (GetSubMissionInfo(id)?.ParamInt2 == prop.ID)
+                    {
+                        FinishSubMission(id);
+                    }
+                }
+            }
+        }
+
+        #endregion
     }
 }

@@ -3,6 +3,7 @@ using EggLink.DanhengServer.Data.Excel;
 using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Database.Avatar;
 using EggLink.DanhengServer.Game.Player;
+using EggLink.DanhengServer.Game.Scene.Entity;
 using EggLink.DanhengServer.Proto;
 
 namespace EggLink.DanhengServer.Game.Battle
@@ -15,11 +16,25 @@ namespace EggLink.DanhengServer.Game.Battle
         public int CocoonWave { get; set; }
         public int MappingInfoId { get; set; }
         public int RoundLimit { get; set; }
-        public int StageId { get; set; } = stages[0].StageID;
+        public int StageId { get; set; } = stages.Count > 0 ? stages[0].StageID : 0;
         public BattleEndStatus BattleEndStatus { get; set; }
 
         public List<StageConfigExcel> Stages { get; set; } = stages;
         public Database.Lineup.LineupInfo Lineup { get; set; } = lineup;
+
+        public BattleInstance(PlayerInstance player, Database.Lineup.LineupInfo lineup, List<EntityMonster> monsters) : this(player, lineup, new List<StageConfigExcel>())
+        {
+            foreach (var monster in monsters)
+            {
+                var id = monster.GetStageId();
+                GameData.StageConfigData.TryGetValue(id, out var stage);
+                if (stage != null)
+                {
+                    Stages.Add(stage);
+                }
+            }
+            StageId = Stages[0].StageID;
+        }
 
         public ItemList GetDropItemList()
         {
@@ -62,7 +77,7 @@ namespace EggLink.DanhengServer.Game.Battle
                     GameData.SpecialAvatarData.TryGetValue(avatar.SpecialAvatarId, out var specialAvatar);
                     if (specialAvatar != null)
                     {
-                        avatarInstance = specialAvatar.ToAvatarData();
+                        avatarInstance = specialAvatar.ToAvatarData(Player.Uid);
                         avatarType = AvatarType.AvatarTrialType;
                     }
                 } else

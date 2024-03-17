@@ -4,10 +4,10 @@ namespace EggLink.DanhengServer.Enums
 {
     public enum MissionPhaseEnum
     {
-        None = 0,
-        Doing = 1,
-        Finish = 2,
-        Cancel = 3,
+        Doing = 0,
+        Finish = 1,
+        Cancel = 2,
+        None = 3,
     }
 
     public static class MissionStatusExtensions

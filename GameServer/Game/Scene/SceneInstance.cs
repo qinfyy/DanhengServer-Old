@@ -7,6 +7,8 @@ using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Game.Scene.Entity;
 using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Server.Packet;
+using EggLink.DanhengServer.Server.Packet.Send.Lineup;
+using EggLink.DanhengServer.Server.Packet.Send.Scene;
 
 namespace EggLink.DanhengServer.Game.Scene
 {
@@ -25,7 +27,7 @@ namespace EggLink.DanhengServer.Game.Scene
         public bool IsLoaded = false;
 
         public Dictionary<int, AvatarSceneInfo> AvatarInfo = [];
-        public int LeaderAvatarId;
+        public int LeaderEntityId;
         public Dictionary<int, IGameEntity> Entities = [];
         public List<EntityProp> HealingSprings = [];
 
@@ -58,9 +60,12 @@ namespace EggLink.DanhengServer.Game.Scene
 
         #region Scene Actions
 
-        public void SyncLineup()
+        public void SyncLineup(bool notSendPacket = true)
         {
-            AvatarInfo = [];
+            var oldAvatarInfo = AvatarInfo.Values.ToList();
+            AvatarInfo.Clear();
+            bool sendPacket = false;
+            List<SceneEntityInfo> avatarEntities = [];
             foreach (var avatar in Player.LineupManager?.GetCurLineup()?.BaseAvatars ?? [])
             {
                 if (avatar.AssistUid != 0)
@@ -71,7 +76,19 @@ namespace EggLink.DanhengServer.Game.Scene
                         var assistAvatar = assistPlayer.Avatars?.Find(x => x.GetAvatarId() == avatar.BaseAvatarId);
                         if (assistAvatar != null)
                         {
-                            AvatarInfo.Add(assistAvatar.GetAvatarId(), new(assistAvatar, AvatarType.AvatarAssistType));
+                            assistAvatar.EntityId = ++LastEntityId;
+                            var oldAvatarId = assistAvatar.AvatarId;
+                            var oldAvatar = oldAvatarInfo.Find(x => x.AvatarInfo.AvatarId == oldAvatarId);
+                            if (oldAvatar == null)
+                            {
+                                sendPacket = true;
+                            }
+                            else
+                            {
+                                assistAvatar.EntityId = oldAvatar.AvatarInfo.EntityId;  // keep old entity id
+                            }
+                            AvatarInfo.Add(assistAvatar.EntityId, new(assistAvatar, AvatarType.AvatarAssistType));
+                            avatarEntities.Add(assistAvatar.ToSceneEntityInfo());
                         }
                     }
                 } else if (avatar.SpecialAvatarId != 0)
@@ -79,9 +96,20 @@ namespace EggLink.DanhengServer.Game.Scene
                     var specialAvatar = GameData.SpecialAvatarData[avatar.SpecialAvatarId];
                     if (specialAvatar != null)
                     {
-                        var avatarData = specialAvatar.ToAvatarData();
+                        var avatarData = specialAvatar.ToAvatarData(Player.Uid);
                         avatarData.EntityId = ++LastEntityId;
+                        var oldAvatarId = avatarData.AvatarId;
+                        var oldAvatar = oldAvatarInfo.Find(x => x.AvatarInfo.AvatarId == oldAvatarId);
+                        if (oldAvatar == null)
+                        {
+                            sendPacket = true;
+                        }
+                        else
+                        {
+                            avatarData.EntityId = oldAvatar.AvatarInfo.EntityId;  // keep old entity id
+                        }
                         AvatarInfo.Add(avatarData.EntityId, new(avatarData, AvatarType.AvatarTrialType));
+                        avatarEntities.Add(avatarData.ToSceneEntityInfo());
                     }
                 } else
                 {
@@ -89,12 +117,32 @@ namespace EggLink.DanhengServer.Game.Scene
                     if (avatarData?.GetAvatarId() == avatar.BaseAvatarId)
                     {
                         avatarData.EntityId = ++LastEntityId;
+                        var oldAvatarId = avatarData.AvatarId;
+                        var oldAvatar = oldAvatarInfo.Find(x => x.AvatarInfo.AvatarId == oldAvatarId);
+                        if (oldAvatar == null)
+                        {
+                            sendPacket = true;
+                        }
+                        else
+                        {
+                            avatarData.EntityId = oldAvatar.AvatarInfo.EntityId;  // keep old entity id
+                        }
                         AvatarInfo.Add(avatarData.EntityId, new(avatarData, AvatarType.AvatarFormalType));
+                        avatarEntities.Add(avatarData.ToSceneEntityInfo());
                     }
                 }
             };
 
-            LeaderAvatarId = Player.LineupManager?.GetCurLineup()?.LeaderAvatarId ?? 0;
+            var LeaderAvatarId = Player.LineupManager?.GetCurLineup()?.LeaderAvatarId;
+            var LeaderAvatarSlot = Player.LineupManager?.GetCurLineup()?.BaseAvatars?.FindIndex(x => x.BaseAvatarId == LeaderAvatarId);
+            if (LeaderAvatarSlot == -1) LeaderAvatarSlot = 0;
+            var info = AvatarInfo.Values.ToList()[LeaderAvatarSlot ?? 0];
+            LeaderEntityId = info.AvatarInfo.EntityId;
+            Player.SendPacket(new PacketSyncLineupNotify(Player.LineupManager!.GetCurLineup()!));
+            if (sendPacket && !notSendPacket)
+            {
+                Player.SendPacket(new PacketSceneGroupRefreshScNotify(avatarEntities));
+            }
         }
 
         public void SyncGroupInfo()
@@ -141,11 +189,20 @@ namespace EggLink.DanhengServer.Game.Scene
             entity.EntityID = ++LastEntityId;
 
             Entities.Add(entity.EntityID, entity);
+            if (SendPacket)
+            {
+                Player.SendPacket(new PacketSceneGroupRefreshScNotify(entity));
+            }
         }
 
         public void RemoveEntity(IGameEntity monster, bool SendPacket = false)
         {
             Entities.Remove(monster.EntityID);
+
+            if (SendPacket)
+            {
+                Player.SendPacket(new PacketSceneGroupRefreshScNotify(null, monster));
+            }
         }
 
         public List<T> GetEntitiesInGroup<T>(int groupID)
@@ -182,14 +239,13 @@ namespace EggLink.DanhengServer.Game.Scene
             }
             if (playerGroupInfo.EntityList.Count > 0)
             {
-                if (LeaderAvatarId != 0)
+                if (LeaderEntityId == 0)
                 {
-                    sceneInfo.LeaderEntityId = (uint)LeaderAvatarId;
-                }
-                else
+                    LeaderEntityId = AvatarInfo.Values.First().AvatarInfo.EntityId;
+                    sceneInfo.LeaderEntityId = (uint)LeaderEntityId;
+                } else
                 {
-                    LeaderAvatarId = AvatarInfo.Keys.First();
-                    sceneInfo.LeaderEntityId = (uint)LeaderAvatarId;
+                    sceneInfo.LeaderEntityId = (uint)LeaderEntityId;
                 }
             }
             sceneInfo.EntityGroupList.Add(playerGroupInfo);

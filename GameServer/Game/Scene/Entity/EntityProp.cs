@@ -28,6 +28,7 @@ namespace EggLink.DanhengServer.Game.Scene.Entity
 
         public void SetState(PropStateEnum state, bool sendPacket)
         {
+            if (State == PropStateEnum.Open) return;  // already open   DO NOT CLOSE AGAIN
             State = state;
             if (sendPacket)
             {
@@ -35,10 +36,7 @@ namespace EggLink.DanhengServer.Game.Scene.Entity
             }
 
             // save
-            if (Group.SaveType == SaveTypeEnum.Save)
-            {
-                scene.Player.SetScenePropData(scene.FloorId, Group.Id, PropInfo.ID, state);
-            }
+            scene.Player.SetScenePropData(scene.FloorId, Group.Id, PropInfo.ID, state);
         }
 
         public SceneEntityInfo ToProto()
