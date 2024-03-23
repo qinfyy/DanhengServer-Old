@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EggLink.DanhengServer.Game.Scene.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,11 +25,26 @@ namespace EggLink.DanhengServer.Command.Cmd
             arg.SendMsg($"Loaded groups: {string.Join(", ", loadedGroup)}");
         }
 
-        [CommandMethod("0 pass")]  // temp  should be moved to mission
-        public void PassRunningMission(CommandArg arg)
+        [CommandMethod("0 prop")]
+        public void GetProp(CommandArg arg)
         {
-            var mission = arg.Target!.Player!.MissionManager!;
-            mission.GetRunningSubMissionIdList().ForEach(mission.AcceptSubMission);
+            var scene = arg.Target!.Player!.SceneInstance!;
+            EntityProp? prop = null;
+            foreach (var entity in scene.GetEntitiesInGroup<EntityProp>(arg.GetInt(1)))
+            {
+                if (entity.PropInfo.ID == arg.GetInt(1))
+                {
+                    prop = entity;
+                    break;
+                }
+            }
+            if (prop == null)
+            {
+                arg.SendMsg("Prop not found");
+                return;
+            }
+            prop.SetState((Enums.PropStateEnum)arg.GetInt(2));
+            arg.SendMsg($"Prop: {prop.EntityID} has been set to {(Enums.PropStateEnum)arg.GetInt(2)}");
         }
     }
 }

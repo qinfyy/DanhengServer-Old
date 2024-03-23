@@ -24,9 +24,9 @@ namespace EggLink.DanhengServer.Proto {
     static HeliobusActivityDataScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Ch9IZWxpb2J1c0FjdGl2aXR5RGF0YVNjUnNwLnByb3RvGhdIZWxpb2J1c0No",
-            "YWxsZW5nZS5wcm90bxoTSGVsaW9idXNTa2lsbC5wcm90bxoSSGVsaW9idXNQ",
-            "b3N0LnByb3RvGh1IZWxpb2J1c0NoYWxsZW5nZUxpbmV1cC5wcm90byKxAgoZ",
+            "Ch9IZWxpb2J1c0FjdGl2aXR5RGF0YVNjUnNwLnByb3RvGhNIZWxpb2J1c1Nr",
+            "aWxsLnByb3RvGhJIZWxpb2J1c1Bvc3QucHJvdG8aHUhlbGlvYnVzQ2hhbGxl",
+            "bmdlTGluZXVwLnByb3RvGhdIZWxpb2J1c0NoYWxsZW5nZS5wcm90byKxAgoZ",
             "SGVsaW9idXNBY3Rpdml0eURhdGFTY1JzcBIPCgdyZXRjb2RlGAkgASgNEg0K",
             "BXBoYXNlGAIgASgNEhMKC1BBRE5BS0lEQ0RKGAogASgNEg0KBWxldmVsGA8g",
             "ASgNEhMKC0xBRUdBTENQT1BEGAMgASgNEioKDmNoYWxsZW5nZV9saXN0GAcg",
@@ -36,7 +36,7 @@ namespace EggLink.DanhengServer.Proto {
             "SGVsaW9idXNQb3N0EhMKC0pFQk9BR0VOSENNGAwgASgNQh6qAhtFZ2dMaW5r",
             "LkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.HeliobusChallengeReflection.Descriptor, global::EggLink.DanhengServer.Proto.HeliobusSkillReflection.Descriptor, global::EggLink.DanhengServer.Proto.HeliobusPostReflection.Descriptor, global::EggLink.DanhengServer.Proto.HeliobusChallengeLineupReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.HeliobusSkillReflection.Descriptor, global::EggLink.DanhengServer.Proto.HeliobusPostReflection.Descriptor, global::EggLink.DanhengServer.Proto.HeliobusChallengeLineupReflection.Descriptor, global::EggLink.DanhengServer.Proto.HeliobusChallengeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.HeliobusActivityDataScRsp), global::EggLink.DanhengServer.Proto.HeliobusActivityDataScRsp.Parser, new[]{ "Retcode", "Phase", "PADNAKIDCDJ", "Level", "LAEGALCPOPD", "ChallengeList", "SkillInfo", "HelibiousLineup", "EPOBHINFIAL", "JEBOAGENHCM" }, null, null, null, null)
           }));

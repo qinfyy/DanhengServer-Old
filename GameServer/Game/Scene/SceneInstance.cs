@@ -9,6 +9,7 @@ using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Server.Packet;
 using EggLink.DanhengServer.Server.Packet.Send.Lineup;
 using EggLink.DanhengServer.Server.Packet.Send.Scene;
+using EggLink.DanhengServer.Util;
 
 namespace EggLink.DanhengServer.Game.Scene
 {
@@ -41,7 +42,7 @@ namespace EggLink.DanhengServer.Game.Scene
             FloorId = floorId;
             EntryId = entryId;
 
-            SyncLineup();
+            SyncLineup(true, true);
 
             GameData.GetFloorInfo(PlaneId, FloorId, out FloorInfo);
             if (FloorInfo == null) return;
@@ -60,88 +61,53 @@ namespace EggLink.DanhengServer.Game.Scene
 
         #region Scene Actions
 
-        public void SyncLineup(bool notSendPacket = true)
+        public void SyncLineup(bool notSendPacket = false, bool forceSetEntityId = false)
         {
             var oldAvatarInfo = AvatarInfo.Values.ToList();
             AvatarInfo.Clear();
             bool sendPacket = false;
-            List<SceneEntityInfo> avatarEntities = [];
-            foreach (var avatar in Player.LineupManager?.GetCurLineup()?.BaseAvatars ?? [])
+            var AddAvatar = new List<IGameEntity>();
+            var RemoveAvatar = new List<IGameEntity>();
+            foreach (var avatar in Player.LineupManager?.GetAvatarsFromCurTeam() ?? [])
             {
-                if (avatar.AssistUid != 0)
+                if (avatar == null) continue;
+                if (forceSetEntityId)
                 {
-                    var assistPlayer = DatabaseHelper.Instance?.GetInstance<AvatarData>(avatar.AssistUid);
-                    if (assistPlayer != null)
-                    {
-                        var assistAvatar = assistPlayer.Avatars?.Find(x => x.GetAvatarId() == avatar.BaseAvatarId);
-                        if (assistAvatar != null)
-                        {
-                            assistAvatar.EntityId = ++LastEntityId;
-                            var oldAvatarId = assistAvatar.AvatarId;
-                            var oldAvatar = oldAvatarInfo.Find(x => x.AvatarInfo.AvatarId == oldAvatarId);
-                            if (oldAvatar == null)
-                            {
-                                sendPacket = true;
-                            }
-                            else
-                            {
-                                assistAvatar.EntityId = oldAvatar.AvatarInfo.EntityId;  // keep old entity id
-                            }
-                            AvatarInfo.Add(assistAvatar.EntityId, new(assistAvatar, AvatarType.AvatarAssistType));
-                            avatarEntities.Add(assistAvatar.ToSceneEntityInfo());
-                        }
-                    }
-                } else if (avatar.SpecialAvatarId != 0)
+                    avatar.AvatarInfo.EntityId = ++LastEntityId;
+                }
+                var avatarInstance = oldAvatarInfo.Find(x => x.AvatarInfo.AvatarId == avatar.AvatarInfo.AvatarId);
+                if (avatarInstance == null)
                 {
-                    var specialAvatar = GameData.SpecialAvatarData[avatar.SpecialAvatarId];
-                    if (specialAvatar != null)
+                    if (avatar.AvatarInfo.EntityId == 0)
                     {
-                        var avatarData = specialAvatar.ToAvatarData(Player.Uid);
-                        avatarData.EntityId = ++LastEntityId;
-                        var oldAvatarId = avatarData.AvatarId;
-                        var oldAvatar = oldAvatarInfo.Find(x => x.AvatarInfo.AvatarId == oldAvatarId);
-                        if (oldAvatar == null)
-                        {
-                            sendPacket = true;
-                        }
-                        else
-                        {
-                            avatarData.EntityId = oldAvatar.AvatarInfo.EntityId;  // keep old entity id
-                        }
-                        AvatarInfo.Add(avatarData.EntityId, new(avatarData, AvatarType.AvatarTrialType));
-                        avatarEntities.Add(avatarData.ToSceneEntityInfo());
+                        avatar.AvatarInfo.EntityId = ++LastEntityId;
                     }
+                    AddAvatar.Add(avatar);
+                    AvatarInfo.Add(avatar.AvatarInfo.EntityId, avatar);
+                    sendPacket = true;
                 } else
                 {
-                    var avatarData = Player.AvatarManager?.GetAvatar(avatar.BaseAvatarId);
-                    if (avatarData?.GetAvatarId() == avatar.BaseAvatarId)
-                    {
-                        avatarData.EntityId = ++LastEntityId;
-                        var oldAvatarId = avatarData.AvatarId;
-                        var oldAvatar = oldAvatarInfo.Find(x => x.AvatarInfo.AvatarId == oldAvatarId);
-                        if (oldAvatar == null)
-                        {
-                            sendPacket = true;
-                        }
-                        else
-                        {
-                            avatarData.EntityId = oldAvatar.AvatarInfo.EntityId;  // keep old entity id
-                        }
-                        AvatarInfo.Add(avatarData.EntityId, new(avatarData, AvatarType.AvatarFormalType));
-                        avatarEntities.Add(avatarData.ToSceneEntityInfo());
-                    }
+                    AvatarInfo.Add(avatarInstance.AvatarInfo.EntityId, avatarInstance);
                 }
             };
+            foreach (var avatar in oldAvatarInfo)
+            {
+                if (AvatarInfo.Values.ToList().FindIndex(x => x.AvatarInfo.AvatarId == avatar.AvatarInfo.AvatarId) == -1)
+                {
+                    RemoveAvatar.Add(avatar);
+                    sendPacket = true;
+                }
+            }
 
             var LeaderAvatarId = Player.LineupManager?.GetCurLineup()?.LeaderAvatarId;
             var LeaderAvatarSlot = Player.LineupManager?.GetCurLineup()?.BaseAvatars?.FindIndex(x => x.BaseAvatarId == LeaderAvatarId);
             if (LeaderAvatarSlot == -1) LeaderAvatarSlot = 0;
+            if (AvatarInfo.Count == 0) return;
             var info = AvatarInfo.Values.ToList()[LeaderAvatarSlot ?? 0];
             LeaderEntityId = info.AvatarInfo.EntityId;
-            Player.SendPacket(new PacketSyncLineupNotify(Player.LineupManager!.GetCurLineup()!));
             if (sendPacket && !notSendPacket)
             {
-                Player.SendPacket(new PacketSceneGroupRefreshScNotify(avatarEntities));
+                Player.SendPacket(new PacketSceneGroupRefreshScNotify(AddAvatar, RemoveAvatar));
             }
         }
 
@@ -195,7 +161,12 @@ namespace EggLink.DanhengServer.Game.Scene
             }
         }
 
-        public void RemoveEntity(IGameEntity monster, bool SendPacket = false)
+        public void RemoveEntity(IGameEntity monster)
+        {
+            RemoveEntity(monster, IsLoaded);
+        }
+
+        public void RemoveEntity(IGameEntity monster, bool SendPacket)
         {
             Entities.Remove(monster.EntityID);
 
@@ -302,9 +273,17 @@ namespace EggLink.DanhengServer.Game.Scene
         #endregion
     }
 
-    public class AvatarSceneInfo(AvatarInfo avatarInfo, AvatarType avatarType)
+    public class AvatarSceneInfo(AvatarInfo avatarInfo, AvatarType avatarType) : IGameEntity
     {
         public AvatarInfo AvatarInfo = avatarInfo;
         public AvatarType AvatarType = avatarType;
+
+        public int EntityID { get; set; } = avatarInfo.EntityId;
+        public int GroupID { get; set; } = 0;
+
+        public SceneEntityInfo ToProto()
+        {
+            return AvatarInfo.ToSceneEntityInfo(AvatarType);
+        }
     }
 }

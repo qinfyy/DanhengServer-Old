@@ -71,7 +71,9 @@ namespace EggLink.DanhengServer.Data.Config
                 } else
                 {
                     // sub mission
-                    var mainMissionId = int.Parse(condition.ID.ToString()[..^2]);
+                    GameData.SubMissionData.TryGetValue(condition.ID, out var subMission);
+                    if (subMission == null) continue;
+                    var mainMissionId = subMission.MainMissionID;
                     mission.MissionInfo.TryGetValue(mainMissionId, out var info);
                     info ??= new() { { mainMissionId, new()
                     {

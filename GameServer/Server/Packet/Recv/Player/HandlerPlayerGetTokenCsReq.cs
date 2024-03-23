@@ -19,6 +19,7 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Player
             if (account == null)
             {
                 connection.SendPacket(new PacketPlayerGetTokenScRsp());
+                connection.SendPacket(new PacketPlayerKickOutScNotify());
                 return;
             }
 

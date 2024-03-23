@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static MissionDataReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFNaXNzaW9uRGF0YS5wcm90bxoTTWlzc2lvblN0YXR1cy5wcm90bxocTWlz",
-            "c2lvbkN1c3RvbVZhbHVlRGF0YS5wcm90byJtCgtNaXNzaW9uRGF0YRIyChFj",
+            "ChFNaXNzaW9uRGF0YS5wcm90bxocTWlzc2lvbkN1c3RvbVZhbHVlRGF0YS5w",
+            "cm90bxoTTWlzc2lvblN0YXR1cy5wcm90byJtCgtNaXNzaW9uRGF0YRIyChFj",
             "dXN0b21fdmFsdWVfbGlzdBgJIAMoCzIXLk1pc3Npb25DdXN0b21WYWx1ZURh",
             "dGESCgoCaWQYDSABKA0SHgoGc3RhdHVzGAggASgOMg4uTWlzc2lvblN0YXR1",
             "c0IeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MissionStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.MissionCustomValueDataReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MissionCustomValueDataReflection.Descriptor, global::EggLink.DanhengServer.Proto.MissionStatusReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.MissionData), global::EggLink.DanhengServer.Proto.MissionData.Parser, new[]{ "CustomValueList", "Id", "Status" }, null, null, null, null)
           }));

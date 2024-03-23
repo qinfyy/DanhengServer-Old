@@ -1,4 +1,6 @@
-﻿namespace EggLink.DanhengServer.Data.Excel
+﻿using Newtonsoft.Json;
+
+namespace EggLink.DanhengServer.Data.Excel
 {
     [ResourceEntity("AvatarConfig.json", true)]
     public class AvatarConfigExcel : ExcelResource
@@ -6,6 +8,7 @@
         public int AvatarID { get; set; } = 0;
         public HashName AvatarName { get; set; } = new();
 
+        [JsonIgnore()]
         public List<AvatarSkillTreeConfigExcel> DefaultSkillTree = [];
         public override int GetId()
         {

@@ -14,7 +14,6 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Scene
                 var group = new GroupRefreshInfo()
                 {
                     GroupId = (uint)e.GroupID,
-                    Type = SceneGroupRefreshType.Loaded
                 };
                 group.RefreshEntity.Add(new SceneEntityRefreshInfo()
                 {
@@ -36,7 +35,6 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Scene
                 var group = new GroupRefreshInfo()
                 {
                     GroupId = (uint)e.GroupID,
-                    Type = SceneGroupRefreshType.Unload
                 };
                 group.RefreshEntity.Add(new SceneEntityRefreshInfo()
                 {
@@ -61,23 +59,6 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Scene
         public PacketSceneGroupRefreshScNotify(IGameEntity? addEntity = null, IGameEntity? removeEntity = null) :
             this(addEntity == null ? [] : [addEntity], removeEntity == null ? [] : [removeEntity])
         {
-        }
-
-        public PacketSceneGroupRefreshScNotify(List<SceneEntityInfo> infos) : base(CmdIds.SceneGroupRefreshScNotify)
-        {
-            var proto = new SceneGroupRefreshScNotify();
-            GroupRefreshInfo group = new();
-            foreach (var info in infos)
-            {
-                group.RefreshEntity.Add(new SceneEntityRefreshInfo()
-                {
-                    AddEntity = info,
-                });
-            }
-            group.Type = SceneGroupRefreshType.Loaded;
-            proto.GroupRefreshList.Add(group);
-
-            SetData(proto);
         }
     }
 }

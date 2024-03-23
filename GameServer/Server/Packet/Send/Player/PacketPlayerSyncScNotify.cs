@@ -59,6 +59,16 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Player
             SetData(proto);
         }
 
+        public PacketPlayerSyncScNotify(PlayerBasicInfo info) : base(CmdIds.PlayerSyncScNotify)
+        {
+            var proto = new PlayerSyncScNotify()
+            {
+                BasicInfo = info,
+            };
+
+            SetData(proto);
+        }
+
         private void AddItemToProto(ItemData item, out PlayerSyncScNotify notify)
         {
             notify = new PlayerSyncScNotify();

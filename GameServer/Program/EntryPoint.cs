@@ -102,7 +102,7 @@ namespace EggLink.DanhengServer.Program
 
         private delegate bool ConsoleCtrlDelegate(int ctrlType);
 
-        [LibraryImport("Kernel32")]
+        [LibraryImport("Kernel32")]  // Windows only  try to find a way to do this on linux
         [return: MarshalAs(UnmanagedType.Bool)]
         private static partial bool SetConsoleCtrlHandler(ConsoleCtrlDelegate handler, [MarshalAs(UnmanagedType.Bool)] bool add);
 

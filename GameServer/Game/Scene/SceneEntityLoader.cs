@@ -185,16 +185,16 @@ namespace EggLink.DanhengServer.Game.Scene
                 scene.HealingSprings.Add(prop);
                 prop.SetState(PropStateEnum.CheckPointEnable);
             }
-            else
-            {
-                prop.SetState(info.State);
-            }
 
             // load from database
             var propData = scene.Player.GetScenePropData(scene.FloorId, group.Id, info.ID);
             if (propData != null)
             {
                 prop.SetState(propData.State);
+            } 
+            else
+            {
+                prop.SetState(info.State);
             }
             return prop;
         }

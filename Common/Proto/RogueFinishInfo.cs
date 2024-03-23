@@ -25,8 +25,8 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChVSb2d1ZUZpbmlzaEluZm8ucHJvdG8aGlJvZ3VlU2NvcmVSZXdhcmRJbmZv",
-            "LnByb3RvGg5JdGVtTGlzdC5wcm90bxoVUm9ndWVSZWNvcmRJbmZvLnByb3Rv",
-            "GhtSb2d1ZUV4cGxvcmVTY29yZUluZm8ucHJvdG8aEUFPSFBDTkdETEtELnBy",
+            "LnByb3RvGhtSb2d1ZUV4cGxvcmVTY29yZUluZm8ucHJvdG8aEUFPSFBDTkdE",
+            "TEtELnByb3RvGhVSb2d1ZVJlY29yZEluZm8ucHJvdG8aDkl0ZW1MaXN0LnBy",
             "b3RvIvcDCg9Sb2d1ZUZpbmlzaEluZm8SIQoLQkRCSUdISk9GTUwYCyABKAsy",
             "DC5BT0hQQ05HRExLRBITCgtETExFRkRQUENIUBgCIAEoCBIQCgdhcmVhX2lk",
             "GOIIIAEoDRITCgtHQUtGQkZOQ0pQRxgBIAEoDRIlCgtyZWNvcmRfaW5mbxgH",
@@ -41,7 +41,7 @@ namespace EggLink.DanhengServer.Proto {
             "ASgLMgkuSXRlbUxpc3RCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90",
             "b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RogueScoreRewardInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ItemListReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueRecordInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueExploreScoreInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.AOHPCNGDLKDReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RogueScoreRewardInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueExploreScoreInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.AOHPCNGDLKDReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueRecordInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ItemListReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueFinishInfo), global::EggLink.DanhengServer.Proto.RogueFinishInfo.Parser, new[]{ "BDBIGHJOFML", "DLLEFDPPCHP", "AreaId", "GAKFBFNCJPG", "RecordInfo", "RewardInfo", "JACMEEJGFGC", "FMIAODPPBAK", "EHKAAHNOMML", "MFEICGJIIPG", "OGHPDDOMBPJ", "PPFKLKHHAEO", "MFBJHBCCBKD", "LKBFHOPJGNN", "ScoreInfo", "ScoreId", "OHEAGDCBICL" }, null, null, null, null)
           }));

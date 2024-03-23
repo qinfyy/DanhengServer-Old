@@ -21,6 +21,7 @@ namespace EggLink.DanhengServer.Game.Battle
 
         public List<StageConfigExcel> Stages { get; set; } = stages;
         public Database.Lineup.LineupInfo Lineup { get; set; } = lineup;
+        public List<EntityMonster> EntityMonsters { get; set; } = new();
 
         public BattleInstance(PlayerInstance player, Database.Lineup.LineupInfo lineup, List<EntityMonster> monsters) : this(player, lineup, new List<StageConfigExcel>())
         {
@@ -33,6 +34,7 @@ namespace EggLink.DanhengServer.Game.Battle
                     Stages.Add(stage);
                 }
             }
+            EntityMonsters = monsters;
             StageId = Stages[0].StageID;
         }
 

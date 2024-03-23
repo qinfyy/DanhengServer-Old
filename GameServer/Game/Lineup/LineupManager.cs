@@ -2,6 +2,8 @@
 using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Database.Lineup;
 using EggLink.DanhengServer.Game.Player;
+using EggLink.DanhengServer.Game.Scene;
+using EggLink.DanhengServer.Server.Packet.Send.Lineup;
 
 namespace EggLink.DanhengServer.Game.Lineup
 {
@@ -58,7 +60,7 @@ namespace EggLink.DanhengServer.Game.Lineup
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
         }
 
-        public void AddAvatar(int lineupIndex, int avatarId)
+        public void AddAvatar(int lineupIndex, int avatarId, bool sendPacket = true)
         {
             if (lineupIndex < 0)
             {
@@ -82,14 +84,22 @@ namespace EggLink.DanhengServer.Game.Lineup
                 LineupInfo[lineupIndex] = lineup;
             }
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
+            if (sendPacket)
+            {
+                Player.SendPacket(new PacketSyncLineupNotify(lineup));
+                if (lineupIndex == LineupData.CurLineup)
+                {
+                    Player.SceneInstance?.SyncLineup();
+                }
+            }
         }
 
-        public void AddAvatarToCurTeam(int avatarId)
+        public void AddAvatarToCurTeam(int avatarId, bool sendPacket = true)
         {
-            AddAvatar(LineupData.CurLineup, avatarId);
+            AddAvatar(LineupData.CurLineup, avatarId, sendPacket);
         }
 
-        public void AddSpecialAvatarToCurTeam(int specialAvatarId)
+        public void AddSpecialAvatarToCurTeam(int specialAvatarId, bool sendPacket = true)
         {
             LineupInfo.TryGetValue(LineupData.CurLineup, out LineupInfo? lineup);
             GameData.SpecialAvatarData.TryGetValue(specialAvatarId, out var specialAvatar);
@@ -114,6 +124,99 @@ namespace EggLink.DanhengServer.Game.Lineup
                 LineupInfo[LineupData.CurLineup] = lineup;
             }
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
+            if (sendPacket)
+            {
+                Player.SendPacket(new PacketSyncLineupNotify(lineup));
+                Player.SceneInstance?.SyncLineup();
+            }
+        }
+
+        public void RemoveAvatar(int lineupIndex, int avatarId)
+        {
+            if (lineupIndex < 0)
+            {
+                return;
+            }
+            LineupInfo.TryGetValue(lineupIndex, out LineupInfo? lineup);
+            if (lineup == null)
+            {
+                return;
+            }
+            lineup.BaseAvatars?.RemoveAll(avatar => avatar.BaseAvatarId == avatarId);
+            LineupInfo[lineupIndex] = lineup;
+            DatabaseHelper.Instance?.UpdateInstance(LineupData);
+            Player.SendPacket(new PacketSyncLineupNotify(lineup));
+            if (lineupIndex == LineupData.CurLineup)
+            {
+                Player.SceneInstance?.SyncLineup();
+            }
+        }
+
+        public void RemoveAvatarFromCurTeam(int avatarId)
+        {
+            RemoveAvatar(LineupData.CurLineup, avatarId);
+        }
+
+        public void RemoveSpecialAvatarFromCurTeam(int specialAvatarId)
+        {
+            LineupInfo.TryGetValue(LineupData.CurLineup, out LineupInfo? lineup);
+            if (lineup == null)
+            {
+                return;
+            }
+            lineup.BaseAvatars?.RemoveAll(avatar => avatar.SpecialAvatarId == specialAvatarId);
+            LineupInfo[LineupData.CurLineup] = lineup;
+            DatabaseHelper.Instance?.UpdateInstance(LineupData);
+            Player.SendPacket(new PacketSyncLineupNotify(lineup));
+            Player.SceneInstance?.SyncLineup();
+        }
+
+        public List<AvatarSceneInfo> GetAvatarsFromTeam(int index)
+        {
+            var lineup = GetLineup(index);
+            if (lineup == null)
+            {
+                return [];
+            }
+
+            var avatarList = new List<AvatarSceneInfo>();
+            foreach (var avatar in lineup.BaseAvatars!)
+            {
+                Proto.AvatarType avatarType = Proto.AvatarType.AvatarFormalType;
+                Database.Avatar.AvatarInfo? avatarInfo = null;
+                if (avatar.SpecialAvatarId > 0)
+                {
+                    GameData.SpecialAvatarData.TryGetValue(avatar.SpecialAvatarId, out var specialAvatar);
+                    if (specialAvatar == null) continue;
+                    avatarType = Proto.AvatarType.AvatarTrialType;
+                    avatarInfo = specialAvatar.ToAvatarData(Player.Uid);
+                } else if (avatar.AssistUid > 0)
+                {
+                    var avatarStorage = DatabaseHelper.Instance?.GetInstance<Database.Avatar.AvatarData>(avatar.AssistUid);
+                    avatarType = Proto.AvatarType.AvatarAssistType;
+                    if (avatarStorage == null) continue;
+                    foreach (var avatarData in avatarStorage.Avatars!)
+                    {
+                        if (avatarData.AvatarId == avatar.BaseAvatarId)
+                        {
+                            avatarInfo = avatarData;
+                            break;
+                        }
+                    }
+                } else
+                {
+                    avatarInfo = Player.AvatarManager!.GetAvatar(avatar.BaseAvatarId);
+                }
+                if (avatarInfo == null) continue;
+                avatarList.Add(new AvatarSceneInfo(avatarInfo, avatarType));
+            }
+
+            return avatarList;
+        }
+
+        public List<AvatarSceneInfo> GetAvatarsFromCurTeam()
+        {
+            return GetAvatarsFromTeam(LineupData.CurLineup);
         }
     }
 }

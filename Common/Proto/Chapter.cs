@@ -24,12 +24,12 @@ namespace EggLink.DanhengServer.Proto {
     static ChapterReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg1DaGFwdGVyLnByb3RvGhJDaGFwdGVyQnJpZWYucHJvdG8aDldheXBvaW50",
+            "Cg1DaGFwdGVyLnByb3RvGg5XYXlwb2ludC5wcm90bxoSQ2hhcHRlckJyaWVm",
             "LnByb3RvIk4KB0NoYXB0ZXISIAoNd2F5cG9pbnRfbGlzdBgBIAMoCzIJLldh",
             "eXBvaW50EiEKCmJyaWVmX2luZm8YAiABKAsyDS5DaGFwdGVyQnJpZWZCHqoC",
             "G0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChapterBriefReflection.Descriptor, global::EggLink.DanhengServer.Proto.WaypointReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.WaypointReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChapterBriefReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.Chapter), global::EggLink.DanhengServer.Proto.Chapter.Parser, new[]{ "WaypointList", "BriefInfo" }, null, null, null, null)
           }));

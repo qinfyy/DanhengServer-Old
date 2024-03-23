@@ -24,6 +24,7 @@ public partial class Connection
     public SessionState State { get; set; } = SessionState.INACTIVE;
     public PlayerInstance? Player { get; set; }
     public static readonly List<int> BANNED_PACKETS = [];
+    public bool IsOnline = true;
     private static readonly Logger Logger = new("GameServer");
 #if DEBUG
     public static readonly Dictionary<string, string> LogMap = [];
@@ -56,7 +57,7 @@ public partial class Connection
             CancelToken.Dispose();
         }
         catch { }
-
+        IsOnline = false;
     }
 
 #if DEBUG

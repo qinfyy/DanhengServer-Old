@@ -17,10 +17,8 @@ namespace EggLink.DanhengServer.Game.Battle
             if (Player.BattleInstance != null) return;
             var targetList = new List<EntityMonster>();
             var propList = new List<EntityProp>();
-            var isPlayerCast = false;
             if (Player.SceneInstance!.AvatarInfo.ContainsKey((int)req.AttackedByEntityId))
             {
-                isPlayerCast = true;
 
                 foreach (var entity in req.HitTargetEntityIdList)
                 {
@@ -53,7 +51,7 @@ namespace EggLink.DanhengServer.Game.Battle
                         break;
                     }
                 }
-                if (isAmbushed)
+                if (!isAmbushed)
                 {
                     Player.SendPacket(new PacketSceneCastSkillScRsp(req.CastEntityId));
                     return;
@@ -76,13 +74,15 @@ namespace EggLink.DanhengServer.Game.Battle
             if (targetList.Count > 0)
             {
                 // Skill handle
-
                 BattleInstance battleInstance = new(Player, Player.LineupManager!.GetCurLineup()!, targetList)
                 {
                     WorldLevel = Player.Data.WorldLevel,
                 };
                 Player.BattleInstance = battleInstance;
                 Player.SendPacket(new PacketSceneCastSkillScRsp(req.CastEntityId, battleInstance));
+            } else
+            {
+                Player.SendPacket(new PacketSceneCastSkillScRsp(req.CastEntityId));
             }
         }
 
@@ -195,9 +195,6 @@ namespace EggLink.DanhengServer.Game.Battle
                     minimumHp = 2000;
                     teleportToAnchor = true;
                     break;
-                case BattleEndStatus.BattleEndQuit:
-                    updateStatus = false;
-                    break;
                 default:
                     updateStatus = false;
                     break;
@@ -211,7 +208,7 @@ namespace EggLink.DanhengServer.Game.Battle
                 {
                     var avatarInstance = Player.AvatarManager!.GetAvatar((int)avatar.Id);
                     var prop = avatar.AvatarStatus;
-                    int curHp = (int)Math.Min(Math.Round(prop.LeftHp / prop.MaxHp * 10000), minimumHp);
+                    int curHp = (int)Math.Max(Math.Round(prop.LeftHp / prop.MaxHp * 10000), minimumHp);
                     int curSp = (int)prop.LeftSp * 100;
                     if (avatarInstance == null)
                     {
@@ -227,7 +224,7 @@ namespace EggLink.DanhengServer.Game.Battle
                 }
 
                 DatabaseHelper.Instance?.UpdateInstance(Player.AvatarManager!.AvatarData!);
-                Player.SendPacket(new PacketSyncLineupNotify(battle.Lineup));
+                Player.SendPacket(new PacketSyncLineupNotify(lineup));
             }
             if (teleportToAnchor)
             {
@@ -246,6 +243,12 @@ namespace EggLink.DanhengServer.Game.Battle
             }
             // call battle end
             Player.MissionManager!.OnBattleFinish(req);
+
+            // remove monster from the scene
+            foreach (var monster in battle.EntityMonsters)
+            {
+                Player.SceneInstance!.RemoveEntity(monster);
+            }
 
             Player.BattleInstance = null;
             Player.SendPacket(new PacketPVEBattleResultScRsp(req, Player, battle));

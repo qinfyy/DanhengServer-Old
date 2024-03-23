@@ -24,9 +24,9 @@ namespace EggLink.DanhengServer.Proto {
     static AetherDivideBattleInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChxBZXRoZXJEaXZpZGVCYXR0bGVJbmZvLnByb3RvGhhBZXRoZXJCYXR0bGVB",
-            "dmF0YXIucHJvdG8aEEJhdHRsZUJ1ZmYucHJvdG8aFlNjZW5lTW9uc3Rlcldh",
-            "dmUucHJvdG8i7AEKFkFldGhlckRpdmlkZUJhdHRsZUluZm8SEwoLQ01GSE1B",
+            "ChxBZXRoZXJEaXZpZGVCYXR0bGVJbmZvLnByb3RvGhBCYXR0bGVCdWZmLnBy",
+            "b3RvGhZTY2VuZU1vbnN0ZXJXYXZlLnByb3RvGhhBZXRoZXJCYXR0bGVBdmF0",
+            "YXIucHJvdG8i7AEKFkFldGhlckRpdmlkZUJhdHRsZUluZm8SEwoLQ01GSE1B",
             "TlBBUEwYDCABKAgSEAoIc3RhZ2VfaWQYAyABKA0SLAoRbW9uc3Rlcl93YXZl",
             "X2xpc3QYDyADKAsyES5TY2VuZU1vbnN0ZXJXYXZlEh4KCWJ1ZmZfbGlzdBgG",
             "IAMoCzILLkJhdHRsZUJ1ZmYSLwoSYmF0dGxlX2F2YXRhcl9saXN0GA4gAygL",
@@ -34,7 +34,7 @@ namespace EggLink.DanhengServer.Proto {
             "b2dpY19yYW5kb21fc2VlZBgEIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2Vy",
             "dmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.AetherBattleAvatarReflection.Descriptor, global::EggLink.DanhengServer.Proto.BattleBuffReflection.Descriptor, global::EggLink.DanhengServer.Proto.SceneMonsterWaveReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.BattleBuffReflection.Descriptor, global::EggLink.DanhengServer.Proto.SceneMonsterWaveReflection.Descriptor, global::EggLink.DanhengServer.Proto.AetherBattleAvatarReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.AetherDivideBattleInfo), global::EggLink.DanhengServer.Proto.AetherDivideBattleInfo.Parser, new[]{ "CMFHMANPAPL", "StageId", "MonsterWaveList", "BuffList", "BattleAvatarList", "BattleId", "LogicRandomSeed" }, null, null, null, null)
           }));

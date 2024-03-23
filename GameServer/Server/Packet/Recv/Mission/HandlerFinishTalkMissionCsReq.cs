@@ -10,8 +10,13 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Mission
         {
             var req = FinishTalkMissionCsReq.Parser.ParseFrom(data);
             var player = connection.Player!;
-            var missionId = int.Parse(req.TalkStr.Split('_')[1]);
-            player.MissionManager!.FinishSubMission(missionId);
+            try
+            {
+                var missionId = int.Parse(req.TalkStr.Split('_')[1]);  // may send 0 instead of missionId (in talking)
+                player.MissionManager!.FinishSubMission(missionId);
+            } catch
+            {
+            }
 
             connection.SendPacket(new PacketFinishTalkMissionScRsp(req.TalkStr));
         }

@@ -4,7 +4,7 @@ namespace EggLink.DanhengServer.Database.Account
 {
     public static class AccountHelper
     {
-        public static void CreateAccount(string username, long uid)
+        public static void CreateAccount(string username, int uid)
         {
             if (AccountData.GetAccountByUserName(username) != null)
             {
@@ -14,7 +14,7 @@ namespace EggLink.DanhengServer.Database.Account
             {
 
             }
-            long newUid = uid;
+            int newUid = uid;
             if (uid == 0)
             {
                 newUid = 10001;  // start from 10001

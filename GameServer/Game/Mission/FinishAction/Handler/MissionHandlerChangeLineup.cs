@@ -12,9 +12,9 @@ namespace EggLink.DanhengServer.Game.Mission.FinishAction.Handler
 
         public override void OnHandle(List<int> Params, PlayerInstance Player)
         {
-            var avatars = Player.LineupManager!.GetCurLineup()!.BaseAvatars!;
-            avatars.Clear();
+            Player.LineupManager!.GetCurLineup()!.BaseAvatars!.Clear();
             var count = 0;
+            var avatarCount = Params.Count(value => value != 0) - 1;
             foreach (var avatarId in Params)
             {
                 if (count++ >= 4) break;
@@ -23,18 +23,13 @@ namespace EggLink.DanhengServer.Game.Mission.FinishAction.Handler
                 {
                     GameData.AvatarConfigData.TryGetValue(avatarId, out var avatar);
                     if (avatar == null) continue;
-                    avatars.Add(new Database.Lineup.AvatarInfo()
-                    {
-                        BaseAvatarId = avatarId,
-                    });
+                    var ava = Player.AvatarManager!.GetAvatar(avatarId);
+                    if (ava == null) Player.AvatarManager!.AddAvatar(avatarId);
+                    Player.LineupManager!.AddAvatarToCurTeam(avatarId, count == avatarCount);
                 }
                 else
                 {
-                    avatars.Add(new Database.Lineup.AvatarInfo()
-                    {
-                        BaseAvatarId = specialAvatar.AvatarID,
-                        SpecialAvatarId = avatarId * 10 + Player.Data.WorldLevel,
-                    });
+                    Player.LineupManager!.AddSpecialAvatarToCurTeam(avatarId * 10 + Player.Data.WorldLevel, count == avatarCount);
                 }
             }
             GameData.SpecialAvatarData.TryGetValue(Params[4] * 10 + Player.Data.WorldLevel, out var leaderAvatar);

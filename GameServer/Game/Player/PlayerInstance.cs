@@ -166,6 +166,7 @@ namespace EggLink.DanhengServer.Game.Player
             DatabaseHelper.Instance?.UpdateInstance(Data);
             DatabaseHelper.Instance?.UpdateInstance(PlayerUnlockData!);
             DatabaseHelper.Instance?.UpdateInstance(SceneData!);
+            DatabaseHelper.Instance?.UpdateInstance(TutorialData!);
             return Task.CompletedTask;
         }
 
@@ -256,6 +257,7 @@ namespace EggLink.DanhengServer.Game.Player
                                     {
                                         p.SetState(PropStateEnum.Open);
                                     }
+                                    MissionManager!.OnPlayerInteractWithProp(prop.PropInfo);
                                 }
                             }
                             break;
@@ -270,7 +272,8 @@ namespace EggLink.DanhengServer.Game.Player
                             {
                                 if (id == p.PropInfo.ID)
                                 {
-                                    p.SetState(PropStateEnum.Open);
+                                    p.SetState(newState);
+                                    MissionManager!.OnPlayerInteractWithProp(p.PropInfo);
                                 }
                             }
                         }
@@ -314,10 +317,37 @@ namespace EggLink.DanhengServer.Game.Player
             LoadScene(entrance.PlaneID, entrance.FloorID, entryId, anchor!.ToPositionProto(), anchor.ToRotationProto(), sendPacket);
         }
 
+        public void EnterMissionScene(int floorId, int entryId, bool sendPacket)
+        {
+            var entrance = GameData.GetMapEntrance(floorId, MissionManager!.Data);
+            if (entrance == null) return;
+
+            GameData.GetFloorInfo(entrance.PlaneID, entrance.FloorID, out var floorInfo);
+            if (floorInfo == null) return;
+
+            int StartGroup = entrance.StartGroupID;
+            int StartAnchor = entrance.StartAnchorID;
+
+            if (StartAnchor == 0)
+            {
+                StartGroup = floorInfo.StartGroupID;
+                StartAnchor = floorInfo.StartAnchorID;
+            }
+            AnchorInfo? anchor = floorInfo.GetAnchorInfo(StartGroup, StartAnchor);
+
+            LoadScene(entrance.PlaneID, entrance.FloorID, entryId, anchor!.ToPositionProto(), anchor.ToRotationProto(), sendPacket);
+        }
+
         public void MoveTo(Position position)
         {
             Data.Pos = position;
             SendPacket(new PacketSceneEntityMoveScNotify(this));
+        }
+
+        public void MoveTo(EntityMotion motion)
+        {
+            Data.Pos = motion.Motion.Pos.ToPosition();
+            Data.Rot = motion.Motion.Rot.ToPosition();
         }
 
 

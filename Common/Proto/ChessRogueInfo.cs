@@ -24,15 +24,15 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChRDaGVzc1JvZ3VlSW5mby5wcm90bxoWUm9ndWVBY3Rpb25RdWV1ZS5wcm90",
-            "bxoRR0ZNQ05NS0hHTlAucHJvdG8aGUdhbWVWaXJ0dWFsSXRlbUluZm8ucHJv",
-            "dG8aHUNoZXNzUm9ndWVOb3VzVmFsdWVJbmZvLnByb3RvGhhDaGVzc1JvZ3Vl",
-            "SXRlbUluZm8ucHJvdG8aGENoZXNzUm9ndWVBZW9uRGF0YS5wcm90bxoZQ2hl",
-            "c3NSb2d1ZVN0b3J5SW5mby5wcm90bxoRT0pMSE9CQkNDSVAucHJvdG8aGENo",
-            "ZXNzUm9ndWVEaWNlRGF0YS5wcm90bxoZQ2hlc3NSb2d1ZUxldmVsSW5mby5w",
-            "cm90bxobQ2hlc3NSb2d1ZU1pcmFjbGVJbmZvLnByb3RvGhFIR0VERURMTklD",
-            "Ty5wcm90bxoaQ2hlc3NSb2d1ZUF2YXRhckluZm8ucHJvdG8aGENoZXNzUm9n",
-            "dWVCdWZmSW5mby5wcm90byKCBQoOQ2hlc3NSb2d1ZUluZm8SIQoLQ0NCTUxP",
+            "ChRDaGVzc1JvZ3VlSW5mby5wcm90bxoZR2FtZVZpcnR1YWxJdGVtSW5mby5w",
+            "cm90bxoaQ2hlc3NSb2d1ZUF2YXRhckluZm8ucHJvdG8aFlJvZ3VlQWN0aW9u",
+            "UXVldWUucHJvdG8aGENoZXNzUm9ndWVJdGVtSW5mby5wcm90bxoZQ2hlc3NS",
+            "b2d1ZVN0b3J5SW5mby5wcm90bxoRT0pMSE9CQkNDSVAucHJvdG8aEUhHRURF",
+            "RExOSUNPLnByb3RvGhtDaGVzc1JvZ3VlTWlyYWNsZUluZm8ucHJvdG8aGUNo",
+            "ZXNzUm9ndWVMZXZlbEluZm8ucHJvdG8aHUNoZXNzUm9ndWVOb3VzVmFsdWVJ",
+            "bmZvLnByb3RvGhhDaGVzc1JvZ3VlQnVmZkluZm8ucHJvdG8aGENoZXNzUm9n",
+            "dWVEaWNlRGF0YS5wcm90bxoYQ2hlc3NSb2d1ZUFlb25EYXRhLnByb3RvGhFH",
+            "Rk1DTk1LSEdOUC5wcm90byKCBQoOQ2hlc3NSb2d1ZUluZm8SIQoLQ0NCTUxP",
             "TkpGTkIYDCABKAsyDC5HRk1DTk1LSEdOUBIoCgptb25leV9pbmZvGAQgASgL",
             "MhQuR2FtZVZpcnR1YWxJdGVtSW5mbxImCglpdGVtX2luZm8YBSADKAsyEy5D",
             "aGVzc1JvZ3VlSXRlbUluZm8SMQoRZ2FtZV9taXJhY2xlX2luZm8YDyABKAsy",
@@ -49,7 +49,7 @@ namespace EggLink.DanhengServer.Proto {
             "bEluZm8SGAoQcm9ndWVfdmVyc2lvbl9pZBgHIAEoDUIeqgIbRWdnTGluay5E",
             "YW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RogueActionQueueReflection.Descriptor, global::EggLink.DanhengServer.Proto.GFMCNMKHGNPReflection.Descriptor, global::EggLink.DanhengServer.Proto.GameVirtualItemInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueNousValueInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueItemInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueAeonDataReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueStoryInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.OJLHOBBCCIPReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueDiceDataReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueLevelInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueMiracleInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.HGEDEDLNICOReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueAvatarInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueBuffInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.GameVirtualItemInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueAvatarInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueActionQueueReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueItemInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueStoryInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.OJLHOBBCCIPReflection.Descriptor, global::EggLink.DanhengServer.Proto.HGEDEDLNICOReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueMiracleInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueLevelInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueNousValueInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueBuffInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueDiceDataReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueAeonDataReflection.Descriptor, global::EggLink.DanhengServer.Proto.GFMCNMKHGNPReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueInfo), global::EggLink.DanhengServer.Proto.ChessRogueInfo.Parser, new[]{ "CCBMLONJFNB", "MoneyInfo", "ItemInfo", "GameMiracleInfo", "NousValue", "RogueVirtualItemInfo", "StoryInfo", "GameLineupInfo", "OKMJFEJJIGN", "GameBuffInfo", "RogueAeonInfo", "CurAction", "DiceData", "LevelInfo", "RogueVersionId" }, null, null, null, null)
           }));

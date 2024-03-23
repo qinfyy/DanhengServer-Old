@@ -4,6 +4,7 @@ using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Database.Avatar;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Proto;
+using EggLink.DanhengServer.Server.Packet.Send.Player;
 
 namespace EggLink.DanhengServer.Game.Avatar
 {
@@ -44,7 +45,7 @@ namespace EggLink.DanhengServer.Game.Avatar
 
             var avatar = new AvatarInfo(avatarExcel)
             {
-                AvatarId = avatarId,
+                AvatarId = avatarId >= 8001 ? 8001 : avatarId,
                 Level = 1,
                 Timestamp = DateTime.Now.Ticks / TimeSpan.TicksPerSecond,
                 CurrentHp = 10000,
@@ -53,21 +54,23 @@ namespace EggLink.DanhengServer.Game.Avatar
 
             if (avatarId >= 8001)
             {
-                avatar.HeroId = 8001;
+                avatar.HeroId = avatarId;
             }
 
             if (AvatarData?.Avatars == null)
             {
                 AvatarData!.Avatars = [];
             }
-
+            avatar.PlayerData = Player.Data;
             AvatarData.Avatars.Add(avatar);
             DatabaseHelper.Instance?.UpdateInstance(AvatarData);
+
+            Player.SendPacket(new PacketPlayerSyncScNotify(avatar));
         }
 
         public AvatarInfo? GetAvatar(int baseAvatarId)
         {
-            if (baseAvatarId > 8000) baseAvatarId = 1005;
+            if (baseAvatarId > 8000) baseAvatarId = 8001;
             return AvatarData?.Avatars?.Find(avatar => avatar.AvatarId == baseAvatarId);
         }
     }

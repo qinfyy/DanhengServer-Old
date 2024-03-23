@@ -28,7 +28,7 @@ namespace EggLink.DanhengServer.Game.Scene.Entity
 
         public void SetState(PropStateEnum state, bool sendPacket)
         {
-            if (State == PropStateEnum.Open) return;  // already open   DO NOT CLOSE AGAIN
+            //if (State == PropStateEnum.Open) return;  // already open   DO NOT CLOSE AGAIN
             State = state;
             if (sendPacket)
             {

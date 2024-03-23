@@ -12,8 +12,6 @@ namespace EggLink.DanhengServer.Game.Scene.Entity
     {
         public int EntityID { get; set; }
         public int GroupID { get; set; }
-        public Position Position { get; set; }
-        public Position Rotation { get; set; }
 
         public SceneEntityInfo ToProto();
     }

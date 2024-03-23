@@ -1,4 +1,6 @@
-﻿using EggLink.DanhengServer.Database.Avatar;
+﻿using EggLink.DanhengServer.Database;
+using EggLink.DanhengServer.Database.Avatar;
+using EggLink.DanhengServer.Database.Player;
 using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Proto;
 using Newtonsoft.Json;
@@ -35,6 +37,8 @@ namespace EggLink.DanhengServer.Data.Excel
         public Dictionary<int, int> CurHp { get; set; } = [];
         [JsonIgnore()]
         public Dictionary<int, int> CurSp { get; set; } = [];
+        [JsonIgnore()]
+        public Dictionary<int, int> EntityId { get; set; } = [];
 
         public override int GetId()
         {
@@ -55,10 +59,11 @@ namespace EggLink.DanhengServer.Data.Excel
         {
             CurHp.TryGetValue(uid, out var hp);
             CurSp.TryGetValue(uid, out var sp);
+            EntityId.TryGetValue(uid, out var Id);
             return new()
             {
-                AvatarId = SpecialAvatarID,
-                SpecialBaseAvatarId = AvatarID,
+                AvatarId = AvatarID,
+                SpecialBaseAvatarId = SpecialAvatarID,
                 Level = Level,
                 Promotion = Promotion,
                 Rank = Rank,
@@ -70,7 +75,9 @@ namespace EggLink.DanhengServer.Data.Excel
                     Rank = EquipmentRank
                 },
                 CurrentHp = hp == 0 ? 10000 : hp,
-                CurrentSp = sp
+                CurrentSp = sp,
+                InternalEntityId = Id,
+                PlayerData = DatabaseHelper.Instance!.GetInstance<PlayerData>(uid),
             };
         }
     }

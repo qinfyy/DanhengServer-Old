@@ -23,6 +23,7 @@ namespace EggLink.DanhengServer.Data
 
         public static void LoadExcel()
         {
+
             var classes = Assembly.GetExecutingAssembly().GetTypes();  // Get all classes in the assembly
             foreach (var cls in classes)
             {
@@ -34,66 +35,73 @@ namespace EggLink.DanhengServer.Data
                     var count = 0;
                     foreach (var fileName in attribute.FileName)
                     {
-                        var path = ConfigManager.Config.Path.ResourcePath + "/ExcelOutput/" + fileName;
-                        var file = new FileInfo(path);
-                        if (!file.Exists)
+                        try
                         {
-                            if (attribute.IsCritical)
+                            var path = ConfigManager.Config.Path.ResourcePath + "/ExcelOutput/" + fileName;
+                            var file = new FileInfo(path);
+                            if (!file.Exists)
                             {
-                                throw new FileNotFoundException($"File {path} not found");
-                            }
-                            else
-                            {
-                                Logger.Warn($"File {path} not found");
-                                continue;
-                            }
-                        }
-                        var json = file.OpenText().ReadToEnd();
-                        using (var reader = new JsonTextReader(new StringReader(json)))
-                        {
-                            reader.Read();
-                            if (reader.TokenType == JsonToken.StartArray)
-                            {
-                                // array
-                                var jArray = JArray.Parse(json);
-                                foreach (var item in jArray)
+                                if (attribute.IsCritical)
                                 {
-                                    var res = JsonConvert.DeserializeObject(item.ToString(), cls);
-                                    ((ExcelResource?)res)?.Loaded();
-                                    count++;
+                                    throw new FileNotFoundException($"File {path} not found");
+                                }
+                                else
+                                {
+                                    Logger.Warn($"File {path} not found");
+                                    continue;
                                 }
                             }
-                            else if (reader.TokenType == JsonToken.StartObject)
+                            var json = file.OpenText().ReadToEnd();
+                            using (var reader = new JsonTextReader(new StringReader(json)))
                             {
-                                // dictionary
-                                var jObject = JObject.Parse(json);
-                                foreach (var item in jObject)
+                                reader.Read();
+                                if (reader.TokenType == JsonToken.StartArray)
                                 {
-                                    var id = int.Parse(item.Key);
-                                    var obj = item.Value;
-                                    var instance = JsonConvert.DeserializeObject(obj!.ToString(), cls);
-
-                                    if (((ExcelResource?)instance)?.GetId() == 0 || ((ExcelResource?)instance) == null)
+                                    // array
+                                    var jArray = JArray.Parse(json);
+                                    foreach (var item in jArray)
                                     {
-                                        // Deserialize as JObject to handle nested dictionaries
-                                        var nestedObject = JsonConvert.DeserializeObject<JObject>(obj.ToString());
+                                        var res = JsonConvert.DeserializeObject(item.ToString(), cls);
+                                        ((ExcelResource?)res)?.Loaded();
+                                        count++;
+                                    }
+                                }
+                                else if (reader.TokenType == JsonToken.StartObject)
+                                {
+                                    // dictionary
+                                    var jObject = JObject.Parse(json);
+                                    foreach (var item in jObject)
+                                    {
+                                        var id = int.Parse(item.Key);
+                                        var obj = item.Value;
+                                        var instance = JsonConvert.DeserializeObject(obj!.ToString(), cls);
 
-                                        foreach (var nestedItem in nestedObject ?? [])
+                                        if (((ExcelResource?)instance)?.GetId() == 0 || ((ExcelResource?)instance) == null)
                                         {
-                                            var nestedInstance = JsonConvert.DeserializeObject(nestedItem.Value!.ToString(), cls);
-                                            ((ExcelResource?)nestedInstance)?.Loaded();
-                                            count++;
+                                            // Deserialize as JObject to handle nested dictionaries
+                                            var nestedObject = JsonConvert.DeserializeObject<JObject>(obj.ToString());
+
+                                            foreach (var nestedItem in nestedObject ?? [])
+                                            {
+                                                var nestedInstance = JsonConvert.DeserializeObject(nestedItem.Value!.ToString(), cls);
+                                                ((ExcelResource?)nestedInstance)?.Loaded();
+                                                count++;
+                                            }
                                         }
+                                        else
+                                        {
+                                            ((ExcelResource)instance).Loaded();
+                                        }
+                                        count++;
                                     }
-                                    else
-                                    {
-                                        ((ExcelResource)instance).Loaded();
-                                    }
-                                    count++;
                                 }
                             }
+                            resource.Finalized();
                         }
-                        resource.Finalized();
+                        catch (Exception ex)
+                        {
+                            Logger.Error($"Error in reading {fileName}", ex);
+                        }
                     }
                     Logger.Info($"Loaded {count} {cls.Name}s.");
                 }

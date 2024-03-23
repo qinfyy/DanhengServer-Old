@@ -58,6 +58,15 @@ namespace EggLink.DanhengServer.Command
                 }
             }
         }
+        public int GetInt(int index)
+        {
+            if (BasicArgs.Count <= index)
+            {
+                return 0;
+            }
+            _ = int.TryParse(BasicArgs[index], out int res);
+            return res;
+        }
 
         public void SendMsg(string msg)
         {

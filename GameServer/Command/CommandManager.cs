@@ -63,6 +63,11 @@ namespace EggLink.DanhengServer.Command
                     }
                     continue;
                 }
+                if (Target != null && !Target.IsOnline)
+                {
+                    Logger.Warn($"Target {Target.Player!.Uid}({Target.Player!.Data.Name}) is offline.");
+                    Target = null;
+                }
                 if (Commands.TryGetValue(cmd, out var command))
                 {
                     var split = input.Split(' ').ToList();

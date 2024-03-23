@@ -38,7 +38,7 @@ namespace EggLink.DanhengServer.Data.Config
                     {
                         if (v["Value"] != null && v["Key"] != null)
                         {
-                            if (v["Key"]?.ToString().Contains("Door") == true)
+                            if (v["Key"]?.ToString().Contains("Door") == true || v["Key"]?.ToString().Contains("Bridge") == true)
                             {
                                 try
                                 {
