@@ -8,36 +8,41 @@ using System.Threading.Tasks;
 
 namespace EggLink.DanhengServer.Util
 {
-    public class Logger
+    public class Logger(string moduleName)
     {
-        private readonly string ModuleName;
+        private readonly string ModuleName = moduleName;
         private static FileInfo? LogFile;
-
-        public Logger(string moduleName)
-        {
-            ModuleName = moduleName;
-        }
+        private static object _lock = new();
 
         public void Log(string message, LoggerLevel level)
         {
-            Console.Write("[");
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.Write(DateTime.Now.ToString("HH:mm:ss"));
-            Console.ResetColor();
-            Console.Write("] ");
-            Console.Write("[");
-            Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.Write(ModuleName);
-            Console.ResetColor();
-            Console.Write("] ");
-            Console.Write("[");
-            Console.ForegroundColor = (ConsoleColor)level;
-            Console.Write(level);
-            Console.ResetColor();
-            Console.WriteLine("] " + message);
+            lock (_lock)
+            {
+                Console.Write("[");
 
-            var logMessage = $"[{DateTime.Now:HH:mm:ss}] [{ModuleName}] [{level}] {message}";
-            WriteToFile(logMessage);
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.Write(DateTime.Now.ToString("HH:mm:ss"));
+                Console.ResetColor();
+
+                Console.Write("] ");
+                Console.Write("[");
+
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.Write(ModuleName);
+                Console.ResetColor();
+
+                Console.Write("] ");
+                Console.Write("[");
+
+                Console.ForegroundColor = (ConsoleColor)level;
+                Console.Write(level);
+                Console.ResetColor();
+
+                Console.WriteLine("] " + message);
+
+                var logMessage = $"[{DateTime.Now:HH:mm:ss}] [{ModuleName}] [{level}] {message}";
+                WriteToFile(logMessage);
+            }
         }
 
         public void Info(string message, Exception? e = null)

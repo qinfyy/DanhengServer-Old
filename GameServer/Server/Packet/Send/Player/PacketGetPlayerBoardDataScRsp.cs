@@ -30,6 +30,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Player
                 };
                 proto.DisplayAvatarVec.DisplayAvatarList.Add(displayAvatar);
             });
+            player.AvatarManager?.AvatarData!.AssistAvatars.ForEach(x => proto.DIGIPEMAOFA.Add((uint)x));
 
             SetData(proto);
         }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EggLink.DanhengServer.Util
+﻿namespace EggLink.DanhengServer.Util
 {
     public static class GameConstants
     {
@@ -16,5 +10,7 @@ namespace EggLink.DanhengServer.Util
         public const int INVENTORY_MAX_EQUIPMENT = 1500;
         public const int INVENTORY_MAX_RELIC = 1500;
         public const int INVENTORY_MAX_MATERIAL = 2000;
+
+        public static readonly List<int> UpgradeWorldLevel = [20, 30, 40, 50, 60, 65];
     }
 }

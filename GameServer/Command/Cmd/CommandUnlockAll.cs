@@ -20,14 +20,22 @@ namespace EggLink.DanhengServer.Command.Cmd
 
             foreach (var mission in GameData.SubMissionData.Values)
             {
-                missionManager.AcceptMainMission(mission.MainMissionID);
-                missionManager.FinishSubMission(mission.SubMissionID);
+                if (!missionManager.Data.MissionInfo.TryGetValue(mission.MainMissionID, out Dictionary<int, Database.Mission.MissionInfo>? value))
+                {
+                    value = ([]);
+                    missionManager.Data.MissionInfo[mission.MainMissionID] = value;
+                }
+
+                value[mission.SubMissionID] = new Database.Mission.MissionInfo()
+                {
+                    Status = Enums.MissionPhaseEnum.Finish,
+                    MissionId = mission.SubMissionID,
+                };
             }
 
             foreach (var mission in GameData.MainMissionData.Values)
             {
-                missionManager.AcceptMainMission(mission.MainMissionID);
-                missionManager.FinishMainMission(mission.MainMissionID);
+                missionManager.Data.MainMissionInfo[mission.MainMissionID] = Enums.MissionPhaseEnum.Finish;
             }
 
             arg.SendMsg("All missions unlocked!");

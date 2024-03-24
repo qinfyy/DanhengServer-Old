@@ -130,6 +130,20 @@ namespace EggLink.DanhengServer.Database.Inventory
             };
         }
 
+        public Item ToProto()
+        {
+            return new()
+            {
+                ItemId = (uint)ItemId,
+                Num = (uint)Count,
+                Level = (uint)Level,
+                MainAffixId = (uint)MainAffix,
+                Rank = (uint)Rank,
+                Promotion = (uint)Promotion,
+                UniqueId = (uint)UniqueId,
+            };
+        }
+
         #endregion
     }
 

@@ -1,5 +1,6 @@
 ﻿using EggLink.DanhengServer.Data;
 using EggLink.DanhengServer.Database;
+using EggLink.DanhengServer.Database.Inventory;
 using EggLink.DanhengServer.Database.Mission;
 using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Game.Mission.FinishAction;
@@ -136,6 +137,7 @@ namespace EggLink.DanhengServer.Game.Mission
 
             Player.SendPacket(new PacketPlayerSyncScNotify(sync));
             Player.SendPacket(new PacketStartFinishMainMissionScNotify(missionId));
+            HandleMissionReward(missionId);
 
             DatabaseHelper.Instance?.UpdateInstance(Data);
         }
@@ -229,6 +231,37 @@ namespace EggLink.DanhengServer.Game.Mission
         {
             ActionHandlers.TryGetValue(actionInfo.FinishActionType, out var handler);
             handler?.OnHandle(actionInfo.FinishActionPara, Player);
+        }
+
+        public void HandleMissionReward(int mainMissionId)
+        {
+            GameData.MainMissionData.TryGetValue(mainMissionId, out var mainMission);
+            if (mainMission == null) return;
+            GameData.RewardDataData.TryGetValue(mainMission.RewardID, out var reward);
+            var ItemList = new Proto.ItemList();
+            reward?.GetItems().ForEach(i =>
+            {
+                var res = Player.InventoryManager!.AddItem(i.Item1, i.Item2, false);
+                if (res != null)
+                {
+                    ItemList.ItemList_.Add(res.ToProto());
+                }
+            });
+
+            mainMission.SubRewardList.ForEach(i =>
+            {
+                GameData.RewardDataData.TryGetValue(i, out var reward);
+                reward?.GetItems().ForEach(j =>
+                {
+                    var res = Player.InventoryManager!.AddItem(j.Item1, j.Item2, false);
+                    if (res != null)
+                    {
+                        ItemList.ItemList_.Add(res.ToProto());
+                    }
+                });
+            });
+
+            Player.SendPacket(new PacketMissionRewardScNotify(mainMissionId, 0, ItemList));
         }
 
         #endregion

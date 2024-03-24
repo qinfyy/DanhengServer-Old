@@ -7,6 +7,7 @@ namespace EggLink.DanhengServer.Data
     public static class GameData
     {
         public static Dictionary<int, AvatarConfigExcel> AvatarConfigData { get; private set; } = [];
+        public static Dictionary<int, AvatarSkillTreeConfigExcel> AvatarSkillTreeConfigData { get; private set; } = [];
         public static Dictionary<int, CocoonConfigExcel> CocoonConfigData { get; private set; } = [];
         public static Dictionary<int, StageConfigExcel> StageConfigData { get; private set; } = [];
         public static Dictionary<int, MapEntranceExcel> MapEntranceData { get; private set; } = [];
@@ -16,6 +17,7 @@ namespace EggLink.DanhengServer.Data
         public static Dictionary<int, NPCMonsterDataExcel> NpcMonsterDataData { get; private set; } = [];
         public static Dictionary<int, NPCDataExcel> NpcDataData { get; private set; } = [];
         public static Dictionary<int, QuestDataExcel> QuestDataData { get; private set; } = [];
+        public static Dictionary<int, PlayerLevelConfigExcel> PlayerLevelConfigData { get; private set; } = [];
 
         public static Dictionary<string, FloorInfo> FloorInfoData { get; private set; } = [];
         public static Dictionary<int, ItemConfigExcel> ItemConfigData { get; private set; } = [];
@@ -28,6 +30,7 @@ namespace EggLink.DanhengServer.Data
 
         public static Dictionary<int, MainMissionExcel> MainMissionData { get; private set; } = [];
         public static Dictionary<int, SubMissionExcel> SubMissionData { get; private set; } = [];
+        public static Dictionary<int, RewardDataExcel> RewardDataData { get; private set; } = [];
 
         public static void GetFloorInfo(int planeId, int floorId, out FloorInfo outer)
         {

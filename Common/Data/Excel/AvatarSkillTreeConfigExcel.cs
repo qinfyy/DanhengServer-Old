@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EggLink.DanhengServer.Data.Excel
+﻿namespace EggLink.DanhengServer.Data.Excel
 {
     [ResourceEntity("AvatarSkillTreeConfig.json")]
     public class AvatarSkillTreeConfigExcel : ExcelResource
@@ -18,7 +12,7 @@ namespace EggLink.DanhengServer.Data.Excel
 
         public override int GetId()
         {
-            return (PointID << 4) + Level;
+            return (PointID * 10) + Level;
         }
 
         public override void AfterAllDone()
@@ -28,6 +22,7 @@ namespace EggLink.DanhengServer.Data.Excel
             {
                 excel.DefaultSkillTree.Add(this);
             }
+            GameData.AvatarSkillTreeConfigData.Add(GetId(), this);
         }
     }
 }

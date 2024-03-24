@@ -25,6 +25,7 @@ namespace EggLink.DanhengServer.Data
         {
 
             var classes = Assembly.GetExecutingAssembly().GetTypes();  // Get all classes in the assembly
+            var resList = new List<ExcelResource>();
             foreach (var cls in classes)
             {
                 var attribute = (ResourceEntity)Attribute.GetCustomAttribute(cls, typeof(ResourceEntity))!;
@@ -62,6 +63,7 @@ namespace EggLink.DanhengServer.Data
                                     foreach (var item in jArray)
                                     {
                                         var res = JsonConvert.DeserializeObject(item.ToString(), cls);
+                                        resList.Add((ExcelResource)res!);
                                         ((ExcelResource?)res)?.Loaded();
                                         count++;
                                     }
@@ -84,12 +86,14 @@ namespace EggLink.DanhengServer.Data
                                             foreach (var nestedItem in nestedObject ?? [])
                                             {
                                                 var nestedInstance = JsonConvert.DeserializeObject(nestedItem.Value!.ToString(), cls);
+                                                resList.Add((ExcelResource)nestedInstance!);
                                                 ((ExcelResource?)nestedInstance)?.Loaded();
                                                 count++;
                                             }
                                         }
                                         else
                                         {
+                                            resList.Add((ExcelResource)instance!);
                                             ((ExcelResource)instance).Loaded();
                                         }
                                         count++;
@@ -106,15 +110,9 @@ namespace EggLink.DanhengServer.Data
                     Logger.Info($"Loaded {count} {cls.Name}s.");
                 }
             }
-            foreach (var cls in classes)
+            foreach (var cls in resList)
             {
-                var attribute = (ResourceEntity)Attribute.GetCustomAttribute(cls, typeof(ResourceEntity))!;
-
-                if (attribute != null)
-                {
-                    var resource = (ExcelResource)Activator.CreateInstance(cls)!;
-                    resource.AfterAllDone();
-                }
+                cls.AfterAllDone();
             }
         }
 

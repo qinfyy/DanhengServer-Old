@@ -18,7 +18,7 @@ namespace EggLink.DanhengServer.Data.Excel
             return QuestID;
         }
 
-        public override void AfterAllDone()
+        public override void Loaded()
         {
             GameData.QuestDataData.Add(QuestID, this);
         }

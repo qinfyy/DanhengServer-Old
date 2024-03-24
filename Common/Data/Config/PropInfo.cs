@@ -8,8 +8,6 @@ namespace EggLink.DanhengServer.Data.Config
 {
     public class PropInfo : PositionInfo
     {
-        public float RotX { get; set; }
-        public float RotZ { get; set; }
         public int MappingInfoID { get; set; }
         public int AnchorGroupID { get; set; }
         public int AnchorID { get; set; }

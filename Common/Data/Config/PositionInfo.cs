@@ -16,7 +16,9 @@ namespace EggLink.DanhengServer.Data.Config
         public float PosZ { get; set; }
         public bool IsDelete { get; set; }
         public string Name { get; set; } = "";
+        public float RotX { get; set; }
         public float RotY { get; set; }
+        public float RotZ { get; set; }
 
         public Position ToPositionProto()
         {
@@ -33,8 +35,8 @@ namespace EggLink.DanhengServer.Data.Config
             return new()
             {
                 Y = (int)(RotY * 1000f),
-                X = 0,
-                Z = 0,
+                X = (int)(RotX * 1000f),
+                Z = (int)(RotZ * 1000f),
             };
         }
     }

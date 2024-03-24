@@ -30,7 +30,7 @@ namespace EggLink.DanhengServer.Command.Cmd
         {
             var scene = arg.Target!.Player!.SceneInstance!;
             EntityProp? prop = null;
-            foreach (var entity in scene.GetEntitiesInGroup<EntityProp>(arg.GetInt(1)))
+            foreach (var entity in scene.GetEntitiesInGroup<EntityProp>(arg.GetInt(0)))
             {
                 if (entity.PropInfo.ID == arg.GetInt(1))
                 {

@@ -157,17 +157,21 @@ namespace EggLink.DanhengServer.Game.Player
 
         }
 
-        public Task OnLogoutAsync()
+        public void OnLogoutAsync()
         {
-            DatabaseHelper.Instance?.UpdateInstance(LineupManager!.LineupData);
-            DatabaseHelper.Instance?.UpdateInstance(InventoryManager!.Data);
-            DatabaseHelper.Instance?.UpdateInstance(MissionManager!.Data);
-            DatabaseHelper.Instance?.UpdateInstance(AvatarManager!.AvatarData!);
-            DatabaseHelper.Instance?.UpdateInstance(Data);
-            DatabaseHelper.Instance?.UpdateInstance(PlayerUnlockData!);
-            DatabaseHelper.Instance?.UpdateInstance(SceneData!);
-            DatabaseHelper.Instance?.UpdateInstance(TutorialData!);
-            return Task.CompletedTask;
+            try
+            {
+                DatabaseHelper.Instance?.UpdateInstance(LineupManager!.LineupData);
+                DatabaseHelper.Instance?.UpdateInstance(InventoryManager!.Data);
+                DatabaseHelper.Instance?.UpdateInstance(MissionManager!.Data);
+                DatabaseHelper.Instance?.UpdateInstance(AvatarManager!.AvatarData!);
+                DatabaseHelper.Instance?.UpdateInstance(Data);
+                DatabaseHelper.Instance?.UpdateInstance(PlayerUnlockData!);
+                DatabaseHelper.Instance?.UpdateInstance(SceneData!);
+                DatabaseHelper.Instance?.UpdateInstance(TutorialData!);
+            } catch
+            {
+            }
         }
 
         public void SendPacket(BasePacket packet)
@@ -187,6 +191,42 @@ namespace EggLink.DanhengServer.Game.Player
         {
             Data.Stamina -= staminaCost;
             SendPacket(new PacketStaminaInfoScNotify(this));
+        }
+
+        public void OnAddExp()
+        {
+            GameData.PlayerLevelConfigData.TryGetValue(Data.Level + 1, out var config);
+            if (config == null) return;
+            var nextExp = config.PlayerExp;
+
+            while (Data.Exp >= nextExp)
+            {
+                Data.Exp -= nextExp;
+                Data.Level++;
+                GameData.PlayerLevelConfigData.TryGetValue(Data.Level + 1, out config);
+                if (config == null) break;
+                nextExp = config.PlayerExp;
+            }
+
+            OnLevelChange();
+        }
+
+        public void OnLevelChange()
+        {
+            if (!ConfigManager.Config.ServerOption.AutoUpgradeWorldLevel) return;
+            int worldLevel = 0;
+            foreach (var level in GameConstants.UpgradeWorldLevel)
+            {
+                if (level <= Data.Level)
+                {
+                    worldLevel++;
+                }
+            }
+
+            if (Data.WorldLevel != worldLevel)
+            {
+                Data.WorldLevel = worldLevel;
+            }
         }
 
         #endregion
@@ -272,7 +312,7 @@ namespace EggLink.DanhengServer.Game.Player
                             {
                                 if (id == p.PropInfo.ID)
                                 {
-                                    p.SetState(newState);
+                                    p.SetState(PropStateEnum.Open);
                                     MissionManager!.OnPlayerInteractWithProp(p.PropInfo);
                                 }
                             }
@@ -470,6 +510,16 @@ namespace EggLink.DanhengServer.Game.Player
                 Hcoin = (uint)Data.Hcoin,
                 Mcoin = (uint)Data.Mcoin,
                 Stamina = (uint)Data.Stamina,
+            };
+        }
+
+        public PlayerSimpleInfo ToSimpleProto()
+        {
+            return new()
+            {
+                Nickname = Data.Name,
+                Level = (uint)Data.Level,
+                Signature = Data.Signature,
             };
         }
 

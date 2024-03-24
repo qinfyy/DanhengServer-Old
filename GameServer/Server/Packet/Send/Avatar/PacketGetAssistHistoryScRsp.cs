@@ -1,4 +1,5 @@
 ﻿using EggLink.DanhengServer.Game.Player;
+using EggLink.DanhengServer.Proto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,12 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Avatar
     {
         public PacketGetAssistHistoryScRsp(PlayerInstance player) : base(CmdIds.GetAssistHistoryScRsp)
         {
+            var proto = new GetAssistHistoryScRsp
+            {
+                UseTimes = 0,
+            };
 
+            SetData(proto);
         }
     }
 }

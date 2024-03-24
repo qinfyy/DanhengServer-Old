@@ -43,12 +43,9 @@ public partial class Connection
         State = SessionState.WAITING_FOR_TOKEN;
         await ReceiveLoop();
     }
-    public async void Stop()
+    public void Stop()
     {
-        if (Player != null)
-        {
-            await Player.OnLogoutAsync();
-        }
+        Player?.OnLogoutAsync();
         Listener.UnregisterConnection(this);
         Conversation.Dispose();
         try

@@ -18,6 +18,7 @@ namespace EggLink.DanhengServer.Data.Excel
         public List<MissionParam> TakeParam { get; set; } = [];
         public List<MissionParam> BeginParam { get; set; } = [];
         public int RewardID { get; set; }
+        public List<int> SubRewardList { get; set; } = [];
 
         [JsonIgnore()]
         private MissionInfo? InnerMissionInfo { get; set; }

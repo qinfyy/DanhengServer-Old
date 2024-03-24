@@ -25,10 +25,10 @@ namespace EggLink.DanhengServer.Game.Inventory
             Data = inventory!;
         }
 
-        public void AddItem(int itemId, int count, bool notify = false)
+        public ItemData? AddItem(int itemId, int count, bool notify = true)
         {
             GameData.ItemConfigData.TryGetValue(itemId, out var itemConfig);
-            if (itemConfig == null) return;
+            if (itemConfig == null) return null;
 
             ItemData? itemData = null;
 
@@ -58,6 +58,35 @@ namespace EggLink.DanhengServer.Game.Inventory
                     Data.RelicItems.Find(x => x.UniqueId == item.UniqueId)!.SubAffixes = item.SubAffixes;
                     itemData = item;
                     break;
+                case ItemMainTypeEnum.Virtual:
+                    switch (itemConfig.ID)
+                    {
+                        case 1:
+                            Player.Data.Hcoin += count;
+                            break;
+                        case 2:
+                            Player.Data.Scoin += count;
+                            break;
+                        case 3:
+                            Player.Data.Mcoin += count;
+                            break;
+                        case 11:
+                            Player.Data.Stamina += count;
+                            break;
+                        case 22:
+                            Player.Data.Exp += count;
+                            Player.OnAddExp();
+                            break;
+                        case 32:
+                            Player.Data.TalentPoints += count;
+                            // TODO : send VirtualItemPacket instead of PlayerSyncPacket
+                            break;
+                    }
+                    if (count != 0)
+                    {
+                        Player.SendPacket(new PacketPlayerSyncScNotify(Player.ToProto()));
+                    }
+                    break;
                 default:
                     itemData = PutItem(itemId, Math.Min(count, itemConfig.PileLimit));
                     break;
@@ -66,9 +95,15 @@ namespace EggLink.DanhengServer.Game.Inventory
             if (itemData != null)
             {
                 Player.SendPacket(new PacketPlayerSyncScNotify(itemData));
+                if (notify)
+                {
+                    Player.SendPacket(new PacketScenePlaneEventScNotify(itemData));
+                }
             }
 
             DatabaseHelper.Instance?.UpdateInstance(Data);
+
+            return itemData;
         }
 
         public ItemData PutItem(int itemId, int count, int rank = 0, int promotion = 0, int level = 0, int exp = 0, int totalExp = 0, int mainAffix = 0, List<ItemSubAffix>? subAffixes = null, int uniqueId = 0)
@@ -107,7 +142,81 @@ namespace EggLink.DanhengServer.Game.Inventory
             return item;
         }
 
+        public void RemoveItem(int itemId, int count)
+        {
+            GameData.ItemConfigData.TryGetValue(itemId, out var itemConfig);
+            if (itemConfig == null) return;
+            ItemData? itemData = null;
+            switch (itemConfig.ItemMainType)
+            {
+                case ItemMainTypeEnum.Material:
+                    var item = Data.MaterialItems.Find(x => x.ItemId == itemId);
+                    if (item == null) return;
+                    item.Count -= count;
+                    if (item.Count <= 0)
+                    {
+                        Data.MaterialItems.Remove(item);
+                        item.Count = 0;
+                    }
+                    itemData = item;
+                    break;
+                case ItemMainTypeEnum.Virtual:
+                    switch (itemConfig.ID)
+                    {
+                        case 1:
+                            Player.Data.Hcoin -= count;
+                            break;
+                        case 2:
+                            Player.Data.Scoin -= count;
+                            break;
+                        case 3:
+                            Player.Data.Mcoin -= count;
+                            break;
+                        case 32:
+                            Player.Data.TalentPoints -= count;
+                            break;
+                    }
+                    break;
+            }
+            if (itemData != null)
+            {
+                Player.SendPacket(new PacketPlayerSyncScNotify(itemData));
+            }
+            DatabaseHelper.Instance?.UpdateInstance(Data);
+        }
+
         #region Equip
+
+        public void EquipAvatar(int baseAvatarId, int equipmentUniqueId)
+        {
+            var itemData = Data.EquipmentItems.Find(x => x.UniqueId == equipmentUniqueId);
+            var avatarData = Player.AvatarManager!.GetAvatar(baseAvatarId);
+            if (itemData == null || avatarData == null) return;
+            var oldItem = Data.EquipmentItems.Find(x => x.UniqueId == avatarData.EquipId);
+            if (itemData.EquipAvatar > 0)  // already be dressed
+            {
+                var equipAvatar = Player.AvatarManager.GetAvatar(itemData.EquipAvatar);
+                if (equipAvatar != null && oldItem != null)
+                {
+                    // switch
+                    equipAvatar.EquipId = oldItem.UniqueId;
+                    oldItem.EquipAvatar = equipAvatar.GetAvatarId();
+                    Player.SendPacket(new PacketPlayerSyncScNotify(equipAvatar, oldItem));
+                }
+            } else
+            {
+                if (oldItem != null)
+                {
+                    oldItem.EquipAvatar = 0;
+                }
+            }
+            itemData.EquipAvatar = avatarData.GetAvatarId();
+            avatarData.EquipId = itemData.UniqueId;
+            // save
+            DatabaseHelper.Instance!.UpdateInstance(Data);
+            DatabaseHelper.Instance!.UpdateInstance(Player.AvatarManager.AvatarData!);
+            Player.SendPacket(new PacketPlayerSyncScNotify(avatarData, itemData));
+        }
 
         public void EquipRelic(int baseAvatarId, int relicUniqueId, int slot)
         {

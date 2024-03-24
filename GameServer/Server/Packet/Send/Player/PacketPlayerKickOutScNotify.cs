@@ -8,7 +8,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Player
         {
             var proto = new PlayerKickOutScNotify()
             {
-                KickType = KickType.KickByGm,
+                KickType = KickType.KickSqueezed,
             };
             SetData(proto);
         }

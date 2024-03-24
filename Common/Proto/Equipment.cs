@@ -26,8 +26,8 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "Cg9FcXVpcG1lbnQucHJvdG8ilgEKCUVxdWlwbWVudBILCgN0aWQYAyABKA0S",
             "CwoDZXhwGAYgASgNEhQKDGlzX3Byb3RlY3RlZBgFIAEoCBINCgVsZXZlbBgO",
-            "IAEoDRIWCg5iYXNlX2F2YXRhcl9pZBgPIAEoDRIMCgRyYW5rGAwgASgNEhEK",
-            "CXByb21vdGlvbhgEIAEoDRIRCgl1bmlxdWVfaWQYCyABKA1CHqoCG0VnZ0xp",
+            "IAEoDRIWCg5iYXNlX2F2YXRhcl9pZBgPIAEoDRIMCgRyYW5rGAQgASgNEhEK",
+            "CXByb21vdGlvbhgMIAEoDRIRCgl1bmlxdWVfaWQYCyABKA1CHqoCG0VnZ0xp",
             "bmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -152,7 +152,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "rank" field.</summary>
-    public const int RankFieldNumber = 12;
+    public const int RankFieldNumber = 4;
     private uint rank_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -164,7 +164,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "promotion" field.</summary>
-    public const int PromotionFieldNumber = 4;
+    public const int PromotionFieldNumber = 12;
     private uint promotion_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -247,9 +247,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(24);
         output.WriteUInt32(Tid);
       }
-      if (Promotion != 0) {
+      if (Rank != 0) {
         output.WriteRawTag(32);
-        output.WriteUInt32(Promotion);
+        output.WriteUInt32(Rank);
       }
       if (IsProtected != false) {
         output.WriteRawTag(40);
@@ -263,9 +263,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(88);
         output.WriteUInt32(UniqueId);
       }
-      if (Rank != 0) {
+      if (Promotion != 0) {
         output.WriteRawTag(96);
-        output.WriteUInt32(Rank);
+        output.WriteUInt32(Promotion);
       }
       if (Level != 0) {
         output.WriteRawTag(112);
@@ -289,9 +289,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(24);
         output.WriteUInt32(Tid);
       }
-      if (Promotion != 0) {
+      if (Rank != 0) {
         output.WriteRawTag(32);
-        output.WriteUInt32(Promotion);
+        output.WriteUInt32(Rank);
       }
       if (IsProtected != false) {
         output.WriteRawTag(40);
@@ -305,9 +305,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(88);
         output.WriteUInt32(UniqueId);
       }
-      if (Rank != 0) {
+      if (Promotion != 0) {
         output.WriteRawTag(96);
-        output.WriteUInt32(Rank);
+        output.WriteUInt32(Promotion);
       }
       if (Level != 0) {
         output.WriteRawTag(112);
@@ -407,7 +407,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 32: {
-            Promotion = input.ReadUInt32();
+            Rank = input.ReadUInt32();
             break;
           }
           case 40: {
@@ -423,7 +423,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 96: {
-            Rank = input.ReadUInt32();
+            Promotion = input.ReadUInt32();
             break;
           }
           case 112: {
@@ -454,7 +454,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 32: {
-            Promotion = input.ReadUInt32();
+            Rank = input.ReadUInt32();
             break;
           }
           case 40: {
@@ -470,7 +470,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 96: {
-            Rank = input.ReadUInt32();
+            Promotion = input.ReadUInt32();
             break;
           }
           case 112: {
