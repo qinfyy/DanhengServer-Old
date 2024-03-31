@@ -144,6 +144,15 @@ namespace EggLink.DanhengServer.Database.Inventory
             };
         }
 
+        public PileItem ToPileProto()
+        {
+            return new()
+            {
+                ItemId = (uint)ItemId,
+                ItemNum = (uint)Count,
+            };
+        }
+
         #endregion
     }
 

@@ -25,13 +25,13 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CiJGaW5pc2hDb3N1bWVJdGVtTWlzc2lvbkNzUmVxLnByb3RvGg5JdGVtTGlz",
-            "dC5wcm90byJUChxGaW5pc2hDb3N1bWVJdGVtTWlzc2lvbkNzUmVxEhwKCWl0",
-            "ZW1fbGlzdBgLIAEoCzIJLkl0ZW1MaXN0EhYKDnN1Yl9taXNzaW9uX2lkGAUg",
-            "ASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "dC5wcm90byJUChxGaW5pc2hDb3N1bWVJdGVtTWlzc2lvbkNzUmVxEhYKDnN1",
+            "Yl9taXNzaW9uX2lkGA4gASgNEhwKCWl0ZW1fbGlzdBgKIAEoCzIJLkl0ZW1M",
+            "aXN0Qh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ItemListReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.FinishCosumeItemMissionCsReq), global::EggLink.DanhengServer.Proto.FinishCosumeItemMissionCsReq.Parser, new[]{ "ItemList", "SubMissionId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.FinishCosumeItemMissionCsReq), global::EggLink.DanhengServer.Proto.FinishCosumeItemMissionCsReq.Parser, new[]{ "SubMissionId", "ItemList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,8 +73,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public FinishCosumeItemMissionCsReq(FinishCosumeItemMissionCsReq other) : this() {
-      itemList_ = other.itemList_ != null ? other.itemList_.Clone() : null;
       subMissionId_ = other.subMissionId_;
+      itemList_ = other.itemList_ != null ? other.itemList_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,20 +84,8 @@ namespace EggLink.DanhengServer.Proto {
       return new FinishCosumeItemMissionCsReq(this);
     }
 
-    /// <summary>Field number for the "item_list" field.</summary>
-    public const int ItemListFieldNumber = 11;
-    private global::EggLink.DanhengServer.Proto.ItemList itemList_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.ItemList ItemList {
-      get { return itemList_; }
-      set {
-        itemList_ = value;
-      }
-    }
-
     /// <summary>Field number for the "sub_mission_id" field.</summary>
-    public const int SubMissionIdFieldNumber = 5;
+    public const int SubMissionIdFieldNumber = 14;
     private uint subMissionId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -105,6 +93,18 @@ namespace EggLink.DanhengServer.Proto {
       get { return subMissionId_; }
       set {
         subMissionId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "item_list" field.</summary>
+    public const int ItemListFieldNumber = 10;
+    private global::EggLink.DanhengServer.Proto.ItemList itemList_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::EggLink.DanhengServer.Proto.ItemList ItemList {
+      get { return itemList_; }
+      set {
+        itemList_ = value;
       }
     }
 
@@ -123,8 +123,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(ItemList, other.ItemList)) return false;
       if (SubMissionId != other.SubMissionId) return false;
+      if (!object.Equals(ItemList, other.ItemList)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -132,8 +132,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (itemList_ != null) hash ^= ItemList.GetHashCode();
       if (SubMissionId != 0) hash ^= SubMissionId.GetHashCode();
+      if (itemList_ != null) hash ^= ItemList.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -152,13 +152,13 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (SubMissionId != 0) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(SubMissionId);
-      }
       if (itemList_ != null) {
-        output.WriteRawTag(90);
+        output.WriteRawTag(82);
         output.WriteMessage(ItemList);
+      }
+      if (SubMissionId != 0) {
+        output.WriteRawTag(112);
+        output.WriteUInt32(SubMissionId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -170,13 +170,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (SubMissionId != 0) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(SubMissionId);
-      }
       if (itemList_ != null) {
-        output.WriteRawTag(90);
+        output.WriteRawTag(82);
         output.WriteMessage(ItemList);
+      }
+      if (SubMissionId != 0) {
+        output.WriteRawTag(112);
+        output.WriteUInt32(SubMissionId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -188,11 +188,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (itemList_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ItemList);
-      }
       if (SubMissionId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SubMissionId);
+      }
+      if (itemList_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ItemList);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -206,14 +206,14 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
+      if (other.SubMissionId != 0) {
+        SubMissionId = other.SubMissionId;
+      }
       if (other.itemList_ != null) {
         if (itemList_ == null) {
           ItemList = new global::EggLink.DanhengServer.Proto.ItemList();
         }
         ItemList.MergeFrom(other.ItemList);
-      }
-      if (other.SubMissionId != 0) {
-        SubMissionId = other.SubMissionId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -230,15 +230,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 40: {
-            SubMissionId = input.ReadUInt32();
-            break;
-          }
-          case 90: {
+          case 82: {
             if (itemList_ == null) {
               ItemList = new global::EggLink.DanhengServer.Proto.ItemList();
             }
             input.ReadMessage(ItemList);
+            break;
+          }
+          case 112: {
+            SubMissionId = input.ReadUInt32();
             break;
           }
         }
@@ -256,15 +256,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 40: {
-            SubMissionId = input.ReadUInt32();
-            break;
-          }
-          case 90: {
+          case 82: {
             if (itemList_ == null) {
               ItemList = new global::EggLink.DanhengServer.Proto.ItemList();
             }
             input.ReadMessage(ItemList);
+            break;
+          }
+          case 112: {
+            SubMissionId = input.ReadUInt32();
             break;
           }
         }

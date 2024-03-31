@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static WaypointReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg5XYXlwb2ludC5wcm90byI8CghXYXlwb2ludBIKCgJpZBgMIAEoDRIUCgxm",
-            "aW5pc2hfdGltZXMYByABKA0SDgoGaXNfbmV3GAIgASgIQh6qAhtFZ2dMaW5r",
+            "Cg5XYXlwb2ludC5wcm90byI8CghXYXlwb2ludBIUCgxmaW5pc2hfdGltZXMY",
+            "ByABKA0SDgoGaXNfbmV3GAIgASgIEgoKAmlkGAsgASgNQh6qAhtFZ2dMaW5r",
             "LkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.Waypoint), global::EggLink.DanhengServer.Proto.Waypoint.Parser, new[]{ "Id", "FinishTimes", "IsNew" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.Waypoint), global::EggLink.DanhengServer.Proto.Waypoint.Parser, new[]{ "FinishTimes", "IsNew", "Id" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,9 +72,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public Waypoint(Waypoint other) : this() {
-      id_ = other.id_;
       finishTimes_ = other.finishTimes_;
       isNew_ = other.isNew_;
+      id_ = other.id_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -82,18 +82,6 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public Waypoint Clone() {
       return new Waypoint(this);
-    }
-
-    /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 12;
-    private uint id_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Id {
-      get { return id_; }
-      set {
-        id_ = value;
-      }
     }
 
     /// <summary>Field number for the "finish_times" field.</summary>
@@ -120,6 +108,18 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 11;
+    private uint id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -135,9 +135,9 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Id != other.Id) return false;
       if (FinishTimes != other.FinishTimes) return false;
       if (IsNew != other.IsNew) return false;
+      if (Id != other.Id) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -145,9 +145,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Id != 0) hash ^= Id.GetHashCode();
       if (FinishTimes != 0) hash ^= FinishTimes.GetHashCode();
       if (IsNew != false) hash ^= IsNew.GetHashCode();
+      if (Id != 0) hash ^= Id.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -175,7 +175,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteUInt32(FinishTimes);
       }
       if (Id != 0) {
-        output.WriteRawTag(96);
+        output.WriteRawTag(88);
         output.WriteUInt32(Id);
       }
       if (_unknownFields != null) {
@@ -197,7 +197,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteUInt32(FinishTimes);
       }
       if (Id != 0) {
-        output.WriteRawTag(96);
+        output.WriteRawTag(88);
         output.WriteUInt32(Id);
       }
       if (_unknownFields != null) {
@@ -210,14 +210,14 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Id != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Id);
-      }
       if (FinishTimes != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(FinishTimes);
       }
       if (IsNew != false) {
         size += 1 + 1;
+      }
+      if (Id != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Id);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -231,14 +231,14 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.Id != 0) {
-        Id = other.Id;
-      }
       if (other.FinishTimes != 0) {
         FinishTimes = other.FinishTimes;
       }
       if (other.IsNew != false) {
         IsNew = other.IsNew;
+      }
+      if (other.Id != 0) {
+        Id = other.Id;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -263,7 +263,7 @@ namespace EggLink.DanhengServer.Proto {
             FinishTimes = input.ReadUInt32();
             break;
           }
-          case 96: {
+          case 88: {
             Id = input.ReadUInt32();
             break;
           }
@@ -290,7 +290,7 @@ namespace EggLink.DanhengServer.Proto {
             FinishTimes = input.ReadUInt32();
             break;
           }
-          case 96: {
+          case 88: {
             Id = input.ReadUInt32();
             break;
           }

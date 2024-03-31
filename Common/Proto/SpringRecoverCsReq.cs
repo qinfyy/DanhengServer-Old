@@ -25,8 +25,8 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChhTcHJpbmdSZWNvdmVyQ3NSZXEucHJvdG8iUAoSU3ByaW5nUmVjb3ZlckNz",
-            "UmVxEhAKCHBsYW5lX2lkGAIgASgNEhYKDnByb3BfZW50aXR5X2lkGAwgASgN",
-            "EhAKCGZsb29yX2lkGAsgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIu",
+            "UmVxEhAKCHBsYW5lX2lkGAMgASgNEhYKDnByb3BfZW50aXR5X2lkGA8gASgN",
+            "EhAKCGZsb29yX2lkGAEgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIu",
             "UHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -86,7 +86,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "plane_id" field.</summary>
-    public const int PlaneIdFieldNumber = 2;
+    public const int PlaneIdFieldNumber = 3;
     private uint planeId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -98,7 +98,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "prop_entity_id" field.</summary>
-    public const int PropEntityIdFieldNumber = 12;
+    public const int PropEntityIdFieldNumber = 15;
     private uint propEntityId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -110,7 +110,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "floor_id" field.</summary>
-    public const int FloorIdFieldNumber = 11;
+    public const int FloorIdFieldNumber = 1;
     private uint floorId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -167,16 +167,16 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (PlaneId != 0) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(PlaneId);
-      }
       if (FloorId != 0) {
-        output.WriteRawTag(88);
+        output.WriteRawTag(8);
         output.WriteUInt32(FloorId);
       }
+      if (PlaneId != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(PlaneId);
+      }
       if (PropEntityId != 0) {
-        output.WriteRawTag(96);
+        output.WriteRawTag(120);
         output.WriteUInt32(PropEntityId);
       }
       if (_unknownFields != null) {
@@ -189,16 +189,16 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (PlaneId != 0) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(PlaneId);
-      }
       if (FloorId != 0) {
-        output.WriteRawTag(88);
+        output.WriteRawTag(8);
         output.WriteUInt32(FloorId);
       }
+      if (PlaneId != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(PlaneId);
+      }
       if (PropEntityId != 0) {
-        output.WriteRawTag(96);
+        output.WriteRawTag(120);
         output.WriteUInt32(PropEntityId);
       }
       if (_unknownFields != null) {
@@ -256,15 +256,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 16: {
-            PlaneId = input.ReadUInt32();
-            break;
-          }
-          case 88: {
+          case 8: {
             FloorId = input.ReadUInt32();
             break;
           }
-          case 96: {
+          case 24: {
+            PlaneId = input.ReadUInt32();
+            break;
+          }
+          case 120: {
             PropEntityId = input.ReadUInt32();
             break;
           }
@@ -283,15 +283,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 16: {
-            PlaneId = input.ReadUInt32();
-            break;
-          }
-          case 88: {
+          case 8: {
             FloorId = input.ReadUInt32();
             break;
           }
-          case 96: {
+          case 24: {
+            PlaneId = input.ReadUInt32();
+            break;
+          }
+          case 120: {
             PropEntityId = input.ReadUInt32();
             break;
           }

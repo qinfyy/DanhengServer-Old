@@ -25,14 +25,14 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChZSb2d1ZU1pcmFjbGVJbmZvLnByb3RvGhJSb2d1ZU1pcmFjbGUucHJvdG8i",
-            "bAoQUm9ndWVNaXJhY2xlSW5mbxIYChB0b3RhbF9zbG90X2NvdW50GAogASgN",
-            "EhkKEXVubG9ja19zbG90X2NvdW50GAkgASgNEiMKDG1pcmFjbGVfbGlzdBgO",
-            "IAMoCzINLlJvZ3VlTWlyYWNsZUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVy",
+            "bAoQUm9ndWVNaXJhY2xlSW5mbxIjCgxtaXJhY2xlX2xpc3QYDiADKAsyDS5S",
+            "b2d1ZU1pcmFjbGUSGAoQdG90YWxfc2xvdF9jb3VudBgDIAEoDRIZChF1bmxv",
+            "Y2tfc2xvdF9jb3VudBgKIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVy",
             "LlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RogueMiracleReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueMiracleInfo), global::EggLink.DanhengServer.Proto.RogueMiracleInfo.Parser, new[]{ "TotalSlotCount", "UnlockSlotCount", "MiracleList" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueMiracleInfo), global::EggLink.DanhengServer.Proto.RogueMiracleInfo.Parser, new[]{ "MiracleList", "TotalSlotCount", "UnlockSlotCount" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,9 +74,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public RogueMiracleInfo(RogueMiracleInfo other) : this() {
+      miracleList_ = other.miracleList_.Clone();
       totalSlotCount_ = other.totalSlotCount_;
       unlockSlotCount_ = other.unlockSlotCount_;
-      miracleList_ = other.miracleList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,30 +84,6 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public RogueMiracleInfo Clone() {
       return new RogueMiracleInfo(this);
-    }
-
-    /// <summary>Field number for the "total_slot_count" field.</summary>
-    public const int TotalSlotCountFieldNumber = 10;
-    private uint totalSlotCount_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint TotalSlotCount {
-      get { return totalSlotCount_; }
-      set {
-        totalSlotCount_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "unlock_slot_count" field.</summary>
-    public const int UnlockSlotCountFieldNumber = 9;
-    private uint unlockSlotCount_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint UnlockSlotCount {
-      get { return unlockSlotCount_; }
-      set {
-        unlockSlotCount_ = value;
-      }
     }
 
     /// <summary>Field number for the "miracle_list" field.</summary>
@@ -119,6 +95,30 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RogueMiracle> MiracleList {
       get { return miracleList_; }
+    }
+
+    /// <summary>Field number for the "total_slot_count" field.</summary>
+    public const int TotalSlotCountFieldNumber = 3;
+    private uint totalSlotCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint TotalSlotCount {
+      get { return totalSlotCount_; }
+      set {
+        totalSlotCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "unlock_slot_count" field.</summary>
+    public const int UnlockSlotCountFieldNumber = 10;
+    private uint unlockSlotCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint UnlockSlotCount {
+      get { return unlockSlotCount_; }
+      set {
+        unlockSlotCount_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -136,9 +136,9 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if(!miracleList_.Equals(other.miracleList_)) return false;
       if (TotalSlotCount != other.TotalSlotCount) return false;
       if (UnlockSlotCount != other.UnlockSlotCount) return false;
-      if(!miracleList_.Equals(other.miracleList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -146,9 +146,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      hash ^= miracleList_.GetHashCode();
       if (TotalSlotCount != 0) hash ^= TotalSlotCount.GetHashCode();
       if (UnlockSlotCount != 0) hash ^= UnlockSlotCount.GetHashCode();
-      hash ^= miracleList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -167,13 +167,13 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (UnlockSlotCount != 0) {
-        output.WriteRawTag(72);
-        output.WriteUInt32(UnlockSlotCount);
-      }
       if (TotalSlotCount != 0) {
-        output.WriteRawTag(80);
+        output.WriteRawTag(24);
         output.WriteUInt32(TotalSlotCount);
+      }
+      if (UnlockSlotCount != 0) {
+        output.WriteRawTag(80);
+        output.WriteUInt32(UnlockSlotCount);
       }
       miracleList_.WriteTo(output, _repeated_miracleList_codec);
       if (_unknownFields != null) {
@@ -186,13 +186,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (UnlockSlotCount != 0) {
-        output.WriteRawTag(72);
-        output.WriteUInt32(UnlockSlotCount);
-      }
       if (TotalSlotCount != 0) {
-        output.WriteRawTag(80);
+        output.WriteRawTag(24);
         output.WriteUInt32(TotalSlotCount);
+      }
+      if (UnlockSlotCount != 0) {
+        output.WriteRawTag(80);
+        output.WriteUInt32(UnlockSlotCount);
       }
       miracleList_.WriteTo(ref output, _repeated_miracleList_codec);
       if (_unknownFields != null) {
@@ -205,13 +205,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      size += miracleList_.CalculateSize(_repeated_miracleList_codec);
       if (TotalSlotCount != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(TotalSlotCount);
       }
       if (UnlockSlotCount != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(UnlockSlotCount);
       }
-      size += miracleList_.CalculateSize(_repeated_miracleList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -224,13 +224,13 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
+      miracleList_.Add(other.miracleList_);
       if (other.TotalSlotCount != 0) {
         TotalSlotCount = other.TotalSlotCount;
       }
       if (other.UnlockSlotCount != 0) {
         UnlockSlotCount = other.UnlockSlotCount;
       }
-      miracleList_.Add(other.miracleList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -246,12 +246,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 72: {
-            UnlockSlotCount = input.ReadUInt32();
+          case 24: {
+            TotalSlotCount = input.ReadUInt32();
             break;
           }
           case 80: {
-            TotalSlotCount = input.ReadUInt32();
+            UnlockSlotCount = input.ReadUInt32();
             break;
           }
           case 114: {
@@ -273,12 +273,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 72: {
-            UnlockSlotCount = input.ReadUInt32();
+          case 24: {
+            TotalSlotCount = input.ReadUInt32();
             break;
           }
           case 80: {
-            TotalSlotCount = input.ReadUInt32();
+            UnlockSlotCount = input.ReadUInt32();
             break;
           }
           case 114: {

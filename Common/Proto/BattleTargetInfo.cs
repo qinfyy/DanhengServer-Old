@@ -25,12 +25,12 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChZCYXR0bGVUYXJnZXRJbmZvLnByb3RvIkUKEEJhdHRsZVRhcmdldEluZm8S",
-            "CgoCaWQYASABKA0SEAoIcHJvZ3Jlc3MYAiABKA0SEwoLSFBNTkZOSEFFTk8Y",
+            "CgoCaWQYASABKA0SEAoIcHJvZ3Jlc3MYAiABKA0SEwoLQklBQ0NFSEZHTEgY",
             "AyABKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BattleTargetInfo), global::EggLink.DanhengServer.Proto.BattleTargetInfo.Parser, new[]{ "Id", "Progress", "HPMNFNHAENO" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BattleTargetInfo), global::EggLink.DanhengServer.Proto.BattleTargetInfo.Parser, new[]{ "Id", "Progress", "BIACCEHFGLH" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,7 +74,7 @@ namespace EggLink.DanhengServer.Proto {
     public BattleTargetInfo(BattleTargetInfo other) : this() {
       id_ = other.id_;
       progress_ = other.progress_;
-      hPMNFNHAENO_ = other.hPMNFNHAENO_;
+      bIACCEHFGLH_ = other.bIACCEHFGLH_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -108,15 +108,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "HPMNFNHAENO" field.</summary>
-    public const int HPMNFNHAENOFieldNumber = 3;
-    private uint hPMNFNHAENO_;
+    /// <summary>Field number for the "BIACCEHFGLH" field.</summary>
+    public const int BIACCEHFGLHFieldNumber = 3;
+    private uint bIACCEHFGLH_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint HPMNFNHAENO {
-      get { return hPMNFNHAENO_; }
+    public uint BIACCEHFGLH {
+      get { return bIACCEHFGLH_; }
       set {
-        hPMNFNHAENO_ = value;
+        bIACCEHFGLH_ = value;
       }
     }
 
@@ -137,7 +137,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (Id != other.Id) return false;
       if (Progress != other.Progress) return false;
-      if (HPMNFNHAENO != other.HPMNFNHAENO) return false;
+      if (BIACCEHFGLH != other.BIACCEHFGLH) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -147,7 +147,7 @@ namespace EggLink.DanhengServer.Proto {
       int hash = 1;
       if (Id != 0) hash ^= Id.GetHashCode();
       if (Progress != 0) hash ^= Progress.GetHashCode();
-      if (HPMNFNHAENO != 0) hash ^= HPMNFNHAENO.GetHashCode();
+      if (BIACCEHFGLH != 0) hash ^= BIACCEHFGLH.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -174,9 +174,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(16);
         output.WriteUInt32(Progress);
       }
-      if (HPMNFNHAENO != 0) {
+      if (BIACCEHFGLH != 0) {
         output.WriteRawTag(24);
-        output.WriteUInt32(HPMNFNHAENO);
+        output.WriteUInt32(BIACCEHFGLH);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -196,9 +196,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(16);
         output.WriteUInt32(Progress);
       }
-      if (HPMNFNHAENO != 0) {
+      if (BIACCEHFGLH != 0) {
         output.WriteRawTag(24);
-        output.WriteUInt32(HPMNFNHAENO);
+        output.WriteUInt32(BIACCEHFGLH);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -216,8 +216,8 @@ namespace EggLink.DanhengServer.Proto {
       if (Progress != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Progress);
       }
-      if (HPMNFNHAENO != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(HPMNFNHAENO);
+      if (BIACCEHFGLH != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BIACCEHFGLH);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -237,8 +237,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other.Progress != 0) {
         Progress = other.Progress;
       }
-      if (other.HPMNFNHAENO != 0) {
-        HPMNFNHAENO = other.HPMNFNHAENO;
+      if (other.BIACCEHFGLH != 0) {
+        BIACCEHFGLH = other.BIACCEHFGLH;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -264,7 +264,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 24: {
-            HPMNFNHAENO = input.ReadUInt32();
+            BIACCEHFGLH = input.ReadUInt32();
             break;
           }
         }
@@ -291,7 +291,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 24: {
-            HPMNFNHAENO = input.ReadUInt32();
+            BIACCEHFGLH = input.ReadUInt32();
             break;
           }
         }

@@ -25,7 +25,7 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cg5JdGVtTGlzdC5wcm90bxoKSXRlbS5wcm90byIlCghJdGVtTGlzdBIZCgpp",
-            "dGVtX2xpc3RfGA4gAygLMgUuSXRlbUIeqgIbRWdnTGluay5EYW5oZW5nU2Vy",
+            "dGVtX2xpc3RfGAMgAygLMgUuSXRlbUIeqgIbRWdnTGluay5EYW5oZW5nU2Vy",
             "dmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ItemReflection.Descriptor, },
@@ -83,9 +83,9 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "item_list_" field.</summary>
-    public const int ItemList_FieldNumber = 14;
+    public const int ItemList_FieldNumber = 3;
     private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.Item> _repeated_itemList_codec
-        = pb::FieldCodec.ForMessage(114, global::EggLink.DanhengServer.Proto.Item.Parser);
+        = pb::FieldCodec.ForMessage(26, global::EggLink.DanhengServer.Proto.Item.Parser);
     private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Item> itemList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Item>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -186,7 +186,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 114: {
+          case 26: {
             itemList_.AddEntriesFrom(input, _repeated_itemList_codec);
             break;
           }
@@ -205,7 +205,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 114: {
+          case 26: {
             itemList_.AddEntriesFrom(ref input, _repeated_itemList_codec);
             break;
           }

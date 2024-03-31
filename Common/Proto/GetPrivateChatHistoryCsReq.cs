@@ -25,13 +25,13 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CiBHZXRQcml2YXRlQ2hhdEhpc3RvcnlDc1JlcS5wcm90byJFChpHZXRQcml2",
-            "YXRlQ2hhdEhpc3RvcnlDc1JlcRITCgtBRk5HR0RHRU9NSRgIIAEoDRISCgpj",
-            "b250YWN0X2lkGA0gASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJv",
+            "YXRlQ2hhdEhpc3RvcnlDc1JlcRITCgtNREZCQUlQUExHQhgLIAEoDRISCgpj",
+            "b250YWN0X2lkGAkgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJv",
             "dG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetPrivateChatHistoryCsReq), global::EggLink.DanhengServer.Proto.GetPrivateChatHistoryCsReq.Parser, new[]{ "AFNGGDGEOMI", "ContactId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetPrivateChatHistoryCsReq), global::EggLink.DanhengServer.Proto.GetPrivateChatHistoryCsReq.Parser, new[]{ "MDFBAIPPLGB", "ContactId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetPrivateChatHistoryCsReq(GetPrivateChatHistoryCsReq other) : this() {
-      aFNGGDGEOMI_ = other.aFNGGDGEOMI_;
+      mDFBAIPPLGB_ = other.mDFBAIPPLGB_;
       contactId_ = other.contactId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -84,20 +84,20 @@ namespace EggLink.DanhengServer.Proto {
       return new GetPrivateChatHistoryCsReq(this);
     }
 
-    /// <summary>Field number for the "AFNGGDGEOMI" field.</summary>
-    public const int AFNGGDGEOMIFieldNumber = 8;
-    private uint aFNGGDGEOMI_;
+    /// <summary>Field number for the "MDFBAIPPLGB" field.</summary>
+    public const int MDFBAIPPLGBFieldNumber = 11;
+    private uint mDFBAIPPLGB_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint AFNGGDGEOMI {
-      get { return aFNGGDGEOMI_; }
+    public uint MDFBAIPPLGB {
+      get { return mDFBAIPPLGB_; }
       set {
-        aFNGGDGEOMI_ = value;
+        mDFBAIPPLGB_ = value;
       }
     }
 
     /// <summary>Field number for the "contact_id" field.</summary>
-    public const int ContactIdFieldNumber = 13;
+    public const int ContactIdFieldNumber = 9;
     private uint contactId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -123,7 +123,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (AFNGGDGEOMI != other.AFNGGDGEOMI) return false;
+      if (MDFBAIPPLGB != other.MDFBAIPPLGB) return false;
       if (ContactId != other.ContactId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -132,7 +132,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (AFNGGDGEOMI != 0) hash ^= AFNGGDGEOMI.GetHashCode();
+      if (MDFBAIPPLGB != 0) hash ^= MDFBAIPPLGB.GetHashCode();
       if (ContactId != 0) hash ^= ContactId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -152,13 +152,13 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (AFNGGDGEOMI != 0) {
-        output.WriteRawTag(64);
-        output.WriteUInt32(AFNGGDGEOMI);
-      }
       if (ContactId != 0) {
-        output.WriteRawTag(104);
+        output.WriteRawTag(72);
         output.WriteUInt32(ContactId);
+      }
+      if (MDFBAIPPLGB != 0) {
+        output.WriteRawTag(88);
+        output.WriteUInt32(MDFBAIPPLGB);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -170,13 +170,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (AFNGGDGEOMI != 0) {
-        output.WriteRawTag(64);
-        output.WriteUInt32(AFNGGDGEOMI);
-      }
       if (ContactId != 0) {
-        output.WriteRawTag(104);
+        output.WriteRawTag(72);
         output.WriteUInt32(ContactId);
+      }
+      if (MDFBAIPPLGB != 0) {
+        output.WriteRawTag(88);
+        output.WriteUInt32(MDFBAIPPLGB);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -188,8 +188,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (AFNGGDGEOMI != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(AFNGGDGEOMI);
+      if (MDFBAIPPLGB != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MDFBAIPPLGB);
       }
       if (ContactId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ContactId);
@@ -206,8 +206,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.AFNGGDGEOMI != 0) {
-        AFNGGDGEOMI = other.AFNGGDGEOMI;
+      if (other.MDFBAIPPLGB != 0) {
+        MDFBAIPPLGB = other.MDFBAIPPLGB;
       }
       if (other.ContactId != 0) {
         ContactId = other.ContactId;
@@ -227,12 +227,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 64: {
-            AFNGGDGEOMI = input.ReadUInt32();
+          case 72: {
+            ContactId = input.ReadUInt32();
             break;
           }
-          case 104: {
-            ContactId = input.ReadUInt32();
+          case 88: {
+            MDFBAIPPLGB = input.ReadUInt32();
             break;
           }
         }
@@ -250,12 +250,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 64: {
-            AFNGGDGEOMI = input.ReadUInt32();
+          case 72: {
+            ContactId = input.ReadUInt32();
             break;
           }
-          case 104: {
-            ContactId = input.ReadUInt32();
+          case 88: {
+            MDFBAIPPLGB = input.ReadUInt32();
             break;
           }
         }

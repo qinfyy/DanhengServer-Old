@@ -25,8 +25,8 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CiFDaGVzc1JvZ3VlUmV2aXZlQXZhdGFyQ3NSZXEucHJvdG8iTgobQ2hlc3NS",
-            "b2d1ZVJldml2ZUF2YXRhckNzUmVxEhIKCm1vbnN0ZXJfaWQYCCABKA0SGwoT",
-            "YmFzZV9hdmF0YXJfaWRfbGlzdBgOIAMoDUIeqgIbRWdnTGluay5EYW5oZW5n",
+            "b2d1ZVJldml2ZUF2YXRhckNzUmVxEhIKCm1vbnN0ZXJfaWQYCiABKA0SGwoT",
+            "YmFzZV9hdmF0YXJfaWRfbGlzdBgNIAMoDUIeqgIbRWdnTGluay5EYW5oZW5n",
             "U2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -85,7 +85,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "monster_id" field.</summary>
-    public const int MonsterIdFieldNumber = 8;
+    public const int MonsterIdFieldNumber = 10;
     private uint monsterId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -97,9 +97,9 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "base_avatar_id_list" field.</summary>
-    public const int BaseAvatarIdListFieldNumber = 14;
+    public const int BaseAvatarIdListFieldNumber = 13;
     private static readonly pb::FieldCodec<uint> _repeated_baseAvatarIdList_codec
-        = pb::FieldCodec.ForUInt32(114);
+        = pb::FieldCodec.ForUInt32(106);
     private readonly pbc::RepeatedField<uint> baseAvatarIdList_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -152,7 +152,7 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (MonsterId != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(80);
         output.WriteUInt32(MonsterId);
       }
       baseAvatarIdList_.WriteTo(output, _repeated_baseAvatarIdList_codec);
@@ -167,7 +167,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (MonsterId != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(80);
         output.WriteUInt32(MonsterId);
       }
       baseAvatarIdList_.WriteTo(ref output, _repeated_baseAvatarIdList_codec);
@@ -216,12 +216,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 64: {
+          case 80: {
             MonsterId = input.ReadUInt32();
             break;
           }
-          case 114:
-          case 112: {
+          case 106:
+          case 104: {
             baseAvatarIdList_.AddEntriesFrom(input, _repeated_baseAvatarIdList_codec);
             break;
           }
@@ -240,12 +240,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 64: {
+          case 80: {
             MonsterId = input.ReadUInt32();
             break;
           }
-          case 114:
-          case 112: {
+          case 106:
+          case 104: {
             baseAvatarIdList_.AddEntriesFrom(ref input, _repeated_baseAvatarIdList_codec);
             break;
           }

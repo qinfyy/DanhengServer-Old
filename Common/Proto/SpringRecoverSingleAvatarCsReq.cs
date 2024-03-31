@@ -26,14 +26,14 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "CiRTcHJpbmdSZWNvdmVyU2luZ2xlQXZhdGFyQ3NSZXEucHJvdG8aEEF2YXRh",
             "clR5cGUucHJvdG8ioAEKHlNwcmluZ1JlY292ZXJTaW5nbGVBdmF0YXJDc1Jl",
-            "cRIQCghwbGFuZV9pZBgLIAEoDRIUCgxyZWNvdmVyX2Z1bGwYCSABKAgSCgoC",
-            "aWQYAiABKA0SFgoOcHJvcF9lbnRpdHlfaWQYAyABKA0SIAoLYXZhdGFyX3R5",
-            "cGUYBCABKA4yCy5BdmF0YXJUeXBlEhAKCGZsb29yX2lkGAogASgNQh6qAhtF",
+            "cRIQCghwbGFuZV9pZBgFIAEoDRIWCg5wcm9wX2VudGl0eV9pZBgIIAEoDRIU",
+            "CgxyZWNvdmVyX2Z1bGwYDiABKAgSIAoLYXZhdGFyX3R5cGUYDCABKA4yCy5B",
+            "dmF0YXJUeXBlEhAKCGZsb29yX2lkGAIgASgNEgoKAmlkGAMgASgNQh6qAhtF",
             "Z2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.AvatarTypeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SpringRecoverSingleAvatarCsReq), global::EggLink.DanhengServer.Proto.SpringRecoverSingleAvatarCsReq.Parser, new[]{ "PlaneId", "RecoverFull", "Id", "PropEntityId", "AvatarType", "FloorId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SpringRecoverSingleAvatarCsReq), global::EggLink.DanhengServer.Proto.SpringRecoverSingleAvatarCsReq.Parser, new[]{ "PlaneId", "PropEntityId", "RecoverFull", "AvatarType", "FloorId", "Id" }, null, null, null, null)
           }));
     }
     #endregion
@@ -76,11 +76,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SpringRecoverSingleAvatarCsReq(SpringRecoverSingleAvatarCsReq other) : this() {
       planeId_ = other.planeId_;
-      recoverFull_ = other.recoverFull_;
-      id_ = other.id_;
       propEntityId_ = other.propEntityId_;
+      recoverFull_ = other.recoverFull_;
       avatarType_ = other.avatarType_;
       floorId_ = other.floorId_;
+      id_ = other.id_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -91,7 +91,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "plane_id" field.</summary>
-    public const int PlaneIdFieldNumber = 11;
+    public const int PlaneIdFieldNumber = 5;
     private uint planeId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -102,32 +102,8 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "recover_full" field.</summary>
-    public const int RecoverFullFieldNumber = 9;
-    private bool recoverFull_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool RecoverFull {
-      get { return recoverFull_; }
-      set {
-        recoverFull_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 2;
-    private uint id_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Id {
-      get { return id_; }
-      set {
-        id_ = value;
-      }
-    }
-
     /// <summary>Field number for the "prop_entity_id" field.</summary>
-    public const int PropEntityIdFieldNumber = 3;
+    public const int PropEntityIdFieldNumber = 8;
     private uint propEntityId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -138,8 +114,20 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
+    /// <summary>Field number for the "recover_full" field.</summary>
+    public const int RecoverFullFieldNumber = 14;
+    private bool recoverFull_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool RecoverFull {
+      get { return recoverFull_; }
+      set {
+        recoverFull_ = value;
+      }
+    }
+
     /// <summary>Field number for the "avatar_type" field.</summary>
-    public const int AvatarTypeFieldNumber = 4;
+    public const int AvatarTypeFieldNumber = 12;
     private global::EggLink.DanhengServer.Proto.AvatarType avatarType_ = global::EggLink.DanhengServer.Proto.AvatarType.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -151,7 +139,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "floor_id" field.</summary>
-    public const int FloorIdFieldNumber = 10;
+    public const int FloorIdFieldNumber = 2;
     private uint floorId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -159,6 +147,18 @@ namespace EggLink.DanhengServer.Proto {
       get { return floorId_; }
       set {
         floorId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 3;
+    private uint id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Id {
+      get { return id_; }
+      set {
+        id_ = value;
       }
     }
 
@@ -178,11 +178,11 @@ namespace EggLink.DanhengServer.Proto {
         return true;
       }
       if (PlaneId != other.PlaneId) return false;
-      if (RecoverFull != other.RecoverFull) return false;
-      if (Id != other.Id) return false;
       if (PropEntityId != other.PropEntityId) return false;
+      if (RecoverFull != other.RecoverFull) return false;
       if (AvatarType != other.AvatarType) return false;
       if (FloorId != other.FloorId) return false;
+      if (Id != other.Id) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -191,11 +191,11 @@ namespace EggLink.DanhengServer.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (PlaneId != 0) hash ^= PlaneId.GetHashCode();
-      if (RecoverFull != false) hash ^= RecoverFull.GetHashCode();
-      if (Id != 0) hash ^= Id.GetHashCode();
       if (PropEntityId != 0) hash ^= PropEntityId.GetHashCode();
+      if (RecoverFull != false) hash ^= RecoverFull.GetHashCode();
       if (AvatarType != global::EggLink.DanhengServer.Proto.AvatarType.None) hash ^= AvatarType.GetHashCode();
       if (FloorId != 0) hash ^= FloorId.GetHashCode();
+      if (Id != 0) hash ^= Id.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -214,29 +214,29 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Id != 0) {
+      if (FloorId != 0) {
         output.WriteRawTag(16);
+        output.WriteUInt32(FloorId);
+      }
+      if (Id != 0) {
+        output.WriteRawTag(24);
         output.WriteUInt32(Id);
       }
+      if (PlaneId != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(PlaneId);
+      }
       if (PropEntityId != 0) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(64);
         output.WriteUInt32(PropEntityId);
       }
       if (AvatarType != global::EggLink.DanhengServer.Proto.AvatarType.None) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(96);
         output.WriteEnum((int) AvatarType);
       }
       if (RecoverFull != false) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(112);
         output.WriteBool(RecoverFull);
-      }
-      if (FloorId != 0) {
-        output.WriteRawTag(80);
-        output.WriteUInt32(FloorId);
-      }
-      if (PlaneId != 0) {
-        output.WriteRawTag(88);
-        output.WriteUInt32(PlaneId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -248,29 +248,29 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Id != 0) {
+      if (FloorId != 0) {
         output.WriteRawTag(16);
+        output.WriteUInt32(FloorId);
+      }
+      if (Id != 0) {
+        output.WriteRawTag(24);
         output.WriteUInt32(Id);
       }
+      if (PlaneId != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(PlaneId);
+      }
       if (PropEntityId != 0) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(64);
         output.WriteUInt32(PropEntityId);
       }
       if (AvatarType != global::EggLink.DanhengServer.Proto.AvatarType.None) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(96);
         output.WriteEnum((int) AvatarType);
       }
       if (RecoverFull != false) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(112);
         output.WriteBool(RecoverFull);
-      }
-      if (FloorId != 0) {
-        output.WriteRawTag(80);
-        output.WriteUInt32(FloorId);
-      }
-      if (PlaneId != 0) {
-        output.WriteRawTag(88);
-        output.WriteUInt32(PlaneId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -285,20 +285,20 @@ namespace EggLink.DanhengServer.Proto {
       if (PlaneId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PlaneId);
       }
-      if (RecoverFull != false) {
-        size += 1 + 1;
-      }
-      if (Id != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Id);
-      }
       if (PropEntityId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PropEntityId);
+      }
+      if (RecoverFull != false) {
+        size += 1 + 1;
       }
       if (AvatarType != global::EggLink.DanhengServer.Proto.AvatarType.None) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) AvatarType);
       }
       if (FloorId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(FloorId);
+      }
+      if (Id != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Id);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -315,20 +315,20 @@ namespace EggLink.DanhengServer.Proto {
       if (other.PlaneId != 0) {
         PlaneId = other.PlaneId;
       }
-      if (other.RecoverFull != false) {
-        RecoverFull = other.RecoverFull;
-      }
-      if (other.Id != 0) {
-        Id = other.Id;
-      }
       if (other.PropEntityId != 0) {
         PropEntityId = other.PropEntityId;
+      }
+      if (other.RecoverFull != false) {
+        RecoverFull = other.RecoverFull;
       }
       if (other.AvatarType != global::EggLink.DanhengServer.Proto.AvatarType.None) {
         AvatarType = other.AvatarType;
       }
       if (other.FloorId != 0) {
         FloorId = other.FloorId;
+      }
+      if (other.Id != 0) {
+        Id = other.Id;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -346,27 +346,27 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 16: {
-            Id = input.ReadUInt32();
-            break;
-          }
-          case 24: {
-            PropEntityId = input.ReadUInt32();
-            break;
-          }
-          case 32: {
-            AvatarType = (global::EggLink.DanhengServer.Proto.AvatarType) input.ReadEnum();
-            break;
-          }
-          case 72: {
-            RecoverFull = input.ReadBool();
-            break;
-          }
-          case 80: {
             FloorId = input.ReadUInt32();
             break;
           }
-          case 88: {
+          case 24: {
+            Id = input.ReadUInt32();
+            break;
+          }
+          case 40: {
             PlaneId = input.ReadUInt32();
+            break;
+          }
+          case 64: {
+            PropEntityId = input.ReadUInt32();
+            break;
+          }
+          case 96: {
+            AvatarType = (global::EggLink.DanhengServer.Proto.AvatarType) input.ReadEnum();
+            break;
+          }
+          case 112: {
+            RecoverFull = input.ReadBool();
             break;
           }
         }
@@ -385,27 +385,27 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 16: {
-            Id = input.ReadUInt32();
-            break;
-          }
-          case 24: {
-            PropEntityId = input.ReadUInt32();
-            break;
-          }
-          case 32: {
-            AvatarType = (global::EggLink.DanhengServer.Proto.AvatarType) input.ReadEnum();
-            break;
-          }
-          case 72: {
-            RecoverFull = input.ReadBool();
-            break;
-          }
-          case 80: {
             FloorId = input.ReadUInt32();
             break;
           }
-          case 88: {
+          case 24: {
+            Id = input.ReadUInt32();
+            break;
+          }
+          case 40: {
             PlaneId = input.ReadUInt32();
+            break;
+          }
+          case 64: {
+            PropEntityId = input.ReadUInt32();
+            break;
+          }
+          case 96: {
+            AvatarType = (global::EggLink.DanhengServer.Proto.AvatarType) input.ReadEnum();
+            break;
+          }
+          case 112: {
+            RecoverFull = input.ReadBool();
             break;
           }
         }

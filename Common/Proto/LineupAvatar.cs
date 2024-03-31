@@ -24,16 +24,16 @@ namespace EggLink.DanhengServer.Proto {
     static LineupAvatarReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChJMaW5ldXBBdmF0YXIucHJvdG8aD1NwQmFySW5mby5wcm90bxoQQXZhdGFy",
-            "VHlwZS5wcm90byKDAQoMTGluZXVwQXZhdGFyEiAKC2F2YXRhcl90eXBlGAwg",
-            "ASgOMgsuQXZhdGFyVHlwZRIPCgdzYXRpZXR5GAcgASgNEgoKAmlkGAMgASgN",
-            "EgoKAmhwGA8gASgNEgwKBHNsb3QYBiABKA0SGgoGc3BfYmFyGAkgASgLMgou",
-            "U3BCYXJJbmZvQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnBy",
+            "ChJMaW5ldXBBdmF0YXIucHJvdG8aEEF2YXRhclR5cGUucHJvdG8aD1NwQmFy",
+            "SW5mby5wcm90byKDAQoMTGluZXVwQXZhdGFyEgwKBHNsb3QYDiABKA0SGgoG",
+            "c3BfYmFyGA0gASgLMgouU3BCYXJJbmZvEgoKAmlkGAIgASgNEg8KB3NhdGll",
+            "dHkYByABKA0SCgoCaHAYBiABKA0SIAoLYXZhdGFyX3R5cGUYDCABKA4yCy5B",
+            "dmF0YXJUeXBlQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnBy",
             "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.SpBarInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.AvatarTypeReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.AvatarTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.SpBarInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.LineupAvatar), global::EggLink.DanhengServer.Proto.LineupAvatar.Parser, new[]{ "AvatarType", "Satiety", "Id", "Hp", "Slot", "SpBar" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.LineupAvatar), global::EggLink.DanhengServer.Proto.LineupAvatar.Parser, new[]{ "Slot", "SpBar", "Id", "Satiety", "Hp", "AvatarType" }, null, null, null, null)
           }));
     }
     #endregion
@@ -75,12 +75,12 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public LineupAvatar(LineupAvatar other) : this() {
-      avatarType_ = other.avatarType_;
-      satiety_ = other.satiety_;
-      id_ = other.id_;
-      hp_ = other.hp_;
       slot_ = other.slot_;
       spBar_ = other.spBar_ != null ? other.spBar_.Clone() : null;
+      id_ = other.id_;
+      satiety_ = other.satiety_;
+      hp_ = other.hp_;
+      avatarType_ = other.avatarType_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -90,15 +90,39 @@ namespace EggLink.DanhengServer.Proto {
       return new LineupAvatar(this);
     }
 
-    /// <summary>Field number for the "avatar_type" field.</summary>
-    public const int AvatarTypeFieldNumber = 12;
-    private global::EggLink.DanhengServer.Proto.AvatarType avatarType_ = global::EggLink.DanhengServer.Proto.AvatarType.None;
+    /// <summary>Field number for the "slot" field.</summary>
+    public const int SlotFieldNumber = 14;
+    private uint slot_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.AvatarType AvatarType {
-      get { return avatarType_; }
+    public uint Slot {
+      get { return slot_; }
       set {
-        avatarType_ = value;
+        slot_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "sp_bar" field.</summary>
+    public const int SpBarFieldNumber = 13;
+    private global::EggLink.DanhengServer.Proto.SpBarInfo spBar_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::EggLink.DanhengServer.Proto.SpBarInfo SpBar {
+      get { return spBar_; }
+      set {
+        spBar_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 2;
+    private uint id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Id {
+      get { return id_; }
+      set {
+        id_ = value;
       }
     }
 
@@ -114,20 +138,8 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 3;
-    private uint id_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Id {
-      get { return id_; }
-      set {
-        id_ = value;
-      }
-    }
-
     /// <summary>Field number for the "hp" field.</summary>
-    public const int HpFieldNumber = 15;
+    public const int HpFieldNumber = 6;
     private uint hp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -138,27 +150,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "slot" field.</summary>
-    public const int SlotFieldNumber = 6;
-    private uint slot_;
+    /// <summary>Field number for the "avatar_type" field.</summary>
+    public const int AvatarTypeFieldNumber = 12;
+    private global::EggLink.DanhengServer.Proto.AvatarType avatarType_ = global::EggLink.DanhengServer.Proto.AvatarType.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Slot {
-      get { return slot_; }
+    public global::EggLink.DanhengServer.Proto.AvatarType AvatarType {
+      get { return avatarType_; }
       set {
-        slot_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "sp_bar" field.</summary>
-    public const int SpBarFieldNumber = 9;
-    private global::EggLink.DanhengServer.Proto.SpBarInfo spBar_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.SpBarInfo SpBar {
-      get { return spBar_; }
-      set {
-        spBar_ = value;
+        avatarType_ = value;
       }
     }
 
@@ -177,12 +177,12 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (AvatarType != other.AvatarType) return false;
-      if (Satiety != other.Satiety) return false;
-      if (Id != other.Id) return false;
-      if (Hp != other.Hp) return false;
       if (Slot != other.Slot) return false;
       if (!object.Equals(SpBar, other.SpBar)) return false;
+      if (Id != other.Id) return false;
+      if (Satiety != other.Satiety) return false;
+      if (Hp != other.Hp) return false;
+      if (AvatarType != other.AvatarType) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -190,12 +190,12 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (AvatarType != global::EggLink.DanhengServer.Proto.AvatarType.None) hash ^= AvatarType.GetHashCode();
-      if (Satiety != 0) hash ^= Satiety.GetHashCode();
-      if (Id != 0) hash ^= Id.GetHashCode();
-      if (Hp != 0) hash ^= Hp.GetHashCode();
       if (Slot != 0) hash ^= Slot.GetHashCode();
       if (spBar_ != null) hash ^= SpBar.GetHashCode();
+      if (Id != 0) hash ^= Id.GetHashCode();
+      if (Satiety != 0) hash ^= Satiety.GetHashCode();
+      if (Hp != 0) hash ^= Hp.GetHashCode();
+      if (AvatarType != global::EggLink.DanhengServer.Proto.AvatarType.None) hash ^= AvatarType.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -215,28 +215,28 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (Id != 0) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(16);
         output.WriteUInt32(Id);
       }
-      if (Slot != 0) {
+      if (Hp != 0) {
         output.WriteRawTag(48);
-        output.WriteUInt32(Slot);
+        output.WriteUInt32(Hp);
       }
       if (Satiety != 0) {
         output.WriteRawTag(56);
         output.WriteUInt32(Satiety);
       }
-      if (spBar_ != null) {
-        output.WriteRawTag(74);
-        output.WriteMessage(SpBar);
-      }
       if (AvatarType != global::EggLink.DanhengServer.Proto.AvatarType.None) {
         output.WriteRawTag(96);
         output.WriteEnum((int) AvatarType);
       }
-      if (Hp != 0) {
-        output.WriteRawTag(120);
-        output.WriteUInt32(Hp);
+      if (spBar_ != null) {
+        output.WriteRawTag(106);
+        output.WriteMessage(SpBar);
+      }
+      if (Slot != 0) {
+        output.WriteRawTag(112);
+        output.WriteUInt32(Slot);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -249,28 +249,28 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (Id != 0) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(16);
         output.WriteUInt32(Id);
       }
-      if (Slot != 0) {
+      if (Hp != 0) {
         output.WriteRawTag(48);
-        output.WriteUInt32(Slot);
+        output.WriteUInt32(Hp);
       }
       if (Satiety != 0) {
         output.WriteRawTag(56);
         output.WriteUInt32(Satiety);
       }
-      if (spBar_ != null) {
-        output.WriteRawTag(74);
-        output.WriteMessage(SpBar);
-      }
       if (AvatarType != global::EggLink.DanhengServer.Proto.AvatarType.None) {
         output.WriteRawTag(96);
         output.WriteEnum((int) AvatarType);
       }
-      if (Hp != 0) {
-        output.WriteRawTag(120);
-        output.WriteUInt32(Hp);
+      if (spBar_ != null) {
+        output.WriteRawTag(106);
+        output.WriteMessage(SpBar);
+      }
+      if (Slot != 0) {
+        output.WriteRawTag(112);
+        output.WriteUInt32(Slot);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -282,23 +282,23 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (AvatarType != global::EggLink.DanhengServer.Proto.AvatarType.None) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) AvatarType);
-      }
-      if (Satiety != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Satiety);
-      }
-      if (Id != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Id);
-      }
-      if (Hp != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Hp);
-      }
       if (Slot != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Slot);
       }
       if (spBar_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(SpBar);
+      }
+      if (Id != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Id);
+      }
+      if (Satiety != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Satiety);
+      }
+      if (Hp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Hp);
+      }
+      if (AvatarType != global::EggLink.DanhengServer.Proto.AvatarType.None) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) AvatarType);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -312,18 +312,6 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.AvatarType != global::EggLink.DanhengServer.Proto.AvatarType.None) {
-        AvatarType = other.AvatarType;
-      }
-      if (other.Satiety != 0) {
-        Satiety = other.Satiety;
-      }
-      if (other.Id != 0) {
-        Id = other.Id;
-      }
-      if (other.Hp != 0) {
-        Hp = other.Hp;
-      }
       if (other.Slot != 0) {
         Slot = other.Slot;
       }
@@ -332,6 +320,18 @@ namespace EggLink.DanhengServer.Proto {
           SpBar = new global::EggLink.DanhengServer.Proto.SpBarInfo();
         }
         SpBar.MergeFrom(other.SpBar);
+      }
+      if (other.Id != 0) {
+        Id = other.Id;
+      }
+      if (other.Satiety != 0) {
+        Satiety = other.Satiety;
+      }
+      if (other.Hp != 0) {
+        Hp = other.Hp;
+      }
+      if (other.AvatarType != global::EggLink.DanhengServer.Proto.AvatarType.None) {
+        AvatarType = other.AvatarType;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -348,31 +348,31 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 24: {
+          case 16: {
             Id = input.ReadUInt32();
             break;
           }
           case 48: {
-            Slot = input.ReadUInt32();
+            Hp = input.ReadUInt32();
             break;
           }
           case 56: {
             Satiety = input.ReadUInt32();
             break;
           }
-          case 74: {
+          case 96: {
+            AvatarType = (global::EggLink.DanhengServer.Proto.AvatarType) input.ReadEnum();
+            break;
+          }
+          case 106: {
             if (spBar_ == null) {
               SpBar = new global::EggLink.DanhengServer.Proto.SpBarInfo();
             }
             input.ReadMessage(SpBar);
             break;
           }
-          case 96: {
-            AvatarType = (global::EggLink.DanhengServer.Proto.AvatarType) input.ReadEnum();
-            break;
-          }
-          case 120: {
-            Hp = input.ReadUInt32();
+          case 112: {
+            Slot = input.ReadUInt32();
             break;
           }
         }
@@ -390,31 +390,31 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 24: {
+          case 16: {
             Id = input.ReadUInt32();
             break;
           }
           case 48: {
-            Slot = input.ReadUInt32();
+            Hp = input.ReadUInt32();
             break;
           }
           case 56: {
             Satiety = input.ReadUInt32();
             break;
           }
-          case 74: {
+          case 96: {
+            AvatarType = (global::EggLink.DanhengServer.Proto.AvatarType) input.ReadEnum();
+            break;
+          }
+          case 106: {
             if (spBar_ == null) {
               SpBar = new global::EggLink.DanhengServer.Proto.SpBarInfo();
             }
             input.ReadMessage(SpBar);
             break;
           }
-          case 96: {
-            AvatarType = (global::EggLink.DanhengServer.Proto.AvatarType) input.ReadEnum();
-            break;
-          }
-          case 120: {
-            Hp = input.ReadUInt32();
+          case 112: {
+            Slot = input.ReadUInt32();
             break;
           }
         }

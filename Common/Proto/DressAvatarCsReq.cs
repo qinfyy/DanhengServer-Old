@@ -25,8 +25,8 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChZEcmVzc0F2YXRhckNzUmVxLnByb3RvIkcKEERyZXNzQXZhdGFyQ3NSZXES",
-            "GwoTZXF1aXBtZW50X3VuaXF1ZV9pZBgBIAEoDRIWCg5iYXNlX2F2YXRhcl9p",
-            "ZBgKIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90",
+            "GwoTZXF1aXBtZW50X3VuaXF1ZV9pZBgGIAEoDRIWCg5iYXNlX2F2YXRhcl9p",
+            "ZBgJIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90",
             "bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -85,7 +85,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "equipment_unique_id" field.</summary>
-    public const int EquipmentUniqueIdFieldNumber = 1;
+    public const int EquipmentUniqueIdFieldNumber = 6;
     private uint equipmentUniqueId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -97,7 +97,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "base_avatar_id" field.</summary>
-    public const int BaseAvatarIdFieldNumber = 10;
+    public const int BaseAvatarIdFieldNumber = 9;
     private uint baseAvatarId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -153,11 +153,11 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (EquipmentUniqueId != 0) {
-        output.WriteRawTag(8);
+        output.WriteRawTag(48);
         output.WriteUInt32(EquipmentUniqueId);
       }
       if (BaseAvatarId != 0) {
-        output.WriteRawTag(80);
+        output.WriteRawTag(72);
         output.WriteUInt32(BaseAvatarId);
       }
       if (_unknownFields != null) {
@@ -171,11 +171,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (EquipmentUniqueId != 0) {
-        output.WriteRawTag(8);
+        output.WriteRawTag(48);
         output.WriteUInt32(EquipmentUniqueId);
       }
       if (BaseAvatarId != 0) {
-        output.WriteRawTag(80);
+        output.WriteRawTag(72);
         output.WriteUInt32(BaseAvatarId);
       }
       if (_unknownFields != null) {
@@ -227,11 +227,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
+          case 48: {
             EquipmentUniqueId = input.ReadUInt32();
             break;
           }
-          case 80: {
+          case 72: {
             BaseAvatarId = input.ReadUInt32();
             break;
           }
@@ -250,11 +250,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
+          case 48: {
             EquipmentUniqueId = input.ReadUInt32();
             break;
           }
-          case 80: {
+          case 72: {
             BaseAvatarId = input.ReadUInt32();
             break;
           }

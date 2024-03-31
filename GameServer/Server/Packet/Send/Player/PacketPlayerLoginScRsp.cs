@@ -1,4 +1,5 @@
 ﻿using EggLink.DanhengServer.Proto;
+using EggLink.DanhengServer.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Player
             var rsp = new PlayerLoginScRsp()
             {
                 CurTimezone = (int)TimeZoneInfo.Local.BaseUtcOffset.TotalHours,
-                ServerTimestampMs = (ulong)(DateTime.Now.Ticks / 10000),
+                ServerTimestampMs = (ulong)Extensions.GetUnixMs(),
                 BasicInfo = connection?.Player?.ToProto(),  // should not be null
                 Stamina = (uint)(connection?.Player?.Data.Stamina ?? 0),
             };

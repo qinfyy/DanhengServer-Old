@@ -8,6 +8,7 @@ using EggLink.DanhengServer.Game.Mission.FinishType;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Server.Packet.Send.Mission;
 using EggLink.DanhengServer.Server.Packet.Send.Player;
+using EggLink.DanhengServer.Server.Packet.Send.Scene;
 using System.Reflection;
 
 namespace EggLink.DanhengServer.Game.Mission
@@ -104,7 +105,7 @@ namespace EggLink.DanhengServer.Game.Mission
             if (doFinishTypeAction && mission.SubMissionInfo != null)
             {
                 FinishTypeHandlers.TryGetValue(mission.SubMissionInfo.FinishType, out var handler);
-                handler?.HandleFinishType(Player, mission.SubMissionInfo.ParamInt1, mission.SubMissionInfo.ParamInt2, mission.SubMissionInfo.ParamInt3, mission.SubMissionInfo.ParamIntList, missionId);
+                handler?.Init(Player, mission.SubMissionInfo, null);
             }
             return sync;
         }
@@ -115,17 +116,12 @@ namespace EggLink.DanhengServer.Game.Mission
             if (value != MissionPhaseEnum.Doing) return;
             Data.MainMissionInfo[missionId] = MissionPhaseEnum.Finish;
             var sync = new Proto.MissionSync();
-            sync.NBGDFCJODOA.Add((uint)missionId);
+            sync.MainMissionIdList.Add((uint)missionId);
             // get next main mission
             foreach (var nextMission in GameData.MainMissionData.Values)
             {
                 if (!nextMission.IsEqual(Data)) continue;
                 var res = AcceptMainMission(nextMission.MainMissionID, false);
-                //sync.MissionList.Add(new Proto.Mission()
-                //{
-                //    Id = (uint)nextMission.MainMissionID,
-                //    Status = Proto.MissionStatus.MissionDoing,
-                //});
                 foreach (var subMission in res)
                 {
                     if (subMission != null)
@@ -154,11 +150,11 @@ namespace EggLink.DanhengServer.Game.Mission
             if (mission.Status != MissionPhaseEnum.Doing) return;
             mission.Status = MissionPhaseEnum.Finish;
             var sync = new Proto.MissionSync();
-            var triggerAction = new List<Data.Config.SubMissionInfo>();
             sync.MissionList.Add(new Proto.Mission()
             {
                 Id = (uint)missionId,
                 Status = Proto.MissionStatus.MissionFinish,
+                Progress = 1
             });
 
             // get next sub mission
@@ -174,7 +170,7 @@ namespace EggLink.DanhengServer.Game.Mission
                 }
                 if (canAccept)
                 {
-                    var s = AcceptSubMission(nextMission.ID, false, false);
+                    var s = AcceptSubMission(nextMission.ID, false, true);
                     if (s != null)
                     {
                         sync.MissionList.Add(new Proto.Mission()
@@ -182,7 +178,6 @@ namespace EggLink.DanhengServer.Game.Mission
                             Id = (uint)nextMission.ID,
                             Status = Proto.MissionStatus.MissionDoing,
                         });
-                        triggerAction.Add(nextMission);
                     }
                 }
             }
@@ -202,10 +197,10 @@ namespace EggLink.DanhengServer.Game.Mission
                 }
             });
 
-            foreach (var nextMission in triggerAction)
+            foreach (var nextMission in GetRunningSubMissionList())
             {
                 FinishTypeHandlers.TryGetValue(nextMission.FinishType, out var handler);
-                handler?.HandleFinishType(Player, nextMission.ParamInt1, nextMission.ParamInt2, nextMission.ParamInt3, nextMission.ParamIntList, nextMission.ID);
+                handler?.HandleFinishType(Player, nextMission, null);
             }
 
             if (shouldFinish)
@@ -262,6 +257,7 @@ namespace EggLink.DanhengServer.Game.Mission
             });
 
             Player.SendPacket(new PacketMissionRewardScNotify(mainMissionId, 0, ItemList));
+            Player.SendPacket(new PacketScenePlaneEventScNotify(ItemList));
         }
 
         #endregion
@@ -315,6 +311,26 @@ namespace EggLink.DanhengServer.Game.Mission
             return list;
         }
 
+        public List<Data.Config.SubMissionInfo> GetRunningSubMissionList()
+        {
+            var list = new List<Data.Config.SubMissionInfo>();
+            foreach (var mainMission in Data.MissionInfo.Values)
+            {
+                foreach (var subMission in mainMission.Values)
+                {
+                    if (subMission.Status == MissionPhaseEnum.Doing)
+                    {
+                        GameData.SubMissionData.TryGetValue(subMission.MissionId, out var mission);
+                        if (mission != null && mission.SubMissionInfo != null)
+                        {
+                            list.Add(mission.SubMissionInfo);
+                        }
+                    }
+                }
+            }
+            return list;
+        }
+
         #endregion
 
         #region Handlers
@@ -324,23 +340,21 @@ namespace EggLink.DanhengServer.Game.Mission
             foreach (var mission in GetRunningSubMissionIdList())
             {
                 var subMission = GetSubMissionInfo(mission);
-                if (subMission != null && (subMission.FinishType == MissionFinishTypeEnum.StageWin || subMission.FinishType == MissionFinishTypeEnum.KillMonster) && req.EndStatus == Proto.BattleEndStatus.BattleEndWin)
+                if (subMission != null && (subMission.FinishType == MissionFinishTypeEnum.StageWin || subMission.FinishType == MissionFinishTypeEnum.KillMonster) && req.EndStatus == Proto.BattleEndStatus.BattleEndWin)  // TODO: Move to handler
                 {
                     FinishSubMission(mission);
                 }
             }
         }
 
-        public void OnPlayerInteractWithProp(Data.Config.PropInfo prop)
+        public void OnPlayerInteractWithProp()
         {
             foreach (var id in GetRunningSubMissionIdList())
             {
                 if (GetSubMissionInfo(id)?.FinishType == MissionFinishTypeEnum.PropState)
                 {
-                    if (GetSubMissionInfo(id)?.ParamInt2 == prop.ID)
-                    {
-                        FinishSubMission(id);
-                    }
+                    FinishTypeHandlers.TryGetValue(MissionFinishTypeEnum.PropState, out var handler);
+                    handler?.HandleFinishType(Player, GetSubMissionInfo(id)!, null);
                 }
             }
         }

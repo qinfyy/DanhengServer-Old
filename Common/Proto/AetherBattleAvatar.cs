@@ -24,15 +24,16 @@ namespace EggLink.DanhengServer.Proto {
     static AetherBattleAvatarReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChhBZXRoZXJCYXR0bGVBdmF0YXIucHJvdG8aEUxBT0FLQkVJUEtGLnByb3Rv",
-            "Gg9TcEJhckluZm8ucHJvdG8isgEKEkFldGhlckJhdHRsZUF2YXRhchIKCgJp",
-            "ZBgBIAEoDRINCgVpbmRleBgCIAEoDRIRCglwcm9tb3Rpb24YAyABKA0SHwoX",
-            "cGFzc2l2ZV9za2lsbF9pdGVtX2xpc3QYBCADKA0SMQobYWV0aGVyX2Rpdmlk",
-            "ZV9saW5ldXBfc3RhdHVzGAUgASgOMgwuTEFPQUtCRUlQS0YSGgoGc3BfYmFy",
-            "GAYgASgLMgouU3BCYXJJbmZvQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIu",
-            "UHJvdG9iBnByb3RvMw=="));
+            "ChhBZXRoZXJCYXR0bGVBdmF0YXIucHJvdG8aJEFldGhlcmRpdmlkZVNwaXJp",
+            "dExpbmV1cFN0YXR1cy5wcm90bxoPU3BCYXJJbmZvLnByb3RvIsUBChJBZXRo",
+            "ZXJCYXR0bGVBdmF0YXISCgoCaWQYASABKA0SDQoFaW5kZXgYAiABKA0SEQoJ",
+            "cHJvbW90aW9uGAMgASgNEh8KF3Bhc3NpdmVfc2tpbGxfaXRlbV9saXN0GAQg",
+            "AygNEkQKG2FldGhlcl9kaXZpZGVfbGluZXVwX3N0YXR1cxgFIAEoDjIfLkFl",
+            "dGhlcmRpdmlkZVNwaXJpdExpbmV1cFN0YXR1cxIaCgZzcF9iYXIYBiABKAsy",
+            "Ci5TcEJhckluZm9CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.LAOAKBEIPKFReflection.Descriptor, global::EggLink.DanhengServer.Proto.SpBarInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.AetherdivideSpiritLineupStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.SpBarInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.AetherBattleAvatar), global::EggLink.DanhengServer.Proto.AetherBattleAvatar.Parser, new[]{ "Id", "Index", "Promotion", "PassiveSkillItemList", "AetherDivideLineupStatus", "SpBar" }, null, null, null, null)
           }));
@@ -140,10 +141,10 @@ namespace EggLink.DanhengServer.Proto {
 
     /// <summary>Field number for the "aether_divide_lineup_status" field.</summary>
     public const int AetherDivideLineupStatusFieldNumber = 5;
-    private global::EggLink.DanhengServer.Proto.LAOAKBEIPKF aetherDivideLineupStatus_ = global::EggLink.DanhengServer.Proto.LAOAKBEIPKF.AetherdivideSpiritLineupNone;
+    private global::EggLink.DanhengServer.Proto.AetherdivideSpiritLineupStatus aetherDivideLineupStatus_ = global::EggLink.DanhengServer.Proto.AetherdivideSpiritLineupStatus.AetherdivideSpiritLineupNone;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.LAOAKBEIPKF AetherDivideLineupStatus {
+    public global::EggLink.DanhengServer.Proto.AetherdivideSpiritLineupStatus AetherDivideLineupStatus {
       get { return aetherDivideLineupStatus_; }
       set {
         aetherDivideLineupStatus_ = value;
@@ -194,7 +195,7 @@ namespace EggLink.DanhengServer.Proto {
       if (Index != 0) hash ^= Index.GetHashCode();
       if (Promotion != 0) hash ^= Promotion.GetHashCode();
       hash ^= passiveSkillItemList_.GetHashCode();
-      if (AetherDivideLineupStatus != global::EggLink.DanhengServer.Proto.LAOAKBEIPKF.AetherdivideSpiritLineupNone) hash ^= AetherDivideLineupStatus.GetHashCode();
+      if (AetherDivideLineupStatus != global::EggLink.DanhengServer.Proto.AetherdivideSpiritLineupStatus.AetherdivideSpiritLineupNone) hash ^= AetherDivideLineupStatus.GetHashCode();
       if (spBar_ != null) hash ^= SpBar.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -227,7 +228,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteUInt32(Promotion);
       }
       passiveSkillItemList_.WriteTo(output, _repeated_passiveSkillItemList_codec);
-      if (AetherDivideLineupStatus != global::EggLink.DanhengServer.Proto.LAOAKBEIPKF.AetherdivideSpiritLineupNone) {
+      if (AetherDivideLineupStatus != global::EggLink.DanhengServer.Proto.AetherdivideSpiritLineupStatus.AetherdivideSpiritLineupNone) {
         output.WriteRawTag(40);
         output.WriteEnum((int) AetherDivideLineupStatus);
       }
@@ -258,7 +259,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteUInt32(Promotion);
       }
       passiveSkillItemList_.WriteTo(ref output, _repeated_passiveSkillItemList_codec);
-      if (AetherDivideLineupStatus != global::EggLink.DanhengServer.Proto.LAOAKBEIPKF.AetherdivideSpiritLineupNone) {
+      if (AetherDivideLineupStatus != global::EggLink.DanhengServer.Proto.AetherdivideSpiritLineupStatus.AetherdivideSpiritLineupNone) {
         output.WriteRawTag(40);
         output.WriteEnum((int) AetherDivideLineupStatus);
       }
@@ -286,7 +287,7 @@ namespace EggLink.DanhengServer.Proto {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Promotion);
       }
       size += passiveSkillItemList_.CalculateSize(_repeated_passiveSkillItemList_codec);
-      if (AetherDivideLineupStatus != global::EggLink.DanhengServer.Proto.LAOAKBEIPKF.AetherdivideSpiritLineupNone) {
+      if (AetherDivideLineupStatus != global::EggLink.DanhengServer.Proto.AetherdivideSpiritLineupStatus.AetherdivideSpiritLineupNone) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) AetherDivideLineupStatus);
       }
       if (spBar_ != null) {
@@ -314,7 +315,7 @@ namespace EggLink.DanhengServer.Proto {
         Promotion = other.Promotion;
       }
       passiveSkillItemList_.Add(other.passiveSkillItemList_);
-      if (other.AetherDivideLineupStatus != global::EggLink.DanhengServer.Proto.LAOAKBEIPKF.AetherdivideSpiritLineupNone) {
+      if (other.AetherDivideLineupStatus != global::EggLink.DanhengServer.Proto.AetherdivideSpiritLineupStatus.AetherdivideSpiritLineupNone) {
         AetherDivideLineupStatus = other.AetherDivideLineupStatus;
       }
       if (other.spBar_ != null) {
@@ -356,7 +357,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 40: {
-            AetherDivideLineupStatus = (global::EggLink.DanhengServer.Proto.LAOAKBEIPKF) input.ReadEnum();
+            AetherDivideLineupStatus = (global::EggLink.DanhengServer.Proto.AetherdivideSpiritLineupStatus) input.ReadEnum();
             break;
           }
           case 50: {
@@ -399,7 +400,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 40: {
-            AetherDivideLineupStatus = (global::EggLink.DanhengServer.Proto.LAOAKBEIPKF) input.ReadEnum();
+            AetherDivideLineupStatus = (global::EggLink.DanhengServer.Proto.AetherdivideSpiritLineupStatus) input.ReadEnum();
             break;
           }
           case 50: {

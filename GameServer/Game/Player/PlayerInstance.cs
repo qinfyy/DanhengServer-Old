@@ -8,6 +8,7 @@ using EggLink.DanhengServer.Database.Tutorial;
 using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Game.Avatar;
 using EggLink.DanhengServer.Game.Battle;
+using EggLink.DanhengServer.Game.Gacha;
 using EggLink.DanhengServer.Game.Inventory;
 using EggLink.DanhengServer.Game.Lineup;
 using EggLink.DanhengServer.Game.Mission;
@@ -33,6 +34,7 @@ namespace EggLink.DanhengServer.Game.Player
         public BattleManager? BattleManager { get; private set; }
         public BattleInstance? BattleInstance { get; set; }
         public MissionManager? MissionManager { get; private set; }
+        public GachaManager? GachaManager { get; private set; }
 
         #endregion
 
@@ -42,6 +44,7 @@ namespace EggLink.DanhengServer.Game.Player
         public PlayerUnlockData? PlayerUnlockData { get; private set; }
         public SceneData? SceneData { get; private set; }
         public TutorialData? TutorialData { get; private set; }
+        public TutorialGuideData? TutorialGuideData { get; private set; }
         public SceneInstance? SceneInstance { get; private set; }
         public ushort Uid { get; set; }
         public Connection? Connection { get; set; }
@@ -68,7 +71,7 @@ namespace EggLink.DanhengServer.Game.Player
             Data.CurrentGender = Gender.Man;
             Data.Stamina = 240;
             Data.StaminaReserve = 0;
-            Data.NextStaminaRecover = DateTime.Now.Millisecond;
+            Data.NextStaminaRecover = Extensions.GetUnixMs();
             Data.Level = 1;
             Data.Exp = 0;
             Data.WorldLevel = 0;
@@ -87,7 +90,6 @@ namespace EggLink.DanhengServer.Game.Player
             //LineupManager?.AddAvatarToCurTeam(8001);
             LineupManager?.AddSpecialAvatarToCurTeam(10010050);
 
-            EnterScene(2000101, 0, false);
             MissionManager!.AcceptMainMission(1000101);
 
             Initialized = true;
@@ -101,46 +103,35 @@ namespace EggLink.DanhengServer.Game.Player
             InventoryManager = new(this);
             BattleManager = new(this);
             MissionManager = new(this);
+            GachaManager = new(this);
 
-            var unlock = DatabaseHelper.Instance?.GetInstance<PlayerUnlockData>(Uid);
-            if (unlock == null)
+            PlayerUnlockData = InitializeDatabase<PlayerUnlockData>();
+            SceneData = InitializeDatabase<SceneData>();
+            TutorialData = InitializeDatabase<TutorialData>();
+            TutorialGuideData = InitializeDatabase<TutorialGuideData>();
+
+
+            LoadScene(Data.PlaneId, Data.FloorId, Data.EntryId, Data.Pos!, Data.Rot!, false);
+            if (SceneInstance == null)
             {
-                DatabaseHelper.Instance?.SaveInstance(new PlayerUnlockData()
+                EnterScene(2000101, 0, false);
+            }
+        }
+
+        public T? InitializeDatabase<T>() where T : class, new()
+        {
+            if (new T() is BaseDatabaseData database)
+            {
+                var instance = DatabaseHelper.Instance?.GetInstance<T>(Uid);
+                if (instance == null)
                 {
-                    Uid = Uid,
-                });
-                unlock = DatabaseHelper.Instance?.GetInstance<PlayerUnlockData>(Uid);
+                    database.Uid = Uid;
+                    DatabaseHelper.Instance?.SaveInstance<T>((database as T)!);
+                    instance = DatabaseHelper.Instance?.GetInstance<T>(Uid);
+                }
+                return instance!;
             }
-            PlayerUnlockData = unlock!;
-
-            var scene = DatabaseHelper.Instance?.GetInstance<SceneData>(Uid);
-            if (scene == null)
-            {
-                DatabaseHelper.Instance?.SaveInstance(new SceneData()
-                {
-                    Uid = Uid,
-                });
-                scene = DatabaseHelper.Instance?.GetInstance<SceneData>(Uid);
-            }
-            SceneData = scene!;
-
-            var tutorial = DatabaseHelper.Instance?.GetInstance<TutorialData>(Uid);
-            if (tutorial == null)
-            {
-                DatabaseHelper.Instance?.SaveInstance(new TutorialData()
-                {
-                    Uid = Uid,
-                });
-                tutorial = DatabaseHelper.Instance?.GetInstance<TutorialData>(Uid);
-            }
-            TutorialData = tutorial!;
-
-
-
-            if (!IsNewPlayer)
-            {
-                LoadScene(Data.PlaneId, Data.FloorId, Data.EntryId, Data.Pos!, Data.Rot!, false);
-            }
+            return null;
         }
 
         #endregion
@@ -165,6 +156,7 @@ namespace EggLink.DanhengServer.Game.Player
                 DatabaseHelper.Instance?.UpdateInstance(InventoryManager!.Data);
                 DatabaseHelper.Instance?.UpdateInstance(MissionManager!.Data);
                 DatabaseHelper.Instance?.UpdateInstance(AvatarManager!.AvatarData!);
+                DatabaseHelper.Instance?.UpdateInstance(GachaManager!.GachaData!);
                 DatabaseHelper.Instance?.UpdateInstance(Data);
                 DatabaseHelper.Instance?.UpdateInstance(PlayerUnlockData!);
                 DatabaseHelper.Instance?.UpdateInstance(SceneData!);
@@ -209,6 +201,7 @@ namespace EggLink.DanhengServer.Game.Player
             }
 
             OnLevelChange();
+            DatabaseHelper.Instance?.UpdateInstance(Data);
         }
 
         public void OnLevelChange()
@@ -297,7 +290,7 @@ namespace EggLink.DanhengServer.Game.Player
                                     {
                                         p.SetState(PropStateEnum.Open);
                                     }
-                                    MissionManager!.OnPlayerInteractWithProp(prop.PropInfo);
+                                    MissionManager!.OnPlayerInteractWithProp();
                                 }
                             }
                             break;
@@ -313,14 +306,14 @@ namespace EggLink.DanhengServer.Game.Player
                                 if (id == p.PropInfo.ID)
                                 {
                                     p.SetState(PropStateEnum.Open);
-                                    MissionManager!.OnPlayerInteractWithProp(p.PropInfo);
+                                    MissionManager!.OnPlayerInteractWithProp();
                                 }
                             }
                         }
                     }
 
                     // for mission
-                    MissionManager!.OnPlayerInteractWithProp(prop.PropInfo);
+                    MissionManager!.OnPlayerInteractWithProp();
 
                     return prop;
                 }

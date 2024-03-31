@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "CiFTZXRTcHJpbmdSZWNvdmVyQ29uZmlnQ3NSZXEucHJvdG8aGVNwcmluZ1Jl",
             "Y292ZXJDb25maWcucHJvdG8iUgobU2V0U3ByaW5nUmVjb3ZlckNvbmZpZ0Nz",
-            "UmVxEjMKFXNwcmluZ19yZWNvdmVyX2NvbmZpZxgEIAEoCzIULlNwcmluZ1Jl",
+            "UmVxEjMKFXNwcmluZ19yZWNvdmVyX2NvbmZpZxgGIAEoCzIULlNwcmluZ1Jl",
             "Y292ZXJDb25maWdCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IG",
             "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
@@ -85,7 +85,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "spring_recover_config" field.</summary>
-    public const int SpringRecoverConfigFieldNumber = 4;
+    public const int SpringRecoverConfigFieldNumber = 6;
     private global::EggLink.DanhengServer.Proto.SpringRecoverConfig springRecoverConfig_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -139,7 +139,7 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (springRecoverConfig_ != null) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(50);
         output.WriteMessage(SpringRecoverConfig);
       }
       if (_unknownFields != null) {
@@ -153,7 +153,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (springRecoverConfig_ != null) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(50);
         output.WriteMessage(SpringRecoverConfig);
       }
       if (_unknownFields != null) {
@@ -202,7 +202,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 34: {
+          case 50: {
             if (springRecoverConfig_ == null) {
               SpringRecoverConfig = new global::EggLink.DanhengServer.Proto.SpringRecoverConfig();
             }
@@ -224,7 +224,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 34: {
+          case 50: {
             if (springRecoverConfig_ == null) {
               SpringRecoverConfig = new global::EggLink.DanhengServer.Proto.SpringRecoverConfig();
             }

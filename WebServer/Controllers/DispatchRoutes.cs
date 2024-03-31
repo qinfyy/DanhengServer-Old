@@ -19,8 +19,8 @@ namespace EggLink.DanhengServer.WebServer.Controllers
         [HttpGet("query_dispatch")]
         public string QueryDispatch()
         {
-            var data = new DispatchRegionData();
-            data.RegionList.Add(new RegionEntry()
+            var data = new Dispatch();
+            data.RegionList.Add(new RegionInfo()
             {
                 Name = config.GameServer.GameServerId,
                 DispatchUrl = $"{config.HttpServer.GetDisplayAddress()}/query_gateway",

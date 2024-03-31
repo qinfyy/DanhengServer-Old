@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "CiBTZXRBZXRoZXJEaXZpZGVMaW5lVXBDc1JlcS5wcm90bxocQWV0aGVyRGl2",
             "aWRlTGluZXVwSW5mby5wcm90byJFChpTZXRBZXRoZXJEaXZpZGVMaW5lVXBD",
-            "c1JlcRInCgZsaW5ldXAYCSABKAsyFy5BZXRoZXJEaXZpZGVMaW5ldXBJbmZv",
+            "c1JlcRInCgZsaW5ldXAYASABKAsyFy5BZXRoZXJEaXZpZGVMaW5ldXBJbmZv",
             "Qh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.AetherDivideLineupInfoReflection.Descriptor, },
@@ -84,7 +84,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "lineup" field.</summary>
-    public const int LineupFieldNumber = 9;
+    public const int LineupFieldNumber = 1;
     private global::EggLink.DanhengServer.Proto.AetherDivideLineupInfo lineup_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -138,7 +138,7 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (lineup_ != null) {
-        output.WriteRawTag(74);
+        output.WriteRawTag(10);
         output.WriteMessage(Lineup);
       }
       if (_unknownFields != null) {
@@ -152,7 +152,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (lineup_ != null) {
-        output.WriteRawTag(74);
+        output.WriteRawTag(10);
         output.WriteMessage(Lineup);
       }
       if (_unknownFields != null) {
@@ -201,7 +201,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 74: {
+          case 10: {
             if (lineup_ == null) {
               Lineup = new global::EggLink.DanhengServer.Proto.AetherDivideLineupInfo();
             }
@@ -223,7 +223,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 74: {
+          case 10: {
             if (lineup_ == null) {
               Lineup = new global::EggLink.DanhengServer.Proto.AetherDivideLineupInfo();
             }

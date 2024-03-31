@@ -13,40 +13,40 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Scene
             var rsp = new GetSceneMapInfoScRsp();
             foreach (var entry in req.EntryIdList)
             {
-                var mazeMap = new MazeMapData()
+                var mazeMap = new SceneMapInfo()
                 {
                     EntryId = entry,
                 };
                 GameData.MapEntranceData.TryGetValue((int)entry, out var mapData);
                 if (mapData == null)
                 {
-                    rsp.MapList.Add(mazeMap);
+                    rsp.SceneMapInfo.Add(mazeMap);
                     continue;
                 }
 
                 GameData.GetFloorInfo(mapData.PlaneID, mapData.FloorID, out var floorInfo);
                 if (floorInfo == null)
                 {
-                    rsp.MapList.Add(mazeMap);
+                    rsp.SceneMapInfo.Add(mazeMap);
                     continue;
                 }
 
-                mazeMap.UnlockedChestList.Add(new MazeChest()
+                mazeMap.ChestList.Add(new ChestInfo()
                 {
-                    TotalAmountList = 1,
-                    MapInfoChestType = MapInfoChestType.Normal
+                    TotalAmount = 1,
+                    MapInfoChestType = ChestType.MapInfoChestTypeNormal
                 });
 
-                mazeMap.UnlockedChestList.Add(new MazeChest()
+                mazeMap.ChestList.Add(new ChestInfo()
                 {
-                    TotalAmountList = 1,
-                    MapInfoChestType = MapInfoChestType.Puzzle
+                    TotalAmount = 1,
+                    MapInfoChestType = ChestType.MapInfoChestTypePuzzle
                 });
 
-                mazeMap.UnlockedChestList.Add(new MazeChest()
+                mazeMap.ChestList.Add(new ChestInfo()
                 {
-                    TotalAmountList = 1,
-                    MapInfoChestType = MapInfoChestType.Challenge
+                    TotalAmount = 1,
+                    MapInfoChestType = ChestType.MapInfoChestTypeChallenge
                 });
 
                 foreach (GroupInfo groupInfo in floorInfo.Groups.Values)  // all the icons on the map
@@ -65,7 +65,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Scene
 
                 foreach (var prop in floorInfo.UnlockedCheckpoints)
                 {
-                    var mazeProp = new MazeProp()
+                    var mazeProp = new MazePropState()
                     {
                         GroupId = (uint)prop.AnchorGroupID,
                         ConfigId = (uint)prop.ID,
@@ -79,7 +79,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Scene
                 {
                     mazeMap.LightenSectionList.Add((uint)section);
                 }
-                rsp.MapList.Add(mazeMap);
+                rsp.SceneMapInfo.Add(mazeMap);
             }
             SetData(rsp);
         }

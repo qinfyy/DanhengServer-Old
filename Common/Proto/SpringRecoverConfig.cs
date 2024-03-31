@@ -25,14 +25,14 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChlTcHJpbmdSZWNvdmVyQ29uZmlnLnByb3RvGhRBdmF0YXJQcmVzZXRIcC5w",
-            "cm90byJyChNTcHJpbmdSZWNvdmVyQ29uZmlnEi4KFWF2YXRhcl9wcmVzZXRf",
-            "aHBfbGlzdBgOIAMoCzIPLkF2YXRhclByZXNldEhwEhcKD2F1dG9fcmVjb3Zl",
-            "cl9ocBgCIAEoCBISCgpkZWZhdWx0X2hwGA0gASgNQh6qAhtFZ2dMaW5rLkRh",
+            "cm90byJyChNTcHJpbmdSZWNvdmVyQ29uZmlnEhIKCmRlZmF1bHRfaHAYDyAB",
+            "KAgSFwoPYXV0b19yZWNvdmVyX2hwGAIgASgNEi4KFWF2YXRhcl9wcmVzZXRf",
+            "aHBfbGlzdBgFIAMoCzIPLkF2YXRhclByZXNldEhwQh6qAhtFZ2dMaW5rLkRh",
             "bmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.AvatarPresetHpReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SpringRecoverConfig), global::EggLink.DanhengServer.Proto.SpringRecoverConfig.Parser, new[]{ "AvatarPresetHpList", "AutoRecoverHp", "DefaultHp" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SpringRecoverConfig), global::EggLink.DanhengServer.Proto.SpringRecoverConfig.Parser, new[]{ "DefaultHp", "AutoRecoverHp", "AvatarPresetHpList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,9 +74,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SpringRecoverConfig(SpringRecoverConfig other) : this() {
-      avatarPresetHpList_ = other.avatarPresetHpList_.Clone();
-      autoRecoverHp_ = other.autoRecoverHp_;
       defaultHp_ = other.defaultHp_;
+      autoRecoverHp_ = other.autoRecoverHp_;
+      avatarPresetHpList_ = other.avatarPresetHpList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -86,39 +86,39 @@ namespace EggLink.DanhengServer.Proto {
       return new SpringRecoverConfig(this);
     }
 
-    /// <summary>Field number for the "avatar_preset_hp_list" field.</summary>
-    public const int AvatarPresetHpListFieldNumber = 14;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.AvatarPresetHp> _repeated_avatarPresetHpList_codec
-        = pb::FieldCodec.ForMessage(114, global::EggLink.DanhengServer.Proto.AvatarPresetHp.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AvatarPresetHp> avatarPresetHpList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AvatarPresetHp>();
+    /// <summary>Field number for the "default_hp" field.</summary>
+    public const int DefaultHpFieldNumber = 15;
+    private bool defaultHp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AvatarPresetHp> AvatarPresetHpList {
-      get { return avatarPresetHpList_; }
+    public bool DefaultHp {
+      get { return defaultHp_; }
+      set {
+        defaultHp_ = value;
+      }
     }
 
     /// <summary>Field number for the "auto_recover_hp" field.</summary>
     public const int AutoRecoverHpFieldNumber = 2;
-    private bool autoRecoverHp_;
+    private uint autoRecoverHp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool AutoRecoverHp {
+    public uint AutoRecoverHp {
       get { return autoRecoverHp_; }
       set {
         autoRecoverHp_ = value;
       }
     }
 
-    /// <summary>Field number for the "default_hp" field.</summary>
-    public const int DefaultHpFieldNumber = 13;
-    private uint defaultHp_;
+    /// <summary>Field number for the "avatar_preset_hp_list" field.</summary>
+    public const int AvatarPresetHpListFieldNumber = 5;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.AvatarPresetHp> _repeated_avatarPresetHpList_codec
+        = pb::FieldCodec.ForMessage(42, global::EggLink.DanhengServer.Proto.AvatarPresetHp.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AvatarPresetHp> avatarPresetHpList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AvatarPresetHp>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint DefaultHp {
-      get { return defaultHp_; }
-      set {
-        defaultHp_ = value;
-      }
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AvatarPresetHp> AvatarPresetHpList {
+      get { return avatarPresetHpList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -136,9 +136,9 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!avatarPresetHpList_.Equals(other.avatarPresetHpList_)) return false;
-      if (AutoRecoverHp != other.AutoRecoverHp) return false;
       if (DefaultHp != other.DefaultHp) return false;
+      if (AutoRecoverHp != other.AutoRecoverHp) return false;
+      if(!avatarPresetHpList_.Equals(other.avatarPresetHpList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -146,9 +146,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (DefaultHp != false) hash ^= DefaultHp.GetHashCode();
+      if (AutoRecoverHp != 0) hash ^= AutoRecoverHp.GetHashCode();
       hash ^= avatarPresetHpList_.GetHashCode();
-      if (AutoRecoverHp != false) hash ^= AutoRecoverHp.GetHashCode();
-      if (DefaultHp != 0) hash ^= DefaultHp.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -167,15 +167,15 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (AutoRecoverHp != false) {
+      if (AutoRecoverHp != 0) {
         output.WriteRawTag(16);
-        output.WriteBool(AutoRecoverHp);
-      }
-      if (DefaultHp != 0) {
-        output.WriteRawTag(104);
-        output.WriteUInt32(DefaultHp);
+        output.WriteUInt32(AutoRecoverHp);
       }
       avatarPresetHpList_.WriteTo(output, _repeated_avatarPresetHpList_codec);
+      if (DefaultHp != false) {
+        output.WriteRawTag(120);
+        output.WriteBool(DefaultHp);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -186,15 +186,15 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (AutoRecoverHp != false) {
+      if (AutoRecoverHp != 0) {
         output.WriteRawTag(16);
-        output.WriteBool(AutoRecoverHp);
-      }
-      if (DefaultHp != 0) {
-        output.WriteRawTag(104);
-        output.WriteUInt32(DefaultHp);
+        output.WriteUInt32(AutoRecoverHp);
       }
       avatarPresetHpList_.WriteTo(ref output, _repeated_avatarPresetHpList_codec);
+      if (DefaultHp != false) {
+        output.WriteRawTag(120);
+        output.WriteBool(DefaultHp);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -205,13 +205,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += avatarPresetHpList_.CalculateSize(_repeated_avatarPresetHpList_codec);
-      if (AutoRecoverHp != false) {
+      if (DefaultHp != false) {
         size += 1 + 1;
       }
-      if (DefaultHp != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DefaultHp);
+      if (AutoRecoverHp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(AutoRecoverHp);
       }
+      size += avatarPresetHpList_.CalculateSize(_repeated_avatarPresetHpList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -224,13 +224,13 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      avatarPresetHpList_.Add(other.avatarPresetHpList_);
-      if (other.AutoRecoverHp != false) {
-        AutoRecoverHp = other.AutoRecoverHp;
-      }
-      if (other.DefaultHp != 0) {
+      if (other.DefaultHp != false) {
         DefaultHp = other.DefaultHp;
       }
+      if (other.AutoRecoverHp != 0) {
+        AutoRecoverHp = other.AutoRecoverHp;
+      }
+      avatarPresetHpList_.Add(other.avatarPresetHpList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -247,15 +247,15 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 16: {
-            AutoRecoverHp = input.ReadBool();
+            AutoRecoverHp = input.ReadUInt32();
             break;
           }
-          case 104: {
-            DefaultHp = input.ReadUInt32();
-            break;
-          }
-          case 114: {
+          case 42: {
             avatarPresetHpList_.AddEntriesFrom(input, _repeated_avatarPresetHpList_codec);
+            break;
+          }
+          case 120: {
+            DefaultHp = input.ReadBool();
             break;
           }
         }
@@ -274,15 +274,15 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 16: {
-            AutoRecoverHp = input.ReadBool();
+            AutoRecoverHp = input.ReadUInt32();
             break;
           }
-          case 104: {
-            DefaultHp = input.ReadUInt32();
-            break;
-          }
-          case 114: {
+          case 42: {
             avatarPresetHpList_.AddEntriesFrom(ref input, _repeated_avatarPresetHpList_codec);
+            break;
+          }
+          case 120: {
+            DefaultHp = input.ReadBool();
             break;
           }
         }

@@ -25,13 +25,13 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CiNGaW5pc2hSb2d1ZURpYWxvZ3VlR3JvdXBDc1JlcS5wcm90byJOCh1GaW5p",
-            "c2hSb2d1ZURpYWxvZ3VlR3JvdXBDc1JlcRIZChFkaWFsb2d1ZV9ncm91cF9p",
-            "ZBgKIAEoDRISCgptb25zdGVyX2lkGAMgASgNQh6qAhtFZ2dMaW5rLkRhbmhl",
+            "c2hSb2d1ZURpYWxvZ3VlR3JvdXBDc1JlcRISCgptb25zdGVyX2lkGA8gASgN",
+            "EhkKEWRpYWxvZ3VlX2dyb3VwX2lkGAEgASgNQh6qAhtFZ2dMaW5rLkRhbmhl",
             "bmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.FinishRogueDialogueGroupCsReq), global::EggLink.DanhengServer.Proto.FinishRogueDialogueGroupCsReq.Parser, new[]{ "DialogueGroupId", "MonsterId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.FinishRogueDialogueGroupCsReq), global::EggLink.DanhengServer.Proto.FinishRogueDialogueGroupCsReq.Parser, new[]{ "MonsterId", "DialogueGroupId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,8 +73,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public FinishRogueDialogueGroupCsReq(FinishRogueDialogueGroupCsReq other) : this() {
-      dialogueGroupId_ = other.dialogueGroupId_;
       monsterId_ = other.monsterId_;
+      dialogueGroupId_ = other.dialogueGroupId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,20 +84,8 @@ namespace EggLink.DanhengServer.Proto {
       return new FinishRogueDialogueGroupCsReq(this);
     }
 
-    /// <summary>Field number for the "dialogue_group_id" field.</summary>
-    public const int DialogueGroupIdFieldNumber = 10;
-    private uint dialogueGroupId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint DialogueGroupId {
-      get { return dialogueGroupId_; }
-      set {
-        dialogueGroupId_ = value;
-      }
-    }
-
     /// <summary>Field number for the "monster_id" field.</summary>
-    public const int MonsterIdFieldNumber = 3;
+    public const int MonsterIdFieldNumber = 15;
     private uint monsterId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -105,6 +93,18 @@ namespace EggLink.DanhengServer.Proto {
       get { return monsterId_; }
       set {
         monsterId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "dialogue_group_id" field.</summary>
+    public const int DialogueGroupIdFieldNumber = 1;
+    private uint dialogueGroupId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint DialogueGroupId {
+      get { return dialogueGroupId_; }
+      set {
+        dialogueGroupId_ = value;
       }
     }
 
@@ -123,8 +123,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (DialogueGroupId != other.DialogueGroupId) return false;
       if (MonsterId != other.MonsterId) return false;
+      if (DialogueGroupId != other.DialogueGroupId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -132,8 +132,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (DialogueGroupId != 0) hash ^= DialogueGroupId.GetHashCode();
       if (MonsterId != 0) hash ^= MonsterId.GetHashCode();
+      if (DialogueGroupId != 0) hash ^= DialogueGroupId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -152,13 +152,13 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (MonsterId != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(MonsterId);
-      }
       if (DialogueGroupId != 0) {
-        output.WriteRawTag(80);
+        output.WriteRawTag(8);
         output.WriteUInt32(DialogueGroupId);
+      }
+      if (MonsterId != 0) {
+        output.WriteRawTag(120);
+        output.WriteUInt32(MonsterId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -170,13 +170,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (MonsterId != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(MonsterId);
-      }
       if (DialogueGroupId != 0) {
-        output.WriteRawTag(80);
+        output.WriteRawTag(8);
         output.WriteUInt32(DialogueGroupId);
+      }
+      if (MonsterId != 0) {
+        output.WriteRawTag(120);
+        output.WriteUInt32(MonsterId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -188,11 +188,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (DialogueGroupId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DialogueGroupId);
-      }
       if (MonsterId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MonsterId);
+      }
+      if (DialogueGroupId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DialogueGroupId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -206,11 +206,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.DialogueGroupId != 0) {
-        DialogueGroupId = other.DialogueGroupId;
-      }
       if (other.MonsterId != 0) {
         MonsterId = other.MonsterId;
+      }
+      if (other.DialogueGroupId != 0) {
+        DialogueGroupId = other.DialogueGroupId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -227,12 +227,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 24: {
-            MonsterId = input.ReadUInt32();
+          case 8: {
+            DialogueGroupId = input.ReadUInt32();
             break;
           }
-          case 80: {
-            DialogueGroupId = input.ReadUInt32();
+          case 120: {
+            MonsterId = input.ReadUInt32();
             break;
           }
         }
@@ -250,12 +250,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 24: {
-            MonsterId = input.ReadUInt32();
+          case 8: {
+            DialogueGroupId = input.ReadUInt32();
             break;
           }
-          case 80: {
-            DialogueGroupId = input.ReadUInt32();
+          case 120: {
+            MonsterId = input.ReadUInt32();
             break;
           }
         }

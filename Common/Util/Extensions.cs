@@ -70,11 +70,6 @@ public static class Extensions
         bw.Write(data);
     }
 
-    public static long GetNowTimeMillis(this DateTime dt)
-    {
-        return dt.Ticks / TimeSpan.TicksPerMillisecond;
-    }
-
     public static Position ToPosition(this Vector vector)
     {
         return new Position
@@ -94,6 +89,16 @@ public static class Extensions
     public static int RandomInt (int from, int to)
     {
         return new Random().Next(from, to);
+    }
+
+    public static long GetUnixSec()
+    {
+        return DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+    }
+
+    public static long GetUnixMs()
+    {
+        return DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
     }
 
     public static string ToArrayString(this List<string> list)

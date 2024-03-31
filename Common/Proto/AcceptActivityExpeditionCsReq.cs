@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "CiNBY2NlcHRBY3Rpdml0eUV4cGVkaXRpb25Dc1JlcS5wcm90bxoYQWN0aXZp",
             "dHlFeHBlZGl0aW9uLnByb3RvIlEKHUFjY2VwdEFjdGl2aXR5RXhwZWRpdGlv",
-            "bkNzUmVxEjAKE2FjdGl2aXR5X2V4cGVkaXRpb24YCCABKAsyEy5BY3Rpdml0",
+            "bkNzUmVxEjAKE2FjdGl2aXR5X2V4cGVkaXRpb24YBCABKAsyEy5BY3Rpdml0",
             "eUV4cGVkaXRpb25CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IG",
             "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
@@ -85,7 +85,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "activity_expedition" field.</summary>
-    public const int ActivityExpeditionFieldNumber = 8;
+    public const int ActivityExpeditionFieldNumber = 4;
     private global::EggLink.DanhengServer.Proto.ActivityExpedition activityExpedition_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -139,7 +139,7 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (activityExpedition_ != null) {
-        output.WriteRawTag(66);
+        output.WriteRawTag(34);
         output.WriteMessage(ActivityExpedition);
       }
       if (_unknownFields != null) {
@@ -153,7 +153,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (activityExpedition_ != null) {
-        output.WriteRawTag(66);
+        output.WriteRawTag(34);
         output.WriteMessage(ActivityExpedition);
       }
       if (_unknownFields != null) {
@@ -202,7 +202,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 66: {
+          case 34: {
             if (activityExpedition_ == null) {
               ActivityExpedition = new global::EggLink.DanhengServer.Proto.ActivityExpedition();
             }
@@ -224,7 +224,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 66: {
+          case 34: {
             if (activityExpedition_ == null) {
               ActivityExpedition = new global::EggLink.DanhengServer.Proto.ActivityExpedition();
             }

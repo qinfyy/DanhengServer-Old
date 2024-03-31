@@ -27,6 +27,9 @@ namespace EggLink.DanhengServer.Data.Excel
 
         //public List<ItemParam> ReturnItemIDList{ get; set; }
 
+        [JsonIgnore]
+        public int Exp { get; set; }
+
         public override int GetId()
         {
             return ID;

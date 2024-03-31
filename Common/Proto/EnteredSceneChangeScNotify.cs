@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static EnteredSceneChangeScNotifyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiBFbnRlcmVkU2NlbmVDaGFuZ2VTY05vdGlmeS5wcm90bxoWRW50ZXJlZFNj",
-            "ZW5lSW5mby5wcm90byJLChpFbnRlcmVkU2NlbmVDaGFuZ2VTY05vdGlmeRIt",
-            "ChJlbnRlcmVkX3NjZW5lX2luZm8YCSADKAsyES5FbnRlcmVkU2NlbmVJbmZv",
-            "Qh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "CiBFbnRlcmVkU2NlbmVDaGFuZ2VTY05vdGlmeS5wcm90bxoSRW50ZXJlZFNj",
+            "ZW5lLnByb3RvIkcKGkVudGVyZWRTY2VuZUNoYW5nZVNjTm90aWZ5EikKEmVu",
+            "dGVyZWRfc2NlbmVfbGlzdBgJIAMoCzINLkVudGVyZWRTY2VuZUIeqgIbRWdn",
+            "TGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.EnteredSceneInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.EnteredSceneReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.EnteredSceneChangeScNotify), global::EggLink.DanhengServer.Proto.EnteredSceneChangeScNotify.Parser, new[]{ "EnteredSceneInfo" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.EnteredSceneChangeScNotify), global::EggLink.DanhengServer.Proto.EnteredSceneChangeScNotify.Parser, new[]{ "EnteredSceneList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public EnteredSceneChangeScNotify(EnteredSceneChangeScNotify other) : this() {
-      enteredSceneInfo_ = other.enteredSceneInfo_.Clone();
+      enteredSceneList_ = other.enteredSceneList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,15 +83,15 @@ namespace EggLink.DanhengServer.Proto {
       return new EnteredSceneChangeScNotify(this);
     }
 
-    /// <summary>Field number for the "entered_scene_info" field.</summary>
-    public const int EnteredSceneInfoFieldNumber = 9;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.EnteredSceneInfo> _repeated_enteredSceneInfo_codec
-        = pb::FieldCodec.ForMessage(74, global::EggLink.DanhengServer.Proto.EnteredSceneInfo.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.EnteredSceneInfo> enteredSceneInfo_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.EnteredSceneInfo>();
+    /// <summary>Field number for the "entered_scene_list" field.</summary>
+    public const int EnteredSceneListFieldNumber = 9;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.EnteredScene> _repeated_enteredSceneList_codec
+        = pb::FieldCodec.ForMessage(74, global::EggLink.DanhengServer.Proto.EnteredScene.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.EnteredScene> enteredSceneList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.EnteredScene>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.EnteredSceneInfo> EnteredSceneInfo {
-      get { return enteredSceneInfo_; }
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.EnteredScene> EnteredSceneList {
+      get { return enteredSceneList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -109,7 +109,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!enteredSceneInfo_.Equals(other.enteredSceneInfo_)) return false;
+      if(!enteredSceneList_.Equals(other.enteredSceneList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -117,7 +117,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= enteredSceneInfo_.GetHashCode();
+      hash ^= enteredSceneList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -136,7 +136,7 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      enteredSceneInfo_.WriteTo(output, _repeated_enteredSceneInfo_codec);
+      enteredSceneList_.WriteTo(output, _repeated_enteredSceneList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -147,7 +147,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      enteredSceneInfo_.WriteTo(ref output, _repeated_enteredSceneInfo_codec);
+      enteredSceneList_.WriteTo(ref output, _repeated_enteredSceneList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -158,7 +158,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += enteredSceneInfo_.CalculateSize(_repeated_enteredSceneInfo_codec);
+      size += enteredSceneList_.CalculateSize(_repeated_enteredSceneList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -171,7 +171,7 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      enteredSceneInfo_.Add(other.enteredSceneInfo_);
+      enteredSceneList_.Add(other.enteredSceneList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -188,7 +188,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 74: {
-            enteredSceneInfo_.AddEntriesFrom(input, _repeated_enteredSceneInfo_codec);
+            enteredSceneList_.AddEntriesFrom(input, _repeated_enteredSceneList_codec);
             break;
           }
         }
@@ -207,7 +207,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 74: {
-            enteredSceneInfo_.AddEntriesFrom(ref input, _repeated_enteredSceneInfo_codec);
+            enteredSceneList_.AddEntriesFrom(ref input, _repeated_enteredSceneList_codec);
             break;
           }
         }

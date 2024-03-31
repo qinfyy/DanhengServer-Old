@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static NpcMeetStatusReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChNOcGNNZWV0U3RhdHVzLnByb3RvIjMKDU5wY01lZXRTdGF0dXMSDwoHaXNf",
-            "bWVldBgCIAEoCBIRCglzZXJpZXNfaWQYCCABKA1CHqoCG0VnZ0xpbmsuRGFu",
+            "ChNOcGNNZWV0U3RhdHVzLnByb3RvIjMKDU5wY01lZXRTdGF0dXMSEQoJc2Vy",
+            "aWVzX2lkGA8gASgNEg8KB2lzX21lZXQYDCABKAhCHqoCG0VnZ0xpbmsuRGFu",
             "aGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.NpcMeetStatus), global::EggLink.DanhengServer.Proto.NpcMeetStatus.Parser, new[]{ "IsMeet", "SeriesId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.NpcMeetStatus), global::EggLink.DanhengServer.Proto.NpcMeetStatus.Parser, new[]{ "SeriesId", "IsMeet" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,8 +72,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public NpcMeetStatus(NpcMeetStatus other) : this() {
-      isMeet_ = other.isMeet_;
       seriesId_ = other.seriesId_;
+      isMeet_ = other.isMeet_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,20 +83,8 @@ namespace EggLink.DanhengServer.Proto {
       return new NpcMeetStatus(this);
     }
 
-    /// <summary>Field number for the "is_meet" field.</summary>
-    public const int IsMeetFieldNumber = 2;
-    private bool isMeet_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool IsMeet {
-      get { return isMeet_; }
-      set {
-        isMeet_ = value;
-      }
-    }
-
     /// <summary>Field number for the "series_id" field.</summary>
-    public const int SeriesIdFieldNumber = 8;
+    public const int SeriesIdFieldNumber = 15;
     private uint seriesId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -104,6 +92,18 @@ namespace EggLink.DanhengServer.Proto {
       get { return seriesId_; }
       set {
         seriesId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "is_meet" field.</summary>
+    public const int IsMeetFieldNumber = 12;
+    private bool isMeet_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsMeet {
+      get { return isMeet_; }
+      set {
+        isMeet_ = value;
       }
     }
 
@@ -122,8 +122,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (IsMeet != other.IsMeet) return false;
       if (SeriesId != other.SeriesId) return false;
+      if (IsMeet != other.IsMeet) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -131,8 +131,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (IsMeet != false) hash ^= IsMeet.GetHashCode();
       if (SeriesId != 0) hash ^= SeriesId.GetHashCode();
+      if (IsMeet != false) hash ^= IsMeet.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -152,11 +152,11 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (IsMeet != false) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(96);
         output.WriteBool(IsMeet);
       }
       if (SeriesId != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(120);
         output.WriteUInt32(SeriesId);
       }
       if (_unknownFields != null) {
@@ -170,11 +170,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (IsMeet != false) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(96);
         output.WriteBool(IsMeet);
       }
       if (SeriesId != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(120);
         output.WriteUInt32(SeriesId);
       }
       if (_unknownFields != null) {
@@ -187,11 +187,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (IsMeet != false) {
-        size += 1 + 1;
-      }
       if (SeriesId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SeriesId);
+      }
+      if (IsMeet != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -205,11 +205,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.IsMeet != false) {
-        IsMeet = other.IsMeet;
-      }
       if (other.SeriesId != 0) {
         SeriesId = other.SeriesId;
+      }
+      if (other.IsMeet != false) {
+        IsMeet = other.IsMeet;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -226,11 +226,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 16: {
+          case 96: {
             IsMeet = input.ReadBool();
             break;
           }
-          case 64: {
+          case 120: {
             SeriesId = input.ReadUInt32();
             break;
           }
@@ -249,11 +249,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 16: {
+          case 96: {
             IsMeet = input.ReadBool();
             break;
           }
-          case 64: {
+          case 120: {
             SeriesId = input.ReadUInt32();
             break;
           }

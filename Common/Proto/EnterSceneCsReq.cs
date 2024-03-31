@@ -25,13 +25,13 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChVFbnRlclNjZW5lQ3NSZXEucHJvdG8iYgoPRW50ZXJTY2VuZUNzUmVxEhMK",
-            "C3RlbGVwb3J0X2lkGA4gASgNEhAKCGVudHJ5X2lkGAEgASgNEhMKC1BMR1BQ",
-            "SENNQkZOGAsgASgNEhMKC0ZPT0JNSk1DRUxJGA0gASgIQh6qAhtFZ2dMaW5r",
+            "C0RISkhMUEhBS0tBGAkgASgIEhMKC3RlbGVwb3J0X2lkGAggASgNEhMKC2xl",
+            "YWRlcl9zbG90GAogASgNEhAKCGVudHJ5X2lkGAIgASgNQh6qAhtFZ2dMaW5r",
             "LkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.EnterSceneCsReq), global::EggLink.DanhengServer.Proto.EnterSceneCsReq.Parser, new[]{ "TeleportId", "EntryId", "PLGPPHCMBFN", "FOOBMJMCELI" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.EnterSceneCsReq), global::EggLink.DanhengServer.Proto.EnterSceneCsReq.Parser, new[]{ "DHJHLPHAKKA", "TeleportId", "LeaderSlot", "EntryId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,10 +73,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public EnterSceneCsReq(EnterSceneCsReq other) : this() {
+      dHJHLPHAKKA_ = other.dHJHLPHAKKA_;
       teleportId_ = other.teleportId_;
+      leaderSlot_ = other.leaderSlot_;
       entryId_ = other.entryId_;
-      pLGPPHCMBFN_ = other.pLGPPHCMBFN_;
-      fOOBMJMCELI_ = other.fOOBMJMCELI_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -86,8 +86,20 @@ namespace EggLink.DanhengServer.Proto {
       return new EnterSceneCsReq(this);
     }
 
+    /// <summary>Field number for the "DHJHLPHAKKA" field.</summary>
+    public const int DHJHLPHAKKAFieldNumber = 9;
+    private bool dHJHLPHAKKA_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool DHJHLPHAKKA {
+      get { return dHJHLPHAKKA_; }
+      set {
+        dHJHLPHAKKA_ = value;
+      }
+    }
+
     /// <summary>Field number for the "teleport_id" field.</summary>
-    public const int TeleportIdFieldNumber = 14;
+    public const int TeleportIdFieldNumber = 8;
     private uint teleportId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -98,8 +110,20 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
+    /// <summary>Field number for the "leader_slot" field.</summary>
+    public const int LeaderSlotFieldNumber = 10;
+    private uint leaderSlot_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint LeaderSlot {
+      get { return leaderSlot_; }
+      set {
+        leaderSlot_ = value;
+      }
+    }
+
     /// <summary>Field number for the "entry_id" field.</summary>
-    public const int EntryIdFieldNumber = 1;
+    public const int EntryIdFieldNumber = 2;
     private uint entryId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -107,30 +131,6 @@ namespace EggLink.DanhengServer.Proto {
       get { return entryId_; }
       set {
         entryId_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "PLGPPHCMBFN" field.</summary>
-    public const int PLGPPHCMBFNFieldNumber = 11;
-    private uint pLGPPHCMBFN_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint PLGPPHCMBFN {
-      get { return pLGPPHCMBFN_; }
-      set {
-        pLGPPHCMBFN_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "FOOBMJMCELI" field.</summary>
-    public const int FOOBMJMCELIFieldNumber = 13;
-    private bool fOOBMJMCELI_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool FOOBMJMCELI {
-      get { return fOOBMJMCELI_; }
-      set {
-        fOOBMJMCELI_ = value;
       }
     }
 
@@ -149,10 +149,10 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (DHJHLPHAKKA != other.DHJHLPHAKKA) return false;
       if (TeleportId != other.TeleportId) return false;
+      if (LeaderSlot != other.LeaderSlot) return false;
       if (EntryId != other.EntryId) return false;
-      if (PLGPPHCMBFN != other.PLGPPHCMBFN) return false;
-      if (FOOBMJMCELI != other.FOOBMJMCELI) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -160,10 +160,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (DHJHLPHAKKA != false) hash ^= DHJHLPHAKKA.GetHashCode();
       if (TeleportId != 0) hash ^= TeleportId.GetHashCode();
+      if (LeaderSlot != 0) hash ^= LeaderSlot.GetHashCode();
       if (EntryId != 0) hash ^= EntryId.GetHashCode();
-      if (PLGPPHCMBFN != 0) hash ^= PLGPPHCMBFN.GetHashCode();
-      if (FOOBMJMCELI != false) hash ^= FOOBMJMCELI.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -183,20 +183,20 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (EntryId != 0) {
-        output.WriteRawTag(8);
+        output.WriteRawTag(16);
         output.WriteUInt32(EntryId);
       }
-      if (PLGPPHCMBFN != 0) {
-        output.WriteRawTag(88);
-        output.WriteUInt32(PLGPPHCMBFN);
-      }
-      if (FOOBMJMCELI != false) {
-        output.WriteRawTag(104);
-        output.WriteBool(FOOBMJMCELI);
-      }
       if (TeleportId != 0) {
-        output.WriteRawTag(112);
+        output.WriteRawTag(64);
         output.WriteUInt32(TeleportId);
+      }
+      if (DHJHLPHAKKA != false) {
+        output.WriteRawTag(72);
+        output.WriteBool(DHJHLPHAKKA);
+      }
+      if (LeaderSlot != 0) {
+        output.WriteRawTag(80);
+        output.WriteUInt32(LeaderSlot);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -209,20 +209,20 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (EntryId != 0) {
-        output.WriteRawTag(8);
+        output.WriteRawTag(16);
         output.WriteUInt32(EntryId);
       }
-      if (PLGPPHCMBFN != 0) {
-        output.WriteRawTag(88);
-        output.WriteUInt32(PLGPPHCMBFN);
-      }
-      if (FOOBMJMCELI != false) {
-        output.WriteRawTag(104);
-        output.WriteBool(FOOBMJMCELI);
-      }
       if (TeleportId != 0) {
-        output.WriteRawTag(112);
+        output.WriteRawTag(64);
         output.WriteUInt32(TeleportId);
+      }
+      if (DHJHLPHAKKA != false) {
+        output.WriteRawTag(72);
+        output.WriteBool(DHJHLPHAKKA);
+      }
+      if (LeaderSlot != 0) {
+        output.WriteRawTag(80);
+        output.WriteUInt32(LeaderSlot);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -234,17 +234,17 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (DHJHLPHAKKA != false) {
+        size += 1 + 1;
+      }
       if (TeleportId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(TeleportId);
       }
+      if (LeaderSlot != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LeaderSlot);
+      }
       if (EntryId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EntryId);
-      }
-      if (PLGPPHCMBFN != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PLGPPHCMBFN);
-      }
-      if (FOOBMJMCELI != false) {
-        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -258,17 +258,17 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
+      if (other.DHJHLPHAKKA != false) {
+        DHJHLPHAKKA = other.DHJHLPHAKKA;
+      }
       if (other.TeleportId != 0) {
         TeleportId = other.TeleportId;
       }
+      if (other.LeaderSlot != 0) {
+        LeaderSlot = other.LeaderSlot;
+      }
       if (other.EntryId != 0) {
         EntryId = other.EntryId;
-      }
-      if (other.PLGPPHCMBFN != 0) {
-        PLGPPHCMBFN = other.PLGPPHCMBFN;
-      }
-      if (other.FOOBMJMCELI != false) {
-        FOOBMJMCELI = other.FOOBMJMCELI;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -285,20 +285,20 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
+          case 16: {
             EntryId = input.ReadUInt32();
             break;
           }
-          case 88: {
-            PLGPPHCMBFN = input.ReadUInt32();
-            break;
-          }
-          case 104: {
-            FOOBMJMCELI = input.ReadBool();
-            break;
-          }
-          case 112: {
+          case 64: {
             TeleportId = input.ReadUInt32();
+            break;
+          }
+          case 72: {
+            DHJHLPHAKKA = input.ReadBool();
+            break;
+          }
+          case 80: {
+            LeaderSlot = input.ReadUInt32();
             break;
           }
         }
@@ -316,20 +316,20 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
+          case 16: {
             EntryId = input.ReadUInt32();
             break;
           }
-          case 88: {
-            PLGPPHCMBFN = input.ReadUInt32();
-            break;
-          }
-          case 104: {
-            FOOBMJMCELI = input.ReadBool();
-            break;
-          }
-          case 112: {
+          case 64: {
             TeleportId = input.ReadUInt32();
+            break;
+          }
+          case 72: {
+            DHJHLPHAKKA = input.ReadBool();
+            break;
+          }
+          case 80: {
+            LeaderSlot = input.ReadUInt32();
             break;
           }
         }

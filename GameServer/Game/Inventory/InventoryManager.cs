@@ -3,8 +3,11 @@ using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Database.Inventory;
 using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Game.Player;
+using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Server.Packet.Send.Player;
+using EggLink.DanhengServer.Server.Packet.Send.Scene;
 using EggLink.DanhengServer.Util;
+using System.Text.RegularExpressions;
 
 namespace EggLink.DanhengServer.Game.Inventory
 {
@@ -50,6 +53,11 @@ namespace EggLink.DanhengServer.Game.Inventory
                             Player.PlayerUnlockData!.PhoneThemes.Add(itemId);
                             break;
                     }
+                    itemData = new()
+                    {
+                        ItemId = itemId,
+                        Count = count,
+                    };
                     break;
                 case ItemMainTypeEnum.Relic:
                     var item = PutItem(itemId, 1, rank: 1, level: 0, uniqueId: ++Data.NextUniqueId);
@@ -85,7 +93,23 @@ namespace EggLink.DanhengServer.Game.Inventory
                     if (count != 0)
                     {
                         Player.SendPacket(new PacketPlayerSyncScNotify(Player.ToProto()));
+                        itemData = new()
+                        {
+                            ItemId = itemId,
+                            Count = count,
+                        };
                     }
+                    break;
+                case ItemMainTypeEnum.AvatarCard:
+                    // add avatar
+                    var avatar = Player.AvatarManager?.GetAvatar(itemId);
+                    if (avatar != null && avatar.Excel != null)
+                    {
+                        PutItem(avatar.Excel.RankUpItemId, 1);
+                    }
+                    else
+                        Player.AddAvatar(itemId);
+                    itemData = new() { ItemId = itemId, Count = 1 };
                     break;
                 default:
                     itemData = PutItem(itemId, Math.Min(count, itemConfig.PileLimit));
@@ -129,6 +153,14 @@ namespace EggLink.DanhengServer.Game.Inventory
             switch (GameData.ItemConfigData[itemId].ItemMainType)
             {
                 case ItemMainTypeEnum.Material:
+
+                    var oldItem = Data.MaterialItems.Find(x => x.ItemId == itemId);
+                    if (oldItem != null)
+                    {
+                        oldItem.Count += count;
+                        item = oldItem;
+                        break;
+                    }
                     Data.MaterialItems.Add(item);
                     break;
                 case ItemMainTypeEnum.Equipment:
@@ -142,7 +174,7 @@ namespace EggLink.DanhengServer.Game.Inventory
             return item;
         }
 
-        public void RemoveItem(int itemId, int count)
+        public void RemoveItem(int itemId, int count, int uniqueId = 0)
         {
             GameData.ItemConfigData.TryGetValue(itemId, out var itemConfig);
             if (itemConfig == null) return;
@@ -176,6 +208,14 @@ namespace EggLink.DanhengServer.Game.Inventory
                             Player.Data.TalentPoints -= count;
                             break;
                     }
+                    Player.SendPacket(new PacketPlayerSyncScNotify(Player.ToProto()));
+                    break;
+                case ItemMainTypeEnum.Equipment:
+                    var equipment = Data.EquipmentItems.Find(x => x.UniqueId == uniqueId);
+                    if (equipment == null) return;
+                    Data.EquipmentItems.Remove(equipment);
+                    equipment.Count = 0;
+                    itemData = equipment;
                     break;
             }
             if (itemData != null)
@@ -183,6 +223,63 @@ namespace EggLink.DanhengServer.Game.Inventory
                 Player.SendPacket(new PacketPlayerSyncScNotify(itemData));
             }
             DatabaseHelper.Instance?.UpdateInstance(Data);
+        }
+
+        public ItemData? GetItem(int itemId)
+        {
+            GameData.ItemConfigData.TryGetValue(itemId, out var itemConfig);
+            if (itemConfig == null) return null;
+            switch (itemConfig.ItemMainType)
+            {
+                case ItemMainTypeEnum.Material:
+                    return Data.MaterialItems.Find(x => x.ItemId == itemId);
+                case ItemMainTypeEnum.Equipment:
+                    return Data.EquipmentItems.Find(x => x.ItemId == itemId);
+                case ItemMainTypeEnum.Relic:
+                    return Data.RelicItems.Find(x => x.ItemId == itemId);
+                case ItemMainTypeEnum.Virtual:
+                    switch (itemConfig.ID)
+                    {
+                        case 1:
+                            return new ItemData()
+                            {
+                                ItemId = itemId,
+                                Count = Player.Data.Hcoin,
+                            };
+                        case 2:
+                            return new ItemData()
+                            {
+                                ItemId = itemId,
+                                Count = Player.Data.Scoin,
+                            };
+                        case 3:
+                            return new ItemData()
+                            {
+                                ItemId = itemId,
+                                Count = Player.Data.Mcoin,
+                            };
+                        case 11:
+                            return new ItemData()
+                            {
+                                ItemId = itemId,
+                                Count = Player.Data.Stamina,
+                            };
+                        case 22:
+                            return new ItemData()
+                            {
+                                ItemId = itemId,
+                                Count = Player.Data.Exp,
+                            };
+                        case 32:
+                            return new ItemData()
+                            {
+                                ItemId = itemId,
+                                Count = Player.Data.TalentPoints,
+                            };
+                    }
+                    break;
+            }
+            return null;
         }
 
         #region Equip
@@ -263,6 +360,200 @@ namespace EggLink.DanhengServer.Game.Inventory
             DatabaseHelper.Instance!.UpdateInstance(Data);
             DatabaseHelper.Instance!.UpdateInstance(Player.AvatarManager.AvatarData!);
             Player.SendPacket(new PacketPlayerSyncScNotify(avatarData));
+        }
+
+        public List<ItemData> LevelUpAvatar(int baseAvatarId, ItemCostData item)
+        {
+            var avatarData = Player.AvatarManager!.GetAvatar(baseAvatarId);
+            if (avatarData == null) return [];
+            GameData.AvatarPromotionConfigData.TryGetValue(avatarData.AvatarId * 10 + avatarData.Promotion, out var promotionConfig);
+            if (promotionConfig == null) return [];
+            var exp = 0;
+
+            foreach (var cost in item.ItemList)
+            {
+                GameData.ItemConfigData.TryGetValue((int)cost.PileItem.ItemId, out var itemConfig);
+                if (itemConfig == null) continue;
+                exp += itemConfig.Exp * (int)cost.PileItem.ItemNum;
+            }
+
+            // payment
+            int costScoin = exp / 10;
+            if (Player.Data.Scoin < costScoin) return [];
+            foreach (var cost in item.ItemList)
+            {
+                RemoveItem((int)cost.PileItem.ItemId, (int)cost.PileItem.ItemNum);
+            }
+            RemoveItem(2, costScoin);
+
+            int maxLevel = promotionConfig.MaxLevel;
+            int curExp = avatarData.Exp;
+            int curLevel = avatarData.Level;
+            int nextLevelExp = GameData.GetAvatarExpRequired(avatarData.Excel!.ExpGroup, avatarData.Level);
+            do
+            {
+                int toGain;
+                if (curExp + exp >= nextLevelExp)
+                {
+                    toGain = nextLevelExp - curExp;
+                } else
+                {
+                    toGain = exp;
+                }
+                curExp += toGain;
+                exp -= toGain;
+                // level up
+                if (curExp >= nextLevelExp)
+                {
+                    curExp = 0;
+                    curLevel++;
+                    nextLevelExp = GameData.GetAvatarExpRequired(avatarData.Excel!.ExpGroup, curLevel);
+                }
+            } while (exp > 0 && nextLevelExp > 0 && curLevel < maxLevel);
+
+            avatarData.Level = curLevel;
+            avatarData.Exp = curExp;
+            DatabaseHelper.Instance!.UpdateInstance(Player.AvatarManager.AvatarData!);
+            // leftover
+            List<ItemData> list = [];
+            var leftover = exp;
+            while (leftover > 0)
+            {
+                var gain = false;
+                foreach (var expItem in GameData.AvatarExpItemConfigData.Values.Reverse())
+                {
+                    if (leftover >= expItem.Exp)
+                    {
+                        // add
+                        list.Add(PutItem(expItem.ItemID, 1));
+                        leftover -= expItem.Exp;
+                        gain = true;
+                        break;
+                    }
+                }
+                if (!gain)
+                {
+                    break;  // no more item
+                }
+            }
+            if (list.Count > 0)
+            {
+                Player.SendPacket(new PacketPlayerSyncScNotify(list));
+            }
+            Player.SendPacket(new PacketPlayerSyncScNotify(avatarData));
+
+            return list;
+        }
+
+        public List<ItemData> LevelUpEquipment(int equipmentUniqueId, ItemCostData item)
+        {
+            var itemData = Data.EquipmentItems.Find(x => x.UniqueId == equipmentUniqueId);
+            if (itemData == null) return [];
+            GameData.EquipmentPromotionConfigData.TryGetValue(itemData.ItemId * 10 + itemData.Promotion, out var equipmentPromotionConfig);
+            GameData.EquipmentConfigData.TryGetValue(itemData.ItemId, out var equipmentConfig);
+            if (equipmentConfig == null || equipmentPromotionConfig == null) return [];
+            var exp = 0;
+
+            foreach (var cost in item.ItemList)
+            {
+                GameData.ItemConfigData.TryGetValue((int)cost.PileItem.ItemId, out var itemConfig);
+                if (itemConfig == null) continue;
+                exp += itemConfig.Exp * (int)cost.PileItem.ItemNum;
+            }
+
+            // payment
+            int costScoin = exp / 2;
+            if (Player.Data.Scoin < costScoin) return [];
+            foreach (var cost in item.ItemList)
+            {
+                RemoveItem((int)cost.PileItem.ItemId, (int)cost.PileItem.ItemNum);
+            }
+            RemoveItem(2, costScoin);
+
+            int maxLevel = equipmentPromotionConfig.MaxLevel;
+            int curExp = itemData.Exp;
+            int curLevel = itemData.Level;
+            int nextLevelExp = GameData.GetEquipmentExpRequired(equipmentConfig.ExpType, itemData.Level);
+            do
+            {
+                int toGain;
+                if (curExp + exp >= nextLevelExp)
+                {
+                    toGain = nextLevelExp - curExp;
+                } else
+                {
+                    toGain = exp;
+                }
+                curExp += toGain;
+                exp -= toGain;
+                // level up
+                if (curExp >= nextLevelExp)
+                {
+                    curExp = 0;
+                    curLevel++;
+                    nextLevelExp = GameData.GetEquipmentExpRequired(equipmentConfig.ExpType, curLevel);
+                }
+            } while (exp > 0 && nextLevelExp > 0 && curLevel < maxLevel);
+
+            itemData.Level = curLevel;
+            itemData.Exp = curExp;
+            DatabaseHelper.Instance!.UpdateInstance(Data);
+            // leftover
+            List<ItemData> list = [];
+            var leftover = exp;
+            while (leftover > 0)
+            {
+                var gain = false;
+                foreach (var expItem in GameData.EquipmentExpItemConfigData.Values.Reverse())
+                {
+                    if (leftover >= expItem.ExpProvide)
+                    {
+                        // add
+                        list.Add(PutItem(expItem.ItemID, 1));
+                        leftover -= expItem.ExpProvide;
+                        gain = true;
+                        break;
+                    }
+                }
+                if (!gain)
+                {
+                    break;  // no more item
+                }
+            }
+            if (list.Count > 0)
+            {
+                Player.SendPacket(new PacketPlayerSyncScNotify(list));
+            }
+            Player.SendPacket(new PacketPlayerSyncScNotify(itemData));
+            return list;
+        }
+
+        public void RankUpAvatar(int baseAvatarId, ItemCostData costData)
+        {
+            foreach (var cost in costData.ItemList)
+            {
+                RemoveItem((int)cost.PileItem.ItemId, (int)cost.PileItem.ItemNum);
+            }
+            var avatarData = Player.AvatarManager!.GetAvatar(baseAvatarId);
+            if (avatarData == null) return;
+            avatarData.Rank++;
+            DatabaseHelper.Instance!.UpdateInstance(Player.AvatarManager.AvatarData!);
+            Player.SendPacket(new PacketPlayerSyncScNotify(avatarData));
+        }
+
+        public void RankUpEquipment(int equipmentUniqueId, ItemCostData costData)
+        {
+            foreach (var cost in costData.ItemList)
+            {
+                var costItem = Data.EquipmentItems.Find(x => x.UniqueId == cost.EquipmentUniqueId);
+                if (costItem == null) continue;
+                RemoveItem(costItem.ItemId, 0, (int)cost.EquipmentUniqueId);
+            }
+            var itemData = Data.EquipmentItems.Find(x => x.UniqueId == equipmentUniqueId);
+            if (itemData == null) return;
+            itemData.Rank++;
+            DatabaseHelper.Instance!.UpdateInstance(Data);
+            Player.SendPacket(new PacketPlayerSyncScNotify(itemData));
         }
 
         #endregion

@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static InteractChargerCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChpJbnRlcmFjdENoYXJnZXJDc1JlcS5wcm90bxoRR0xPR0lBRk5LSEEucHJv",
-            "dG8iOQoUSW50ZXJhY3RDaGFyZ2VyQ3NSZXESIQoLRFBHQURBRU9MRk8YCCAB",
-            "KAsyDC5HTE9HSUFGTktIQUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlBy",
-            "b3RvYgZwcm90bzM="));
+            "ChpJbnRlcmFjdENoYXJnZXJDc1JlcS5wcm90bxoRQ2hhcmdlckluZm8ucHJv",
+            "dG8iOgoUSW50ZXJhY3RDaGFyZ2VyQ3NSZXESIgoMY2hhcmdlcl9pbmZvGAcg",
+            "ASgLMgwuQ2hhcmdlckluZm9CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Q",
+            "cm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.GLOGIAFNKHAReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChargerInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.InteractChargerCsReq), global::EggLink.DanhengServer.Proto.InteractChargerCsReq.Parser, new[]{ "DPGADAEOLFO" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.InteractChargerCsReq), global::EggLink.DanhengServer.Proto.InteractChargerCsReq.Parser, new[]{ "ChargerInfo" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public InteractChargerCsReq(InteractChargerCsReq other) : this() {
-      dPGADAEOLFO_ = other.dPGADAEOLFO_ != null ? other.dPGADAEOLFO_.Clone() : null;
+      chargerInfo_ = other.chargerInfo_ != null ? other.chargerInfo_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,15 +83,15 @@ namespace EggLink.DanhengServer.Proto {
       return new InteractChargerCsReq(this);
     }
 
-    /// <summary>Field number for the "DPGADAEOLFO" field.</summary>
-    public const int DPGADAEOLFOFieldNumber = 8;
-    private global::EggLink.DanhengServer.Proto.GLOGIAFNKHA dPGADAEOLFO_;
+    /// <summary>Field number for the "charger_info" field.</summary>
+    public const int ChargerInfoFieldNumber = 7;
+    private global::EggLink.DanhengServer.Proto.ChargerInfo chargerInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.GLOGIAFNKHA DPGADAEOLFO {
-      get { return dPGADAEOLFO_; }
+    public global::EggLink.DanhengServer.Proto.ChargerInfo ChargerInfo {
+      get { return chargerInfo_; }
       set {
-        dPGADAEOLFO_ = value;
+        chargerInfo_ = value;
       }
     }
 
@@ -110,7 +110,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(DPGADAEOLFO, other.DPGADAEOLFO)) return false;
+      if (!object.Equals(ChargerInfo, other.ChargerInfo)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -118,7 +118,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (dPGADAEOLFO_ != null) hash ^= DPGADAEOLFO.GetHashCode();
+      if (chargerInfo_ != null) hash ^= ChargerInfo.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -137,9 +137,9 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (dPGADAEOLFO_ != null) {
-        output.WriteRawTag(66);
-        output.WriteMessage(DPGADAEOLFO);
+      if (chargerInfo_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(ChargerInfo);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -151,9 +151,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (dPGADAEOLFO_ != null) {
-        output.WriteRawTag(66);
-        output.WriteMessage(DPGADAEOLFO);
+      if (chargerInfo_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(ChargerInfo);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -165,8 +165,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (dPGADAEOLFO_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DPGADAEOLFO);
+      if (chargerInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ChargerInfo);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -180,11 +180,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.dPGADAEOLFO_ != null) {
-        if (dPGADAEOLFO_ == null) {
-          DPGADAEOLFO = new global::EggLink.DanhengServer.Proto.GLOGIAFNKHA();
+      if (other.chargerInfo_ != null) {
+        if (chargerInfo_ == null) {
+          ChargerInfo = new global::EggLink.DanhengServer.Proto.ChargerInfo();
         }
-        DPGADAEOLFO.MergeFrom(other.DPGADAEOLFO);
+        ChargerInfo.MergeFrom(other.ChargerInfo);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -201,11 +201,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 66: {
-            if (dPGADAEOLFO_ == null) {
-              DPGADAEOLFO = new global::EggLink.DanhengServer.Proto.GLOGIAFNKHA();
+          case 58: {
+            if (chargerInfo_ == null) {
+              ChargerInfo = new global::EggLink.DanhengServer.Proto.ChargerInfo();
             }
-            input.ReadMessage(DPGADAEOLFO);
+            input.ReadMessage(ChargerInfo);
             break;
           }
         }
@@ -223,11 +223,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 66: {
-            if (dPGADAEOLFO_ == null) {
-              DPGADAEOLFO = new global::EggLink.DanhengServer.Proto.GLOGIAFNKHA();
+          case 58: {
+            if (chargerInfo_ == null) {
+              ChargerInfo = new global::EggLink.DanhengServer.Proto.ChargerInfo();
             }
-            input.ReadMessage(DPGADAEOLFO);
+            input.ReadMessage(ChargerInfo);
             break;
           }
         }

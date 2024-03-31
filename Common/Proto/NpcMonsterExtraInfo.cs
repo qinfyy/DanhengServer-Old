@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "ChlOcGNNb25zdGVyRXh0cmFJbmZvLnByb3RvGhlOcGNNb25zdGVyUm9ndWVJ",
             "bmZvLnByb3RvIj8KE05wY01vbnN0ZXJFeHRyYUluZm8SKAoKcm9ndWVfaW5m",
-            "bxgJIAEoCzIULk5wY01vbnN0ZXJSb2d1ZUluZm9CHqoCG0VnZ0xpbmsuRGFu",
+            "bxgCIAEoCzIULk5wY01vbnN0ZXJSb2d1ZUluZm9CHqoCG0VnZ0xpbmsuRGFu",
             "aGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.NpcMonsterRogueInfoReflection.Descriptor, },
@@ -84,7 +84,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "rogue_info" field.</summary>
-    public const int RogueInfoFieldNumber = 9;
+    public const int RogueInfoFieldNumber = 2;
     private global::EggLink.DanhengServer.Proto.NpcMonsterRogueInfo rogueInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -138,7 +138,7 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (rogueInfo_ != null) {
-        output.WriteRawTag(74);
+        output.WriteRawTag(18);
         output.WriteMessage(RogueInfo);
       }
       if (_unknownFields != null) {
@@ -152,7 +152,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (rogueInfo_ != null) {
-        output.WriteRawTag(74);
+        output.WriteRawTag(18);
         output.WriteMessage(RogueInfo);
       }
       if (_unknownFields != null) {
@@ -201,7 +201,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 74: {
+          case 18: {
             if (rogueInfo_ == null) {
               RogueInfo = new global::EggLink.DanhengServer.Proto.NpcMonsterRogueInfo();
             }
@@ -223,7 +223,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 74: {
+          case 18: {
             if (rogueInfo_ == null) {
               RogueInfo = new global::EggLink.DanhengServer.Proto.NpcMonsterRogueInfo();
             }

@@ -26,12 +26,12 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "CiNTZXRDbGllbnRSYWlkVGFyZ2V0Q291bnRDc1JlcS5wcm90byJGCh1TZXRD",
             "bGllbnRSYWlkVGFyZ2V0Q291bnRDc1JlcRIQCghwcm9ncmVzcxgHIAEoDRIT",
-            "CgtBSUFNQUFFTEFBQhgEIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVy",
+            "CgtOREZHRktIQU1MQxgPIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVy",
             "LlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SetClientRaidTargetCountCsReq), global::EggLink.DanhengServer.Proto.SetClientRaidTargetCountCsReq.Parser, new[]{ "Progress", "AIAMAAELAAB" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SetClientRaidTargetCountCsReq), global::EggLink.DanhengServer.Proto.SetClientRaidTargetCountCsReq.Parser, new[]{ "Progress", "NDFGFKHAMLC" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,7 +74,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SetClientRaidTargetCountCsReq(SetClientRaidTargetCountCsReq other) : this() {
       progress_ = other.progress_;
-      aIAMAAELAAB_ = other.aIAMAAELAAB_;
+      nDFGFKHAMLC_ = other.nDFGFKHAMLC_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -96,15 +96,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "AIAMAAELAAB" field.</summary>
-    public const int AIAMAAELAABFieldNumber = 4;
-    private uint aIAMAAELAAB_;
+    /// <summary>Field number for the "NDFGFKHAMLC" field.</summary>
+    public const int NDFGFKHAMLCFieldNumber = 15;
+    private uint nDFGFKHAMLC_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint AIAMAAELAAB {
-      get { return aIAMAAELAAB_; }
+    public uint NDFGFKHAMLC {
+      get { return nDFGFKHAMLC_; }
       set {
-        aIAMAAELAAB_ = value;
+        nDFGFKHAMLC_ = value;
       }
     }
 
@@ -124,7 +124,7 @@ namespace EggLink.DanhengServer.Proto {
         return true;
       }
       if (Progress != other.Progress) return false;
-      if (AIAMAAELAAB != other.AIAMAAELAAB) return false;
+      if (NDFGFKHAMLC != other.NDFGFKHAMLC) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -133,7 +133,7 @@ namespace EggLink.DanhengServer.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (Progress != 0) hash ^= Progress.GetHashCode();
-      if (AIAMAAELAAB != 0) hash ^= AIAMAAELAAB.GetHashCode();
+      if (NDFGFKHAMLC != 0) hash ^= NDFGFKHAMLC.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -152,13 +152,13 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (AIAMAAELAAB != 0) {
-        output.WriteRawTag(32);
-        output.WriteUInt32(AIAMAAELAAB);
-      }
       if (Progress != 0) {
         output.WriteRawTag(56);
         output.WriteUInt32(Progress);
+      }
+      if (NDFGFKHAMLC != 0) {
+        output.WriteRawTag(120);
+        output.WriteUInt32(NDFGFKHAMLC);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -170,13 +170,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (AIAMAAELAAB != 0) {
-        output.WriteRawTag(32);
-        output.WriteUInt32(AIAMAAELAAB);
-      }
       if (Progress != 0) {
         output.WriteRawTag(56);
         output.WriteUInt32(Progress);
+      }
+      if (NDFGFKHAMLC != 0) {
+        output.WriteRawTag(120);
+        output.WriteUInt32(NDFGFKHAMLC);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -191,8 +191,8 @@ namespace EggLink.DanhengServer.Proto {
       if (Progress != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Progress);
       }
-      if (AIAMAAELAAB != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(AIAMAAELAAB);
+      if (NDFGFKHAMLC != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NDFGFKHAMLC);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -209,8 +209,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other.Progress != 0) {
         Progress = other.Progress;
       }
-      if (other.AIAMAAELAAB != 0) {
-        AIAMAAELAAB = other.AIAMAAELAAB;
+      if (other.NDFGFKHAMLC != 0) {
+        NDFGFKHAMLC = other.NDFGFKHAMLC;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -227,12 +227,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 32: {
-            AIAMAAELAAB = input.ReadUInt32();
-            break;
-          }
           case 56: {
             Progress = input.ReadUInt32();
+            break;
+          }
+          case 120: {
+            NDFGFKHAMLC = input.ReadUInt32();
             break;
           }
         }
@@ -250,12 +250,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 32: {
-            AIAMAAELAAB = input.ReadUInt32();
-            break;
-          }
           case 56: {
             Progress = input.ReadUInt32();
+            break;
+          }
+          case 120: {
+            NDFGFKHAMLC = input.ReadUInt32();
             break;
           }
         }

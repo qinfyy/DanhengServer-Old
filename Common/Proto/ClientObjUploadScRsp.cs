@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "ChpDbGllbnRPYmpVcGxvYWRTY1JzcC5wcm90bxobQ2xpZW50T2JqRG93bmxv",
             "YWREYXRhLnByb3RvIk0KFENsaWVudE9ialVwbG9hZFNjUnNwEg8KB3JldGNv",
-            "ZGUYBiABKA0SJAoEZGF0YRgCIAEoCzIWLkNsaWVudE9iakRvd25sb2FkRGF0",
+            "ZGUYCSABKA0SJAoEZGF0YRgMIAEoCzIWLkNsaWVudE9iakRvd25sb2FkRGF0",
             "YUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ClientObjDownloadDataReflection.Descriptor, },
@@ -85,7 +85,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "retcode" field.</summary>
-    public const int RetcodeFieldNumber = 6;
+    public const int RetcodeFieldNumber = 9;
     private uint retcode_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -97,7 +97,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "data" field.</summary>
-    public const int DataFieldNumber = 2;
+    public const int DataFieldNumber = 12;
     private global::EggLink.DanhengServer.Proto.ClientObjDownloadData data_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -152,13 +152,13 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (data_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Data);
-      }
       if (Retcode != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(72);
         output.WriteUInt32(Retcode);
+      }
+      if (data_ != null) {
+        output.WriteRawTag(98);
+        output.WriteMessage(Data);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -170,13 +170,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (data_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Data);
-      }
       if (Retcode != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(72);
         output.WriteUInt32(Retcode);
+      }
+      if (data_ != null) {
+        output.WriteRawTag(98);
+        output.WriteMessage(Data);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -230,15 +230,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 18: {
+          case 72: {
+            Retcode = input.ReadUInt32();
+            break;
+          }
+          case 98: {
             if (data_ == null) {
               Data = new global::EggLink.DanhengServer.Proto.ClientObjDownloadData();
             }
             input.ReadMessage(Data);
-            break;
-          }
-          case 48: {
-            Retcode = input.ReadUInt32();
             break;
           }
         }
@@ -256,15 +256,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 18: {
+          case 72: {
+            Retcode = input.ReadUInt32();
+            break;
+          }
+          case 98: {
             if (data_ == null) {
               Data = new global::EggLink.DanhengServer.Proto.ClientObjDownloadData();
             }
             input.ReadMessage(Data);
-            break;
-          }
-          case 48: {
-            Retcode = input.ReadUInt32();
             break;
           }
         }

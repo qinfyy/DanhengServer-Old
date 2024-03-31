@@ -1,4 +1,5 @@
-﻿using EggLink.DanhengServer.Enums;
+﻿using EggLink.DanhengServer.Data.Config;
+using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Game.Player;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,14 @@ namespace EggLink.DanhengServer.Game.Mission.FinishType.Handler
     [MissionFinishType(MissionFinishTypeEnum.EnterFloor)]
     public class MissionHandlerEnterFloor : MissionFinishTypeHandler
     {
-        public override void HandleFinishType(PlayerInstance player, int Param1, int Param2, int Param3, List<int> ParamIntList, int subMissionId)
+        public override void Init(PlayerInstance player, SubMissionInfo info, object? arg)
         {
-            player.EnterMissionScene(Param2, Param2, true);
-            player.MissionManager!.FinishSubMission(subMissionId);
+        }
+
+        public override void HandleFinishType(PlayerInstance player, SubMissionInfo info, object? arg)
+        {
+            player.EnterMissionScene(info.ParamInt2, info.ParamInt2, true);
+            player.MissionManager!.FinishSubMission(info.ID);
         }
     }
 }

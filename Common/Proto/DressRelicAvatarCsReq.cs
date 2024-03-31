@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "ChtEcmVzc1JlbGljQXZhdGFyQ3NSZXEucHJvdG8aFURyZXNzUmVsaWNQYXJh",
             "bS5wcm90byJWChVEcmVzc1JlbGljQXZhdGFyQ3NSZXESFgoOYmFzZV9hdmF0",
-            "YXJfaWQYAyABKA0SJQoLc3dpdGNoX2xpc3QYCiADKAsyEC5EcmVzc1JlbGlj",
+            "YXJfaWQYDCABKA0SJQoLc3dpdGNoX2xpc3QYCyADKAsyEC5EcmVzc1JlbGlj",
             "UGFyYW1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.DressRelicParamReflection.Descriptor, },
@@ -85,7 +85,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "base_avatar_id" field.</summary>
-    public const int BaseAvatarIdFieldNumber = 3;
+    public const int BaseAvatarIdFieldNumber = 12;
     private uint baseAvatarId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -97,9 +97,9 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "switch_list" field.</summary>
-    public const int SwitchListFieldNumber = 10;
+    public const int SwitchListFieldNumber = 11;
     private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.DressRelicParam> _repeated_switchList_codec
-        = pb::FieldCodec.ForMessage(82, global::EggLink.DanhengServer.Proto.DressRelicParam.Parser);
+        = pb::FieldCodec.ForMessage(90, global::EggLink.DanhengServer.Proto.DressRelicParam.Parser);
     private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DressRelicParam> switchList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DressRelicParam>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -151,11 +151,11 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      switchList_.WriteTo(output, _repeated_switchList_codec);
       if (BaseAvatarId != 0) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(96);
         output.WriteUInt32(BaseAvatarId);
       }
-      switchList_.WriteTo(output, _repeated_switchList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -166,11 +166,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      switchList_.WriteTo(ref output, _repeated_switchList_codec);
       if (BaseAvatarId != 0) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(96);
         output.WriteUInt32(BaseAvatarId);
       }
-      switchList_.WriteTo(ref output, _repeated_switchList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -216,12 +216,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 24: {
-            BaseAvatarId = input.ReadUInt32();
+          case 90: {
+            switchList_.AddEntriesFrom(input, _repeated_switchList_codec);
             break;
           }
-          case 82: {
-            switchList_.AddEntriesFrom(input, _repeated_switchList_codec);
+          case 96: {
+            BaseAvatarId = input.ReadUInt32();
             break;
           }
         }
@@ -239,12 +239,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 24: {
-            BaseAvatarId = input.ReadUInt32();
+          case 90: {
+            switchList_.AddEntriesFrom(ref input, _repeated_switchList_codec);
             break;
           }
-          case 82: {
-            switchList_.AddEntriesFrom(ref input, _repeated_switchList_codec);
+          case 96: {
+            BaseAvatarId = input.ReadUInt32();
             break;
           }
         }

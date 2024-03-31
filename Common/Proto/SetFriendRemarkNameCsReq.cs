@@ -25,12 +25,12 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Ch5TZXRGcmllbmRSZW1hcmtOYW1lQ3NSZXEucHJvdG8iPAoYU2V0RnJpZW5k",
-            "UmVtYXJrTmFtZUNzUmVxEhMKC3JlbWFya19uYW1lGAggASgJEgsKA3VpZBgB",
-            "IAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "UmVtYXJrTmFtZUNzUmVxEgsKA3VpZBgBIAEoDRITCgtyZW1hcmtfbmFtZRgG",
+            "IAEoCUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SetFriendRemarkNameCsReq), global::EggLink.DanhengServer.Proto.SetFriendRemarkNameCsReq.Parser, new[]{ "RemarkName", "Uid" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SetFriendRemarkNameCsReq), global::EggLink.DanhengServer.Proto.SetFriendRemarkNameCsReq.Parser, new[]{ "Uid", "RemarkName" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,8 +72,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SetFriendRemarkNameCsReq(SetFriendRemarkNameCsReq other) : this() {
-      remarkName_ = other.remarkName_;
       uid_ = other.uid_;
+      remarkName_ = other.remarkName_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -81,18 +81,6 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SetFriendRemarkNameCsReq Clone() {
       return new SetFriendRemarkNameCsReq(this);
-    }
-
-    /// <summary>Field number for the "remark_name" field.</summary>
-    public const int RemarkNameFieldNumber = 8;
-    private string remarkName_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string RemarkName {
-      get { return remarkName_; }
-      set {
-        remarkName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
     }
 
     /// <summary>Field number for the "uid" field.</summary>
@@ -104,6 +92,18 @@ namespace EggLink.DanhengServer.Proto {
       get { return uid_; }
       set {
         uid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "remark_name" field.</summary>
+    public const int RemarkNameFieldNumber = 6;
+    private string remarkName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RemarkName {
+      get { return remarkName_; }
+      set {
+        remarkName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -122,8 +122,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (RemarkName != other.RemarkName) return false;
       if (Uid != other.Uid) return false;
+      if (RemarkName != other.RemarkName) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -131,8 +131,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (RemarkName.Length != 0) hash ^= RemarkName.GetHashCode();
       if (Uid != 0) hash ^= Uid.GetHashCode();
+      if (RemarkName.Length != 0) hash ^= RemarkName.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -156,7 +156,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteUInt32(Uid);
       }
       if (RemarkName.Length != 0) {
-        output.WriteRawTag(66);
+        output.WriteRawTag(50);
         output.WriteString(RemarkName);
       }
       if (_unknownFields != null) {
@@ -174,7 +174,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteUInt32(Uid);
       }
       if (RemarkName.Length != 0) {
-        output.WriteRawTag(66);
+        output.WriteRawTag(50);
         output.WriteString(RemarkName);
       }
       if (_unknownFields != null) {
@@ -187,11 +187,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (RemarkName.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(RemarkName);
-      }
       if (Uid != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Uid);
+      }
+      if (RemarkName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RemarkName);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -205,11 +205,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.RemarkName.Length != 0) {
-        RemarkName = other.RemarkName;
-      }
       if (other.Uid != 0) {
         Uid = other.Uid;
+      }
+      if (other.RemarkName.Length != 0) {
+        RemarkName = other.RemarkName;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -230,7 +230,7 @@ namespace EggLink.DanhengServer.Proto {
             Uid = input.ReadUInt32();
             break;
           }
-          case 66: {
+          case 50: {
             RemarkName = input.ReadString();
             break;
           }
@@ -253,7 +253,7 @@ namespace EggLink.DanhengServer.Proto {
             Uid = input.ReadUInt32();
             break;
           }
-          case 66: {
+          case 50: {
             RemarkName = input.ReadString();
             break;
           }

@@ -14,7 +14,6 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Avatar
         {
             var proto = new GetAssistHistoryScRsp
             {
-                UseTimes = 0,
             };
 
             SetData(proto);

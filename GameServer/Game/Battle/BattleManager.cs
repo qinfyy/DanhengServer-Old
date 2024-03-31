@@ -196,6 +196,7 @@ namespace EggLink.DanhengServer.Game.Battle
                     teleportToAnchor = true;
                     break;
                 default:
+                    teleportToAnchor = true;
                     updateStatus = false;
                     break;
             }
@@ -245,9 +246,12 @@ namespace EggLink.DanhengServer.Game.Battle
             Player.MissionManager!.OnBattleFinish(req);
 
             // remove monster from the scene
-            foreach (var monster in battle.EntityMonsters)
+            if (req.EndStatus == BattleEndStatus.BattleEndWin)
             {
-                Player.SceneInstance!.RemoveEntity(monster);
+                foreach (var monster in battle.EntityMonsters)
+                {
+                    Player.SceneInstance!.RemoveEntity(monster);
+                }
             }
 
             Player.BattleInstance = null;

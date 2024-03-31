@@ -25,15 +25,15 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChxGaW5pc2hUYWxrTWlzc2lvblNjUnNwLnByb3RvGhxNaXNzaW9uQ3VzdG9t",
-            "VmFsdWVEYXRhLnByb3RvIocBChZGaW5pc2hUYWxrTWlzc2lvblNjUnNwEg8K",
-            "B3JldGNvZGUYBSABKA0SEAoIdGFsa19zdHIYCiABKAkSMgoRY3VzdG9tX3Zh",
-            "bHVlX2xpc3QYDCADKAsyFy5NaXNzaW9uQ3VzdG9tVmFsdWVEYXRhEhYKDnN1",
-            "Yl9taXNzaW9uX2lkGAEgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIu",
+            "VmFsdWVEYXRhLnByb3RvIocBChZGaW5pc2hUYWxrTWlzc2lvblNjUnNwEjIK",
+            "EWN1c3RvbV92YWx1ZV9saXN0GAMgAygLMhcuTWlzc2lvbkN1c3RvbVZhbHVl",
+            "RGF0YRIWCg5zdWJfbWlzc2lvbl9pZBgEIAEoDRIQCgh0YWxrX3N0chgMIAEo",
+            "CRIPCgdyZXRjb2RlGAIgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIu",
             "UHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MissionCustomValueDataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.FinishTalkMissionScRsp), global::EggLink.DanhengServer.Proto.FinishTalkMissionScRsp.Parser, new[]{ "Retcode", "TalkStr", "CustomValueList", "SubMissionId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.FinishTalkMissionScRsp), global::EggLink.DanhengServer.Proto.FinishTalkMissionScRsp.Parser, new[]{ "CustomValueList", "SubMissionId", "TalkStr", "Retcode" }, null, null, null, null)
           }));
     }
     #endregion
@@ -75,10 +75,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public FinishTalkMissionScRsp(FinishTalkMissionScRsp other) : this() {
-      retcode_ = other.retcode_;
-      talkStr_ = other.talkStr_;
       customValueList_ = other.customValueList_.Clone();
       subMissionId_ = other.subMissionId_;
+      talkStr_ = other.talkStr_;
+      retcode_ = other.retcode_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -88,20 +88,31 @@ namespace EggLink.DanhengServer.Proto {
       return new FinishTalkMissionScRsp(this);
     }
 
-    /// <summary>Field number for the "retcode" field.</summary>
-    public const int RetcodeFieldNumber = 5;
-    private uint retcode_;
+    /// <summary>Field number for the "custom_value_list" field.</summary>
+    public const int CustomValueListFieldNumber = 3;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.MissionCustomValueData> _repeated_customValueList_codec
+        = pb::FieldCodec.ForMessage(26, global::EggLink.DanhengServer.Proto.MissionCustomValueData.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.MissionCustomValueData> customValueList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.MissionCustomValueData>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Retcode {
-      get { return retcode_; }
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.MissionCustomValueData> CustomValueList {
+      get { return customValueList_; }
+    }
+
+    /// <summary>Field number for the "sub_mission_id" field.</summary>
+    public const int SubMissionIdFieldNumber = 4;
+    private uint subMissionId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint SubMissionId {
+      get { return subMissionId_; }
       set {
-        retcode_ = value;
+        subMissionId_ = value;
       }
     }
 
     /// <summary>Field number for the "talk_str" field.</summary>
-    public const int TalkStrFieldNumber = 10;
+    public const int TalkStrFieldNumber = 12;
     private string talkStr_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -112,26 +123,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "custom_value_list" field.</summary>
-    public const int CustomValueListFieldNumber = 12;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.MissionCustomValueData> _repeated_customValueList_codec
-        = pb::FieldCodec.ForMessage(98, global::EggLink.DanhengServer.Proto.MissionCustomValueData.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.MissionCustomValueData> customValueList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.MissionCustomValueData>();
+    /// <summary>Field number for the "retcode" field.</summary>
+    public const int RetcodeFieldNumber = 2;
+    private uint retcode_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.MissionCustomValueData> CustomValueList {
-      get { return customValueList_; }
-    }
-
-    /// <summary>Field number for the "sub_mission_id" field.</summary>
-    public const int SubMissionIdFieldNumber = 1;
-    private uint subMissionId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint SubMissionId {
-      get { return subMissionId_; }
+    public uint Retcode {
+      get { return retcode_; }
       set {
-        subMissionId_ = value;
+        retcode_ = value;
       }
     }
 
@@ -150,10 +150,10 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Retcode != other.Retcode) return false;
-      if (TalkStr != other.TalkStr) return false;
       if(!customValueList_.Equals(other.customValueList_)) return false;
       if (SubMissionId != other.SubMissionId) return false;
+      if (TalkStr != other.TalkStr) return false;
+      if (Retcode != other.Retcode) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -161,10 +161,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Retcode != 0) hash ^= Retcode.GetHashCode();
-      if (TalkStr.Length != 0) hash ^= TalkStr.GetHashCode();
       hash ^= customValueList_.GetHashCode();
       if (SubMissionId != 0) hash ^= SubMissionId.GetHashCode();
+      if (TalkStr.Length != 0) hash ^= TalkStr.GetHashCode();
+      if (Retcode != 0) hash ^= Retcode.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -183,19 +183,19 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (SubMissionId != 0) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(SubMissionId);
-      }
       if (Retcode != 0) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(16);
         output.WriteUInt32(Retcode);
       }
+      customValueList_.WriteTo(output, _repeated_customValueList_codec);
+      if (SubMissionId != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(SubMissionId);
+      }
       if (TalkStr.Length != 0) {
-        output.WriteRawTag(82);
+        output.WriteRawTag(98);
         output.WriteString(TalkStr);
       }
-      customValueList_.WriteTo(output, _repeated_customValueList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -206,19 +206,19 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (SubMissionId != 0) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(SubMissionId);
-      }
       if (Retcode != 0) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(16);
         output.WriteUInt32(Retcode);
       }
+      customValueList_.WriteTo(ref output, _repeated_customValueList_codec);
+      if (SubMissionId != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(SubMissionId);
+      }
       if (TalkStr.Length != 0) {
-        output.WriteRawTag(82);
+        output.WriteRawTag(98);
         output.WriteString(TalkStr);
       }
-      customValueList_.WriteTo(ref output, _repeated_customValueList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -229,15 +229,15 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Retcode != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
+      size += customValueList_.CalculateSize(_repeated_customValueList_codec);
+      if (SubMissionId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SubMissionId);
       }
       if (TalkStr.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(TalkStr);
       }
-      size += customValueList_.CalculateSize(_repeated_customValueList_codec);
-      if (SubMissionId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SubMissionId);
+      if (Retcode != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -251,15 +251,15 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.Retcode != 0) {
-        Retcode = other.Retcode;
+      customValueList_.Add(other.customValueList_);
+      if (other.SubMissionId != 0) {
+        SubMissionId = other.SubMissionId;
       }
       if (other.TalkStr.Length != 0) {
         TalkStr = other.TalkStr;
       }
-      customValueList_.Add(other.customValueList_);
-      if (other.SubMissionId != 0) {
-        SubMissionId = other.SubMissionId;
+      if (other.Retcode != 0) {
+        Retcode = other.Retcode;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -276,20 +276,20 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            SubMissionId = input.ReadUInt32();
-            break;
-          }
-          case 40: {
+          case 16: {
             Retcode = input.ReadUInt32();
             break;
           }
-          case 82: {
-            TalkStr = input.ReadString();
+          case 26: {
+            customValueList_.AddEntriesFrom(input, _repeated_customValueList_codec);
+            break;
+          }
+          case 32: {
+            SubMissionId = input.ReadUInt32();
             break;
           }
           case 98: {
-            customValueList_.AddEntriesFrom(input, _repeated_customValueList_codec);
+            TalkStr = input.ReadString();
             break;
           }
         }
@@ -307,20 +307,20 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
-            SubMissionId = input.ReadUInt32();
-            break;
-          }
-          case 40: {
+          case 16: {
             Retcode = input.ReadUInt32();
             break;
           }
-          case 82: {
-            TalkStr = input.ReadString();
+          case 26: {
+            customValueList_.AddEntriesFrom(ref input, _repeated_customValueList_codec);
+            break;
+          }
+          case 32: {
+            SubMissionId = input.ReadUInt32();
             break;
           }
           case 98: {
-            customValueList_.AddEntriesFrom(ref input, _repeated_customValueList_codec);
+            TalkStr = input.ReadString();
             break;
           }
         }

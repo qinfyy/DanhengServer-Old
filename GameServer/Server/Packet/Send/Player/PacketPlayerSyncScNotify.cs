@@ -15,7 +15,18 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Player
     {
         public PacketPlayerSyncScNotify(ItemData item) : base(CmdIds.PlayerSyncScNotify)
         {
-            AddItemToProto(item, out var proto);
+            var proto = new PlayerSyncScNotify();
+            AddItemToProto(item, proto);
+            SetData(proto);
+        }
+
+        public PacketPlayerSyncScNotify(List<ItemData> item) : base(CmdIds.PlayerSyncScNotify)
+        {
+            var proto = new PlayerSyncScNotify();
+            foreach (var i in item)
+            {
+                AddItemToProto(i, proto);
+            }
             SetData(proto);
         }
 
@@ -37,7 +48,8 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Player
         
         public PacketPlayerSyncScNotify(AvatarInfo avatar, ItemData item) : base(CmdIds.PlayerSyncScNotify)
         {
-            AddItemToProto(item, out var proto);
+            var proto = new PlayerSyncScNotify();
+            AddItemToProto(item, proto);
             proto.AvatarSync = new();
             proto.AvatarSync.AvatarList.Add(avatar.ToProto());
 
@@ -69,9 +81,8 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Player
             SetData(proto);
         }
 
-        private void AddItemToProto(ItemData item, out PlayerSyncScNotify notify)
+        private void AddItemToProto(ItemData item, PlayerSyncScNotify notify)
         {
-            notify = new PlayerSyncScNotify();
             GameData.ItemConfigData.TryGetValue(item.ItemId, out var itemConfig);
             if (itemConfig == null) return;
             switch (itemConfig.ItemMainType)
@@ -82,7 +93,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Player
                         notify.EquipmentList.Add(item.ToEquipmentProto());
                     } else
                     {
-                        notify.RemoveEquipmentTidList.Add((uint)item.UniqueId);
+                        notify.DelEquipmentList.Add((uint)item.UniqueId);
                     }
                     break;
                 case ItemMainTypeEnum.Relic:
@@ -92,13 +103,15 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Player
                     }
                     else
                     {
-                        notify.RemoveRelicTidList.Add((uint)item.UniqueId);
+                        notify.DelRelicList.Add((uint)item.UniqueId);
                     }
                     break;
                 case ItemMainTypeEnum.Material:
                     notify.MaterialList.Add(item.ToMaterialProto());
                     break;
             }
+
+            return;
         }
     }
 }

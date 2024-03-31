@@ -20,6 +20,7 @@ namespace EggLink.DanhengServer.Command.Cmd
             }
             arg.Target.SendPacket(new PacketPlayerKickOutScNotify());
             arg.SendMsg($"Player {arg.Target.Player!.Data.Name} has been kicked");
+            arg.Target.Stop();
         }
     }
 }

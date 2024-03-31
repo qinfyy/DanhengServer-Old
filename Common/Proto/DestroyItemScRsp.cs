@@ -25,12 +25,12 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChZEZXN0cm95SXRlbVNjUnNwLnByb3RvIjgKEERlc3Ryb3lJdGVtU2NSc3AS",
-            "DwoHcmV0Y29kZRgEIAEoDRITCgtGRVBJUEFMTlBQRhgGIAEoDUIeqgIbRWdn",
+            "DwoHcmV0Y29kZRgNIAEoDRITCgtFRUlIQk1HQ0JHRBgJIAEoDUIeqgIbRWdn",
             "TGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.DestroyItemScRsp), global::EggLink.DanhengServer.Proto.DestroyItemScRsp.Parser, new[]{ "Retcode", "FEPIPALNPPF" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.DestroyItemScRsp), global::EggLink.DanhengServer.Proto.DestroyItemScRsp.Parser, new[]{ "Retcode", "EEIHBMGCBGD" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public DestroyItemScRsp(DestroyItemScRsp other) : this() {
       retcode_ = other.retcode_;
-      fEPIPALNPPF_ = other.fEPIPALNPPF_;
+      eEIHBMGCBGD_ = other.eEIHBMGCBGD_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,7 +84,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "retcode" field.</summary>
-    public const int RetcodeFieldNumber = 4;
+    public const int RetcodeFieldNumber = 13;
     private uint retcode_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -95,15 +95,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "FEPIPALNPPF" field.</summary>
-    public const int FEPIPALNPPFFieldNumber = 6;
-    private uint fEPIPALNPPF_;
+    /// <summary>Field number for the "EEIHBMGCBGD" field.</summary>
+    public const int EEIHBMGCBGDFieldNumber = 9;
+    private uint eEIHBMGCBGD_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint FEPIPALNPPF {
-      get { return fEPIPALNPPF_; }
+    public uint EEIHBMGCBGD {
+      get { return eEIHBMGCBGD_; }
       set {
-        fEPIPALNPPF_ = value;
+        eEIHBMGCBGD_ = value;
       }
     }
 
@@ -123,7 +123,7 @@ namespace EggLink.DanhengServer.Proto {
         return true;
       }
       if (Retcode != other.Retcode) return false;
-      if (FEPIPALNPPF != other.FEPIPALNPPF) return false;
+      if (EEIHBMGCBGD != other.EEIHBMGCBGD) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -132,7 +132,7 @@ namespace EggLink.DanhengServer.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
-      if (FEPIPALNPPF != 0) hash ^= FEPIPALNPPF.GetHashCode();
+      if (EEIHBMGCBGD != 0) hash ^= EEIHBMGCBGD.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -151,13 +151,13 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Retcode != 0) {
-        output.WriteRawTag(32);
-        output.WriteUInt32(Retcode);
+      if (EEIHBMGCBGD != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(EEIHBMGCBGD);
       }
-      if (FEPIPALNPPF != 0) {
-        output.WriteRawTag(48);
-        output.WriteUInt32(FEPIPALNPPF);
+      if (Retcode != 0) {
+        output.WriteRawTag(104);
+        output.WriteUInt32(Retcode);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -169,13 +169,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Retcode != 0) {
-        output.WriteRawTag(32);
-        output.WriteUInt32(Retcode);
+      if (EEIHBMGCBGD != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(EEIHBMGCBGD);
       }
-      if (FEPIPALNPPF != 0) {
-        output.WriteRawTag(48);
-        output.WriteUInt32(FEPIPALNPPF);
+      if (Retcode != 0) {
+        output.WriteRawTag(104);
+        output.WriteUInt32(Retcode);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -190,8 +190,8 @@ namespace EggLink.DanhengServer.Proto {
       if (Retcode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
-      if (FEPIPALNPPF != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(FEPIPALNPPF);
+      if (EEIHBMGCBGD != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EEIHBMGCBGD);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -208,8 +208,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other.Retcode != 0) {
         Retcode = other.Retcode;
       }
-      if (other.FEPIPALNPPF != 0) {
-        FEPIPALNPPF = other.FEPIPALNPPF;
+      if (other.EEIHBMGCBGD != 0) {
+        EEIHBMGCBGD = other.EEIHBMGCBGD;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -226,12 +226,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 32: {
-            Retcode = input.ReadUInt32();
+          case 72: {
+            EEIHBMGCBGD = input.ReadUInt32();
             break;
           }
-          case 48: {
-            FEPIPALNPPF = input.ReadUInt32();
+          case 104: {
+            Retcode = input.ReadUInt32();
             break;
           }
         }
@@ -249,12 +249,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 32: {
-            Retcode = input.ReadUInt32();
+          case 72: {
+            EEIHBMGCBGD = input.ReadUInt32();
             break;
           }
-          case 48: {
-            FEPIPALNPPF = input.ReadUInt32();
+          case 104: {
+            Retcode = input.ReadUInt32();
             break;
           }
         }

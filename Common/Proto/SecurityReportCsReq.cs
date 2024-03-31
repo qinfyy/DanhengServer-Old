@@ -25,7 +25,7 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChlTZWN1cml0eVJlcG9ydENzUmVxLnByb3RvIjEKE1NlY3VyaXR5UmVwb3J0",
-            "Q3NSZXESGgoScmVwb3J0X2luZm9ybWF0aW9uGA4gASgJQh6qAhtFZ2dMaW5r",
+            "Q3NSZXESGgoScmVwb3J0X2luZm9ybWF0aW9uGAUgASgJQh6qAhtFZ2dMaW5r",
             "LkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -83,7 +83,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "report_information" field.</summary>
-    public const int ReportInformationFieldNumber = 14;
+    public const int ReportInformationFieldNumber = 5;
     private string reportInformation_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -137,7 +137,7 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (ReportInformation.Length != 0) {
-        output.WriteRawTag(114);
+        output.WriteRawTag(42);
         output.WriteString(ReportInformation);
       }
       if (_unknownFields != null) {
@@ -151,7 +151,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (ReportInformation.Length != 0) {
-        output.WriteRawTag(114);
+        output.WriteRawTag(42);
         output.WriteString(ReportInformation);
       }
       if (_unknownFields != null) {
@@ -197,7 +197,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 114: {
+          case 42: {
             ReportInformation = input.ReadString();
             break;
           }
@@ -216,7 +216,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 114: {
+          case 42: {
             ReportInformation = input.ReadString();
             break;
           }

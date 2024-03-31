@@ -25,7 +25,7 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChtBY2NlcHRFeHBlZGl0aW9uQ3NSZXEucHJvdG8aEEV4cGVkaXRpb24ucHJv",
-            "dG8iOAoVQWNjZXB0RXhwZWRpdGlvbkNzUmVxEh8KCmV4cGVkaXRpb24YAiAB",
+            "dG8iOAoVQWNjZXB0RXhwZWRpdGlvbkNzUmVxEh8KCmV4cGVkaXRpb24YAyAB",
             "KAsyCy5FeHBlZGl0aW9uQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJv",
             "dG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
@@ -84,7 +84,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "expedition" field.</summary>
-    public const int ExpeditionFieldNumber = 2;
+    public const int ExpeditionFieldNumber = 3;
     private global::EggLink.DanhengServer.Proto.Expedition expedition_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -138,7 +138,7 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (expedition_ != null) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteMessage(Expedition);
       }
       if (_unknownFields != null) {
@@ -152,7 +152,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (expedition_ != null) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteMessage(Expedition);
       }
       if (_unknownFields != null) {
@@ -201,7 +201,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 18: {
+          case 26: {
             if (expedition_ == null) {
               Expedition = new global::EggLink.DanhengServer.Proto.Expedition();
             }
@@ -223,7 +223,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 18: {
+          case 26: {
             if (expedition_ == null) {
               Expedition = new global::EggLink.DanhengServer.Proto.Expedition();
             }

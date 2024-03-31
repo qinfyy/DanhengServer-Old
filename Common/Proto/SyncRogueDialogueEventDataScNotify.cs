@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "CihTeW5jUm9ndWVEaWFsb2d1ZUV2ZW50RGF0YVNjTm90aWZ5LnByb3RvGhNE",
             "aWFsb2d1ZUV2ZW50LnByb3RvIlEKIlN5bmNSb2d1ZURpYWxvZ3VlRXZlbnRE",
-            "YXRhU2NOb3RpZnkSKwoTZGlhbG9ndWVfZXZlbnRfbGlzdBgEIAMoCzIOLkRp",
+            "YXRhU2NOb3RpZnkSKwoTZGlhbG9ndWVfZXZlbnRfbGlzdBgCIAMoCzIOLkRp",
             "YWxvZ3VlRXZlbnRCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IG",
             "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
@@ -85,9 +85,9 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "dialogue_event_list" field.</summary>
-    public const int DialogueEventListFieldNumber = 4;
+    public const int DialogueEventListFieldNumber = 2;
     private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.DialogueEvent> _repeated_dialogueEventList_codec
-        = pb::FieldCodec.ForMessage(34, global::EggLink.DanhengServer.Proto.DialogueEvent.Parser);
+        = pb::FieldCodec.ForMessage(18, global::EggLink.DanhengServer.Proto.DialogueEvent.Parser);
     private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DialogueEvent> dialogueEventList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DialogueEvent>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -188,7 +188,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 34: {
+          case 18: {
             dialogueEventList_.AddEntriesFrom(input, _repeated_dialogueEventList_codec);
             break;
           }
@@ -207,7 +207,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 34: {
+          case 18: {
             dialogueEventList_.AddEntriesFrom(ref input, _repeated_dialogueEventList_codec);
             break;
           }

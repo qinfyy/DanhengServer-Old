@@ -25,8 +25,8 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChNUdXRvcmlhbEd1aWRlLnByb3RvGhRUdXRvcmlhbFN0YXR1cy5wcm90byI8",
-            "Cg1UdXRvcmlhbEd1aWRlEh8KBnN0YXR1cxgOIAEoDjIPLlR1dG9yaWFsU3Rh",
-            "dHVzEgoKAmlkGAkgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJv",
+            "Cg1UdXRvcmlhbEd1aWRlEh8KBnN0YXR1cxgEIAEoDjIPLlR1dG9yaWFsU3Rh",
+            "dHVzEgoKAmlkGA4gASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJv",
             "dG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.TutorialStatusReflection.Descriptor, },
@@ -85,7 +85,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "status" field.</summary>
-    public const int StatusFieldNumber = 14;
+    public const int StatusFieldNumber = 4;
     private global::EggLink.DanhengServer.Proto.TutorialStatus status_ = global::EggLink.DanhengServer.Proto.TutorialStatus.TutorialNone;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -97,7 +97,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 9;
+    public const int IdFieldNumber = 14;
     private uint id_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -152,13 +152,13 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Id != 0) {
-        output.WriteRawTag(72);
-        output.WriteUInt32(Id);
-      }
       if (Status != global::EggLink.DanhengServer.Proto.TutorialStatus.TutorialNone) {
-        output.WriteRawTag(112);
+        output.WriteRawTag(32);
         output.WriteEnum((int) Status);
+      }
+      if (Id != 0) {
+        output.WriteRawTag(112);
+        output.WriteUInt32(Id);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -170,13 +170,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Id != 0) {
-        output.WriteRawTag(72);
-        output.WriteUInt32(Id);
-      }
       if (Status != global::EggLink.DanhengServer.Proto.TutorialStatus.TutorialNone) {
-        output.WriteRawTag(112);
+        output.WriteRawTag(32);
         output.WriteEnum((int) Status);
+      }
+      if (Id != 0) {
+        output.WriteRawTag(112);
+        output.WriteUInt32(Id);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -227,12 +227,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 72: {
-            Id = input.ReadUInt32();
+          case 32: {
+            Status = (global::EggLink.DanhengServer.Proto.TutorialStatus) input.ReadEnum();
             break;
           }
           case 112: {
-            Status = (global::EggLink.DanhengServer.Proto.TutorialStatus) input.ReadEnum();
+            Id = input.ReadUInt32();
             break;
           }
         }
@@ -250,12 +250,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 72: {
-            Id = input.ReadUInt32();
+          case 32: {
+            Status = (global::EggLink.DanhengServer.Proto.TutorialStatus) input.ReadEnum();
             break;
           }
           case 112: {
-            Status = (global::EggLink.DanhengServer.Proto.TutorialStatus) input.ReadEnum();
+            Id = input.ReadUInt32();
             break;
           }
         }

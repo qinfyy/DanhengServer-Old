@@ -26,8 +26,8 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "Ch9Db21wb3NlU2VsZWN0ZWRSZWxpY1NjUnNwLnByb3RvGg5JdGVtTGlzdC5w",
             "cm90byJlChlDb21wb3NlU2VsZWN0ZWRSZWxpY1NjUnNwEhIKCmNvbXBvc2Vf",
-            "aWQYBSABKA0SDwoHcmV0Y29kZRgHIAEoDRIjChByZXR1cm5faXRlbV9saXN0",
-            "GA4gASgLMgkuSXRlbUxpc3RCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Q",
+            "aWQYBCABKA0SDwoHcmV0Y29kZRgBIAEoDRIjChByZXR1cm5faXRlbV9saXN0",
+            "GA0gASgLMgkuSXRlbUxpc3RCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Q",
             "cm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ItemListReflection.Descriptor, },
@@ -87,7 +87,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "compose_id" field.</summary>
-    public const int ComposeIdFieldNumber = 5;
+    public const int ComposeIdFieldNumber = 4;
     private uint composeId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -99,7 +99,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "retcode" field.</summary>
-    public const int RetcodeFieldNumber = 7;
+    public const int RetcodeFieldNumber = 1;
     private uint retcode_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -111,7 +111,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "return_item_list" field.</summary>
-    public const int ReturnItemListFieldNumber = 14;
+    public const int ReturnItemListFieldNumber = 13;
     private global::EggLink.DanhengServer.Proto.ItemList returnItemList_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -168,16 +168,16 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (ComposeId != 0) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(ComposeId);
-      }
       if (Retcode != 0) {
-        output.WriteRawTag(56);
+        output.WriteRawTag(8);
         output.WriteUInt32(Retcode);
       }
+      if (ComposeId != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(ComposeId);
+      }
       if (returnItemList_ != null) {
-        output.WriteRawTag(114);
+        output.WriteRawTag(106);
         output.WriteMessage(ReturnItemList);
       }
       if (_unknownFields != null) {
@@ -190,16 +190,16 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (ComposeId != 0) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(ComposeId);
-      }
       if (Retcode != 0) {
-        output.WriteRawTag(56);
+        output.WriteRawTag(8);
         output.WriteUInt32(Retcode);
       }
+      if (ComposeId != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(ComposeId);
+      }
       if (returnItemList_ != null) {
-        output.WriteRawTag(114);
+        output.WriteRawTag(106);
         output.WriteMessage(ReturnItemList);
       }
       if (_unknownFields != null) {
@@ -260,15 +260,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 40: {
-            ComposeId = input.ReadUInt32();
-            break;
-          }
-          case 56: {
+          case 8: {
             Retcode = input.ReadUInt32();
             break;
           }
-          case 114: {
+          case 32: {
+            ComposeId = input.ReadUInt32();
+            break;
+          }
+          case 106: {
             if (returnItemList_ == null) {
               ReturnItemList = new global::EggLink.DanhengServer.Proto.ItemList();
             }
@@ -290,15 +290,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 40: {
-            ComposeId = input.ReadUInt32();
-            break;
-          }
-          case 56: {
+          case 8: {
             Retcode = input.ReadUInt32();
             break;
           }
-          case 114: {
+          case 32: {
+            ComposeId = input.ReadUInt32();
+            break;
+          }
+          case 106: {
             if (returnItemList_ == null) {
               ReturnItemList = new global::EggLink.DanhengServer.Proto.ItemList();
             }

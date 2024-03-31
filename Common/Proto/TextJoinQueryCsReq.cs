@@ -25,7 +25,7 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChhUZXh0Sm9pblF1ZXJ5Q3NSZXEucHJvdG8iLwoSVGV4dEpvaW5RdWVyeUNz",
-            "UmVxEhkKEXRleHRfam9pbl9pZF9saXN0GA8gAygNQh6qAhtFZ2dMaW5rLkRh",
+            "UmVxEhkKEXRleHRfam9pbl9pZF9saXN0GAEgAygNQh6qAhtFZ2dMaW5rLkRh",
             "bmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -83,9 +83,9 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "text_join_id_list" field.</summary>
-    public const int TextJoinIdListFieldNumber = 15;
+    public const int TextJoinIdListFieldNumber = 1;
     private static readonly pb::FieldCodec<uint> _repeated_textJoinIdList_codec
-        = pb::FieldCodec.ForUInt32(122);
+        = pb::FieldCodec.ForUInt32(10);
     private readonly pbc::RepeatedField<uint> textJoinIdList_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -186,8 +186,8 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 122:
-          case 120: {
+          case 10:
+          case 8: {
             textJoinIdList_.AddEntriesFrom(input, _repeated_textJoinIdList_codec);
             break;
           }
@@ -206,8 +206,8 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 122:
-          case 120: {
+          case 10:
+          case 8: {
             textJoinIdList_.AddEntriesFrom(ref input, _repeated_textJoinIdList_codec);
             break;
           }

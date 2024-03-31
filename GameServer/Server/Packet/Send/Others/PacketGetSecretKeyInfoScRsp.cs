@@ -7,10 +7,10 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Others
         public PacketGetSecretKeyInfoScRsp() : base(CmdIds.GetSecretKeyInfoScRsp)
         {
             var proto = new GetSecretKeyInfoScRsp();
-            proto.MCPPMIAFDBE.Add(new DGAKGPPBJIG()
+            proto.SecretInfo.Add(new SecretKeyInfo()
             {
                 Type = SecretKeyType.SecretKeyVideo,
-                FFBANANOHPB = "10120425825329403",
+                Key = "10120425825329403",
             });
 
             SetData(proto);

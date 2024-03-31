@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "ChxUZXh0Sm9pbkJhdGNoU2F2ZUNzUmVxLnByb3RvGhJUZXh0Sm9pbkluZm8u",
             "cHJvdG8iPwoWVGV4dEpvaW5CYXRjaFNhdmVDc1JlcRIlCg50ZXh0X2pvaW5f",
-            "bGlzdBgPIAMoCzINLlRleHRKb2luSW5mb0IeqgIbRWdnTGluay5EYW5oZW5n",
+            "bGlzdBgIIAMoCzINLlRleHRKb2luSW5mb0IeqgIbRWdnTGluay5EYW5oZW5n",
             "U2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.TextJoinInfoReflection.Descriptor, },
@@ -84,9 +84,9 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "text_join_list" field.</summary>
-    public const int TextJoinListFieldNumber = 15;
+    public const int TextJoinListFieldNumber = 8;
     private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.TextJoinInfo> _repeated_textJoinList_codec
-        = pb::FieldCodec.ForMessage(122, global::EggLink.DanhengServer.Proto.TextJoinInfo.Parser);
+        = pb::FieldCodec.ForMessage(66, global::EggLink.DanhengServer.Proto.TextJoinInfo.Parser);
     private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.TextJoinInfo> textJoinList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.TextJoinInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -187,7 +187,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 122: {
+          case 66: {
             textJoinList_.AddEntriesFrom(input, _repeated_textJoinList_codec);
             break;
           }
@@ -206,7 +206,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 122: {
+          case 66: {
             textJoinList_.AddEntriesFrom(ref input, _repeated_textJoinList_codec);
             break;
           }

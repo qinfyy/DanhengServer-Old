@@ -25,7 +25,7 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChpTYXZlUG9pbnRzSW5mb05vdGlmeS5wcm90byJBChRTYXZlUG9pbnRzSW5m",
-            "b05vdGlmeRITCgt2YWxpZF90aW1lcxgBIAEoDRIUCgxyZWZyZXNoX3RpbWUY",
+            "b05vdGlmeRITCgt2YWxpZF90aW1lcxgKIAEoDRIUCgxyZWZyZXNoX3RpbWUY",
             "DSABKANCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -84,7 +84,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "valid_times" field.</summary>
-    public const int ValidTimesFieldNumber = 1;
+    public const int ValidTimesFieldNumber = 10;
     private uint validTimes_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -152,7 +152,7 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (ValidTimes != 0) {
-        output.WriteRawTag(8);
+        output.WriteRawTag(80);
         output.WriteUInt32(ValidTimes);
       }
       if (RefreshTime != 0L) {
@@ -170,7 +170,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (ValidTimes != 0) {
-        output.WriteRawTag(8);
+        output.WriteRawTag(80);
         output.WriteUInt32(ValidTimes);
       }
       if (RefreshTime != 0L) {
@@ -226,7 +226,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
+          case 80: {
             ValidTimes = input.ReadUInt32();
             break;
           }
@@ -249,7 +249,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
+          case 80: {
             ValidTimes = input.ReadUInt32();
             break;
           }

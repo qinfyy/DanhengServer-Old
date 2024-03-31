@@ -25,12 +25,12 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChJTY2VuZU1vbnN0ZXIucHJvdG8iQgoMU2NlbmVNb25zdGVyEhIKCm1vbnN0",
-            "ZXJfaWQYDyABKA0SDgoGbWF4X2hwGA4gASgNEg4KBmN1cl9ocBgCIAEoDUIe",
+            "ZXJfaWQYBSABKA0SDgoGY3VyX2hwGAYgASgNEg4KBm1heF9ocBgKIAEoDUIe",
             "qgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SceneMonster), global::EggLink.DanhengServer.Proto.SceneMonster.Parser, new[]{ "MonsterId", "MaxHp", "CurHp" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SceneMonster), global::EggLink.DanhengServer.Proto.SceneMonster.Parser, new[]{ "MonsterId", "CurHp", "MaxHp" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,8 +73,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SceneMonster(SceneMonster other) : this() {
       monsterId_ = other.monsterId_;
-      maxHp_ = other.maxHp_;
       curHp_ = other.curHp_;
+      maxHp_ = other.maxHp_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -85,7 +85,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "monster_id" field.</summary>
-    public const int MonsterIdFieldNumber = 15;
+    public const int MonsterIdFieldNumber = 5;
     private uint monsterId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -96,20 +96,8 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "max_hp" field.</summary>
-    public const int MaxHpFieldNumber = 14;
-    private uint maxHp_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint MaxHp {
-      get { return maxHp_; }
-      set {
-        maxHp_ = value;
-      }
-    }
-
     /// <summary>Field number for the "cur_hp" field.</summary>
-    public const int CurHpFieldNumber = 2;
+    public const int CurHpFieldNumber = 6;
     private uint curHp_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -117,6 +105,18 @@ namespace EggLink.DanhengServer.Proto {
       get { return curHp_; }
       set {
         curHp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "max_hp" field.</summary>
+    public const int MaxHpFieldNumber = 10;
+    private uint maxHp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint MaxHp {
+      get { return maxHp_; }
+      set {
+        maxHp_ = value;
       }
     }
 
@@ -136,8 +136,8 @@ namespace EggLink.DanhengServer.Proto {
         return true;
       }
       if (MonsterId != other.MonsterId) return false;
-      if (MaxHp != other.MaxHp) return false;
       if (CurHp != other.CurHp) return false;
+      if (MaxHp != other.MaxHp) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -146,8 +146,8 @@ namespace EggLink.DanhengServer.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (MonsterId != 0) hash ^= MonsterId.GetHashCode();
-      if (MaxHp != 0) hash ^= MaxHp.GetHashCode();
       if (CurHp != 0) hash ^= CurHp.GetHashCode();
+      if (MaxHp != 0) hash ^= MaxHp.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -166,17 +166,17 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (MonsterId != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(MonsterId);
+      }
       if (CurHp != 0) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(48);
         output.WriteUInt32(CurHp);
       }
       if (MaxHp != 0) {
-        output.WriteRawTag(112);
+        output.WriteRawTag(80);
         output.WriteUInt32(MaxHp);
-      }
-      if (MonsterId != 0) {
-        output.WriteRawTag(120);
-        output.WriteUInt32(MonsterId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -188,17 +188,17 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (MonsterId != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(MonsterId);
+      }
       if (CurHp != 0) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(48);
         output.WriteUInt32(CurHp);
       }
       if (MaxHp != 0) {
-        output.WriteRawTag(112);
+        output.WriteRawTag(80);
         output.WriteUInt32(MaxHp);
-      }
-      if (MonsterId != 0) {
-        output.WriteRawTag(120);
-        output.WriteUInt32(MonsterId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -213,11 +213,11 @@ namespace EggLink.DanhengServer.Proto {
       if (MonsterId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MonsterId);
       }
-      if (MaxHp != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MaxHp);
-      }
       if (CurHp != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(CurHp);
+      }
+      if (MaxHp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MaxHp);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -234,11 +234,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other.MonsterId != 0) {
         MonsterId = other.MonsterId;
       }
-      if (other.MaxHp != 0) {
-        MaxHp = other.MaxHp;
-      }
       if (other.CurHp != 0) {
         CurHp = other.CurHp;
+      }
+      if (other.MaxHp != 0) {
+        MaxHp = other.MaxHp;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -255,16 +255,16 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 16: {
+          case 40: {
+            MonsterId = input.ReadUInt32();
+            break;
+          }
+          case 48: {
             CurHp = input.ReadUInt32();
             break;
           }
-          case 112: {
+          case 80: {
             MaxHp = input.ReadUInt32();
-            break;
-          }
-          case 120: {
-            MonsterId = input.ReadUInt32();
             break;
           }
         }
@@ -282,16 +282,16 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 16: {
+          case 40: {
+            MonsterId = input.ReadUInt32();
+            break;
+          }
+          case 48: {
             CurHp = input.ReadUInt32();
             break;
           }
-          case 112: {
+          case 80: {
             MaxHp = input.ReadUInt32();
-            break;
-          }
-          case 120: {
-            MonsterId = input.ReadUInt32();
             break;
           }
         }

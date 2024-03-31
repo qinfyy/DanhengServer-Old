@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static EquipRelicReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChBFcXVpcFJlbGljLnByb3RvIjMKCkVxdWlwUmVsaWMSDAoEc2xvdBgDIAEo",
-            "DRIXCg9yZWxpY191bmlxdWVfaWQYBCABKA1CHqoCG0VnZ0xpbmsuRGFuaGVu",
+            "ChBFcXVpcFJlbGljLnByb3RvIjMKCkVxdWlwUmVsaWMSFwoPcmVsaWNfdW5p",
+            "cXVlX2lkGA8gASgNEgwKBHR5cGUYCCABKA1CHqoCG0VnZ0xpbmsuRGFuaGVu",
             "Z1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.EquipRelic), global::EggLink.DanhengServer.Proto.EquipRelic.Parser, new[]{ "Slot", "RelicUniqueId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.EquipRelic), global::EggLink.DanhengServer.Proto.EquipRelic.Parser, new[]{ "RelicUniqueId", "Type" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,8 +72,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public EquipRelic(EquipRelic other) : this() {
-      slot_ = other.slot_;
       relicUniqueId_ = other.relicUniqueId_;
+      type_ = other.type_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,20 +83,8 @@ namespace EggLink.DanhengServer.Proto {
       return new EquipRelic(this);
     }
 
-    /// <summary>Field number for the "slot" field.</summary>
-    public const int SlotFieldNumber = 3;
-    private uint slot_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Slot {
-      get { return slot_; }
-      set {
-        slot_ = value;
-      }
-    }
-
     /// <summary>Field number for the "relic_unique_id" field.</summary>
-    public const int RelicUniqueIdFieldNumber = 4;
+    public const int RelicUniqueIdFieldNumber = 15;
     private uint relicUniqueId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -104,6 +92,18 @@ namespace EggLink.DanhengServer.Proto {
       get { return relicUniqueId_; }
       set {
         relicUniqueId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "type" field.</summary>
+    public const int TypeFieldNumber = 8;
+    private uint type_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Type {
+      get { return type_; }
+      set {
+        type_ = value;
       }
     }
 
@@ -122,8 +122,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Slot != other.Slot) return false;
       if (RelicUniqueId != other.RelicUniqueId) return false;
+      if (Type != other.Type) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -131,8 +131,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Slot != 0) hash ^= Slot.GetHashCode();
       if (RelicUniqueId != 0) hash ^= RelicUniqueId.GetHashCode();
+      if (Type != 0) hash ^= Type.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -151,12 +151,12 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Slot != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Slot);
+      if (Type != 0) {
+        output.WriteRawTag(64);
+        output.WriteUInt32(Type);
       }
       if (RelicUniqueId != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(120);
         output.WriteUInt32(RelicUniqueId);
       }
       if (_unknownFields != null) {
@@ -169,12 +169,12 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Slot != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Slot);
+      if (Type != 0) {
+        output.WriteRawTag(64);
+        output.WriteUInt32(Type);
       }
       if (RelicUniqueId != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(120);
         output.WriteUInt32(RelicUniqueId);
       }
       if (_unknownFields != null) {
@@ -187,11 +187,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Slot != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Slot);
-      }
       if (RelicUniqueId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(RelicUniqueId);
+      }
+      if (Type != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Type);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -205,11 +205,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.Slot != 0) {
-        Slot = other.Slot;
-      }
       if (other.RelicUniqueId != 0) {
         RelicUniqueId = other.RelicUniqueId;
+      }
+      if (other.Type != 0) {
+        Type = other.Type;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -226,11 +226,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 24: {
-            Slot = input.ReadUInt32();
+          case 64: {
+            Type = input.ReadUInt32();
             break;
           }
-          case 32: {
+          case 120: {
             RelicUniqueId = input.ReadUInt32();
             break;
           }
@@ -249,11 +249,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 24: {
-            Slot = input.ReadUInt32();
+          case 64: {
+            Type = input.ReadUInt32();
             break;
           }
-          case 32: {
+          case 120: {
             RelicUniqueId = input.ReadUInt32();
             break;
           }

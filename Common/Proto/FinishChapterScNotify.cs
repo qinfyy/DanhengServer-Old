@@ -25,13 +25,13 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChtGaW5pc2hDaGFwdGVyU2NOb3RpZnkucHJvdG8aG0ZhbnRhc3RpY0FjdGl2",
-            "aXR5RGF0YS5wcm90byJQChVGaW5pc2hDaGFwdGVyU2NOb3RpZnkSNwoXZmFu",
-            "dGFzdGljX2FjdGl2aXR5X2xpc3QYBSABKAsyFi5GYW50YXN0aWNBY3Rpdml0",
-            "eURhdGFCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
+            "aXR5RGF0YS5wcm90byJEChVGaW5pc2hDaGFwdGVyU2NOb3RpZnkSKwoLQklJ",
+            "TUVJUEhIUFAYCSABKAsyFi5GYW50YXN0aWNBY3Rpdml0eURhdGFCHqoCG0Vn",
+            "Z0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.FantasticActivityDataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.FinishChapterScNotify), global::EggLink.DanhengServer.Proto.FinishChapterScNotify.Parser, new[]{ "FantasticActivityList" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.FinishChapterScNotify), global::EggLink.DanhengServer.Proto.FinishChapterScNotify.Parser, new[]{ "BIIMEIPHHPP" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public FinishChapterScNotify(FinishChapterScNotify other) : this() {
-      fantasticActivityList_ = other.fantasticActivityList_ != null ? other.fantasticActivityList_.Clone() : null;
+      bIIMEIPHHPP_ = other.bIIMEIPHHPP_ != null ? other.bIIMEIPHHPP_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,15 +83,15 @@ namespace EggLink.DanhengServer.Proto {
       return new FinishChapterScNotify(this);
     }
 
-    /// <summary>Field number for the "fantastic_activity_list" field.</summary>
-    public const int FantasticActivityListFieldNumber = 5;
-    private global::EggLink.DanhengServer.Proto.FantasticActivityData fantasticActivityList_;
+    /// <summary>Field number for the "BIIMEIPHHPP" field.</summary>
+    public const int BIIMEIPHHPPFieldNumber = 9;
+    private global::EggLink.DanhengServer.Proto.FantasticActivityData bIIMEIPHHPP_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.FantasticActivityData FantasticActivityList {
-      get { return fantasticActivityList_; }
+    public global::EggLink.DanhengServer.Proto.FantasticActivityData BIIMEIPHHPP {
+      get { return bIIMEIPHHPP_; }
       set {
-        fantasticActivityList_ = value;
+        bIIMEIPHHPP_ = value;
       }
     }
 
@@ -110,7 +110,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(FantasticActivityList, other.FantasticActivityList)) return false;
+      if (!object.Equals(BIIMEIPHHPP, other.BIIMEIPHHPP)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -118,7 +118,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (fantasticActivityList_ != null) hash ^= FantasticActivityList.GetHashCode();
+      if (bIIMEIPHHPP_ != null) hash ^= BIIMEIPHHPP.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -137,9 +137,9 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (fantasticActivityList_ != null) {
-        output.WriteRawTag(42);
-        output.WriteMessage(FantasticActivityList);
+      if (bIIMEIPHHPP_ != null) {
+        output.WriteRawTag(74);
+        output.WriteMessage(BIIMEIPHHPP);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -151,9 +151,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (fantasticActivityList_ != null) {
-        output.WriteRawTag(42);
-        output.WriteMessage(FantasticActivityList);
+      if (bIIMEIPHHPP_ != null) {
+        output.WriteRawTag(74);
+        output.WriteMessage(BIIMEIPHHPP);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -165,8 +165,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (fantasticActivityList_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(FantasticActivityList);
+      if (bIIMEIPHHPP_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BIIMEIPHHPP);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -180,11 +180,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.fantasticActivityList_ != null) {
-        if (fantasticActivityList_ == null) {
-          FantasticActivityList = new global::EggLink.DanhengServer.Proto.FantasticActivityData();
+      if (other.bIIMEIPHHPP_ != null) {
+        if (bIIMEIPHHPP_ == null) {
+          BIIMEIPHHPP = new global::EggLink.DanhengServer.Proto.FantasticActivityData();
         }
-        FantasticActivityList.MergeFrom(other.FantasticActivityList);
+        BIIMEIPHHPP.MergeFrom(other.BIIMEIPHHPP);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -201,11 +201,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 42: {
-            if (fantasticActivityList_ == null) {
-              FantasticActivityList = new global::EggLink.DanhengServer.Proto.FantasticActivityData();
+          case 74: {
+            if (bIIMEIPHHPP_ == null) {
+              BIIMEIPHHPP = new global::EggLink.DanhengServer.Proto.FantasticActivityData();
             }
-            input.ReadMessage(FantasticActivityList);
+            input.ReadMessage(BIIMEIPHHPP);
             break;
           }
         }
@@ -223,11 +223,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 42: {
-            if (fantasticActivityList_ == null) {
-              FantasticActivityList = new global::EggLink.DanhengServer.Proto.FantasticActivityData();
+          case 74: {
+            if (bIIMEIPHHPP_ == null) {
+              BIIMEIPHHPP = new global::EggLink.DanhengServer.Proto.FantasticActivityData();
             }
-            input.ReadMessage(FantasticActivityList);
+            input.ReadMessage(BIIMEIPHHPP);
             break;
           }
         }

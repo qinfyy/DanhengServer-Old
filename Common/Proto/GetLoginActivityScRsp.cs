@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "ChtHZXRMb2dpbkFjdGl2aXR5U2NSc3AucHJvdG8aF0xvZ2luQWN0aXZpdHlE",
             "YXRhLnByb3RvIlkKFUdldExvZ2luQWN0aXZpdHlTY1JzcBIPCgdyZXRjb2Rl",
-            "GAQgASgNEi8KE2xvZ2luX2FjdGl2aXR5X2xpc3QYByADKAsyEi5Mb2dpbkFj",
+            "GAQgASgNEi8KE2xvZ2luX2FjdGl2aXR5X2xpc3QYBiADKAsyEi5Mb2dpbkFj",
             "dGl2aXR5RGF0YUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZw",
             "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
@@ -98,9 +98,9 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "login_activity_list" field.</summary>
-    public const int LoginActivityListFieldNumber = 7;
+    public const int LoginActivityListFieldNumber = 6;
     private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.LoginActivityData> _repeated_loginActivityList_codec
-        = pb::FieldCodec.ForMessage(58, global::EggLink.DanhengServer.Proto.LoginActivityData.Parser);
+        = pb::FieldCodec.ForMessage(50, global::EggLink.DanhengServer.Proto.LoginActivityData.Parser);
     private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.LoginActivityData> loginActivityList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.LoginActivityData>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -221,7 +221,7 @@ namespace EggLink.DanhengServer.Proto {
             Retcode = input.ReadUInt32();
             break;
           }
-          case 58: {
+          case 50: {
             loginActivityList_.AddEntriesFrom(input, _repeated_loginActivityList_codec);
             break;
           }
@@ -244,7 +244,7 @@ namespace EggLink.DanhengServer.Proto {
             Retcode = input.ReadUInt32();
             break;
           }
-          case 58: {
+          case 50: {
             loginActivityList_.AddEntriesFrom(ref input, _repeated_loginActivityList_codec);
             break;
           }

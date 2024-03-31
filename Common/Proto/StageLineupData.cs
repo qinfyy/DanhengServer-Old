@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static StageLineupDataReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVTdGFnZUxpbmV1cERhdGEucHJvdG8iOwoPU3RhZ2VMaW5ldXBEYXRhEhQK",
-            "DGxpbmV1cF9pbmRleBgEIAEoDRISCgpzdGFnZV90eXBlGA0gASgNQh6qAhtF",
+            "ChVTdGFnZUxpbmV1cERhdGEucHJvdG8iOwoPU3RhZ2VMaW5ldXBEYXRhEhIK",
+            "CnN0YWdlX3R5cGUYCSABKA0SFAoMbGluZXVwX2luZGV4GAMgASgNQh6qAhtF",
             "Z2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.StageLineupData), global::EggLink.DanhengServer.Proto.StageLineupData.Parser, new[]{ "LineupIndex", "StageType" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.StageLineupData), global::EggLink.DanhengServer.Proto.StageLineupData.Parser, new[]{ "StageType", "LineupIndex" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,8 +72,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public StageLineupData(StageLineupData other) : this() {
-      lineupIndex_ = other.lineupIndex_;
       stageType_ = other.stageType_;
+      lineupIndex_ = other.lineupIndex_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,20 +83,8 @@ namespace EggLink.DanhengServer.Proto {
       return new StageLineupData(this);
     }
 
-    /// <summary>Field number for the "lineup_index" field.</summary>
-    public const int LineupIndexFieldNumber = 4;
-    private uint lineupIndex_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint LineupIndex {
-      get { return lineupIndex_; }
-      set {
-        lineupIndex_ = value;
-      }
-    }
-
     /// <summary>Field number for the "stage_type" field.</summary>
-    public const int StageTypeFieldNumber = 13;
+    public const int StageTypeFieldNumber = 9;
     private uint stageType_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -104,6 +92,18 @@ namespace EggLink.DanhengServer.Proto {
       get { return stageType_; }
       set {
         stageType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "lineup_index" field.</summary>
+    public const int LineupIndexFieldNumber = 3;
+    private uint lineupIndex_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint LineupIndex {
+      get { return lineupIndex_; }
+      set {
+        lineupIndex_ = value;
       }
     }
 
@@ -122,8 +122,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (LineupIndex != other.LineupIndex) return false;
       if (StageType != other.StageType) return false;
+      if (LineupIndex != other.LineupIndex) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -131,8 +131,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (LineupIndex != 0) hash ^= LineupIndex.GetHashCode();
       if (StageType != 0) hash ^= StageType.GetHashCode();
+      if (LineupIndex != 0) hash ^= LineupIndex.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -152,11 +152,11 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (LineupIndex != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(24);
         output.WriteUInt32(LineupIndex);
       }
       if (StageType != 0) {
-        output.WriteRawTag(104);
+        output.WriteRawTag(72);
         output.WriteUInt32(StageType);
       }
       if (_unknownFields != null) {
@@ -170,11 +170,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (LineupIndex != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(24);
         output.WriteUInt32(LineupIndex);
       }
       if (StageType != 0) {
-        output.WriteRawTag(104);
+        output.WriteRawTag(72);
         output.WriteUInt32(StageType);
       }
       if (_unknownFields != null) {
@@ -187,11 +187,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (LineupIndex != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LineupIndex);
-      }
       if (StageType != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(StageType);
+      }
+      if (LineupIndex != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LineupIndex);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -205,11 +205,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.LineupIndex != 0) {
-        LineupIndex = other.LineupIndex;
-      }
       if (other.StageType != 0) {
         StageType = other.StageType;
+      }
+      if (other.LineupIndex != 0) {
+        LineupIndex = other.LineupIndex;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -226,11 +226,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 32: {
+          case 24: {
             LineupIndex = input.ReadUInt32();
             break;
           }
-          case 104: {
+          case 72: {
             StageType = input.ReadUInt32();
             break;
           }
@@ -249,11 +249,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 32: {
+          case 24: {
             LineupIndex = input.ReadUInt32();
             break;
           }
-          case 104: {
+          case 72: {
             StageType = input.ReadUInt32();
             break;
           }

@@ -25,14 +25,14 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Ch1Sb2d1ZURpYWxvZ3VlRXZlbnRQYXJhbS5wcm90byJ4ChdSb2d1ZURpYWxv",
-            "Z3VlRXZlbnRQYXJhbRIRCglpbnRfdmFsdWUYAyABKAUSDQoFcmF0aW8YDiAB",
-            "KAISEAoIaXNfdmFsaWQYBiABKAgSDgoGYXJnX2lkGAsgASgNEhkKEWRpYWxv",
-            "Z3VlX2V2ZW50X2lkGAIgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIu",
+            "Z3VlRXZlbnRQYXJhbRIOCgZhcmdfaWQYCyABKA0SDQoFcmF0aW8YDSABKAIS",
+            "EQoJaW50X3ZhbHVlGAogASgFEhAKCGlzX3ZhbGlkGA8gASgIEhkKEWRpYWxv",
+            "Z3VlX2V2ZW50X2lkGAcgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIu",
             "UHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueDialogueEventParam), global::EggLink.DanhengServer.Proto.RogueDialogueEventParam.Parser, new[]{ "IntValue", "Ratio", "IsValid", "ArgId", "DialogueEventId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueDialogueEventParam), global::EggLink.DanhengServer.Proto.RogueDialogueEventParam.Parser, new[]{ "ArgId", "Ratio", "IntValue", "IsValid", "DialogueEventId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,10 +74,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public RogueDialogueEventParam(RogueDialogueEventParam other) : this() {
-      intValue_ = other.intValue_;
-      ratio_ = other.ratio_;
-      isValid_ = other.isValid_;
       argId_ = other.argId_;
+      ratio_ = other.ratio_;
+      intValue_ = other.intValue_;
+      isValid_ = other.isValid_;
       dialogueEventId_ = other.dialogueEventId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -86,42 +86,6 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public RogueDialogueEventParam Clone() {
       return new RogueDialogueEventParam(this);
-    }
-
-    /// <summary>Field number for the "int_value" field.</summary>
-    public const int IntValueFieldNumber = 3;
-    private int intValue_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int IntValue {
-      get { return intValue_; }
-      set {
-        intValue_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "ratio" field.</summary>
-    public const int RatioFieldNumber = 14;
-    private float ratio_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float Ratio {
-      get { return ratio_; }
-      set {
-        ratio_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "is_valid" field.</summary>
-    public const int IsValidFieldNumber = 6;
-    private bool isValid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool IsValid {
-      get { return isValid_; }
-      set {
-        isValid_ = value;
-      }
     }
 
     /// <summary>Field number for the "arg_id" field.</summary>
@@ -136,8 +100,44 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
+    /// <summary>Field number for the "ratio" field.</summary>
+    public const int RatioFieldNumber = 13;
+    private float ratio_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float Ratio {
+      get { return ratio_; }
+      set {
+        ratio_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "int_value" field.</summary>
+    public const int IntValueFieldNumber = 10;
+    private int intValue_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int IntValue {
+      get { return intValue_; }
+      set {
+        intValue_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "is_valid" field.</summary>
+    public const int IsValidFieldNumber = 15;
+    private bool isValid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsValid {
+      get { return isValid_; }
+      set {
+        isValid_ = value;
+      }
+    }
+
     /// <summary>Field number for the "dialogue_event_id" field.</summary>
-    public const int DialogueEventIdFieldNumber = 2;
+    public const int DialogueEventIdFieldNumber = 7;
     private uint dialogueEventId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -163,10 +163,10 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (IntValue != other.IntValue) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Ratio, other.Ratio)) return false;
-      if (IsValid != other.IsValid) return false;
       if (ArgId != other.ArgId) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Ratio, other.Ratio)) return false;
+      if (IntValue != other.IntValue) return false;
+      if (IsValid != other.IsValid) return false;
       if (DialogueEventId != other.DialogueEventId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -175,10 +175,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (IntValue != 0) hash ^= IntValue.GetHashCode();
-      if (Ratio != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Ratio);
-      if (IsValid != false) hash ^= IsValid.GetHashCode();
       if (ArgId != 0) hash ^= ArgId.GetHashCode();
+      if (Ratio != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Ratio);
+      if (IntValue != 0) hash ^= IntValue.GetHashCode();
+      if (IsValid != false) hash ^= IsValid.GetHashCode();
       if (DialogueEventId != 0) hash ^= DialogueEventId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -199,24 +199,24 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (DialogueEventId != 0) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(56);
         output.WriteUInt32(DialogueEventId);
       }
       if (IntValue != 0) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(80);
         output.WriteInt32(IntValue);
-      }
-      if (IsValid != false) {
-        output.WriteRawTag(48);
-        output.WriteBool(IsValid);
       }
       if (ArgId != 0) {
         output.WriteRawTag(88);
         output.WriteUInt32(ArgId);
       }
       if (Ratio != 0F) {
-        output.WriteRawTag(117);
+        output.WriteRawTag(109);
         output.WriteFloat(Ratio);
+      }
+      if (IsValid != false) {
+        output.WriteRawTag(120);
+        output.WriteBool(IsValid);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -229,24 +229,24 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (DialogueEventId != 0) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(56);
         output.WriteUInt32(DialogueEventId);
       }
       if (IntValue != 0) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(80);
         output.WriteInt32(IntValue);
-      }
-      if (IsValid != false) {
-        output.WriteRawTag(48);
-        output.WriteBool(IsValid);
       }
       if (ArgId != 0) {
         output.WriteRawTag(88);
         output.WriteUInt32(ArgId);
       }
       if (Ratio != 0F) {
-        output.WriteRawTag(117);
+        output.WriteRawTag(109);
         output.WriteFloat(Ratio);
+      }
+      if (IsValid != false) {
+        output.WriteRawTag(120);
+        output.WriteBool(IsValid);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -258,17 +258,17 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (IntValue != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(IntValue);
+      if (ArgId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ArgId);
       }
       if (Ratio != 0F) {
         size += 1 + 4;
       }
+      if (IntValue != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(IntValue);
+      }
       if (IsValid != false) {
         size += 1 + 1;
-      }
-      if (ArgId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ArgId);
       }
       if (DialogueEventId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DialogueEventId);
@@ -285,17 +285,17 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.IntValue != 0) {
-        IntValue = other.IntValue;
+      if (other.ArgId != 0) {
+        ArgId = other.ArgId;
       }
       if (other.Ratio != 0F) {
         Ratio = other.Ratio;
       }
+      if (other.IntValue != 0) {
+        IntValue = other.IntValue;
+      }
       if (other.IsValid != false) {
         IsValid = other.IsValid;
-      }
-      if (other.ArgId != 0) {
-        ArgId = other.ArgId;
       }
       if (other.DialogueEventId != 0) {
         DialogueEventId = other.DialogueEventId;
@@ -315,24 +315,24 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 16: {
+          case 56: {
             DialogueEventId = input.ReadUInt32();
             break;
           }
-          case 24: {
+          case 80: {
             IntValue = input.ReadInt32();
-            break;
-          }
-          case 48: {
-            IsValid = input.ReadBool();
             break;
           }
           case 88: {
             ArgId = input.ReadUInt32();
             break;
           }
-          case 117: {
+          case 109: {
             Ratio = input.ReadFloat();
+            break;
+          }
+          case 120: {
+            IsValid = input.ReadBool();
             break;
           }
         }
@@ -350,24 +350,24 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 16: {
+          case 56: {
             DialogueEventId = input.ReadUInt32();
             break;
           }
-          case 24: {
+          case 80: {
             IntValue = input.ReadInt32();
-            break;
-          }
-          case 48: {
-            IsValid = input.ReadBool();
             break;
           }
           case 88: {
             ArgId = input.ReadUInt32();
             break;
           }
-          case 117: {
+          case 109: {
             Ratio = input.ReadFloat();
+            break;
+          }
+          case 120: {
+            IsValid = input.ReadBool();
             break;
           }
         }

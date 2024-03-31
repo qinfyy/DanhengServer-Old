@@ -1,4 +1,5 @@
 ﻿using EggLink.DanhengServer.Data.Config;
+using EggLink.DanhengServer.Data.Custom;
 using EggLink.DanhengServer.Data.Excel;
 using EggLink.DanhengServer.Database.Mission;
 
@@ -7,7 +8,10 @@ namespace EggLink.DanhengServer.Data
     public static class GameData
     {
         public static Dictionary<int, AvatarConfigExcel> AvatarConfigData { get; private set; } = [];
+        public static Dictionary<int, AvatarPromotionConfigExcel> AvatarPromotionConfigData { get; private set; } = [];
+        public static Dictionary<int, AvatarExpItemConfigExcel> AvatarExpItemConfigData { get; private set; } = [];
         public static Dictionary<int, AvatarSkillTreeConfigExcel> AvatarSkillTreeConfigData { get; private set; } = [];
+        public static Dictionary<int, ExpTypeExcel> ExpTypeData { get; private set; } = [];
         public static Dictionary<int, CocoonConfigExcel> CocoonConfigData { get; private set; } = [];
         public static Dictionary<int, StageConfigExcel> StageConfigData { get; private set; } = [];
         public static Dictionary<int, MapEntranceExcel> MapEntranceData { get; private set; } = [];
@@ -15,12 +19,17 @@ namespace EggLink.DanhengServer.Data
         public static Dictionary<int, MazePropExcel> MazePropData { get; private set; } = [];
         public static Dictionary<int, InteractConfigExcel> InteractConfigData { get; private set; } = [];
         public static Dictionary<int, NPCMonsterDataExcel> NpcMonsterDataData { get; private set; } = [];
+        public static Dictionary<int, MonsterConfigExcel> MonsterConfigData { get; private set; } = [];
         public static Dictionary<int, NPCDataExcel> NpcDataData { get; private set; } = [];
         public static Dictionary<int, QuestDataExcel> QuestDataData { get; private set; } = [];
         public static Dictionary<int, PlayerLevelConfigExcel> PlayerLevelConfigData { get; private set; } = [];
 
         public static Dictionary<string, FloorInfo> FloorInfoData { get; private set; } = [];
         public static Dictionary<int, ItemConfigExcel> ItemConfigData { get; private set; } = [];
+        public static Dictionary<int, EquipmentConfigExcel> EquipmentConfigData { get; private set; } = [];
+        public static Dictionary<int, EquipmentExpTypeExcel> EquipmentExpTypeData { get; private set; } = [];
+        public static Dictionary<int, EquipmentExpItemConfigExcel> EquipmentExpItemConfigData { get; private set; } = [];
+        public static Dictionary<int, EquipmentPromotionConfigExcel> EquipmentPromotionConfigData { get; private set; } = [];
         public static Dictionary<int, Dictionary<int, RelicMainAffixConfigExcel>> RelicMainAffixData { get; private set; } = [];  // groupId, affixId
         public static Dictionary<int, Dictionary<int, RelicSubAffixConfigExcel>> RelicSubAffixData { get; private set; } = [];  // groupId, affixId
         public static Dictionary<int, RelicConfigExcel> RelicConfigData { get; private set; } = [];
@@ -31,6 +40,8 @@ namespace EggLink.DanhengServer.Data
         public static Dictionary<int, MainMissionExcel> MainMissionData { get; private set; } = [];
         public static Dictionary<int, SubMissionExcel> SubMissionData { get; private set; } = [];
         public static Dictionary<int, RewardDataExcel> RewardDataData { get; private set; } = [];
+
+        public static BannersConfig BannersConfig { get; set; } = new();
 
         public static void GetFloorInfo(int planeId, int floorId, out FloorInfo outer)
         {
@@ -76,6 +87,18 @@ namespace EggLink.DanhengServer.Data
             }
 
             return result;
+        }
+
+        public static int GetAvatarExpRequired(int group, int level)
+        {
+            ExpTypeData.TryGetValue((group * 100) + level, out var expType);
+            return expType?.Exp ?? 0;
+        }
+
+        public static int GetEquipmentExpRequired(int group, int level)
+        {
+            EquipmentExpTypeData.TryGetValue((group * 100) + level, out var expType);
+            return expType?.Exp ?? 0;
         }
     }
 }

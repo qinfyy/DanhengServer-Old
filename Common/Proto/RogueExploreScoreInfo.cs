@@ -25,14 +25,14 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChtSb2d1ZUV4cGxvcmVTY29yZUluZm8ucHJvdG8aF1JvZ3VlRXhwbG9yZVNj",
-            "b3JlLnByb3RvImgKFVJvZ3VlRXhwbG9yZVNjb3JlSW5mbxITCgt0b3RhbF9z",
-            "Y29yZRgPIAEoDRImCgpzY29yZV9saXN0GAEgAygLMhIuUm9ndWVFeHBsb3Jl",
-            "U2NvcmUSEgoKc2NvcmVfcmF0ZRgFIAEoAkIeqgIbRWdnTGluay5EYW5oZW5n",
+            "b3JlLnByb3RvImgKFVJvZ3VlRXhwbG9yZVNjb3JlSW5mbxImCgpzY29yZV9s",
+            "aXN0GAEgAygLMhIuUm9ndWVFeHBsb3JlU2NvcmUSEgoKc2NvcmVfcmF0ZRgC",
+            "IAEoAhITCgt0b3RhbF9zY29yZRgIIAEoDUIeqgIbRWdnTGluay5EYW5oZW5n",
             "U2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RogueExploreScoreReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueExploreScoreInfo), global::EggLink.DanhengServer.Proto.RogueExploreScoreInfo.Parser, new[]{ "TotalScore", "ScoreList", "ScoreRate" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueExploreScoreInfo), global::EggLink.DanhengServer.Proto.RogueExploreScoreInfo.Parser, new[]{ "ScoreList", "ScoreRate", "TotalScore" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,9 +74,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public RogueExploreScoreInfo(RogueExploreScoreInfo other) : this() {
-      totalScore_ = other.totalScore_;
       scoreList_ = other.scoreList_.Clone();
       scoreRate_ = other.scoreRate_;
+      totalScore_ = other.totalScore_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,18 +84,6 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public RogueExploreScoreInfo Clone() {
       return new RogueExploreScoreInfo(this);
-    }
-
-    /// <summary>Field number for the "total_score" field.</summary>
-    public const int TotalScoreFieldNumber = 15;
-    private uint totalScore_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint TotalScore {
-      get { return totalScore_; }
-      set {
-        totalScore_ = value;
-      }
     }
 
     /// <summary>Field number for the "score_list" field.</summary>
@@ -110,7 +98,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "score_rate" field.</summary>
-    public const int ScoreRateFieldNumber = 5;
+    public const int ScoreRateFieldNumber = 2;
     private float scoreRate_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -118,6 +106,18 @@ namespace EggLink.DanhengServer.Proto {
       get { return scoreRate_; }
       set {
         scoreRate_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "total_score" field.</summary>
+    public const int TotalScoreFieldNumber = 8;
+    private uint totalScore_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint TotalScore {
+      get { return totalScore_; }
+      set {
+        totalScore_ = value;
       }
     }
 
@@ -136,9 +136,9 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (TotalScore != other.TotalScore) return false;
       if(!scoreList_.Equals(other.scoreList_)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ScoreRate, other.ScoreRate)) return false;
+      if (TotalScore != other.TotalScore) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -146,9 +146,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (TotalScore != 0) hash ^= TotalScore.GetHashCode();
       hash ^= scoreList_.GetHashCode();
       if (ScoreRate != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ScoreRate);
+      if (TotalScore != 0) hash ^= TotalScore.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -169,11 +169,11 @@ namespace EggLink.DanhengServer.Proto {
     #else
       scoreList_.WriteTo(output, _repeated_scoreList_codec);
       if (ScoreRate != 0F) {
-        output.WriteRawTag(45);
+        output.WriteRawTag(21);
         output.WriteFloat(ScoreRate);
       }
       if (TotalScore != 0) {
-        output.WriteRawTag(120);
+        output.WriteRawTag(64);
         output.WriteUInt32(TotalScore);
       }
       if (_unknownFields != null) {
@@ -188,11 +188,11 @@ namespace EggLink.DanhengServer.Proto {
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       scoreList_.WriteTo(ref output, _repeated_scoreList_codec);
       if (ScoreRate != 0F) {
-        output.WriteRawTag(45);
+        output.WriteRawTag(21);
         output.WriteFloat(ScoreRate);
       }
       if (TotalScore != 0) {
-        output.WriteRawTag(120);
+        output.WriteRawTag(64);
         output.WriteUInt32(TotalScore);
       }
       if (_unknownFields != null) {
@@ -205,12 +205,12 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (TotalScore != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(TotalScore);
-      }
       size += scoreList_.CalculateSize(_repeated_scoreList_codec);
       if (ScoreRate != 0F) {
         size += 1 + 4;
+      }
+      if (TotalScore != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(TotalScore);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -224,12 +224,12 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.TotalScore != 0) {
-        TotalScore = other.TotalScore;
-      }
       scoreList_.Add(other.scoreList_);
       if (other.ScoreRate != 0F) {
         ScoreRate = other.ScoreRate;
+      }
+      if (other.TotalScore != 0) {
+        TotalScore = other.TotalScore;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -250,11 +250,11 @@ namespace EggLink.DanhengServer.Proto {
             scoreList_.AddEntriesFrom(input, _repeated_scoreList_codec);
             break;
           }
-          case 45: {
+          case 21: {
             ScoreRate = input.ReadFloat();
             break;
           }
-          case 120: {
+          case 64: {
             TotalScore = input.ReadUInt32();
             break;
           }
@@ -277,11 +277,11 @@ namespace EggLink.DanhengServer.Proto {
             scoreList_.AddEntriesFrom(ref input, _repeated_scoreList_codec);
             break;
           }
-          case 45: {
+          case 21: {
             ScoreRate = input.ReadFloat();
             break;
           }
-          case 120: {
+          case 64: {
             TotalScore = input.ReadUInt32();
             break;
           }

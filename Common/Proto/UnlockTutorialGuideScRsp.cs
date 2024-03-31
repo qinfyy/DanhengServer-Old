@@ -25,13 +25,13 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Ch5VbmxvY2tUdXRvcmlhbEd1aWRlU2NSc3AucHJvdG8aE1R1dG9yaWFsR3Vp",
-            "ZGUucHJvdG8iUwoYVW5sb2NrVHV0b3JpYWxHdWlkZVNjUnNwEiYKDnR1dG9y",
-            "aWFsX2d1aWRlGAEgASgLMg4uVHV0b3JpYWxHdWlkZRIPCgdyZXRjb2RlGAMg",
-            "ASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "ZGUucHJvdG8iUwoYVW5sb2NrVHV0b3JpYWxHdWlkZVNjUnNwEg8KB3JldGNv",
+            "ZGUYCCABKA0SJgoOdHV0b3JpYWxfZ3VpZGUYDyABKAsyDi5UdXRvcmlhbEd1",
+            "aWRlQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.TutorialGuideReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.UnlockTutorialGuideScRsp), global::EggLink.DanhengServer.Proto.UnlockTutorialGuideScRsp.Parser, new[]{ "TutorialGuide", "Retcode" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.UnlockTutorialGuideScRsp), global::EggLink.DanhengServer.Proto.UnlockTutorialGuideScRsp.Parser, new[]{ "Retcode", "TutorialGuide" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,8 +73,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public UnlockTutorialGuideScRsp(UnlockTutorialGuideScRsp other) : this() {
-      tutorialGuide_ = other.tutorialGuide_ != null ? other.tutorialGuide_.Clone() : null;
       retcode_ = other.retcode_;
+      tutorialGuide_ = other.tutorialGuide_ != null ? other.tutorialGuide_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,20 +84,8 @@ namespace EggLink.DanhengServer.Proto {
       return new UnlockTutorialGuideScRsp(this);
     }
 
-    /// <summary>Field number for the "tutorial_guide" field.</summary>
-    public const int TutorialGuideFieldNumber = 1;
-    private global::EggLink.DanhengServer.Proto.TutorialGuide tutorialGuide_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.TutorialGuide TutorialGuide {
-      get { return tutorialGuide_; }
-      set {
-        tutorialGuide_ = value;
-      }
-    }
-
     /// <summary>Field number for the "retcode" field.</summary>
-    public const int RetcodeFieldNumber = 3;
+    public const int RetcodeFieldNumber = 8;
     private uint retcode_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -105,6 +93,18 @@ namespace EggLink.DanhengServer.Proto {
       get { return retcode_; }
       set {
         retcode_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "tutorial_guide" field.</summary>
+    public const int TutorialGuideFieldNumber = 15;
+    private global::EggLink.DanhengServer.Proto.TutorialGuide tutorialGuide_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::EggLink.DanhengServer.Proto.TutorialGuide TutorialGuide {
+      get { return tutorialGuide_; }
+      set {
+        tutorialGuide_ = value;
       }
     }
 
@@ -123,8 +123,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(TutorialGuide, other.TutorialGuide)) return false;
       if (Retcode != other.Retcode) return false;
+      if (!object.Equals(TutorialGuide, other.TutorialGuide)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -132,8 +132,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (tutorialGuide_ != null) hash ^= TutorialGuide.GetHashCode();
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
+      if (tutorialGuide_ != null) hash ^= TutorialGuide.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -152,13 +152,13 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (tutorialGuide_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(TutorialGuide);
-      }
       if (Retcode != 0) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(64);
         output.WriteUInt32(Retcode);
+      }
+      if (tutorialGuide_ != null) {
+        output.WriteRawTag(122);
+        output.WriteMessage(TutorialGuide);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -170,13 +170,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (tutorialGuide_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(TutorialGuide);
-      }
       if (Retcode != 0) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(64);
         output.WriteUInt32(Retcode);
+      }
+      if (tutorialGuide_ != null) {
+        output.WriteRawTag(122);
+        output.WriteMessage(TutorialGuide);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -188,11 +188,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (tutorialGuide_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(TutorialGuide);
-      }
       if (Retcode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
+      }
+      if (tutorialGuide_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(TutorialGuide);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -206,14 +206,14 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
+      if (other.Retcode != 0) {
+        Retcode = other.Retcode;
+      }
       if (other.tutorialGuide_ != null) {
         if (tutorialGuide_ == null) {
           TutorialGuide = new global::EggLink.DanhengServer.Proto.TutorialGuide();
         }
         TutorialGuide.MergeFrom(other.TutorialGuide);
-      }
-      if (other.Retcode != 0) {
-        Retcode = other.Retcode;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -230,15 +230,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 64: {
+            Retcode = input.ReadUInt32();
+            break;
+          }
+          case 122: {
             if (tutorialGuide_ == null) {
               TutorialGuide = new global::EggLink.DanhengServer.Proto.TutorialGuide();
             }
             input.ReadMessage(TutorialGuide);
-            break;
-          }
-          case 24: {
-            Retcode = input.ReadUInt32();
             break;
           }
         }
@@ -256,15 +256,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
+          case 64: {
+            Retcode = input.ReadUInt32();
+            break;
+          }
+          case 122: {
             if (tutorialGuide_ == null) {
               TutorialGuide = new global::EggLink.DanhengServer.Proto.TutorialGuide();
             }
             input.ReadMessage(TutorialGuide);
-            break;
-          }
-          case 24: {
-            Retcode = input.ReadUInt32();
             break;
           }
         }

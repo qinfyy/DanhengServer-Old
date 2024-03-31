@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "Ch9TY2VuZUdyb3VwUmVmcmVzaFNjTm90aWZ5LnByb3RvGhZHcm91cFJlZnJl",
             "c2hJbmZvLnByb3RvIkoKGVNjZW5lR3JvdXBSZWZyZXNoU2NOb3RpZnkSLQoS",
-            "Z3JvdXBfcmVmcmVzaF9saXN0GAUgAygLMhEuR3JvdXBSZWZyZXNoSW5mb0Ie",
+            "Z3JvdXBfcmVmcmVzaF9saXN0GAsgAygLMhEuR3JvdXBSZWZyZXNoSW5mb0Ie",
             "qgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.GroupRefreshInfoReflection.Descriptor, },
@@ -84,9 +84,9 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "group_refresh_list" field.</summary>
-    public const int GroupRefreshListFieldNumber = 5;
+    public const int GroupRefreshListFieldNumber = 11;
     private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.GroupRefreshInfo> _repeated_groupRefreshList_codec
-        = pb::FieldCodec.ForMessage(42, global::EggLink.DanhengServer.Proto.GroupRefreshInfo.Parser);
+        = pb::FieldCodec.ForMessage(90, global::EggLink.DanhengServer.Proto.GroupRefreshInfo.Parser);
     private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GroupRefreshInfo> groupRefreshList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GroupRefreshInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -187,7 +187,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 42: {
+          case 90: {
             groupRefreshList_.AddEntriesFrom(input, _repeated_groupRefreshList_codec);
             break;
           }
@@ -206,7 +206,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 42: {
+          case 90: {
             groupRefreshList_.AddEntriesFrom(ref input, _repeated_groupRefreshList_codec);
             break;
           }

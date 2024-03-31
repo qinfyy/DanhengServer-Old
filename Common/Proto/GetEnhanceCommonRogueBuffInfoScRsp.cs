@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "CihHZXRFbmhhbmNlQ29tbW9uUm9ndWVCdWZmSW5mb1NjUnNwLnByb3RvIlQK",
             "IkdldEVuaGFuY2VDb21tb25Sb2d1ZUJ1ZmZJbmZvU2NSc3ASDwoHcmV0Y29k",
-            "ZRgBIAEoDRIdChVlbmhhbmNlZF9idWZmX2lkX2xpc3QYByADKA1CHqoCG0Vn",
+            "ZRgEIAEoDRIdChVlbmhhbmNlZF9idWZmX2lkX2xpc3QYDCADKA1CHqoCG0Vn",
             "Z0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -85,7 +85,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "retcode" field.</summary>
-    public const int RetcodeFieldNumber = 1;
+    public const int RetcodeFieldNumber = 4;
     private uint retcode_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -97,9 +97,9 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "enhanced_buff_id_list" field.</summary>
-    public const int EnhancedBuffIdListFieldNumber = 7;
+    public const int EnhancedBuffIdListFieldNumber = 12;
     private static readonly pb::FieldCodec<uint> _repeated_enhancedBuffIdList_codec
-        = pb::FieldCodec.ForUInt32(58);
+        = pb::FieldCodec.ForUInt32(98);
     private readonly pbc::RepeatedField<uint> enhancedBuffIdList_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -152,7 +152,7 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (Retcode != 0) {
-        output.WriteRawTag(8);
+        output.WriteRawTag(32);
         output.WriteUInt32(Retcode);
       }
       enhancedBuffIdList_.WriteTo(output, _repeated_enhancedBuffIdList_codec);
@@ -167,7 +167,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (Retcode != 0) {
-        output.WriteRawTag(8);
+        output.WriteRawTag(32);
         output.WriteUInt32(Retcode);
       }
       enhancedBuffIdList_.WriteTo(ref output, _repeated_enhancedBuffIdList_codec);
@@ -216,12 +216,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
+          case 32: {
             Retcode = input.ReadUInt32();
             break;
           }
-          case 58:
-          case 56: {
+          case 98:
+          case 96: {
             enhancedBuffIdList_.AddEntriesFrom(input, _repeated_enhancedBuffIdList_codec);
             break;
           }
@@ -240,12 +240,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
+          case 32: {
             Retcode = input.ReadUInt32();
             break;
           }
-          case 58:
-          case 56: {
+          case 98:
+          case 96: {
             enhancedBuffIdList_.AddEntriesFrom(ref input, _repeated_enhancedBuffIdList_codec);
             break;
           }

@@ -25,8 +25,8 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChhMb2NrRXF1aXBtZW50Q3NSZXEucHJvdG8iQgoSTG9ja0VxdWlwbWVudENz",
-            "UmVxEg8KB2lzX2xvY2sYCyABKAgSGwoTZXF1aXBtZW50X3VuaXF1ZV9pZBgE",
-            "IAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "UmVxEg8KB2lzX2xvY2sYASABKAgSGwoTZXF1aXBtZW50X3VuaXF1ZV9pZBgI",
+            "IAMoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public LockEquipmentCsReq(LockEquipmentCsReq other) : this() {
       isLock_ = other.isLock_;
-      equipmentUniqueId_ = other.equipmentUniqueId_;
+      equipmentUniqueId_ = other.equipmentUniqueId_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,7 +84,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "is_lock" field.</summary>
-    public const int IsLockFieldNumber = 11;
+    public const int IsLockFieldNumber = 1;
     private bool isLock_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -96,15 +96,14 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "equipment_unique_id" field.</summary>
-    public const int EquipmentUniqueIdFieldNumber = 4;
-    private uint equipmentUniqueId_;
+    public const int EquipmentUniqueIdFieldNumber = 8;
+    private static readonly pb::FieldCodec<uint> _repeated_equipmentUniqueId_codec
+        = pb::FieldCodec.ForUInt32(66);
+    private readonly pbc::RepeatedField<uint> equipmentUniqueId_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint EquipmentUniqueId {
+    public pbc::RepeatedField<uint> EquipmentUniqueId {
       get { return equipmentUniqueId_; }
-      set {
-        equipmentUniqueId_ = value;
-      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -123,7 +122,7 @@ namespace EggLink.DanhengServer.Proto {
         return true;
       }
       if (IsLock != other.IsLock) return false;
-      if (EquipmentUniqueId != other.EquipmentUniqueId) return false;
+      if(!equipmentUniqueId_.Equals(other.equipmentUniqueId_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -132,7 +131,7 @@ namespace EggLink.DanhengServer.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (IsLock != false) hash ^= IsLock.GetHashCode();
-      if (EquipmentUniqueId != 0) hash ^= EquipmentUniqueId.GetHashCode();
+      hash ^= equipmentUniqueId_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -151,14 +150,11 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (EquipmentUniqueId != 0) {
-        output.WriteRawTag(32);
-        output.WriteUInt32(EquipmentUniqueId);
-      }
       if (IsLock != false) {
-        output.WriteRawTag(88);
+        output.WriteRawTag(8);
         output.WriteBool(IsLock);
       }
+      equipmentUniqueId_.WriteTo(output, _repeated_equipmentUniqueId_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -169,14 +165,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (EquipmentUniqueId != 0) {
-        output.WriteRawTag(32);
-        output.WriteUInt32(EquipmentUniqueId);
-      }
       if (IsLock != false) {
-        output.WriteRawTag(88);
+        output.WriteRawTag(8);
         output.WriteBool(IsLock);
       }
+      equipmentUniqueId_.WriteTo(ref output, _repeated_equipmentUniqueId_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -190,9 +183,7 @@ namespace EggLink.DanhengServer.Proto {
       if (IsLock != false) {
         size += 1 + 1;
       }
-      if (EquipmentUniqueId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EquipmentUniqueId);
-      }
+      size += equipmentUniqueId_.CalculateSize(_repeated_equipmentUniqueId_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -208,9 +199,7 @@ namespace EggLink.DanhengServer.Proto {
       if (other.IsLock != false) {
         IsLock = other.IsLock;
       }
-      if (other.EquipmentUniqueId != 0) {
-        EquipmentUniqueId = other.EquipmentUniqueId;
-      }
+      equipmentUniqueId_.Add(other.equipmentUniqueId_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -226,12 +215,13 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 32: {
-            EquipmentUniqueId = input.ReadUInt32();
+          case 8: {
+            IsLock = input.ReadBool();
             break;
           }
-          case 88: {
-            IsLock = input.ReadBool();
+          case 66:
+          case 64: {
+            equipmentUniqueId_.AddEntriesFrom(input, _repeated_equipmentUniqueId_codec);
             break;
           }
         }
@@ -249,12 +239,13 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 32: {
-            EquipmentUniqueId = input.ReadUInt32();
+          case 8: {
+            IsLock = input.ReadBool();
             break;
           }
-          case 88: {
-            IsLock = input.ReadBool();
+          case 66:
+          case 64: {
+            equipmentUniqueId_.AddEntriesFrom(ref input, _repeated_equipmentUniqueId_codec);
             break;
           }
         }

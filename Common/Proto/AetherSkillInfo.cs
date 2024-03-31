@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static AetherSkillInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVBZXRoZXJTa2lsbEluZm8ucHJvdG8iRQoPQWV0aGVyU2tpbGxJbmZvEgsK",
-            "A251bRgMIAEoDRIPCgdpdGVtX2lkGAEgASgNEhQKDHNwaXJpdF9jb3VudBgD",
-            "IAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "ChVBZXRoZXJTa2lsbEluZm8ucHJvdG8iRAoPQWV0aGVyU2tpbGxJbmZvEhMK",
+            "C0RPTE5LQkNFQ0RJGA0gASgNEgsKA251bRgKIAEoDRIPCgdpdGVtX2lkGAUg",
+            "ASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.AetherSkillInfo), global::EggLink.DanhengServer.Proto.AetherSkillInfo.Parser, new[]{ "Num", "ItemId", "SpiritCount" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.AetherSkillInfo), global::EggLink.DanhengServer.Proto.AetherSkillInfo.Parser, new[]{ "DOLNKBCECDI", "Num", "ItemId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,9 +72,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public AetherSkillInfo(AetherSkillInfo other) : this() {
+      dOLNKBCECDI_ = other.dOLNKBCECDI_;
       num_ = other.num_;
       itemId_ = other.itemId_;
-      spiritCount_ = other.spiritCount_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,8 +84,20 @@ namespace EggLink.DanhengServer.Proto {
       return new AetherSkillInfo(this);
     }
 
+    /// <summary>Field number for the "DOLNKBCECDI" field.</summary>
+    public const int DOLNKBCECDIFieldNumber = 13;
+    private uint dOLNKBCECDI_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint DOLNKBCECDI {
+      get { return dOLNKBCECDI_; }
+      set {
+        dOLNKBCECDI_ = value;
+      }
+    }
+
     /// <summary>Field number for the "num" field.</summary>
-    public const int NumFieldNumber = 12;
+    public const int NumFieldNumber = 10;
     private uint num_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -97,7 +109,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "item_id" field.</summary>
-    public const int ItemIdFieldNumber = 1;
+    public const int ItemIdFieldNumber = 5;
     private uint itemId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -105,18 +117,6 @@ namespace EggLink.DanhengServer.Proto {
       get { return itemId_; }
       set {
         itemId_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "spirit_count" field.</summary>
-    public const int SpiritCountFieldNumber = 3;
-    private uint spiritCount_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint SpiritCount {
-      get { return spiritCount_; }
-      set {
-        spiritCount_ = value;
       }
     }
 
@@ -135,9 +135,9 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (DOLNKBCECDI != other.DOLNKBCECDI) return false;
       if (Num != other.Num) return false;
       if (ItemId != other.ItemId) return false;
-      if (SpiritCount != other.SpiritCount) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -145,9 +145,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (DOLNKBCECDI != 0) hash ^= DOLNKBCECDI.GetHashCode();
       if (Num != 0) hash ^= Num.GetHashCode();
       if (ItemId != 0) hash ^= ItemId.GetHashCode();
-      if (SpiritCount != 0) hash ^= SpiritCount.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -167,16 +167,16 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (ItemId != 0) {
-        output.WriteRawTag(8);
+        output.WriteRawTag(40);
         output.WriteUInt32(ItemId);
       }
-      if (SpiritCount != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(SpiritCount);
-      }
       if (Num != 0) {
-        output.WriteRawTag(96);
+        output.WriteRawTag(80);
         output.WriteUInt32(Num);
+      }
+      if (DOLNKBCECDI != 0) {
+        output.WriteRawTag(104);
+        output.WriteUInt32(DOLNKBCECDI);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -189,16 +189,16 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (ItemId != 0) {
-        output.WriteRawTag(8);
+        output.WriteRawTag(40);
         output.WriteUInt32(ItemId);
       }
-      if (SpiritCount != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(SpiritCount);
-      }
       if (Num != 0) {
-        output.WriteRawTag(96);
+        output.WriteRawTag(80);
         output.WriteUInt32(Num);
+      }
+      if (DOLNKBCECDI != 0) {
+        output.WriteRawTag(104);
+        output.WriteUInt32(DOLNKBCECDI);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -210,14 +210,14 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (DOLNKBCECDI != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DOLNKBCECDI);
+      }
       if (Num != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Num);
       }
       if (ItemId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ItemId);
-      }
-      if (SpiritCount != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SpiritCount);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -231,14 +231,14 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
+      if (other.DOLNKBCECDI != 0) {
+        DOLNKBCECDI = other.DOLNKBCECDI;
+      }
       if (other.Num != 0) {
         Num = other.Num;
       }
       if (other.ItemId != 0) {
         ItemId = other.ItemId;
-      }
-      if (other.SpiritCount != 0) {
-        SpiritCount = other.SpiritCount;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -255,16 +255,16 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
+          case 40: {
             ItemId = input.ReadUInt32();
             break;
           }
-          case 24: {
-            SpiritCount = input.ReadUInt32();
+          case 80: {
+            Num = input.ReadUInt32();
             break;
           }
-          case 96: {
-            Num = input.ReadUInt32();
+          case 104: {
+            DOLNKBCECDI = input.ReadUInt32();
             break;
           }
         }
@@ -282,16 +282,16 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
+          case 40: {
             ItemId = input.ReadUInt32();
             break;
           }
-          case 24: {
-            SpiritCount = input.ReadUInt32();
+          case 80: {
+            Num = input.ReadUInt32();
             break;
           }
-          case 96: {
-            Num = input.ReadUInt32();
+          case 104: {
+            DOLNKBCECDI = input.ReadUInt32();
             break;
           }
         }

@@ -26,14 +26,14 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "CiNHYW1lcGxheUNvdW50ZXJVcGRhdGVTY05vdGlmeS5wcm90bxohR2FtZXBs",
             "YXlDb3VudGVyVXBkYXRlUmVhc29uLnByb3RvIncKHUdhbWVwbGF5Q291bnRl",
-            "clVwZGF0ZVNjTm90aWZ5EhMKC0xCRkpBRExCTEVCGAUgASgNEiwKBnJlYXNv",
-            "bhgBIAEoDjIcLkdhbWVwbGF5Q291bnRlclVwZGF0ZVJlYXNvbhITCgtOSUJL",
-            "RFBGRkVHRhgKIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3Rv",
+            "clVwZGF0ZVNjTm90aWZ5EhMKC0xKQ0RNQU1MTUNFGAUgASgNEhMKC0tPUE5G",
+            "RklDQkNJGA8gASgNEiwKBnJlYXNvbhgIIAEoDjIcLkdhbWVwbGF5Q291bnRl",
+            "clVwZGF0ZVJlYXNvbkIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3Rv",
             "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.GameplayCounterUpdateReasonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GameplayCounterUpdateScNotify), global::EggLink.DanhengServer.Proto.GameplayCounterUpdateScNotify.Parser, new[]{ "LBFJADLBLEB", "Reason", "NIBKDPFFEGF" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GameplayCounterUpdateScNotify), global::EggLink.DanhengServer.Proto.GameplayCounterUpdateScNotify.Parser, new[]{ "LJCDMAMLMCE", "KOPNFFICBCI", "Reason" }, null, null, null, null)
           }));
     }
     #endregion
@@ -75,9 +75,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GameplayCounterUpdateScNotify(GameplayCounterUpdateScNotify other) : this() {
-      lBFJADLBLEB_ = other.lBFJADLBLEB_;
+      lJCDMAMLMCE_ = other.lJCDMAMLMCE_;
+      kOPNFFICBCI_ = other.kOPNFFICBCI_;
       reason_ = other.reason_;
-      nIBKDPFFEGF_ = other.nIBKDPFFEGF_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -87,20 +87,32 @@ namespace EggLink.DanhengServer.Proto {
       return new GameplayCounterUpdateScNotify(this);
     }
 
-    /// <summary>Field number for the "LBFJADLBLEB" field.</summary>
-    public const int LBFJADLBLEBFieldNumber = 5;
-    private uint lBFJADLBLEB_;
+    /// <summary>Field number for the "LJCDMAMLMCE" field.</summary>
+    public const int LJCDMAMLMCEFieldNumber = 5;
+    private uint lJCDMAMLMCE_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint LBFJADLBLEB {
-      get { return lBFJADLBLEB_; }
+    public uint LJCDMAMLMCE {
+      get { return lJCDMAMLMCE_; }
       set {
-        lBFJADLBLEB_ = value;
+        lJCDMAMLMCE_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "KOPNFFICBCI" field.</summary>
+    public const int KOPNFFICBCIFieldNumber = 15;
+    private uint kOPNFFICBCI_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint KOPNFFICBCI {
+      get { return kOPNFFICBCI_; }
+      set {
+        kOPNFFICBCI_ = value;
       }
     }
 
     /// <summary>Field number for the "reason" field.</summary>
-    public const int ReasonFieldNumber = 1;
+    public const int ReasonFieldNumber = 8;
     private global::EggLink.DanhengServer.Proto.GameplayCounterUpdateReason reason_ = global::EggLink.DanhengServer.Proto.GameplayCounterUpdateReason.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -108,18 +120,6 @@ namespace EggLink.DanhengServer.Proto {
       get { return reason_; }
       set {
         reason_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "NIBKDPFFEGF" field.</summary>
-    public const int NIBKDPFFEGFFieldNumber = 10;
-    private uint nIBKDPFFEGF_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint NIBKDPFFEGF {
-      get { return nIBKDPFFEGF_; }
-      set {
-        nIBKDPFFEGF_ = value;
       }
     }
 
@@ -138,9 +138,9 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (LBFJADLBLEB != other.LBFJADLBLEB) return false;
+      if (LJCDMAMLMCE != other.LJCDMAMLMCE) return false;
+      if (KOPNFFICBCI != other.KOPNFFICBCI) return false;
       if (Reason != other.Reason) return false;
-      if (NIBKDPFFEGF != other.NIBKDPFFEGF) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -148,9 +148,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (LBFJADLBLEB != 0) hash ^= LBFJADLBLEB.GetHashCode();
+      if (LJCDMAMLMCE != 0) hash ^= LJCDMAMLMCE.GetHashCode();
+      if (KOPNFFICBCI != 0) hash ^= KOPNFFICBCI.GetHashCode();
       if (Reason != global::EggLink.DanhengServer.Proto.GameplayCounterUpdateReason.None) hash ^= Reason.GetHashCode();
-      if (NIBKDPFFEGF != 0) hash ^= NIBKDPFFEGF.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -169,17 +169,17 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (LJCDMAMLMCE != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(LJCDMAMLMCE);
+      }
       if (Reason != global::EggLink.DanhengServer.Proto.GameplayCounterUpdateReason.None) {
-        output.WriteRawTag(8);
+        output.WriteRawTag(64);
         output.WriteEnum((int) Reason);
       }
-      if (LBFJADLBLEB != 0) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(LBFJADLBLEB);
-      }
-      if (NIBKDPFFEGF != 0) {
-        output.WriteRawTag(80);
-        output.WriteUInt32(NIBKDPFFEGF);
+      if (KOPNFFICBCI != 0) {
+        output.WriteRawTag(120);
+        output.WriteUInt32(KOPNFFICBCI);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -191,17 +191,17 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (LJCDMAMLMCE != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(LJCDMAMLMCE);
+      }
       if (Reason != global::EggLink.DanhengServer.Proto.GameplayCounterUpdateReason.None) {
-        output.WriteRawTag(8);
+        output.WriteRawTag(64);
         output.WriteEnum((int) Reason);
       }
-      if (LBFJADLBLEB != 0) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(LBFJADLBLEB);
-      }
-      if (NIBKDPFFEGF != 0) {
-        output.WriteRawTag(80);
-        output.WriteUInt32(NIBKDPFFEGF);
+      if (KOPNFFICBCI != 0) {
+        output.WriteRawTag(120);
+        output.WriteUInt32(KOPNFFICBCI);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -213,14 +213,14 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (LBFJADLBLEB != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LBFJADLBLEB);
+      if (LJCDMAMLMCE != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LJCDMAMLMCE);
+      }
+      if (KOPNFFICBCI != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(KOPNFFICBCI);
       }
       if (Reason != global::EggLink.DanhengServer.Proto.GameplayCounterUpdateReason.None) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Reason);
-      }
-      if (NIBKDPFFEGF != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NIBKDPFFEGF);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -234,14 +234,14 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.LBFJADLBLEB != 0) {
-        LBFJADLBLEB = other.LBFJADLBLEB;
+      if (other.LJCDMAMLMCE != 0) {
+        LJCDMAMLMCE = other.LJCDMAMLMCE;
+      }
+      if (other.KOPNFFICBCI != 0) {
+        KOPNFFICBCI = other.KOPNFFICBCI;
       }
       if (other.Reason != global::EggLink.DanhengServer.Proto.GameplayCounterUpdateReason.None) {
         Reason = other.Reason;
-      }
-      if (other.NIBKDPFFEGF != 0) {
-        NIBKDPFFEGF = other.NIBKDPFFEGF;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -258,16 +258,16 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
+          case 40: {
+            LJCDMAMLMCE = input.ReadUInt32();
+            break;
+          }
+          case 64: {
             Reason = (global::EggLink.DanhengServer.Proto.GameplayCounterUpdateReason) input.ReadEnum();
             break;
           }
-          case 40: {
-            LBFJADLBLEB = input.ReadUInt32();
-            break;
-          }
-          case 80: {
-            NIBKDPFFEGF = input.ReadUInt32();
+          case 120: {
+            KOPNFFICBCI = input.ReadUInt32();
             break;
           }
         }
@@ -285,16 +285,16 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
+          case 40: {
+            LJCDMAMLMCE = input.ReadUInt32();
+            break;
+          }
+          case 64: {
             Reason = (global::EggLink.DanhengServer.Proto.GameplayCounterUpdateReason) input.ReadEnum();
             break;
           }
-          case 40: {
-            LBFJADLBLEB = input.ReadUInt32();
-            break;
-          }
-          case 80: {
-            NIBKDPFFEGF = input.ReadUInt32();
+          case 120: {
+            KOPNFFICBCI = input.ReadUInt32();
             break;
           }
         }

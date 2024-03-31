@@ -1,4 +1,5 @@
-﻿using EggLink.DanhengServer.Proto;
+﻿using EggLink.DanhengServer.Database;
+using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Server.Packet.Send.Tutorial;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Tutorial
             if (!player.TutorialData!.Tutorials.TryGetValue((int)req.TutorialId, out var _))
             {
                 player.TutorialData!.Tutorials.Add((int)req.TutorialId, TutorialStatus.TutorialUnlock);
+                DatabaseHelper.Instance?.UpdateInstance(player.TutorialData!);
             }
             connection.SendPacket(new PacketUnlockTutorialScRsp(req.TutorialId));
         }

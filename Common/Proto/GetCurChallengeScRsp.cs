@@ -25,13 +25,13 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChpHZXRDdXJDaGFsbGVuZ2VTY1JzcC5wcm90bxoSQ3VyQ2hhbGxlbmdlLnBy",
-            "b3RvIk0KFEdldEN1ckNoYWxsZW5nZVNjUnNwEiQKDWN1cl9jaGFsbGVuZ2UY",
-            "DiABKAsyDS5DdXJDaGFsbGVuZ2USDwoHcmV0Y29kZRgPIAEoDUIeqgIbRWdn",
+            "b3RvIk0KFEdldEN1ckNoYWxsZW5nZVNjUnNwEg8KB3JldGNvZGUYBiABKA0S",
+            "JAoNY3VyX2NoYWxsZW5nZRgHIAEoCzINLkN1ckNoYWxsZW5nZUIeqgIbRWdn",
             "TGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.CurChallengeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetCurChallengeScRsp), global::EggLink.DanhengServer.Proto.GetCurChallengeScRsp.Parser, new[]{ "CurChallenge", "Retcode" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetCurChallengeScRsp), global::EggLink.DanhengServer.Proto.GetCurChallengeScRsp.Parser, new[]{ "Retcode", "CurChallenge" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,8 +73,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetCurChallengeScRsp(GetCurChallengeScRsp other) : this() {
-      curChallenge_ = other.curChallenge_ != null ? other.curChallenge_.Clone() : null;
       retcode_ = other.retcode_;
+      curChallenge_ = other.curChallenge_ != null ? other.curChallenge_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,20 +84,8 @@ namespace EggLink.DanhengServer.Proto {
       return new GetCurChallengeScRsp(this);
     }
 
-    /// <summary>Field number for the "cur_challenge" field.</summary>
-    public const int CurChallengeFieldNumber = 14;
-    private global::EggLink.DanhengServer.Proto.CurChallenge curChallenge_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.CurChallenge CurChallenge {
-      get { return curChallenge_; }
-      set {
-        curChallenge_ = value;
-      }
-    }
-
     /// <summary>Field number for the "retcode" field.</summary>
-    public const int RetcodeFieldNumber = 15;
+    public const int RetcodeFieldNumber = 6;
     private uint retcode_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -105,6 +93,18 @@ namespace EggLink.DanhengServer.Proto {
       get { return retcode_; }
       set {
         retcode_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "cur_challenge" field.</summary>
+    public const int CurChallengeFieldNumber = 7;
+    private global::EggLink.DanhengServer.Proto.CurChallenge curChallenge_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::EggLink.DanhengServer.Proto.CurChallenge CurChallenge {
+      get { return curChallenge_; }
+      set {
+        curChallenge_ = value;
       }
     }
 
@@ -123,8 +123,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(CurChallenge, other.CurChallenge)) return false;
       if (Retcode != other.Retcode) return false;
+      if (!object.Equals(CurChallenge, other.CurChallenge)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -132,8 +132,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (curChallenge_ != null) hash ^= CurChallenge.GetHashCode();
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
+      if (curChallenge_ != null) hash ^= CurChallenge.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -152,13 +152,13 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (curChallenge_ != null) {
-        output.WriteRawTag(114);
-        output.WriteMessage(CurChallenge);
-      }
       if (Retcode != 0) {
-        output.WriteRawTag(120);
+        output.WriteRawTag(48);
         output.WriteUInt32(Retcode);
+      }
+      if (curChallenge_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(CurChallenge);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -170,13 +170,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (curChallenge_ != null) {
-        output.WriteRawTag(114);
-        output.WriteMessage(CurChallenge);
-      }
       if (Retcode != 0) {
-        output.WriteRawTag(120);
+        output.WriteRawTag(48);
         output.WriteUInt32(Retcode);
+      }
+      if (curChallenge_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(CurChallenge);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -188,11 +188,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (curChallenge_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CurChallenge);
-      }
       if (Retcode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
+      }
+      if (curChallenge_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CurChallenge);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -206,14 +206,14 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
+      if (other.Retcode != 0) {
+        Retcode = other.Retcode;
+      }
       if (other.curChallenge_ != null) {
         if (curChallenge_ == null) {
           CurChallenge = new global::EggLink.DanhengServer.Proto.CurChallenge();
         }
         CurChallenge.MergeFrom(other.CurChallenge);
-      }
-      if (other.Retcode != 0) {
-        Retcode = other.Retcode;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -230,15 +230,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 114: {
+          case 48: {
+            Retcode = input.ReadUInt32();
+            break;
+          }
+          case 58: {
             if (curChallenge_ == null) {
               CurChallenge = new global::EggLink.DanhengServer.Proto.CurChallenge();
             }
             input.ReadMessage(CurChallenge);
-            break;
-          }
-          case 120: {
-            Retcode = input.ReadUInt32();
             break;
           }
         }
@@ -256,15 +256,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 114: {
+          case 48: {
+            Retcode = input.ReadUInt32();
+            break;
+          }
+          case 58: {
             if (curChallenge_ == null) {
               CurChallenge = new global::EggLink.DanhengServer.Proto.CurChallenge();
             }
             input.ReadMessage(CurChallenge);
-            break;
-          }
-          case 120: {
-            Retcode = input.ReadUInt32();
             break;
           }
         }

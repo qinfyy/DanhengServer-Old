@@ -25,8 +25,8 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChxUYWtlQ2hhcHRlclJld2FyZENzUmVxLnByb3RvIkcKFlRha2VDaGFwdGVy",
-            "UmV3YXJkQ3NSZXESGQoRY2hhcHRlcl9yZXdhcmRfaWQYBCABKA0SEgoKY2hh",
-            "cHRlcl9pZBgHIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3Rv",
+            "UmV3YXJkQ3NSZXESGQoRY2hhcHRlcl9yZXdhcmRfaWQYByABKA0SEgoKY2hh",
+            "cHRlcl9pZBgJIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3Rv",
             "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -85,7 +85,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "chapter_reward_id" field.</summary>
-    public const int ChapterRewardIdFieldNumber = 4;
+    public const int ChapterRewardIdFieldNumber = 7;
     private uint chapterRewardId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -97,7 +97,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "chapter_id" field.</summary>
-    public const int ChapterIdFieldNumber = 7;
+    public const int ChapterIdFieldNumber = 9;
     private uint chapterId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -153,11 +153,11 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (ChapterRewardId != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(56);
         output.WriteUInt32(ChapterRewardId);
       }
       if (ChapterId != 0) {
-        output.WriteRawTag(56);
+        output.WriteRawTag(72);
         output.WriteUInt32(ChapterId);
       }
       if (_unknownFields != null) {
@@ -171,11 +171,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (ChapterRewardId != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(56);
         output.WriteUInt32(ChapterRewardId);
       }
       if (ChapterId != 0) {
-        output.WriteRawTag(56);
+        output.WriteRawTag(72);
         output.WriteUInt32(ChapterId);
       }
       if (_unknownFields != null) {
@@ -227,11 +227,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 32: {
+          case 56: {
             ChapterRewardId = input.ReadUInt32();
             break;
           }
-          case 56: {
+          case 72: {
             ChapterId = input.ReadUInt32();
             break;
           }
@@ -250,11 +250,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 32: {
+          case 56: {
             ChapterRewardId = input.ReadUInt32();
             break;
           }
-          case 56: {
+          case 72: {
             ChapterId = input.ReadUInt32();
             break;
           }

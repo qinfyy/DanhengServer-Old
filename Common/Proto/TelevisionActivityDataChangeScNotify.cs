@@ -27,7 +27,7 @@ namespace EggLink.DanhengServer.Proto {
             "CipUZWxldmlzaW9uQWN0aXZpdHlEYXRhQ2hhbmdlU2NOb3RpZnkucHJvdG8a",
             "HFRlbGV2aXNpb25BY3Rpdml0eURhdGEucHJvdG8iYQokVGVsZXZpc2lvbkFj",
             "dGl2aXR5RGF0YUNoYW5nZVNjTm90aWZ5EjkKGHRlbGV2aXNpb25fYWN0aXZp",
-            "dHlfZGF0YRgGIAMoCzIXLlRlbGV2aXNpb25BY3Rpdml0eURhdGFCHqoCG0Vn",
+            "dHlfZGF0YRgJIAMoCzIXLlRlbGV2aXNpb25BY3Rpdml0eURhdGFCHqoCG0Vn",
             "Z0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.TelevisionActivityDataReflection.Descriptor, },
@@ -85,9 +85,9 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "television_activity_data" field.</summary>
-    public const int TelevisionActivityDataFieldNumber = 6;
+    public const int TelevisionActivityDataFieldNumber = 9;
     private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.TelevisionActivityData> _repeated_televisionActivityData_codec
-        = pb::FieldCodec.ForMessage(50, global::EggLink.DanhengServer.Proto.TelevisionActivityData.Parser);
+        = pb::FieldCodec.ForMessage(74, global::EggLink.DanhengServer.Proto.TelevisionActivityData.Parser);
     private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.TelevisionActivityData> televisionActivityData_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.TelevisionActivityData>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -188,7 +188,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 50: {
+          case 74: {
             televisionActivityData_.AddEntriesFrom(input, _repeated_televisionActivityData_codec);
             break;
           }
@@ -207,7 +207,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 50: {
+          case 74: {
             televisionActivityData_.AddEntriesFrom(ref input, _repeated_televisionActivityData_codec);
             break;
           }

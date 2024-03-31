@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "CiNSb2d1ZU1vZGlmaWVyU3RhZ2VTdGFydE5vdGlmeS5wcm90bxodUm9ndWVN",
             "b2RpZmllclNvdXJjZVR5cGUucHJvdG8iVwodUm9ndWVNb2RpZmllclN0YWdl",
-            "U3RhcnROb3RpZnkSNgoUbW9kaWZpZXJfc291cmNlX3R5cGUYCiABKA4yGC5S",
+            "U3RhcnROb3RpZnkSNgoUbW9kaWZpZXJfc291cmNlX3R5cGUYDSABKA4yGC5S",
             "b2d1ZU1vZGlmaWVyU291cmNlVHlwZUIeqgIbRWdnTGluay5EYW5oZW5nU2Vy",
             "dmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
@@ -85,7 +85,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "modifier_source_type" field.</summary>
-    public const int ModifierSourceTypeFieldNumber = 10;
+    public const int ModifierSourceTypeFieldNumber = 13;
     private global::EggLink.DanhengServer.Proto.RogueModifierSourceType modifierSourceType_ = global::EggLink.DanhengServer.Proto.RogueModifierSourceType.RogueModifierSourceNone;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -139,7 +139,7 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (ModifierSourceType != global::EggLink.DanhengServer.Proto.RogueModifierSourceType.RogueModifierSourceNone) {
-        output.WriteRawTag(80);
+        output.WriteRawTag(104);
         output.WriteEnum((int) ModifierSourceType);
       }
       if (_unknownFields != null) {
@@ -153,7 +153,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (ModifierSourceType != global::EggLink.DanhengServer.Proto.RogueModifierSourceType.RogueModifierSourceNone) {
-        output.WriteRawTag(80);
+        output.WriteRawTag(104);
         output.WriteEnum((int) ModifierSourceType);
       }
       if (_unknownFields != null) {
@@ -199,7 +199,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 80: {
+          case 104: {
             ModifierSourceType = (global::EggLink.DanhengServer.Proto.RogueModifierSourceType) input.ReadEnum();
             break;
           }
@@ -218,7 +218,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 80: {
+          case 104: {
             ModifierSourceType = (global::EggLink.DanhengServer.Proto.RogueModifierSourceType) input.ReadEnum();
             break;
           }

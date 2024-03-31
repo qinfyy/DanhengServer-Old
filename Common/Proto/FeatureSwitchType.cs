@@ -24,7 +24,7 @@ namespace EggLink.DanhengServer.Proto {
     static FeatureSwitchTypeReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChdGZWF0dXJlU3dpdGNoVHlwZS5wcm90byqeCgoRRmVhdHVyZVN3aXRjaFR5",
+            "ChdGZWF0dXJlU3dpdGNoVHlwZS5wcm90byrMCwoRRmVhdHVyZVN3aXRjaFR5",
             "cGUSFwoTRkVBVFVSRV9TV0lUQ0hfTk9ORRAAEhcKE0ZFQVRVUkVfU1dJVENI",
             "X1NIT1AQARIeChpGRUFUVVJFX1NXSVRDSF9MSU5FVVBfTkFNRRACEiAKHEZF",
             "QVRVUkVfU1dJVENIX1JFQ0hBUkdFX1NIT1AQAxIbChdGRUFUVVJFX1NXSVRD",
@@ -53,8 +53,12 @@ namespace EggLink.DanhengServer.Proto {
             "T0RJRklFUhAiEh4KGkZFQVRVUkVfU1dJVENIX0NIRVNTX1JPR1VFECMSJAog",
             "RkVBVFVSRV9TV0lUQ0hfQ0hFU1NfUk9HVUVfQk9BUkQQJBIcChhGRUFUVVJF",
             "X1NXSVRDSF9ST0xMX1NIT1AQJRIcChhGRUFUVVJFX1NXSVRDSF9INV9SRVRV",
-            "Uk4QJhIbChdGRUFUVVJFX1NXSVRDSF9PRkZFUklORxAnQh6qAhtFZ2dMaW5r",
-            "LkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "Uk4QJhIbChdGRUFUVVJFX1NXSVRDSF9PRkZFUklORxAnEiMKH0ZFQVRVUkVf",
+            "U1dJVENIX1NFUlZFUl9SRURfUE9JTlQQKBIoCiRGRUFUVVJFX1NXSVRDSF9N",
+            "T05PUE9MWV9PUFRJT05fUkFUSU8QKRItCilGRUFUVVJFX1NXSVRDSF9NT05P",
+            "UE9MWV9HRVRfUkFGRkxFX1RJQ0tFVBAqEi4KKkZFQVRVUkVfU1dJVENIX01P",
+            "Tk9QT0xZX1RBS0VfUkFGRkxFX1JFV0FSRBArQh6qAhtFZ2dMaW5rLkRhbmhl",
+            "bmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::EggLink.DanhengServer.Proto.FeatureSwitchType), }, null, null));
@@ -104,6 +108,10 @@ namespace EggLink.DanhengServer.Proto {
     [pbr::OriginalName("FEATURE_SWITCH_ROLL_SHOP")] FeatureSwitchRollShop = 37,
     [pbr::OriginalName("FEATURE_SWITCH_H5_RETURN")] FeatureSwitchH5Return = 38,
     [pbr::OriginalName("FEATURE_SWITCH_OFFERING")] FeatureSwitchOffering = 39,
+    [pbr::OriginalName("FEATURE_SWITCH_SERVER_RED_POINT")] FeatureSwitchServerRedPoint = 40,
+    [pbr::OriginalName("FEATURE_SWITCH_MONOPOLY_OPTION_RATIO")] FeatureSwitchMonopolyOptionRatio = 41,
+    [pbr::OriginalName("FEATURE_SWITCH_MONOPOLY_GET_RAFFLE_TICKET")] FeatureSwitchMonopolyGetRaffleTicket = 42,
+    [pbr::OriginalName("FEATURE_SWITCH_MONOPOLY_TAKE_RAFFLE_REWARD")] FeatureSwitchMonopolyTakeRaffleReward = 43,
   }
 
   #endregion

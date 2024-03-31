@@ -25,8 +25,8 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChVHZXRBdXRoa2V5Q3NSZXEucHJvdG8iTQoPR2V0QXV0aGtleUNzUmVxEhMK",
-            "C2F1dGhrZXlfdmVyGAogASgJEhEKCXNpZ25fdHlwZRgMIAEoDRISCgphdXRo",
-            "X2FwcGlkGAkgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9i",
+            "C2F1dGhrZXlfdmVyGAYgASgJEhEKCXNpZ25fdHlwZRgMIAEoDRISCgphdXRo",
+            "X2FwcGlkGAIgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9i",
             "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -86,7 +86,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "authkey_ver" field.</summary>
-    public const int AuthkeyVerFieldNumber = 10;
+    public const int AuthkeyVerFieldNumber = 6;
     private string authkeyVer_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -110,7 +110,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "auth_appid" field.</summary>
-    public const int AuthAppidFieldNumber = 9;
+    public const int AuthAppidFieldNumber = 2;
     private uint authAppid_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -168,11 +168,11 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (AuthAppid != 0) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(16);
         output.WriteUInt32(AuthAppid);
       }
       if (AuthkeyVer.Length != 0) {
-        output.WriteRawTag(82);
+        output.WriteRawTag(50);
         output.WriteString(AuthkeyVer);
       }
       if (SignType != 0) {
@@ -190,11 +190,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (AuthAppid != 0) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(16);
         output.WriteUInt32(AuthAppid);
       }
       if (AuthkeyVer.Length != 0) {
-        output.WriteRawTag(82);
+        output.WriteRawTag(50);
         output.WriteString(AuthkeyVer);
       }
       if (SignType != 0) {
@@ -256,11 +256,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 72: {
+          case 16: {
             AuthAppid = input.ReadUInt32();
             break;
           }
-          case 82: {
+          case 50: {
             AuthkeyVer = input.ReadString();
             break;
           }
@@ -283,11 +283,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 72: {
+          case 16: {
             AuthAppid = input.ReadUInt32();
             break;
           }
-          case 82: {
+          case 50: {
             AuthkeyVer = input.ReadString();
             break;
           }

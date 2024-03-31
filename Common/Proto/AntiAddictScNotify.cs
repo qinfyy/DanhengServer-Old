@@ -25,7 +25,7 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChhBbnRpQWRkaWN0U2NOb3RpZnkucHJvdG8iQgoSQW50aUFkZGljdFNjTm90",
-            "aWZ5Eg0KBWxldmVsGAEgASgJEgsKA21zZxgMIAEoCRIQCghtc2dfdHlwZRgK",
+            "aWZ5Eg0KBWxldmVsGAEgASgJEgsKA21zZxgEIAEoCRIQCghtc2dfdHlwZRgJ",
             "IAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -97,7 +97,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "msg" field.</summary>
-    public const int MsgFieldNumber = 12;
+    public const int MsgFieldNumber = 4;
     private string msg_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -109,7 +109,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "msg_type" field.</summary>
-    public const int MsgTypeFieldNumber = 10;
+    public const int MsgTypeFieldNumber = 9;
     private uint msgType_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -170,13 +170,13 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(10);
         output.WriteString(Level);
       }
-      if (MsgType != 0) {
-        output.WriteRawTag(80);
-        output.WriteUInt32(MsgType);
-      }
       if (Msg.Length != 0) {
-        output.WriteRawTag(98);
+        output.WriteRawTag(34);
         output.WriteString(Msg);
+      }
+      if (MsgType != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(MsgType);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -192,13 +192,13 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(10);
         output.WriteString(Level);
       }
-      if (MsgType != 0) {
-        output.WriteRawTag(80);
-        output.WriteUInt32(MsgType);
-      }
       if (Msg.Length != 0) {
-        output.WriteRawTag(98);
+        output.WriteRawTag(34);
         output.WriteString(Msg);
+      }
+      if (MsgType != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(MsgType);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -259,12 +259,12 @@ namespace EggLink.DanhengServer.Proto {
             Level = input.ReadString();
             break;
           }
-          case 80: {
-            MsgType = input.ReadUInt32();
+          case 34: {
+            Msg = input.ReadString();
             break;
           }
-          case 98: {
-            Msg = input.ReadString();
+          case 72: {
+            MsgType = input.ReadUInt32();
             break;
           }
         }
@@ -286,12 +286,12 @@ namespace EggLink.DanhengServer.Proto {
             Level = input.ReadString();
             break;
           }
-          case 80: {
-            MsgType = input.ReadUInt32();
+          case 34: {
+            Msg = input.ReadString();
             break;
           }
-          case 98: {
-            Msg = input.ReadString();
+          case 72: {
+            MsgType = input.ReadUInt32();
             break;
           }
         }

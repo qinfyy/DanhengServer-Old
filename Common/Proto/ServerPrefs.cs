@@ -24,8 +24,8 @@ namespace EggLink.DanhengServer.Proto {
     static ServerPrefsReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFTZXJ2ZXJQcmVmcy5wcm90byItCgtTZXJ2ZXJQcmVmcxIMCgRkYXRhGAIg",
-            "ASgMEhAKCHByZWZzX2lkGAogASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2",
+            "ChFTZXJ2ZXJQcmVmcy5wcm90byItCgtTZXJ2ZXJQcmVmcxIMCgRkYXRhGAUg",
+            "ASgMEhAKCHByZWZzX2lkGAwgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2",
             "ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -84,7 +84,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "data" field.</summary>
-    public const int DataFieldNumber = 2;
+    public const int DataFieldNumber = 5;
     private pb::ByteString data_ = pb::ByteString.Empty;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -96,7 +96,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "prefs_id" field.</summary>
-    public const int PrefsIdFieldNumber = 10;
+    public const int PrefsIdFieldNumber = 12;
     private uint prefsId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -152,11 +152,11 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (Data.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(42);
         output.WriteBytes(Data);
       }
       if (PrefsId != 0) {
-        output.WriteRawTag(80);
+        output.WriteRawTag(96);
         output.WriteUInt32(PrefsId);
       }
       if (_unknownFields != null) {
@@ -170,11 +170,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (Data.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(42);
         output.WriteBytes(Data);
       }
       if (PrefsId != 0) {
-        output.WriteRawTag(80);
+        output.WriteRawTag(96);
         output.WriteUInt32(PrefsId);
       }
       if (_unknownFields != null) {
@@ -226,11 +226,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 18: {
+          case 42: {
             Data = input.ReadBytes();
             break;
           }
-          case 80: {
+          case 96: {
             PrefsId = input.ReadUInt32();
             break;
           }
@@ -249,11 +249,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 18: {
+          case 42: {
             Data = input.ReadBytes();
             break;
           }
-          case 80: {
+          case 96: {
             PrefsId = input.ReadUInt32();
             break;
           }

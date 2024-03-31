@@ -8,9 +8,9 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Scene
         {
             var rsp = new GetFirstTalkByPerformanceNpcScRsp();
 
-            foreach (var id in req.NpcTalkList)
+            foreach (var id in req.FirstTalkIdList)
             {
-                rsp.NpcTalkInfoList.Add(new NpcTalkInfo
+                rsp.NpcMeetStatusList.Add(new NpcMeetStatusInfo
                 {
                     MeetId = id,
                 });

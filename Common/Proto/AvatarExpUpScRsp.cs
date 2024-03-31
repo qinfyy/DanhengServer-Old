@@ -25,13 +25,13 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChZBdmF0YXJFeHBVcFNjUnNwLnByb3RvGg5QaWxlSXRlbS5wcm90byJIChBB",
-            "dmF0YXJFeHBVcFNjUnNwEiMKEHJldHVybl9pdGVtX2xpc3QYCiADKAsyCS5Q",
-            "aWxlSXRlbRIPCgdyZXRjb2RlGA0gASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdT",
+            "dmF0YXJFeHBVcFNjUnNwEg8KB3JldGNvZGUYByABKA0SIwoQcmV0dXJuX2l0",
+            "ZW1fbGlzdBgJIAMoCzIJLlBpbGVJdGVtQh6qAhtFZ2dMaW5rLkRhbmhlbmdT",
             "ZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.PileItemReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.AvatarExpUpScRsp), global::EggLink.DanhengServer.Proto.AvatarExpUpScRsp.Parser, new[]{ "ReturnItemList", "Retcode" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.AvatarExpUpScRsp), global::EggLink.DanhengServer.Proto.AvatarExpUpScRsp.Parser, new[]{ "Retcode", "ReturnItemList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,8 +73,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public AvatarExpUpScRsp(AvatarExpUpScRsp other) : this() {
-      returnItemList_ = other.returnItemList_.Clone();
       retcode_ = other.retcode_;
+      returnItemList_ = other.returnItemList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,19 +84,8 @@ namespace EggLink.DanhengServer.Proto {
       return new AvatarExpUpScRsp(this);
     }
 
-    /// <summary>Field number for the "return_item_list" field.</summary>
-    public const int ReturnItemListFieldNumber = 10;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.PileItem> _repeated_returnItemList_codec
-        = pb::FieldCodec.ForMessage(82, global::EggLink.DanhengServer.Proto.PileItem.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.PileItem> returnItemList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.PileItem>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.PileItem> ReturnItemList {
-      get { return returnItemList_; }
-    }
-
     /// <summary>Field number for the "retcode" field.</summary>
-    public const int RetcodeFieldNumber = 13;
+    public const int RetcodeFieldNumber = 7;
     private uint retcode_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -105,6 +94,17 @@ namespace EggLink.DanhengServer.Proto {
       set {
         retcode_ = value;
       }
+    }
+
+    /// <summary>Field number for the "return_item_list" field.</summary>
+    public const int ReturnItemListFieldNumber = 9;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.PileItem> _repeated_returnItemList_codec
+        = pb::FieldCodec.ForMessage(74, global::EggLink.DanhengServer.Proto.PileItem.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.PileItem> returnItemList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.PileItem>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.PileItem> ReturnItemList {
+      get { return returnItemList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -122,8 +122,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!returnItemList_.Equals(other.returnItemList_)) return false;
       if (Retcode != other.Retcode) return false;
+      if(!returnItemList_.Equals(other.returnItemList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -131,8 +131,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= returnItemList_.GetHashCode();
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
+      hash ^= returnItemList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -151,11 +151,11 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      returnItemList_.WriteTo(output, _repeated_returnItemList_codec);
       if (Retcode != 0) {
-        output.WriteRawTag(104);
+        output.WriteRawTag(56);
         output.WriteUInt32(Retcode);
       }
+      returnItemList_.WriteTo(output, _repeated_returnItemList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -166,11 +166,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      returnItemList_.WriteTo(ref output, _repeated_returnItemList_codec);
       if (Retcode != 0) {
-        output.WriteRawTag(104);
+        output.WriteRawTag(56);
         output.WriteUInt32(Retcode);
       }
+      returnItemList_.WriteTo(ref output, _repeated_returnItemList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -181,10 +181,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += returnItemList_.CalculateSize(_repeated_returnItemList_codec);
       if (Retcode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
+      size += returnItemList_.CalculateSize(_repeated_returnItemList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -197,10 +197,10 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      returnItemList_.Add(other.returnItemList_);
       if (other.Retcode != 0) {
         Retcode = other.Retcode;
       }
+      returnItemList_.Add(other.returnItemList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -216,12 +216,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 82: {
-            returnItemList_.AddEntriesFrom(input, _repeated_returnItemList_codec);
+          case 56: {
+            Retcode = input.ReadUInt32();
             break;
           }
-          case 104: {
-            Retcode = input.ReadUInt32();
+          case 74: {
+            returnItemList_.AddEntriesFrom(input, _repeated_returnItemList_codec);
             break;
           }
         }
@@ -239,12 +239,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 82: {
-            returnItemList_.AddEntriesFrom(ref input, _repeated_returnItemList_codec);
+          case 56: {
+            Retcode = input.ReadUInt32();
             break;
           }
-          case 104: {
-            Retcode = input.ReadUInt32();
+          case 74: {
+            returnItemList_.AddEntriesFrom(ref input, _repeated_returnItemList_codec);
             break;
           }
         }

@@ -25,7 +25,7 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChpGaW5pc2hTZWN0aW9uSWRDc1JlcS5wcm90byIqChRGaW5pc2hTZWN0aW9u",
-            "SWRDc1JlcRISCgpzZWN0aW9uX2lkGAEgASgNQh6qAhtFZ2dMaW5rLkRhbmhl",
+            "SWRDc1JlcRISCgpzZWN0aW9uX2lkGA0gASgNQh6qAhtFZ2dMaW5rLkRhbmhl",
             "bmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -83,7 +83,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "section_id" field.</summary>
-    public const int SectionIdFieldNumber = 1;
+    public const int SectionIdFieldNumber = 13;
     private uint sectionId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -137,7 +137,7 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (SectionId != 0) {
-        output.WriteRawTag(8);
+        output.WriteRawTag(104);
         output.WriteUInt32(SectionId);
       }
       if (_unknownFields != null) {
@@ -151,7 +151,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (SectionId != 0) {
-        output.WriteRawTag(8);
+        output.WriteRawTag(104);
         output.WriteUInt32(SectionId);
       }
       if (_unknownFields != null) {
@@ -197,7 +197,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
+          case 104: {
             SectionId = input.ReadUInt32();
             break;
           }
@@ -216,7 +216,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
+          case 104: {
             SectionId = input.ReadUInt32();
             break;
           }

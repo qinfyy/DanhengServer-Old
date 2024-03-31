@@ -25,7 +25,7 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChZTZXRIZWFkSWNvblNjUnNwLnByb3RvIkEKEFNldEhlYWRJY29uU2NSc3AS",
-            "DwoHcmV0Y29kZRgCIAEoDRIcChRjdXJyZW50X2hlYWRfaWNvbl9pZBgNIAEo",
+            "DwoHcmV0Y29kZRgCIAEoDRIcChRjdXJyZW50X2hlYWRfaWNvbl9pZBgGIAEo",
             "DUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -96,7 +96,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "current_head_icon_id" field.</summary>
-    public const int CurrentHeadIconIdFieldNumber = 13;
+    public const int CurrentHeadIconIdFieldNumber = 6;
     private uint currentHeadIconId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -156,7 +156,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteUInt32(Retcode);
       }
       if (CurrentHeadIconId != 0) {
-        output.WriteRawTag(104);
+        output.WriteRawTag(48);
         output.WriteUInt32(CurrentHeadIconId);
       }
       if (_unknownFields != null) {
@@ -174,7 +174,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteUInt32(Retcode);
       }
       if (CurrentHeadIconId != 0) {
-        output.WriteRawTag(104);
+        output.WriteRawTag(48);
         output.WriteUInt32(CurrentHeadIconId);
       }
       if (_unknownFields != null) {
@@ -230,7 +230,7 @@ namespace EggLink.DanhengServer.Proto {
             Retcode = input.ReadUInt32();
             break;
           }
-          case 104: {
+          case 48: {
             CurrentHeadIconId = input.ReadUInt32();
             break;
           }
@@ -253,7 +253,7 @@ namespace EggLink.DanhengServer.Proto {
             Retcode = input.ReadUInt32();
             break;
           }
-          case 104: {
+          case 48: {
             CurrentHeadIconId = input.ReadUInt32();
             break;
           }

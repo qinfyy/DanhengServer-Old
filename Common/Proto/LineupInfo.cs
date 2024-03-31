@@ -25,18 +25,18 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChBMaW5ldXBJbmZvLnByb3RvGhJMaW5ldXBBdmF0YXIucHJvdG8aFUV4dHJh",
-            "TGluZXVwVHlwZS5wcm90byKWAgoKTGluZXVwSW5mbxIXCg9kcmVzc2VkX3Nr",
-            "aW5faWQYDSABKA0SFQoNaWRraXNfdmlydHVhbBgLIAEoCBIMCgRuYW1lGAUg",
-            "ASgJEhMKC2xlYWRlcl9zbG90GAMgASgNEhIKCmlzX3ZpcnR1YWwYAiABKAgS",
-            "KwoRZXh0cmFfbGluZXVwX3R5cGUYBiABKA4yEC5FeHRyYUxpbmV1cFR5cGUS",
-            "EwoLQkZNR0RKTUJMRkgYASADKA0SIgoLYXZhdGFyX2xpc3QYDyADKAsyDS5M",
-            "aW5ldXBBdmF0YXISDgoGbWF4X21wGAggASgNEgoKAm1wGAcgASgNEg0KBWlu",
-            "ZGV4GAwgASgNEhAKCHBsYW5lX2lkGAogASgNQh6qAhtFZ2dMaW5rLkRhbmhl",
-            "bmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "TGluZXVwVHlwZS5wcm90byKZAgoKTGluZXVwSW5mbxITCgtsZWFkZXJfc2xv",
+            "dBgMIAEoDRITCgtOS01QSEVKS0dKTBgDIAEoDRIQCghwbGFuZV9pZBgBIAEo",
+            "DRITCgtFQkZLQ01CQkxQTBgEIAEoCBISCgppc192aXJ0dWFsGAIgASgIEg4K",
+            "Bm1heF9tcBgJIAEoDRIiCgthdmF0YXJfbGlzdBgLIAMoCzINLkxpbmV1cEF2",
+            "YXRhchIrChFleHRyYV9saW5ldXBfdHlwZRgGIAEoDjIQLkV4dHJhTGluZXVw",
+            "VHlwZRINCgVpbmRleBgHIAEoDRIcChR0cmlhbF9hdmF0YXJfaWRfbGlzdBgN",
+            "IAMoDRIKCgJtcBgIIAEoDRIMCgRuYW1lGA8gASgJQh6qAhtFZ2dMaW5rLkRh",
+            "bmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.LineupAvatarReflection.Descriptor, global::EggLink.DanhengServer.Proto.ExtraLineupTypeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.LineupInfo), global::EggLink.DanhengServer.Proto.LineupInfo.Parser, new[]{ "DressedSkinId", "IdkisVirtual", "Name", "LeaderSlot", "IsVirtual", "ExtraLineupType", "BFMGDJMBLFH", "AvatarList", "MaxMp", "Mp", "Index", "PlaneId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.LineupInfo), global::EggLink.DanhengServer.Proto.LineupInfo.Parser, new[]{ "LeaderSlot", "NKMPHEJKGJL", "PlaneId", "EBFKCMBBLPL", "IsVirtual", "MaxMp", "AvatarList", "ExtraLineupType", "Index", "TrialAvatarIdList", "Mp", "Name" }, null, null, null, null)
           }));
     }
     #endregion
@@ -78,18 +78,18 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public LineupInfo(LineupInfo other) : this() {
-      dressedSkinId_ = other.dressedSkinId_;
-      idkisVirtual_ = other.idkisVirtual_;
-      name_ = other.name_;
       leaderSlot_ = other.leaderSlot_;
-      isVirtual_ = other.isVirtual_;
-      extraLineupType_ = other.extraLineupType_;
-      bFMGDJMBLFH_ = other.bFMGDJMBLFH_.Clone();
-      avatarList_ = other.avatarList_.Clone();
-      maxMp_ = other.maxMp_;
-      mp_ = other.mp_;
-      index_ = other.index_;
+      nKMPHEJKGJL_ = other.nKMPHEJKGJL_;
       planeId_ = other.planeId_;
+      eBFKCMBBLPL_ = other.eBFKCMBBLPL_;
+      isVirtual_ = other.isVirtual_;
+      maxMp_ = other.maxMp_;
+      avatarList_ = other.avatarList_.Clone();
+      extraLineupType_ = other.extraLineupType_;
+      index_ = other.index_;
+      trialAvatarIdList_ = other.trialAvatarIdList_.Clone();
+      mp_ = other.mp_;
+      name_ = other.name_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -99,44 +99,8 @@ namespace EggLink.DanhengServer.Proto {
       return new LineupInfo(this);
     }
 
-    /// <summary>Field number for the "dressed_skin_id" field.</summary>
-    public const int DressedSkinIdFieldNumber = 13;
-    private uint dressedSkinId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint DressedSkinId {
-      get { return dressedSkinId_; }
-      set {
-        dressedSkinId_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "idkis_virtual" field.</summary>
-    public const int IdkisVirtualFieldNumber = 11;
-    private bool idkisVirtual_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool IdkisVirtual {
-      get { return idkisVirtual_; }
-      set {
-        idkisVirtual_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 5;
-    private string name_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Name {
-      get { return name_; }
-      set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "leader_slot" field.</summary>
-    public const int LeaderSlotFieldNumber = 3;
+    public const int LeaderSlotFieldNumber = 12;
     private uint leaderSlot_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -144,6 +108,42 @@ namespace EggLink.DanhengServer.Proto {
       get { return leaderSlot_; }
       set {
         leaderSlot_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "NKMPHEJKGJL" field.</summary>
+    public const int NKMPHEJKGJLFieldNumber = 3;
+    private uint nKMPHEJKGJL_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint NKMPHEJKGJL {
+      get { return nKMPHEJKGJL_; }
+      set {
+        nKMPHEJKGJL_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "plane_id" field.</summary>
+    public const int PlaneIdFieldNumber = 1;
+    private uint planeId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint PlaneId {
+      get { return planeId_; }
+      set {
+        planeId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "EBFKCMBBLPL" field.</summary>
+    public const int EBFKCMBBLPLFieldNumber = 4;
+    private bool eBFKCMBBLPL_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool EBFKCMBBLPL {
+      get { return eBFKCMBBLPL_; }
+      set {
+        eBFKCMBBLPL_ = value;
       }
     }
 
@@ -159,6 +159,29 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
+    /// <summary>Field number for the "max_mp" field.</summary>
+    public const int MaxMpFieldNumber = 9;
+    private uint maxMp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint MaxMp {
+      get { return maxMp_; }
+      set {
+        maxMp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "avatar_list" field.</summary>
+    public const int AvatarListFieldNumber = 11;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.LineupAvatar> _repeated_avatarList_codec
+        = pb::FieldCodec.ForMessage(90, global::EggLink.DanhengServer.Proto.LineupAvatar.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.LineupAvatar> avatarList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.LineupAvatar>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.LineupAvatar> AvatarList {
+      get { return avatarList_; }
+    }
+
     /// <summary>Field number for the "extra_lineup_type" field.</summary>
     public const int ExtraLineupTypeFieldNumber = 6;
     private global::EggLink.DanhengServer.Proto.ExtraLineupType extraLineupType_ = global::EggLink.DanhengServer.Proto.ExtraLineupType.LineupNone;
@@ -171,54 +194,8 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "BFMGDJMBLFH" field.</summary>
-    public const int BFMGDJMBLFHFieldNumber = 1;
-    private static readonly pb::FieldCodec<uint> _repeated_bFMGDJMBLFH_codec
-        = pb::FieldCodec.ForUInt32(10);
-    private readonly pbc::RepeatedField<uint> bFMGDJMBLFH_ = new pbc::RepeatedField<uint>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<uint> BFMGDJMBLFH {
-      get { return bFMGDJMBLFH_; }
-    }
-
-    /// <summary>Field number for the "avatar_list" field.</summary>
-    public const int AvatarListFieldNumber = 15;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.LineupAvatar> _repeated_avatarList_codec
-        = pb::FieldCodec.ForMessage(122, global::EggLink.DanhengServer.Proto.LineupAvatar.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.LineupAvatar> avatarList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.LineupAvatar>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.LineupAvatar> AvatarList {
-      get { return avatarList_; }
-    }
-
-    /// <summary>Field number for the "max_mp" field.</summary>
-    public const int MaxMpFieldNumber = 8;
-    private uint maxMp_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint MaxMp {
-      get { return maxMp_; }
-      set {
-        maxMp_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "mp" field.</summary>
-    public const int MpFieldNumber = 7;
-    private uint mp_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Mp {
-      get { return mp_; }
-      set {
-        mp_ = value;
-      }
-    }
-
     /// <summary>Field number for the "index" field.</summary>
-    public const int IndexFieldNumber = 12;
+    public const int IndexFieldNumber = 7;
     private uint index_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -229,15 +206,38 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "plane_id" field.</summary>
-    public const int PlaneIdFieldNumber = 10;
-    private uint planeId_;
+    /// <summary>Field number for the "trial_avatar_id_list" field.</summary>
+    public const int TrialAvatarIdListFieldNumber = 13;
+    private static readonly pb::FieldCodec<uint> _repeated_trialAvatarIdList_codec
+        = pb::FieldCodec.ForUInt32(106);
+    private readonly pbc::RepeatedField<uint> trialAvatarIdList_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint PlaneId {
-      get { return planeId_; }
+    public pbc::RepeatedField<uint> TrialAvatarIdList {
+      get { return trialAvatarIdList_; }
+    }
+
+    /// <summary>Field number for the "mp" field.</summary>
+    public const int MpFieldNumber = 8;
+    private uint mp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Mp {
+      get { return mp_; }
       set {
-        planeId_ = value;
+        mp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 15;
+    private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -256,18 +256,18 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (DressedSkinId != other.DressedSkinId) return false;
-      if (IdkisVirtual != other.IdkisVirtual) return false;
-      if (Name != other.Name) return false;
       if (LeaderSlot != other.LeaderSlot) return false;
-      if (IsVirtual != other.IsVirtual) return false;
-      if (ExtraLineupType != other.ExtraLineupType) return false;
-      if(!bFMGDJMBLFH_.Equals(other.bFMGDJMBLFH_)) return false;
-      if(!avatarList_.Equals(other.avatarList_)) return false;
-      if (MaxMp != other.MaxMp) return false;
-      if (Mp != other.Mp) return false;
-      if (Index != other.Index) return false;
+      if (NKMPHEJKGJL != other.NKMPHEJKGJL) return false;
       if (PlaneId != other.PlaneId) return false;
+      if (EBFKCMBBLPL != other.EBFKCMBBLPL) return false;
+      if (IsVirtual != other.IsVirtual) return false;
+      if (MaxMp != other.MaxMp) return false;
+      if(!avatarList_.Equals(other.avatarList_)) return false;
+      if (ExtraLineupType != other.ExtraLineupType) return false;
+      if (Index != other.Index) return false;
+      if(!trialAvatarIdList_.Equals(other.trialAvatarIdList_)) return false;
+      if (Mp != other.Mp) return false;
+      if (Name != other.Name) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -275,18 +275,18 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (DressedSkinId != 0) hash ^= DressedSkinId.GetHashCode();
-      if (IdkisVirtual != false) hash ^= IdkisVirtual.GetHashCode();
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (LeaderSlot != 0) hash ^= LeaderSlot.GetHashCode();
-      if (IsVirtual != false) hash ^= IsVirtual.GetHashCode();
-      if (ExtraLineupType != global::EggLink.DanhengServer.Proto.ExtraLineupType.LineupNone) hash ^= ExtraLineupType.GetHashCode();
-      hash ^= bFMGDJMBLFH_.GetHashCode();
-      hash ^= avatarList_.GetHashCode();
-      if (MaxMp != 0) hash ^= MaxMp.GetHashCode();
-      if (Mp != 0) hash ^= Mp.GetHashCode();
-      if (Index != 0) hash ^= Index.GetHashCode();
+      if (NKMPHEJKGJL != 0) hash ^= NKMPHEJKGJL.GetHashCode();
       if (PlaneId != 0) hash ^= PlaneId.GetHashCode();
+      if (EBFKCMBBLPL != false) hash ^= EBFKCMBBLPL.GetHashCode();
+      if (IsVirtual != false) hash ^= IsVirtual.GetHashCode();
+      if (MaxMp != 0) hash ^= MaxMp.GetHashCode();
+      hash ^= avatarList_.GetHashCode();
+      if (ExtraLineupType != global::EggLink.DanhengServer.Proto.ExtraLineupType.LineupNone) hash ^= ExtraLineupType.GetHashCode();
+      if (Index != 0) hash ^= Index.GetHashCode();
+      hash ^= trialAvatarIdList_.GetHashCode();
+      if (Mp != 0) hash ^= Mp.GetHashCode();
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -305,48 +305,48 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      bFMGDJMBLFH_.WriteTo(output, _repeated_bFMGDJMBLFH_codec);
+      if (PlaneId != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(PlaneId);
+      }
       if (IsVirtual != false) {
         output.WriteRawTag(16);
         output.WriteBool(IsVirtual);
       }
-      if (LeaderSlot != 0) {
+      if (NKMPHEJKGJL != 0) {
         output.WriteRawTag(24);
-        output.WriteUInt32(LeaderSlot);
+        output.WriteUInt32(NKMPHEJKGJL);
       }
-      if (Name.Length != 0) {
-        output.WriteRawTag(42);
-        output.WriteString(Name);
+      if (EBFKCMBBLPL != false) {
+        output.WriteRawTag(32);
+        output.WriteBool(EBFKCMBBLPL);
       }
       if (ExtraLineupType != global::EggLink.DanhengServer.Proto.ExtraLineupType.LineupNone) {
         output.WriteRawTag(48);
         output.WriteEnum((int) ExtraLineupType);
       }
-      if (Mp != 0) {
+      if (Index != 0) {
         output.WriteRawTag(56);
+        output.WriteUInt32(Index);
+      }
+      if (Mp != 0) {
+        output.WriteRawTag(64);
         output.WriteUInt32(Mp);
       }
       if (MaxMp != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(72);
         output.WriteUInt32(MaxMp);
       }
-      if (PlaneId != 0) {
-        output.WriteRawTag(80);
-        output.WriteUInt32(PlaneId);
-      }
-      if (IdkisVirtual != false) {
-        output.WriteRawTag(88);
-        output.WriteBool(IdkisVirtual);
-      }
-      if (Index != 0) {
-        output.WriteRawTag(96);
-        output.WriteUInt32(Index);
-      }
-      if (DressedSkinId != 0) {
-        output.WriteRawTag(104);
-        output.WriteUInt32(DressedSkinId);
-      }
       avatarList_.WriteTo(output, _repeated_avatarList_codec);
+      if (LeaderSlot != 0) {
+        output.WriteRawTag(96);
+        output.WriteUInt32(LeaderSlot);
+      }
+      trialAvatarIdList_.WriteTo(output, _repeated_trialAvatarIdList_codec);
+      if (Name.Length != 0) {
+        output.WriteRawTag(122);
+        output.WriteString(Name);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -357,48 +357,48 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      bFMGDJMBLFH_.WriteTo(ref output, _repeated_bFMGDJMBLFH_codec);
+      if (PlaneId != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(PlaneId);
+      }
       if (IsVirtual != false) {
         output.WriteRawTag(16);
         output.WriteBool(IsVirtual);
       }
-      if (LeaderSlot != 0) {
+      if (NKMPHEJKGJL != 0) {
         output.WriteRawTag(24);
-        output.WriteUInt32(LeaderSlot);
+        output.WriteUInt32(NKMPHEJKGJL);
       }
-      if (Name.Length != 0) {
-        output.WriteRawTag(42);
-        output.WriteString(Name);
+      if (EBFKCMBBLPL != false) {
+        output.WriteRawTag(32);
+        output.WriteBool(EBFKCMBBLPL);
       }
       if (ExtraLineupType != global::EggLink.DanhengServer.Proto.ExtraLineupType.LineupNone) {
         output.WriteRawTag(48);
         output.WriteEnum((int) ExtraLineupType);
       }
-      if (Mp != 0) {
+      if (Index != 0) {
         output.WriteRawTag(56);
+        output.WriteUInt32(Index);
+      }
+      if (Mp != 0) {
+        output.WriteRawTag(64);
         output.WriteUInt32(Mp);
       }
       if (MaxMp != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(72);
         output.WriteUInt32(MaxMp);
       }
-      if (PlaneId != 0) {
-        output.WriteRawTag(80);
-        output.WriteUInt32(PlaneId);
-      }
-      if (IdkisVirtual != false) {
-        output.WriteRawTag(88);
-        output.WriteBool(IdkisVirtual);
-      }
-      if (Index != 0) {
-        output.WriteRawTag(96);
-        output.WriteUInt32(Index);
-      }
-      if (DressedSkinId != 0) {
-        output.WriteRawTag(104);
-        output.WriteUInt32(DressedSkinId);
-      }
       avatarList_.WriteTo(ref output, _repeated_avatarList_codec);
+      if (LeaderSlot != 0) {
+        output.WriteRawTag(96);
+        output.WriteUInt32(LeaderSlot);
+      }
+      trialAvatarIdList_.WriteTo(ref output, _repeated_trialAvatarIdList_codec);
+      if (Name.Length != 0) {
+        output.WriteRawTag(122);
+        output.WriteString(Name);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -409,37 +409,37 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (DressedSkinId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DressedSkinId);
-      }
-      if (IdkisVirtual != false) {
-        size += 1 + 1;
-      }
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
       if (LeaderSlot != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LeaderSlot);
+      }
+      if (NKMPHEJKGJL != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NKMPHEJKGJL);
+      }
+      if (PlaneId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PlaneId);
+      }
+      if (EBFKCMBBLPL != false) {
+        size += 1 + 1;
       }
       if (IsVirtual != false) {
         size += 1 + 1;
       }
-      if (ExtraLineupType != global::EggLink.DanhengServer.Proto.ExtraLineupType.LineupNone) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ExtraLineupType);
-      }
-      size += bFMGDJMBLFH_.CalculateSize(_repeated_bFMGDJMBLFH_codec);
-      size += avatarList_.CalculateSize(_repeated_avatarList_codec);
       if (MaxMp != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MaxMp);
       }
-      if (Mp != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Mp);
+      size += avatarList_.CalculateSize(_repeated_avatarList_codec);
+      if (ExtraLineupType != global::EggLink.DanhengServer.Proto.ExtraLineupType.LineupNone) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ExtraLineupType);
       }
       if (Index != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Index);
       }
-      if (PlaneId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PlaneId);
+      size += trialAvatarIdList_.CalculateSize(_repeated_trialAvatarIdList_codec);
+      if (Mp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Mp);
+      }
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -453,37 +453,37 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.DressedSkinId != 0) {
-        DressedSkinId = other.DressedSkinId;
-      }
-      if (other.IdkisVirtual != false) {
-        IdkisVirtual = other.IdkisVirtual;
-      }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
-      }
       if (other.LeaderSlot != 0) {
         LeaderSlot = other.LeaderSlot;
+      }
+      if (other.NKMPHEJKGJL != 0) {
+        NKMPHEJKGJL = other.NKMPHEJKGJL;
+      }
+      if (other.PlaneId != 0) {
+        PlaneId = other.PlaneId;
+      }
+      if (other.EBFKCMBBLPL != false) {
+        EBFKCMBBLPL = other.EBFKCMBBLPL;
       }
       if (other.IsVirtual != false) {
         IsVirtual = other.IsVirtual;
       }
-      if (other.ExtraLineupType != global::EggLink.DanhengServer.Proto.ExtraLineupType.LineupNone) {
-        ExtraLineupType = other.ExtraLineupType;
-      }
-      bFMGDJMBLFH_.Add(other.bFMGDJMBLFH_);
-      avatarList_.Add(other.avatarList_);
       if (other.MaxMp != 0) {
         MaxMp = other.MaxMp;
       }
-      if (other.Mp != 0) {
-        Mp = other.Mp;
+      avatarList_.Add(other.avatarList_);
+      if (other.ExtraLineupType != global::EggLink.DanhengServer.Proto.ExtraLineupType.LineupNone) {
+        ExtraLineupType = other.ExtraLineupType;
       }
       if (other.Index != 0) {
         Index = other.Index;
       }
-      if (other.PlaneId != 0) {
-        PlaneId = other.PlaneId;
+      trialAvatarIdList_.Add(other.trialAvatarIdList_);
+      if (other.Mp != 0) {
+        Mp = other.Mp;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -500,9 +500,8 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10:
           case 8: {
-            bFMGDJMBLFH_.AddEntriesFrom(input, _repeated_bFMGDJMBLFH_codec);
+            PlaneId = input.ReadUInt32();
             break;
           }
           case 16: {
@@ -510,11 +509,11 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 24: {
-            LeaderSlot = input.ReadUInt32();
+            NKMPHEJKGJL = input.ReadUInt32();
             break;
           }
-          case 42: {
-            Name = input.ReadString();
+          case 32: {
+            EBFKCMBBLPL = input.ReadBool();
             break;
           }
           case 48: {
@@ -522,31 +521,32 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 56: {
-            Mp = input.ReadUInt32();
-            break;
-          }
-          case 64: {
-            MaxMp = input.ReadUInt32();
-            break;
-          }
-          case 80: {
-            PlaneId = input.ReadUInt32();
-            break;
-          }
-          case 88: {
-            IdkisVirtual = input.ReadBool();
-            break;
-          }
-          case 96: {
             Index = input.ReadUInt32();
             break;
           }
+          case 64: {
+            Mp = input.ReadUInt32();
+            break;
+          }
+          case 72: {
+            MaxMp = input.ReadUInt32();
+            break;
+          }
+          case 90: {
+            avatarList_.AddEntriesFrom(input, _repeated_avatarList_codec);
+            break;
+          }
+          case 96: {
+            LeaderSlot = input.ReadUInt32();
+            break;
+          }
+          case 106:
           case 104: {
-            DressedSkinId = input.ReadUInt32();
+            trialAvatarIdList_.AddEntriesFrom(input, _repeated_trialAvatarIdList_codec);
             break;
           }
           case 122: {
-            avatarList_.AddEntriesFrom(input, _repeated_avatarList_codec);
+            Name = input.ReadString();
             break;
           }
         }
@@ -564,9 +564,8 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10:
           case 8: {
-            bFMGDJMBLFH_.AddEntriesFrom(ref input, _repeated_bFMGDJMBLFH_codec);
+            PlaneId = input.ReadUInt32();
             break;
           }
           case 16: {
@@ -574,11 +573,11 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 24: {
-            LeaderSlot = input.ReadUInt32();
+            NKMPHEJKGJL = input.ReadUInt32();
             break;
           }
-          case 42: {
-            Name = input.ReadString();
+          case 32: {
+            EBFKCMBBLPL = input.ReadBool();
             break;
           }
           case 48: {
@@ -586,31 +585,32 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 56: {
-            Mp = input.ReadUInt32();
-            break;
-          }
-          case 64: {
-            MaxMp = input.ReadUInt32();
-            break;
-          }
-          case 80: {
-            PlaneId = input.ReadUInt32();
-            break;
-          }
-          case 88: {
-            IdkisVirtual = input.ReadBool();
-            break;
-          }
-          case 96: {
             Index = input.ReadUInt32();
             break;
           }
+          case 64: {
+            Mp = input.ReadUInt32();
+            break;
+          }
+          case 72: {
+            MaxMp = input.ReadUInt32();
+            break;
+          }
+          case 90: {
+            avatarList_.AddEntriesFrom(ref input, _repeated_avatarList_codec);
+            break;
+          }
+          case 96: {
+            LeaderSlot = input.ReadUInt32();
+            break;
+          }
+          case 106:
           case 104: {
-            DressedSkinId = input.ReadUInt32();
+            trialAvatarIdList_.AddEntriesFrom(ref input, _repeated_trialAvatarIdList_codec);
             break;
           }
           case 122: {
-            avatarList_.AddEntriesFrom(ref input, _repeated_avatarList_codec);
+            Name = input.ReadString();
             break;
           }
         }

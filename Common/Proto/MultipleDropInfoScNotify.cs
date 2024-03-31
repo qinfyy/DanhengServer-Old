@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static MultipleDropInfoScNotifyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Ch5NdWx0aXBsZURyb3BJbmZvU2NOb3RpZnkucHJvdG8aFk11bHRpcGxlRHJv",
-            "cEluZm8ucHJvdG8iSQoYTXVsdGlwbGVEcm9wSW5mb1NjTm90aWZ5Ei0KEm11",
-            "bHRpcGxlX2Ryb3BfbGlzdBgDIAMoCzIRLk11bHRpcGxlRHJvcEluZm9CHqoC",
-            "G0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
+            "Ch5NdWx0aXBsZURyb3BJbmZvU2NOb3RpZnkucHJvdG8aEURLQktJR0hISEpE",
+            "LnByb3RvIj0KGE11bHRpcGxlRHJvcEluZm9TY05vdGlmeRIhCgtGTk5ESkVL",
+            "SkxOSxgDIAMoCzIMLkRLQktJR0hISEpEQh6qAhtFZ2dMaW5rLkRhbmhlbmdT",
+            "ZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MultipleDropInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.DKBKIGHHHJDReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.MultipleDropInfoScNotify), global::EggLink.DanhengServer.Proto.MultipleDropInfoScNotify.Parser, new[]{ "MultipleDropList" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.MultipleDropInfoScNotify), global::EggLink.DanhengServer.Proto.MultipleDropInfoScNotify.Parser, new[]{ "FNNDJEKJLNK" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public MultipleDropInfoScNotify(MultipleDropInfoScNotify other) : this() {
-      multipleDropList_ = other.multipleDropList_.Clone();
+      fNNDJEKJLNK_ = other.fNNDJEKJLNK_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,15 +83,15 @@ namespace EggLink.DanhengServer.Proto {
       return new MultipleDropInfoScNotify(this);
     }
 
-    /// <summary>Field number for the "multiple_drop_list" field.</summary>
-    public const int MultipleDropListFieldNumber = 3;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.MultipleDropInfo> _repeated_multipleDropList_codec
-        = pb::FieldCodec.ForMessage(26, global::EggLink.DanhengServer.Proto.MultipleDropInfo.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.MultipleDropInfo> multipleDropList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.MultipleDropInfo>();
+    /// <summary>Field number for the "FNNDJEKJLNK" field.</summary>
+    public const int FNNDJEKJLNKFieldNumber = 3;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.DKBKIGHHHJD> _repeated_fNNDJEKJLNK_codec
+        = pb::FieldCodec.ForMessage(26, global::EggLink.DanhengServer.Proto.DKBKIGHHHJD.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DKBKIGHHHJD> fNNDJEKJLNK_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DKBKIGHHHJD>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.MultipleDropInfo> MultipleDropList {
-      get { return multipleDropList_; }
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DKBKIGHHHJD> FNNDJEKJLNK {
+      get { return fNNDJEKJLNK_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -109,7 +109,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!multipleDropList_.Equals(other.multipleDropList_)) return false;
+      if(!fNNDJEKJLNK_.Equals(other.fNNDJEKJLNK_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -117,7 +117,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= multipleDropList_.GetHashCode();
+      hash ^= fNNDJEKJLNK_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -136,7 +136,7 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      multipleDropList_.WriteTo(output, _repeated_multipleDropList_codec);
+      fNNDJEKJLNK_.WriteTo(output, _repeated_fNNDJEKJLNK_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -147,7 +147,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      multipleDropList_.WriteTo(ref output, _repeated_multipleDropList_codec);
+      fNNDJEKJLNK_.WriteTo(ref output, _repeated_fNNDJEKJLNK_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -158,7 +158,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += multipleDropList_.CalculateSize(_repeated_multipleDropList_codec);
+      size += fNNDJEKJLNK_.CalculateSize(_repeated_fNNDJEKJLNK_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -171,7 +171,7 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      multipleDropList_.Add(other.multipleDropList_);
+      fNNDJEKJLNK_.Add(other.fNNDJEKJLNK_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -188,7 +188,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 26: {
-            multipleDropList_.AddEntriesFrom(input, _repeated_multipleDropList_codec);
+            fNNDJEKJLNK_.AddEntriesFrom(input, _repeated_fNNDJEKJLNK_codec);
             break;
           }
         }
@@ -207,7 +207,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 26: {
-            multipleDropList_.AddEntriesFrom(ref input, _repeated_multipleDropList_codec);
+            fNNDJEKJLNK_.AddEntriesFrom(ref input, _repeated_fNNDJEKJLNK_codec);
             break;
           }
         }

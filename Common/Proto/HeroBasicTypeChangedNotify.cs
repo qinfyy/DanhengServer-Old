@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "CiBIZXJvQmFzaWNUeXBlQ2hhbmdlZE5vdGlmeS5wcm90bxoTSGVyb0Jhc2lj",
             "VHlwZS5wcm90byJEChpIZXJvQmFzaWNUeXBlQ2hhbmdlZE5vdGlmeRImCg5j",
-            "dXJfYmFzaWNfdHlwZRgHIAEoDjIOLkhlcm9CYXNpY1R5cGVCHqoCG0VnZ0xp",
+            "dXJfYmFzaWNfdHlwZRgEIAEoDjIOLkhlcm9CYXNpY1R5cGVCHqoCG0VnZ0xp",
             "bmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.HeroBasicTypeReflection.Descriptor, },
@@ -84,7 +84,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "cur_basic_type" field.</summary>
-    public const int CurBasicTypeFieldNumber = 7;
+    public const int CurBasicTypeFieldNumber = 4;
     private global::EggLink.DanhengServer.Proto.HeroBasicType curBasicType_ = global::EggLink.DanhengServer.Proto.HeroBasicType.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -138,7 +138,7 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (CurBasicType != global::EggLink.DanhengServer.Proto.HeroBasicType.None) {
-        output.WriteRawTag(56);
+        output.WriteRawTag(32);
         output.WriteEnum((int) CurBasicType);
       }
       if (_unknownFields != null) {
@@ -152,7 +152,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (CurBasicType != global::EggLink.DanhengServer.Proto.HeroBasicType.None) {
-        output.WriteRawTag(56);
+        output.WriteRawTag(32);
         output.WriteEnum((int) CurBasicType);
       }
       if (_unknownFields != null) {
@@ -198,7 +198,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 56: {
+          case 32: {
             CurBasicType = (global::EggLink.DanhengServer.Proto.HeroBasicType) input.ReadEnum();
             break;
           }
@@ -217,7 +217,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 56: {
+          case 32: {
             CurBasicType = (global::EggLink.DanhengServer.Proto.HeroBasicType) input.ReadEnum();
             break;
           }

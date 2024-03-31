@@ -13,6 +13,9 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Avatar
                 CurBasicType = (HeroBasicType)player.Data.CurBasicType,
             };
 
+            if (player.AvatarManager?.GetHero() != null)
+                proto.BasicTypeInfoList.Add(player.AvatarManager?.GetHero()?.ToHeroProto());
+
             SetData(proto);
         }
     }

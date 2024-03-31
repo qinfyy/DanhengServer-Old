@@ -18,7 +18,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Player
         {
             var rsp = new PlayerGetTokenScRsp()
             {
-                Retcode = 114514,
+                Retcode = 0,
             };
 
             SetData(rsp);

@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static PlayerKickOutScNotifyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChtQbGF5ZXJLaWNrT3V0U2NOb3RpZnkucHJvdG8aDktpY2tUeXBlLnByb3Rv",
-            "Gg9CbGFja0luZm8ucHJvdG8iVQoVUGxheWVyS2lja091dFNjTm90aWZ5EhwK",
-            "CWtpY2tfdHlwZRgBIAEoDjIJLktpY2tUeXBlEh4KCmJsYWNrX2luZm8YAiAB",
+            "ChtQbGF5ZXJLaWNrT3V0U2NOb3RpZnkucHJvdG8aD0JsYWNrSW5mby5wcm90",
+            "bxoOS2lja1R5cGUucHJvdG8iVQoVUGxheWVyS2lja091dFNjTm90aWZ5EhwK",
+            "CWtpY2tfdHlwZRgDIAEoDjIJLktpY2tUeXBlEh4KCmJsYWNrX2luZm8YCiAB",
             "KAsyCi5CbGFja0luZm9CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90",
             "b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.KickTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.BlackInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.BlackInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.KickTypeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.PlayerKickOutScNotify), global::EggLink.DanhengServer.Proto.PlayerKickOutScNotify.Parser, new[]{ "KickType", "BlackInfo" }, null, null, null, null)
           }));
@@ -86,7 +86,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "kick_type" field.</summary>
-    public const int KickTypeFieldNumber = 1;
+    public const int KickTypeFieldNumber = 3;
     private global::EggLink.DanhengServer.Proto.KickType kickType_ = global::EggLink.DanhengServer.Proto.KickType.KickSqueezed;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -98,7 +98,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "black_info" field.</summary>
-    public const int BlackInfoFieldNumber = 2;
+    public const int BlackInfoFieldNumber = 10;
     private global::EggLink.DanhengServer.Proto.BlackInfo blackInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -154,11 +154,11 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (KickType != global::EggLink.DanhengServer.Proto.KickType.KickSqueezed) {
-        output.WriteRawTag(8);
+        output.WriteRawTag(24);
         output.WriteEnum((int) KickType);
       }
       if (blackInfo_ != null) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(82);
         output.WriteMessage(BlackInfo);
       }
       if (_unknownFields != null) {
@@ -172,11 +172,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (KickType != global::EggLink.DanhengServer.Proto.KickType.KickSqueezed) {
-        output.WriteRawTag(8);
+        output.WriteRawTag(24);
         output.WriteEnum((int) KickType);
       }
       if (blackInfo_ != null) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(82);
         output.WriteMessage(BlackInfo);
       }
       if (_unknownFields != null) {
@@ -231,11 +231,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
+          case 24: {
             KickType = (global::EggLink.DanhengServer.Proto.KickType) input.ReadEnum();
             break;
           }
-          case 18: {
+          case 82: {
             if (blackInfo_ == null) {
               BlackInfo = new global::EggLink.DanhengServer.Proto.BlackInfo();
             }
@@ -257,11 +257,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
+          case 24: {
             KickType = (global::EggLink.DanhengServer.Proto.KickType) input.ReadEnum();
             break;
           }
-          case 18: {
+          case 82: {
             if (blackInfo_ == null) {
               BlackInfo = new global::EggLink.DanhengServer.Proto.BlackInfo();
             }

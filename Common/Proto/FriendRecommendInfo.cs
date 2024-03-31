@@ -26,12 +26,12 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "ChlGcmllbmRSZWNvbW1lbmRJbmZvLnByb3RvGhZQbGF5ZXJTaW1wbGVJbmZv",
             "LnByb3RvIlIKE0ZyaWVuZFJlY29tbWVuZEluZm8SJgoLcGxheWVyX2luZm8Y",
-            "DyABKAsyES5QbGF5ZXJTaW1wbGVJbmZvEhMKC0hFTERJR0xNQk1JGAQgASgI",
+            "CCABKAsyES5QbGF5ZXJTaW1wbGVJbmZvEhMKC05HQk9ER0dNSUNLGAEgASgI",
             "Qh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.PlayerSimpleInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.FriendRecommendInfo), global::EggLink.DanhengServer.Proto.FriendRecommendInfo.Parser, new[]{ "PlayerInfo", "HELDIGLMBMI" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.FriendRecommendInfo), global::EggLink.DanhengServer.Proto.FriendRecommendInfo.Parser, new[]{ "PlayerInfo", "NGBODGGMICK" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,7 +74,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public FriendRecommendInfo(FriendRecommendInfo other) : this() {
       playerInfo_ = other.playerInfo_ != null ? other.playerInfo_.Clone() : null;
-      hELDIGLMBMI_ = other.hELDIGLMBMI_;
+      nGBODGGMICK_ = other.nGBODGGMICK_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -85,7 +85,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "player_info" field.</summary>
-    public const int PlayerInfoFieldNumber = 15;
+    public const int PlayerInfoFieldNumber = 8;
     private global::EggLink.DanhengServer.Proto.PlayerSimpleInfo playerInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -96,15 +96,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "HELDIGLMBMI" field.</summary>
-    public const int HELDIGLMBMIFieldNumber = 4;
-    private bool hELDIGLMBMI_;
+    /// <summary>Field number for the "NGBODGGMICK" field.</summary>
+    public const int NGBODGGMICKFieldNumber = 1;
+    private bool nGBODGGMICK_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HELDIGLMBMI {
-      get { return hELDIGLMBMI_; }
+    public bool NGBODGGMICK {
+      get { return nGBODGGMICK_; }
       set {
-        hELDIGLMBMI_ = value;
+        nGBODGGMICK_ = value;
       }
     }
 
@@ -124,7 +124,7 @@ namespace EggLink.DanhengServer.Proto {
         return true;
       }
       if (!object.Equals(PlayerInfo, other.PlayerInfo)) return false;
-      if (HELDIGLMBMI != other.HELDIGLMBMI) return false;
+      if (NGBODGGMICK != other.NGBODGGMICK) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -133,7 +133,7 @@ namespace EggLink.DanhengServer.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (playerInfo_ != null) hash ^= PlayerInfo.GetHashCode();
-      if (HELDIGLMBMI != false) hash ^= HELDIGLMBMI.GetHashCode();
+      if (NGBODGGMICK != false) hash ^= NGBODGGMICK.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -152,12 +152,12 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (HELDIGLMBMI != false) {
-        output.WriteRawTag(32);
-        output.WriteBool(HELDIGLMBMI);
+      if (NGBODGGMICK != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(NGBODGGMICK);
       }
       if (playerInfo_ != null) {
-        output.WriteRawTag(122);
+        output.WriteRawTag(66);
         output.WriteMessage(PlayerInfo);
       }
       if (_unknownFields != null) {
@@ -170,12 +170,12 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HELDIGLMBMI != false) {
-        output.WriteRawTag(32);
-        output.WriteBool(HELDIGLMBMI);
+      if (NGBODGGMICK != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(NGBODGGMICK);
       }
       if (playerInfo_ != null) {
-        output.WriteRawTag(122);
+        output.WriteRawTag(66);
         output.WriteMessage(PlayerInfo);
       }
       if (_unknownFields != null) {
@@ -191,7 +191,7 @@ namespace EggLink.DanhengServer.Proto {
       if (playerInfo_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(PlayerInfo);
       }
-      if (HELDIGLMBMI != false) {
+      if (NGBODGGMICK != false) {
         size += 1 + 1;
       }
       if (_unknownFields != null) {
@@ -212,8 +212,8 @@ namespace EggLink.DanhengServer.Proto {
         }
         PlayerInfo.MergeFrom(other.PlayerInfo);
       }
-      if (other.HELDIGLMBMI != false) {
-        HELDIGLMBMI = other.HELDIGLMBMI;
+      if (other.NGBODGGMICK != false) {
+        NGBODGGMICK = other.NGBODGGMICK;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -230,11 +230,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 32: {
-            HELDIGLMBMI = input.ReadBool();
+          case 8: {
+            NGBODGGMICK = input.ReadBool();
             break;
           }
-          case 122: {
+          case 66: {
             if (playerInfo_ == null) {
               PlayerInfo = new global::EggLink.DanhengServer.Proto.PlayerSimpleInfo();
             }
@@ -256,11 +256,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 32: {
-            HELDIGLMBMI = input.ReadBool();
+          case 8: {
+            NGBODGGMICK = input.ReadBool();
             break;
           }
-          case 122: {
+          case 66: {
             if (playerInfo_ == null) {
               PlayerInfo = new global::EggLink.DanhengServer.Proto.PlayerSimpleInfo();
             }

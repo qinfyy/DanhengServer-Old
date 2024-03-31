@@ -71,7 +71,7 @@ namespace EggLink.DanhengServer.Game.Lineup
             {
                 lineup = new()
                 {
-                    Name = "Lineup " + lineupIndex,
+                    Name = "",
                     LineupType = 0,
                     BaseAvatars = [new() { BaseAvatarId = avatarId }],
                     LineupData = LineupData,
@@ -86,11 +86,11 @@ namespace EggLink.DanhengServer.Game.Lineup
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
             if (sendPacket)
             {
-                Player.SendPacket(new PacketSyncLineupNotify(lineup));
                 if (lineupIndex == LineupData.CurLineup)
                 {
                     Player.SceneInstance?.SyncLineup();
                 }
+                Player.SendPacket(new PacketSyncLineupNotify(lineup));
             }
         }
 
@@ -111,7 +111,7 @@ namespace EggLink.DanhengServer.Game.Lineup
             {
                 lineup = new()
                 {
-                    Name = "Lineup " + LineupData.CurLineup,
+                    Name = "",
                     LineupType = 0,
                     BaseAvatars = [new() { BaseAvatarId = specialAvatar.AvatarID, SpecialAvatarId = specialAvatarId }],
                     LineupData = LineupData,
@@ -126,8 +126,8 @@ namespace EggLink.DanhengServer.Game.Lineup
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
             if (sendPacket)
             {
-                Player.SendPacket(new PacketSyncLineupNotify(lineup));
                 Player.SceneInstance?.SyncLineup();
+                Player.SendPacket(new PacketSyncLineupNotify(lineup));
             }
         }
 
@@ -145,11 +145,11 @@ namespace EggLink.DanhengServer.Game.Lineup
             lineup.BaseAvatars?.RemoveAll(avatar => avatar.BaseAvatarId == avatarId);
             LineupInfo[lineupIndex] = lineup;
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
-            Player.SendPacket(new PacketSyncLineupNotify(lineup));
             if (lineupIndex == LineupData.CurLineup)
             {
                 Player.SceneInstance?.SyncLineup();
             }
+            Player.SendPacket(new PacketSyncLineupNotify(lineup));
         }
 
         public void RemoveAvatarFromCurTeam(int avatarId)
@@ -167,8 +167,28 @@ namespace EggLink.DanhengServer.Game.Lineup
             lineup.BaseAvatars?.RemoveAll(avatar => avatar.SpecialAvatarId == specialAvatarId);
             LineupInfo[LineupData.CurLineup] = lineup;
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
-            Player.SendPacket(new PacketSyncLineupNotify(lineup));
             Player.SceneInstance?.SyncLineup();
+            Player.SendPacket(new PacketSyncLineupNotify(lineup));
+        }
+
+        public void ReplaceLineup(Proto.ReplaceLineupCsReq req)
+        {
+            if (req.Index < 0 || !LineupInfo.ContainsKey((int)(req.Index + 1)))
+            {
+                return;
+            }
+            var lineup = LineupInfo[(int)(req.Index + 1)];
+            lineup.BaseAvatars = [];
+            foreach (var avatar in req.LineupSlotList)
+            {
+                AddAvatar((int)(req.Index + 1), (int)avatar.Id, false);
+            }
+            DatabaseHelper.Instance?.UpdateInstance(LineupData);
+            if (req.Index + 1 == LineupData.CurLineup)
+            {
+                Player.SceneInstance?.SyncLineup();
+            }
+            Player.SendPacket(new PacketSyncLineupNotify(lineup));
         }
 
         public List<AvatarSceneInfo> GetAvatarsFromTeam(int index)

@@ -24,15 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static SetStuffToAreaCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChlTZXRTdHVmZlRvQXJlYUNzUmVxLnByb3RvGhNXb3JrUG9zU3RhdHVzLnBy",
-            "b3RvImUKE1NldFN0dWZmVG9BcmVhQ3NSZXESEwoLR0JBQkFHRkFMSUEYAyAB",
-            "KA0SHAoUbXVzZXVtX3N0dWZmX2l0ZW1faWQYDiABKA0SGwoDcG9zGAYgASgO",
-            "Mg4uV29ya1Bvc1N0YXR1c0IeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlBy",
-            "b3RvYgZwcm90bzM="));
+            "ChlTZXRTdHVmZlRvQXJlYUNzUmVxLnByb3RvGg1Xb3JrUG9zLnByb3RvIlYK",
+            "E1NldFN0dWZmVG9BcmVhQ3NSZXESFQoDcG9zGA4gASgOMgguV29ya1BvcxIT",
+            "CgtCSVBISUlES0FHRhgPIAEoDRITCgtNT1BPQ0ZQT05DShgJIAEoDUIeqgIb",
+            "RWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.WorkPosStatusReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.WorkPosReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SetStuffToAreaCsReq), global::EggLink.DanhengServer.Proto.SetStuffToAreaCsReq.Parser, new[]{ "GBABAGFALIA", "MuseumStuffItemId", "Pos" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SetStuffToAreaCsReq), global::EggLink.DanhengServer.Proto.SetStuffToAreaCsReq.Parser, new[]{ "Pos", "BIPHIIDKAGF", "MOPOCFPONCJ" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,9 +73,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SetStuffToAreaCsReq(SetStuffToAreaCsReq other) : this() {
-      gBABAGFALIA_ = other.gBABAGFALIA_;
-      museumStuffItemId_ = other.museumStuffItemId_;
       pos_ = other.pos_;
+      bIPHIIDKAGF_ = other.bIPHIIDKAGF_;
+      mOPOCFPONCJ_ = other.mOPOCFPONCJ_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -86,39 +85,39 @@ namespace EggLink.DanhengServer.Proto {
       return new SetStuffToAreaCsReq(this);
     }
 
-    /// <summary>Field number for the "GBABAGFALIA" field.</summary>
-    public const int GBABAGFALIAFieldNumber = 3;
-    private uint gBABAGFALIA_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint GBABAGFALIA {
-      get { return gBABAGFALIA_; }
-      set {
-        gBABAGFALIA_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "museum_stuff_item_id" field.</summary>
-    public const int MuseumStuffItemIdFieldNumber = 14;
-    private uint museumStuffItemId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint MuseumStuffItemId {
-      get { return museumStuffItemId_; }
-      set {
-        museumStuffItemId_ = value;
-      }
-    }
-
     /// <summary>Field number for the "pos" field.</summary>
-    public const int PosFieldNumber = 6;
-    private global::EggLink.DanhengServer.Proto.WorkPosStatus pos_ = global::EggLink.DanhengServer.Proto.WorkPosStatus.WorkPosNone;
+    public const int PosFieldNumber = 14;
+    private global::EggLink.DanhengServer.Proto.WorkPos pos_ = global::EggLink.DanhengServer.Proto.WorkPos.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.WorkPosStatus Pos {
+    public global::EggLink.DanhengServer.Proto.WorkPos Pos {
       get { return pos_; }
       set {
         pos_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "BIPHIIDKAGF" field.</summary>
+    public const int BIPHIIDKAGFFieldNumber = 15;
+    private uint bIPHIIDKAGF_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint BIPHIIDKAGF {
+      get { return bIPHIIDKAGF_; }
+      set {
+        bIPHIIDKAGF_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "MOPOCFPONCJ" field.</summary>
+    public const int MOPOCFPONCJFieldNumber = 9;
+    private uint mOPOCFPONCJ_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint MOPOCFPONCJ {
+      get { return mOPOCFPONCJ_; }
+      set {
+        mOPOCFPONCJ_ = value;
       }
     }
 
@@ -137,9 +136,9 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (GBABAGFALIA != other.GBABAGFALIA) return false;
-      if (MuseumStuffItemId != other.MuseumStuffItemId) return false;
       if (Pos != other.Pos) return false;
+      if (BIPHIIDKAGF != other.BIPHIIDKAGF) return false;
+      if (MOPOCFPONCJ != other.MOPOCFPONCJ) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -147,9 +146,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (GBABAGFALIA != 0) hash ^= GBABAGFALIA.GetHashCode();
-      if (MuseumStuffItemId != 0) hash ^= MuseumStuffItemId.GetHashCode();
-      if (Pos != global::EggLink.DanhengServer.Proto.WorkPosStatus.WorkPosNone) hash ^= Pos.GetHashCode();
+      if (Pos != global::EggLink.DanhengServer.Proto.WorkPos.None) hash ^= Pos.GetHashCode();
+      if (BIPHIIDKAGF != 0) hash ^= BIPHIIDKAGF.GetHashCode();
+      if (MOPOCFPONCJ != 0) hash ^= MOPOCFPONCJ.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -168,17 +167,17 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (GBABAGFALIA != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(GBABAGFALIA);
+      if (MOPOCFPONCJ != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(MOPOCFPONCJ);
       }
-      if (Pos != global::EggLink.DanhengServer.Proto.WorkPosStatus.WorkPosNone) {
-        output.WriteRawTag(48);
+      if (Pos != global::EggLink.DanhengServer.Proto.WorkPos.None) {
+        output.WriteRawTag(112);
         output.WriteEnum((int) Pos);
       }
-      if (MuseumStuffItemId != 0) {
-        output.WriteRawTag(112);
-        output.WriteUInt32(MuseumStuffItemId);
+      if (BIPHIIDKAGF != 0) {
+        output.WriteRawTag(120);
+        output.WriteUInt32(BIPHIIDKAGF);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -190,17 +189,17 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (GBABAGFALIA != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(GBABAGFALIA);
+      if (MOPOCFPONCJ != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(MOPOCFPONCJ);
       }
-      if (Pos != global::EggLink.DanhengServer.Proto.WorkPosStatus.WorkPosNone) {
-        output.WriteRawTag(48);
+      if (Pos != global::EggLink.DanhengServer.Proto.WorkPos.None) {
+        output.WriteRawTag(112);
         output.WriteEnum((int) Pos);
       }
-      if (MuseumStuffItemId != 0) {
-        output.WriteRawTag(112);
-        output.WriteUInt32(MuseumStuffItemId);
+      if (BIPHIIDKAGF != 0) {
+        output.WriteRawTag(120);
+        output.WriteUInt32(BIPHIIDKAGF);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -212,14 +211,14 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (GBABAGFALIA != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GBABAGFALIA);
-      }
-      if (MuseumStuffItemId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MuseumStuffItemId);
-      }
-      if (Pos != global::EggLink.DanhengServer.Proto.WorkPosStatus.WorkPosNone) {
+      if (Pos != global::EggLink.DanhengServer.Proto.WorkPos.None) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Pos);
+      }
+      if (BIPHIIDKAGF != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BIPHIIDKAGF);
+      }
+      if (MOPOCFPONCJ != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MOPOCFPONCJ);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -233,14 +232,14 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.GBABAGFALIA != 0) {
-        GBABAGFALIA = other.GBABAGFALIA;
-      }
-      if (other.MuseumStuffItemId != 0) {
-        MuseumStuffItemId = other.MuseumStuffItemId;
-      }
-      if (other.Pos != global::EggLink.DanhengServer.Proto.WorkPosStatus.WorkPosNone) {
+      if (other.Pos != global::EggLink.DanhengServer.Proto.WorkPos.None) {
         Pos = other.Pos;
+      }
+      if (other.BIPHIIDKAGF != 0) {
+        BIPHIIDKAGF = other.BIPHIIDKAGF;
+      }
+      if (other.MOPOCFPONCJ != 0) {
+        MOPOCFPONCJ = other.MOPOCFPONCJ;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -257,16 +256,16 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 24: {
-            GBABAGFALIA = input.ReadUInt32();
-            break;
-          }
-          case 48: {
-            Pos = (global::EggLink.DanhengServer.Proto.WorkPosStatus) input.ReadEnum();
+          case 72: {
+            MOPOCFPONCJ = input.ReadUInt32();
             break;
           }
           case 112: {
-            MuseumStuffItemId = input.ReadUInt32();
+            Pos = (global::EggLink.DanhengServer.Proto.WorkPos) input.ReadEnum();
+            break;
+          }
+          case 120: {
+            BIPHIIDKAGF = input.ReadUInt32();
             break;
           }
         }
@@ -284,16 +283,16 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 24: {
-            GBABAGFALIA = input.ReadUInt32();
-            break;
-          }
-          case 48: {
-            Pos = (global::EggLink.DanhengServer.Proto.WorkPosStatus) input.ReadEnum();
+          case 72: {
+            MOPOCFPONCJ = input.ReadUInt32();
             break;
           }
           case 112: {
-            MuseumStuffItemId = input.ReadUInt32();
+            Pos = (global::EggLink.DanhengServer.Proto.WorkPos) input.ReadEnum();
+            break;
+          }
+          case 120: {
+            BIPHIIDKAGF = input.ReadUInt32();
             break;
           }
         }

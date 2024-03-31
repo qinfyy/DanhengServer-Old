@@ -25,13 +25,13 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CiJUYWtlTG9naW5BY3Rpdml0eVJld2FyZENzUmVxLnByb3RvIj0KHFRha2VM",
-            "b2dpbkFjdGl2aXR5UmV3YXJkQ3NSZXESEQoJdGFrZV9kYXlzGAsgASgNEgoK",
-            "AmlkGA4gASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnBy",
+            "b2dpbkFjdGl2aXR5UmV3YXJkQ3NSZXESCgoCaWQYByABKA0SEQoJdGFrZV9k",
+            "YXlzGAkgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnBy",
             "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.TakeLoginActivityRewardCsReq), global::EggLink.DanhengServer.Proto.TakeLoginActivityRewardCsReq.Parser, new[]{ "TakeDays", "Id" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.TakeLoginActivityRewardCsReq), global::EggLink.DanhengServer.Proto.TakeLoginActivityRewardCsReq.Parser, new[]{ "Id", "TakeDays" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,8 +73,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public TakeLoginActivityRewardCsReq(TakeLoginActivityRewardCsReq other) : this() {
-      takeDays_ = other.takeDays_;
       id_ = other.id_;
+      takeDays_ = other.takeDays_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,20 +84,8 @@ namespace EggLink.DanhengServer.Proto {
       return new TakeLoginActivityRewardCsReq(this);
     }
 
-    /// <summary>Field number for the "take_days" field.</summary>
-    public const int TakeDaysFieldNumber = 11;
-    private uint takeDays_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint TakeDays {
-      get { return takeDays_; }
-      set {
-        takeDays_ = value;
-      }
-    }
-
     /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 14;
+    public const int IdFieldNumber = 7;
     private uint id_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -105,6 +93,18 @@ namespace EggLink.DanhengServer.Proto {
       get { return id_; }
       set {
         id_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "take_days" field.</summary>
+    public const int TakeDaysFieldNumber = 9;
+    private uint takeDays_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint TakeDays {
+      get { return takeDays_; }
+      set {
+        takeDays_ = value;
       }
     }
 
@@ -123,8 +123,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (TakeDays != other.TakeDays) return false;
       if (Id != other.Id) return false;
+      if (TakeDays != other.TakeDays) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -132,8 +132,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (TakeDays != 0) hash ^= TakeDays.GetHashCode();
       if (Id != 0) hash ^= Id.GetHashCode();
+      if (TakeDays != 0) hash ^= TakeDays.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -152,13 +152,13 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (TakeDays != 0) {
-        output.WriteRawTag(88);
-        output.WriteUInt32(TakeDays);
-      }
       if (Id != 0) {
-        output.WriteRawTag(112);
+        output.WriteRawTag(56);
         output.WriteUInt32(Id);
+      }
+      if (TakeDays != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(TakeDays);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -170,13 +170,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (TakeDays != 0) {
-        output.WriteRawTag(88);
-        output.WriteUInt32(TakeDays);
-      }
       if (Id != 0) {
-        output.WriteRawTag(112);
+        output.WriteRawTag(56);
         output.WriteUInt32(Id);
+      }
+      if (TakeDays != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(TakeDays);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -188,11 +188,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (TakeDays != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(TakeDays);
-      }
       if (Id != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Id);
+      }
+      if (TakeDays != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(TakeDays);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -206,11 +206,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.TakeDays != 0) {
-        TakeDays = other.TakeDays;
-      }
       if (other.Id != 0) {
         Id = other.Id;
+      }
+      if (other.TakeDays != 0) {
+        TakeDays = other.TakeDays;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -227,12 +227,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 88: {
-            TakeDays = input.ReadUInt32();
+          case 56: {
+            Id = input.ReadUInt32();
             break;
           }
-          case 112: {
-            Id = input.ReadUInt32();
+          case 72: {
+            TakeDays = input.ReadUInt32();
             break;
           }
         }
@@ -250,12 +250,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 88: {
-            TakeDays = input.ReadUInt32();
+          case 56: {
+            Id = input.ReadUInt32();
             break;
           }
-          case 112: {
-            Id = input.ReadUInt32();
+          case 72: {
+            TakeDays = input.ReadUInt32();
             break;
           }
         }

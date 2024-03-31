@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Net.Sockets;
+using EggLink.DanhengServer.Common.Enums;
 using EggLink.DanhengServer.KcpSharp;
 using EggLink.DanhengServer.Util;
 using KcpSharp;
@@ -55,6 +56,13 @@ namespace EggLink.DanhengServer.Server
                 Logger.Info($"Connection with {con.RemoteEndPoint} has been closed");
             }
         }
+
+        public static Connection? GetActiveConnection(int uid)
+        {
+            var con = Connections.Values.FirstOrDefault(c => c.Player?.Uid == uid && c.State == SessionState.ACTIVE);
+            return con;
+        }
+
         public static async Task HandleHandshake(UdpReceiveResult rcv)
         {
             try

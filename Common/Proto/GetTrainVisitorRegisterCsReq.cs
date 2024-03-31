@@ -24,13 +24,15 @@ namespace EggLink.DanhengServer.Proto {
     static GetTrainVisitorRegisterCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiJHZXRUcmFpblZpc2l0b3JSZWdpc3RlckNzUmVxLnByb3RvIh4KHEdldFRy",
-            "YWluVmlzaXRvclJlZ2lzdGVyQ3NSZXFCHqoCG0VnZ0xpbmsuRGFuaGVuZ1Nl",
-            "cnZlci5Qcm90b2IGcHJvdG8z"));
+            "CiJHZXRUcmFpblZpc2l0b3JSZWdpc3RlckNzUmVxLnByb3RvGiFUcmFpblZp",
+            "c2l0b3JSZWdpc3RlckdldFR5cGUucHJvdG8iSgocR2V0VHJhaW5WaXNpdG9y",
+            "UmVnaXN0ZXJDc1JlcRIqCgR0eXBlGAwgASgOMhwuVHJhaW5WaXNpdG9yUmVn",
+            "aXN0ZXJHZXRUeXBlQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9i",
+            "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.TrainVisitorRegisterGetTypeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetTrainVisitorRegisterCsReq), global::EggLink.DanhengServer.Proto.GetTrainVisitorRegisterCsReq.Parser, null, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetTrainVisitorRegisterCsReq), global::EggLink.DanhengServer.Proto.GetTrainVisitorRegisterCsReq.Parser, new[]{ "Type" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,6 +74,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetTrainVisitorRegisterCsReq(GetTrainVisitorRegisterCsReq other) : this() {
+      type_ = other.type_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -79,6 +82,18 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetTrainVisitorRegisterCsReq Clone() {
       return new GetTrainVisitorRegisterCsReq(this);
+    }
+
+    /// <summary>Field number for the "type" field.</summary>
+    public const int TypeFieldNumber = 12;
+    private global::EggLink.DanhengServer.Proto.TrainVisitorRegisterGetType type_ = global::EggLink.DanhengServer.Proto.TrainVisitorRegisterGetType.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::EggLink.DanhengServer.Proto.TrainVisitorRegisterGetType Type {
+      get { return type_; }
+      set {
+        type_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -96,6 +111,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (Type != other.Type) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -103,6 +119,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (Type != global::EggLink.DanhengServer.Proto.TrainVisitorRegisterGetType.None) hash ^= Type.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -121,6 +138,10 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (Type != global::EggLink.DanhengServer.Proto.TrainVisitorRegisterGetType.None) {
+        output.WriteRawTag(96);
+        output.WriteEnum((int) Type);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -131,6 +152,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Type != global::EggLink.DanhengServer.Proto.TrainVisitorRegisterGetType.None) {
+        output.WriteRawTag(96);
+        output.WriteEnum((int) Type);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -141,6 +166,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (Type != global::EggLink.DanhengServer.Proto.TrainVisitorRegisterGetType.None) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -152,6 +180,9 @@ namespace EggLink.DanhengServer.Proto {
     public void MergeFrom(GetTrainVisitorRegisterCsReq other) {
       if (other == null) {
         return;
+      }
+      if (other.Type != global::EggLink.DanhengServer.Proto.TrainVisitorRegisterGetType.None) {
+        Type = other.Type;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -168,6 +199,10 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 96: {
+            Type = (global::EggLink.DanhengServer.Proto.TrainVisitorRegisterGetType) input.ReadEnum();
+            break;
+          }
         }
       }
     #endif
@@ -183,6 +218,10 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
+          case 96: {
+            Type = (global::EggLink.DanhengServer.Proto.TrainVisitorRegisterGetType) input.ReadEnum();
+            break;
+          }
         }
       }
     }

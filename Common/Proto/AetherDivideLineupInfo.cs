@@ -24,14 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static AetherDivideLineupInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChxBZXRoZXJEaXZpZGVMaW5ldXBJbmZvLnByb3RvIkkKFkFldGhlckRpdmlk",
-            "ZUxpbmV1cEluZm8SIQoZYWV0aGVyX2RpdmlkZV9saW5ldXBfbGlzdBgEIAMo",
-            "DRIMCgRzbG90GAYgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJv",
-            "dG9iBnByb3RvMw=="));
+            "ChxBZXRoZXJEaXZpZGVMaW5ldXBJbmZvLnByb3RvIjsKFkFldGhlckRpdmlk",
+            "ZUxpbmV1cEluZm8SDAoEc2xvdBgEIAEoDRITCgtBQk1ORURHTUZDQxgFIAMo",
+            "DUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.AetherDivideLineupInfo), global::EggLink.DanhengServer.Proto.AetherDivideLineupInfo.Parser, new[]{ "AetherDivideLineupList", "Slot" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.AetherDivideLineupInfo), global::EggLink.DanhengServer.Proto.AetherDivideLineupInfo.Parser, new[]{ "Slot", "ABMNEDGMFCC" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,8 +72,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public AetherDivideLineupInfo(AetherDivideLineupInfo other) : this() {
-      aetherDivideLineupList_ = other.aetherDivideLineupList_.Clone();
       slot_ = other.slot_;
+      aBMNEDGMFCC_ = other.aBMNEDGMFCC_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,19 +83,8 @@ namespace EggLink.DanhengServer.Proto {
       return new AetherDivideLineupInfo(this);
     }
 
-    /// <summary>Field number for the "aether_divide_lineup_list" field.</summary>
-    public const int AetherDivideLineupListFieldNumber = 4;
-    private static readonly pb::FieldCodec<uint> _repeated_aetherDivideLineupList_codec
-        = pb::FieldCodec.ForUInt32(34);
-    private readonly pbc::RepeatedField<uint> aetherDivideLineupList_ = new pbc::RepeatedField<uint>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<uint> AetherDivideLineupList {
-      get { return aetherDivideLineupList_; }
-    }
-
     /// <summary>Field number for the "slot" field.</summary>
-    public const int SlotFieldNumber = 6;
+    public const int SlotFieldNumber = 4;
     private uint slot_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -105,6 +93,17 @@ namespace EggLink.DanhengServer.Proto {
       set {
         slot_ = value;
       }
+    }
+
+    /// <summary>Field number for the "ABMNEDGMFCC" field.</summary>
+    public const int ABMNEDGMFCCFieldNumber = 5;
+    private static readonly pb::FieldCodec<uint> _repeated_aBMNEDGMFCC_codec
+        = pb::FieldCodec.ForUInt32(42);
+    private readonly pbc::RepeatedField<uint> aBMNEDGMFCC_ = new pbc::RepeatedField<uint>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<uint> ABMNEDGMFCC {
+      get { return aBMNEDGMFCC_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -122,8 +121,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!aetherDivideLineupList_.Equals(other.aetherDivideLineupList_)) return false;
       if (Slot != other.Slot) return false;
+      if(!aBMNEDGMFCC_.Equals(other.aBMNEDGMFCC_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -131,8 +130,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= aetherDivideLineupList_.GetHashCode();
       if (Slot != 0) hash ^= Slot.GetHashCode();
+      hash ^= aBMNEDGMFCC_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -151,11 +150,11 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      aetherDivideLineupList_.WriteTo(output, _repeated_aetherDivideLineupList_codec);
       if (Slot != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(32);
         output.WriteUInt32(Slot);
       }
+      aBMNEDGMFCC_.WriteTo(output, _repeated_aBMNEDGMFCC_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -166,11 +165,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      aetherDivideLineupList_.WriteTo(ref output, _repeated_aetherDivideLineupList_codec);
       if (Slot != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(32);
         output.WriteUInt32(Slot);
       }
+      aBMNEDGMFCC_.WriteTo(ref output, _repeated_aBMNEDGMFCC_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -181,10 +180,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += aetherDivideLineupList_.CalculateSize(_repeated_aetherDivideLineupList_codec);
       if (Slot != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Slot);
       }
+      size += aBMNEDGMFCC_.CalculateSize(_repeated_aBMNEDGMFCC_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -197,10 +196,10 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      aetherDivideLineupList_.Add(other.aetherDivideLineupList_);
       if (other.Slot != 0) {
         Slot = other.Slot;
       }
+      aBMNEDGMFCC_.Add(other.aBMNEDGMFCC_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -216,13 +215,13 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 34:
           case 32: {
-            aetherDivideLineupList_.AddEntriesFrom(input, _repeated_aetherDivideLineupList_codec);
+            Slot = input.ReadUInt32();
             break;
           }
-          case 48: {
-            Slot = input.ReadUInt32();
+          case 42:
+          case 40: {
+            aBMNEDGMFCC_.AddEntriesFrom(input, _repeated_aBMNEDGMFCC_codec);
             break;
           }
         }
@@ -240,13 +239,13 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 34:
           case 32: {
-            aetherDivideLineupList_.AddEntriesFrom(ref input, _repeated_aetherDivideLineupList_codec);
+            Slot = input.ReadUInt32();
             break;
           }
-          case 48: {
-            Slot = input.ReadUInt32();
+          case 42:
+          case 40: {
+            aBMNEDGMFCC_.AddEntriesFrom(ref input, _repeated_aBMNEDGMFCC_codec);
             break;
           }
         }

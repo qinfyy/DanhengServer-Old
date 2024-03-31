@@ -25,12 +25,12 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChdUYWtlT2ZmUmVsaWNDc1JlcS5wcm90byJEChFUYWtlT2ZmUmVsaWNDc1Jl",
-            "cRIXCg9yZWxpY190eXBlX2xpc3QYBSADKA0SFgoOYmFzZV9hdmF0YXJfaWQY",
-            "CCABKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
+            "cRIWCg5iYXNlX2F2YXRhcl9pZBgLIAEoDRIXCg9yZWxpY190eXBlX2xpc3QY",
+            "ASADKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.TakeOffRelicCsReq), global::EggLink.DanhengServer.Proto.TakeOffRelicCsReq.Parser, new[]{ "RelicTypeList", "BaseAvatarId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.TakeOffRelicCsReq), global::EggLink.DanhengServer.Proto.TakeOffRelicCsReq.Parser, new[]{ "BaseAvatarId", "RelicTypeList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,8 +72,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public TakeOffRelicCsReq(TakeOffRelicCsReq other) : this() {
-      relicTypeList_ = other.relicTypeList_.Clone();
       baseAvatarId_ = other.baseAvatarId_;
+      relicTypeList_ = other.relicTypeList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,19 +83,8 @@ namespace EggLink.DanhengServer.Proto {
       return new TakeOffRelicCsReq(this);
     }
 
-    /// <summary>Field number for the "relic_type_list" field.</summary>
-    public const int RelicTypeListFieldNumber = 5;
-    private static readonly pb::FieldCodec<uint> _repeated_relicTypeList_codec
-        = pb::FieldCodec.ForUInt32(42);
-    private readonly pbc::RepeatedField<uint> relicTypeList_ = new pbc::RepeatedField<uint>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<uint> RelicTypeList {
-      get { return relicTypeList_; }
-    }
-
     /// <summary>Field number for the "base_avatar_id" field.</summary>
-    public const int BaseAvatarIdFieldNumber = 8;
+    public const int BaseAvatarIdFieldNumber = 11;
     private uint baseAvatarId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -104,6 +93,17 @@ namespace EggLink.DanhengServer.Proto {
       set {
         baseAvatarId_ = value;
       }
+    }
+
+    /// <summary>Field number for the "relic_type_list" field.</summary>
+    public const int RelicTypeListFieldNumber = 1;
+    private static readonly pb::FieldCodec<uint> _repeated_relicTypeList_codec
+        = pb::FieldCodec.ForUInt32(10);
+    private readonly pbc::RepeatedField<uint> relicTypeList_ = new pbc::RepeatedField<uint>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<uint> RelicTypeList {
+      get { return relicTypeList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -121,8 +121,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!relicTypeList_.Equals(other.relicTypeList_)) return false;
       if (BaseAvatarId != other.BaseAvatarId) return false;
+      if(!relicTypeList_.Equals(other.relicTypeList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -130,8 +130,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= relicTypeList_.GetHashCode();
       if (BaseAvatarId != 0) hash ^= BaseAvatarId.GetHashCode();
+      hash ^= relicTypeList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -152,7 +152,7 @@ namespace EggLink.DanhengServer.Proto {
     #else
       relicTypeList_.WriteTo(output, _repeated_relicTypeList_codec);
       if (BaseAvatarId != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(88);
         output.WriteUInt32(BaseAvatarId);
       }
       if (_unknownFields != null) {
@@ -167,7 +167,7 @@ namespace EggLink.DanhengServer.Proto {
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       relicTypeList_.WriteTo(ref output, _repeated_relicTypeList_codec);
       if (BaseAvatarId != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(88);
         output.WriteUInt32(BaseAvatarId);
       }
       if (_unknownFields != null) {
@@ -180,10 +180,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += relicTypeList_.CalculateSize(_repeated_relicTypeList_codec);
       if (BaseAvatarId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BaseAvatarId);
       }
+      size += relicTypeList_.CalculateSize(_repeated_relicTypeList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -196,10 +196,10 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      relicTypeList_.Add(other.relicTypeList_);
       if (other.BaseAvatarId != 0) {
         BaseAvatarId = other.BaseAvatarId;
       }
+      relicTypeList_.Add(other.relicTypeList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -215,12 +215,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 42:
-          case 40: {
+          case 10:
+          case 8: {
             relicTypeList_.AddEntriesFrom(input, _repeated_relicTypeList_codec);
             break;
           }
-          case 64: {
+          case 88: {
             BaseAvatarId = input.ReadUInt32();
             break;
           }
@@ -239,12 +239,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 42:
-          case 40: {
+          case 10:
+          case 8: {
             relicTypeList_.AddEntriesFrom(ref input, _repeated_relicTypeList_codec);
             break;
           }
-          case 64: {
+          case 88: {
             BaseAvatarId = input.ReadUInt32();
             break;
           }

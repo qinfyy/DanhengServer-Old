@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static GetFirstTalkByPerformanceNpcCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CidHZXRGaXJzdFRhbGtCeVBlcmZvcm1hbmNlTnBjQ3NSZXEucHJvdG8iOgoh",
-            "R2V0Rmlyc3RUYWxrQnlQZXJmb3JtYW5jZU5wY0NzUmVxEhUKDW5wY190YWxr",
-            "X2xpc3QYBiADKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IG",
-            "cHJvdG8z"));
+            "CidHZXRGaXJzdFRhbGtCeVBlcmZvcm1hbmNlTnBjQ3NSZXEucHJvdG8iPwoh",
+            "R2V0Rmlyc3RUYWxrQnlQZXJmb3JtYW5jZU5wY0NzUmVxEhoKEmZpcnN0X3Rh",
+            "bGtfaWRfbGlzdBgDIAMoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlBy",
+            "b3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetFirstTalkByPerformanceNpcCsReq), global::EggLink.DanhengServer.Proto.GetFirstTalkByPerformanceNpcCsReq.Parser, new[]{ "NpcTalkList" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetFirstTalkByPerformanceNpcCsReq), global::EggLink.DanhengServer.Proto.GetFirstTalkByPerformanceNpcCsReq.Parser, new[]{ "FirstTalkIdList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetFirstTalkByPerformanceNpcCsReq(GetFirstTalkByPerformanceNpcCsReq other) : this() {
-      npcTalkList_ = other.npcTalkList_.Clone();
+      firstTalkIdList_ = other.firstTalkIdList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,15 +83,15 @@ namespace EggLink.DanhengServer.Proto {
       return new GetFirstTalkByPerformanceNpcCsReq(this);
     }
 
-    /// <summary>Field number for the "npc_talk_list" field.</summary>
-    public const int NpcTalkListFieldNumber = 6;
-    private static readonly pb::FieldCodec<uint> _repeated_npcTalkList_codec
-        = pb::FieldCodec.ForUInt32(50);
-    private readonly pbc::RepeatedField<uint> npcTalkList_ = new pbc::RepeatedField<uint>();
+    /// <summary>Field number for the "first_talk_id_list" field.</summary>
+    public const int FirstTalkIdListFieldNumber = 3;
+    private static readonly pb::FieldCodec<uint> _repeated_firstTalkIdList_codec
+        = pb::FieldCodec.ForUInt32(26);
+    private readonly pbc::RepeatedField<uint> firstTalkIdList_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<uint> NpcTalkList {
-      get { return npcTalkList_; }
+    public pbc::RepeatedField<uint> FirstTalkIdList {
+      get { return firstTalkIdList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -109,7 +109,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!npcTalkList_.Equals(other.npcTalkList_)) return false;
+      if(!firstTalkIdList_.Equals(other.firstTalkIdList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -117,7 +117,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= npcTalkList_.GetHashCode();
+      hash ^= firstTalkIdList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -136,7 +136,7 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      npcTalkList_.WriteTo(output, _repeated_npcTalkList_codec);
+      firstTalkIdList_.WriteTo(output, _repeated_firstTalkIdList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -147,7 +147,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      npcTalkList_.WriteTo(ref output, _repeated_npcTalkList_codec);
+      firstTalkIdList_.WriteTo(ref output, _repeated_firstTalkIdList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -158,7 +158,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += npcTalkList_.CalculateSize(_repeated_npcTalkList_codec);
+      size += firstTalkIdList_.CalculateSize(_repeated_firstTalkIdList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -171,7 +171,7 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      npcTalkList_.Add(other.npcTalkList_);
+      firstTalkIdList_.Add(other.firstTalkIdList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -187,9 +187,9 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 50:
-          case 48: {
-            npcTalkList_.AddEntriesFrom(input, _repeated_npcTalkList_codec);
+          case 26:
+          case 24: {
+            firstTalkIdList_.AddEntriesFrom(input, _repeated_firstTalkIdList_codec);
             break;
           }
         }
@@ -207,9 +207,9 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 50:
-          case 48: {
-            npcTalkList_.AddEntriesFrom(ref input, _repeated_npcTalkList_codec);
+          case 26:
+          case 24: {
+            firstTalkIdList_.AddEntriesFrom(ref input, _repeated_firstTalkIdList_codec);
             break;
           }
         }

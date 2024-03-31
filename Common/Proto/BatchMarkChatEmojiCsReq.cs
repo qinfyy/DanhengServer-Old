@@ -25,7 +25,7 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Ch1CYXRjaE1hcmtDaGF0RW1vamlDc1JlcS5wcm90byI3ChdCYXRjaE1hcmtD",
-            "aGF0RW1vamlDc1JlcRIcChRtYXJrZWRfZW1vamlfaWRfbGlzdBgOIAMoDUIe",
+            "aGF0RW1vamlDc1JlcRIcChRtYXJrZWRfZW1vamlfaWRfbGlzdBgKIAMoDUIe",
             "qgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -83,9 +83,9 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "marked_emoji_id_list" field.</summary>
-    public const int MarkedEmojiIdListFieldNumber = 14;
+    public const int MarkedEmojiIdListFieldNumber = 10;
     private static readonly pb::FieldCodec<uint> _repeated_markedEmojiIdList_codec
-        = pb::FieldCodec.ForUInt32(114);
+        = pb::FieldCodec.ForUInt32(82);
     private readonly pbc::RepeatedField<uint> markedEmojiIdList_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -186,8 +186,8 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 114:
-          case 112: {
+          case 82:
+          case 80: {
             markedEmojiIdList_.AddEntriesFrom(input, _repeated_markedEmojiIdList_codec);
             break;
           }
@@ -206,8 +206,8 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 114:
-          case 112: {
+          case 82:
+          case 80: {
             markedEmojiIdList_.AddEntriesFrom(ref input, _repeated_markedEmojiIdList_codec);
             break;
           }

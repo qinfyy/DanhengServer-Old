@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "Ch1TeW5jUm9ndWVGaW5pc2hTY05vdGlmeS5wcm90bxoVUm9ndWVGaW5pc2hJ",
             "bmZvLnByb3RvIkAKF1N5bmNSb2d1ZUZpbmlzaFNjTm90aWZ5EiUKC2Zpbmlz",
-            "aF9pbmZvGAEgASgLMhAuUm9ndWVGaW5pc2hJbmZvQh6qAhtFZ2dMaW5rLkRh",
+            "aF9pbmZvGAwgASgLMhAuUm9ndWVGaW5pc2hJbmZvQh6qAhtFZ2dMaW5rLkRh",
             "bmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RogueFinishInfoReflection.Descriptor, },
@@ -84,7 +84,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "finish_info" field.</summary>
-    public const int FinishInfoFieldNumber = 1;
+    public const int FinishInfoFieldNumber = 12;
     private global::EggLink.DanhengServer.Proto.RogueFinishInfo finishInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -138,7 +138,7 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (finishInfo_ != null) {
-        output.WriteRawTag(10);
+        output.WriteRawTag(98);
         output.WriteMessage(FinishInfo);
       }
       if (_unknownFields != null) {
@@ -152,7 +152,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (finishInfo_ != null) {
-        output.WriteRawTag(10);
+        output.WriteRawTag(98);
         output.WriteMessage(FinishInfo);
       }
       if (_unknownFields != null) {
@@ -201,7 +201,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 98: {
             if (finishInfo_ == null) {
               FinishInfo = new global::EggLink.DanhengServer.Proto.RogueFinishInfo();
             }
@@ -223,7 +223,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
+          case 98: {
             if (finishInfo_ == null) {
               FinishInfo = new global::EggLink.DanhengServer.Proto.RogueFinishInfo();
             }

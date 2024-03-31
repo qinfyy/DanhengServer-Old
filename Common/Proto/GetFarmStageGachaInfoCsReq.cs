@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "CiBHZXRGYXJtU3RhZ2VHYWNoYUluZm9Dc1JlcS5wcm90byI+ChpHZXRGYXJt",
             "U3RhZ2VHYWNoYUluZm9Dc1JlcRIgChhmYXJtX3N0YWdlX2dhY2hhX2lkX2xp",
-            "c3QYDCADKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJv",
+            "c3QYBSADKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJv",
             "dG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -84,9 +84,9 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "farm_stage_gacha_id_list" field.</summary>
-    public const int FarmStageGachaIdListFieldNumber = 12;
+    public const int FarmStageGachaIdListFieldNumber = 5;
     private static readonly pb::FieldCodec<uint> _repeated_farmStageGachaIdList_codec
-        = pb::FieldCodec.ForUInt32(98);
+        = pb::FieldCodec.ForUInt32(42);
     private readonly pbc::RepeatedField<uint> farmStageGachaIdList_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -187,8 +187,8 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 98:
-          case 96: {
+          case 42:
+          case 40: {
             farmStageGachaIdList_.AddEntriesFrom(input, _repeated_farmStageGachaIdList_codec);
             break;
           }
@@ -207,8 +207,8 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 98:
-          case 96: {
+          case 42:
+          case 40: {
             farmStageGachaIdList_.AddEntriesFrom(ref input, _repeated_farmStageGachaIdList_codec);
             break;
           }

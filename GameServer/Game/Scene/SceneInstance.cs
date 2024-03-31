@@ -71,6 +71,7 @@ namespace EggLink.DanhengServer.Game.Scene
             foreach (var avatar in Player.LineupManager?.GetAvatarsFromCurTeam() ?? [])
             {
                 if (avatar == null) continue;
+                avatar.AvatarInfo.PlayerData = Player.Data;
                 if (forceSetEntityId)
                 {
                     avatar.AvatarInfo.EntityId = ++LastEntityId;

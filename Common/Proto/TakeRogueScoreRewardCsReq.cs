@@ -25,13 +25,13 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Ch9UYWtlUm9ndWVTY29yZVJld2FyZENzUmVxLnByb3RvIkEKGVRha2VSb2d1",
-            "ZVNjb3JlUmV3YXJkQ3NSZXESEwoLTUZPRlBPREdIS0wYCyADKA0SDwoHcG9v",
-            "bF9pZBgEIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZw",
+            "ZVNjb3JlUmV3YXJkQ3NSZXESEwoLSkVMSUtESUVGRVAYBiADKA0SDwoHcG9v",
+            "bF9pZBgKIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZw",
             "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.TakeRogueScoreRewardCsReq), global::EggLink.DanhengServer.Proto.TakeRogueScoreRewardCsReq.Parser, new[]{ "MFOFPODGHKL", "PoolId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.TakeRogueScoreRewardCsReq), global::EggLink.DanhengServer.Proto.TakeRogueScoreRewardCsReq.Parser, new[]{ "JELIKDIEFEP", "PoolId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public TakeRogueScoreRewardCsReq(TakeRogueScoreRewardCsReq other) : this() {
-      mFOFPODGHKL_ = other.mFOFPODGHKL_.Clone();
+      jELIKDIEFEP_ = other.jELIKDIEFEP_.Clone();
       poolId_ = other.poolId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -84,19 +84,19 @@ namespace EggLink.DanhengServer.Proto {
       return new TakeRogueScoreRewardCsReq(this);
     }
 
-    /// <summary>Field number for the "MFOFPODGHKL" field.</summary>
-    public const int MFOFPODGHKLFieldNumber = 11;
-    private static readonly pb::FieldCodec<uint> _repeated_mFOFPODGHKL_codec
-        = pb::FieldCodec.ForUInt32(90);
-    private readonly pbc::RepeatedField<uint> mFOFPODGHKL_ = new pbc::RepeatedField<uint>();
+    /// <summary>Field number for the "JELIKDIEFEP" field.</summary>
+    public const int JELIKDIEFEPFieldNumber = 6;
+    private static readonly pb::FieldCodec<uint> _repeated_jELIKDIEFEP_codec
+        = pb::FieldCodec.ForUInt32(50);
+    private readonly pbc::RepeatedField<uint> jELIKDIEFEP_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<uint> MFOFPODGHKL {
-      get { return mFOFPODGHKL_; }
+    public pbc::RepeatedField<uint> JELIKDIEFEP {
+      get { return jELIKDIEFEP_; }
     }
 
     /// <summary>Field number for the "pool_id" field.</summary>
-    public const int PoolIdFieldNumber = 4;
+    public const int PoolIdFieldNumber = 10;
     private uint poolId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -122,7 +122,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!mFOFPODGHKL_.Equals(other.mFOFPODGHKL_)) return false;
+      if(!jELIKDIEFEP_.Equals(other.jELIKDIEFEP_)) return false;
       if (PoolId != other.PoolId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -131,7 +131,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= mFOFPODGHKL_.GetHashCode();
+      hash ^= jELIKDIEFEP_.GetHashCode();
       if (PoolId != 0) hash ^= PoolId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -151,11 +151,11 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      jELIKDIEFEP_.WriteTo(output, _repeated_jELIKDIEFEP_codec);
       if (PoolId != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(80);
         output.WriteUInt32(PoolId);
       }
-      mFOFPODGHKL_.WriteTo(output, _repeated_mFOFPODGHKL_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -166,11 +166,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      jELIKDIEFEP_.WriteTo(ref output, _repeated_jELIKDIEFEP_codec);
       if (PoolId != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(80);
         output.WriteUInt32(PoolId);
       }
-      mFOFPODGHKL_.WriteTo(ref output, _repeated_mFOFPODGHKL_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -181,7 +181,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += mFOFPODGHKL_.CalculateSize(_repeated_mFOFPODGHKL_codec);
+      size += jELIKDIEFEP_.CalculateSize(_repeated_jELIKDIEFEP_codec);
       if (PoolId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PoolId);
       }
@@ -197,7 +197,7 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      mFOFPODGHKL_.Add(other.mFOFPODGHKL_);
+      jELIKDIEFEP_.Add(other.jELIKDIEFEP_);
       if (other.PoolId != 0) {
         PoolId = other.PoolId;
       }
@@ -216,13 +216,13 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 32: {
-            PoolId = input.ReadUInt32();
+          case 50:
+          case 48: {
+            jELIKDIEFEP_.AddEntriesFrom(input, _repeated_jELIKDIEFEP_codec);
             break;
           }
-          case 90:
-          case 88: {
-            mFOFPODGHKL_.AddEntriesFrom(input, _repeated_mFOFPODGHKL_codec);
+          case 80: {
+            PoolId = input.ReadUInt32();
             break;
           }
         }
@@ -240,13 +240,13 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 32: {
-            PoolId = input.ReadUInt32();
+          case 50:
+          case 48: {
+            jELIKDIEFEP_.AddEntriesFrom(ref input, _repeated_jELIKDIEFEP_codec);
             break;
           }
-          case 90:
-          case 88: {
-            mFOFPODGHKL_.AddEntriesFrom(ref input, _repeated_mFOFPODGHKL_codec);
+          case 80: {
+            PoolId = input.ReadUInt32();
             break;
           }
         }

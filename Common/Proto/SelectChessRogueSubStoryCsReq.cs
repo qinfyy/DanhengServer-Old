@@ -25,14 +25,14 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CiNTZWxlY3RDaGVzc1JvZ3VlU3ViU3RvcnlDc1JlcS5wcm90byJ5Ch1TZWxl",
-            "Y3RDaGVzc1JvZ3VlU3ViU3RvcnlDc1JlcRITCgtNR0FFS1BHSEpFRRgMIAEo",
-            "DRIZChFkaWFsb2d1ZV9ldmVudF9pZBgJIAEoDRITCgtHRklOTUZLTERCTBgE",
-            "IAEoDRITCgtFT0JCTUdBT01MRRgNIAEoDUIeqgIbRWdnTGluay5EYW5oZW5n",
+            "Y3RDaGVzc1JvZ3VlU3ViU3RvcnlDc1JlcRITCgtIRUlFT0ZITUFDQRgBIAEo",
+            "DRITCgtHS0FJT0dOQ0RORRgHIAEoDRITCgtPR0FET0RLR0xOTBgFIAEoDRIZ",
+            "ChFkaWFsb2d1ZV9ldmVudF9pZBgPIAEoDUIeqgIbRWdnTGluay5EYW5oZW5n",
             "U2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SelectChessRogueSubStoryCsReq), global::EggLink.DanhengServer.Proto.SelectChessRogueSubStoryCsReq.Parser, new[]{ "MGAEKPGHJEE", "DialogueEventId", "GFINMFKLDBL", "EOBBMGAOMLE" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SelectChessRogueSubStoryCsReq), global::EggLink.DanhengServer.Proto.SelectChessRogueSubStoryCsReq.Parser, new[]{ "HEIEOFHMACA", "GKAIOGNCDNE", "OGADODKGLNL", "DialogueEventId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,10 +74,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SelectChessRogueSubStoryCsReq(SelectChessRogueSubStoryCsReq other) : this() {
-      mGAEKPGHJEE_ = other.mGAEKPGHJEE_;
+      hEIEOFHMACA_ = other.hEIEOFHMACA_;
+      gKAIOGNCDNE_ = other.gKAIOGNCDNE_;
+      oGADODKGLNL_ = other.oGADODKGLNL_;
       dialogueEventId_ = other.dialogueEventId_;
-      gFINMFKLDBL_ = other.gFINMFKLDBL_;
-      eOBBMGAOMLE_ = other.eOBBMGAOMLE_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -87,20 +87,44 @@ namespace EggLink.DanhengServer.Proto {
       return new SelectChessRogueSubStoryCsReq(this);
     }
 
-    /// <summary>Field number for the "MGAEKPGHJEE" field.</summary>
-    public const int MGAEKPGHJEEFieldNumber = 12;
-    private uint mGAEKPGHJEE_;
+    /// <summary>Field number for the "HEIEOFHMACA" field.</summary>
+    public const int HEIEOFHMACAFieldNumber = 1;
+    private uint hEIEOFHMACA_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint MGAEKPGHJEE {
-      get { return mGAEKPGHJEE_; }
+    public uint HEIEOFHMACA {
+      get { return hEIEOFHMACA_; }
       set {
-        mGAEKPGHJEE_ = value;
+        hEIEOFHMACA_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "GKAIOGNCDNE" field.</summary>
+    public const int GKAIOGNCDNEFieldNumber = 7;
+    private uint gKAIOGNCDNE_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint GKAIOGNCDNE {
+      get { return gKAIOGNCDNE_; }
+      set {
+        gKAIOGNCDNE_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "OGADODKGLNL" field.</summary>
+    public const int OGADODKGLNLFieldNumber = 5;
+    private uint oGADODKGLNL_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint OGADODKGLNL {
+      get { return oGADODKGLNL_; }
+      set {
+        oGADODKGLNL_ = value;
       }
     }
 
     /// <summary>Field number for the "dialogue_event_id" field.</summary>
-    public const int DialogueEventIdFieldNumber = 9;
+    public const int DialogueEventIdFieldNumber = 15;
     private uint dialogueEventId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -108,30 +132,6 @@ namespace EggLink.DanhengServer.Proto {
       get { return dialogueEventId_; }
       set {
         dialogueEventId_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "GFINMFKLDBL" field.</summary>
-    public const int GFINMFKLDBLFieldNumber = 4;
-    private uint gFINMFKLDBL_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint GFINMFKLDBL {
-      get { return gFINMFKLDBL_; }
-      set {
-        gFINMFKLDBL_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "EOBBMGAOMLE" field.</summary>
-    public const int EOBBMGAOMLEFieldNumber = 13;
-    private uint eOBBMGAOMLE_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint EOBBMGAOMLE {
-      get { return eOBBMGAOMLE_; }
-      set {
-        eOBBMGAOMLE_ = value;
       }
     }
 
@@ -150,10 +150,10 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (MGAEKPGHJEE != other.MGAEKPGHJEE) return false;
+      if (HEIEOFHMACA != other.HEIEOFHMACA) return false;
+      if (GKAIOGNCDNE != other.GKAIOGNCDNE) return false;
+      if (OGADODKGLNL != other.OGADODKGLNL) return false;
       if (DialogueEventId != other.DialogueEventId) return false;
-      if (GFINMFKLDBL != other.GFINMFKLDBL) return false;
-      if (EOBBMGAOMLE != other.EOBBMGAOMLE) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -161,10 +161,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (MGAEKPGHJEE != 0) hash ^= MGAEKPGHJEE.GetHashCode();
+      if (HEIEOFHMACA != 0) hash ^= HEIEOFHMACA.GetHashCode();
+      if (GKAIOGNCDNE != 0) hash ^= GKAIOGNCDNE.GetHashCode();
+      if (OGADODKGLNL != 0) hash ^= OGADODKGLNL.GetHashCode();
       if (DialogueEventId != 0) hash ^= DialogueEventId.GetHashCode();
-      if (GFINMFKLDBL != 0) hash ^= GFINMFKLDBL.GetHashCode();
-      if (EOBBMGAOMLE != 0) hash ^= EOBBMGAOMLE.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -183,21 +183,21 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (GFINMFKLDBL != 0) {
-        output.WriteRawTag(32);
-        output.WriteUInt32(GFINMFKLDBL);
+      if (HEIEOFHMACA != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(HEIEOFHMACA);
+      }
+      if (OGADODKGLNL != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(OGADODKGLNL);
+      }
+      if (GKAIOGNCDNE != 0) {
+        output.WriteRawTag(56);
+        output.WriteUInt32(GKAIOGNCDNE);
       }
       if (DialogueEventId != 0) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(120);
         output.WriteUInt32(DialogueEventId);
-      }
-      if (MGAEKPGHJEE != 0) {
-        output.WriteRawTag(96);
-        output.WriteUInt32(MGAEKPGHJEE);
-      }
-      if (EOBBMGAOMLE != 0) {
-        output.WriteRawTag(104);
-        output.WriteUInt32(EOBBMGAOMLE);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -209,21 +209,21 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (GFINMFKLDBL != 0) {
-        output.WriteRawTag(32);
-        output.WriteUInt32(GFINMFKLDBL);
+      if (HEIEOFHMACA != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(HEIEOFHMACA);
+      }
+      if (OGADODKGLNL != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(OGADODKGLNL);
+      }
+      if (GKAIOGNCDNE != 0) {
+        output.WriteRawTag(56);
+        output.WriteUInt32(GKAIOGNCDNE);
       }
       if (DialogueEventId != 0) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(120);
         output.WriteUInt32(DialogueEventId);
-      }
-      if (MGAEKPGHJEE != 0) {
-        output.WriteRawTag(96);
-        output.WriteUInt32(MGAEKPGHJEE);
-      }
-      if (EOBBMGAOMLE != 0) {
-        output.WriteRawTag(104);
-        output.WriteUInt32(EOBBMGAOMLE);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -235,17 +235,17 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (MGAEKPGHJEE != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MGAEKPGHJEE);
+      if (HEIEOFHMACA != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(HEIEOFHMACA);
+      }
+      if (GKAIOGNCDNE != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GKAIOGNCDNE);
+      }
+      if (OGADODKGLNL != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OGADODKGLNL);
       }
       if (DialogueEventId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DialogueEventId);
-      }
-      if (GFINMFKLDBL != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GFINMFKLDBL);
-      }
-      if (EOBBMGAOMLE != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EOBBMGAOMLE);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -259,17 +259,17 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.MGAEKPGHJEE != 0) {
-        MGAEKPGHJEE = other.MGAEKPGHJEE;
+      if (other.HEIEOFHMACA != 0) {
+        HEIEOFHMACA = other.HEIEOFHMACA;
+      }
+      if (other.GKAIOGNCDNE != 0) {
+        GKAIOGNCDNE = other.GKAIOGNCDNE;
+      }
+      if (other.OGADODKGLNL != 0) {
+        OGADODKGLNL = other.OGADODKGLNL;
       }
       if (other.DialogueEventId != 0) {
         DialogueEventId = other.DialogueEventId;
-      }
-      if (other.GFINMFKLDBL != 0) {
-        GFINMFKLDBL = other.GFINMFKLDBL;
-      }
-      if (other.EOBBMGAOMLE != 0) {
-        EOBBMGAOMLE = other.EOBBMGAOMLE;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -286,20 +286,20 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 32: {
-            GFINMFKLDBL = input.ReadUInt32();
+          case 8: {
+            HEIEOFHMACA = input.ReadUInt32();
             break;
           }
-          case 72: {
+          case 40: {
+            OGADODKGLNL = input.ReadUInt32();
+            break;
+          }
+          case 56: {
+            GKAIOGNCDNE = input.ReadUInt32();
+            break;
+          }
+          case 120: {
             DialogueEventId = input.ReadUInt32();
-            break;
-          }
-          case 96: {
-            MGAEKPGHJEE = input.ReadUInt32();
-            break;
-          }
-          case 104: {
-            EOBBMGAOMLE = input.ReadUInt32();
             break;
           }
         }
@@ -317,20 +317,20 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 32: {
-            GFINMFKLDBL = input.ReadUInt32();
+          case 8: {
+            HEIEOFHMACA = input.ReadUInt32();
             break;
           }
-          case 72: {
+          case 40: {
+            OGADODKGLNL = input.ReadUInt32();
+            break;
+          }
+          case 56: {
+            GKAIOGNCDNE = input.ReadUInt32();
+            break;
+          }
+          case 120: {
             DialogueEventId = input.ReadUInt32();
-            break;
-          }
-          case 96: {
-            MGAEKPGHJEE = input.ReadUInt32();
-            break;
-          }
-          case 104: {
-            EOBBMGAOMLE = input.ReadUInt32();
             break;
           }
         }

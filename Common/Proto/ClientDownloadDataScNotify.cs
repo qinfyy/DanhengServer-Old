@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "CiBDbGllbnREb3dubG9hZERhdGFTY05vdGlmeS5wcm90bxoYQ2xpZW50RG93",
             "bmxvYWREYXRhLnByb3RvIkgKGkNsaWVudERvd25sb2FkRGF0YVNjTm90aWZ5",
-            "EioKDWRvd25sb2FkX2RhdGEYCCABKAsyEy5DbGllbnREb3dubG9hZERhdGFC",
+            "EioKDWRvd25sb2FkX2RhdGEYDCABKAsyEy5DbGllbnREb3dubG9hZERhdGFC",
             "HqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ClientDownloadDataReflection.Descriptor, },
@@ -84,7 +84,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "download_data" field.</summary>
-    public const int DownloadDataFieldNumber = 8;
+    public const int DownloadDataFieldNumber = 12;
     private global::EggLink.DanhengServer.Proto.ClientDownloadData downloadData_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -138,7 +138,7 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (downloadData_ != null) {
-        output.WriteRawTag(66);
+        output.WriteRawTag(98);
         output.WriteMessage(DownloadData);
       }
       if (_unknownFields != null) {
@@ -152,7 +152,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (downloadData_ != null) {
-        output.WriteRawTag(66);
+        output.WriteRawTag(98);
         output.WriteMessage(DownloadData);
       }
       if (_unknownFields != null) {
@@ -201,7 +201,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 66: {
+          case 98: {
             if (downloadData_ == null) {
               DownloadData = new global::EggLink.DanhengServer.Proto.ClientDownloadData();
             }
@@ -223,7 +223,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 66: {
+          case 98: {
             if (downloadData_ == null) {
               DownloadData = new global::EggLink.DanhengServer.Proto.ClientDownloadData();
             }

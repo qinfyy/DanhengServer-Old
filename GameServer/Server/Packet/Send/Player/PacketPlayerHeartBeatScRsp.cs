@@ -1,4 +1,5 @@
 ﻿using EggLink.DanhengServer.Proto;
+using EggLink.DanhengServer.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Player
             var data = new PlayerHeartBeatScRsp()
             {
                 ClientTimeMs = (ulong)clientTime,
-                ServerTimeMs = (ulong)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond),
+                ServerTimeMs = (ulong)Extensions.GetUnixMs(),
             };
 
             SetData(data);

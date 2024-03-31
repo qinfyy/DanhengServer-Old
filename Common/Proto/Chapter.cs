@@ -25,13 +25,13 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cg1DaGFwdGVyLnByb3RvGg5XYXlwb2ludC5wcm90bxoSQ2hhcHRlckJyaWVm",
-            "LnByb3RvIk4KB0NoYXB0ZXISIAoNd2F5cG9pbnRfbGlzdBgBIAMoCzIJLldh",
-            "eXBvaW50EiEKCmJyaWVmX2luZm8YAiABKAsyDS5DaGFwdGVyQnJpZWZCHqoC",
+            "LnByb3RvIk4KB0NoYXB0ZXISIQoKYnJpZWZfaW5mbxgHIAEoCzINLkNoYXB0",
+            "ZXJCcmllZhIgCg13YXlwb2ludF9saXN0GAwgAygLMgkuV2F5cG9pbnRCHqoC",
             "G0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.WaypointReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChapterBriefReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.Chapter), global::EggLink.DanhengServer.Proto.Chapter.Parser, new[]{ "WaypointList", "BriefInfo" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.Chapter), global::EggLink.DanhengServer.Proto.Chapter.Parser, new[]{ "BriefInfo", "WaypointList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,8 +73,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public Chapter(Chapter other) : this() {
-      waypointList_ = other.waypointList_.Clone();
       briefInfo_ = other.briefInfo_ != null ? other.briefInfo_.Clone() : null;
+      waypointList_ = other.waypointList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,19 +84,8 @@ namespace EggLink.DanhengServer.Proto {
       return new Chapter(this);
     }
 
-    /// <summary>Field number for the "waypoint_list" field.</summary>
-    public const int WaypointListFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.Waypoint> _repeated_waypointList_codec
-        = pb::FieldCodec.ForMessage(10, global::EggLink.DanhengServer.Proto.Waypoint.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Waypoint> waypointList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Waypoint>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Waypoint> WaypointList {
-      get { return waypointList_; }
-    }
-
     /// <summary>Field number for the "brief_info" field.</summary>
-    public const int BriefInfoFieldNumber = 2;
+    public const int BriefInfoFieldNumber = 7;
     private global::EggLink.DanhengServer.Proto.ChapterBrief briefInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -105,6 +94,17 @@ namespace EggLink.DanhengServer.Proto {
       set {
         briefInfo_ = value;
       }
+    }
+
+    /// <summary>Field number for the "waypoint_list" field.</summary>
+    public const int WaypointListFieldNumber = 12;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.Waypoint> _repeated_waypointList_codec
+        = pb::FieldCodec.ForMessage(98, global::EggLink.DanhengServer.Proto.Waypoint.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Waypoint> waypointList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Waypoint>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Waypoint> WaypointList {
+      get { return waypointList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -122,8 +122,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!waypointList_.Equals(other.waypointList_)) return false;
       if (!object.Equals(BriefInfo, other.BriefInfo)) return false;
+      if(!waypointList_.Equals(other.waypointList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -131,8 +131,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= waypointList_.GetHashCode();
       if (briefInfo_ != null) hash ^= BriefInfo.GetHashCode();
+      hash ^= waypointList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -151,11 +151,11 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      waypointList_.WriteTo(output, _repeated_waypointList_codec);
       if (briefInfo_ != null) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(58);
         output.WriteMessage(BriefInfo);
       }
+      waypointList_.WriteTo(output, _repeated_waypointList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -166,11 +166,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      waypointList_.WriteTo(ref output, _repeated_waypointList_codec);
       if (briefInfo_ != null) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(58);
         output.WriteMessage(BriefInfo);
       }
+      waypointList_.WriteTo(ref output, _repeated_waypointList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -181,10 +181,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += waypointList_.CalculateSize(_repeated_waypointList_codec);
       if (briefInfo_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(BriefInfo);
       }
+      size += waypointList_.CalculateSize(_repeated_waypointList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -197,13 +197,13 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      waypointList_.Add(other.waypointList_);
       if (other.briefInfo_ != null) {
         if (briefInfo_ == null) {
           BriefInfo = new global::EggLink.DanhengServer.Proto.ChapterBrief();
         }
         BriefInfo.MergeFrom(other.BriefInfo);
       }
+      waypointList_.Add(other.waypointList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -219,15 +219,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            waypointList_.AddEntriesFrom(input, _repeated_waypointList_codec);
-            break;
-          }
-          case 18: {
+          case 58: {
             if (briefInfo_ == null) {
               BriefInfo = new global::EggLink.DanhengServer.Proto.ChapterBrief();
             }
             input.ReadMessage(BriefInfo);
+            break;
+          }
+          case 98: {
+            waypointList_.AddEntriesFrom(input, _repeated_waypointList_codec);
             break;
           }
         }
@@ -245,15 +245,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            waypointList_.AddEntriesFrom(ref input, _repeated_waypointList_codec);
-            break;
-          }
-          case 18: {
+          case 58: {
             if (briefInfo_ == null) {
               BriefInfo = new global::EggLink.DanhengServer.Proto.ChapterBrief();
             }
             input.ReadMessage(BriefInfo);
+            break;
+          }
+          case 98: {
+            waypointList_.AddEntriesFrom(ref input, _repeated_waypointList_codec);
             break;
           }
         }

@@ -25,13 +25,13 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChdSZXBvcnRQbGF5ZXJDc1JlcS5wcm90byJMChFSZXBvcnRQbGF5ZXJDc1Jl",
-            "cRIVCg1yZWFzb25fZGV0YWlsGAIgASgJEhMKC3JlYXNvbl90eXBlGA4gASgN",
-            "EgsKA3VpZBgEIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3Rv",
+            "cRITCgtyZWFzb25fdHlwZRgNIAEoDRIVCg1yZWFzb25fZGV0YWlsGAYgASgJ",
+            "EgsKA3VpZBgDIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3Rv",
             "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ReportPlayerCsReq), global::EggLink.DanhengServer.Proto.ReportPlayerCsReq.Parser, new[]{ "ReasonDetail", "ReasonType", "Uid" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ReportPlayerCsReq), global::EggLink.DanhengServer.Proto.ReportPlayerCsReq.Parser, new[]{ "ReasonType", "ReasonDetail", "Uid" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,8 +73,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ReportPlayerCsReq(ReportPlayerCsReq other) : this() {
-      reasonDetail_ = other.reasonDetail_;
       reasonType_ = other.reasonType_;
+      reasonDetail_ = other.reasonDetail_;
       uid_ = other.uid_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -85,20 +85,8 @@ namespace EggLink.DanhengServer.Proto {
       return new ReportPlayerCsReq(this);
     }
 
-    /// <summary>Field number for the "reason_detail" field.</summary>
-    public const int ReasonDetailFieldNumber = 2;
-    private string reasonDetail_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string ReasonDetail {
-      get { return reasonDetail_; }
-      set {
-        reasonDetail_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "reason_type" field.</summary>
-    public const int ReasonTypeFieldNumber = 14;
+    public const int ReasonTypeFieldNumber = 13;
     private uint reasonType_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -109,8 +97,20 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
+    /// <summary>Field number for the "reason_detail" field.</summary>
+    public const int ReasonDetailFieldNumber = 6;
+    private string reasonDetail_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ReasonDetail {
+      get { return reasonDetail_; }
+      set {
+        reasonDetail_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "uid" field.</summary>
-    public const int UidFieldNumber = 4;
+    public const int UidFieldNumber = 3;
     private uint uid_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -136,8 +136,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (ReasonDetail != other.ReasonDetail) return false;
       if (ReasonType != other.ReasonType) return false;
+      if (ReasonDetail != other.ReasonDetail) return false;
       if (Uid != other.Uid) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -146,8 +146,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (ReasonDetail.Length != 0) hash ^= ReasonDetail.GetHashCode();
       if (ReasonType != 0) hash ^= ReasonType.GetHashCode();
+      if (ReasonDetail.Length != 0) hash ^= ReasonDetail.GetHashCode();
       if (Uid != 0) hash ^= Uid.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -167,16 +167,16 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (ReasonDetail.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(ReasonDetail);
-      }
       if (Uid != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(24);
         output.WriteUInt32(Uid);
       }
+      if (ReasonDetail.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(ReasonDetail);
+      }
       if (ReasonType != 0) {
-        output.WriteRawTag(112);
+        output.WriteRawTag(104);
         output.WriteUInt32(ReasonType);
       }
       if (_unknownFields != null) {
@@ -189,16 +189,16 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (ReasonDetail.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(ReasonDetail);
-      }
       if (Uid != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(24);
         output.WriteUInt32(Uid);
       }
+      if (ReasonDetail.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(ReasonDetail);
+      }
       if (ReasonType != 0) {
-        output.WriteRawTag(112);
+        output.WriteRawTag(104);
         output.WriteUInt32(ReasonType);
       }
       if (_unknownFields != null) {
@@ -211,11 +211,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (ReasonDetail.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ReasonDetail);
-      }
       if (ReasonType != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ReasonType);
+      }
+      if (ReasonDetail.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ReasonDetail);
       }
       if (Uid != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Uid);
@@ -232,11 +232,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.ReasonDetail.Length != 0) {
-        ReasonDetail = other.ReasonDetail;
-      }
       if (other.ReasonType != 0) {
         ReasonType = other.ReasonType;
+      }
+      if (other.ReasonDetail.Length != 0) {
+        ReasonDetail = other.ReasonDetail;
       }
       if (other.Uid != 0) {
         Uid = other.Uid;
@@ -256,15 +256,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 18: {
-            ReasonDetail = input.ReadString();
-            break;
-          }
-          case 32: {
+          case 24: {
             Uid = input.ReadUInt32();
             break;
           }
-          case 112: {
+          case 50: {
+            ReasonDetail = input.ReadString();
+            break;
+          }
+          case 104: {
             ReasonType = input.ReadUInt32();
             break;
           }
@@ -283,15 +283,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 18: {
-            ReasonDetail = input.ReadString();
-            break;
-          }
-          case 32: {
+          case 24: {
             Uid = input.ReadUInt32();
             break;
           }
-          case 112: {
+          case 50: {
+            ReasonDetail = input.ReadString();
+            break;
+          }
+          case 104: {
             ReasonType = input.ReadUInt32();
             break;
           }

@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "ChdBZGRBdmF0YXJTY05vdGlmeS5wcm90bxoOSXRlbUxpc3QucHJvdG8aF0Fk",
             "ZEF2YXRhclNyY1N0YXRlLnByb3RvIncKEUFkZEF2YXRhclNjTm90aWZ5Eg4K",
-            "BmlzX25ldxgOIAEoCBIZCgZyZXdhcmQYByABKAsyCS5JdGVtTGlzdBIWCg5i",
+            "BmlzX25ldxgGIAEoCBIZCgZyZXdhcmQYCCABKAsyCS5JdGVtTGlzdBIWCg5i",
             "YXNlX2F2YXRhcl9pZBgPIAEoDRIfCgNzcmMYDCABKA4yEi5BZGRBdmF0YXJT",
             "cmNTdGF0ZUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90",
             "bzM="));
@@ -89,7 +89,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "is_new" field.</summary>
-    public const int IsNewFieldNumber = 14;
+    public const int IsNewFieldNumber = 6;
     private bool isNew_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -101,7 +101,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "reward" field.</summary>
-    public const int RewardFieldNumber = 7;
+    public const int RewardFieldNumber = 8;
     private global::EggLink.DanhengServer.Proto.ItemList reward_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -184,17 +184,17 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (IsNew != false) {
+        output.WriteRawTag(48);
+        output.WriteBool(IsNew);
+      }
       if (reward_ != null) {
-        output.WriteRawTag(58);
+        output.WriteRawTag(66);
         output.WriteMessage(Reward);
       }
       if (Src != global::EggLink.DanhengServer.Proto.AddAvatarSrcState.AddAvatarSrcNone) {
         output.WriteRawTag(96);
         output.WriteEnum((int) Src);
-      }
-      if (IsNew != false) {
-        output.WriteRawTag(112);
-        output.WriteBool(IsNew);
       }
       if (BaseAvatarId != 0) {
         output.WriteRawTag(120);
@@ -210,17 +210,17 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (IsNew != false) {
+        output.WriteRawTag(48);
+        output.WriteBool(IsNew);
+      }
       if (reward_ != null) {
-        output.WriteRawTag(58);
+        output.WriteRawTag(66);
         output.WriteMessage(Reward);
       }
       if (Src != global::EggLink.DanhengServer.Proto.AddAvatarSrcState.AddAvatarSrcNone) {
         output.WriteRawTag(96);
         output.WriteEnum((int) Src);
-      }
-      if (IsNew != false) {
-        output.WriteRawTag(112);
-        output.WriteBool(IsNew);
       }
       if (BaseAvatarId != 0) {
         output.WriteRawTag(120);
@@ -290,7 +290,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 58: {
+          case 48: {
+            IsNew = input.ReadBool();
+            break;
+          }
+          case 66: {
             if (reward_ == null) {
               Reward = new global::EggLink.DanhengServer.Proto.ItemList();
             }
@@ -299,10 +303,6 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 96: {
             Src = (global::EggLink.DanhengServer.Proto.AddAvatarSrcState) input.ReadEnum();
-            break;
-          }
-          case 112: {
-            IsNew = input.ReadBool();
             break;
           }
           case 120: {
@@ -324,7 +324,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 58: {
+          case 48: {
+            IsNew = input.ReadBool();
+            break;
+          }
+          case 66: {
             if (reward_ == null) {
               Reward = new global::EggLink.DanhengServer.Proto.ItemList();
             }
@@ -333,10 +337,6 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 96: {
             Src = (global::EggLink.DanhengServer.Proto.AddAvatarSrcState) input.ReadEnum();
-            break;
-          }
-          case 112: {
-            IsNew = input.ReadBool();
             break;
           }
           case 120: {

@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static NpcStatusReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg9OcGNTdGF0dXMucHJvdG8iLgoJTnBjU3RhdHVzEhEKCWlzX2ZpbmlzaBgO",
-            "IAEoCBIOCgZucGNfaWQYDCABKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZl",
+            "Cg9OcGNTdGF0dXMucHJvdG8iLgoJTnBjU3RhdHVzEg4KBm5wY19pZBgEIAEo",
+            "DRIRCglpc19maW5pc2gYASABKAhCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZl",
             "ci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.NpcStatus), global::EggLink.DanhengServer.Proto.NpcStatus.Parser, new[]{ "IsFinish", "NpcId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.NpcStatus), global::EggLink.DanhengServer.Proto.NpcStatus.Parser, new[]{ "NpcId", "IsFinish" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,8 +72,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public NpcStatus(NpcStatus other) : this() {
-      isFinish_ = other.isFinish_;
       npcId_ = other.npcId_;
+      isFinish_ = other.isFinish_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,20 +83,8 @@ namespace EggLink.DanhengServer.Proto {
       return new NpcStatus(this);
     }
 
-    /// <summary>Field number for the "is_finish" field.</summary>
-    public const int IsFinishFieldNumber = 14;
-    private bool isFinish_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool IsFinish {
-      get { return isFinish_; }
-      set {
-        isFinish_ = value;
-      }
-    }
-
     /// <summary>Field number for the "npc_id" field.</summary>
-    public const int NpcIdFieldNumber = 12;
+    public const int NpcIdFieldNumber = 4;
     private uint npcId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -104,6 +92,18 @@ namespace EggLink.DanhengServer.Proto {
       get { return npcId_; }
       set {
         npcId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "is_finish" field.</summary>
+    public const int IsFinishFieldNumber = 1;
+    private bool isFinish_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsFinish {
+      get { return isFinish_; }
+      set {
+        isFinish_ = value;
       }
     }
 
@@ -122,8 +122,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (IsFinish != other.IsFinish) return false;
       if (NpcId != other.NpcId) return false;
+      if (IsFinish != other.IsFinish) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -131,8 +131,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (IsFinish != false) hash ^= IsFinish.GetHashCode();
       if (NpcId != 0) hash ^= NpcId.GetHashCode();
+      if (IsFinish != false) hash ^= IsFinish.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -151,13 +151,13 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (NpcId != 0) {
-        output.WriteRawTag(96);
-        output.WriteUInt32(NpcId);
-      }
       if (IsFinish != false) {
-        output.WriteRawTag(112);
+        output.WriteRawTag(8);
         output.WriteBool(IsFinish);
+      }
+      if (NpcId != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(NpcId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -169,13 +169,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (NpcId != 0) {
-        output.WriteRawTag(96);
-        output.WriteUInt32(NpcId);
-      }
       if (IsFinish != false) {
-        output.WriteRawTag(112);
+        output.WriteRawTag(8);
         output.WriteBool(IsFinish);
+      }
+      if (NpcId != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(NpcId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -187,11 +187,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (IsFinish != false) {
-        size += 1 + 1;
-      }
       if (NpcId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NpcId);
+      }
+      if (IsFinish != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -205,11 +205,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.IsFinish != false) {
-        IsFinish = other.IsFinish;
-      }
       if (other.NpcId != 0) {
         NpcId = other.NpcId;
+      }
+      if (other.IsFinish != false) {
+        IsFinish = other.IsFinish;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -226,12 +226,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 96: {
-            NpcId = input.ReadUInt32();
+          case 8: {
+            IsFinish = input.ReadBool();
             break;
           }
-          case 112: {
-            IsFinish = input.ReadBool();
+          case 32: {
+            NpcId = input.ReadUInt32();
             break;
           }
         }
@@ -249,12 +249,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 96: {
-            NpcId = input.ReadUInt32();
+          case 8: {
+            IsFinish = input.ReadBool();
             break;
           }
-          case 112: {
-            IsFinish = input.ReadBool();
+          case 32: {
+            NpcId = input.ReadUInt32();
             break;
           }
         }

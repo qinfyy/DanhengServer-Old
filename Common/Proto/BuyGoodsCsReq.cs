@@ -25,13 +25,13 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChNCdXlHb29kc0NzUmVxLnByb3RvImoKDUJ1eUdvb2RzQ3NSZXESDwoHc2hv",
-            "cF9pZBgFIAEoDRISCgptb25zdGVyX2lkGAggASgNEhEKCWdvb2RzX251bRgK",
-            "IAEoDRIQCghnb29kc19pZBgHIAEoDRIPCgdpdGVtX2lkGA8gASgNQh6qAhtF",
+            "cF9pZBgFIAEoDRIPCgdpdGVtX2lkGA4gASgNEhEKCWdvb2RzX251bRgEIAEo",
+            "DRIQCghnb29kc19pZBgPIAEoDRISCgptb25zdGVyX2lkGAggASgNQh6qAhtF",
             "Z2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BuyGoodsCsReq), global::EggLink.DanhengServer.Proto.BuyGoodsCsReq.Parser, new[]{ "ShopId", "MonsterId", "GoodsNum", "GoodsId", "ItemId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BuyGoodsCsReq), global::EggLink.DanhengServer.Proto.BuyGoodsCsReq.Parser, new[]{ "ShopId", "ItemId", "GoodsNum", "GoodsId", "MonsterId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,10 +74,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public BuyGoodsCsReq(BuyGoodsCsReq other) : this() {
       shopId_ = other.shopId_;
-      monsterId_ = other.monsterId_;
+      itemId_ = other.itemId_;
       goodsNum_ = other.goodsNum_;
       goodsId_ = other.goodsId_;
-      itemId_ = other.itemId_;
+      monsterId_ = other.monsterId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -99,20 +99,20 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "monster_id" field.</summary>
-    public const int MonsterIdFieldNumber = 8;
-    private uint monsterId_;
+    /// <summary>Field number for the "item_id" field.</summary>
+    public const int ItemIdFieldNumber = 14;
+    private uint itemId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint MonsterId {
-      get { return monsterId_; }
+    public uint ItemId {
+      get { return itemId_; }
       set {
-        monsterId_ = value;
+        itemId_ = value;
       }
     }
 
     /// <summary>Field number for the "goods_num" field.</summary>
-    public const int GoodsNumFieldNumber = 10;
+    public const int GoodsNumFieldNumber = 4;
     private uint goodsNum_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -124,7 +124,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "goods_id" field.</summary>
-    public const int GoodsIdFieldNumber = 7;
+    public const int GoodsIdFieldNumber = 15;
     private uint goodsId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -135,15 +135,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "item_id" field.</summary>
-    public const int ItemIdFieldNumber = 15;
-    private uint itemId_;
+    /// <summary>Field number for the "monster_id" field.</summary>
+    public const int MonsterIdFieldNumber = 8;
+    private uint monsterId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint ItemId {
-      get { return itemId_; }
+    public uint MonsterId {
+      get { return monsterId_; }
       set {
-        itemId_ = value;
+        monsterId_ = value;
       }
     }
 
@@ -163,10 +163,10 @@ namespace EggLink.DanhengServer.Proto {
         return true;
       }
       if (ShopId != other.ShopId) return false;
-      if (MonsterId != other.MonsterId) return false;
+      if (ItemId != other.ItemId) return false;
       if (GoodsNum != other.GoodsNum) return false;
       if (GoodsId != other.GoodsId) return false;
-      if (ItemId != other.ItemId) return false;
+      if (MonsterId != other.MonsterId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -175,10 +175,10 @@ namespace EggLink.DanhengServer.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (ShopId != 0) hash ^= ShopId.GetHashCode();
-      if (MonsterId != 0) hash ^= MonsterId.GetHashCode();
+      if (ItemId != 0) hash ^= ItemId.GetHashCode();
       if (GoodsNum != 0) hash ^= GoodsNum.GetHashCode();
       if (GoodsId != 0) hash ^= GoodsId.GetHashCode();
-      if (ItemId != 0) hash ^= ItemId.GetHashCode();
+      if (MonsterId != 0) hash ^= MonsterId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -197,25 +197,25 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (GoodsNum != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(GoodsNum);
+      }
       if (ShopId != 0) {
         output.WriteRawTag(40);
         output.WriteUInt32(ShopId);
-      }
-      if (GoodsId != 0) {
-        output.WriteRawTag(56);
-        output.WriteUInt32(GoodsId);
       }
       if (MonsterId != 0) {
         output.WriteRawTag(64);
         output.WriteUInt32(MonsterId);
       }
-      if (GoodsNum != 0) {
-        output.WriteRawTag(80);
-        output.WriteUInt32(GoodsNum);
-      }
       if (ItemId != 0) {
-        output.WriteRawTag(120);
+        output.WriteRawTag(112);
         output.WriteUInt32(ItemId);
+      }
+      if (GoodsId != 0) {
+        output.WriteRawTag(120);
+        output.WriteUInt32(GoodsId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -227,25 +227,25 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (GoodsNum != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(GoodsNum);
+      }
       if (ShopId != 0) {
         output.WriteRawTag(40);
         output.WriteUInt32(ShopId);
-      }
-      if (GoodsId != 0) {
-        output.WriteRawTag(56);
-        output.WriteUInt32(GoodsId);
       }
       if (MonsterId != 0) {
         output.WriteRawTag(64);
         output.WriteUInt32(MonsterId);
       }
-      if (GoodsNum != 0) {
-        output.WriteRawTag(80);
-        output.WriteUInt32(GoodsNum);
-      }
       if (ItemId != 0) {
-        output.WriteRawTag(120);
+        output.WriteRawTag(112);
         output.WriteUInt32(ItemId);
+      }
+      if (GoodsId != 0) {
+        output.WriteRawTag(120);
+        output.WriteUInt32(GoodsId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -260,8 +260,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ShopId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ShopId);
       }
-      if (MonsterId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MonsterId);
+      if (ItemId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ItemId);
       }
       if (GoodsNum != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GoodsNum);
@@ -269,8 +269,8 @@ namespace EggLink.DanhengServer.Proto {
       if (GoodsId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GoodsId);
       }
-      if (ItemId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ItemId);
+      if (MonsterId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MonsterId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -287,8 +287,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other.ShopId != 0) {
         ShopId = other.ShopId;
       }
-      if (other.MonsterId != 0) {
-        MonsterId = other.MonsterId;
+      if (other.ItemId != 0) {
+        ItemId = other.ItemId;
       }
       if (other.GoodsNum != 0) {
         GoodsNum = other.GoodsNum;
@@ -296,8 +296,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other.GoodsId != 0) {
         GoodsId = other.GoodsId;
       }
-      if (other.ItemId != 0) {
-        ItemId = other.ItemId;
+      if (other.MonsterId != 0) {
+        MonsterId = other.MonsterId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -314,24 +314,24 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 40: {
-            ShopId = input.ReadUInt32();
+          case 32: {
+            GoodsNum = input.ReadUInt32();
             break;
           }
-          case 56: {
-            GoodsId = input.ReadUInt32();
+          case 40: {
+            ShopId = input.ReadUInt32();
             break;
           }
           case 64: {
             MonsterId = input.ReadUInt32();
             break;
           }
-          case 80: {
-            GoodsNum = input.ReadUInt32();
+          case 112: {
+            ItemId = input.ReadUInt32();
             break;
           }
           case 120: {
-            ItemId = input.ReadUInt32();
+            GoodsId = input.ReadUInt32();
             break;
           }
         }
@@ -349,24 +349,24 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 40: {
-            ShopId = input.ReadUInt32();
+          case 32: {
+            GoodsNum = input.ReadUInt32();
             break;
           }
-          case 56: {
-            GoodsId = input.ReadUInt32();
+          case 40: {
+            ShopId = input.ReadUInt32();
             break;
           }
           case 64: {
             MonsterId = input.ReadUInt32();
             break;
           }
-          case 80: {
-            GoodsNum = input.ReadUInt32();
+          case 112: {
+            ItemId = input.ReadUInt32();
             break;
           }
           case 120: {
-            ItemId = input.ReadUInt32();
+            GoodsId = input.ReadUInt32();
             break;
           }
         }

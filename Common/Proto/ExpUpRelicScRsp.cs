@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "ChVFeHBVcFJlbGljU2NSc3AucHJvdG8aDlBpbGVJdGVtLnByb3RvIkcKD0V4",
             "cFVwUmVsaWNTY1JzcBIPCgdyZXRjb2RlGAEgASgNEiMKEHJldHVybl9pdGVt",
-            "X2xpc3QYDiADKAsyCS5QaWxlSXRlbUIeqgIbRWdnTGluay5EYW5oZW5nU2Vy",
+            "X2xpc3QYCyADKAsyCS5QaWxlSXRlbUIeqgIbRWdnTGluay5EYW5oZW5nU2Vy",
             "dmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.PileItemReflection.Descriptor, },
@@ -97,9 +97,9 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "return_item_list" field.</summary>
-    public const int ReturnItemListFieldNumber = 14;
+    public const int ReturnItemListFieldNumber = 11;
     private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.PileItem> _repeated_returnItemList_codec
-        = pb::FieldCodec.ForMessage(114, global::EggLink.DanhengServer.Proto.PileItem.Parser);
+        = pb::FieldCodec.ForMessage(90, global::EggLink.DanhengServer.Proto.PileItem.Parser);
     private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.PileItem> returnItemList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.PileItem>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -220,7 +220,7 @@ namespace EggLink.DanhengServer.Proto {
             Retcode = input.ReadUInt32();
             break;
           }
-          case 114: {
+          case 90: {
             returnItemList_.AddEntriesFrom(input, _repeated_returnItemList_codec);
             break;
           }
@@ -243,7 +243,7 @@ namespace EggLink.DanhengServer.Proto {
             Retcode = input.ReadUInt32();
             break;
           }
-          case 114: {
+          case 90: {
             returnItemList_.AddEntriesFrom(ref input, _repeated_returnItemList_codec);
             break;
           }

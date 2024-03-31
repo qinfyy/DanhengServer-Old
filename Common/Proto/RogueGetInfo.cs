@@ -24,20 +24,20 @@ namespace EggLink.DanhengServer.Proto {
     static RogueGetInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChJSb2d1ZUdldEluZm8ucHJvdG8aFVJvZ3VlU2Vhc29uSW5mby5wcm90bxoa",
-            "Um9ndWVTY29yZVJld2FyZEluZm8ucHJvdG8aE1JvZ3VlQWVvbkluZm8ucHJv",
-            "dG8aE1JvZ3VlQXJlYUxpc3QucHJvdG8aE1JvZ3VlSXRlbUluZm8ucHJvdG8i",
-            "9gEKDFJvZ3VlR2V0SW5mbxI2Chdyb2d1ZV9zY29yZV9yZXdhcmRfaW5mbxgP",
-            "IAEoCzIVLlJvZ3VlU2NvcmVSZXdhcmRJbmZvEicKD3JvZ3VlX2Flb25faW5m",
-            "bxgBIAEoCzIOLlJvZ3VlQWVvbkluZm8SKwoRcm9ndWVfc2Vhc29uX2luZm8Y",
-            "CyABKAsyEC5Sb2d1ZVNlYXNvbkluZm8SLwoXcm9ndWVfdmlydHVhbF9pdGVt",
-            "X2luZm8YAiABKAsyDi5Sb2d1ZUl0ZW1JbmZvEicKD3JvZ3VlX2FyZWFfaW5m",
-            "bxgOIAEoCzIOLlJvZ3VlQXJlYUxpc3RCHqoCG0VnZ0xpbmsuRGFuaGVuZ1Nl",
-            "cnZlci5Qcm90b2IGcHJvdG8z"));
+            "ChJSb2d1ZUdldEluZm8ucHJvdG8aE1JvZ3VlQXJlYUluZm8ucHJvdG8aGlJv",
+            "Z3VlU2NvcmVSZXdhcmRJbmZvLnByb3RvGhNSb2d1ZUFlb25JbmZvLnByb3Rv",
+            "GhFHQklITU5JTk9OSS5wcm90bxoVUm9ndWVTZWFzb25JbmZvLnByb3RvIvQB",
+            "CgxSb2d1ZUdldEluZm8SNgoXcm9ndWVfc2NvcmVfcmV3YXJkX2luZm8YDyAB",
+            "KAsyFS5Sb2d1ZVNjb3JlUmV3YXJkSW5mbxInCg9yb2d1ZV9hZW9uX2luZm8Y",
+            "CCABKAsyDi5Sb2d1ZUFlb25JbmZvEicKD3JvZ3VlX2FyZWFfaW5mbxgLIAEo",
+            "CzIOLlJvZ3VlQXJlYUluZm8SLQoXcm9ndWVfdmlydHVhbF9pdGVtX2luZm8Y",
+            "CSABKAsyDC5HQklITU5JTk9OSRIrChFyb2d1ZV9zZWFzb25faW5mbxgMIAEo",
+            "CzIQLlJvZ3VlU2Vhc29uSW5mb0IeqgIbRWdnTGluay5EYW5oZW5nU2VydmVy",
+            "LlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RogueSeasonInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueScoreRewardInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueAeonInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueAreaListReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueItemInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RogueAreaInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueScoreRewardInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueAeonInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.GBIHMNINONIReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueSeasonInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueGetInfo), global::EggLink.DanhengServer.Proto.RogueGetInfo.Parser, new[]{ "RogueScoreRewardInfo", "RogueAeonInfo", "RogueSeasonInfo", "RogueVirtualItemInfo", "RogueAreaInfo" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueGetInfo), global::EggLink.DanhengServer.Proto.RogueGetInfo.Parser, new[]{ "RogueScoreRewardInfo", "RogueAeonInfo", "RogueAreaInfo", "RogueVirtualItemInfo", "RogueSeasonInfo" }, null, null, null, null)
           }));
     }
     #endregion
@@ -81,9 +81,9 @@ namespace EggLink.DanhengServer.Proto {
     public RogueGetInfo(RogueGetInfo other) : this() {
       rogueScoreRewardInfo_ = other.rogueScoreRewardInfo_ != null ? other.rogueScoreRewardInfo_.Clone() : null;
       rogueAeonInfo_ = other.rogueAeonInfo_ != null ? other.rogueAeonInfo_.Clone() : null;
-      rogueSeasonInfo_ = other.rogueSeasonInfo_ != null ? other.rogueSeasonInfo_.Clone() : null;
-      rogueVirtualItemInfo_ = other.rogueVirtualItemInfo_ != null ? other.rogueVirtualItemInfo_.Clone() : null;
       rogueAreaInfo_ = other.rogueAreaInfo_ != null ? other.rogueAreaInfo_.Clone() : null;
+      rogueVirtualItemInfo_ = other.rogueVirtualItemInfo_ != null ? other.rogueVirtualItemInfo_.Clone() : null;
+      rogueSeasonInfo_ = other.rogueSeasonInfo_ != null ? other.rogueSeasonInfo_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -106,7 +106,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "rogue_aeon_info" field.</summary>
-    public const int RogueAeonInfoFieldNumber = 1;
+    public const int RogueAeonInfoFieldNumber = 8;
     private global::EggLink.DanhengServer.Proto.RogueAeonInfo rogueAeonInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -117,8 +117,32 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
+    /// <summary>Field number for the "rogue_area_info" field.</summary>
+    public const int RogueAreaInfoFieldNumber = 11;
+    private global::EggLink.DanhengServer.Proto.RogueAreaInfo rogueAreaInfo_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::EggLink.DanhengServer.Proto.RogueAreaInfo RogueAreaInfo {
+      get { return rogueAreaInfo_; }
+      set {
+        rogueAreaInfo_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "rogue_virtual_item_info" field.</summary>
+    public const int RogueVirtualItemInfoFieldNumber = 9;
+    private global::EggLink.DanhengServer.Proto.GBIHMNINONI rogueVirtualItemInfo_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::EggLink.DanhengServer.Proto.GBIHMNINONI RogueVirtualItemInfo {
+      get { return rogueVirtualItemInfo_; }
+      set {
+        rogueVirtualItemInfo_ = value;
+      }
+    }
+
     /// <summary>Field number for the "rogue_season_info" field.</summary>
-    public const int RogueSeasonInfoFieldNumber = 11;
+    public const int RogueSeasonInfoFieldNumber = 12;
     private global::EggLink.DanhengServer.Proto.RogueSeasonInfo rogueSeasonInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -126,30 +150,6 @@ namespace EggLink.DanhengServer.Proto {
       get { return rogueSeasonInfo_; }
       set {
         rogueSeasonInfo_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "rogue_virtual_item_info" field.</summary>
-    public const int RogueVirtualItemInfoFieldNumber = 2;
-    private global::EggLink.DanhengServer.Proto.RogueItemInfo rogueVirtualItemInfo_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.RogueItemInfo RogueVirtualItemInfo {
-      get { return rogueVirtualItemInfo_; }
-      set {
-        rogueVirtualItemInfo_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "rogue_area_info" field.</summary>
-    public const int RogueAreaInfoFieldNumber = 14;
-    private global::EggLink.DanhengServer.Proto.RogueAreaList rogueAreaInfo_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.RogueAreaList RogueAreaInfo {
-      get { return rogueAreaInfo_; }
-      set {
-        rogueAreaInfo_ = value;
       }
     }
 
@@ -170,9 +170,9 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (!object.Equals(RogueScoreRewardInfo, other.RogueScoreRewardInfo)) return false;
       if (!object.Equals(RogueAeonInfo, other.RogueAeonInfo)) return false;
-      if (!object.Equals(RogueSeasonInfo, other.RogueSeasonInfo)) return false;
-      if (!object.Equals(RogueVirtualItemInfo, other.RogueVirtualItemInfo)) return false;
       if (!object.Equals(RogueAreaInfo, other.RogueAreaInfo)) return false;
+      if (!object.Equals(RogueVirtualItemInfo, other.RogueVirtualItemInfo)) return false;
+      if (!object.Equals(RogueSeasonInfo, other.RogueSeasonInfo)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -182,9 +182,9 @@ namespace EggLink.DanhengServer.Proto {
       int hash = 1;
       if (rogueScoreRewardInfo_ != null) hash ^= RogueScoreRewardInfo.GetHashCode();
       if (rogueAeonInfo_ != null) hash ^= RogueAeonInfo.GetHashCode();
-      if (rogueSeasonInfo_ != null) hash ^= RogueSeasonInfo.GetHashCode();
-      if (rogueVirtualItemInfo_ != null) hash ^= RogueVirtualItemInfo.GetHashCode();
       if (rogueAreaInfo_ != null) hash ^= RogueAreaInfo.GetHashCode();
+      if (rogueVirtualItemInfo_ != null) hash ^= RogueVirtualItemInfo.GetHashCode();
+      if (rogueSeasonInfo_ != null) hash ^= RogueSeasonInfo.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -204,20 +204,20 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (rogueAeonInfo_ != null) {
-        output.WriteRawTag(10);
+        output.WriteRawTag(66);
         output.WriteMessage(RogueAeonInfo);
       }
       if (rogueVirtualItemInfo_ != null) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(74);
         output.WriteMessage(RogueVirtualItemInfo);
       }
-      if (rogueSeasonInfo_ != null) {
-        output.WriteRawTag(90);
-        output.WriteMessage(RogueSeasonInfo);
-      }
       if (rogueAreaInfo_ != null) {
-        output.WriteRawTag(114);
+        output.WriteRawTag(90);
         output.WriteMessage(RogueAreaInfo);
+      }
+      if (rogueSeasonInfo_ != null) {
+        output.WriteRawTag(98);
+        output.WriteMessage(RogueSeasonInfo);
       }
       if (rogueScoreRewardInfo_ != null) {
         output.WriteRawTag(122);
@@ -234,20 +234,20 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (rogueAeonInfo_ != null) {
-        output.WriteRawTag(10);
+        output.WriteRawTag(66);
         output.WriteMessage(RogueAeonInfo);
       }
       if (rogueVirtualItemInfo_ != null) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(74);
         output.WriteMessage(RogueVirtualItemInfo);
       }
-      if (rogueSeasonInfo_ != null) {
-        output.WriteRawTag(90);
-        output.WriteMessage(RogueSeasonInfo);
-      }
       if (rogueAreaInfo_ != null) {
-        output.WriteRawTag(114);
+        output.WriteRawTag(90);
         output.WriteMessage(RogueAreaInfo);
+      }
+      if (rogueSeasonInfo_ != null) {
+        output.WriteRawTag(98);
+        output.WriteMessage(RogueSeasonInfo);
       }
       if (rogueScoreRewardInfo_ != null) {
         output.WriteRawTag(122);
@@ -269,14 +269,14 @@ namespace EggLink.DanhengServer.Proto {
       if (rogueAeonInfo_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(RogueAeonInfo);
       }
-      if (rogueSeasonInfo_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(RogueSeasonInfo);
+      if (rogueAreaInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(RogueAreaInfo);
       }
       if (rogueVirtualItemInfo_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(RogueVirtualItemInfo);
       }
-      if (rogueAreaInfo_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(RogueAreaInfo);
+      if (rogueSeasonInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(RogueSeasonInfo);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -302,23 +302,23 @@ namespace EggLink.DanhengServer.Proto {
         }
         RogueAeonInfo.MergeFrom(other.RogueAeonInfo);
       }
+      if (other.rogueAreaInfo_ != null) {
+        if (rogueAreaInfo_ == null) {
+          RogueAreaInfo = new global::EggLink.DanhengServer.Proto.RogueAreaInfo();
+        }
+        RogueAreaInfo.MergeFrom(other.RogueAreaInfo);
+      }
+      if (other.rogueVirtualItemInfo_ != null) {
+        if (rogueVirtualItemInfo_ == null) {
+          RogueVirtualItemInfo = new global::EggLink.DanhengServer.Proto.GBIHMNINONI();
+        }
+        RogueVirtualItemInfo.MergeFrom(other.RogueVirtualItemInfo);
+      }
       if (other.rogueSeasonInfo_ != null) {
         if (rogueSeasonInfo_ == null) {
           RogueSeasonInfo = new global::EggLink.DanhengServer.Proto.RogueSeasonInfo();
         }
         RogueSeasonInfo.MergeFrom(other.RogueSeasonInfo);
-      }
-      if (other.rogueVirtualItemInfo_ != null) {
-        if (rogueVirtualItemInfo_ == null) {
-          RogueVirtualItemInfo = new global::EggLink.DanhengServer.Proto.RogueItemInfo();
-        }
-        RogueVirtualItemInfo.MergeFrom(other.RogueVirtualItemInfo);
-      }
-      if (other.rogueAreaInfo_ != null) {
-        if (rogueAreaInfo_ == null) {
-          RogueAreaInfo = new global::EggLink.DanhengServer.Proto.RogueAreaList();
-        }
-        RogueAreaInfo.MergeFrom(other.RogueAreaInfo);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -335,32 +335,32 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 66: {
             if (rogueAeonInfo_ == null) {
               RogueAeonInfo = new global::EggLink.DanhengServer.Proto.RogueAeonInfo();
             }
             input.ReadMessage(RogueAeonInfo);
             break;
           }
-          case 18: {
+          case 74: {
             if (rogueVirtualItemInfo_ == null) {
-              RogueVirtualItemInfo = new global::EggLink.DanhengServer.Proto.RogueItemInfo();
+              RogueVirtualItemInfo = new global::EggLink.DanhengServer.Proto.GBIHMNINONI();
             }
             input.ReadMessage(RogueVirtualItemInfo);
             break;
           }
           case 90: {
+            if (rogueAreaInfo_ == null) {
+              RogueAreaInfo = new global::EggLink.DanhengServer.Proto.RogueAreaInfo();
+            }
+            input.ReadMessage(RogueAreaInfo);
+            break;
+          }
+          case 98: {
             if (rogueSeasonInfo_ == null) {
               RogueSeasonInfo = new global::EggLink.DanhengServer.Proto.RogueSeasonInfo();
             }
             input.ReadMessage(RogueSeasonInfo);
-            break;
-          }
-          case 114: {
-            if (rogueAreaInfo_ == null) {
-              RogueAreaInfo = new global::EggLink.DanhengServer.Proto.RogueAreaList();
-            }
-            input.ReadMessage(RogueAreaInfo);
             break;
           }
           case 122: {
@@ -385,32 +385,32 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
+          case 66: {
             if (rogueAeonInfo_ == null) {
               RogueAeonInfo = new global::EggLink.DanhengServer.Proto.RogueAeonInfo();
             }
             input.ReadMessage(RogueAeonInfo);
             break;
           }
-          case 18: {
+          case 74: {
             if (rogueVirtualItemInfo_ == null) {
-              RogueVirtualItemInfo = new global::EggLink.DanhengServer.Proto.RogueItemInfo();
+              RogueVirtualItemInfo = new global::EggLink.DanhengServer.Proto.GBIHMNINONI();
             }
             input.ReadMessage(RogueVirtualItemInfo);
             break;
           }
           case 90: {
+            if (rogueAreaInfo_ == null) {
+              RogueAreaInfo = new global::EggLink.DanhengServer.Proto.RogueAreaInfo();
+            }
+            input.ReadMessage(RogueAreaInfo);
+            break;
+          }
+          case 98: {
             if (rogueSeasonInfo_ == null) {
               RogueSeasonInfo = new global::EggLink.DanhengServer.Proto.RogueSeasonInfo();
             }
             input.ReadMessage(RogueSeasonInfo);
-            break;
-          }
-          case 114: {
-            if (rogueAreaInfo_ == null) {
-              RogueAreaInfo = new global::EggLink.DanhengServer.Proto.RogueAreaList();
-            }
-            input.ReadMessage(RogueAreaInfo);
             break;
           }
           case 122: {

@@ -16,11 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Server\Packet\Recv\Achievement\" />
     <Folder Include="Server\Packet\Recv\ChessRogue\" />
     <Folder Include="Server\Packet\Recv\Mail\" />
     <Folder Include="Server\Packet\Recv\Friend\" />
-    <Folder Include="Server\Packet\Send\Achievement\" />
     <Folder Include="Server\Packet\Send\ChessRogue\" />
     <Folder Include="Server\Packet\Send\Friend\" />
     <Folder Include="Server\Packet\Send\Mail\" />

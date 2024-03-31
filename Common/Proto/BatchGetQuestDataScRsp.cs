@@ -25,13 +25,13 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChxCYXRjaEdldFF1ZXN0RGF0YVNjUnNwLnByb3RvGgtRdWVzdC5wcm90byJF",
-            "ChZCYXRjaEdldFF1ZXN0RGF0YVNjUnNwEhoKCnF1ZXN0X2xpc3QYDiADKAsy",
-            "Bi5RdWVzdBIPCgdyZXRjb2RlGAggASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdT",
+            "ChZCYXRjaEdldFF1ZXN0RGF0YVNjUnNwEg8KB3JldGNvZGUYBSABKA0SGgoK",
+            "cXVlc3RfbGlzdBgPIAMoCzIGLlF1ZXN0Qh6qAhtFZ2dMaW5rLkRhbmhlbmdT",
             "ZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.QuestReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BatchGetQuestDataScRsp), global::EggLink.DanhengServer.Proto.BatchGetQuestDataScRsp.Parser, new[]{ "QuestList", "Retcode" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BatchGetQuestDataScRsp), global::EggLink.DanhengServer.Proto.BatchGetQuestDataScRsp.Parser, new[]{ "Retcode", "QuestList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,8 +73,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public BatchGetQuestDataScRsp(BatchGetQuestDataScRsp other) : this() {
-      questList_ = other.questList_.Clone();
       retcode_ = other.retcode_;
+      questList_ = other.questList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,19 +84,8 @@ namespace EggLink.DanhengServer.Proto {
       return new BatchGetQuestDataScRsp(this);
     }
 
-    /// <summary>Field number for the "quest_list" field.</summary>
-    public const int QuestListFieldNumber = 14;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.Quest> _repeated_questList_codec
-        = pb::FieldCodec.ForMessage(114, global::EggLink.DanhengServer.Proto.Quest.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Quest> questList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Quest>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Quest> QuestList {
-      get { return questList_; }
-    }
-
     /// <summary>Field number for the "retcode" field.</summary>
-    public const int RetcodeFieldNumber = 8;
+    public const int RetcodeFieldNumber = 5;
     private uint retcode_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -105,6 +94,17 @@ namespace EggLink.DanhengServer.Proto {
       set {
         retcode_ = value;
       }
+    }
+
+    /// <summary>Field number for the "quest_list" field.</summary>
+    public const int QuestListFieldNumber = 15;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.Quest> _repeated_questList_codec
+        = pb::FieldCodec.ForMessage(122, global::EggLink.DanhengServer.Proto.Quest.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Quest> questList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Quest>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Quest> QuestList {
+      get { return questList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -122,8 +122,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!questList_.Equals(other.questList_)) return false;
       if (Retcode != other.Retcode) return false;
+      if(!questList_.Equals(other.questList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -131,8 +131,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= questList_.GetHashCode();
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
+      hash ^= questList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -152,7 +152,7 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (Retcode != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(40);
         output.WriteUInt32(Retcode);
       }
       questList_.WriteTo(output, _repeated_questList_codec);
@@ -167,7 +167,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (Retcode != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(40);
         output.WriteUInt32(Retcode);
       }
       questList_.WriteTo(ref output, _repeated_questList_codec);
@@ -181,10 +181,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += questList_.CalculateSize(_repeated_questList_codec);
       if (Retcode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
+      size += questList_.CalculateSize(_repeated_questList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -197,10 +197,10 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      questList_.Add(other.questList_);
       if (other.Retcode != 0) {
         Retcode = other.Retcode;
       }
+      questList_.Add(other.questList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -216,11 +216,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 64: {
+          case 40: {
             Retcode = input.ReadUInt32();
             break;
           }
-          case 114: {
+          case 122: {
             questList_.AddEntriesFrom(input, _repeated_questList_codec);
             break;
           }
@@ -239,11 +239,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 64: {
+          case 40: {
             Retcode = input.ReadUInt32();
             break;
           }
-          case 114: {
+          case 122: {
             questList_.AddEntriesFrom(ref input, _repeated_questList_codec);
             break;
           }

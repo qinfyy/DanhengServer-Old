@@ -24,15 +24,15 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueUpdateMoneyInfoScNotifyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CidDaGVzc1JvZ3VlVXBkYXRlTW9uZXlJbmZvU2NOb3RpZnkucHJvdG8aGUdh",
-            "bWVWaXJ0dWFsSXRlbUluZm8ucHJvdG8iTQohQ2hlc3NSb2d1ZVVwZGF0ZU1v",
-            "bmV5SW5mb1NjTm90aWZ5EigKCm1vbmV5X2luZm8YBSABKAsyFC5HYW1lVmly",
-            "dHVhbEl0ZW1JbmZvQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9i",
-            "BnByb3RvMw=="));
+            "CidDaGVzc1JvZ3VlVXBkYXRlTW9uZXlJbmZvU2NOb3RpZnkucHJvdG8aFlJv",
+            "Z3VlVmlydHVhbEl0ZW0ucHJvdG8iUgohQ2hlc3NSb2d1ZVVwZGF0ZU1vbmV5",
+            "SW5mb1NjTm90aWZ5Ei0KEnJvZ3VlX3ZpcnR1YWxfaXRlbRgMIAEoCzIRLlJv",
+            "Z3VlVmlydHVhbEl0ZW1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90",
+            "b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.GameVirtualItemInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RogueVirtualItemReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueUpdateMoneyInfoScNotify), global::EggLink.DanhengServer.Proto.ChessRogueUpdateMoneyInfoScNotify.Parser, new[]{ "MoneyInfo" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueUpdateMoneyInfoScNotify), global::EggLink.DanhengServer.Proto.ChessRogueUpdateMoneyInfoScNotify.Parser, new[]{ "RogueVirtualItem" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,7 +74,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ChessRogueUpdateMoneyInfoScNotify(ChessRogueUpdateMoneyInfoScNotify other) : this() {
-      moneyInfo_ = other.moneyInfo_ != null ? other.moneyInfo_.Clone() : null;
+      rogueVirtualItem_ = other.rogueVirtualItem_ != null ? other.rogueVirtualItem_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,15 +84,15 @@ namespace EggLink.DanhengServer.Proto {
       return new ChessRogueUpdateMoneyInfoScNotify(this);
     }
 
-    /// <summary>Field number for the "money_info" field.</summary>
-    public const int MoneyInfoFieldNumber = 5;
-    private global::EggLink.DanhengServer.Proto.GameVirtualItemInfo moneyInfo_;
+    /// <summary>Field number for the "rogue_virtual_item" field.</summary>
+    public const int RogueVirtualItemFieldNumber = 12;
+    private global::EggLink.DanhengServer.Proto.RogueVirtualItem rogueVirtualItem_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.GameVirtualItemInfo MoneyInfo {
-      get { return moneyInfo_; }
+    public global::EggLink.DanhengServer.Proto.RogueVirtualItem RogueVirtualItem {
+      get { return rogueVirtualItem_; }
       set {
-        moneyInfo_ = value;
+        rogueVirtualItem_ = value;
       }
     }
 
@@ -111,7 +111,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(MoneyInfo, other.MoneyInfo)) return false;
+      if (!object.Equals(RogueVirtualItem, other.RogueVirtualItem)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -119,7 +119,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (moneyInfo_ != null) hash ^= MoneyInfo.GetHashCode();
+      if (rogueVirtualItem_ != null) hash ^= RogueVirtualItem.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -138,9 +138,9 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (moneyInfo_ != null) {
-        output.WriteRawTag(42);
-        output.WriteMessage(MoneyInfo);
+      if (rogueVirtualItem_ != null) {
+        output.WriteRawTag(98);
+        output.WriteMessage(RogueVirtualItem);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -152,9 +152,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (moneyInfo_ != null) {
-        output.WriteRawTag(42);
-        output.WriteMessage(MoneyInfo);
+      if (rogueVirtualItem_ != null) {
+        output.WriteRawTag(98);
+        output.WriteMessage(RogueVirtualItem);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -166,8 +166,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (moneyInfo_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(MoneyInfo);
+      if (rogueVirtualItem_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(RogueVirtualItem);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -181,11 +181,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.moneyInfo_ != null) {
-        if (moneyInfo_ == null) {
-          MoneyInfo = new global::EggLink.DanhengServer.Proto.GameVirtualItemInfo();
+      if (other.rogueVirtualItem_ != null) {
+        if (rogueVirtualItem_ == null) {
+          RogueVirtualItem = new global::EggLink.DanhengServer.Proto.RogueVirtualItem();
         }
-        MoneyInfo.MergeFrom(other.MoneyInfo);
+        RogueVirtualItem.MergeFrom(other.RogueVirtualItem);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -202,11 +202,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 42: {
-            if (moneyInfo_ == null) {
-              MoneyInfo = new global::EggLink.DanhengServer.Proto.GameVirtualItemInfo();
+          case 98: {
+            if (rogueVirtualItem_ == null) {
+              RogueVirtualItem = new global::EggLink.DanhengServer.Proto.RogueVirtualItem();
             }
-            input.ReadMessage(MoneyInfo);
+            input.ReadMessage(RogueVirtualItem);
             break;
           }
         }
@@ -224,11 +224,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 42: {
-            if (moneyInfo_ == null) {
-              MoneyInfo = new global::EggLink.DanhengServer.Proto.GameVirtualItemInfo();
+          case 98: {
+            if (rogueVirtualItem_ == null) {
+              RogueVirtualItem = new global::EggLink.DanhengServer.Proto.RogueVirtualItem();
             }
-            input.ReadMessage(MoneyInfo);
+            input.ReadMessage(RogueVirtualItem);
             break;
           }
         }

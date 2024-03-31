@@ -25,14 +25,14 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CihHZXRGYW50YXN0aWNTdG9yeUFjdGl2aXR5RGF0YVNjUnNwLnByb3RvGhtG",
-            "YW50YXN0aWNBY3Rpdml0eURhdGEucHJvdG8ibgoiR2V0RmFudGFzdGljU3Rv",
-            "cnlBY3Rpdml0eURhdGFTY1JzcBIPCgdyZXRjb2RlGAggASgNEjcKF2ZhbnRh",
-            "c3RpY19hY3Rpdml0eV9saXN0GA0gASgLMhYuRmFudGFzdGljQWN0aXZpdHlE",
-            "YXRhQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "YW50YXN0aWNBY3Rpdml0eURhdGEucHJvdG8iYgoiR2V0RmFudGFzdGljU3Rv",
+            "cnlBY3Rpdml0eURhdGFTY1JzcBIPCgdyZXRjb2RlGAggASgNEisKC0JJSU1F",
+            "SVBISFBQGAMgASgLMhYuRmFudGFzdGljQWN0aXZpdHlEYXRhQh6qAhtFZ2dM",
+            "aW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.FantasticActivityDataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetFantasticStoryActivityDataScRsp), global::EggLink.DanhengServer.Proto.GetFantasticStoryActivityDataScRsp.Parser, new[]{ "Retcode", "FantasticActivityList" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetFantasticStoryActivityDataScRsp), global::EggLink.DanhengServer.Proto.GetFantasticStoryActivityDataScRsp.Parser, new[]{ "Retcode", "BIIMEIPHHPP" }, null, null, null, null)
           }));
     }
     #endregion
@@ -75,7 +75,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetFantasticStoryActivityDataScRsp(GetFantasticStoryActivityDataScRsp other) : this() {
       retcode_ = other.retcode_;
-      fantasticActivityList_ = other.fantasticActivityList_ != null ? other.fantasticActivityList_.Clone() : null;
+      bIIMEIPHHPP_ = other.bIIMEIPHHPP_ != null ? other.bIIMEIPHHPP_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -97,15 +97,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "fantastic_activity_list" field.</summary>
-    public const int FantasticActivityListFieldNumber = 13;
-    private global::EggLink.DanhengServer.Proto.FantasticActivityData fantasticActivityList_;
+    /// <summary>Field number for the "BIIMEIPHHPP" field.</summary>
+    public const int BIIMEIPHHPPFieldNumber = 3;
+    private global::EggLink.DanhengServer.Proto.FantasticActivityData bIIMEIPHHPP_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.FantasticActivityData FantasticActivityList {
-      get { return fantasticActivityList_; }
+    public global::EggLink.DanhengServer.Proto.FantasticActivityData BIIMEIPHHPP {
+      get { return bIIMEIPHHPP_; }
       set {
-        fantasticActivityList_ = value;
+        bIIMEIPHHPP_ = value;
       }
     }
 
@@ -125,7 +125,7 @@ namespace EggLink.DanhengServer.Proto {
         return true;
       }
       if (Retcode != other.Retcode) return false;
-      if (!object.Equals(FantasticActivityList, other.FantasticActivityList)) return false;
+      if (!object.Equals(BIIMEIPHHPP, other.BIIMEIPHHPP)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -134,7 +134,7 @@ namespace EggLink.DanhengServer.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
-      if (fantasticActivityList_ != null) hash ^= FantasticActivityList.GetHashCode();
+      if (bIIMEIPHHPP_ != null) hash ^= BIIMEIPHHPP.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -153,13 +153,13 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (bIIMEIPHHPP_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(BIIMEIPHHPP);
+      }
       if (Retcode != 0) {
         output.WriteRawTag(64);
         output.WriteUInt32(Retcode);
-      }
-      if (fantasticActivityList_ != null) {
-        output.WriteRawTag(106);
-        output.WriteMessage(FantasticActivityList);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -171,13 +171,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (bIIMEIPHHPP_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(BIIMEIPHHPP);
+      }
       if (Retcode != 0) {
         output.WriteRawTag(64);
         output.WriteUInt32(Retcode);
-      }
-      if (fantasticActivityList_ != null) {
-        output.WriteRawTag(106);
-        output.WriteMessage(FantasticActivityList);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -192,8 +192,8 @@ namespace EggLink.DanhengServer.Proto {
       if (Retcode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
-      if (fantasticActivityList_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(FantasticActivityList);
+      if (bIIMEIPHHPP_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BIIMEIPHHPP);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -210,11 +210,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other.Retcode != 0) {
         Retcode = other.Retcode;
       }
-      if (other.fantasticActivityList_ != null) {
-        if (fantasticActivityList_ == null) {
-          FantasticActivityList = new global::EggLink.DanhengServer.Proto.FantasticActivityData();
+      if (other.bIIMEIPHHPP_ != null) {
+        if (bIIMEIPHHPP_ == null) {
+          BIIMEIPHHPP = new global::EggLink.DanhengServer.Proto.FantasticActivityData();
         }
-        FantasticActivityList.MergeFrom(other.FantasticActivityList);
+        BIIMEIPHHPP.MergeFrom(other.BIIMEIPHHPP);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -231,15 +231,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 64: {
-            Retcode = input.ReadUInt32();
+          case 26: {
+            if (bIIMEIPHHPP_ == null) {
+              BIIMEIPHHPP = new global::EggLink.DanhengServer.Proto.FantasticActivityData();
+            }
+            input.ReadMessage(BIIMEIPHHPP);
             break;
           }
-          case 106: {
-            if (fantasticActivityList_ == null) {
-              FantasticActivityList = new global::EggLink.DanhengServer.Proto.FantasticActivityData();
-            }
-            input.ReadMessage(FantasticActivityList);
+          case 64: {
+            Retcode = input.ReadUInt32();
             break;
           }
         }
@@ -257,15 +257,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 64: {
-            Retcode = input.ReadUInt32();
+          case 26: {
+            if (bIIMEIPHHPP_ == null) {
+              BIIMEIPHHPP = new global::EggLink.DanhengServer.Proto.FantasticActivityData();
+            }
+            input.ReadMessage(BIIMEIPHHPP);
             break;
           }
-          case 106: {
-            if (fantasticActivityList_ == null) {
-              FantasticActivityList = new global::EggLink.DanhengServer.Proto.FantasticActivityData();
-            }
-            input.ReadMessage(FantasticActivityList);
+          case 64: {
+            Retcode = input.ReadUInt32();
             break;
           }
         }

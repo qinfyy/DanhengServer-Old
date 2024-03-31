@@ -35,14 +35,14 @@ namespace EggLink.DanhengServer.Game.Scene.Entity
             };
             if (RogueNpcId > 0)
             {
-                var rogue = new NpcRogueInfo()
-                {
-                    EventId = (uint)RogueNpcId,
-                    IsFinished = IsFinishedTalk,
-                    EventUniqueId = (uint)EventUniqueId,
-                };
+                //var rogue = new NpcRogueInfo()  // wait to update
+                //{
+                //    EventId = (uint)RogueNpcId,
+                //    IsFinished = IsFinishedTalk,
+                //    EventUniqueId = (uint)EventUniqueId,
+                //};
 
-                npc.ExtraInfo.RogueInfo = rogue;
+                //npc.ExtraInfo.RogueInfo = rogue;
             }
 
             return new SceneEntityInfo()

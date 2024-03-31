@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static AbilityUseSttReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChNBYmlsaXR5VXNlU3R0LnByb3RvIkkKDUFiaWxpdHlVc2VTdHQSEwoLQkxN",
-            "Q1BKTUhKR00YASABKAkSDQoFY291bnQYAiABKA0SFAoMdG90YWxfZGFtYWdl",
+            "ChNBYmlsaXR5VXNlU3R0LnByb3RvIkkKDUFiaWxpdHlVc2VTdHQSEwoLRElN",
+            "REtHS0lKQVAYASABKAkSDQoFY291bnQYAiABKA0SFAoMdG90YWxfZGFtYWdl",
             "GAMgASgBQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3Rv",
             "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.AbilityUseStt), global::EggLink.DanhengServer.Proto.AbilityUseStt.Parser, new[]{ "BLMCPJMHJGM", "Count", "TotalDamage" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.AbilityUseStt), global::EggLink.DanhengServer.Proto.AbilityUseStt.Parser, new[]{ "DIMDKGKIJAP", "Count", "TotalDamage" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public AbilityUseStt(AbilityUseStt other) : this() {
-      bLMCPJMHJGM_ = other.bLMCPJMHJGM_;
+      dIMDKGKIJAP_ = other.dIMDKGKIJAP_;
       count_ = other.count_;
       totalDamage_ = other.totalDamage_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -85,15 +85,15 @@ namespace EggLink.DanhengServer.Proto {
       return new AbilityUseStt(this);
     }
 
-    /// <summary>Field number for the "BLMCPJMHJGM" field.</summary>
-    public const int BLMCPJMHJGMFieldNumber = 1;
-    private string bLMCPJMHJGM_ = "";
+    /// <summary>Field number for the "DIMDKGKIJAP" field.</summary>
+    public const int DIMDKGKIJAPFieldNumber = 1;
+    private string dIMDKGKIJAP_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string BLMCPJMHJGM {
-      get { return bLMCPJMHJGM_; }
+    public string DIMDKGKIJAP {
+      get { return dIMDKGKIJAP_; }
       set {
-        bLMCPJMHJGM_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        dIMDKGKIJAP_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -136,7 +136,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (BLMCPJMHJGM != other.BLMCPJMHJGM) return false;
+      if (DIMDKGKIJAP != other.DIMDKGKIJAP) return false;
       if (Count != other.Count) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(TotalDamage, other.TotalDamage)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -146,7 +146,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (BLMCPJMHJGM.Length != 0) hash ^= BLMCPJMHJGM.GetHashCode();
+      if (DIMDKGKIJAP.Length != 0) hash ^= DIMDKGKIJAP.GetHashCode();
       if (Count != 0) hash ^= Count.GetHashCode();
       if (TotalDamage != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(TotalDamage);
       if (_unknownFields != null) {
@@ -167,9 +167,9 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (BLMCPJMHJGM.Length != 0) {
+      if (DIMDKGKIJAP.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(BLMCPJMHJGM);
+        output.WriteString(DIMDKGKIJAP);
       }
       if (Count != 0) {
         output.WriteRawTag(16);
@@ -189,9 +189,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (BLMCPJMHJGM.Length != 0) {
+      if (DIMDKGKIJAP.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(BLMCPJMHJGM);
+        output.WriteString(DIMDKGKIJAP);
       }
       if (Count != 0) {
         output.WriteRawTag(16);
@@ -211,8 +211,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (BLMCPJMHJGM.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(BLMCPJMHJGM);
+      if (DIMDKGKIJAP.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(DIMDKGKIJAP);
       }
       if (Count != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Count);
@@ -232,8 +232,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.BLMCPJMHJGM.Length != 0) {
-        BLMCPJMHJGM = other.BLMCPJMHJGM;
+      if (other.DIMDKGKIJAP.Length != 0) {
+        DIMDKGKIJAP = other.DIMDKGKIJAP;
       }
       if (other.Count != 0) {
         Count = other.Count;
@@ -257,7 +257,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            BLMCPJMHJGM = input.ReadString();
+            DIMDKGKIJAP = input.ReadString();
             break;
           }
           case 16: {
@@ -284,7 +284,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            BLMCPJMHJGM = input.ReadString();
+            DIMDKGKIJAP = input.ReadString();
             break;
           }
           case 16: {

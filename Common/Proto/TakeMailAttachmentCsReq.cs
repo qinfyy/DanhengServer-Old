@@ -25,8 +25,8 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Ch1UYWtlTWFpbEF0dGFjaG1lbnRDc1JlcS5wcm90byJLChdUYWtlTWFpbEF0",
-            "dGFjaG1lbnRDc1JlcRIUCgxtYWlsX2lkX2xpc3QYDCADKA0SGgoSb3B0aW9u",
-            "YWxfcmV3YXJkX2lkGAkgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIu",
+            "dGFjaG1lbnRDc1JlcRIUCgxtYWlsX2lkX2xpc3QYDSADKA0SGgoSb3B0aW9u",
+            "YWxfcmV3YXJkX2lkGA8gASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIu",
             "UHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -85,9 +85,9 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "mail_id_list" field.</summary>
-    public const int MailIdListFieldNumber = 12;
+    public const int MailIdListFieldNumber = 13;
     private static readonly pb::FieldCodec<uint> _repeated_mailIdList_codec
-        = pb::FieldCodec.ForUInt32(98);
+        = pb::FieldCodec.ForUInt32(106);
     private readonly pbc::RepeatedField<uint> mailIdList_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -96,7 +96,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "optional_reward_id" field.</summary>
-    public const int OptionalRewardIdFieldNumber = 9;
+    public const int OptionalRewardIdFieldNumber = 15;
     private uint optionalRewardId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -151,11 +151,11 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      mailIdList_.WriteTo(output, _repeated_mailIdList_codec);
       if (OptionalRewardId != 0) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(120);
         output.WriteUInt32(OptionalRewardId);
       }
-      mailIdList_.WriteTo(output, _repeated_mailIdList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -166,11 +166,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      mailIdList_.WriteTo(ref output, _repeated_mailIdList_codec);
       if (OptionalRewardId != 0) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(120);
         output.WriteUInt32(OptionalRewardId);
       }
-      mailIdList_.WriteTo(ref output, _repeated_mailIdList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -216,13 +216,13 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 72: {
-            OptionalRewardId = input.ReadUInt32();
+          case 106:
+          case 104: {
+            mailIdList_.AddEntriesFrom(input, _repeated_mailIdList_codec);
             break;
           }
-          case 98:
-          case 96: {
-            mailIdList_.AddEntriesFrom(input, _repeated_mailIdList_codec);
+          case 120: {
+            OptionalRewardId = input.ReadUInt32();
             break;
           }
         }
@@ -240,13 +240,13 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 72: {
-            OptionalRewardId = input.ReadUInt32();
+          case 106:
+          case 104: {
+            mailIdList_.AddEntriesFrom(ref input, _repeated_mailIdList_codec);
             break;
           }
-          case 98:
-          case 96: {
-            mailIdList_.AddEntriesFrom(ref input, _repeated_mailIdList_codec);
+          case 120: {
+            OptionalRewardId = input.ReadUInt32();
             break;
           }
         }

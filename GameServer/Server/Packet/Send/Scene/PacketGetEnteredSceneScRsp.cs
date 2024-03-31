@@ -18,13 +18,13 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Scene
                 }
 
                 // Add info
-                var info = new EnteredSceneInfo()
+                var info = new EnteredScene()
                 {
                     FloorId = (uint)excel.FloorID,
                     PlaneId = (uint)excel.PlaneID,
                 };
 
-                proto.EnteredSceneInfo.Add(info);
+                proto.EnteredSceneList.Add(info);
             }
 
             SetData(proto);

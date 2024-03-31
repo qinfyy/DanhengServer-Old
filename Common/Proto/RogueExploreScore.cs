@@ -25,13 +25,13 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChdSb2d1ZUV4cGxvcmVTY29yZS5wcm90byJMChFSb2d1ZUV4cGxvcmVTY29y",
-            "ZRIWCg5zY29yZV9wcm9ncmVzcxgJIAEoDRINCgVzY29yZRgEIAEoDRIQCghz",
-            "Y29yZV9pZBgIIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3Rv",
+            "ZRIQCghzY29yZV9pZBgKIAEoDRIWCg5zY29yZV9wcm9ncmVzcxgNIAEoDRIN",
+            "CgVzY29yZRgMIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3Rv",
             "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueExploreScore), global::EggLink.DanhengServer.Proto.RogueExploreScore.Parser, new[]{ "ScoreProgress", "Score", "ScoreId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueExploreScore), global::EggLink.DanhengServer.Proto.RogueExploreScore.Parser, new[]{ "ScoreId", "ScoreProgress", "Score" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,9 +73,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public RogueExploreScore(RogueExploreScore other) : this() {
+      scoreId_ = other.scoreId_;
       scoreProgress_ = other.scoreProgress_;
       score_ = other.score_;
-      scoreId_ = other.scoreId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -85,8 +85,20 @@ namespace EggLink.DanhengServer.Proto {
       return new RogueExploreScore(this);
     }
 
+    /// <summary>Field number for the "score_id" field.</summary>
+    public const int ScoreIdFieldNumber = 10;
+    private uint scoreId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint ScoreId {
+      get { return scoreId_; }
+      set {
+        scoreId_ = value;
+      }
+    }
+
     /// <summary>Field number for the "score_progress" field.</summary>
-    public const int ScoreProgressFieldNumber = 9;
+    public const int ScoreProgressFieldNumber = 13;
     private uint scoreProgress_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -98,7 +110,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "score" field.</summary>
-    public const int ScoreFieldNumber = 4;
+    public const int ScoreFieldNumber = 12;
     private uint score_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -106,18 +118,6 @@ namespace EggLink.DanhengServer.Proto {
       get { return score_; }
       set {
         score_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "score_id" field.</summary>
-    public const int ScoreIdFieldNumber = 8;
-    private uint scoreId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint ScoreId {
-      get { return scoreId_; }
-      set {
-        scoreId_ = value;
       }
     }
 
@@ -136,9 +136,9 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (ScoreId != other.ScoreId) return false;
       if (ScoreProgress != other.ScoreProgress) return false;
       if (Score != other.Score) return false;
-      if (ScoreId != other.ScoreId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -146,9 +146,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (ScoreId != 0) hash ^= ScoreId.GetHashCode();
       if (ScoreProgress != 0) hash ^= ScoreProgress.GetHashCode();
       if (Score != 0) hash ^= Score.GetHashCode();
-      if (ScoreId != 0) hash ^= ScoreId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -167,16 +167,16 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Score != 0) {
-        output.WriteRawTag(32);
-        output.WriteUInt32(Score);
-      }
       if (ScoreId != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(80);
         output.WriteUInt32(ScoreId);
       }
+      if (Score != 0) {
+        output.WriteRawTag(96);
+        output.WriteUInt32(Score);
+      }
       if (ScoreProgress != 0) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(104);
         output.WriteUInt32(ScoreProgress);
       }
       if (_unknownFields != null) {
@@ -189,16 +189,16 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Score != 0) {
-        output.WriteRawTag(32);
-        output.WriteUInt32(Score);
-      }
       if (ScoreId != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(80);
         output.WriteUInt32(ScoreId);
       }
+      if (Score != 0) {
+        output.WriteRawTag(96);
+        output.WriteUInt32(Score);
+      }
       if (ScoreProgress != 0) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(104);
         output.WriteUInt32(ScoreProgress);
       }
       if (_unknownFields != null) {
@@ -211,14 +211,14 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (ScoreId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ScoreId);
+      }
       if (ScoreProgress != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ScoreProgress);
       }
       if (Score != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Score);
-      }
-      if (ScoreId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ScoreId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -232,14 +232,14 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
+      if (other.ScoreId != 0) {
+        ScoreId = other.ScoreId;
+      }
       if (other.ScoreProgress != 0) {
         ScoreProgress = other.ScoreProgress;
       }
       if (other.Score != 0) {
         Score = other.Score;
-      }
-      if (other.ScoreId != 0) {
-        ScoreId = other.ScoreId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -256,15 +256,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 32: {
-            Score = input.ReadUInt32();
-            break;
-          }
-          case 64: {
+          case 80: {
             ScoreId = input.ReadUInt32();
             break;
           }
-          case 72: {
+          case 96: {
+            Score = input.ReadUInt32();
+            break;
+          }
+          case 104: {
             ScoreProgress = input.ReadUInt32();
             break;
           }
@@ -283,15 +283,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 32: {
-            Score = input.ReadUInt32();
-            break;
-          }
-          case 64: {
+          case 80: {
             ScoreId = input.ReadUInt32();
             break;
           }
-          case 72: {
+          case 96: {
+            Score = input.ReadUInt32();
+            break;
+          }
+          case 104: {
             ScoreProgress = input.ReadUInt32();
             break;
           }

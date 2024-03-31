@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "ChxDdXJBc3Npc3RDaGFuZ2VkTm90aWZ5LnByb3RvGhZQbGF5ZXJBc3Npc3RJ",
             "bmZvLnByb3RvIjsKFkN1ckFzc2lzdENoYW5nZWROb3RpZnkSIQoGYXNzaXN0",
-            "GA4gASgLMhEuUGxheWVyQXNzaXN0SW5mb0IeqgIbRWdnTGluay5EYW5oZW5n",
+            "GAsgASgLMhEuUGxheWVyQXNzaXN0SW5mb0IeqgIbRWdnTGluay5EYW5oZW5n",
             "U2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.PlayerAssistInfoReflection.Descriptor, },
@@ -84,7 +84,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "assist" field.</summary>
-    public const int AssistFieldNumber = 14;
+    public const int AssistFieldNumber = 11;
     private global::EggLink.DanhengServer.Proto.PlayerAssistInfo assist_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -138,7 +138,7 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (assist_ != null) {
-        output.WriteRawTag(114);
+        output.WriteRawTag(90);
         output.WriteMessage(Assist);
       }
       if (_unknownFields != null) {
@@ -152,7 +152,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (assist_ != null) {
-        output.WriteRawTag(114);
+        output.WriteRawTag(90);
         output.WriteMessage(Assist);
       }
       if (_unknownFields != null) {
@@ -201,7 +201,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 114: {
+          case 90: {
             if (assist_ == null) {
               Assist = new global::EggLink.DanhengServer.Proto.PlayerAssistInfo();
             }
@@ -223,7 +223,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 114: {
+          case 90: {
             if (assist_ == null) {
               Assist = new global::EggLink.DanhengServer.Proto.PlayerAssistInfo();
             }

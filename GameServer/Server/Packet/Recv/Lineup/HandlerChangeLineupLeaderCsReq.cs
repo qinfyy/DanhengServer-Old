@@ -11,8 +11,17 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Lineup
         {
             var req = ChangeLineupLeaderCsReq.Parser.ParseFrom(data);
             var player = connection.Player!;
-            if (player.LineupManager!.GetCurLineup() == null) return;
+            if (player.LineupManager!.GetCurLineup() == null)
+            {
+                connection.SendPacket(new PacketChangeLineupLeaderScRsp());
+                return;
+            }
             var lineup = player.LineupManager!.GetCurLineup()!;
+            if (lineup.BaseAvatars?.Count <= (int)req.Slot) 
+            {
+                connection.SendPacket(new PacketChangeLineupLeaderScRsp());
+                return; 
+            }
             var leaderAvatarId = lineup.BaseAvatars![(int)req.Slot].BaseAvatarId;
             lineup.LeaderAvatarId = leaderAvatarId;
             // save

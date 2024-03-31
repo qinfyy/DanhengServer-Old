@@ -25,13 +25,13 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChlFbnRpdHlCaW5kUHJvcENzUmVxLnByb3RvGhBNb3Rpb25JbmZvLnByb3Rv",
-            "IkMKE0VudGl0eUJpbmRQcm9wQ3NSZXESDwoHaXNfYmluZBgBIAEoCBIbCgZt",
-            "b3Rpb24YCSABKAsyCy5Nb3Rpb25JbmZvQh6qAhtFZ2dMaW5rLkRhbmhlbmdT",
+            "IkMKE0VudGl0eUJpbmRQcm9wQ3NSZXESGwoGbW90aW9uGAQgASgLMgsuTW90",
+            "aW9uSW5mbxIPCgdpc19iaW5kGAUgASgIQh6qAhtFZ2dMaW5rLkRhbmhlbmdT",
             "ZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MotionInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.EntityBindPropCsReq), global::EggLink.DanhengServer.Proto.EntityBindPropCsReq.Parser, new[]{ "IsBind", "Motion" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.EntityBindPropCsReq), global::EggLink.DanhengServer.Proto.EntityBindPropCsReq.Parser, new[]{ "Motion", "IsBind" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,8 +73,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public EntityBindPropCsReq(EntityBindPropCsReq other) : this() {
-      isBind_ = other.isBind_;
       motion_ = other.motion_ != null ? other.motion_.Clone() : null;
+      isBind_ = other.isBind_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,20 +84,8 @@ namespace EggLink.DanhengServer.Proto {
       return new EntityBindPropCsReq(this);
     }
 
-    /// <summary>Field number for the "is_bind" field.</summary>
-    public const int IsBindFieldNumber = 1;
-    private bool isBind_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool IsBind {
-      get { return isBind_; }
-      set {
-        isBind_ = value;
-      }
-    }
-
     /// <summary>Field number for the "motion" field.</summary>
-    public const int MotionFieldNumber = 9;
+    public const int MotionFieldNumber = 4;
     private global::EggLink.DanhengServer.Proto.MotionInfo motion_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -105,6 +93,18 @@ namespace EggLink.DanhengServer.Proto {
       get { return motion_; }
       set {
         motion_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "is_bind" field.</summary>
+    public const int IsBindFieldNumber = 5;
+    private bool isBind_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsBind {
+      get { return isBind_; }
+      set {
+        isBind_ = value;
       }
     }
 
@@ -123,8 +123,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (IsBind != other.IsBind) return false;
       if (!object.Equals(Motion, other.Motion)) return false;
+      if (IsBind != other.IsBind) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -132,8 +132,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (IsBind != false) hash ^= IsBind.GetHashCode();
       if (motion_ != null) hash ^= Motion.GetHashCode();
+      if (IsBind != false) hash ^= IsBind.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -152,13 +152,13 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (IsBind != false) {
-        output.WriteRawTag(8);
-        output.WriteBool(IsBind);
-      }
       if (motion_ != null) {
-        output.WriteRawTag(74);
+        output.WriteRawTag(34);
         output.WriteMessage(Motion);
+      }
+      if (IsBind != false) {
+        output.WriteRawTag(40);
+        output.WriteBool(IsBind);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -170,13 +170,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (IsBind != false) {
-        output.WriteRawTag(8);
-        output.WriteBool(IsBind);
-      }
       if (motion_ != null) {
-        output.WriteRawTag(74);
+        output.WriteRawTag(34);
         output.WriteMessage(Motion);
+      }
+      if (IsBind != false) {
+        output.WriteRawTag(40);
+        output.WriteBool(IsBind);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -188,11 +188,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (IsBind != false) {
-        size += 1 + 1;
-      }
       if (motion_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Motion);
+      }
+      if (IsBind != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -206,14 +206,14 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.IsBind != false) {
-        IsBind = other.IsBind;
-      }
       if (other.motion_ != null) {
         if (motion_ == null) {
           Motion = new global::EggLink.DanhengServer.Proto.MotionInfo();
         }
         Motion.MergeFrom(other.Motion);
+      }
+      if (other.IsBind != false) {
+        IsBind = other.IsBind;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -230,15 +230,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            IsBind = input.ReadBool();
-            break;
-          }
-          case 74: {
+          case 34: {
             if (motion_ == null) {
               Motion = new global::EggLink.DanhengServer.Proto.MotionInfo();
             }
             input.ReadMessage(Motion);
+            break;
+          }
+          case 40: {
+            IsBind = input.ReadBool();
             break;
           }
         }
@@ -256,15 +256,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
-            IsBind = input.ReadBool();
-            break;
-          }
-          case 74: {
+          case 34: {
             if (motion_ == null) {
               Motion = new global::EggLink.DanhengServer.Proto.MotionInfo();
             }
             input.ReadMessage(Motion);
+            break;
+          }
+          case 40: {
+            IsBind = input.ReadBool();
             break;
           }
         }

@@ -25,17 +25,17 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChtHZXRNaXNzaW9uU3RhdHVzU2NSc3AucHJvdG8aDU1pc3Npb24ucHJvdG8i",
-            "9wEKFUdldE1pc3Npb25TdGF0dXNTY1JzcBIrChltaXNzaW9uX2V2ZW50X3N0",
-            "YXR1c19saXN0GAkgAygLMgguTWlzc2lvbhInCh91bmZpbmlzaGVkX21haW5f",
-            "bWlzc2lvbl9pZF9saXN0GAogAygNEiUKHWZpbmlzaGVkX21haW5fbWlzc2lv",
-            "bl9pZF9saXN0GA0gAygNEiUKHWRpc2FibGVkX21haW5fbWlzc2lvbl9pZF9s",
-            "aXN0GAsgAygNEg8KB3JldGNvZGUYBCABKA0SKQoXc3ViX21pc3Npb25fc3Rh",
-            "dHVzX2xpc3QYDiADKAsyCC5NaXNzaW9uQh6qAhtFZ2dMaW5rLkRhbmhlbmdT",
+            "9wEKFUdldE1pc3Npb25TdGF0dXNTY1JzcBIpChdzdWJfbWlzc2lvbl9zdGF0",
+            "dXNfbGlzdBgFIAMoCzIILk1pc3Npb24SKwoZbWlzc2lvbl9ldmVudF9zdGF0",
+            "dXNfbGlzdBgGIAMoCzIILk1pc3Npb24SJwofdW5maW5pc2hlZF9tYWluX21p",
+            "c3Npb25faWRfbGlzdBgJIAMoDRIlCh1maW5pc2hlZF9tYWluX21pc3Npb25f",
+            "aWRfbGlzdBgOIAMoDRIlCh1kaXNhYmxlZF9tYWluX21pc3Npb25faWRfbGlz",
+            "dBgNIAMoDRIPCgdyZXRjb2RlGAIgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdT",
             "ZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MissionReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetMissionStatusScRsp), global::EggLink.DanhengServer.Proto.GetMissionStatusScRsp.Parser, new[]{ "MissionEventStatusList", "UnfinishedMainMissionIdList", "FinishedMainMissionIdList", "DisabledMainMissionIdList", "Retcode", "SubMissionStatusList" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetMissionStatusScRsp), global::EggLink.DanhengServer.Proto.GetMissionStatusScRsp.Parser, new[]{ "SubMissionStatusList", "MissionEventStatusList", "UnfinishedMainMissionIdList", "FinishedMainMissionIdList", "DisabledMainMissionIdList", "Retcode" }, null, null, null, null)
           }));
     }
     #endregion
@@ -77,12 +77,12 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GetMissionStatusScRsp(GetMissionStatusScRsp other) : this() {
+      subMissionStatusList_ = other.subMissionStatusList_.Clone();
       missionEventStatusList_ = other.missionEventStatusList_.Clone();
       unfinishedMainMissionIdList_ = other.unfinishedMainMissionIdList_.Clone();
       finishedMainMissionIdList_ = other.finishedMainMissionIdList_.Clone();
       disabledMainMissionIdList_ = other.disabledMainMissionIdList_.Clone();
       retcode_ = other.retcode_;
-      subMissionStatusList_ = other.subMissionStatusList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -92,10 +92,21 @@ namespace EggLink.DanhengServer.Proto {
       return new GetMissionStatusScRsp(this);
     }
 
+    /// <summary>Field number for the "sub_mission_status_list" field.</summary>
+    public const int SubMissionStatusListFieldNumber = 5;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.Mission> _repeated_subMissionStatusList_codec
+        = pb::FieldCodec.ForMessage(42, global::EggLink.DanhengServer.Proto.Mission.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Mission> subMissionStatusList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Mission>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Mission> SubMissionStatusList {
+      get { return subMissionStatusList_; }
+    }
+
     /// <summary>Field number for the "mission_event_status_list" field.</summary>
-    public const int MissionEventStatusListFieldNumber = 9;
+    public const int MissionEventStatusListFieldNumber = 6;
     private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.Mission> _repeated_missionEventStatusList_codec
-        = pb::FieldCodec.ForMessage(74, global::EggLink.DanhengServer.Proto.Mission.Parser);
+        = pb::FieldCodec.ForMessage(50, global::EggLink.DanhengServer.Proto.Mission.Parser);
     private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Mission> missionEventStatusList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Mission>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -104,9 +115,9 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "unfinished_main_mission_id_list" field.</summary>
-    public const int UnfinishedMainMissionIdListFieldNumber = 10;
+    public const int UnfinishedMainMissionIdListFieldNumber = 9;
     private static readonly pb::FieldCodec<uint> _repeated_unfinishedMainMissionIdList_codec
-        = pb::FieldCodec.ForUInt32(82);
+        = pb::FieldCodec.ForUInt32(74);
     private readonly pbc::RepeatedField<uint> unfinishedMainMissionIdList_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -115,9 +126,9 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "finished_main_mission_id_list" field.</summary>
-    public const int FinishedMainMissionIdListFieldNumber = 13;
+    public const int FinishedMainMissionIdListFieldNumber = 14;
     private static readonly pb::FieldCodec<uint> _repeated_finishedMainMissionIdList_codec
-        = pb::FieldCodec.ForUInt32(106);
+        = pb::FieldCodec.ForUInt32(114);
     private readonly pbc::RepeatedField<uint> finishedMainMissionIdList_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -126,9 +137,9 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "disabled_main_mission_id_list" field.</summary>
-    public const int DisabledMainMissionIdListFieldNumber = 11;
+    public const int DisabledMainMissionIdListFieldNumber = 13;
     private static readonly pb::FieldCodec<uint> _repeated_disabledMainMissionIdList_codec
-        = pb::FieldCodec.ForUInt32(90);
+        = pb::FieldCodec.ForUInt32(106);
     private readonly pbc::RepeatedField<uint> disabledMainMissionIdList_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -137,7 +148,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "retcode" field.</summary>
-    public const int RetcodeFieldNumber = 4;
+    public const int RetcodeFieldNumber = 2;
     private uint retcode_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -146,17 +157,6 @@ namespace EggLink.DanhengServer.Proto {
       set {
         retcode_ = value;
       }
-    }
-
-    /// <summary>Field number for the "sub_mission_status_list" field.</summary>
-    public const int SubMissionStatusListFieldNumber = 14;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.Mission> _repeated_subMissionStatusList_codec
-        = pb::FieldCodec.ForMessage(114, global::EggLink.DanhengServer.Proto.Mission.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Mission> subMissionStatusList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Mission>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.Mission> SubMissionStatusList {
-      get { return subMissionStatusList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -174,12 +174,12 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if(!subMissionStatusList_.Equals(other.subMissionStatusList_)) return false;
       if(!missionEventStatusList_.Equals(other.missionEventStatusList_)) return false;
       if(!unfinishedMainMissionIdList_.Equals(other.unfinishedMainMissionIdList_)) return false;
       if(!finishedMainMissionIdList_.Equals(other.finishedMainMissionIdList_)) return false;
       if(!disabledMainMissionIdList_.Equals(other.disabledMainMissionIdList_)) return false;
       if (Retcode != other.Retcode) return false;
-      if(!subMissionStatusList_.Equals(other.subMissionStatusList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -187,12 +187,12 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      hash ^= subMissionStatusList_.GetHashCode();
       hash ^= missionEventStatusList_.GetHashCode();
       hash ^= unfinishedMainMissionIdList_.GetHashCode();
       hash ^= finishedMainMissionIdList_.GetHashCode();
       hash ^= disabledMainMissionIdList_.GetHashCode();
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
-      hash ^= subMissionStatusList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -212,14 +212,14 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (Retcode != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(16);
         output.WriteUInt32(Retcode);
       }
+      subMissionStatusList_.WriteTo(output, _repeated_subMissionStatusList_codec);
       missionEventStatusList_.WriteTo(output, _repeated_missionEventStatusList_codec);
       unfinishedMainMissionIdList_.WriteTo(output, _repeated_unfinishedMainMissionIdList_codec);
       disabledMainMissionIdList_.WriteTo(output, _repeated_disabledMainMissionIdList_codec);
       finishedMainMissionIdList_.WriteTo(output, _repeated_finishedMainMissionIdList_codec);
-      subMissionStatusList_.WriteTo(output, _repeated_subMissionStatusList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -231,14 +231,14 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (Retcode != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(16);
         output.WriteUInt32(Retcode);
       }
+      subMissionStatusList_.WriteTo(ref output, _repeated_subMissionStatusList_codec);
       missionEventStatusList_.WriteTo(ref output, _repeated_missionEventStatusList_codec);
       unfinishedMainMissionIdList_.WriteTo(ref output, _repeated_unfinishedMainMissionIdList_codec);
       disabledMainMissionIdList_.WriteTo(ref output, _repeated_disabledMainMissionIdList_codec);
       finishedMainMissionIdList_.WriteTo(ref output, _repeated_finishedMainMissionIdList_codec);
-      subMissionStatusList_.WriteTo(ref output, _repeated_subMissionStatusList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -249,6 +249,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      size += subMissionStatusList_.CalculateSize(_repeated_subMissionStatusList_codec);
       size += missionEventStatusList_.CalculateSize(_repeated_missionEventStatusList_codec);
       size += unfinishedMainMissionIdList_.CalculateSize(_repeated_unfinishedMainMissionIdList_codec);
       size += finishedMainMissionIdList_.CalculateSize(_repeated_finishedMainMissionIdList_codec);
@@ -256,7 +257,6 @@ namespace EggLink.DanhengServer.Proto {
       if (Retcode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
       }
-      size += subMissionStatusList_.CalculateSize(_repeated_subMissionStatusList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -269,6 +269,7 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
+      subMissionStatusList_.Add(other.subMissionStatusList_);
       missionEventStatusList_.Add(other.missionEventStatusList_);
       unfinishedMainMissionIdList_.Add(other.unfinishedMainMissionIdList_);
       finishedMainMissionIdList_.Add(other.finishedMainMissionIdList_);
@@ -276,7 +277,6 @@ namespace EggLink.DanhengServer.Proto {
       if (other.Retcode != 0) {
         Retcode = other.Retcode;
       }
-      subMissionStatusList_.Add(other.subMissionStatusList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -292,31 +292,31 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 32: {
+          case 16: {
             Retcode = input.ReadUInt32();
             break;
           }
-          case 74: {
+          case 42: {
+            subMissionStatusList_.AddEntriesFrom(input, _repeated_subMissionStatusList_codec);
+            break;
+          }
+          case 50: {
             missionEventStatusList_.AddEntriesFrom(input, _repeated_missionEventStatusList_codec);
             break;
           }
-          case 82:
-          case 80: {
+          case 74:
+          case 72: {
             unfinishedMainMissionIdList_.AddEntriesFrom(input, _repeated_unfinishedMainMissionIdList_codec);
-            break;
-          }
-          case 90:
-          case 88: {
-            disabledMainMissionIdList_.AddEntriesFrom(input, _repeated_disabledMainMissionIdList_codec);
             break;
           }
           case 106:
           case 104: {
-            finishedMainMissionIdList_.AddEntriesFrom(input, _repeated_finishedMainMissionIdList_codec);
+            disabledMainMissionIdList_.AddEntriesFrom(input, _repeated_disabledMainMissionIdList_codec);
             break;
           }
-          case 114: {
-            subMissionStatusList_.AddEntriesFrom(input, _repeated_subMissionStatusList_codec);
+          case 114:
+          case 112: {
+            finishedMainMissionIdList_.AddEntriesFrom(input, _repeated_finishedMainMissionIdList_codec);
             break;
           }
         }
@@ -334,31 +334,31 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 32: {
+          case 16: {
             Retcode = input.ReadUInt32();
             break;
           }
-          case 74: {
+          case 42: {
+            subMissionStatusList_.AddEntriesFrom(ref input, _repeated_subMissionStatusList_codec);
+            break;
+          }
+          case 50: {
             missionEventStatusList_.AddEntriesFrom(ref input, _repeated_missionEventStatusList_codec);
             break;
           }
-          case 82:
-          case 80: {
+          case 74:
+          case 72: {
             unfinishedMainMissionIdList_.AddEntriesFrom(ref input, _repeated_unfinishedMainMissionIdList_codec);
-            break;
-          }
-          case 90:
-          case 88: {
-            disabledMainMissionIdList_.AddEntriesFrom(ref input, _repeated_disabledMainMissionIdList_codec);
             break;
           }
           case 106:
           case 104: {
-            finishedMainMissionIdList_.AddEntriesFrom(ref input, _repeated_finishedMainMissionIdList_codec);
+            disabledMainMissionIdList_.AddEntriesFrom(ref input, _repeated_disabledMainMissionIdList_codec);
             break;
           }
-          case 114: {
-            subMissionStatusList_.AddEntriesFrom(ref input, _repeated_subMissionStatusList_codec);
+          case 114:
+          case 112: {
+            finishedMainMissionIdList_.AddEntriesFrom(ref input, _repeated_finishedMainMissionIdList_codec);
             break;
           }
         }

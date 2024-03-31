@@ -23,6 +23,13 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Player
                 return;
             }
 
+            var prev = Listener.GetActiveConnection(account.Uid);
+            if (prev != null)
+            {
+                prev.SendPacket(new PacketPlayerKickOutScNotify());
+                prev.Stop();
+            }
+
             connection.State = SessionState.WAITING_FOR_LOGIN;
             var pd = DatabaseHelper.Instance?.GetInstance<PlayerData>(long.Parse(req.AccountUid));
             if (pd == null)

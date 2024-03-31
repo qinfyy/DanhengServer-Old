@@ -16,7 +16,7 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Battle
             var req = SceneCastSkillCsReq.Parser.ParseFrom(data);
             if (req != null)
             {
-                if (req.HitMonsterEntityIdList.Count == 0)
+                if (req.HitTargetEntityIdList.Count == 0)
                 {
                     // didnt hit any target
                     connection.SendPacket(new PacketSceneCastSkillScRsp(req.CastEntityId));

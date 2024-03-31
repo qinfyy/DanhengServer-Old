@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "CiBHZXRVcGRhdGVkQXJjaGl2ZURhdGFTY1JzcC5wcm90bxoRQXJjaGl2ZURh",
             "dGEucHJvdG8iUQoaR2V0VXBkYXRlZEFyY2hpdmVEYXRhU2NSc3ASDwoHcmV0",
-            "Y29kZRgJIAEoDRIiCgxhcmNoaXZlX2luZm8YCyABKAsyDC5BcmNoaXZlRGF0",
+            "Y29kZRgOIAEoDRIiCgxhcmNoaXZlX2luZm8YCCABKAsyDC5BcmNoaXZlRGF0",
             "YUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ArchiveDataReflection.Descriptor, },
@@ -85,7 +85,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "retcode" field.</summary>
-    public const int RetcodeFieldNumber = 9;
+    public const int RetcodeFieldNumber = 14;
     private uint retcode_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -97,7 +97,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "archive_info" field.</summary>
-    public const int ArchiveInfoFieldNumber = 11;
+    public const int ArchiveInfoFieldNumber = 8;
     private global::EggLink.DanhengServer.Proto.ArchiveData archiveInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -152,13 +152,13 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Retcode != 0) {
-        output.WriteRawTag(72);
-        output.WriteUInt32(Retcode);
-      }
       if (archiveInfo_ != null) {
-        output.WriteRawTag(90);
+        output.WriteRawTag(66);
         output.WriteMessage(ArchiveInfo);
+      }
+      if (Retcode != 0) {
+        output.WriteRawTag(112);
+        output.WriteUInt32(Retcode);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -170,13 +170,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Retcode != 0) {
-        output.WriteRawTag(72);
-        output.WriteUInt32(Retcode);
-      }
       if (archiveInfo_ != null) {
-        output.WriteRawTag(90);
+        output.WriteRawTag(66);
         output.WriteMessage(ArchiveInfo);
+      }
+      if (Retcode != 0) {
+        output.WriteRawTag(112);
+        output.WriteUInt32(Retcode);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -230,15 +230,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 72: {
-            Retcode = input.ReadUInt32();
-            break;
-          }
-          case 90: {
+          case 66: {
             if (archiveInfo_ == null) {
               ArchiveInfo = new global::EggLink.DanhengServer.Proto.ArchiveData();
             }
             input.ReadMessage(ArchiveInfo);
+            break;
+          }
+          case 112: {
+            Retcode = input.ReadUInt32();
             break;
           }
         }
@@ -256,15 +256,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 72: {
-            Retcode = input.ReadUInt32();
-            break;
-          }
-          case 90: {
+          case 66: {
             if (archiveInfo_ == null) {
               ArchiveInfo = new global::EggLink.DanhengServer.Proto.ArchiveData();
             }
             input.ReadMessage(ArchiveInfo);
+            break;
+          }
+          case 112: {
+            Retcode = input.ReadUInt32();
             break;
           }
         }

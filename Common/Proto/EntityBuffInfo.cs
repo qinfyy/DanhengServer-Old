@@ -25,7 +25,7 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChRFbnRpdHlCdWZmSW5mby5wcm90bxoOQnVmZkluZm8ucHJvdG8iQQoORW50",
-            "aXR5QnVmZkluZm8SEQoJZW50aXR5X2lkGAsgASgNEhwKCWJ1ZmZfbGlzdBgI",
+            "aXR5QnVmZkluZm8SEQoJZW50aXR5X2lkGAYgASgNEhwKCWJ1ZmZfbGlzdBgL",
             "IAMoCzIJLkJ1ZmZJbmZvQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJv",
             "dG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
@@ -85,7 +85,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "entity_id" field.</summary>
-    public const int EntityIdFieldNumber = 11;
+    public const int EntityIdFieldNumber = 6;
     private uint entityId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -97,9 +97,9 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "buff_list" field.</summary>
-    public const int BuffListFieldNumber = 8;
+    public const int BuffListFieldNumber = 11;
     private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.BuffInfo> _repeated_buffList_codec
-        = pb::FieldCodec.ForMessage(66, global::EggLink.DanhengServer.Proto.BuffInfo.Parser);
+        = pb::FieldCodec.ForMessage(90, global::EggLink.DanhengServer.Proto.BuffInfo.Parser);
     private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.BuffInfo> buffList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.BuffInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -151,11 +151,11 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      buffList_.WriteTo(output, _repeated_buffList_codec);
       if (EntityId != 0) {
-        output.WriteRawTag(88);
+        output.WriteRawTag(48);
         output.WriteUInt32(EntityId);
       }
+      buffList_.WriteTo(output, _repeated_buffList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -166,11 +166,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      buffList_.WriteTo(ref output, _repeated_buffList_codec);
       if (EntityId != 0) {
-        output.WriteRawTag(88);
+        output.WriteRawTag(48);
         output.WriteUInt32(EntityId);
       }
+      buffList_.WriteTo(ref output, _repeated_buffList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -216,12 +216,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 66: {
-            buffList_.AddEntriesFrom(input, _repeated_buffList_codec);
+          case 48: {
+            EntityId = input.ReadUInt32();
             break;
           }
-          case 88: {
-            EntityId = input.ReadUInt32();
+          case 90: {
+            buffList_.AddEntriesFrom(input, _repeated_buffList_codec);
             break;
           }
         }
@@ -239,12 +239,12 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 66: {
-            buffList_.AddEntriesFrom(ref input, _repeated_buffList_codec);
+          case 48: {
+            EntityId = input.ReadUInt32();
             break;
           }
-          case 88: {
-            EntityId = input.ReadUInt32();
+          case 90: {
+            buffList_.AddEntriesFrom(ref input, _repeated_buffList_codec);
             break;
           }
         }

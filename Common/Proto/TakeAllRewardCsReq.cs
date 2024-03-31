@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "ChhUYWtlQWxsUmV3YXJkQ3NSZXEucHJvdG8aFE9wdGlvbmFsUmV3YXJkLnBy",
             "b3RvIkMKElRha2VBbGxSZXdhcmRDc1JlcRItChRvcHRpb25hbF9yZXdhcmRf",
-            "bGlzdBgPIAMoCzIPLk9wdGlvbmFsUmV3YXJkQh6qAhtFZ2dMaW5rLkRhbmhl",
+            "bGlzdBgGIAMoCzIPLk9wdGlvbmFsUmV3YXJkQh6qAhtFZ2dMaW5rLkRhbmhl",
             "bmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.OptionalRewardReflection.Descriptor, },
@@ -84,9 +84,9 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "optional_reward_list" field.</summary>
-    public const int OptionalRewardListFieldNumber = 15;
+    public const int OptionalRewardListFieldNumber = 6;
     private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.OptionalReward> _repeated_optionalRewardList_codec
-        = pb::FieldCodec.ForMessage(122, global::EggLink.DanhengServer.Proto.OptionalReward.Parser);
+        = pb::FieldCodec.ForMessage(50, global::EggLink.DanhengServer.Proto.OptionalReward.Parser);
     private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.OptionalReward> optionalRewardList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.OptionalReward>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -187,7 +187,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 122: {
+          case 50: {
             optionalRewardList_.AddEntriesFrom(input, _repeated_optionalRewardList_codec);
             break;
           }
@@ -206,7 +206,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 122: {
+          case 50: {
             optionalRewardList_.AddEntriesFrom(ref input, _repeated_optionalRewardList_codec);
             break;
           }

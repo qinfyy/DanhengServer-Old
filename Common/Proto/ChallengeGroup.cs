@@ -25,7 +25,7 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChRDaGFsbGVuZ2VHcm91cC5wcm90byJECg5DaGFsbGVuZ2VHcm91cBIQCghn",
-            "cm91cF9pZBgOIAEoDRIgChh0YWtlbl9zdGFyc19jb3VudF9yZXdhcmQYAyAB",
+            "cm91cF9pZBgMIAEoDRIgChh0YWtlbl9zdGFyc19jb3VudF9yZXdhcmQYCiAB",
             "KARCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -84,7 +84,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "group_id" field.</summary>
-    public const int GroupIdFieldNumber = 14;
+    public const int GroupIdFieldNumber = 12;
     private uint groupId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -96,7 +96,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "taken_stars_count_reward" field.</summary>
-    public const int TakenStarsCountRewardFieldNumber = 3;
+    public const int TakenStarsCountRewardFieldNumber = 10;
     private ulong takenStarsCountReward_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -152,11 +152,11 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (TakenStarsCountReward != 0UL) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(80);
         output.WriteUInt64(TakenStarsCountReward);
       }
       if (GroupId != 0) {
-        output.WriteRawTag(112);
+        output.WriteRawTag(96);
         output.WriteUInt32(GroupId);
       }
       if (_unknownFields != null) {
@@ -170,11 +170,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (TakenStarsCountReward != 0UL) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(80);
         output.WriteUInt64(TakenStarsCountReward);
       }
       if (GroupId != 0) {
-        output.WriteRawTag(112);
+        output.WriteRawTag(96);
         output.WriteUInt32(GroupId);
       }
       if (_unknownFields != null) {
@@ -226,11 +226,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 24: {
+          case 80: {
             TakenStarsCountReward = input.ReadUInt64();
             break;
           }
-          case 112: {
+          case 96: {
             GroupId = input.ReadUInt32();
             break;
           }
@@ -249,11 +249,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 24: {
+          case 80: {
             TakenStarsCountReward = input.ReadUInt64();
             break;
           }
-          case 112: {
+          case 96: {
             GroupId = input.ReadUInt32();
             break;
           }

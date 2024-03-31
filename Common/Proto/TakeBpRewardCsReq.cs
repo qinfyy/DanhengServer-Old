@@ -25,8 +25,8 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChdUYWtlQnBSZXdhcmRDc1JlcS5wcm90bxoSQnBSZXdhcmRUeXBlLnByb3Rv",
-            "IlsKEVRha2VCcFJld2FyZENzUmVxEhoKEm9wdGlvbmFsX3Jld2FyZF9pZBgK",
-            "IAEoDRIbCgR0eXBlGAsgASgOMg0uQnBSZXdhcmRUeXBlEg0KBWxldmVsGAwg",
+            "IlsKEVRha2VCcFJld2FyZENzUmVxEhoKEm9wdGlvbmFsX3Jld2FyZF9pZBgF",
+            "IAEoDRIbCgR0eXBlGAkgASgOMg0uQnBSZXdhcmRUeXBlEg0KBWxldmVsGA8g",
             "ASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.BpRewardTypeReflection.Descriptor, },
@@ -86,7 +86,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "optional_reward_id" field.</summary>
-    public const int OptionalRewardIdFieldNumber = 10;
+    public const int OptionalRewardIdFieldNumber = 5;
     private uint optionalRewardId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -98,7 +98,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "type" field.</summary>
-    public const int TypeFieldNumber = 11;
+    public const int TypeFieldNumber = 9;
     private global::EggLink.DanhengServer.Proto.BpRewardType type_ = global::EggLink.DanhengServer.Proto.BpRewardType.BpRewaradTypeNone;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -110,7 +110,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "level" field.</summary>
-    public const int LevelFieldNumber = 12;
+    public const int LevelFieldNumber = 15;
     private uint level_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -168,15 +168,15 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (OptionalRewardId != 0) {
-        output.WriteRawTag(80);
+        output.WriteRawTag(40);
         output.WriteUInt32(OptionalRewardId);
       }
       if (Type != global::EggLink.DanhengServer.Proto.BpRewardType.BpRewaradTypeNone) {
-        output.WriteRawTag(88);
+        output.WriteRawTag(72);
         output.WriteEnum((int) Type);
       }
       if (Level != 0) {
-        output.WriteRawTag(96);
+        output.WriteRawTag(120);
         output.WriteUInt32(Level);
       }
       if (_unknownFields != null) {
@@ -190,15 +190,15 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (OptionalRewardId != 0) {
-        output.WriteRawTag(80);
+        output.WriteRawTag(40);
         output.WriteUInt32(OptionalRewardId);
       }
       if (Type != global::EggLink.DanhengServer.Proto.BpRewardType.BpRewaradTypeNone) {
-        output.WriteRawTag(88);
+        output.WriteRawTag(72);
         output.WriteEnum((int) Type);
       }
       if (Level != 0) {
-        output.WriteRawTag(96);
+        output.WriteRawTag(120);
         output.WriteUInt32(Level);
       }
       if (_unknownFields != null) {
@@ -256,15 +256,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 80: {
+          case 40: {
             OptionalRewardId = input.ReadUInt32();
             break;
           }
-          case 88: {
+          case 72: {
             Type = (global::EggLink.DanhengServer.Proto.BpRewardType) input.ReadEnum();
             break;
           }
-          case 96: {
+          case 120: {
             Level = input.ReadUInt32();
             break;
           }
@@ -283,15 +283,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 80: {
+          case 40: {
             OptionalRewardId = input.ReadUInt32();
             break;
           }
-          case 88: {
+          case 72: {
             Type = (global::EggLink.DanhengServer.Proto.BpRewardType) input.ReadEnum();
             break;
           }
-          case 96: {
+          case 120: {
             Level = input.ReadUInt32();
             break;
           }

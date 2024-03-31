@@ -26,13 +26,13 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "CiJBZXRoZXJEaXZpZGVTcGlyaXRFeHBVcFNjUnNwLnByb3RvGhxBZXRoZXJE",
             "aXZpZGVTcGlyaXRJbmZvLnByb3RvInIKHEFldGhlckRpdmlkZVNwaXJpdEV4",
-            "cFVwU2NSc3ASLAoLc3Bpcml0X2luZm8YDiABKAsyFy5BZXRoZXJEaXZpZGVT",
-            "cGlyaXRJbmZvEg8KB3JldGNvZGUYBSABKA0SEwoLSENKS0RQTUxEUEEYCiAB",
+            "cFVwU2NSc3ASLAoLc3Bpcml0X2luZm8YDSABKAsyFy5BZXRoZXJEaXZpZGVT",
+            "cGlyaXRJbmZvEhMKC0RMRlBPREtHQkxIGAMgASgNEg8KB3JldGNvZGUYDiAB",
             "KA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.AetherDivideSpiritInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.AetherDivideSpiritExpUpScRsp), global::EggLink.DanhengServer.Proto.AetherDivideSpiritExpUpScRsp.Parser, new[]{ "SpiritInfo", "Retcode", "HCJKDPMLDPA" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.AetherDivideSpiritExpUpScRsp), global::EggLink.DanhengServer.Proto.AetherDivideSpiritExpUpScRsp.Parser, new[]{ "SpiritInfo", "DLFPODKGBLH", "Retcode" }, null, null, null, null)
           }));
     }
     #endregion
@@ -75,8 +75,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public AetherDivideSpiritExpUpScRsp(AetherDivideSpiritExpUpScRsp other) : this() {
       spiritInfo_ = other.spiritInfo_ != null ? other.spiritInfo_.Clone() : null;
+      dLFPODKGBLH_ = other.dLFPODKGBLH_;
       retcode_ = other.retcode_;
-      hCJKDPMLDPA_ = other.hCJKDPMLDPA_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -87,7 +87,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "spirit_info" field.</summary>
-    public const int SpiritInfoFieldNumber = 14;
+    public const int SpiritInfoFieldNumber = 13;
     private global::EggLink.DanhengServer.Proto.AetherDivideSpiritInfo spiritInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -98,8 +98,20 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
+    /// <summary>Field number for the "DLFPODKGBLH" field.</summary>
+    public const int DLFPODKGBLHFieldNumber = 3;
+    private uint dLFPODKGBLH_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint DLFPODKGBLH {
+      get { return dLFPODKGBLH_; }
+      set {
+        dLFPODKGBLH_ = value;
+      }
+    }
+
     /// <summary>Field number for the "retcode" field.</summary>
-    public const int RetcodeFieldNumber = 5;
+    public const int RetcodeFieldNumber = 14;
     private uint retcode_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -107,18 +119,6 @@ namespace EggLink.DanhengServer.Proto {
       get { return retcode_; }
       set {
         retcode_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "HCJKDPMLDPA" field.</summary>
-    public const int HCJKDPMLDPAFieldNumber = 10;
-    private uint hCJKDPMLDPA_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint HCJKDPMLDPA {
-      get { return hCJKDPMLDPA_; }
-      set {
-        hCJKDPMLDPA_ = value;
       }
     }
 
@@ -138,8 +138,8 @@ namespace EggLink.DanhengServer.Proto {
         return true;
       }
       if (!object.Equals(SpiritInfo, other.SpiritInfo)) return false;
+      if (DLFPODKGBLH != other.DLFPODKGBLH) return false;
       if (Retcode != other.Retcode) return false;
-      if (HCJKDPMLDPA != other.HCJKDPMLDPA) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -148,8 +148,8 @@ namespace EggLink.DanhengServer.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (spiritInfo_ != null) hash ^= SpiritInfo.GetHashCode();
+      if (DLFPODKGBLH != 0) hash ^= DLFPODKGBLH.GetHashCode();
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
-      if (HCJKDPMLDPA != 0) hash ^= HCJKDPMLDPA.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -168,17 +168,17 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Retcode != 0) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(Retcode);
-      }
-      if (HCJKDPMLDPA != 0) {
-        output.WriteRawTag(80);
-        output.WriteUInt32(HCJKDPMLDPA);
+      if (DLFPODKGBLH != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(DLFPODKGBLH);
       }
       if (spiritInfo_ != null) {
-        output.WriteRawTag(114);
+        output.WriteRawTag(106);
         output.WriteMessage(SpiritInfo);
+      }
+      if (Retcode != 0) {
+        output.WriteRawTag(112);
+        output.WriteUInt32(Retcode);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -190,17 +190,17 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Retcode != 0) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(Retcode);
-      }
-      if (HCJKDPMLDPA != 0) {
-        output.WriteRawTag(80);
-        output.WriteUInt32(HCJKDPMLDPA);
+      if (DLFPODKGBLH != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(DLFPODKGBLH);
       }
       if (spiritInfo_ != null) {
-        output.WriteRawTag(114);
+        output.WriteRawTag(106);
         output.WriteMessage(SpiritInfo);
+      }
+      if (Retcode != 0) {
+        output.WriteRawTag(112);
+        output.WriteUInt32(Retcode);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -215,11 +215,11 @@ namespace EggLink.DanhengServer.Proto {
       if (spiritInfo_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(SpiritInfo);
       }
+      if (DLFPODKGBLH != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DLFPODKGBLH);
+      }
       if (Retcode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
-      }
-      if (HCJKDPMLDPA != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(HCJKDPMLDPA);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -239,11 +239,11 @@ namespace EggLink.DanhengServer.Proto {
         }
         SpiritInfo.MergeFrom(other.SpiritInfo);
       }
+      if (other.DLFPODKGBLH != 0) {
+        DLFPODKGBLH = other.DLFPODKGBLH;
+      }
       if (other.Retcode != 0) {
         Retcode = other.Retcode;
-      }
-      if (other.HCJKDPMLDPA != 0) {
-        HCJKDPMLDPA = other.HCJKDPMLDPA;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -260,19 +260,19 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 40: {
-            Retcode = input.ReadUInt32();
+          case 24: {
+            DLFPODKGBLH = input.ReadUInt32();
             break;
           }
-          case 80: {
-            HCJKDPMLDPA = input.ReadUInt32();
-            break;
-          }
-          case 114: {
+          case 106: {
             if (spiritInfo_ == null) {
               SpiritInfo = new global::EggLink.DanhengServer.Proto.AetherDivideSpiritInfo();
             }
             input.ReadMessage(SpiritInfo);
+            break;
+          }
+          case 112: {
+            Retcode = input.ReadUInt32();
             break;
           }
         }
@@ -290,19 +290,19 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 40: {
-            Retcode = input.ReadUInt32();
+          case 24: {
+            DLFPODKGBLH = input.ReadUInt32();
             break;
           }
-          case 80: {
-            HCJKDPMLDPA = input.ReadUInt32();
-            break;
-          }
-          case 114: {
+          case 106: {
             if (spiritInfo_ == null) {
               SpiritInfo = new global::EggLink.DanhengServer.Proto.AetherDivideSpiritInfo();
             }
             input.ReadMessage(SpiritInfo);
+            break;
+          }
+          case 112: {
+            Retcode = input.ReadUInt32();
             break;
           }
         }

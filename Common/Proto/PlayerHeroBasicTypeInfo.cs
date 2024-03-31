@@ -25,15 +25,15 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Ch1QbGF5ZXJIZXJvQmFzaWNUeXBlSW5mby5wcm90bxoVQXZhdGFyU2tpbGxU",
-            "cmVlLnByb3RvGhNIZXJvQmFzaWNUeXBlLnByb3RvInEKF1BsYXllckhlcm9C",
-            "YXNpY1R5cGVJbmZvEiIKCmJhc2ljX3R5cGUYAiABKA4yDi5IZXJvQmFzaWNU",
-            "eXBlEgwKBHJhbmsYCyABKA0SJAoKc2tpbGxfdHJlZRgMIAMoCzIQLkF2YXRh",
-            "clNraWxsVHJlZUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZw",
-            "cm90bzM="));
+            "cmVlLnByb3RvGhNIZXJvQmFzaWNUeXBlLnByb3RvInYKF1BsYXllckhlcm9C",
+            "YXNpY1R5cGVJbmZvEikKD3NraWxsX3RyZWVfbGlzdBgPIAMoCzIQLkF2YXRh",
+            "clNraWxsVHJlZRIiCgpiYXNpY190eXBlGAIgASgOMg4uSGVyb0Jhc2ljVHlw",
+            "ZRIMCgRyYW5rGA4gASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJv",
+            "dG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.AvatarSkillTreeReflection.Descriptor, global::EggLink.DanhengServer.Proto.HeroBasicTypeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.PlayerHeroBasicTypeInfo), global::EggLink.DanhengServer.Proto.PlayerHeroBasicTypeInfo.Parser, new[]{ "BasicType", "Rank", "SkillTree" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.PlayerHeroBasicTypeInfo), global::EggLink.DanhengServer.Proto.PlayerHeroBasicTypeInfo.Parser, new[]{ "SkillTreeList", "BasicType", "Rank" }, null, null, null, null)
           }));
     }
     #endregion
@@ -75,9 +75,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PlayerHeroBasicTypeInfo(PlayerHeroBasicTypeInfo other) : this() {
+      skillTreeList_ = other.skillTreeList_.Clone();
       basicType_ = other.basicType_;
       rank_ = other.rank_;
-      skillTree_ = other.skillTree_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -85,6 +85,17 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PlayerHeroBasicTypeInfo Clone() {
       return new PlayerHeroBasicTypeInfo(this);
+    }
+
+    /// <summary>Field number for the "skill_tree_list" field.</summary>
+    public const int SkillTreeListFieldNumber = 15;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.AvatarSkillTree> _repeated_skillTreeList_codec
+        = pb::FieldCodec.ForMessage(122, global::EggLink.DanhengServer.Proto.AvatarSkillTree.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AvatarSkillTree> skillTreeList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AvatarSkillTree>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AvatarSkillTree> SkillTreeList {
+      get { return skillTreeList_; }
     }
 
     /// <summary>Field number for the "basic_type" field.</summary>
@@ -100,7 +111,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "rank" field.</summary>
-    public const int RankFieldNumber = 11;
+    public const int RankFieldNumber = 14;
     private uint rank_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -109,17 +120,6 @@ namespace EggLink.DanhengServer.Proto {
       set {
         rank_ = value;
       }
-    }
-
-    /// <summary>Field number for the "skill_tree" field.</summary>
-    public const int SkillTreeFieldNumber = 12;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.AvatarSkillTree> _repeated_skillTree_codec
-        = pb::FieldCodec.ForMessage(98, global::EggLink.DanhengServer.Proto.AvatarSkillTree.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AvatarSkillTree> skillTree_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AvatarSkillTree>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AvatarSkillTree> SkillTree {
-      get { return skillTree_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -137,9 +137,9 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if(!skillTreeList_.Equals(other.skillTreeList_)) return false;
       if (BasicType != other.BasicType) return false;
       if (Rank != other.Rank) return false;
-      if(!skillTree_.Equals(other.skillTree_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -147,9 +147,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      hash ^= skillTreeList_.GetHashCode();
       if (BasicType != global::EggLink.DanhengServer.Proto.HeroBasicType.None) hash ^= BasicType.GetHashCode();
       if (Rank != 0) hash ^= Rank.GetHashCode();
-      hash ^= skillTree_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -173,10 +173,10 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteEnum((int) BasicType);
       }
       if (Rank != 0) {
-        output.WriteRawTag(88);
+        output.WriteRawTag(112);
         output.WriteUInt32(Rank);
       }
-      skillTree_.WriteTo(output, _repeated_skillTree_codec);
+      skillTreeList_.WriteTo(output, _repeated_skillTreeList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -192,10 +192,10 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteEnum((int) BasicType);
       }
       if (Rank != 0) {
-        output.WriteRawTag(88);
+        output.WriteRawTag(112);
         output.WriteUInt32(Rank);
       }
-      skillTree_.WriteTo(ref output, _repeated_skillTree_codec);
+      skillTreeList_.WriteTo(ref output, _repeated_skillTreeList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -206,13 +206,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      size += skillTreeList_.CalculateSize(_repeated_skillTreeList_codec);
       if (BasicType != global::EggLink.DanhengServer.Proto.HeroBasicType.None) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) BasicType);
       }
       if (Rank != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Rank);
       }
-      size += skillTree_.CalculateSize(_repeated_skillTree_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -225,13 +225,13 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
+      skillTreeList_.Add(other.skillTreeList_);
       if (other.BasicType != global::EggLink.DanhengServer.Proto.HeroBasicType.None) {
         BasicType = other.BasicType;
       }
       if (other.Rank != 0) {
         Rank = other.Rank;
       }
-      skillTree_.Add(other.skillTree_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -251,12 +251,12 @@ namespace EggLink.DanhengServer.Proto {
             BasicType = (global::EggLink.DanhengServer.Proto.HeroBasicType) input.ReadEnum();
             break;
           }
-          case 88: {
+          case 112: {
             Rank = input.ReadUInt32();
             break;
           }
-          case 98: {
-            skillTree_.AddEntriesFrom(input, _repeated_skillTree_codec);
+          case 122: {
+            skillTreeList_.AddEntriesFrom(input, _repeated_skillTreeList_codec);
             break;
           }
         }
@@ -278,12 +278,12 @@ namespace EggLink.DanhengServer.Proto {
             BasicType = (global::EggLink.DanhengServer.Proto.HeroBasicType) input.ReadEnum();
             break;
           }
-          case 88: {
+          case 112: {
             Rank = input.ReadUInt32();
             break;
           }
-          case 98: {
-            skillTree_.AddEntriesFrom(ref input, _repeated_skillTree_codec);
+          case 122: {
+            skillTreeList_.AddEntriesFrom(ref input, _repeated_skillTreeList_codec);
             break;
           }
         }

@@ -8,6 +8,7 @@ using EggLink.DanhengServer.Util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using EggLink.DanhengServer.Data.Custom;
 
 namespace EggLink.DanhengServer.Data
 {
@@ -19,6 +20,7 @@ namespace EggLink.DanhengServer.Data
             LoadExcel();
             LoadFloorInfo();
             LoadMissionInfo();
+            LoadBanner();
         }
 
         public static void LoadExcel()
@@ -213,6 +215,32 @@ namespace EggLink.DanhengServer.Data
             if (missingMissionInfos)
                 Logger.Warn($"Mission infos are missing, please check your resources folder: {ConfigManager.Config.Path.ResourcePath}/Config/Level/Mission. Missions may not work!");
             Logger.Info("Loaded " + count + " mission infos.");
+        }
+
+        public static void LoadBanner()
+        {
+            Logger.Info("Loading banner files...");
+            FileInfo file = new(ConfigManager.Config.Path.ConfigPath + "/Banners.json");
+            if (!file.Exists)
+            {
+                Logger.Warn($"Banner infos are missing, please check your resources folder: {ConfigManager.Config.Path.ConfigPath}/Banner.json. Banners may not work!");
+                return;
+            }
+            try
+            {
+                using var reader = file.OpenRead();
+                using StreamReader reader2 = new(reader);
+                var text = reader2.ReadToEnd();
+                var banners = JsonConvert.DeserializeObject<BannersConfig>(text);
+                if (banners != null)
+                {
+                    GameData.BannersConfig = banners;
+                }
+            } catch (Exception ex)
+            {
+                Logger.Error("Error in reading" + file.Name, ex);
+            }
+            Logger.Info("Loaded " + GameData.BannersConfig.Banners.Count + " banner infos.");
         }
     }
 }

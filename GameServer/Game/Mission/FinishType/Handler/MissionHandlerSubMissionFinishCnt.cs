@@ -1,25 +1,33 @@
-﻿using EggLink.DanhengServer.Enums;
+﻿using EggLink.DanhengServer.Data.Config;
+using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Game.Player;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EggLink.DanhengServer.Game.Mission.FinishType.Handler
 {
     [MissionFinishType(MissionFinishTypeEnum.SubMissionFinishCnt)]
     public class MissionHandlerSubMissionFinishCnt : MissionFinishTypeHandler
     {
-        public override void HandleFinishType(PlayerInstance player, int Param1, int Param2, int Param3, List<int> ParamIntList, int subMissionId)
+        public override void Init(PlayerInstance player, SubMissionInfo info, object? arg)
         {
-            foreach (var missionId in ParamIntList)
-            {
-                player.MissionManager!.AcceptSubMission(missionId);
-                player.MissionManager!.FinishSubMission(missionId);
-            }
+            // Do nothing
+        }
 
-            player.MissionManager!.FinishSubMission(subMissionId);
+        public override void HandleFinishType(PlayerInstance player, SubMissionInfo info, object? arg)
+        {
+            var finish = true;
+            foreach (var missionId in info.ParamIntList)
+            {
+                var status = player.MissionManager!.GetSubMissionStatus(missionId);
+                if (status != MissionPhaseEnum.Finish && status != MissionPhaseEnum.Cancel)
+                {
+                    finish = false;
+                    break;
+                }
+            }
+            if (finish)
+            {
+                player.MissionManager!.FinishSubMission(info.ID);
+            }
         }
     }
 }

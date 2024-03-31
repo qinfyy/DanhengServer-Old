@@ -1,4 +1,5 @@
-﻿using EggLink.DanhengServer.Proto;
+﻿using EggLink.DanhengServer.Database;
+using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Server.Packet.Send.Tutorial;
 
 namespace EggLink.DanhengServer.Server.Packet.Recv.Tutorial
@@ -14,8 +15,8 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Tutorial
             {
                 if (res != TutorialStatus.TutorialFinish)
                 {
-                    player.InventoryManager!.AddItem(1, 1);
                     player.TutorialData!.Tutorials[(int)req.TutorialId] = TutorialStatus.TutorialFinish;
+                    DatabaseHelper.Instance?.UpdateInstance(player.TutorialData!);
                 }
             }
 

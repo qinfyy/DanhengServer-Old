@@ -25,12 +25,12 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChdGcmllbmRIaXN0b3J5SW5mby5wcm90byI9ChFGcmllbmRIaXN0b3J5SW5m",
-            "bxISCgpjb250YWN0X2lkGAMgASgNEhQKDGhpc3RvcnlfdGltZRgIIAEoA0Ie",
+            "bxIUCgxoaXN0b3J5X3RpbWUYCSABKAMSEgoKY29udGFjdF9pZBgGIAEoDUIe",
             "qgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.FriendHistoryInfo), global::EggLink.DanhengServer.Proto.FriendHistoryInfo.Parser, new[]{ "ContactId", "HistoryTime" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.FriendHistoryInfo), global::EggLink.DanhengServer.Proto.FriendHistoryInfo.Parser, new[]{ "HistoryTime", "ContactId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,8 +72,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public FriendHistoryInfo(FriendHistoryInfo other) : this() {
-      contactId_ = other.contactId_;
       historyTime_ = other.historyTime_;
+      contactId_ = other.contactId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,20 +83,8 @@ namespace EggLink.DanhengServer.Proto {
       return new FriendHistoryInfo(this);
     }
 
-    /// <summary>Field number for the "contact_id" field.</summary>
-    public const int ContactIdFieldNumber = 3;
-    private uint contactId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint ContactId {
-      get { return contactId_; }
-      set {
-        contactId_ = value;
-      }
-    }
-
     /// <summary>Field number for the "history_time" field.</summary>
-    public const int HistoryTimeFieldNumber = 8;
+    public const int HistoryTimeFieldNumber = 9;
     private long historyTime_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -104,6 +92,18 @@ namespace EggLink.DanhengServer.Proto {
       get { return historyTime_; }
       set {
         historyTime_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "contact_id" field.</summary>
+    public const int ContactIdFieldNumber = 6;
+    private uint contactId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint ContactId {
+      get { return contactId_; }
+      set {
+        contactId_ = value;
       }
     }
 
@@ -122,8 +122,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (ContactId != other.ContactId) return false;
       if (HistoryTime != other.HistoryTime) return false;
+      if (ContactId != other.ContactId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -131,8 +131,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (ContactId != 0) hash ^= ContactId.GetHashCode();
       if (HistoryTime != 0L) hash ^= HistoryTime.GetHashCode();
+      if (ContactId != 0) hash ^= ContactId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -152,11 +152,11 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (ContactId != 0) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(48);
         output.WriteUInt32(ContactId);
       }
       if (HistoryTime != 0L) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(72);
         output.WriteInt64(HistoryTime);
       }
       if (_unknownFields != null) {
@@ -170,11 +170,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (ContactId != 0) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(48);
         output.WriteUInt32(ContactId);
       }
       if (HistoryTime != 0L) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(72);
         output.WriteInt64(HistoryTime);
       }
       if (_unknownFields != null) {
@@ -187,11 +187,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (ContactId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ContactId);
-      }
       if (HistoryTime != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(HistoryTime);
+      }
+      if (ContactId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ContactId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -205,11 +205,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.ContactId != 0) {
-        ContactId = other.ContactId;
-      }
       if (other.HistoryTime != 0L) {
         HistoryTime = other.HistoryTime;
+      }
+      if (other.ContactId != 0) {
+        ContactId = other.ContactId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -226,11 +226,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 24: {
+          case 48: {
             ContactId = input.ReadUInt32();
             break;
           }
-          case 64: {
+          case 72: {
             HistoryTime = input.ReadInt64();
             break;
           }
@@ -249,11 +249,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 24: {
+          case 48: {
             ContactId = input.ReadUInt32();
             break;
           }
-          case 64: {
+          case 72: {
             HistoryTime = input.ReadInt64();
             break;
           }

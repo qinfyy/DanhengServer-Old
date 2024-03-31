@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "Ch1HZXRSb2d1ZVRhbGVudEluZm9TY1JzcC5wcm90bxoVUm9ndWVUYWxlbnRJ",
             "bmZvLnByb3RvIlcKF0dldFJvZ3VlVGFsZW50SW5mb1NjUnNwEg8KB3JldGNv",
-            "ZGUYCCABKA0SKwoRcm9ndWVfdGFsZW50X2luZm8YCiABKAsyEC5Sb2d1ZVRh",
+            "ZGUYDiABKA0SKwoRcm9ndWVfdGFsZW50X2luZm8YDSABKAsyEC5Sb2d1ZVRh",
             "bGVudEluZm9CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJv",
             "dG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
@@ -86,7 +86,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "retcode" field.</summary>
-    public const int RetcodeFieldNumber = 8;
+    public const int RetcodeFieldNumber = 14;
     private uint retcode_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -98,7 +98,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "rogue_talent_info" field.</summary>
-    public const int RogueTalentInfoFieldNumber = 10;
+    public const int RogueTalentInfoFieldNumber = 13;
     private global::EggLink.DanhengServer.Proto.RogueTalentInfo rogueTalentInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -153,13 +153,13 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Retcode != 0) {
-        output.WriteRawTag(64);
-        output.WriteUInt32(Retcode);
-      }
       if (rogueTalentInfo_ != null) {
-        output.WriteRawTag(82);
+        output.WriteRawTag(106);
         output.WriteMessage(RogueTalentInfo);
+      }
+      if (Retcode != 0) {
+        output.WriteRawTag(112);
+        output.WriteUInt32(Retcode);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -171,13 +171,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Retcode != 0) {
-        output.WriteRawTag(64);
-        output.WriteUInt32(Retcode);
-      }
       if (rogueTalentInfo_ != null) {
-        output.WriteRawTag(82);
+        output.WriteRawTag(106);
         output.WriteMessage(RogueTalentInfo);
+      }
+      if (Retcode != 0) {
+        output.WriteRawTag(112);
+        output.WriteUInt32(Retcode);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -231,15 +231,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 64: {
-            Retcode = input.ReadUInt32();
-            break;
-          }
-          case 82: {
+          case 106: {
             if (rogueTalentInfo_ == null) {
               RogueTalentInfo = new global::EggLink.DanhengServer.Proto.RogueTalentInfo();
             }
             input.ReadMessage(RogueTalentInfo);
+            break;
+          }
+          case 112: {
+            Retcode = input.ReadUInt32();
             break;
           }
         }
@@ -257,15 +257,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 64: {
-            Retcode = input.ReadUInt32();
-            break;
-          }
-          case 82: {
+          case 106: {
             if (rogueTalentInfo_ == null) {
               RogueTalentInfo = new global::EggLink.DanhengServer.Proto.RogueTalentInfo();
             }
             input.ReadMessage(RogueTalentInfo);
+            break;
+          }
+          case 112: {
+            Retcode = input.ReadUInt32();
             break;
           }
         }

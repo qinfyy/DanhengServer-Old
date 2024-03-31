@@ -25,13 +25,13 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChlRdWVzdFJlY29yZFNjTm90aWZ5LnByb3RvGhFRdWVzdFJlY29yZC5wcm90",
-            "byI+ChNRdWVzdFJlY29yZFNjTm90aWZ5EicKEXF1ZXN0X3JlY29yZF9pbmZv",
-            "GAggASgLMgwuUXVlc3RSZWNvcmRCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZl",
-            "ci5Qcm90b2IGcHJvdG8z"));
+            "byI4ChNRdWVzdFJlY29yZFNjTm90aWZ5EiEKC0JBS05KTk1LSk1FGAMgASgL",
+            "MgwuUXVlc3RSZWNvcmRCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90",
+            "b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.QuestRecordReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.QuestRecordScNotify), global::EggLink.DanhengServer.Proto.QuestRecordScNotify.Parser, new[]{ "QuestRecordInfo" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.QuestRecordScNotify), global::EggLink.DanhengServer.Proto.QuestRecordScNotify.Parser, new[]{ "BAKNJNMKJME" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public QuestRecordScNotify(QuestRecordScNotify other) : this() {
-      questRecordInfo_ = other.questRecordInfo_ != null ? other.questRecordInfo_.Clone() : null;
+      bAKNJNMKJME_ = other.bAKNJNMKJME_ != null ? other.bAKNJNMKJME_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,15 +83,15 @@ namespace EggLink.DanhengServer.Proto {
       return new QuestRecordScNotify(this);
     }
 
-    /// <summary>Field number for the "quest_record_info" field.</summary>
-    public const int QuestRecordInfoFieldNumber = 8;
-    private global::EggLink.DanhengServer.Proto.QuestRecord questRecordInfo_;
+    /// <summary>Field number for the "BAKNJNMKJME" field.</summary>
+    public const int BAKNJNMKJMEFieldNumber = 3;
+    private global::EggLink.DanhengServer.Proto.QuestRecord bAKNJNMKJME_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.QuestRecord QuestRecordInfo {
-      get { return questRecordInfo_; }
+    public global::EggLink.DanhengServer.Proto.QuestRecord BAKNJNMKJME {
+      get { return bAKNJNMKJME_; }
       set {
-        questRecordInfo_ = value;
+        bAKNJNMKJME_ = value;
       }
     }
 
@@ -110,7 +110,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(QuestRecordInfo, other.QuestRecordInfo)) return false;
+      if (!object.Equals(BAKNJNMKJME, other.BAKNJNMKJME)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -118,7 +118,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (questRecordInfo_ != null) hash ^= QuestRecordInfo.GetHashCode();
+      if (bAKNJNMKJME_ != null) hash ^= BAKNJNMKJME.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -137,9 +137,9 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (questRecordInfo_ != null) {
-        output.WriteRawTag(66);
-        output.WriteMessage(QuestRecordInfo);
+      if (bAKNJNMKJME_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(BAKNJNMKJME);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -151,9 +151,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (questRecordInfo_ != null) {
-        output.WriteRawTag(66);
-        output.WriteMessage(QuestRecordInfo);
+      if (bAKNJNMKJME_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(BAKNJNMKJME);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -165,8 +165,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (questRecordInfo_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(QuestRecordInfo);
+      if (bAKNJNMKJME_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BAKNJNMKJME);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -180,11 +180,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.questRecordInfo_ != null) {
-        if (questRecordInfo_ == null) {
-          QuestRecordInfo = new global::EggLink.DanhengServer.Proto.QuestRecord();
+      if (other.bAKNJNMKJME_ != null) {
+        if (bAKNJNMKJME_ == null) {
+          BAKNJNMKJME = new global::EggLink.DanhengServer.Proto.QuestRecord();
         }
-        QuestRecordInfo.MergeFrom(other.QuestRecordInfo);
+        BAKNJNMKJME.MergeFrom(other.BAKNJNMKJME);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -201,11 +201,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 66: {
-            if (questRecordInfo_ == null) {
-              QuestRecordInfo = new global::EggLink.DanhengServer.Proto.QuestRecord();
+          case 26: {
+            if (bAKNJNMKJME_ == null) {
+              BAKNJNMKJME = new global::EggLink.DanhengServer.Proto.QuestRecord();
             }
-            input.ReadMessage(QuestRecordInfo);
+            input.ReadMessage(BAKNJNMKJME);
             break;
           }
         }
@@ -223,11 +223,11 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 66: {
-            if (questRecordInfo_ == null) {
-              QuestRecordInfo = new global::EggLink.DanhengServer.Proto.QuestRecord();
+          case 26: {
+            if (bAKNJNMKJME_ == null) {
+              BAKNJNMKJME = new global::EggLink.DanhengServer.Proto.QuestRecord();
             }
-            input.ReadMessage(QuestRecordInfo);
+            input.ReadMessage(BAKNJNMKJME);
             break;
           }
         }

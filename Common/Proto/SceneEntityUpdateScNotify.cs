@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "Ch9TY2VuZUVudGl0eVVwZGF0ZVNjTm90aWZ5LnByb3RvGhVTY2VuZUVudGl0",
             "eUluZm8ucHJvdG8iQgoZU2NlbmVFbnRpdHlVcGRhdGVTY05vdGlmeRIlCgtl",
-            "bnRpdHlfbGlzdBgPIAMoCzIQLlNjZW5lRW50aXR5SW5mb0IeqgIbRWdnTGlu",
+            "bnRpdHlfbGlzdBgJIAMoCzIQLlNjZW5lRW50aXR5SW5mb0IeqgIbRWdnTGlu",
             "ay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.SceneEntityInfoReflection.Descriptor, },
@@ -84,9 +84,9 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "entity_list" field.</summary>
-    public const int EntityListFieldNumber = 15;
+    public const int EntityListFieldNumber = 9;
     private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.SceneEntityInfo> _repeated_entityList_codec
-        = pb::FieldCodec.ForMessage(122, global::EggLink.DanhengServer.Proto.SceneEntityInfo.Parser);
+        = pb::FieldCodec.ForMessage(74, global::EggLink.DanhengServer.Proto.SceneEntityInfo.Parser);
     private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.SceneEntityInfo> entityList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.SceneEntityInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -187,7 +187,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 122: {
+          case 74: {
             entityList_.AddEntriesFrom(input, _repeated_entityList_codec);
             break;
           }
@@ -206,7 +206,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 122: {
+          case 74: {
             entityList_.AddEntriesFrom(ref input, _repeated_entityList_codec);
             break;
           }

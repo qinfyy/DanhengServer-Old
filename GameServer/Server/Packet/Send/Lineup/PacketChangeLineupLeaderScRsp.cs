@@ -18,5 +18,15 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Lineup
 
             SetData(proto);
         }
+
+        public PacketChangeLineupLeaderScRsp() : base(CmdIds.ChangeLineupLeaderScRsp)
+        {
+            var proto = new ChangeLineupLeaderScRsp()
+            {
+                Retcode = 1,
+            };
+
+            SetData(proto);
+        }
     }
 }

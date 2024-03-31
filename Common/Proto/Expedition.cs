@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static ExpeditionReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChBFeHBlZGl0aW9uLnByb3RvIlcKCkV4cGVkaXRpb24SFgoOYXZhdGFyX2lk",
-            "X2xpc3QYBCADKA0SCgoCaWQYCSABKA0SEAoIZHVyYXRpb24YASABKA0SEwoL",
-            "YWNjZXB0X3RpbWUYDiABKANCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Q",
+            "ChBFeHBlZGl0aW9uLnByb3RvIlcKCkV4cGVkaXRpb24SEwoLYWNjZXB0X3Rp",
+            "bWUYByABKAMSCgoCaWQYASABKA0SEAoIZHVyYXRpb24YCiABKA0SFgoOYXZh",
+            "dGFyX2lkX2xpc3QYBSADKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Q",
             "cm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.Expedition), global::EggLink.DanhengServer.Proto.Expedition.Parser, new[]{ "AvatarIdList", "Id", "Duration", "AcceptTime" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.Expedition), global::EggLink.DanhengServer.Proto.Expedition.Parser, new[]{ "AcceptTime", "Id", "Duration", "AvatarIdList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,10 +73,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public Expedition(Expedition other) : this() {
-      avatarIdList_ = other.avatarIdList_.Clone();
+      acceptTime_ = other.acceptTime_;
       id_ = other.id_;
       duration_ = other.duration_;
-      acceptTime_ = other.acceptTime_;
+      avatarIdList_ = other.avatarIdList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -86,19 +86,20 @@ namespace EggLink.DanhengServer.Proto {
       return new Expedition(this);
     }
 
-    /// <summary>Field number for the "avatar_id_list" field.</summary>
-    public const int AvatarIdListFieldNumber = 4;
-    private static readonly pb::FieldCodec<uint> _repeated_avatarIdList_codec
-        = pb::FieldCodec.ForUInt32(34);
-    private readonly pbc::RepeatedField<uint> avatarIdList_ = new pbc::RepeatedField<uint>();
+    /// <summary>Field number for the "accept_time" field.</summary>
+    public const int AcceptTimeFieldNumber = 7;
+    private long acceptTime_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<uint> AvatarIdList {
-      get { return avatarIdList_; }
+    public long AcceptTime {
+      get { return acceptTime_; }
+      set {
+        acceptTime_ = value;
+      }
     }
 
     /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 9;
+    public const int IdFieldNumber = 1;
     private uint id_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -110,7 +111,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "duration" field.</summary>
-    public const int DurationFieldNumber = 1;
+    public const int DurationFieldNumber = 10;
     private uint duration_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -121,16 +122,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "accept_time" field.</summary>
-    public const int AcceptTimeFieldNumber = 14;
-    private long acceptTime_;
+    /// <summary>Field number for the "avatar_id_list" field.</summary>
+    public const int AvatarIdListFieldNumber = 5;
+    private static readonly pb::FieldCodec<uint> _repeated_avatarIdList_codec
+        = pb::FieldCodec.ForUInt32(42);
+    private readonly pbc::RepeatedField<uint> avatarIdList_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public long AcceptTime {
-      get { return acceptTime_; }
-      set {
-        acceptTime_ = value;
-      }
+    public pbc::RepeatedField<uint> AvatarIdList {
+      get { return avatarIdList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -148,10 +148,10 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!avatarIdList_.Equals(other.avatarIdList_)) return false;
+      if (AcceptTime != other.AcceptTime) return false;
       if (Id != other.Id) return false;
       if (Duration != other.Duration) return false;
-      if (AcceptTime != other.AcceptTime) return false;
+      if(!avatarIdList_.Equals(other.avatarIdList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -159,10 +159,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= avatarIdList_.GetHashCode();
+      if (AcceptTime != 0L) hash ^= AcceptTime.GetHashCode();
       if (Id != 0) hash ^= Id.GetHashCode();
       if (Duration != 0) hash ^= Duration.GetHashCode();
-      if (AcceptTime != 0L) hash ^= AcceptTime.GetHashCode();
+      hash ^= avatarIdList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -181,18 +181,18 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Duration != 0) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Duration);
-      }
-      avatarIdList_.WriteTo(output, _repeated_avatarIdList_codec);
       if (Id != 0) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(8);
         output.WriteUInt32(Id);
       }
+      avatarIdList_.WriteTo(output, _repeated_avatarIdList_codec);
       if (AcceptTime != 0L) {
-        output.WriteRawTag(112);
+        output.WriteRawTag(56);
         output.WriteInt64(AcceptTime);
+      }
+      if (Duration != 0) {
+        output.WriteRawTag(80);
+        output.WriteUInt32(Duration);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -204,18 +204,18 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Duration != 0) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Duration);
-      }
-      avatarIdList_.WriteTo(ref output, _repeated_avatarIdList_codec);
       if (Id != 0) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(8);
         output.WriteUInt32(Id);
       }
+      avatarIdList_.WriteTo(ref output, _repeated_avatarIdList_codec);
       if (AcceptTime != 0L) {
-        output.WriteRawTag(112);
+        output.WriteRawTag(56);
         output.WriteInt64(AcceptTime);
+      }
+      if (Duration != 0) {
+        output.WriteRawTag(80);
+        output.WriteUInt32(Duration);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -227,16 +227,16 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += avatarIdList_.CalculateSize(_repeated_avatarIdList_codec);
+      if (AcceptTime != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(AcceptTime);
+      }
       if (Id != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Id);
       }
       if (Duration != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Duration);
       }
-      if (AcceptTime != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(AcceptTime);
-      }
+      size += avatarIdList_.CalculateSize(_repeated_avatarIdList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -249,16 +249,16 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      avatarIdList_.Add(other.avatarIdList_);
+      if (other.AcceptTime != 0L) {
+        AcceptTime = other.AcceptTime;
+      }
       if (other.Id != 0) {
         Id = other.Id;
       }
       if (other.Duration != 0) {
         Duration = other.Duration;
       }
-      if (other.AcceptTime != 0L) {
-        AcceptTime = other.AcceptTime;
-      }
+      avatarIdList_.Add(other.avatarIdList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -275,20 +275,20 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Duration = input.ReadUInt32();
-            break;
-          }
-          case 34:
-          case 32: {
-            avatarIdList_.AddEntriesFrom(input, _repeated_avatarIdList_codec);
-            break;
-          }
-          case 72: {
             Id = input.ReadUInt32();
             break;
           }
-          case 112: {
+          case 42:
+          case 40: {
+            avatarIdList_.AddEntriesFrom(input, _repeated_avatarIdList_codec);
+            break;
+          }
+          case 56: {
             AcceptTime = input.ReadInt64();
+            break;
+          }
+          case 80: {
+            Duration = input.ReadUInt32();
             break;
           }
         }
@@ -307,20 +307,20 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Duration = input.ReadUInt32();
-            break;
-          }
-          case 34:
-          case 32: {
-            avatarIdList_.AddEntriesFrom(ref input, _repeated_avatarIdList_codec);
-            break;
-          }
-          case 72: {
             Id = input.ReadUInt32();
             break;
           }
-          case 112: {
+          case 42:
+          case 40: {
+            avatarIdList_.AddEntriesFrom(ref input, _repeated_avatarIdList_codec);
+            break;
+          }
+          case 56: {
             AcceptTime = input.ReadInt64();
+            break;
+          }
+          case 80: {
+            Duration = input.ReadUInt32();
             break;
           }
         }

@@ -25,7 +25,7 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChhIZWFsUG9vbEluZm9Ob3RpZnkucHJvdG8aEkhlYWxQb29sSW5mby5wcm90",
-            "byI7ChJIZWFsUG9vbEluZm9Ob3RpZnkSJQoOaGVhbF9wb29sX2luZm8YBCAB",
+            "byI7ChJIZWFsUG9vbEluZm9Ob3RpZnkSJQoOaGVhbF9wb29sX2luZm8YCSAB",
             "KAsyDS5IZWFsUG9vbEluZm9CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Q",
             "cm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
@@ -84,7 +84,7 @@ namespace EggLink.DanhengServer.Proto {
     }
 
     /// <summary>Field number for the "heal_pool_info" field.</summary>
-    public const int HealPoolInfoFieldNumber = 4;
+    public const int HealPoolInfoFieldNumber = 9;
     private global::EggLink.DanhengServer.Proto.HealPoolInfo healPoolInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -138,7 +138,7 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       if (healPoolInfo_ != null) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(74);
         output.WriteMessage(HealPoolInfo);
       }
       if (_unknownFields != null) {
@@ -152,7 +152,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       if (healPoolInfo_ != null) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(74);
         output.WriteMessage(HealPoolInfo);
       }
       if (_unknownFields != null) {
@@ -201,7 +201,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 34: {
+          case 74: {
             if (healPoolInfo_ == null) {
               HealPoolInfo = new global::EggLink.DanhengServer.Proto.HealPoolInfo();
             }
@@ -223,7 +223,7 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 34: {
+          case 74: {
             if (healPoolInfo_ == null) {
               HealPoolInfo = new global::EggLink.DanhengServer.Proto.HealPoolInfo();
             }

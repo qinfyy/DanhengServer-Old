@@ -24,14 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueSkipTeachingLevelCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiZDaGVzc1JvZ3VlU2tpcFRlYWNoaW5nTGV2ZWxDc1JlcS5wcm90byI3CiBD",
-            "aGVzc1JvZ3VlU2tpcFRlYWNoaW5nTGV2ZWxDc1JlcRITCgtCTE9KSUlKTEZM",
-            "SxgEIAEoBUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90",
-            "bzM="));
+            "CiZDaGVzc1JvZ3VlU2tpcFRlYWNoaW5nTGV2ZWxDc1JlcS5wcm90byIiCiBD",
+            "aGVzc1JvZ3VlU2tpcFRlYWNoaW5nTGV2ZWxDc1JlcUIeqgIbRWdnTGluay5E",
+            "YW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueSkipTeachingLevelCsReq), global::EggLink.DanhengServer.Proto.ChessRogueSkipTeachingLevelCsReq.Parser, new[]{ "BLOJIIJLFLK" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueSkipTeachingLevelCsReq), global::EggLink.DanhengServer.Proto.ChessRogueSkipTeachingLevelCsReq.Parser, null, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +72,6 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ChessRogueSkipTeachingLevelCsReq(ChessRogueSkipTeachingLevelCsReq other) : this() {
-      bLOJIIJLFLK_ = other.bLOJIIJLFLK_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -81,18 +79,6 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ChessRogueSkipTeachingLevelCsReq Clone() {
       return new ChessRogueSkipTeachingLevelCsReq(this);
-    }
-
-    /// <summary>Field number for the "BLOJIIJLFLK" field.</summary>
-    public const int BLOJIIJLFLKFieldNumber = 4;
-    private int bLOJIIJLFLK_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int BLOJIIJLFLK {
-      get { return bLOJIIJLFLK_; }
-      set {
-        bLOJIIJLFLK_ = value;
-      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -110,7 +96,6 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (BLOJIIJLFLK != other.BLOJIIJLFLK) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -118,7 +103,6 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (BLOJIIJLFLK != 0) hash ^= BLOJIIJLFLK.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -137,10 +121,6 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (BLOJIIJLFLK != 0) {
-        output.WriteRawTag(32);
-        output.WriteInt32(BLOJIIJLFLK);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -151,10 +131,6 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (BLOJIIJLFLK != 0) {
-        output.WriteRawTag(32);
-        output.WriteInt32(BLOJIIJLFLK);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -165,9 +141,6 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (BLOJIIJLFLK != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BLOJIIJLFLK);
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -179,9 +152,6 @@ namespace EggLink.DanhengServer.Proto {
     public void MergeFrom(ChessRogueSkipTeachingLevelCsReq other) {
       if (other == null) {
         return;
-      }
-      if (other.BLOJIIJLFLK != 0) {
-        BLOJIIJLFLK = other.BLOJIIJLFLK;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -198,10 +168,6 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 32: {
-            BLOJIIJLFLK = input.ReadInt32();
-            break;
-          }
         }
       }
     #endif
@@ -217,10 +183,6 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 32: {
-            BLOJIIJLFLK = input.ReadInt32();
-            break;
-          }
         }
       }
     }

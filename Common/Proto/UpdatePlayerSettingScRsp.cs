@@ -26,13 +26,13 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "Ch5VcGRhdGVQbGF5ZXJTZXR0aW5nU2NSc3AucHJvdG8aHVVwZGF0ZVBsYXll",
             "clNldHRpbmdEYXRhLnByb3RvIloKGFVwZGF0ZVBsYXllclNldHRpbmdTY1Jz",
-            "cBItCgtIS0tISkRKTE5LSRgBIAEoCzIYLlVwZGF0ZVBsYXllclNldHRpbmdE",
-            "YXRhEg8KB3JldGNvZGUYAiABKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZl",
+            "cBItCgtMTkVNS0dLSUdDThgPIAEoCzIYLlVwZGF0ZVBsYXllclNldHRpbmdE",
+            "YXRhEg8KB3JldGNvZGUYCiABKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZl",
             "ci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.UpdatePlayerSettingDataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.UpdatePlayerSettingScRsp), global::EggLink.DanhengServer.Proto.UpdatePlayerSettingScRsp.Parser, new[]{ "HKKHJDJLNKI", "Retcode" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.UpdatePlayerSettingScRsp), global::EggLink.DanhengServer.Proto.UpdatePlayerSettingScRsp.Parser, new[]{ "LNEMKGKIGCN", "Retcode" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,7 +74,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public UpdatePlayerSettingScRsp(UpdatePlayerSettingScRsp other) : this() {
-      hKKHJDJLNKI_ = other.hKKHJDJLNKI_ != null ? other.hKKHJDJLNKI_.Clone() : null;
+      lNEMKGKIGCN_ = other.lNEMKGKIGCN_ != null ? other.lNEMKGKIGCN_.Clone() : null;
       retcode_ = other.retcode_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -85,20 +85,20 @@ namespace EggLink.DanhengServer.Proto {
       return new UpdatePlayerSettingScRsp(this);
     }
 
-    /// <summary>Field number for the "HKKHJDJLNKI" field.</summary>
-    public const int HKKHJDJLNKIFieldNumber = 1;
-    private global::EggLink.DanhengServer.Proto.UpdatePlayerSettingData hKKHJDJLNKI_;
+    /// <summary>Field number for the "LNEMKGKIGCN" field.</summary>
+    public const int LNEMKGKIGCNFieldNumber = 15;
+    private global::EggLink.DanhengServer.Proto.UpdatePlayerSettingData lNEMKGKIGCN_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.UpdatePlayerSettingData HKKHJDJLNKI {
-      get { return hKKHJDJLNKI_; }
+    public global::EggLink.DanhengServer.Proto.UpdatePlayerSettingData LNEMKGKIGCN {
+      get { return lNEMKGKIGCN_; }
       set {
-        hKKHJDJLNKI_ = value;
+        lNEMKGKIGCN_ = value;
       }
     }
 
     /// <summary>Field number for the "retcode" field.</summary>
-    public const int RetcodeFieldNumber = 2;
+    public const int RetcodeFieldNumber = 10;
     private uint retcode_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -124,7 +124,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(HKKHJDJLNKI, other.HKKHJDJLNKI)) return false;
+      if (!object.Equals(LNEMKGKIGCN, other.LNEMKGKIGCN)) return false;
       if (Retcode != other.Retcode) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -133,7 +133,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (hKKHJDJLNKI_ != null) hash ^= HKKHJDJLNKI.GetHashCode();
+      if (lNEMKGKIGCN_ != null) hash ^= LNEMKGKIGCN.GetHashCode();
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -153,13 +153,13 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (hKKHJDJLNKI_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(HKKHJDJLNKI);
-      }
       if (Retcode != 0) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(80);
         output.WriteUInt32(Retcode);
+      }
+      if (lNEMKGKIGCN_ != null) {
+        output.WriteRawTag(122);
+        output.WriteMessage(LNEMKGKIGCN);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -171,13 +171,13 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (hKKHJDJLNKI_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(HKKHJDJLNKI);
-      }
       if (Retcode != 0) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(80);
         output.WriteUInt32(Retcode);
+      }
+      if (lNEMKGKIGCN_ != null) {
+        output.WriteRawTag(122);
+        output.WriteMessage(LNEMKGKIGCN);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -189,8 +189,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (hKKHJDJLNKI_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(HKKHJDJLNKI);
+      if (lNEMKGKIGCN_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(LNEMKGKIGCN);
       }
       if (Retcode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retcode);
@@ -207,11 +207,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.hKKHJDJLNKI_ != null) {
-        if (hKKHJDJLNKI_ == null) {
-          HKKHJDJLNKI = new global::EggLink.DanhengServer.Proto.UpdatePlayerSettingData();
+      if (other.lNEMKGKIGCN_ != null) {
+        if (lNEMKGKIGCN_ == null) {
+          LNEMKGKIGCN = new global::EggLink.DanhengServer.Proto.UpdatePlayerSettingData();
         }
-        HKKHJDJLNKI.MergeFrom(other.HKKHJDJLNKI);
+        LNEMKGKIGCN.MergeFrom(other.LNEMKGKIGCN);
       }
       if (other.Retcode != 0) {
         Retcode = other.Retcode;
@@ -231,15 +231,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (hKKHJDJLNKI_ == null) {
-              HKKHJDJLNKI = new global::EggLink.DanhengServer.Proto.UpdatePlayerSettingData();
-            }
-            input.ReadMessage(HKKHJDJLNKI);
+          case 80: {
+            Retcode = input.ReadUInt32();
             break;
           }
-          case 16: {
-            Retcode = input.ReadUInt32();
+          case 122: {
+            if (lNEMKGKIGCN_ == null) {
+              LNEMKGKIGCN = new global::EggLink.DanhengServer.Proto.UpdatePlayerSettingData();
+            }
+            input.ReadMessage(LNEMKGKIGCN);
             break;
           }
         }
@@ -257,15 +257,15 @@ namespace EggLink.DanhengServer.Proto {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            if (hKKHJDJLNKI_ == null) {
-              HKKHJDJLNKI = new global::EggLink.DanhengServer.Proto.UpdatePlayerSettingData();
-            }
-            input.ReadMessage(HKKHJDJLNKI);
+          case 80: {
+            Retcode = input.ReadUInt32();
             break;
           }
-          case 16: {
-            Retcode = input.ReadUInt32();
+          case 122: {
+            if (lNEMKGKIGCN_ == null) {
+              LNEMKGKIGCN = new global::EggLink.DanhengServer.Proto.UpdatePlayerSettingData();
+            }
+            input.ReadMessage(LNEMKGKIGCN);
             break;
           }
         }

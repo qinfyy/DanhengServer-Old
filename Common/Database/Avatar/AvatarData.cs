@@ -24,6 +24,7 @@ namespace EggLink.DanhengServer.Database.Avatar
     public class AvatarInfo
     {
         public int AvatarId { get; set; }
+        [JsonIgnore]
         public int SpecialBaseAvatarId { get; set; }
         public int HeroId { get; set; }
         public int Level { get; set; }
@@ -37,6 +38,7 @@ namespace EggLink.DanhengServer.Database.Avatar
         public int ExtraLineupSp { get; set; } = 10000;
         public int Rank { get; set; }
         public Dictionary<int, int> SkillTree { get; set; } = [];
+        public Dictionary<int, Dictionary<int, int>> SkillTreeExtra { get; set; } = [];  // for hero  heroId -> skillId -> level
         public int EquipId { get; set; } = 0;
         public Dictionary<int, int> Relic { get; set; } = [];
 
@@ -138,7 +140,7 @@ namespace EggLink.DanhengServer.Database.Avatar
                 Exp = (uint)Exp,
                 Promotion = (uint)Promotion,
                 Rank = (uint)Rank,
-                FirstMetTimestamp = (ulong)Timestamp,
+                FirstMetTimeStamp = (ulong)Timestamp,
             };
 
             foreach (var item in Relic)
@@ -146,7 +148,7 @@ namespace EggLink.DanhengServer.Database.Avatar
                 proto.EquipRelicList.Add(new EquipRelic()
                 {
                     RelicUniqueId = (uint)item.Value,
-                    Slot = (uint)item.Key
+                    Type = (uint)item.Key
                 });
             }
 
@@ -155,20 +157,23 @@ namespace EggLink.DanhengServer.Database.Avatar
                 proto.EquipmentUniqueId = (uint)EquipId;
             }
 
-            foreach (var skill in SkillTree)
+            if (HeroId == 0)
             {
-                proto.SkilltreeList.Add(new AvatarSkillTree()
+                foreach (var skill in SkillTree)
                 {
-                    PointId = (uint)skill.Key,
-                    Level = (uint)skill.Value
-                });
+                    proto.SkilltreeList.Add(new AvatarSkillTree()
+                    {
+                        PointId = (uint)skill.Key,
+                        Level = (uint)skill.Value
+                    });
+                }
             }
 
             for (int i = 0; i < Promotion; i++)
             {
                 if (HasTakenReward(i))
                 {
-                    proto.TakenRewards.Add((uint)i);
+                    proto.HasTakenPromotionRewardList.Add((uint)i);
                 }
             }
 
@@ -299,7 +304,7 @@ namespace EggLink.DanhengServer.Database.Avatar
 
             foreach (var skill in SkillTree)
             {
-                proto.SkillTree.Add(new AvatarSkillTree()
+                proto.SkillTreeList.Add(new AvatarSkillTree()
                 {
                     PointId = (uint)skill.Key,
                     Level = (uint)skill.Value

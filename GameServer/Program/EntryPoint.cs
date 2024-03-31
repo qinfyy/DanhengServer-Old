@@ -81,7 +81,7 @@ namespace EggLink.DanhengServer.Program
             }
             SetConsoleCtrlHandler(new ConsoleCtrlDelegate(ConsoleCtrlHandler), true);
             WebProgram.Main([$"--urls=http://{GetConfig().HttpServer.PublicAddress}:{GetConfig().HttpServer.PublicPort}/"]);
-            logger.Info($"DispatchServer is running on http://{GetConfig().HttpServer.PublicAddress}:{GetConfig().HttpServer.PublicPort}/");
+            logger.Info($"Dispatch Server is running on http://{GetConfig().HttpServer.PublicAddress}:{GetConfig().HttpServer.PublicPort}/");
 
             Listener.StartListener();
 

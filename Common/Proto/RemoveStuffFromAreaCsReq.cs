@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static RemoveStuffFromAreaCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Ch5SZW1vdmVTdHVmZkZyb21BcmVhQ3NSZXEucHJvdG8iOAoYUmVtb3ZlU3R1",
-            "ZmZGcm9tQXJlYUNzUmVxEhwKFG11c2V1bV9zdHVmZl9pdGVtX2lkGAsgASgN",
-            "Qh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "Ch5SZW1vdmVTdHVmZkZyb21BcmVhQ3NSZXEucHJvdG8iLwoYUmVtb3ZlU3R1",
+            "ZmZGcm9tQXJlYUNzUmVxEhMKC0JJUEhJSURLQUdGGAsgASgNQh6qAhtFZ2dM",
+            "aW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RemoveStuffFromAreaCsReq), global::EggLink.DanhengServer.Proto.RemoveStuffFromAreaCsReq.Parser, new[]{ "MuseumStuffItemId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RemoveStuffFromAreaCsReq), global::EggLink.DanhengServer.Proto.RemoveStuffFromAreaCsReq.Parser, new[]{ "BIPHIIDKAGF" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,7 +72,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public RemoveStuffFromAreaCsReq(RemoveStuffFromAreaCsReq other) : this() {
-      museumStuffItemId_ = other.museumStuffItemId_;
+      bIPHIIDKAGF_ = other.bIPHIIDKAGF_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -82,15 +82,15 @@ namespace EggLink.DanhengServer.Proto {
       return new RemoveStuffFromAreaCsReq(this);
     }
 
-    /// <summary>Field number for the "museum_stuff_item_id" field.</summary>
-    public const int MuseumStuffItemIdFieldNumber = 11;
-    private uint museumStuffItemId_;
+    /// <summary>Field number for the "BIPHIIDKAGF" field.</summary>
+    public const int BIPHIIDKAGFFieldNumber = 11;
+    private uint bIPHIIDKAGF_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint MuseumStuffItemId {
-      get { return museumStuffItemId_; }
+    public uint BIPHIIDKAGF {
+      get { return bIPHIIDKAGF_; }
       set {
-        museumStuffItemId_ = value;
+        bIPHIIDKAGF_ = value;
       }
     }
 
@@ -109,7 +109,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (MuseumStuffItemId != other.MuseumStuffItemId) return false;
+      if (BIPHIIDKAGF != other.BIPHIIDKAGF) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -117,7 +117,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (MuseumStuffItemId != 0) hash ^= MuseumStuffItemId.GetHashCode();
+      if (BIPHIIDKAGF != 0) hash ^= BIPHIIDKAGF.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -136,9 +136,9 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (MuseumStuffItemId != 0) {
+      if (BIPHIIDKAGF != 0) {
         output.WriteRawTag(88);
-        output.WriteUInt32(MuseumStuffItemId);
+        output.WriteUInt32(BIPHIIDKAGF);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -150,9 +150,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (MuseumStuffItemId != 0) {
+      if (BIPHIIDKAGF != 0) {
         output.WriteRawTag(88);
-        output.WriteUInt32(MuseumStuffItemId);
+        output.WriteUInt32(BIPHIIDKAGF);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -164,8 +164,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (MuseumStuffItemId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MuseumStuffItemId);
+      if (BIPHIIDKAGF != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BIPHIIDKAGF);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -179,8 +179,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.MuseumStuffItemId != 0) {
-        MuseumStuffItemId = other.MuseumStuffItemId;
+      if (other.BIPHIIDKAGF != 0) {
+        BIPHIIDKAGF = other.BIPHIIDKAGF;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -198,7 +198,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 88: {
-            MuseumStuffItemId = input.ReadUInt32();
+            BIPHIIDKAGF = input.ReadUInt32();
             break;
           }
         }
@@ -217,7 +217,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 88: {
-            MuseumStuffItemId = input.ReadUInt32();
+            BIPHIIDKAGF = input.ReadUInt32();
             break;
           }
         }
