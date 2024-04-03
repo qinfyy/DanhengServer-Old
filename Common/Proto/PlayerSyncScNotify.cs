@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static PlayerSyncScNotifyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChhQbGF5ZXJTeW5jU2NOb3RpZnkucHJvdG8aFVdhaXREZWxSZXNvdXJjZS5w",
-            "cm90bxoLUmVsaWMucHJvdG8aE1NlY3Rpb25TdGF0dXMucHJvdG8aEEF2YXRh",
-            "clN5bmMucHJvdG8aG1BsYXllckJvYXJkTW9kdWxlU3luYy5wcm90bxoRTWlz",
-            "c2lvblN5bmMucHJvdG8aEUdyb3VwU3RhdHVzLnByb3RvGgtRdWVzdC5wcm90",
-            "bxoWTWlzc2lvbkV2ZW50U3luYy5wcm90bxodUGxheWVySGVyb0Jhc2ljVHlw",
-            "ZUluZm8ucHJvdG8aEUxKSUNKTU1IQkJCLnByb3RvGg9FcXVpcG1lbnQucHJv",
-            "dG8aDkl0ZW1MaXN0LnByb3RvGg5NYXRlcmlhbC5wcm90bxoVUGxheWVyQmFz",
-            "aWNJbmZvLnByb3RvGhFCYXNpY01vZHVsZS5wcm90byKGBgoSUGxheWVyU3lu",
+            "ChhQbGF5ZXJTeW5jU2NOb3RpZnkucHJvdG8aFk1pc3Npb25FdmVudFN5bmMu",
+            "cHJvdG8aEUdyb3VwU3RhdHVzLnByb3RvGhVXYWl0RGVsUmVzb3VyY2UucHJv",
+            "dG8aC1JlbGljLnByb3RvGhBBdmF0YXJTeW5jLnByb3RvGhFMSklDSk1NSEJC",
+            "Qi5wcm90bxoVUGxheWVyQmFzaWNJbmZvLnByb3RvGgtRdWVzdC5wcm90bxod",
+            "UGxheWVySGVyb0Jhc2ljVHlwZUluZm8ucHJvdG8aDkl0ZW1MaXN0LnByb3Rv",
+            "GhNTZWN0aW9uU3RhdHVzLnByb3RvGg5NYXRlcmlhbC5wcm90bxobUGxheWVy",
+            "Qm9hcmRNb2R1bGVTeW5jLnByb3RvGhFCYXNpY01vZHVsZS5wcm90bxoRTWlz",
+            "c2lvblN5bmMucHJvdG8aD0VxdWlwbWVudC5wcm90byKSBgoSUGxheWVyU3lu",
             "Y1NjTm90aWZ5EjAKD2JvYXJkX2RhdGFfc3luYxjgAyABKAsyFi5QbGF5ZXJC",
             "b2FyZE1vZHVsZVN5bmMSFAoLTlBHUE1LSkROSEkYvwsgAygNEiIKC0ZPR0FC",
             "R0hQTkFFGM0CIAMoCzIMLkxKSUNKTU1IQkJCEiAKC2F2YXRhcl9zeW5jGAsg",
@@ -41,19 +41,20 @@ namespace EggLink.DanhengServer.Proto {
             "b3VyY2VfbGlzdBgJIAMoCzIQLldhaXREZWxSZXNvdXJjZRIiCg5lcXVpcG1l",
             "bnRfbGlzdBgEIAMoCzIKLkVxdWlwbWVudBIiCgxtaXNzaW9uX3N5bmMYCCAB",
             "KAsyDC5NaXNzaW9uU3luYxIfCgtJRkFMUEFFR0pOTRjzByADKAsyCS5NYXRl",
-            "cmlhbBIkCgtPSklES0dETEpDRhjUBiADKAsyDi5TZWN0aW9uU3RhdHVzEiEK",
-            "C0lNSkFERkVFTU5FGAYgASgLMgwuQmFzaWNNb2R1bGUSGgoKcmVsaWNfbGlz",
-            "dBgOIAMoCzIGLlJlbGljEh8KC09LRUxMUE1JT0RFGO4FIAEoCzIJLkl0ZW1M",
-            "aXN0EiIKC09IQ0hGSUdPR0tBGNoBIAMoCzIMLkdyb3VwU3RhdHVzEiQKCmJh",
-            "c2ljX2luZm8YDyABKAsyEC5QbGF5ZXJCYXNpY0luZm8SIAoNbWF0ZXJpYWxf",
-            "bGlzdBgMIAMoCzIJLk1hdGVyaWFsEhoKCnF1ZXN0X2xpc3QYAiADKAsyBi5R",
-            "dWVzdBIeChV0b3RhbF9hY2hpZXZlbWVudF9leHAYng4gASgNEhYKDmRlbF9y",
-            "ZWxpY19saXN0GA0gAygNEhoKEmRlbF9lcXVpcG1lbnRfbGlzdBgHIAMoDUIe",
-            "qgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "cmlhbBInCg5zZWN0aW9uX3N0YXR1cxjUBiADKAsyDi5TZWN0aW9uU3RhdHVz",
+            "EiEKC0lNSkFERkVFTU5FGAYgASgLMgwuQmFzaWNNb2R1bGUSGgoKcmVsaWNf",
+            "bGlzdBgOIAMoCzIGLlJlbGljEh8KC09LRUxMUE1JT0RFGO4FIAEoCzIJLkl0",
+            "ZW1MaXN0EisKFG1lc3NhZ2VfZ3JvdXBfc3RhdHVzGNoBIAMoCzIMLkdyb3Vw",
+            "U3RhdHVzEiQKCmJhc2ljX2luZm8YDyABKAsyEC5QbGF5ZXJCYXNpY0luZm8S",
+            "IAoNbWF0ZXJpYWxfbGlzdBgMIAMoCzIJLk1hdGVyaWFsEhoKCnF1ZXN0X2xp",
+            "c3QYAiADKAsyBi5RdWVzdBIeChV0b3RhbF9hY2hpZXZlbWVudF9leHAYng4g",
+            "ASgNEhYKDmRlbF9yZWxpY19saXN0GA0gAygNEhoKEmRlbF9lcXVpcG1lbnRf",
+            "bGlzdBgHIAMoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.WaitDelResourceReflection.Descriptor, global::EggLink.DanhengServer.Proto.RelicReflection.Descriptor, global::EggLink.DanhengServer.Proto.SectionStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.AvatarSyncReflection.Descriptor, global::EggLink.DanhengServer.Proto.PlayerBoardModuleSyncReflection.Descriptor, global::EggLink.DanhengServer.Proto.MissionSyncReflection.Descriptor, global::EggLink.DanhengServer.Proto.GroupStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.QuestReflection.Descriptor, global::EggLink.DanhengServer.Proto.MissionEventSyncReflection.Descriptor, global::EggLink.DanhengServer.Proto.PlayerHeroBasicTypeInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.LJICJMMHBBBReflection.Descriptor, global::EggLink.DanhengServer.Proto.EquipmentReflection.Descriptor, global::EggLink.DanhengServer.Proto.ItemListReflection.Descriptor, global::EggLink.DanhengServer.Proto.MaterialReflection.Descriptor, global::EggLink.DanhengServer.Proto.PlayerBasicInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.BasicModuleReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MissionEventSyncReflection.Descriptor, global::EggLink.DanhengServer.Proto.GroupStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.WaitDelResourceReflection.Descriptor, global::EggLink.DanhengServer.Proto.RelicReflection.Descriptor, global::EggLink.DanhengServer.Proto.AvatarSyncReflection.Descriptor, global::EggLink.DanhengServer.Proto.LJICJMMHBBBReflection.Descriptor, global::EggLink.DanhengServer.Proto.PlayerBasicInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.QuestReflection.Descriptor, global::EggLink.DanhengServer.Proto.PlayerHeroBasicTypeInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ItemListReflection.Descriptor, global::EggLink.DanhengServer.Proto.SectionStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.MaterialReflection.Descriptor, global::EggLink.DanhengServer.Proto.PlayerBoardModuleSyncReflection.Descriptor, global::EggLink.DanhengServer.Proto.BasicModuleReflection.Descriptor, global::EggLink.DanhengServer.Proto.MissionSyncReflection.Descriptor, global::EggLink.DanhengServer.Proto.EquipmentReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.PlayerSyncScNotify), global::EggLink.DanhengServer.Proto.PlayerSyncScNotify.Parser, new[]{ "BoardDataSync", "NPGPMKJDNHI", "FOGABGHPNAE", "AvatarSync", "BasicTypeInfoList", "MissionEventSync", "WaitDelResourceList", "EquipmentList", "MissionSync", "IFALPAEGJNM", "OJIDKGDLJCF", "IMJADFEEMNE", "RelicList", "OKELLPMIODE", "OHCHFIGOGKA", "BasicInfo", "MaterialList", "QuestList", "TotalAchievementExp", "DelRelicList", "DelEquipmentList" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.PlayerSyncScNotify), global::EggLink.DanhengServer.Proto.PlayerSyncScNotify.Parser, new[]{ "BoardDataSync", "NPGPMKJDNHI", "FOGABGHPNAE", "AvatarSync", "BasicTypeInfoList", "MissionEventSync", "WaitDelResourceList", "EquipmentList", "MissionSync", "IFALPAEGJNM", "SectionStatus", "IMJADFEEMNE", "RelicList", "OKELLPMIODE", "MessageGroupStatus", "BasicInfo", "MaterialList", "QuestList", "TotalAchievementExp", "DelRelicList", "DelEquipmentList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -105,11 +106,11 @@ namespace EggLink.DanhengServer.Proto {
       equipmentList_ = other.equipmentList_.Clone();
       missionSync_ = other.missionSync_ != null ? other.missionSync_.Clone() : null;
       iFALPAEGJNM_ = other.iFALPAEGJNM_.Clone();
-      oJIDKGDLJCF_ = other.oJIDKGDLJCF_.Clone();
+      sectionStatus_ = other.sectionStatus_.Clone();
       iMJADFEEMNE_ = other.iMJADFEEMNE_ != null ? other.iMJADFEEMNE_.Clone() : null;
       relicList_ = other.relicList_.Clone();
       oKELLPMIODE_ = other.oKELLPMIODE_ != null ? other.oKELLPMIODE_.Clone() : null;
-      oHCHFIGOGKA_ = other.oHCHFIGOGKA_.Clone();
+      messageGroupStatus_ = other.messageGroupStatus_.Clone();
       basicInfo_ = other.basicInfo_ != null ? other.basicInfo_.Clone() : null;
       materialList_ = other.materialList_.Clone();
       questList_ = other.questList_.Clone();
@@ -239,15 +240,15 @@ namespace EggLink.DanhengServer.Proto {
       get { return iFALPAEGJNM_; }
     }
 
-    /// <summary>Field number for the "OJIDKGDLJCF" field.</summary>
-    public const int OJIDKGDLJCFFieldNumber = 852;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.SectionStatus> _repeated_oJIDKGDLJCF_codec
+    /// <summary>Field number for the "section_status" field.</summary>
+    public const int SectionStatusFieldNumber = 852;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.SectionStatus> _repeated_sectionStatus_codec
         = pb::FieldCodec.ForMessage(6818, global::EggLink.DanhengServer.Proto.SectionStatus.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.SectionStatus> oJIDKGDLJCF_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.SectionStatus>();
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.SectionStatus> sectionStatus_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.SectionStatus>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.SectionStatus> OJIDKGDLJCF {
-      get { return oJIDKGDLJCF_; }
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.SectionStatus> SectionStatus {
+      get { return sectionStatus_; }
     }
 
     /// <summary>Field number for the "IMJADFEEMNE" field.</summary>
@@ -285,15 +286,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "OHCHFIGOGKA" field.</summary>
-    public const int OHCHFIGOGKAFieldNumber = 218;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.GroupStatus> _repeated_oHCHFIGOGKA_codec
+    /// <summary>Field number for the "message_group_status" field.</summary>
+    public const int MessageGroupStatusFieldNumber = 218;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.GroupStatus> _repeated_messageGroupStatus_codec
         = pb::FieldCodec.ForMessage(1746, global::EggLink.DanhengServer.Proto.GroupStatus.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GroupStatus> oHCHFIGOGKA_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GroupStatus>();
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GroupStatus> messageGroupStatus_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GroupStatus>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GroupStatus> OHCHFIGOGKA {
-      get { return oHCHFIGOGKA_; }
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GroupStatus> MessageGroupStatus {
+      get { return messageGroupStatus_; }
     }
 
     /// <summary>Field number for the "basic_info" field.</summary>
@@ -389,11 +390,11 @@ namespace EggLink.DanhengServer.Proto {
       if(!equipmentList_.Equals(other.equipmentList_)) return false;
       if (!object.Equals(MissionSync, other.MissionSync)) return false;
       if(!iFALPAEGJNM_.Equals(other.iFALPAEGJNM_)) return false;
-      if(!oJIDKGDLJCF_.Equals(other.oJIDKGDLJCF_)) return false;
+      if(!sectionStatus_.Equals(other.sectionStatus_)) return false;
       if (!object.Equals(IMJADFEEMNE, other.IMJADFEEMNE)) return false;
       if(!relicList_.Equals(other.relicList_)) return false;
       if (!object.Equals(OKELLPMIODE, other.OKELLPMIODE)) return false;
-      if(!oHCHFIGOGKA_.Equals(other.oHCHFIGOGKA_)) return false;
+      if(!messageGroupStatus_.Equals(other.messageGroupStatus_)) return false;
       if (!object.Equals(BasicInfo, other.BasicInfo)) return false;
       if(!materialList_.Equals(other.materialList_)) return false;
       if(!questList_.Equals(other.questList_)) return false;
@@ -417,11 +418,11 @@ namespace EggLink.DanhengServer.Proto {
       hash ^= equipmentList_.GetHashCode();
       if (missionSync_ != null) hash ^= MissionSync.GetHashCode();
       hash ^= iFALPAEGJNM_.GetHashCode();
-      hash ^= oJIDKGDLJCF_.GetHashCode();
+      hash ^= sectionStatus_.GetHashCode();
       if (iMJADFEEMNE_ != null) hash ^= IMJADFEEMNE.GetHashCode();
       hash ^= relicList_.GetHashCode();
       if (oKELLPMIODE_ != null) hash ^= OKELLPMIODE.GetHashCode();
-      hash ^= oHCHFIGOGKA_.GetHashCode();
+      hash ^= messageGroupStatus_.GetHashCode();
       if (basicInfo_ != null) hash ^= BasicInfo.GetHashCode();
       hash ^= materialList_.GetHashCode();
       hash ^= questList_.GetHashCode();
@@ -474,7 +475,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(122);
         output.WriteMessage(BasicInfo);
       }
-      oHCHFIGOGKA_.WriteTo(output, _repeated_oHCHFIGOGKA_codec);
+      messageGroupStatus_.WriteTo(output, _repeated_messageGroupStatus_codec);
       fOGABGHPNAE_.WriteTo(output, _repeated_fOGABGHPNAE_codec);
       if (boardDataSync_ != null) {
         output.WriteRawTag(130, 30);
@@ -484,7 +485,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(242, 46);
         output.WriteMessage(OKELLPMIODE);
       }
-      oJIDKGDLJCF_.WriteTo(output, _repeated_oJIDKGDLJCF_codec);
+      sectionStatus_.WriteTo(output, _repeated_sectionStatus_codec);
       iFALPAEGJNM_.WriteTo(output, _repeated_iFALPAEGJNM_codec);
       nPGPMKJDNHI_.WriteTo(output, _repeated_nPGPMKJDNHI_codec);
       if (TotalAchievementExp != 0) {
@@ -529,7 +530,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(122);
         output.WriteMessage(BasicInfo);
       }
-      oHCHFIGOGKA_.WriteTo(ref output, _repeated_oHCHFIGOGKA_codec);
+      messageGroupStatus_.WriteTo(ref output, _repeated_messageGroupStatus_codec);
       fOGABGHPNAE_.WriteTo(ref output, _repeated_fOGABGHPNAE_codec);
       if (boardDataSync_ != null) {
         output.WriteRawTag(130, 30);
@@ -539,7 +540,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(242, 46);
         output.WriteMessage(OKELLPMIODE);
       }
-      oJIDKGDLJCF_.WriteTo(ref output, _repeated_oJIDKGDLJCF_codec);
+      sectionStatus_.WriteTo(ref output, _repeated_sectionStatus_codec);
       iFALPAEGJNM_.WriteTo(ref output, _repeated_iFALPAEGJNM_codec);
       nPGPMKJDNHI_.WriteTo(ref output, _repeated_nPGPMKJDNHI_codec);
       if (TotalAchievementExp != 0) {
@@ -574,7 +575,7 @@ namespace EggLink.DanhengServer.Proto {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(MissionSync);
       }
       size += iFALPAEGJNM_.CalculateSize(_repeated_iFALPAEGJNM_codec);
-      size += oJIDKGDLJCF_.CalculateSize(_repeated_oJIDKGDLJCF_codec);
+      size += sectionStatus_.CalculateSize(_repeated_sectionStatus_codec);
       if (iMJADFEEMNE_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(IMJADFEEMNE);
       }
@@ -582,7 +583,7 @@ namespace EggLink.DanhengServer.Proto {
       if (oKELLPMIODE_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(OKELLPMIODE);
       }
-      size += oHCHFIGOGKA_.CalculateSize(_repeated_oHCHFIGOGKA_codec);
+      size += messageGroupStatus_.CalculateSize(_repeated_messageGroupStatus_codec);
       if (basicInfo_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(BasicInfo);
       }
@@ -635,7 +636,7 @@ namespace EggLink.DanhengServer.Proto {
         MissionSync.MergeFrom(other.MissionSync);
       }
       iFALPAEGJNM_.Add(other.iFALPAEGJNM_);
-      oJIDKGDLJCF_.Add(other.oJIDKGDLJCF_);
+      sectionStatus_.Add(other.sectionStatus_);
       if (other.iMJADFEEMNE_ != null) {
         if (iMJADFEEMNE_ == null) {
           IMJADFEEMNE = new global::EggLink.DanhengServer.Proto.BasicModule();
@@ -649,7 +650,7 @@ namespace EggLink.DanhengServer.Proto {
         }
         OKELLPMIODE.MergeFrom(other.OKELLPMIODE);
       }
-      oHCHFIGOGKA_.Add(other.oHCHFIGOGKA_);
+      messageGroupStatus_.Add(other.messageGroupStatus_);
       if (other.basicInfo_ != null) {
         if (basicInfo_ == null) {
           BasicInfo = new global::EggLink.DanhengServer.Proto.PlayerBasicInfo();
@@ -748,7 +749,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 1746: {
-            oHCHFIGOGKA_.AddEntriesFrom(input, _repeated_oHCHFIGOGKA_codec);
+            messageGroupStatus_.AddEntriesFrom(input, _repeated_messageGroupStatus_codec);
             break;
           }
           case 2666: {
@@ -770,7 +771,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 6818: {
-            oJIDKGDLJCF_.AddEntriesFrom(input, _repeated_oJIDKGDLJCF_codec);
+            sectionStatus_.AddEntriesFrom(input, _repeated_sectionStatus_codec);
             break;
           }
           case 8090: {
@@ -871,7 +872,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 1746: {
-            oHCHFIGOGKA_.AddEntriesFrom(ref input, _repeated_oHCHFIGOGKA_codec);
+            messageGroupStatus_.AddEntriesFrom(ref input, _repeated_messageGroupStatus_codec);
             break;
           }
           case 2666: {
@@ -893,7 +894,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 6818: {
-            oJIDKGDLJCF_.AddEntriesFrom(ref input, _repeated_oJIDKGDLJCF_codec);
+            sectionStatus_.AddEntriesFrom(ref input, _repeated_sectionStatus_codec);
             break;
           }
           case 8090: {

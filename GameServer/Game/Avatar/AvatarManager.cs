@@ -11,28 +11,15 @@ namespace EggLink.DanhengServer.Game.Avatar
 {
     public class AvatarManager : BasePlayerManager
     {
-        public AvatarData? AvatarData { get; private set; }
+        public AvatarData AvatarData { get; private set; }
 
         public AvatarManager(PlayerInstance player) : base(player) 
         {
-            var avatars = DatabaseHelper.Instance?.GetInstance<AvatarData>(player.Uid);
-            if (avatars == null)
+            AvatarData = DatabaseHelper.Instance!.GetInstanceOrCreateNew<AvatarData>(player.Uid);
+            foreach (var avatar in AvatarData.Avatars)
             {
-                AvatarData = new()
-                {
-                    Uid = player.Uid,
-                    Avatars = [],
-                };
-                DatabaseHelper.Instance?.SaveInstance(AvatarData);
-            }
-            else
-            {
-                AvatarData = avatars;
-                foreach (var avatar in AvatarData?.Avatars ?? [])
-                {
-                    avatar.PlayerData = player.Data;
-                    avatar.Excel = GameData.AvatarConfigData[avatar.AvatarId];
-                }
+                avatar.PlayerData = player.Data;
+                avatar.Excel = GameData.AvatarConfigData[avatar.AvatarId];
             }
         }
 
@@ -59,10 +46,6 @@ namespace EggLink.DanhengServer.Game.Avatar
                 avatar.HeroId = avatarId;
             }
 
-            if (AvatarData?.Avatars == null)
-            {
-                AvatarData!.Avatars = [];
-            }
             avatar.PlayerData = Player.Data;
             AvatarData.Avatars.Add(avatar);
             DatabaseHelper.Instance?.UpdateInstance(AvatarData);
@@ -73,12 +56,12 @@ namespace EggLink.DanhengServer.Game.Avatar
         public AvatarInfo? GetAvatar(int baseAvatarId)
         {
             if (baseAvatarId > 8000) baseAvatarId = 8001;
-            return AvatarData?.Avatars?.Find(avatar => avatar.AvatarId == baseAvatarId);
+            return AvatarData.Avatars.Find(avatar => avatar.AvatarId == baseAvatarId);
         }
 
         public AvatarInfo? GetHero()
         {
-            return AvatarData?.Avatars?.Find(avatar => avatar.HeroId > 0);
+            return AvatarData.Avatars.Find(avatar => avatar.HeroId > 0);
         }
     }
 }

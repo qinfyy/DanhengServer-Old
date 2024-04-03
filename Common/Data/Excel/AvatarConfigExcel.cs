@@ -1,6 +1,8 @@
-﻿using EggLink.DanhengServer.Enums;
+﻿using EggLink.DanhengServer.Data.Config;
+using EggLink.DanhengServer.Enums;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using System.Text.RegularExpressions;
 
 namespace EggLink.DanhengServer.Data.Excel
 {
@@ -11,6 +13,7 @@ namespace EggLink.DanhengServer.Data.Excel
         public HashName AvatarName { get; set; } = new();
         public int ExpGroup { get; set; } = 0;
         public List<int> RankIDList { get; set; } = [];
+        public string? JsonPath { get; set; } = "";
 
         [JsonConverter(typeof(StringEnumConverter))]
         public RarityEnum Rarity { get; set; } = 0;
@@ -21,6 +24,14 @@ namespace EggLink.DanhengServer.Data.Excel
         [JsonIgnore()]
         public int RankUpItemId { get; set; }
 
+        [JsonIgnore()]
+        public string NameKey { get; set; } = "";
+
+        [JsonIgnore()]
+        public AbilityInfo? MazeSkill { get; set; }
+        [JsonIgnore()]
+        public AbilityInfo? MazeAtk { get; set; }
+
         public override int GetId()
         {
             return AvatarID;
@@ -30,6 +41,14 @@ namespace EggLink.DanhengServer.Data.Excel
         {
             GameData.AvatarConfigData.Add(AvatarID, this);
             RankUpItemId = AvatarID + 10000;
+
+            var regex = new Regex(@"(?<=Avatar_)(.*?)(?=_Config)");
+            var match = regex.Match(JsonPath??"");
+            if (match.Success)
+            {
+                NameKey = match.Value;
+            }
+            JsonPath = null;
         }
     }
 }

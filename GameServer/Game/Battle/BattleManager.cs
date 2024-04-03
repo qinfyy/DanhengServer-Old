@@ -1,6 +1,7 @@
 ﻿using EggLink.DanhengServer.Data;
 using EggLink.DanhengServer.Data.Excel;
 using EggLink.DanhengServer.Database;
+using EggLink.DanhengServer.Game.Battle.Skill;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Game.Scene.Entity;
 using EggLink.DanhengServer.Proto;
@@ -12,14 +13,18 @@ namespace EggLink.DanhengServer.Game.Battle
 {
     public class BattleManager(PlayerInstance player) : BasePlayerManager(player)
     {
-        public void StartBattle(SceneCastSkillCsReq req)
+        public void StartBattle(SceneCastSkillCsReq req, MazeSkill skill, int casterAvatarId)
         {
             if (Player.BattleInstance != null) return;
             var targetList = new List<EntityMonster>();
             var propList = new List<EntityProp>();
+            if (!skill.TriggerBattle)
+            {
+                Player.SendPacket(new PacketSceneCastSkillScRsp(req.CastEntityId));
+                return;
+            }
             if (Player.SceneInstance!.AvatarInfo.ContainsKey((int)req.AttackedByEntityId))
             {
-
                 foreach (var entity in req.HitTargetEntityIdList)
                 {
                     Player.SceneInstance!.Entities.TryGetValue((int)entity, out var entityInstance);
@@ -77,8 +82,11 @@ namespace EggLink.DanhengServer.Game.Battle
                 BattleInstance battleInstance = new(Player, Player.LineupManager!.GetCurLineup()!, targetList)
                 {
                     WorldLevel = Player.Data.WorldLevel,
+                    CasterIndex = (int)req.CastEntityId,
                 };
                 Player.BattleInstance = battleInstance;
+                battleInstance.CasterIndex = Player.LineupManager!.GetCurLineup()!.BaseAvatars!.FindIndex(x => x.BaseAvatarId == casterAvatarId);
+                skill.OnEnterBattle(battleInstance);
                 Player.SendPacket(new PacketSceneCastSkillScRsp(req.CastEntityId, battleInstance));
             } else
             {

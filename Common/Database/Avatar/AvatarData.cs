@@ -12,8 +12,8 @@ namespace EggLink.DanhengServer.Database.Avatar
     [SugarTable("Avatar")]
     public class AvatarData : BaseDatabaseData
     {
-        [SugarColumn(IsNullable = true, IsJson = true)]
-        public List<AvatarInfo>? Avatars { get; set; }
+        [SugarColumn(IsJson = true)]
+        public List<AvatarInfo> Avatars { get; set; } = [];
 
         [SugarColumn(IsJson = true)]
         public List<int> AssistAvatars { get; set; } = [];

@@ -23,16 +23,7 @@ namespace EggLink.DanhengServer.Game.Mission
 
         public MissionManager(PlayerInstance player) : base(player)
         {
-            var mission = DatabaseHelper.Instance?.GetInstance<MissionData>(player.Uid);
-            if (mission == null)
-            {
-                DatabaseHelper.Instance?.SaveInstance(new MissionData()
-                {
-                    Uid = player.Uid,
-                });
-                mission = DatabaseHelper.Instance?.GetInstance<MissionData>(player.Uid);
-            }
-            Data = mission!;
+            Data = DatabaseHelper.Instance!.GetInstanceOrCreateNew<MissionData>(player.Uid);
 
             var types = Assembly.GetExecutingAssembly().GetTypes();
             foreach (var type in types)
@@ -154,7 +145,7 @@ namespace EggLink.DanhengServer.Game.Mission
             {
                 Id = (uint)missionId,
                 Status = Proto.MissionStatus.MissionFinish,
-                Progress = 1
+                Progress = (uint)(subMission.SubMissionInfo?.Progress ?? 1)
             });
 
             // get next sub mission
@@ -258,6 +249,18 @@ namespace EggLink.DanhengServer.Game.Mission
 
             Player.SendPacket(new PacketMissionRewardScNotify(mainMissionId, 0, ItemList));
             Player.SendPacket(new PacketScenePlaneEventScNotify(ItemList));
+        }
+
+        public void HandleFinishType(MissionFinishTypeEnum finishType, object? arg = null)
+        {
+            FinishTypeHandlers.TryGetValue(finishType, out var handler);
+            foreach (var mission in GetRunningSubMissionList())
+            {
+                if (mission.FinishType == finishType)
+                {
+                    handler?.HandleFinishType(Player, mission, arg);
+                }
+            }
         }
 
         #endregion

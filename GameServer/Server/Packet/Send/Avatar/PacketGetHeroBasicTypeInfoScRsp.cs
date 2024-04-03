@@ -9,7 +9,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Avatar
         {
             var proto = new GetHeroBasicTypeInfoScRsp()
             {
-                Gender = player.Data.CurrentGender ?? Gender.None,
+                Gender = player.Data.CurrentGender,
                 CurBasicType = (HeroBasicType)player.Data.CurBasicType,
             };
 

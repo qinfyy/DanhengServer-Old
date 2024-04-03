@@ -1,6 +1,7 @@
 ﻿using EggLink.DanhengServer.Data;
 using EggLink.DanhengServer.Database.Avatar;
 using EggLink.DanhengServer.Database.Inventory;
+using EggLink.DanhengServer.Database.Message;
 using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Proto;
 using System;
@@ -77,6 +78,32 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Player
             {
                 BasicInfo = info,
             };
+
+            SetData(proto);
+        }
+
+        public PacketPlayerSyncScNotify(MessageGroupData? groupData, MessageSectionData? sectionData) : base(CmdIds.PlayerSyncScNotify)
+        {
+            var proto = new PlayerSyncScNotify();
+
+            if (groupData != null)
+            {
+                proto.MessageGroupStatus.Add(new GroupStatus
+                {
+                    GroupId = (uint)groupData.GroupId,
+                    GroupStatus_ = groupData.Status,
+                    RefreshTime = groupData.RefreshTime,
+                });
+            }
+
+            if (sectionData != null)
+            {
+                proto.SectionStatus.Add(new SectionStatus
+                {
+                    SectionId = (uint)sectionData.SectionId,
+                    SectionStatus_ = sectionData.Status,
+                });
+            }
 
             SetData(proto);
         }

@@ -15,6 +15,7 @@ namespace EggLink.DanhengServer.Database.Gacha
         public bool LastAvatarGachaFailed { get; set; } = false;
         public bool LastWeaponGachaFailed { get; set; } = false;
         public int LastGachaFailedCount { get; set; } = 0;
+        public int LastGachaPurpleFailedCount { get; set; } = 0;
     }
 
     public class GachaInfo

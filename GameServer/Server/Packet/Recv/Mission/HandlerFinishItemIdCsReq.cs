@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace EggLink.DanhengServer.Server.Packet.Recv.Mission
 {
-    [Opcode(CmdIds.FinishPerformSectionIdCsReq)]
-    public class HandlerFinishPerformSectionIdCsReq : Handler
+    [Opcode(CmdIds.FinishItemIdCsReq)]
+    public class HandlerFinishItemIdCsReq : Handler
     {
         public override void OnHandle(Connection connection, byte[] header, byte[] data)
         {
-            var req = FinishPerformSectionIdCsReq.Parser.ParseFrom(data);
+            var req = FinishItemIdCsReq.Parser.ParseFrom(data);
+            var player = connection.Player!;
+            player.MessageManager!.FinishMessageItem((int)req.ItemId);
 
-            connection.Player!.MessageManager!.FinishSection((int)req.SectionId);
-
-            connection.SendPacket(new PacketFinishPerformSectionIdScRsp(req.SectionId));
+            connection.SendPacket(new PacketFinishItemIdScRsp(req.ItemId));
         }
     }
 }

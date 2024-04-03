@@ -71,7 +71,7 @@ namespace EggLink.DanhengServer.Data.Custom
             } else
             {
                 // 4 - 3 star
-                if (IsRate4())
+                if (IsRate4() || data.LastGachaPurpleFailedCount >= 10)
                 {
                     if (IsRateUp4())
                     {
@@ -80,9 +80,11 @@ namespace EggLink.DanhengServer.Data.Custom
                     {
                         item = allNormalItems[random.Next(0, allNormalItems.Count)];
                     }
+                    data.LastGachaPurpleFailedCount = 0;
                 } else
                 {
                     item = blueWeapons[random.Next(0, blueWeapons.Count)];
+                    data.LastGachaPurpleFailedCount += 1;
                 }
             }
             DatabaseHelper.Instance?.UpdateInstance(data);
@@ -105,13 +107,13 @@ namespace EggLink.DanhengServer.Data.Custom
         public bool IsRateUp4()
         {
             var random = new Random();
-            return random.Next(0, 1000) < 50;
+            return random.Next(0, 100) < 50;
         }
 
         public bool IsRate4()
         {
             var random = new Random();
-            return random.Next(0, 1000) < 61;
+            return random.Next(0, 100) < 31;
         }
 
         public int GetRateUpItem5(List<int> gold, bool forceUp)

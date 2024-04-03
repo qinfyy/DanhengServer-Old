@@ -3,6 +3,7 @@ using EggLink.DanhengServer.Data.Excel;
 using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Database.Avatar;
 using EggLink.DanhengServer.Game.Player;
+using EggLink.DanhengServer.Game.Scene;
 using EggLink.DanhengServer.Game.Scene.Entity;
 using EggLink.DanhengServer.Proto;
 
@@ -17,11 +18,13 @@ namespace EggLink.DanhengServer.Game.Battle
         public int MappingInfoId { get; set; }
         public int RoundLimit { get; set; }
         public int StageId { get; set; } = stages.Count > 0 ? stages[0].StageID : 0;
+        public int CasterIndex { get; set; }
         public BattleEndStatus BattleEndStatus { get; set; }
 
         public List<StageConfigExcel> Stages { get; set; } = stages;
         public Database.Lineup.LineupInfo Lineup { get; set; } = lineup;
-        public List<EntityMonster> EntityMonsters { get; set; } = new();
+        public List<EntityMonster> EntityMonsters { get; set; } = [];
+        public List<SceneBuff> Buffs { get; set; } = [];
 
         public BattleInstance(PlayerInstance player, Database.Lineup.LineupInfo lineup, List<EntityMonster> monsters) : this(player, lineup, new List<StageConfigExcel>())
         {
@@ -91,6 +94,7 @@ namespace EggLink.DanhengServer.Game.Battle
                 proto.BattleAvatarList.Add(avatarInstance.ToBattleProto(Player.LineupManager!.GetCurLineup()!, Player.InventoryManager!.Data, avatarType));
             }
 
+            proto.BuffList.AddRange(Buffs.Select(buff => buff.ToProto(CasterIndex, 1 >> Stages.Count)));
             return proto;
         }
     }

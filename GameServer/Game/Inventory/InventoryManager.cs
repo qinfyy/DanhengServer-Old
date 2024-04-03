@@ -4,6 +4,7 @@ using EggLink.DanhengServer.Database.Inventory;
 using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Proto;
+using EggLink.DanhengServer.Server.Packet.Send.Avatar;
 using EggLink.DanhengServer.Server.Packet.Send.Player;
 using EggLink.DanhengServer.Server.Packet.Send.Scene;
 using EggLink.DanhengServer.Util;
@@ -11,24 +12,21 @@ using System.Text.RegularExpressions;
 
 namespace EggLink.DanhengServer.Game.Inventory
 {
-    public class InventoryManager : BasePlayerManager
+    public class InventoryManager(PlayerInstance player) : BasePlayerManager(player)
     {
-        public InventoryData Data;
-        public InventoryManager(PlayerInstance player) : base(player)
+        public InventoryData Data = DatabaseHelper.Instance!.GetInstanceOrCreateNew<InventoryData>(player.Uid);
+
+        public void AddItems(List<ItemData> items, bool notify = true)
         {
-            var inventory = DatabaseHelper.Instance?.GetInstance<InventoryData>(player.Uid);
-            if (inventory == null)
+            foreach (var item in items)
             {
-                DatabaseHelper.Instance?.SaveInstance(new InventoryData()
-                {
-                    Uid = player.Uid,
-                });
-                inventory = DatabaseHelper.Instance?.GetInstance<InventoryData>(player.Uid);
+                AddItem(item.ItemId, items.Count, true, false);
             }
-            Data = inventory!;
+
+            DatabaseHelper.Instance?.UpdateInstance(Data);
         }
 
-        public ItemData? AddItem(int itemId, int count, bool notify = true)
+        public ItemData? AddItem(int itemId, int count, bool notify = true, bool save = true)
         {
             GameData.ItemConfigData.TryGetValue(itemId, out var itemConfig);
             if (itemConfig == null) return null;
@@ -105,11 +103,15 @@ namespace EggLink.DanhengServer.Game.Inventory
                     var avatar = Player.AvatarManager?.GetAvatar(itemId);
                     if (avatar != null && avatar.Excel != null)
                     {
-                        PutItem(avatar.Excel.RankUpItemId, 1);
+                        var rankUpItem = Player.InventoryManager!.GetItem(avatar.Excel.RankUpItemId);
+                        if (avatar.Rank + rankUpItem?.Count <= 5)
+                            itemData = PutItem(avatar.Excel.RankUpItemId, 1);
                     }
                     else
+                    {
                         Player.AddAvatar(itemId);
-                    itemData = new() { ItemId = itemId, Count = 1 };
+                        Player.SendPacket(new PacketAddAvatarScNotify(itemId));
+                    }
                     break;
                 default:
                     itemData = PutItem(itemId, Math.Min(count, itemConfig.PileLimit));
@@ -125,7 +127,8 @@ namespace EggLink.DanhengServer.Game.Inventory
                 }
             }
 
-            DatabaseHelper.Instance?.UpdateInstance(Data);
+            if (save)
+                DatabaseHelper.Instance?.UpdateInstance(Data);
 
             return itemData;
         }
@@ -456,9 +459,16 @@ namespace EggLink.DanhengServer.Game.Inventory
 
             foreach (var cost in item.ItemList)
             {
-                GameData.ItemConfigData.TryGetValue((int)cost.PileItem.ItemId, out var itemConfig);
-                if (itemConfig == null) continue;
-                exp += itemConfig.Exp * (int)cost.PileItem.ItemNum;
+                if (cost.PileItem == null)
+                {
+                    // TODO : add equipment
+                    exp += 100;
+                } else
+                {
+                    GameData.ItemConfigData.TryGetValue((int)cost.PileItem.ItemId, out var itemConfig);
+                    if (itemConfig == null) continue;
+                    exp += itemConfig.Exp * (int)cost.PileItem.ItemNum;
+                }
             }
 
             // payment
@@ -466,7 +476,16 @@ namespace EggLink.DanhengServer.Game.Inventory
             if (Player.Data.Scoin < costScoin) return [];
             foreach (var cost in item.ItemList)
             {
-                RemoveItem((int)cost.PileItem.ItemId, (int)cost.PileItem.ItemNum);
+                if (cost.PileItem == null)
+                {
+                    // TODO : add equipment
+                    var costItem = Data.EquipmentItems.Find(x => x.UniqueId == cost.EquipmentUniqueId);
+                    if (costItem == null) continue;
+                    RemoveItem(costItem.ItemId, 1, (int)cost.EquipmentUniqueId);
+                } else
+                {
+                    RemoveItem((int)cost.PileItem.ItemId, (int)cost.PileItem.ItemNum);
+                }
             }
             RemoveItem(2, costScoin);
 
@@ -543,15 +562,17 @@ namespace EggLink.DanhengServer.Game.Inventory
 
         public void RankUpEquipment(int equipmentUniqueId, ItemCostData costData)
         {
+            var rank = 0;
             foreach (var cost in costData.ItemList)
             {
                 var costItem = Data.EquipmentItems.Find(x => x.UniqueId == cost.EquipmentUniqueId);
                 if (costItem == null) continue;
                 RemoveItem(costItem.ItemId, 0, (int)cost.EquipmentUniqueId);
+                rank++;
             }
             var itemData = Data.EquipmentItems.Find(x => x.UniqueId == equipmentUniqueId);
             if (itemData == null) return;
-            itemData.Rank++;
+            itemData.Rank += rank;
             DatabaseHelper.Instance!.UpdateInstance(Data);
             Player.SendPacket(new PacketPlayerSyncScNotify(itemData));
         }

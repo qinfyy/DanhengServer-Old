@@ -12,11 +12,10 @@ namespace EggLink.DanhengServer.Data
         public static Dictionary<int, AvatarExpItemConfigExcel> AvatarExpItemConfigData { get; private set; } = [];
         public static Dictionary<int, AvatarSkillTreeConfigExcel> AvatarSkillTreeConfigData { get; private set; } = [];
         public static Dictionary<int, ExpTypeExcel> ExpTypeData { get; private set; } = [];
+
         public static Dictionary<int, CocoonConfigExcel> CocoonConfigData { get; private set; } = [];
         public static Dictionary<int, StageConfigExcel> StageConfigData { get; private set; } = [];
-        public static Dictionary<int, MapEntranceExcel> MapEntranceData { get; private set; } = [];
-        public static Dictionary<int, MazePlaneExcel> MazePlaneData { get; private set; } = [];
-        public static Dictionary<int, MazePropExcel> MazePropData { get; private set; } = [];
+        public static Dictionary<int, MazeBuffExcel> MazeBuffData { get; private set; } = [];
         public static Dictionary<int, InteractConfigExcel> InteractConfigData { get; private set; } = [];
         public static Dictionary<int, NPCMonsterDataExcel> NpcMonsterDataData { get; private set; } = [];
         public static Dictionary<int, MonsterConfigExcel> MonsterConfigData { get; private set; } = [];
@@ -25,6 +24,10 @@ namespace EggLink.DanhengServer.Data
         public static Dictionary<int, PlayerLevelConfigExcel> PlayerLevelConfigData { get; private set; } = [];
 
         public static Dictionary<string, FloorInfo> FloorInfoData { get; private set; } = [];
+        public static Dictionary<int, MapEntranceExcel> MapEntranceData { get; private set; } = [];
+        public static Dictionary<int, MazePlaneExcel> MazePlaneData { get; private set; } = [];
+        public static Dictionary<int, MazePropExcel> MazePropData { get; private set; } = [];
+
         public static Dictionary<int, ItemConfigExcel> ItemConfigData { get; private set; } = [];
         public static Dictionary<int, EquipmentConfigExcel> EquipmentConfigData { get; private set; } = [];
         public static Dictionary<int, EquipmentExpTypeExcel> EquipmentExpTypeData { get; private set; } = [];
@@ -40,6 +43,12 @@ namespace EggLink.DanhengServer.Data
         public static Dictionary<int, MainMissionExcel> MainMissionData { get; private set; } = [];
         public static Dictionary<int, SubMissionExcel> SubMissionData { get; private set; } = [];
         public static Dictionary<int, RewardDataExcel> RewardDataData { get; private set; } = [];
+        public static Dictionary<int, MessageGroupConfigExcel> MessageGroupConfigData { get; private set; } = [];
+        public static Dictionary<int, MessageSectionConfigExcel> MessageSectionConfigData { get; private set; } = [];
+        public static Dictionary<int, MessageContactsConfigExcel> MessageContactsConfigData { get; private set; } = [];
+        public static Dictionary<int, MessageItemConfigExcel> MessageItemConfigData { get; private set; } = [];
+
+        public static Dictionary<int, ShopConfigExcel> ShopConfigData { get; private set; } = [];
 
         public static BannersConfig BannersConfig { get; set; } = new();
 

@@ -1,36 +1,18 @@
 ﻿using EggLink.DanhengServer.Data;
 using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Database.Gacha;
+using EggLink.DanhengServer.Database.Inventory;
+using EggLink.DanhengServer.Database.Message;
 using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Proto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Numerics;
 
 namespace EggLink.DanhengServer.Game.Gacha
 {
-    public class GachaManager : BasePlayerManager
+    public class GachaManager(PlayerInstance player) : BasePlayerManager(player)
     {
-        public GachaData GachaData { get; private set; }
-        public GachaManager(PlayerInstance player) : base(player)
-        {
-            var gacha = DatabaseHelper.Instance?.GetInstance<GachaData>(player.Uid);
-            if (gacha == null)
-            {
-                GachaData = new()
-                {
-                    Uid = player.Uid,
-                };
-                DatabaseHelper.Instance?.SaveInstance(GachaData);
-            }
-            else
-            {
-                GachaData = gacha;
-            }
-        }
+        public GachaData GachaData { get; private set; } = DatabaseHelper.Instance!.GetInstanceOrCreateNew<GachaData>(player.Uid);
 
         public List<int> GetPurpleAvatars()
         {
@@ -180,18 +162,17 @@ namespace EggLink.DanhengServer.Game.Gacha
                         var avatar = Player.AvatarManager?.GetAvatar(item);
                         if (avatar != null)
                         {
-                            star += 20;
+                            star += 40;
                             var rankUpItemId = avatar.Excel?.RankUpItemId;
                             if (rankUpItemId != null)
                             {
                                 var rankUpItem = Player.InventoryManager!.GetItem(rankUpItemId.Value);
                                 if (avatar.Rank + rankUpItem?.Count >= 6)
                                 {
-                                    star += 80;
+                                    star += 60;
                                 }
                                 else
                                 {
-                                    Player.InventoryManager?.AddItem(rankUpItemId.Value, 1, false);
                                     var dupeItem = new ItemList();
                                     dupeItem.ItemList_.Add(new Item()
                                     {
@@ -227,7 +208,6 @@ namespace EggLink.DanhengServer.Game.Gacha
                                 }
                                 else
                                 {
-                                    Player.InventoryManager?.AddItem(rankUpItemId.Value, 1, false);
                                     var dupeItem = new ItemList();
                                     dupeItem.ItemList_.Add(new Item()
                                     {
@@ -247,12 +227,11 @@ namespace EggLink.DanhengServer.Game.Gacha
                 {
                     dirt += 20;
                 }
-                var result = Player.InventoryManager?.AddItem(item, 1, false);
-                if (result == null) continue;
+                Player.InventoryManager?.AddItem(item, 1, false, false);
                 gachaItem.GachaItem_ = new()
                 {
-                    ItemId = (uint)result.ItemId,
-                    Num = (uint)result.Count,
+                    ItemId = (uint)item,
+                    Num = 1,
                     Level = 1,
                     Rank = 1,
                 };
@@ -260,7 +239,7 @@ namespace EggLink.DanhengServer.Game.Gacha
                 var tokenItem = new ItemList();
                 if (dirt > 0)
                 {
-                    Player.InventoryManager?.AddItem(251, dirt, false);
+                    Player.InventoryManager?.AddItem(251, dirt, false, false);
                     tokenItem.ItemList_.Add(new Item()
                     {
                         ItemId = 251,
@@ -270,7 +249,7 @@ namespace EggLink.DanhengServer.Game.Gacha
 
                 if (star > 0)
                 {
-                    Player.InventoryManager?.AddItem(252, star, false);
+                    Player.InventoryManager?.AddItem(252, star, false, false);
                     tokenItem.ItemList_.Add(new Item()
                     {
                         ItemId = 252,
@@ -288,6 +267,7 @@ namespace EggLink.DanhengServer.Game.Gacha
             };
             proto.GachaItemList.AddRange(gachaItems);
             DatabaseHelper.Instance?.UpdateInstance(GachaData);
+            DatabaseHelper.Instance?.UpdateInstance(Player.InventoryManager!.Data);
 
             return proto;
         }

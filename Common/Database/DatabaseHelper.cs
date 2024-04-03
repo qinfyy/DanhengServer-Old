@@ -82,6 +82,18 @@ namespace EggLink.DanhengServer.Database
             }
         }
 
+        public T GetInstanceOrCreateNew<T>(int uid) where T : class, new()
+        {
+            var instance = GetInstance<T>(uid);
+            if (instance == null)
+            {
+                instance = new();
+                (instance as BaseDatabaseData)!.Uid = uid;
+                SaveInstance(instance);
+            }
+            return instance;
+        }
+
         public List<T>? GetAllInstance<T>() where T : class, new()
         {
             try

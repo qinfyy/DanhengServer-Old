@@ -24,16 +24,16 @@ namespace EggLink.DanhengServer.Proto {
     static MessageSectionReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChRNZXNzYWdlU2VjdGlvbi5wcm90bxoRTWVzc2FnZUl0ZW0ucHJvdG8aGk1l",
-            "c3NhZ2VTZWN0aW9uU3RhdHVzLnByb3RvIpIBCg5NZXNzYWdlU2VjdGlvbhIX",
+            "ChRNZXNzYWdlU2VjdGlvbi5wcm90bxoaTWVzc2FnZVNlY3Rpb25TdGF0dXMu",
+            "cHJvdG8aEU1lc3NhZ2VJdGVtLnByb3RvIpgBCg5NZXNzYWdlU2VjdGlvbhIX",
             "Cg9tZXNzYWdlX2l0ZW1faWQYCyABKA0SJQoGc3RhdHVzGAQgASgOMhUuTWVz",
-            "c2FnZVNlY3Rpb25TdGF0dXMSEwoLQUJLTEpDTUZBSkkYDSADKA0SHwoJaXRl",
-            "bV9saXN0GAEgAygLMgwuTWVzc2FnZUl0ZW0SCgoCaWQYAyABKA1CHqoCG0Vn",
-            "Z0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
+            "c2FnZVNlY3Rpb25TdGF0dXMSGQoRdG9fY2hvb3NlX2l0ZW1faWQYDSADKA0S",
+            "HwoJaXRlbV9saXN0GAEgAygLMgwuTWVzc2FnZUl0ZW0SCgoCaWQYAyABKA1C",
+            "HqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MessageItemReflection.Descriptor, global::EggLink.DanhengServer.Proto.MessageSectionStatusReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MessageSectionStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.MessageItemReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.MessageSection), global::EggLink.DanhengServer.Proto.MessageSection.Parser, new[]{ "MessageItemId", "Status", "ABKLJCMFAJI", "ItemList", "Id" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.MessageSection), global::EggLink.DanhengServer.Proto.MessageSection.Parser, new[]{ "MessageItemId", "Status", "ToChooseItemId", "ItemList", "Id" }, null, null, null, null)
           }));
     }
     #endregion
@@ -77,7 +77,7 @@ namespace EggLink.DanhengServer.Proto {
     public MessageSection(MessageSection other) : this() {
       messageItemId_ = other.messageItemId_;
       status_ = other.status_;
-      aBKLJCMFAJI_ = other.aBKLJCMFAJI_.Clone();
+      toChooseItemId_ = other.toChooseItemId_.Clone();
       itemList_ = other.itemList_.Clone();
       id_ = other.id_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -113,15 +113,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "ABKLJCMFAJI" field.</summary>
-    public const int ABKLJCMFAJIFieldNumber = 13;
-    private static readonly pb::FieldCodec<uint> _repeated_aBKLJCMFAJI_codec
+    /// <summary>Field number for the "to_choose_item_id" field.</summary>
+    public const int ToChooseItemIdFieldNumber = 13;
+    private static readonly pb::FieldCodec<uint> _repeated_toChooseItemId_codec
         = pb::FieldCodec.ForUInt32(106);
-    private readonly pbc::RepeatedField<uint> aBKLJCMFAJI_ = new pbc::RepeatedField<uint>();
+    private readonly pbc::RepeatedField<uint> toChooseItemId_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<uint> ABKLJCMFAJI {
-      get { return aBKLJCMFAJI_; }
+    public pbc::RepeatedField<uint> ToChooseItemId {
+      get { return toChooseItemId_; }
     }
 
     /// <summary>Field number for the "item_list" field.</summary>
@@ -164,7 +164,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (MessageItemId != other.MessageItemId) return false;
       if (Status != other.Status) return false;
-      if(!aBKLJCMFAJI_.Equals(other.aBKLJCMFAJI_)) return false;
+      if(!toChooseItemId_.Equals(other.toChooseItemId_)) return false;
       if(!itemList_.Equals(other.itemList_)) return false;
       if (Id != other.Id) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -176,7 +176,7 @@ namespace EggLink.DanhengServer.Proto {
       int hash = 1;
       if (MessageItemId != 0) hash ^= MessageItemId.GetHashCode();
       if (Status != global::EggLink.DanhengServer.Proto.MessageSectionStatus.MessageSectionNone) hash ^= Status.GetHashCode();
-      hash ^= aBKLJCMFAJI_.GetHashCode();
+      hash ^= toChooseItemId_.GetHashCode();
       hash ^= itemList_.GetHashCode();
       if (Id != 0) hash ^= Id.GetHashCode();
       if (_unknownFields != null) {
@@ -210,7 +210,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(88);
         output.WriteUInt32(MessageItemId);
       }
-      aBKLJCMFAJI_.WriteTo(output, _repeated_aBKLJCMFAJI_codec);
+      toChooseItemId_.WriteTo(output, _repeated_toChooseItemId_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -234,7 +234,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(88);
         output.WriteUInt32(MessageItemId);
       }
-      aBKLJCMFAJI_.WriteTo(ref output, _repeated_aBKLJCMFAJI_codec);
+      toChooseItemId_.WriteTo(ref output, _repeated_toChooseItemId_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -251,7 +251,7 @@ namespace EggLink.DanhengServer.Proto {
       if (Status != global::EggLink.DanhengServer.Proto.MessageSectionStatus.MessageSectionNone) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
       }
-      size += aBKLJCMFAJI_.CalculateSize(_repeated_aBKLJCMFAJI_codec);
+      size += toChooseItemId_.CalculateSize(_repeated_toChooseItemId_codec);
       size += itemList_.CalculateSize(_repeated_itemList_codec);
       if (Id != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Id);
@@ -274,7 +274,7 @@ namespace EggLink.DanhengServer.Proto {
       if (other.Status != global::EggLink.DanhengServer.Proto.MessageSectionStatus.MessageSectionNone) {
         Status = other.Status;
       }
-      aBKLJCMFAJI_.Add(other.aBKLJCMFAJI_);
+      toChooseItemId_.Add(other.toChooseItemId_);
       itemList_.Add(other.itemList_);
       if (other.Id != 0) {
         Id = other.Id;
@@ -312,7 +312,7 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 106:
           case 104: {
-            aBKLJCMFAJI_.AddEntriesFrom(input, _repeated_aBKLJCMFAJI_codec);
+            toChooseItemId_.AddEntriesFrom(input, _repeated_toChooseItemId_codec);
             break;
           }
         }
@@ -348,7 +348,7 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 106:
           case 104: {
-            aBKLJCMFAJI_.AddEntriesFrom(ref input, _repeated_aBKLJCMFAJI_codec);
+            toChooseItemId_.AddEntriesFrom(ref input, _repeated_toChooseItemId_codec);
             break;
           }
         }

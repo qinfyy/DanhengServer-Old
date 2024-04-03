@@ -20,6 +20,7 @@ namespace EggLink.DanhengServer.Data
             LoadExcel();
             LoadFloorInfo();
             LoadMissionInfo();
+            LoadMazeSkill();
             LoadBanner();
         }
 
@@ -241,6 +242,34 @@ namespace EggLink.DanhengServer.Data
                 Logger.Error("Error in reading" + file.Name, ex);
             }
             Logger.Info("Loaded " + GameData.BannersConfig.Banners.Count + " banner infos.");
+        }
+
+        public static void LoadMazeSkill()
+        {
+            var count = 0;
+            foreach (var avatar in GameData.AvatarConfigData.Values)
+            {
+                var path = ConfigManager.Config.Path.ResourcePath + "/Config/ConfigAdventureAbility/LocalPlayer/LocalPlayer_" + avatar.NameKey + "_Ability.json";
+                var file = new FileInfo(path);
+                if (!file.Exists) continue;
+                try
+                {
+                    using var reader = file.OpenRead();
+                    using StreamReader reader2 = new(reader);
+                    var text = reader2.ReadToEnd().Replace("$type", "Type");
+                    var skillAbilityInfo = JsonConvert.DeserializeObject<SkillAbilityInfo>(text);
+                    skillAbilityInfo?.Loaded(avatar);
+                    count += skillAbilityInfo == null ? 0 : 1;
+                } catch (Exception ex)
+                {
+                    Logger.Error("Error in reading" + file.Name, ex);
+                }
+            }
+            if (count < GameData.AvatarConfigData.Count)
+            {
+                Logger.Warn("Maze skill infos are missing, please check your resources folder: " + ConfigManager.Config.Path.ResourcePath + "/Config/ConfigAdventureAbility/LocalPlayer. Maze skills may not work!");
+            }
+            Logger.Info("Loaded " + count + " maze skill infos.");
         }
     }
 }

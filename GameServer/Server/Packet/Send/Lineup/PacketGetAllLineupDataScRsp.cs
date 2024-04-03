@@ -11,7 +11,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Lineup
             {
                 CurIndex = (uint)(player.LineupManager!.LineupData.CurLineup - 1),
             };
-            foreach (var lineup in player.LineupManager.LineupInfo.Values)
+            foreach (var lineup in player.LineupManager.LineupData.Lineups.Values)
             {
                 proto.LineupList.Add(lineup.ToProto());
             }

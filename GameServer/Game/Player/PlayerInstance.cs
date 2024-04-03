@@ -11,9 +11,11 @@ using EggLink.DanhengServer.Game.Battle;
 using EggLink.DanhengServer.Game.Gacha;
 using EggLink.DanhengServer.Game.Inventory;
 using EggLink.DanhengServer.Game.Lineup;
+using EggLink.DanhengServer.Game.Message;
 using EggLink.DanhengServer.Game.Mission;
 using EggLink.DanhengServer.Game.Scene;
 using EggLink.DanhengServer.Game.Scene.Entity;
+using EggLink.DanhengServer.Game.Shop;
 using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Server;
 using EggLink.DanhengServer.Server.Packet;
@@ -35,6 +37,8 @@ namespace EggLink.DanhengServer.Game.Player
         public BattleInstance? BattleInstance { get; set; }
         public MissionManager? MissionManager { get; private set; }
         public GachaManager? GachaManager { get; private set; }
+        public MessageManager? MessageManager { get; private set; }
+        public ShopService? ShopService { get; private set; }
 
         #endregion
 
@@ -60,34 +64,13 @@ namespace EggLink.DanhengServer.Game.Player
         {
             // new player
             IsNewPlayer = true;
-            Data.Name = "无名客"; // Trailblazer in EN  TODO: Add localization
-            Data.Signature = ""; 
-            Data.Birthday = 0;
-            Data.CurBasicType = 8001;
-            Data.HeadIcon = 208001;
-            Data.PhoneTheme = 221000;
-            Data.ChatBubble = 220000;
-            Data.CurrentBgm = 210000;
-            Data.CurrentGender = Gender.Man;
-            Data.Stamina = 240;
-            Data.StaminaReserve = 0;
-            Data.NextStaminaRecover = Extensions.GetUnixMs();
-            Data.Level = 1;
-            Data.Exp = 0;
-            Data.WorldLevel = 0;
-            Data.Scoin = 0;
-            Data.Hcoin = 0;
-            Data.Mcoin = 0;
-            Data.PlaneId = 20001;
-            Data.FloorId = 20001001;
-            Data.TalentPoints = 0;
             DatabaseHelper.Instance?.SaveInstance(Data);
 
             InitialPlayerManager();
 
-            //AddAvatar(8001);
+            AddAvatar(8001);
+            AddAvatar(1001);
             LineupManager?.SetCurLineup(1);
-            //LineupManager?.AddAvatarToCurTeam(8001);
             LineupManager?.AddSpecialAvatarToCurTeam(10010050);
 
             MissionManager!.AcceptMainMission(1000101);
@@ -104,12 +87,16 @@ namespace EggLink.DanhengServer.Game.Player
             BattleManager = new(this);
             MissionManager = new(this);
             GachaManager = new(this);
+            MessageManager = new(this);
+            ShopService = new(this);
 
             PlayerUnlockData = InitializeDatabase<PlayerUnlockData>();
             SceneData = InitializeDatabase<SceneData>();
             TutorialData = InitializeDatabase<TutorialData>();
             TutorialGuideData = InitializeDatabase<TutorialGuideData>();
 
+            Data.LastActiveTime = Extensions.GetUnixSec();
+            DatabaseHelper.Instance?.UpdateInstance(Data);
 
             LoadScene(Data.PlaneId, Data.FloorId, Data.EntryId, Data.Pos!, Data.Rot!, false);
             if (SceneInstance == null)
@@ -190,7 +177,12 @@ namespace EggLink.DanhengServer.Game.Player
             GameData.PlayerLevelConfigData.TryGetValue(Data.Level + 1, out var config);
             if (config == null) return;
             var nextExp = config.PlayerExp;
-
+            for (int i = 1; i <= Data.Level; i++)
+            {
+                GameData.PlayerLevelConfigData.TryGetValue(i, out config);
+                if (config == null) continue;
+                nextExp -= config.PlayerExp;
+            }
             while (Data.Exp >= nextExp)
             {
                 Data.Exp -= nextExp;
@@ -198,6 +190,12 @@ namespace EggLink.DanhengServer.Game.Player
                 GameData.PlayerLevelConfigData.TryGetValue(Data.Level + 1, out config);
                 if (config == null) break;
                 nextExp = config.PlayerExp;
+                for (int i = 1; i <= Data.Level; i++)
+                {
+                    GameData.PlayerLevelConfigData.TryGetValue(i, out config);
+                    if (config == null) continue;
+                    nextExp -= config.PlayerExp;
+                }
             }
 
             OnLevelChange();

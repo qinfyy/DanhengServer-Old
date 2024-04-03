@@ -23,16 +23,13 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Player
             {
                 player.Data.CurBasicType = 8002;
                 player.Data.CurrentGender = Gender.Woman;
-                player.AddAvatar(8002);
                 DatabaseHelper.Instance?.UpdateInstance(player.Data);
             } else
             {
                 player.Data.CurBasicType = 8001;
                 player.Data.CurrentGender = Gender.Man;
-                player.AddAvatar(8001);
                 DatabaseHelper.Instance?.UpdateInstance(player.Data);
             }
-            player.AddAvatar(1001);
             player.LineupManager!.AddAvatarToCurTeam(8001);
             player.LineupManager!.AddAvatarToCurTeam(1001);
             player.MissionManager!.FinishSubMission(100010134);

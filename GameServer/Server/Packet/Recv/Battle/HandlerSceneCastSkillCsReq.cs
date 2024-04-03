@@ -1,4 +1,7 @@
-﻿using EggLink.DanhengServer.Proto;
+﻿using EggLink.DanhengServer.Data;
+using EggLink.DanhengServer.Game.Battle.Skill;
+using EggLink.DanhengServer.Game.Scene;
+using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Server.Packet.Send.Battle;
 using System;
 using System.Collections.Generic;
@@ -16,11 +19,19 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Battle
             var req = SceneCastSkillCsReq.Parser.ParseFrom(data);
             if (req != null)
             {
+                connection.Player!.SceneInstance!.AvatarInfo.TryGetValue((int)req.AttackedByEntityId, out var info);
+                MazeSkill mazeSkill = new([]);
+                var id = 0;
+                if (info != null)
+                {
+                    id = info.AvatarInfo.AvatarId;
+                    mazeSkill = MazeSkillManager.GetSkill(info.AvatarInfo.AvatarId, (int)req.SkillIndex);
+                }
                 if (req.HitTargetEntityIdList.Count == 0)
                 {
                     // didnt hit any target
                     connection.SendPacket(new PacketSceneCastSkillScRsp(req.CastEntityId));
-                } else connection.Player!.BattleManager!.StartBattle(req);
+                } else connection.Player!.BattleManager!.StartBattle(req, mazeSkill, id);
             }
         }
     }

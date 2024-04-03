@@ -7,7 +7,7 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Tutorial
     {
         public override void OnHandle(Connection connection, byte[] header, byte[] data)
         {
-            //connection.SendPacket(new PacketGetTutorialGuideScRsp(connection.Player!));  // somebug
+            connection.SendPacket(new PacketGetTutorialGuideScRsp(connection.Player!));  // some bug
         }
     }
 }
