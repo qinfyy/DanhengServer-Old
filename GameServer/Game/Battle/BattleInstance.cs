@@ -2,6 +2,7 @@
 using EggLink.DanhengServer.Data.Excel;
 using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Database.Avatar;
+using EggLink.DanhengServer.Database.Inventory;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Game.Scene;
 using EggLink.DanhengServer.Game.Scene.Entity;
@@ -17,14 +18,16 @@ namespace EggLink.DanhengServer.Game.Battle
         public int CocoonWave { get; set; }
         public int MappingInfoId { get; set; }
         public int RoundLimit { get; set; }
-        public int StageId { get; set; } = stages.Count > 0 ? stages[0].StageID : 0;
-        public int CasterIndex { get; set; }
+        public int StageId { get; set; } = stages.Count > 0 ? stages[0].StageID : 0;  // Set to 0 when hit monster
         public BattleEndStatus BattleEndStatus { get; set; }
+
+        public List<ItemData> MonsterDropItems { get; set; } = [];
 
         public List<StageConfigExcel> Stages { get; set; } = stages;
         public Database.Lineup.LineupInfo Lineup { get; set; } = lineup;
         public List<EntityMonster> EntityMonsters { get; set; } = [];
-        public List<SceneBuff> Buffs { get; set; } = [];
+        public List<AvatarSceneInfo> AvatarInfo { get; set; } = [];
+        public List<MazeBuff> Buffs { get; set; } = [];
 
         public BattleInstance(PlayerInstance player, Database.Lineup.LineupInfo lineup, List<EntityMonster> monsters) : this(player, lineup, new List<StageConfigExcel>())
         {
@@ -43,10 +46,14 @@ namespace EggLink.DanhengServer.Game.Battle
 
         public ItemList GetDropItemList()
         {
-            return new()
-            {
+            var list = new ItemList();
 
-            };
+            foreach (var item in MonsterDropItems)
+            {
+                list.ItemList_.Add(item.ToProto());
+            }
+
+            return list;
         }
 
         public SceneBattleInfo ToProto()
@@ -94,7 +101,17 @@ namespace EggLink.DanhengServer.Game.Battle
                 proto.BattleAvatarList.Add(avatarInstance.ToBattleProto(Player.LineupManager!.GetCurLineup()!, Player.InventoryManager!.Data, avatarType));
             }
 
-            proto.BuffList.AddRange(Buffs.Select(buff => buff.ToProto(CasterIndex, 1 >> Stages.Count)));
+            foreach (var monster in EntityMonsters)
+            {
+                monster.ApplyBuff(this);
+            }
+
+            foreach (var avatar in AvatarInfo)
+            {
+                avatar.ApplyBuff(this);
+            }
+
+            proto.BuffList.AddRange(Buffs.Select(buff => buff.ToProto(this)));
             return proto;
         }
     }

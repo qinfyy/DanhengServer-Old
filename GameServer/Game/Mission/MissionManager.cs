@@ -59,6 +59,13 @@ namespace EggLink.DanhengServer.Game.Mission
 
             var list = new List<Proto.MissionSync?>();
             mission.MissionInfo?.StartSubMissionList.ForEach(i => list.Add(AcceptSubMission(i, sendPacket)));
+            if (missionId == 4030001)
+            {
+                // skip  not implemented
+                mission.MissionInfo?.StartSubMissionList.ForEach(FinishSubMission);
+                mission.MissionInfo?.FinishSubMissionList.ForEach(AcceptSubMission);
+                mission.MissionInfo?.FinishSubMissionList.ForEach(FinishSubMission);
+            }
             return list;
         }
 
@@ -93,10 +100,12 @@ namespace EggLink.DanhengServer.Game.Mission
             DatabaseHelper.Instance?.UpdateInstance(Data);
             if (sendPacket) Player.SendPacket(new PacketPlayerSyncScNotify(sync));
             Player.SceneInstance!.SyncGroupInfo();
-            if (doFinishTypeAction && mission.SubMissionInfo != null)
+            if (mission.SubMissionInfo != null)
             {
                 FinishTypeHandlers.TryGetValue(mission.SubMissionInfo.FinishType, out var handler);
                 handler?.Init(Player, mission.SubMissionInfo, null);
+                if (doFinishTypeAction)
+                    handler?.HandleFinishType(Player, mission.SubMissionInfo, null);
             }
             return sync;
         }
@@ -104,11 +113,27 @@ namespace EggLink.DanhengServer.Game.Mission
         public void FinishMainMission(int missionId)
         {
             if (!Data.MainMissionInfo.TryGetValue(missionId, out var value)) return;
+            if (!GameData.MainMissionData.TryGetValue(missionId, out var mainMission)) return;
             if (value != MissionPhaseEnum.Doing) return;
             Data.MainMissionInfo[missionId] = MissionPhaseEnum.Finish;
             var sync = new Proto.MissionSync();
             sync.MainMissionIdList.Add((uint)missionId);
             // get next main mission
+            foreach (var mission in mainMission.SubMissionIds)
+            {
+                if (GetSubMissionStatus(mission) != MissionPhaseEnum.Finish)
+                {
+                    Data.MissionInfo.TryGetValue(missionId, out var info);
+                    if (info != null)
+                    {
+                        info[mission] = new()
+                        {
+                            MissionId = mission,
+                            Status = MissionPhaseEnum.Cancel
+                        };
+                    }
+                }
+            }
             foreach (var nextMission in GameData.MainMissionData.Values)
             {
                 if (!nextMission.IsEqual(Data)) continue;
@@ -125,6 +150,7 @@ namespace EggLink.DanhengServer.Game.Mission
             Player.SendPacket(new PacketPlayerSyncScNotify(sync));
             Player.SendPacket(new PacketStartFinishMainMissionScNotify(missionId));
             HandleMissionReward(missionId);
+            HandleFinishType(MissionFinishTypeEnum.FinishMission);
 
             DatabaseHelper.Instance?.UpdateInstance(Data);
         }
@@ -161,7 +187,7 @@ namespace EggLink.DanhengServer.Game.Mission
                 }
                 if (canAccept)
                 {
-                    var s = AcceptSubMission(nextMission.ID, false, true);
+                    var s = AcceptSubMission(nextMission.ID, false, false);
                     if (s != null)
                     {
                         sync.MissionList.Add(new Proto.Mission()
@@ -343,7 +369,7 @@ namespace EggLink.DanhengServer.Game.Mission
             foreach (var mission in GetRunningSubMissionIdList())
             {
                 var subMission = GetSubMissionInfo(mission);
-                if (subMission != null && (subMission.FinishType == MissionFinishTypeEnum.StageWin || subMission.FinishType == MissionFinishTypeEnum.KillMonster) && req.EndStatus == Proto.BattleEndStatus.BattleEndWin)  // TODO: Move to handler
+                if (subMission != null && (subMission.FinishType == MissionFinishTypeEnum.StageWin && req.EndStatus == Proto.BattleEndStatus.BattleEndWin))  // TODO: Move to handler
                 {
                     FinishSubMission(mission);
                 }

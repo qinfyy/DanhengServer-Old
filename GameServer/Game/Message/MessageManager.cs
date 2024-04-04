@@ -17,6 +17,7 @@ namespace EggLink.DanhengServer.Game.Message
     public class MessageManager(PlayerInstance player) : BasePlayerManager(player)
     {
         public MessageData Data { get; private set; } = DatabaseHelper.Instance!.GetInstanceOrCreateNew<MessageData>(player.Uid);
+        public List<MessageSectionData> PendingMessagePerformSectionList { get; private set; } = [];
 
         #region Get
 
@@ -166,6 +167,9 @@ namespace EggLink.DanhengServer.Game.Message
             var notify = new PacketPlayerSyncScNotify(group, section);
             Player.SendPacket(notify);
 
+            // broadcast to mission system
+            Player.MissionManager!.HandleFinishType(Enums.MissionFinishTypeEnum.MessagePerformSectionFinish);
+            Player.MissionManager!.HandleFinishType(Enums.MissionFinishTypeEnum.MessageSectionFinish);
         }
 
         public void FinishMessageItem(int itemId)
@@ -183,18 +187,7 @@ namespace EggLink.DanhengServer.Game.Message
             {
                 ItemId = itemId,
             });
-            if (itemConfig.NextItemIDList.Count == 0)
-            {
-                // finish
-                section.Status = MessageSectionStatus.MessageSectionFinish;
-                if (group.Sections.All(m => m.Status == MessageSectionStatus.MessageSectionFinish))
-                {
-                    group.Status = MessageGroupStatus.MessageGroupFinish;
-                }
-            } else
-            {
-                section.ToChooseItemId.AddRange(itemConfig.NextItemIDList);
-            }
+            section.ToChooseItemId.AddRange(itemConfig.NextItemIDList);
 
             group.RefreshTime = Extensions.GetUnixSec();
 
@@ -202,11 +195,6 @@ namespace EggLink.DanhengServer.Game.Message
             // sync
             var notify = new PacketPlayerSyncScNotify(group, section);
             Player.SendPacket(notify);
-
-            // broadcast to mission system
-            Player.MissionManager!.HandleFinishType(Enums.MissionFinishTypeEnum.MessagePerformSectionFinish);
-            Player.MissionManager!.HandleFinishType(Enums.MissionFinishTypeEnum.MessageSectionFinish);
-
         }
 
         #endregion

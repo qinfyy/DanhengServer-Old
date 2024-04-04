@@ -1,6 +1,7 @@
 ﻿using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Util;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,7 +69,11 @@ namespace EggLink.DanhengServer.Data.Config
             } else if (Type.Contains("AdventureSetAttackTargetMonsterDie"))
             {
                 TaskType = TaskTypeEnum.AdventureSetAttackTargetMonsterDie;
-            } else if (Type.Contains("AdventureTriggerAttack"))
+            } else if (SuccessTaskList.Count > 0)
+            {
+                TaskType = TaskTypeEnum.SuccessTaskList;
+            }
+            else if (Type.Contains("AdventureTriggerAttack"))
             {
                 TaskType = TaskTypeEnum.AdventureTriggerAttack;
             } else if (Type.Contains("AdventureFireProjectile"))

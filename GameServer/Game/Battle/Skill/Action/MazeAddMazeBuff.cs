@@ -1,5 +1,7 @@
 ﻿using EggLink.DanhengServer.Data;
+using EggLink.DanhengServer.Data.Excel;
 using EggLink.DanhengServer.Game.Scene;
+using EggLink.DanhengServer.Game.Scene.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,16 +10,29 @@ using System.Threading.Tasks;
 
 namespace EggLink.DanhengServer.Game.Battle.Skill.Action
 {
-    public class MazeAddMazeBuff(int buffId) : IMazeSkillAction
+    public class MazeAddMazeBuff(int buffId, int duration) : IMazeSkillAction
     {
-        public void OnCast()
-        {
+        public int BuffId { get; private set; } = buffId;
 
+        public void OnAttack(AvatarSceneInfo avatar, List<EntityMonster> entities)
+        {
+            foreach (var entity in entities)
+            {
+                entity.TempBuff = new SceneBuff(BuffId, 1, avatar.AvatarInfo.AvatarId, duration);
+            }
         }
 
-        public void OnEnterBattle(BattleInstance instance)
+        public void OnCast(AvatarSceneInfo avatar)
         {
-            instance.Buffs.Add(new SceneBuff(buffId, 1));
+            avatar.BuffList.Add(new SceneBuff(BuffId, 1, avatar.AvatarInfo.AvatarId, duration));
+        }
+
+        public void OnHitTarget(AvatarSceneInfo avatar, List<EntityMonster> entities)
+        {
+            foreach (var entity in entities)
+            {
+                entity.BuffList.Add(new SceneBuff(BuffId, 1, avatar.AvatarInfo.AvatarId, duration));
+            }
         }
     }
 }

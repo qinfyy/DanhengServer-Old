@@ -12,5 +12,7 @@
         public const int INVENTORY_MAX_MATERIAL = 2000;
 
         public static readonly List<int> UpgradeWorldLevel = [20, 30, 40, 50, 60, 65];
+
+        public const int AMBUSH_BUFF_ID = 1000102;
     }
 }

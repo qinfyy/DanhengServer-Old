@@ -15,7 +15,8 @@ namespace EggLink.DanhengServer.Enums
         AdventureModifyTeamPlayerSP = 4,
         CreateSummonUnit = 5,
         AdventureSetAttackTargetMonsterDie = 6,
-        AdventureTriggerAttack = 7,
-        AdventureFireProjectile = 8,
+        SuccessTaskList = 7,
+        AdventureTriggerAttack = 8,
+        AdventureFireProjectile = 9,
     }
 }

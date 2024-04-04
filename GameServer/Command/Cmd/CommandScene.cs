@@ -13,6 +13,11 @@ namespace EggLink.DanhengServer.Command.Cmd
         [CommandMethod("0 group")]
         public void GetLoadedGroup(CommandArg arg)
         {
+            if (arg.Target == null)
+            {
+                arg.SendMsg("Player not found");
+                return;
+            }
             var scene = arg.Target!.Player!.SceneInstance!;
             var loadedGroup = new List<int>();
             foreach (var group in scene.Entities)
@@ -28,6 +33,11 @@ namespace EggLink.DanhengServer.Command.Cmd
         [CommandMethod("0 prop")]
         public void GetProp(CommandArg arg)
         {
+            if (arg.Target == null)
+            {
+                arg.SendMsg("Player not found");
+                return;
+            }
             var scene = arg.Target!.Player!.SceneInstance!;
             EntityProp? prop = null;
             foreach (var entity in scene.GetEntitiesInGroup<EntityProp>(arg.GetInt(0)))

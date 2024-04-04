@@ -12,6 +12,7 @@ namespace EggLink.DanhengServer.Data.Config
         [JsonConverter(typeof(StringEnumConverter))]
         public GroupLoadSideEnum LoadSide { get; set; }
         public bool LoadOnInitial { get; set; }
+        public string GroupName { get; set; } = "";
         public LoadCondition LoadCondition { get; set; } = new();
         public LoadCondition UnloadCondition { get; set; } = new();
         public LoadCondition ForceUnloadCondition { get; set; } = new();
@@ -51,7 +52,10 @@ namespace EggLink.DanhengServer.Data.Config
             {
                 if (condition.Type == ConditionTypeEnum.MainMission)
                 {
-                    mission.MainMissionInfo.TryGetValue(condition.ID, out var info);
+                    if (!mission.MainMissionInfo.TryGetValue(condition.ID, out var info))
+                    {
+                        info = MissionPhaseEnum.None;
+                    }
                     if (info != condition.Phase)
                     {
                         if (Operation == OperationEnum.And)
@@ -75,14 +79,27 @@ namespace EggLink.DanhengServer.Data.Config
                     if (subMission == null) continue;
                     var mainMissionId = subMission.MainMissionID;
                     mission.MissionInfo.TryGetValue(mainMissionId, out var info);
-                    info ??= new() { { mainMissionId, new()
-                    {
-                        MissionId = condition.ID,
-                        Status = MissionPhaseEnum.None
-                    }} };
-                    if (info.TryGetValue(condition.ID, out var missionInfo))
+                    if (info?.TryGetValue(condition.ID, out var missionInfo) == true)
                     {
                         if (missionInfo.Status != condition.Phase)
+                        {
+                            if (Operation == OperationEnum.And)
+                            {
+                                canLoad = false;
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            if (Operation == OperationEnum.Or)
+                            {
+                                canLoad = true;
+                                break;
+                            }
+                        }
+                    } else
+                    {
+                        if (condition.Phase != MissionPhaseEnum.None)
                         {
                             if (Operation == OperationEnum.And)
                             {

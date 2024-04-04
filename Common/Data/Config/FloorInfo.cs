@@ -1,4 +1,6 @@
 ﻿using EggLink.DanhengServer.Enums;
+using EggLink.DanhengServer.Util;
+using Newtonsoft.Json;
 
 namespace EggLink.DanhengServer.Data.Config
 {
@@ -10,11 +12,14 @@ namespace EggLink.DanhengServer.Data.Config
 
         public List<FloorGroupInfo> GroupList { get; set; } = [];
 
-
+        [JsonIgnore]
         public bool Loaded = false;
+        [JsonIgnore]
         public Dictionary<int, GroupInfo> Groups = [];
 
+        [JsonIgnore]
         public Dictionary<int, PropInfo> CachedTeleports = [];
+        [JsonIgnore]
         public List<PropInfo> UnlockedCheckpoints = [];
 
         public AnchorInfo? GetAnchorInfo(int groupId, int anchorId)
@@ -32,18 +37,13 @@ namespace EggLink.DanhengServer.Data.Config
             // Cache anchors
             foreach (var group in Groups.Values)
             {
-                if (group.PropList == null)
-                {
-                    continue;
-                }
-
                 foreach (var prop in group.PropList)
                 {
                     // Check if prop can be teleported to
                     if (prop.AnchorID > 0)
                     {
                         // Put inside cached teleport list to send to client when they request map info
-                        CachedTeleports[prop.MappingInfoID] = prop;
+                        CachedTeleports.TryAdd(prop.MappingInfoID, prop);
                         UnlockedCheckpoints.Add(prop);
 
                         // Force prop to be in the unlocked state

@@ -24,17 +24,17 @@ namespace EggLink.DanhengServer.Proto {
     static BuffInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg5CdWZmSW5mby5wcm90byL8AQoIQnVmZkluZm8SDwoHYnVmZl9pZBgIIAEo",
-            "DRIWCg5iYXNlX2F2YXRhcl9pZBgEIAEoDRITCgtMSVBQTExNR0lKQRgFIAEo",
-            "BBITCgtORUpMRUNCS0hKRxgKIAEoAhI0Cg5keW5hbWljX3ZhbHVlcxgBIAMo",
-            "CzIcLkJ1ZmZJbmZvLkR5bmFtaWNWYWx1ZXNFbnRyeRINCgVjb3VudBgLIAEo",
-            "DRITCgtLRElMS0FQTUlPSRgGIAEoDRINCgVsZXZlbBgNIAEoDRo0ChJEeW5h",
-            "bWljVmFsdWVzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgCOgI4",
-            "AUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "Cg5CdWZmSW5mby5wcm90byL6AQoIQnVmZkluZm8SDwoHYnVmZl9pZBgIIAEo",
+            "DRIWCg5iYXNlX2F2YXRhcl9pZBgEIAEoDRITCgthZGRfdGltZV9tcxgFIAEo",
+            "BBIRCglsaWZlX3RpbWUYCiABKAISNAoOZHluYW1pY192YWx1ZXMYASADKAsy",
+            "HC5CdWZmSW5mby5EeW5hbWljVmFsdWVzRW50cnkSDQoFY291bnQYCyABKA0S",
+            "EwoLS0RJTEtBUE1JT0kYBiABKA0SDQoFbGV2ZWwYDSABKA0aNAoSRHluYW1p",
+            "Y1ZhbHVlc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoAjoCOAFC",
+            "HqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BuffInfo), global::EggLink.DanhengServer.Proto.BuffInfo.Parser, new[]{ "BuffId", "BaseAvatarId", "LIPPLLMGIJA", "NEJLECBKHJG", "DynamicValues", "Count", "KDILKAPMIOI", "Level" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BuffInfo), global::EggLink.DanhengServer.Proto.BuffInfo.Parser, new[]{ "BuffId", "BaseAvatarId", "AddTimeMs", "LifeTime", "DynamicValues", "Count", "KDILKAPMIOI", "Level" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
           }));
     }
     #endregion
@@ -78,8 +78,8 @@ namespace EggLink.DanhengServer.Proto {
     public BuffInfo(BuffInfo other) : this() {
       buffId_ = other.buffId_;
       baseAvatarId_ = other.baseAvatarId_;
-      lIPPLLMGIJA_ = other.lIPPLLMGIJA_;
-      nEJLECBKHJG_ = other.nEJLECBKHJG_;
+      addTimeMs_ = other.addTimeMs_;
+      lifeTime_ = other.lifeTime_;
       dynamicValues_ = other.dynamicValues_.Clone();
       count_ = other.count_;
       kDILKAPMIOI_ = other.kDILKAPMIOI_;
@@ -117,27 +117,27 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "LIPPLLMGIJA" field.</summary>
-    public const int LIPPLLMGIJAFieldNumber = 5;
-    private ulong lIPPLLMGIJA_;
+    /// <summary>Field number for the "add_time_ms" field.</summary>
+    public const int AddTimeMsFieldNumber = 5;
+    private ulong addTimeMs_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong LIPPLLMGIJA {
-      get { return lIPPLLMGIJA_; }
+    public ulong AddTimeMs {
+      get { return addTimeMs_; }
       set {
-        lIPPLLMGIJA_ = value;
+        addTimeMs_ = value;
       }
     }
 
-    /// <summary>Field number for the "NEJLECBKHJG" field.</summary>
-    public const int NEJLECBKHJGFieldNumber = 10;
-    private float nEJLECBKHJG_;
+    /// <summary>Field number for the "life_time" field.</summary>
+    public const int LifeTimeFieldNumber = 10;
+    private float lifeTime_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float NEJLECBKHJG {
-      get { return nEJLECBKHJG_; }
+    public float LifeTime {
+      get { return lifeTime_; }
       set {
-        nEJLECBKHJG_ = value;
+        lifeTime_ = value;
       }
     }
 
@@ -205,8 +205,8 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (BuffId != other.BuffId) return false;
       if (BaseAvatarId != other.BaseAvatarId) return false;
-      if (LIPPLLMGIJA != other.LIPPLLMGIJA) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(NEJLECBKHJG, other.NEJLECBKHJG)) return false;
+      if (AddTimeMs != other.AddTimeMs) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(LifeTime, other.LifeTime)) return false;
       if (!DynamicValues.Equals(other.DynamicValues)) return false;
       if (Count != other.Count) return false;
       if (KDILKAPMIOI != other.KDILKAPMIOI) return false;
@@ -220,8 +220,8 @@ namespace EggLink.DanhengServer.Proto {
       int hash = 1;
       if (BuffId != 0) hash ^= BuffId.GetHashCode();
       if (BaseAvatarId != 0) hash ^= BaseAvatarId.GetHashCode();
-      if (LIPPLLMGIJA != 0UL) hash ^= LIPPLLMGIJA.GetHashCode();
-      if (NEJLECBKHJG != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(NEJLECBKHJG);
+      if (AddTimeMs != 0UL) hash ^= AddTimeMs.GetHashCode();
+      if (LifeTime != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(LifeTime);
       hash ^= DynamicValues.GetHashCode();
       if (Count != 0) hash ^= Count.GetHashCode();
       if (KDILKAPMIOI != 0) hash ^= KDILKAPMIOI.GetHashCode();
@@ -249,9 +249,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(32);
         output.WriteUInt32(BaseAvatarId);
       }
-      if (LIPPLLMGIJA != 0UL) {
+      if (AddTimeMs != 0UL) {
         output.WriteRawTag(40);
-        output.WriteUInt64(LIPPLLMGIJA);
+        output.WriteUInt64(AddTimeMs);
       }
       if (KDILKAPMIOI != 0) {
         output.WriteRawTag(48);
@@ -261,9 +261,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(64);
         output.WriteUInt32(BuffId);
       }
-      if (NEJLECBKHJG != 0F) {
+      if (LifeTime != 0F) {
         output.WriteRawTag(85);
-        output.WriteFloat(NEJLECBKHJG);
+        output.WriteFloat(LifeTime);
       }
       if (Count != 0) {
         output.WriteRawTag(88);
@@ -288,9 +288,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(32);
         output.WriteUInt32(BaseAvatarId);
       }
-      if (LIPPLLMGIJA != 0UL) {
+      if (AddTimeMs != 0UL) {
         output.WriteRawTag(40);
-        output.WriteUInt64(LIPPLLMGIJA);
+        output.WriteUInt64(AddTimeMs);
       }
       if (KDILKAPMIOI != 0) {
         output.WriteRawTag(48);
@@ -300,9 +300,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(64);
         output.WriteUInt32(BuffId);
       }
-      if (NEJLECBKHJG != 0F) {
+      if (LifeTime != 0F) {
         output.WriteRawTag(85);
-        output.WriteFloat(NEJLECBKHJG);
+        output.WriteFloat(LifeTime);
       }
       if (Count != 0) {
         output.WriteRawTag(88);
@@ -328,10 +328,10 @@ namespace EggLink.DanhengServer.Proto {
       if (BaseAvatarId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BaseAvatarId);
       }
-      if (LIPPLLMGIJA != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(LIPPLLMGIJA);
+      if (AddTimeMs != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(AddTimeMs);
       }
-      if (NEJLECBKHJG != 0F) {
+      if (LifeTime != 0F) {
         size += 1 + 4;
       }
       size += dynamicValues_.CalculateSize(_map_dynamicValues_codec);
@@ -362,11 +362,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other.BaseAvatarId != 0) {
         BaseAvatarId = other.BaseAvatarId;
       }
-      if (other.LIPPLLMGIJA != 0UL) {
-        LIPPLLMGIJA = other.LIPPLLMGIJA;
+      if (other.AddTimeMs != 0UL) {
+        AddTimeMs = other.AddTimeMs;
       }
-      if (other.NEJLECBKHJG != 0F) {
-        NEJLECBKHJG = other.NEJLECBKHJG;
+      if (other.LifeTime != 0F) {
+        LifeTime = other.LifeTime;
       }
       dynamicValues_.MergeFrom(other.dynamicValues_);
       if (other.Count != 0) {
@@ -402,7 +402,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 40: {
-            LIPPLLMGIJA = input.ReadUInt64();
+            AddTimeMs = input.ReadUInt64();
             break;
           }
           case 48: {
@@ -414,7 +414,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 85: {
-            NEJLECBKHJG = input.ReadFloat();
+            LifeTime = input.ReadFloat();
             break;
           }
           case 88: {
@@ -449,7 +449,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 40: {
-            LIPPLLMGIJA = input.ReadUInt64();
+            AddTimeMs = input.ReadUInt64();
             break;
           }
           case 48: {
@@ -461,7 +461,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 85: {
-            NEJLECBKHJG = input.ReadFloat();
+            LifeTime = input.ReadFloat();
             break;
           }
           case 88: {

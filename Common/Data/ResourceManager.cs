@@ -147,7 +147,7 @@ namespace EggLink.DanhengServer.Data
                 }
             }
 
-            foreach (var info in  GameData.FloorInfoData.Values)
+            foreach (var info in GameData.FloorInfoData.Values)
             {
                 foreach (var groupInfo in info.GroupList)
                 {
@@ -174,8 +174,8 @@ namespace EggLink.DanhengServer.Data
                     {
                         missingGroupInfos = true;
                     }
-                    info.OnLoad();
                 }
+                info.OnLoad();
             }
             if (missingGroupInfos)
                 Logger.Warn($"Group infos are missing, please check your resources folder: {ConfigManager.Config.Path.ResourcePath}/Config/LevelOutput/Group. Teleports, monster battles, and natural world spawns may not work!");
@@ -207,6 +207,38 @@ namespace EggLink.DanhengServer.Data
                 if (missionInfo != null)
                 {
                     GameData.MainMissionData[missionExcel.Key].MissionInfo = missionInfo;
+                    foreach (var subMission in missionInfo.SubMissionList)
+                    {   // load mission json
+                        var missionJsonPath = ConfigManager.Config.Path.ResourcePath + "/" + subMission.MissionJsonPath;
+                        if (File.Exists(missionJsonPath))
+                        {
+                            var missionJson = File.ReadAllText(missionJsonPath).Replace("$type", "Type");
+                            try
+                            {
+                                if (subMission.FinishType == Enums.MissionFinishTypeEnum.EnterFloor)
+                                {
+                                    var mission = JsonConvert.DeserializeObject<SubMissionTask<EnterFloorTaskInfo>>(missionJson);
+
+                                    if (mission != null)
+                                    {
+                                        subMission.Task = mission;
+                                        subMission.Loaded(1);
+                                    }
+                                } else if (subMission.FinishType == Enums.MissionFinishTypeEnum.PropState)
+                                {
+                                    var mission = JsonConvert.DeserializeObject<SubMissionTask<PropStateTaskInfo>>(missionJson);
+                                    if (mission != null)
+                                    {
+                                        subMission.PropTask = mission;
+                                        subMission.Loaded(2);
+                                    }
+                                }
+                            } catch (Exception ex)
+                            {
+                                Logger.Error("Error in reading" + missionJsonPath, ex);
+                            }
+                        }
+                    }
                     count++;
                 } else
                 {

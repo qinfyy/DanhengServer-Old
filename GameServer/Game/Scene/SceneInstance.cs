@@ -3,6 +3,7 @@ using EggLink.DanhengServer.Data.Config;
 using EggLink.DanhengServer.Data.Excel;
 using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Database.Avatar;
+using EggLink.DanhengServer.Game.Battle;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Game.Scene.Entity;
 using EggLink.DanhengServer.Proto;
@@ -95,6 +96,7 @@ namespace EggLink.DanhengServer.Game.Scene
             {
                 if (AvatarInfo.Values.ToList().FindIndex(x => x.AvatarInfo.AvatarId == avatar.AvatarInfo.AvatarId) == -1)
                 {
+                    avatar.AvatarInfo.EntityId = 0;
                     RemoveAvatar.Add(avatar);
                     sendPacket = true;
                 }
@@ -274,13 +276,32 @@ namespace EggLink.DanhengServer.Game.Scene
         #endregion
     }
 
-    public class AvatarSceneInfo(AvatarInfo avatarInfo, AvatarType avatarType) : IGameEntity
+    public class AvatarSceneInfo(AvatarInfo avatarInfo, AvatarType avatarType, PlayerInstance Player) : IGameEntity
     {
         public AvatarInfo AvatarInfo = avatarInfo;
         public AvatarType AvatarType = avatarType;
 
         public int EntityID { get; set; } = avatarInfo.EntityId;
         public int GroupID { get; set; } = 0;
+
+        public List<SceneBuff> BuffList = [];
+        public void AddBuff(SceneBuff buff)
+        {
+            BuffList.Add(buff);
+            Player.SendPacket(new PacketSyncEntityBuffChangeListScNotify(this, buff));
+        }
+
+        public void ApplyBuff(BattleInstance instance)
+        {
+            foreach (var buff in BuffList)
+            {
+                if (buff.IsExpired())
+                {
+                    continue;
+                }
+                instance.Buffs.Add(new MazeBuff(buff));
+            }
+        }
 
         public SceneEntityInfo ToProto()
         {

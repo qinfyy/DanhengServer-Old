@@ -210,7 +210,7 @@ namespace EggLink.DanhengServer.Game.Lineup
                     avatarInfo = Player.AvatarManager!.GetAvatar(avatar.BaseAvatarId);
                 }
                 if (avatarInfo == null) continue;
-                avatarList.Add(new AvatarSceneInfo(avatarInfo, avatarType));
+                avatarList.Add(new AvatarSceneInfo(avatarInfo, avatarType, Player));
             }
 
             return avatarList;
@@ -219,6 +219,20 @@ namespace EggLink.DanhengServer.Game.Lineup
         public List<AvatarSceneInfo> GetAvatarsFromCurTeam()
         {
             return GetAvatarsFromTeam(LineupData.CurLineup);
+        }
+
+        public void CostMp(uint entityId, int count)
+        {
+            LineupData.Mp -= count;
+            DatabaseHelper.Instance?.UpdateInstance(LineupData);
+            Player.SendPacket(new PacketSceneCastSkillMpUpdateScNotify(entityId, LineupData.Mp));
+        }
+
+        public void GainMp(int count)
+        {
+            LineupData.Mp += count;
+            DatabaseHelper.Instance?.UpdateInstance(LineupData);
+            Player.SendPacket(new PacketSyncLineupNotify(GetCurLineup()!));
         }
     }
 }

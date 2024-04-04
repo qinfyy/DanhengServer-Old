@@ -18,7 +18,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Quest
                 proto.QuestList.Add(new Proto.Quest()
                 {
                     Id = (uint)quest.QuestID,
-                    Status = QuestStatus.QuestFinish
+                    Status = QuestStatus.QuestClose
                 });
             }
             SetData(proto);

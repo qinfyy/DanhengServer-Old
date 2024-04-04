@@ -20,7 +20,11 @@ namespace EggLink.DanhengServer.Game.Inventory
         {
             foreach (var item in items)
             {
-                AddItem(item.ItemId, items.Count, true, false);
+                AddItem(item.ItemId, items.Count, false, false);
+            }
+            if (notify)
+            {
+                Player.SendPacket(new PacketScenePlaneEventScNotify(items));
             }
 
             DatabaseHelper.Instance?.UpdateInstance(Data);
@@ -104,7 +108,7 @@ namespace EggLink.DanhengServer.Game.Inventory
                     if (avatar != null && avatar.Excel != null)
                     {
                         var rankUpItem = Player.InventoryManager!.GetItem(avatar.Excel.RankUpItemId);
-                        if (avatar.Rank + rankUpItem?.Count <= 5)
+                        if ((avatar.Rank + rankUpItem?.Count ?? 0) <= 5)
                             itemData = PutItem(avatar.Excel.RankUpItemId, 1);
                     }
                     else
@@ -283,6 +287,15 @@ namespace EggLink.DanhengServer.Game.Inventory
                     break;
             }
             return null;
+        }
+
+        public void HandlePlaneEvent(int eventId)
+        {
+            GameData.PlaneEventData.TryGetValue(eventId * 10 + Player.Data.WorldLevel, out var planeEvent);
+            if (planeEvent == null) return;
+            GameData.RewardDataData.TryGetValue(planeEvent.Reward, out var rewardData);
+            if (rewardData == null) return;
+            rewardData.GetItems().ForEach(x => AddItem(x.Item1, x.Item2));
         }
 
         #region Equip

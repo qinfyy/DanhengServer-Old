@@ -1,4 +1,5 @@
 ﻿using EggLink.DanhengServer.Data.Config;
+using EggLink.DanhengServer.Game.Battle;
 using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Util;
 using Microsoft.Extensions.Logging;
@@ -26,6 +27,14 @@ namespace EggLink.DanhengServer.Game.Scene.Entity
         public int EventUniqueId { get; set; }
 
         #endregion
+
+        public void AddBuff(SceneBuff buff)
+        {
+        }
+
+        public void ApplyBuff(BattleInstance instance)
+        {
+        }
 
         public SceneEntityInfo ToProto()
         {

@@ -1,6 +1,7 @@
 ﻿using EggLink.DanhengServer.Data.Config;
 using EggLink.DanhengServer.Data.Excel;
 using EggLink.DanhengServer.Enums;
+using EggLink.DanhengServer.Game.Battle;
 using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Server.Packet.Send.Scene;
 using EggLink.DanhengServer.Util;
@@ -20,6 +21,14 @@ namespace EggLink.DanhengServer.Game.Scene.Entity
         public GroupInfo Group { get; set; } = group;
 
         public PropRogueInfo? RogueInfo { get; set; }
+
+        public void AddBuff(SceneBuff buff)
+        {
+        }
+
+        public void ApplyBuff(BattleInstance instance)
+        {
+        }
 
         public void SetState(PropStateEnum state)
         {

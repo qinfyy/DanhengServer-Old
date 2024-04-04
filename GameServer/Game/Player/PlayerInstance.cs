@@ -174,28 +174,19 @@ namespace EggLink.DanhengServer.Game.Player
 
         public void OnAddExp()
         {
-            GameData.PlayerLevelConfigData.TryGetValue(Data.Level + 1, out var config);
-            if (config == null) return;
-            var nextExp = config.PlayerExp;
-            for (int i = 1; i <= Data.Level; i++)
-            {
-                GameData.PlayerLevelConfigData.TryGetValue(i, out config);
-                if (config == null) continue;
-                nextExp -= config.PlayerExp;
-            }
+            GameData.PlayerLevelConfigData.TryGetValue(Data.Level, out var config);
+            GameData.PlayerLevelConfigData.TryGetValue(Data.Level + 1, out var config2);
+            if (config == null || config2 == null) return;
+            var nextExp = config2.PlayerExp - config.PlayerExp;
+
             while (Data.Exp >= nextExp)
             {
                 Data.Exp -= nextExp;
                 Data.Level++;
-                GameData.PlayerLevelConfigData.TryGetValue(Data.Level + 1, out config);
-                if (config == null) break;
-                nextExp = config.PlayerExp;
-                for (int i = 1; i <= Data.Level; i++)
-                {
-                    GameData.PlayerLevelConfigData.TryGetValue(i, out config);
-                    if (config == null) continue;
-                    nextExp -= config.PlayerExp;
-                }
+                GameData.PlayerLevelConfigData.TryGetValue(Data.Level, out config);
+                GameData.PlayerLevelConfigData.TryGetValue(Data.Level + 1, out config2);
+                if (config == null || config2 == null) break;
+                nextExp = config2.PlayerExp - config.PlayerExp;
             }
 
             OnLevelChange();
@@ -313,6 +304,9 @@ namespace EggLink.DanhengServer.Game.Player
                     // for mission
                     MissionManager!.OnPlayerInteractWithProp();
 
+                    // plane event
+                    InventoryManager!.HandlePlaneEvent(prop.PropInfo.EventID);
+
                     return prop;
                 }
             }
@@ -348,16 +342,16 @@ namespace EggLink.DanhengServer.Game.Player
             LoadScene(entrance.PlaneID, entrance.FloorID, entryId, anchor!.ToPositionProto(), anchor.ToRotationProto(), sendPacket);
         }
 
-        public void EnterMissionScene(int floorId, int entryId, bool sendPacket)
+        public void EnterMissionScene(int entranceId, int anchorGroupId, int anchorId, bool sendPacket)
         {
-            var entrance = GameData.GetMapEntrance(floorId, MissionManager!.Data);
+            GameData.MapEntranceData.TryGetValue(entranceId, out var entrance);
             if (entrance == null) return;
 
             GameData.GetFloorInfo(entrance.PlaneID, entrance.FloorID, out var floorInfo);
             if (floorInfo == null) return;
 
-            int StartGroup = entrance.StartGroupID;
-            int StartAnchor = entrance.StartAnchorID;
+            int StartGroup = anchorGroupId == 0 ? entrance.StartGroupID : anchorGroupId;
+            int StartAnchor = anchorId == 0 ? entrance.StartAnchorID : anchorId;
 
             if (StartAnchor == 0)
             {
@@ -366,7 +360,7 @@ namespace EggLink.DanhengServer.Game.Player
             }
             AnchorInfo? anchor = floorInfo.GetAnchorInfo(StartGroup, StartAnchor);
 
-            LoadScene(entrance.PlaneID, entrance.FloorID, entryId, anchor!.ToPositionProto(), anchor.ToRotationProto(), sendPacket);
+            LoadScene(entrance.PlaneID, entrance.FloorID, entranceId, anchor!.ToPositionProto(), anchor.ToRotationProto(), sendPacket);
         }
 
         public void MoveTo(Position position)

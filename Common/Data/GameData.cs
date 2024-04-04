@@ -19,6 +19,7 @@ namespace EggLink.DanhengServer.Data
         public static Dictionary<int, InteractConfigExcel> InteractConfigData { get; private set; } = [];
         public static Dictionary<int, NPCMonsterDataExcel> NpcMonsterDataData { get; private set; } = [];
         public static Dictionary<int, MonsterConfigExcel> MonsterConfigData { get; private set; } = [];
+        public static Dictionary<int, MonsterDropExcel> MonsterDropData { get; private set; } = [];
         public static Dictionary<int, NPCDataExcel> NpcDataData { get; private set; } = [];
         public static Dictionary<int, QuestDataExcel> QuestDataData { get; private set; } = [];
         public static Dictionary<int, PlayerLevelConfigExcel> PlayerLevelConfigData { get; private set; } = [];
@@ -27,6 +28,7 @@ namespace EggLink.DanhengServer.Data
         public static Dictionary<int, MapEntranceExcel> MapEntranceData { get; private set; } = [];
         public static Dictionary<int, MazePlaneExcel> MazePlaneData { get; private set; } = [];
         public static Dictionary<int, MazePropExcel> MazePropData { get; private set; } = [];
+        public static Dictionary<int, PlaneEventExcel> PlaneEventData { get; private set; } = [];
 
         public static Dictionary<int, ItemConfigExcel> ItemConfigData { get; private set; } = [];
         public static Dictionary<int, EquipmentConfigExcel> EquipmentConfigData { get; private set; } = [];

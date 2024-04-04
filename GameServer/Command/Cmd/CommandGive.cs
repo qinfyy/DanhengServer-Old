@@ -18,11 +18,23 @@
                 arg.SendMsg("Target not found.");
                 return;
             }
-            arg.CharacterArgs.TryGetValue("x", out var str);
-            if (str == null) str = "1";
 
-            player.InventoryManager!.AddItem(int.Parse(arg.BasicArgs[0]), int.Parse(str));
-            arg.SendMsg($"Give @{player.Uid} item of {arg.BasicArgs[0]}");
+            if (arg.BasicArgs.Count == 0)
+            {
+                arg.SendMsg("Item not found.");
+                return;
+            }
+
+            arg.CharacterArgs.TryGetValue("x", out var str);
+            str ??= "1";
+            if (!int.TryParse(str, out var amount))
+            {
+                arg.SendMsg("Invalid amount.");
+                return;
+            }
+
+            player.InventoryManager!.AddItem(int.Parse(arg.BasicArgs[0]), amount);
+            arg.SendMsg($"Give @{player.Uid} {amount} items of {arg.BasicArgs[0]}");
         }
     }
 }

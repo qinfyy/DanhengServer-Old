@@ -19,8 +19,7 @@ namespace EggLink.DanhengServer.Game.Mission.FinishType.Handler
                 {
                     if (info.ParamInt3 != 0)
                     {
-                        //player.MissionManager!.FinishSubMission(subMissionId);
-                        p.SetState(PropStateEnum.Closed);
+                        p.SetState(info.SourceState);
                     }
                 }
             }

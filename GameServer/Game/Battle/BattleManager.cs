@@ -1,8 +1,10 @@
 ﻿using EggLink.DanhengServer.Data;
 using EggLink.DanhengServer.Data.Excel;
 using EggLink.DanhengServer.Database;
+using EggLink.DanhengServer.Database.Inventory;
 using EggLink.DanhengServer.Game.Battle.Skill;
 using EggLink.DanhengServer.Game.Player;
+using EggLink.DanhengServer.Game.Scene;
 using EggLink.DanhengServer.Game.Scene.Entity;
 using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Server.Packet.Send.Battle;
@@ -13,16 +15,14 @@ namespace EggLink.DanhengServer.Game.Battle
 {
     public class BattleManager(PlayerInstance player) : BasePlayerManager(player)
     {
-        public void StartBattle(SceneCastSkillCsReq req, MazeSkill skill, int casterAvatarId)
+        public void StartBattle(SceneCastSkillCsReq req, MazeSkill skill)
         {
             if (Player.BattleInstance != null) return;
             var targetList = new List<EntityMonster>();
+            var avatarList = new List<AvatarSceneInfo>();
             var propList = new List<EntityProp>();
-            if (!skill.TriggerBattle)
-            {
-                Player.SendPacket(new PacketSceneCastSkillScRsp(req.CastEntityId));
-                return;
-            }
+            Player.SceneInstance!.AvatarInfo.TryGetValue((int)req.AttackedByEntityId, out var castAvatar);
+
             if (Player.SceneInstance!.AvatarInfo.ContainsKey((int)req.AttackedByEntityId))
             {
                 foreach (var entity in req.HitTargetEntityIdList)
@@ -72,21 +72,89 @@ namespace EggLink.DanhengServer.Game.Battle
                 Player.SendPacket(new PacketSceneCastSkillScRsp(req.CastEntityId));
                 return;
             }
+
             foreach (var prop in propList)
             {
                 Player.SceneInstance!.RemoveEntity(prop);
+                if (prop.Excel.IsMpRecover)
+                {
+                    Player.LineupManager!.GainMp(2);
+                } else if (prop.Excel.IsHpRecover)
+                {
+                    Player.LineupManager!.GetCurLineup()!.Heal(2000, false);
+                }
             }
+
             if (targetList.Count > 0)
             {
+                if (castAvatar != null && req.SkillIndex > 0)
+                {
+                    // cost Mp
+                    Player!.LineupManager!.CostMp(req.AttackedByEntityId, 1);
+                    skill.OnCast(castAvatar);
+                }
                 // Skill handle
+                if (!skill.TriggerBattle)
+                {
+                    skill.OnHitTarget(Player.SceneInstance!.AvatarInfo[(int)req.AttackedByEntityId], targetList);
+                    Player.SendPacket(new PacketSceneCastSkillScRsp(req.CastEntityId));
+                    return;
+                }
+                if (castAvatar != null)
+                {
+                    skill.OnAttack(Player.SceneInstance!.AvatarInfo[(int)req.AttackedByEntityId], targetList);
+                }
+
+                var triggerBattle = false;
+                foreach (var target in targetList)
+                {
+                    if (target.IsAlive)
+                    {
+                        triggerBattle = true;
+                        break;
+                    }
+                }
+                if (!triggerBattle)
+                {
+                    Player.SendPacket(new PacketSceneCastSkillScRsp(req.CastEntityId));
+                    return;
+                }
+
                 BattleInstance battleInstance = new(Player, Player.LineupManager!.GetCurLineup()!, targetList)
                 {
                     WorldLevel = Player.Data.WorldLevel,
-                    CasterIndex = (int)req.CastEntityId,
                 };
+
+                foreach (var item in Player.LineupManager!.GetCurLineup()!.BaseAvatars!)  // get all avatars in the lineup and add them to the battle instance
+                {
+                    var avatar = Player.SceneInstance!.AvatarInfo.Values.FirstOrDefault(x => x.AvatarInfo.AvatarId == item.BaseAvatarId);
+                    if (avatar != null)
+                    {
+                        avatarList.Add(avatar);
+                    }
+                }
+
+                MazeBuff mazeBuff;
+                if (castAvatar != null)
+                {
+                    var index = battleInstance.Lineup.BaseAvatars!.FindIndex(x => x.BaseAvatarId == castAvatar.AvatarInfo.AvatarId);
+                    mazeBuff = new((int?)castAvatar.AvatarInfo.Excel?.DamageType ?? 0, 1, index);
+                    mazeBuff.DynamicValues.Add("SkillIndex", skill.IsMazeSkill ? 2 : 1);
+                } else
+                {
+                    mazeBuff = new(GameConstants.AMBUSH_BUFF_ID, 1, -1)
+                    { 
+                        WaveFlag = 1
+                    };
+                }
+
+                if (mazeBuff.BuffID != 0)  // avoid adding a buff with ID 0
+                {
+                    battleInstance.Buffs.Add(mazeBuff);
+                }
+
+                battleInstance.AvatarInfo = avatarList;
                 Player.BattleInstance = battleInstance;
-                battleInstance.CasterIndex = Player.LineupManager!.GetCurLineup()!.BaseAvatars!.FindIndex(x => x.BaseAvatarId == casterAvatarId);
-                skill.OnEnterBattle(battleInstance);
                 Player.SendPacket(new PacketSceneCastSkillScRsp(req.CastEntityId, battleInstance));
             } else
             {
@@ -183,15 +251,11 @@ namespace EggLink.DanhengServer.Game.Battle
             switch (req.EndStatus)
             {
                 case BattleEndStatus.BattleEndWin:
-                    // Remove monsters from the map - Could optimize it a little better
-                    //for (var monster in battle.NpcMonsters)
-                    //{
-                    //    // Dont remove farmable monsters from the scene when they are defeated
-                    //    if (monster.isFarmElement()) continue;
-                    //    // Remove monster
-                    //    player.SceneInstance.RemoveEntity(monster);
-                    //}
                     // Drops
+                    foreach (var monster in battle.EntityMonsters)
+                    {
+                        monster.Kill();
+                    }
                     // Spend stamina
                     if (battle.StaminaCost > 0)
                     {
@@ -208,7 +272,6 @@ namespace EggLink.DanhengServer.Game.Battle
                     updateStatus = false;
                     break;
             }
-
             if (updateStatus)
             {
                 var lineup = Player.LineupManager!.GetCurLineup()!;
@@ -252,15 +315,6 @@ namespace EggLink.DanhengServer.Game.Battle
             }
             // call battle end
             Player.MissionManager!.OnBattleFinish(req);
-
-            // remove monster from the scene
-            if (req.EndStatus == BattleEndStatus.BattleEndWin)
-            {
-                foreach (var monster in battle.EntityMonsters)
-                {
-                    Player.SceneInstance!.RemoveEntity(monster);
-                }
-            }
 
             Player.BattleInstance = null;
             Player.SendPacket(new PacketPVEBattleResultScRsp(req, Player, battle));

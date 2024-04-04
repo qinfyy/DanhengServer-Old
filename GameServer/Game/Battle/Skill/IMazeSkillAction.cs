@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EggLink.DanhengServer.Game.Scene;
+using EggLink.DanhengServer.Game.Scene.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +10,10 @@ namespace EggLink.DanhengServer.Game.Battle.Skill
 {
     public interface IMazeSkillAction
     {
-        public void OnEnterBattle(BattleInstance instance);
+        public void OnCast(AvatarSceneInfo avatar);
 
-        public void OnCast();
+        public void OnHitTarget(AvatarSceneInfo avatar, List<EntityMonster> entities);
+
+        public void OnAttack(AvatarSceneInfo avatar, List<EntityMonster> entities);
     }
 }

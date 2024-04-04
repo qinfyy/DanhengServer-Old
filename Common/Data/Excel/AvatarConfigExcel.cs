@@ -18,6 +18,9 @@ namespace EggLink.DanhengServer.Data.Excel
         [JsonConverter(typeof(StringEnumConverter))]
         public RarityEnum Rarity { get; set; } = 0;
 
+        [JsonConverter(typeof(StringEnumConverter))]
+        public DamageTypeEnum DamageType { get; set; } = 0;
+
         [JsonIgnore()]
         public List<AvatarSkillTreeConfigExcel> DefaultSkillTree = [];
 

@@ -3,6 +3,7 @@ using EggLink.DanhengServer.Data.Config;
 using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Game.Scene.Entity;
 using EggLink.DanhengServer.Server.Packet.Send.Scene;
+using EggLink.DanhengServer.Util;
 
 namespace EggLink.DanhengServer.Game.Scene
 {
@@ -18,7 +19,10 @@ namespace EggLink.DanhengServer.Game.Scene
                 {
                     continue;
                 }
-
+                if (group.GroupName.Contains("TrainVisitor"))
+                {
+                    continue;
+                }
                 LoadGroup(group);
             }
             scene.IsLoaded = true;
@@ -40,6 +44,11 @@ namespace EggLink.DanhengServer.Game.Scene
             foreach (var group in scene.FloorInfo!.Groups.Values)
             {
                 if (group.LoadSide == GroupLoadSideEnum.Client)
+                {
+                    continue;
+                }
+
+                if (group.GroupName.Contains("TrainVisitor"))
                 {
                     continue;
                 }
@@ -194,7 +203,10 @@ namespace EggLink.DanhengServer.Game.Scene
             } 
             else
             {
-                prop.SetState(info.State);
+                if (info.State == PropStateEnum.Locked)
+                    prop.SetState(PropStateEnum.Closed);
+                else
+                    prop.SetState(info.State);
             }
             return prop;
         }

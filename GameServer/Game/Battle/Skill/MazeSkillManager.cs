@@ -18,12 +18,12 @@ namespace EggLink.DanhengServer.Game.Battle.Skill
             if (skillIndex == 0)
             {
                 // normal atk
-               mazeSkill = new(avatarConfig.MazeAtk?.OnStart.ToList() ?? []);
+               mazeSkill = new(avatarConfig.MazeAtk?.OnStart.ToList() ?? [], false, avatarConfig);
             }
             else
             {
                 // maze skill
-                mazeSkill = new(avatarConfig.MazeSkill?.OnStart.ToList() ?? []);
+                mazeSkill = new(avatarConfig.MazeSkill?.OnStart.ToList() ?? [], true, avatarConfig);
             }
             return mazeSkill;
         }

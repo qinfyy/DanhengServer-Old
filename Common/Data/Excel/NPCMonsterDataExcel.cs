@@ -1,4 +1,7 @@
-﻿using System;
+﻿using EggLink.DanhengServer.Enums;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +14,9 @@ namespace EggLink.DanhengServer.Data.Excel
     { 
         public int ID { get; set; }
         public HashName NPCName { get; set; } = new();
+
+        [JsonConverter(typeof(StringEnumConverter))]
+        public MonsterRankEnum Rank { get; set; }
 
         public override int GetId()
         {
