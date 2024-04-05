@@ -54,6 +54,9 @@ namespace EggLink.DanhengServer.Data
         public static Dictionary<int, ShopConfigExcel> ShopConfigData { get; private set; } = [];
         public static Dictionary<int, ItemComposeConfigExcel> ItemComposeConfigData { get; private set; } = [];
 
+        public static Dictionary<int, RogueAeonExcel> RogueAeonData { get; private set; } = [];
+        public static Dictionary<int, RogueManagerExcel> RogueManagerData { get; private set; } = [];
+
         public static BannersConfig BannersConfig { get; set; } = new();
 
         public static void GetFloorInfo(int planeId, int floorId, out FloorInfo outer)

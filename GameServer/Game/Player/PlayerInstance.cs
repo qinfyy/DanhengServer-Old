@@ -13,6 +13,7 @@ using EggLink.DanhengServer.Game.Inventory;
 using EggLink.DanhengServer.Game.Lineup;
 using EggLink.DanhengServer.Game.Message;
 using EggLink.DanhengServer.Game.Mission;
+using EggLink.DanhengServer.Game.Rogue;
 using EggLink.DanhengServer.Game.Scene;
 using EggLink.DanhengServer.Game.Scene.Entity;
 using EggLink.DanhengServer.Game.Shop;
@@ -38,6 +39,7 @@ namespace EggLink.DanhengServer.Game.Player
         public MissionManager? MissionManager { get; private set; }
         public GachaManager? GachaManager { get; private set; }
         public MessageManager? MessageManager { get; private set; }
+        public RogueManager? RogueManager { get; private set; }
         public ShopService? ShopService { get; private set; }
 
         #endregion
@@ -87,6 +89,7 @@ namespace EggLink.DanhengServer.Game.Player
             MissionManager = new(this);
             GachaManager = new(this);
             MessageManager = new(this);
+            RogueManager = new(this);
             ShopService = new(this);
 
             PlayerUnlockData = InitializeDatabase<PlayerUnlockData>();

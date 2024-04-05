@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static BOMGAJFEEOJReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFCT01HQUpGRUVPSi5wcm90byIvCgtCT01HQUpGRUVPShILCgNudW0YCSAB",
-            "KA0SEwoLQUdDRUZCQ01HQUIYCyABKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1Nl",
-            "cnZlci5Qcm90b2IGcHJvdG8z"));
+            "ChFCT01HQUpGRUVPSi5wcm90byIwCgtCT01HQUpGRUVPShILCgNudW0YCSAB",
+            "KA0SFAoMZGlzcGxheV90eXBlGAsgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdT",
+            "ZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BOMGAJFEEOJ), global::EggLink.DanhengServer.Proto.BOMGAJFEEOJ.Parser, new[]{ "Num", "AGCEFBCMGAB" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BOMGAJFEEOJ), global::EggLink.DanhengServer.Proto.BOMGAJFEEOJ.Parser, new[]{ "Num", "DisplayType" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public BOMGAJFEEOJ(BOMGAJFEEOJ other) : this() {
       num_ = other.num_;
-      aGCEFBCMGAB_ = other.aGCEFBCMGAB_;
+      displayType_ = other.displayType_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -95,15 +95,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "AGCEFBCMGAB" field.</summary>
-    public const int AGCEFBCMGABFieldNumber = 11;
-    private uint aGCEFBCMGAB_;
+    /// <summary>Field number for the "display_type" field.</summary>
+    public const int DisplayTypeFieldNumber = 11;
+    private uint displayType_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint AGCEFBCMGAB {
-      get { return aGCEFBCMGAB_; }
+    public uint DisplayType {
+      get { return displayType_; }
       set {
-        aGCEFBCMGAB_ = value;
+        displayType_ = value;
       }
     }
 
@@ -123,7 +123,7 @@ namespace EggLink.DanhengServer.Proto {
         return true;
       }
       if (Num != other.Num) return false;
-      if (AGCEFBCMGAB != other.AGCEFBCMGAB) return false;
+      if (DisplayType != other.DisplayType) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -132,7 +132,7 @@ namespace EggLink.DanhengServer.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (Num != 0) hash ^= Num.GetHashCode();
-      if (AGCEFBCMGAB != 0) hash ^= AGCEFBCMGAB.GetHashCode();
+      if (DisplayType != 0) hash ^= DisplayType.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -155,9 +155,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(72);
         output.WriteUInt32(Num);
       }
-      if (AGCEFBCMGAB != 0) {
+      if (DisplayType != 0) {
         output.WriteRawTag(88);
-        output.WriteUInt32(AGCEFBCMGAB);
+        output.WriteUInt32(DisplayType);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -173,9 +173,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(72);
         output.WriteUInt32(Num);
       }
-      if (AGCEFBCMGAB != 0) {
+      if (DisplayType != 0) {
         output.WriteRawTag(88);
-        output.WriteUInt32(AGCEFBCMGAB);
+        output.WriteUInt32(DisplayType);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -190,8 +190,8 @@ namespace EggLink.DanhengServer.Proto {
       if (Num != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Num);
       }
-      if (AGCEFBCMGAB != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(AGCEFBCMGAB);
+      if (DisplayType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DisplayType);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -208,8 +208,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other.Num != 0) {
         Num = other.Num;
       }
-      if (other.AGCEFBCMGAB != 0) {
-        AGCEFBCMGAB = other.AGCEFBCMGAB;
+      if (other.DisplayType != 0) {
+        DisplayType = other.DisplayType;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -231,7 +231,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 88: {
-            AGCEFBCMGAB = input.ReadUInt32();
+            DisplayType = input.ReadUInt32();
             break;
           }
         }
@@ -254,7 +254,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 88: {
-            AGCEFBCMGAB = input.ReadUInt32();
+            DisplayType = input.ReadUInt32();
             break;
           }
         }

@@ -25,16 +25,16 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChNEaWFsb2d1ZUV2ZW50LnByb3RvGh1Sb2d1ZURpYWxvZ3VlRXZlbnRQYXJh",
-            "bS5wcm90byLDAQoNRGlhbG9ndWVFdmVudBITCgtESUpDTkdOQlBPThgKIAEo",
-            "DRIWCg5nYW1lX21vZGVfdHlwZRgCIAEoDRITCgtNQk5CSUVKSUJGShgNIAEo",
-            "DRITCgtLS0NQTE1HSUFETBgBIAEoDRIeChZkaWFsb2d1ZV9ldmVudF9pZF9s",
-            "aXN0GA8gAygNEjsKGWRpYWxvZ3VlX2V2ZW50X3BhcmFtX2xpc3QYDCADKAsy",
-            "GC5Sb2d1ZURpYWxvZ3VlRXZlbnRQYXJhbUIeqgIbRWdnTGluay5EYW5oZW5n",
-            "U2VydmVyLlByb3RvYgZwcm90bzM="));
+            "bS5wcm90byLEAQoNRGlhbG9ndWVFdmVudBIQCghldmVudF9pZBgKIAEoDRIW",
+            "Cg5nYW1lX21vZGVfdHlwZRgCIAEoDRITCgtNQk5CSUVKSUJGShgNIAEoDRIX",
+            "Cg9ldmVudF91bmlxdWVfaWQYASABKA0SHgoWZGlhbG9ndWVfZXZlbnRfaWRf",
+            "bGlzdBgPIAMoDRI7ChlkaWFsb2d1ZV9ldmVudF9wYXJhbV9saXN0GAwgAygL",
+            "MhguUm9ndWVEaWFsb2d1ZUV2ZW50UGFyYW1CHqoCG0VnZ0xpbmsuRGFuaGVu",
+            "Z1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RogueDialogueEventParamReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.DialogueEvent), global::EggLink.DanhengServer.Proto.DialogueEvent.Parser, new[]{ "DIJCNGNBPON", "GameModeType", "MBNBIEJIBFJ", "KKCPLMGIADL", "DialogueEventIdList", "DialogueEventParamList" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.DialogueEvent), global::EggLink.DanhengServer.Proto.DialogueEvent.Parser, new[]{ "EventId", "GameModeType", "MBNBIEJIBFJ", "EventUniqueId", "DialogueEventIdList", "DialogueEventParamList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -76,10 +76,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public DialogueEvent(DialogueEvent other) : this() {
-      dIJCNGNBPON_ = other.dIJCNGNBPON_;
+      eventId_ = other.eventId_;
       gameModeType_ = other.gameModeType_;
       mBNBIEJIBFJ_ = other.mBNBIEJIBFJ_;
-      kKCPLMGIADL_ = other.kKCPLMGIADL_;
+      eventUniqueId_ = other.eventUniqueId_;
       dialogueEventIdList_ = other.dialogueEventIdList_.Clone();
       dialogueEventParamList_ = other.dialogueEventParamList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -91,15 +91,15 @@ namespace EggLink.DanhengServer.Proto {
       return new DialogueEvent(this);
     }
 
-    /// <summary>Field number for the "DIJCNGNBPON" field.</summary>
-    public const int DIJCNGNBPONFieldNumber = 10;
-    private uint dIJCNGNBPON_;
+    /// <summary>Field number for the "event_id" field.</summary>
+    public const int EventIdFieldNumber = 10;
+    private uint eventId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint DIJCNGNBPON {
-      get { return dIJCNGNBPON_; }
+    public uint EventId {
+      get { return eventId_; }
       set {
-        dIJCNGNBPON_ = value;
+        eventId_ = value;
       }
     }
 
@@ -127,15 +127,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "KKCPLMGIADL" field.</summary>
-    public const int KKCPLMGIADLFieldNumber = 1;
-    private uint kKCPLMGIADL_;
+    /// <summary>Field number for the "event_unique_id" field.</summary>
+    public const int EventUniqueIdFieldNumber = 1;
+    private uint eventUniqueId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint KKCPLMGIADL {
-      get { return kKCPLMGIADL_; }
+    public uint EventUniqueId {
+      get { return eventUniqueId_; }
       set {
-        kKCPLMGIADL_ = value;
+        eventUniqueId_ = value;
       }
     }
 
@@ -176,10 +176,10 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (DIJCNGNBPON != other.DIJCNGNBPON) return false;
+      if (EventId != other.EventId) return false;
       if (GameModeType != other.GameModeType) return false;
       if (MBNBIEJIBFJ != other.MBNBIEJIBFJ) return false;
-      if (KKCPLMGIADL != other.KKCPLMGIADL) return false;
+      if (EventUniqueId != other.EventUniqueId) return false;
       if(!dialogueEventIdList_.Equals(other.dialogueEventIdList_)) return false;
       if(!dialogueEventParamList_.Equals(other.dialogueEventParamList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -189,10 +189,10 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (DIJCNGNBPON != 0) hash ^= DIJCNGNBPON.GetHashCode();
+      if (EventId != 0) hash ^= EventId.GetHashCode();
       if (GameModeType != 0) hash ^= GameModeType.GetHashCode();
       if (MBNBIEJIBFJ != 0) hash ^= MBNBIEJIBFJ.GetHashCode();
-      if (KKCPLMGIADL != 0) hash ^= KKCPLMGIADL.GetHashCode();
+      if (EventUniqueId != 0) hash ^= EventUniqueId.GetHashCode();
       hash ^= dialogueEventIdList_.GetHashCode();
       hash ^= dialogueEventParamList_.GetHashCode();
       if (_unknownFields != null) {
@@ -213,17 +213,17 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (KKCPLMGIADL != 0) {
+      if (EventUniqueId != 0) {
         output.WriteRawTag(8);
-        output.WriteUInt32(KKCPLMGIADL);
+        output.WriteUInt32(EventUniqueId);
       }
       if (GameModeType != 0) {
         output.WriteRawTag(16);
         output.WriteUInt32(GameModeType);
       }
-      if (DIJCNGNBPON != 0) {
+      if (EventId != 0) {
         output.WriteRawTag(80);
-        output.WriteUInt32(DIJCNGNBPON);
+        output.WriteUInt32(EventId);
       }
       dialogueEventParamList_.WriteTo(output, _repeated_dialogueEventParamList_codec);
       if (MBNBIEJIBFJ != 0) {
@@ -241,17 +241,17 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (KKCPLMGIADL != 0) {
+      if (EventUniqueId != 0) {
         output.WriteRawTag(8);
-        output.WriteUInt32(KKCPLMGIADL);
+        output.WriteUInt32(EventUniqueId);
       }
       if (GameModeType != 0) {
         output.WriteRawTag(16);
         output.WriteUInt32(GameModeType);
       }
-      if (DIJCNGNBPON != 0) {
+      if (EventId != 0) {
         output.WriteRawTag(80);
-        output.WriteUInt32(DIJCNGNBPON);
+        output.WriteUInt32(EventId);
       }
       dialogueEventParamList_.WriteTo(ref output, _repeated_dialogueEventParamList_codec);
       if (MBNBIEJIBFJ != 0) {
@@ -269,8 +269,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (DIJCNGNBPON != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DIJCNGNBPON);
+      if (EventId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EventId);
       }
       if (GameModeType != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GameModeType);
@@ -278,8 +278,8 @@ namespace EggLink.DanhengServer.Proto {
       if (MBNBIEJIBFJ != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MBNBIEJIBFJ);
       }
-      if (KKCPLMGIADL != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(KKCPLMGIADL);
+      if (EventUniqueId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EventUniqueId);
       }
       size += dialogueEventIdList_.CalculateSize(_repeated_dialogueEventIdList_codec);
       size += dialogueEventParamList_.CalculateSize(_repeated_dialogueEventParamList_codec);
@@ -295,8 +295,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.DIJCNGNBPON != 0) {
-        DIJCNGNBPON = other.DIJCNGNBPON;
+      if (other.EventId != 0) {
+        EventId = other.EventId;
       }
       if (other.GameModeType != 0) {
         GameModeType = other.GameModeType;
@@ -304,8 +304,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other.MBNBIEJIBFJ != 0) {
         MBNBIEJIBFJ = other.MBNBIEJIBFJ;
       }
-      if (other.KKCPLMGIADL != 0) {
-        KKCPLMGIADL = other.KKCPLMGIADL;
+      if (other.EventUniqueId != 0) {
+        EventUniqueId = other.EventUniqueId;
       }
       dialogueEventIdList_.Add(other.dialogueEventIdList_);
       dialogueEventParamList_.Add(other.dialogueEventParamList_);
@@ -325,7 +325,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            KKCPLMGIADL = input.ReadUInt32();
+            EventUniqueId = input.ReadUInt32();
             break;
           }
           case 16: {
@@ -333,7 +333,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 80: {
-            DIJCNGNBPON = input.ReadUInt32();
+            EventId = input.ReadUInt32();
             break;
           }
           case 98: {
@@ -365,7 +365,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            KKCPLMGIADL = input.ReadUInt32();
+            EventUniqueId = input.ReadUInt32();
             break;
           }
           case 16: {
@@ -373,7 +373,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 80: {
-            DIJCNGNBPON = input.ReadUInt32();
+            EventId = input.ReadUInt32();
             break;
           }
           case 98: {

@@ -24,23 +24,23 @@ namespace EggLink.DanhengServer.Proto {
     static RogueCurrentInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChZSb2d1ZUN1cnJlbnRJbmZvLnByb3RvGhVHYW1lTWlyYWNsZUluZm8ucHJv",
-            "dG8aEVJvZ3VlU3RhdHVzLnByb3RvGhFFS0pQTUlLSk1GSS5wcm90bxoRT0lE",
-            "RExQSEpQRUkucHJvdG8aFVJvZ3VlTGluZXVwSW5mby5wcm90bxoeUm9ndWVD",
-            "b21tb25QZW5kaW5nQWN0aW9uLnByb3RvGhNSb2d1ZUJ1ZmZJbmZvLnByb3Rv",
-            "GhJSb2d1ZU1hcEluZm8ucHJvdG8aFlJvZ3VlVmlydHVhbEl0ZW0ucHJvdG8i",
-            "lQMKEFJvZ3VlQ3VycmVudEluZm8SJwoPcm9ndWVfYnVmZl9pbmZvGAEgASgL",
-            "Mg4uUm9ndWVCdWZmSW5mbxITCgtBTElNQ0VLTlBPSxgHIAEoCBItChJyb2d1",
-            "ZV92aXJ0dWFsX2l0ZW0YCSABKAsyES5Sb2d1ZVZpcnR1YWxJdGVtEh8KCG1h",
-            "cF9pbmZvGAogASgLMg0uUm9ndWVNYXBJbmZvEiEKC0dFQUFGRkhHSkZKGAsg",
-            "ASgLMgwuRUtKUE1JS0pNRkkSMQoOcGVuZGluZ19hY3Rpb24YDyABKAsyGS5S",
-            "b2d1ZUNvbW1vblBlbmRpbmdBY3Rpb24SJQoPcm9ndWVfYWVvbl9pbmZvGAMg",
-            "ASgLMgwuT0lERExQSEpQRUkSKwoRZ2FtZV9taXJhY2xlX2luZm8YDiABKAsy",
-            "EC5HYW1lTWlyYWNsZUluZm8SKwoRcm9ndWVfbGluZXVwX2luZm8YBiABKAsy",
-            "EC5Sb2d1ZUxpbmV1cEluZm8SHAoGc3RhdHVzGAQgASgOMgwuUm9ndWVTdGF0",
-            "dXNCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
+            "ChZSb2d1ZUN1cnJlbnRJbmZvLnByb3RvGhFSb2d1ZVN0YXR1cy5wcm90bxoV",
+            "R2FtZU1pcmFjbGVJbmZvLnByb3RvGhNSb2d1ZUJ1ZmZJbmZvLnByb3RvGh5S",
+            "b2d1ZUNvbW1vblBlbmRpbmdBY3Rpb24ucHJvdG8aFlJvZ3VlVmlydHVhbEl0",
+            "ZW0ucHJvdG8aElJvZ3VlTWFwSW5mby5wcm90bxoSR2FtZUFlb25JbmZvLnBy",
+            "b3RvGhVSb2d1ZUxpbmV1cEluZm8ucHJvdG8aEUVLSlBNSUtKTUZJLnByb3Rv",
+            "IpYDChBSb2d1ZUN1cnJlbnRJbmZvEicKD3JvZ3VlX2J1ZmZfaW5mbxgBIAEo",
+            "CzIOLlJvZ3VlQnVmZkluZm8SEwoLQUxJTUNFS05QT0sYByABKAgSLQoScm9n",
+            "dWVfdmlydHVhbF9pdGVtGAkgASgLMhEuUm9ndWVWaXJ0dWFsSXRlbRIfCght",
+            "YXBfaW5mbxgKIAEoCzINLlJvZ3VlTWFwSW5mbxIhCgtHRUFBRkZIR0pGShgL",
+            "IAEoCzIMLkVLSlBNSUtKTUZJEjEKDnBlbmRpbmdfYWN0aW9uGA8gASgLMhku",
+            "Um9ndWVDb21tb25QZW5kaW5nQWN0aW9uEiYKD3JvZ3VlX2Flb25faW5mbxgD",
+            "IAEoCzINLkdhbWVBZW9uSW5mbxIrChFnYW1lX21pcmFjbGVfaW5mbxgOIAEo",
+            "CzIQLkdhbWVNaXJhY2xlSW5mbxIrChFyb2d1ZV9saW5ldXBfaW5mbxgGIAEo",
+            "CzIQLlJvZ3VlTGluZXVwSW5mbxIcCgZzdGF0dXMYBCABKA4yDC5Sb2d1ZVN0",
+            "YXR1c0IeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.GameMiracleInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.EKJPMIKJMFIReflection.Descriptor, global::EggLink.DanhengServer.Proto.OIDDLPHJPEIReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueLineupInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueCommonPendingActionReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueBuffInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueMapInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueVirtualItemReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RogueStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.GameMiracleInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueBuffInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueCommonPendingActionReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueVirtualItemReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueMapInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.GameAeonInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueLineupInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.EKJPMIKJMFIReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueCurrentInfo), global::EggLink.DanhengServer.Proto.RogueCurrentInfo.Parser, new[]{ "RogueBuffInfo", "ALIMCEKNPOK", "RogueVirtualItem", "MapInfo", "GEAAFFHGJFJ", "PendingAction", "RogueAeonInfo", "GameMiracleInfo", "RogueLineupInfo", "Status" }, null, null, null, null)
           }));
@@ -177,10 +177,10 @@ namespace EggLink.DanhengServer.Proto {
 
     /// <summary>Field number for the "rogue_aeon_info" field.</summary>
     public const int RogueAeonInfoFieldNumber = 3;
-    private global::EggLink.DanhengServer.Proto.OIDDLPHJPEI rogueAeonInfo_;
+    private global::EggLink.DanhengServer.Proto.GameAeonInfo rogueAeonInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.OIDDLPHJPEI RogueAeonInfo {
+    public global::EggLink.DanhengServer.Proto.GameAeonInfo RogueAeonInfo {
       get { return rogueAeonInfo_; }
       set {
         rogueAeonInfo_ = value;
@@ -460,7 +460,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (other.rogueAeonInfo_ != null) {
         if (rogueAeonInfo_ == null) {
-          RogueAeonInfo = new global::EggLink.DanhengServer.Proto.OIDDLPHJPEI();
+          RogueAeonInfo = new global::EggLink.DanhengServer.Proto.GameAeonInfo();
         }
         RogueAeonInfo.MergeFrom(other.RogueAeonInfo);
       }
@@ -503,7 +503,7 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 26: {
             if (rogueAeonInfo_ == null) {
-              RogueAeonInfo = new global::EggLink.DanhengServer.Proto.OIDDLPHJPEI();
+              RogueAeonInfo = new global::EggLink.DanhengServer.Proto.GameAeonInfo();
             }
             input.ReadMessage(RogueAeonInfo);
             break;
@@ -582,7 +582,7 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 26: {
             if (rogueAeonInfo_ == null) {
-              RogueAeonInfo = new global::EggLink.DanhengServer.Proto.OIDDLPHJPEI();
+              RogueAeonInfo = new global::EggLink.DanhengServer.Proto.GameAeonInfo();
             }
             input.ReadMessage(RogueAeonInfo);
             break;

@@ -24,9 +24,9 @@ namespace EggLink.DanhengServer.Proto {
     static MKCMKFLLGEPReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFNS0NNS0ZMTEdFUC5wcm90bxoRTElHQUdISUFNRE4ucHJvdG8aEUhGTE5N",
-            "QUtJTERELnByb3RvGh9DaGVzc1JvZ3VlQm9hcmRDZWxsU3RhdHVzLnByb3Rv",
-            "GhFBQ0lQRERBSktLTi5wcm90byLmAQoLTUtDTUtGTExHRVASIQoLTk9MRkdG",
+            "ChFNS0NNS0ZMTEdFUC5wcm90bxofQ2hlc3NSb2d1ZUJvYXJkQ2VsbFN0YXR1",
+            "cy5wcm90bxoRSEZMTk1BS0lMREQucHJvdG8aEUFDSVBEREFKS0tOLnByb3Rv",
+            "GhFMSUdBR0hJQU1ETi5wcm90byLmAQoLTUtDTUtGTExHRVASIQoLTk9MRkdG",
             "T1BQR0EYBiADKAsyDC5IRkxOTUFLSUxERBIvCgtQUFBISFBDTU5PQxgKIAEo",
             "DjIaLkNoZXNzUm9ndWVCb2FyZENlbGxTdGF0dXMSIQoLR0hJQk9OQk9JTUYY",
             "AiABKAsyDC5MSUdBR0hJQU1EThITCgtISkNGRlBOSE9BSRgHIAMoDRITCgtN",
@@ -34,7 +34,7 @@ namespace EggLink.DanhengServer.Proto {
             "SEhQS0JKTBgMIAEoCzIMLkFDSVBEREFKS0tOQh6qAhtFZ2dMaW5rLkRhbmhl",
             "bmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.LIGAGHIAMDNReflection.Descriptor, global::EggLink.DanhengServer.Proto.HFLNMAKILDDReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueBoardCellStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.ACIPDDAJKKNReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChessRogueBoardCellStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.HFLNMAKILDDReflection.Descriptor, global::EggLink.DanhengServer.Proto.ACIPDDAJKKNReflection.Descriptor, global::EggLink.DanhengServer.Proto.LIGAGHIAMDNReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.MKCMKFLLGEP), global::EggLink.DanhengServer.Proto.MKCMKFLLGEP.Parser, new[]{ "NOLFGFOPPGA", "PPPHHPCMNOC", "GHIBONBOIMF", "HJCFFPNHOAI", "MEJFKJIODEG", "CFMCEBOGGAF", "PODHHHPKBJL" }, null, null, null, null)
           }));

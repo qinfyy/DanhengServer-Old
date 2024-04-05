@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static PropRogueInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChNQcm9wUm9ndWVJbmZvLnByb3RvIlsKDVByb3BSb2d1ZUluZm8SEwoLQU5C",
-            "Q0NNQUFNQksYAiABKA0SDwoHcm9vbV9pZBgKIAEoDRITCgtDTkFDQ01FT05G",
-            "SxgLIAEoDRIPCgdzaXRlX2lkGA0gASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdT",
-            "ZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "ChNQcm9wUm9ndWVJbmZvLnByb3RvIl0KDVByb3BSb2d1ZUluZm8SFQoNY2Fu",
+            "X3VzZV9jb3VudBgCIAEoDRIPCgdyb29tX2lkGAogASgNEhMKC0NOQUNDTUVP",
+            "TkZLGAsgASgNEg8KB3NpdGVfaWQYDSABKA1CHqoCG0VnZ0xpbmsuRGFuaGVu",
+            "Z1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.PropRogueInfo), global::EggLink.DanhengServer.Proto.PropRogueInfo.Parser, new[]{ "ANBCCMAAMBK", "RoomId", "CNACCMEONFK", "SiteId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.PropRogueInfo), global::EggLink.DanhengServer.Proto.PropRogueInfo.Parser, new[]{ "CanUseCount", "RoomId", "CNACCMEONFK", "SiteId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PropRogueInfo(PropRogueInfo other) : this() {
-      aNBCCMAAMBK_ = other.aNBCCMAAMBK_;
+      canUseCount_ = other.canUseCount_;
       roomId_ = other.roomId_;
       cNACCMEONFK_ = other.cNACCMEONFK_;
       siteId_ = other.siteId_;
@@ -86,15 +86,15 @@ namespace EggLink.DanhengServer.Proto {
       return new PropRogueInfo(this);
     }
 
-    /// <summary>Field number for the "ANBCCMAAMBK" field.</summary>
-    public const int ANBCCMAAMBKFieldNumber = 2;
-    private uint aNBCCMAAMBK_;
+    /// <summary>Field number for the "can_use_count" field.</summary>
+    public const int CanUseCountFieldNumber = 2;
+    private uint canUseCount_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint ANBCCMAAMBK {
-      get { return aNBCCMAAMBK_; }
+    public uint CanUseCount {
+      get { return canUseCount_; }
       set {
-        aNBCCMAAMBK_ = value;
+        canUseCount_ = value;
       }
     }
 
@@ -149,7 +149,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (ANBCCMAAMBK != other.ANBCCMAAMBK) return false;
+      if (CanUseCount != other.CanUseCount) return false;
       if (RoomId != other.RoomId) return false;
       if (CNACCMEONFK != other.CNACCMEONFK) return false;
       if (SiteId != other.SiteId) return false;
@@ -160,7 +160,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (ANBCCMAAMBK != 0) hash ^= ANBCCMAAMBK.GetHashCode();
+      if (CanUseCount != 0) hash ^= CanUseCount.GetHashCode();
       if (RoomId != 0) hash ^= RoomId.GetHashCode();
       if (CNACCMEONFK != 0) hash ^= CNACCMEONFK.GetHashCode();
       if (SiteId != 0) hash ^= SiteId.GetHashCode();
@@ -182,9 +182,9 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (ANBCCMAAMBK != 0) {
+      if (CanUseCount != 0) {
         output.WriteRawTag(16);
-        output.WriteUInt32(ANBCCMAAMBK);
+        output.WriteUInt32(CanUseCount);
       }
       if (RoomId != 0) {
         output.WriteRawTag(80);
@@ -208,9 +208,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (ANBCCMAAMBK != 0) {
+      if (CanUseCount != 0) {
         output.WriteRawTag(16);
-        output.WriteUInt32(ANBCCMAAMBK);
+        output.WriteUInt32(CanUseCount);
       }
       if (RoomId != 0) {
         output.WriteRawTag(80);
@@ -234,8 +234,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (ANBCCMAAMBK != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ANBCCMAAMBK);
+      if (CanUseCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(CanUseCount);
       }
       if (RoomId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(RoomId);
@@ -258,8 +258,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.ANBCCMAAMBK != 0) {
-        ANBCCMAAMBK = other.ANBCCMAAMBK;
+      if (other.CanUseCount != 0) {
+        CanUseCount = other.CanUseCount;
       }
       if (other.RoomId != 0) {
         RoomId = other.RoomId;
@@ -286,7 +286,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 16: {
-            ANBCCMAAMBK = input.ReadUInt32();
+            CanUseCount = input.ReadUInt32();
             break;
           }
           case 80: {
@@ -317,7 +317,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 16: {
-            ANBCCMAAMBK = input.ReadUInt32();
+            CanUseCount = input.ReadUInt32();
             break;
           }
           case 80: {

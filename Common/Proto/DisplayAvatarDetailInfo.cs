@@ -24,9 +24,9 @@ namespace EggLink.DanhengServer.Proto {
     static DisplayAvatarDetailInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Ch1EaXNwbGF5QXZhdGFyRGV0YWlsSW5mby5wcm90bxoWRGlzcGxheVJlbGlj",
-            "SW5mby5wcm90bxoVQXZhdGFyU2tpbGxUcmVlLnByb3RvGhpEaXNwbGF5RXF1",
-            "aXBtZW50SW5mby5wcm90byKKAgoXRGlzcGxheUF2YXRhckRldGFpbEluZm8S",
+            "Ch1EaXNwbGF5QXZhdGFyRGV0YWlsSW5mby5wcm90bxoVQXZhdGFyU2tpbGxU",
+            "cmVlLnByb3RvGhpEaXNwbGF5RXF1aXBtZW50SW5mby5wcm90bxoWRGlzcGxh",
+            "eVJlbGljSW5mby5wcm90byKKAgoXRGlzcGxheUF2YXRhckRldGFpbEluZm8S",
             "DAoEcmFuaxgPIAEoDRINCgVsZXZlbBgBIAEoDRIoCg5za2lsbHRyZWVfbGlz",
             "dBgOIAMoCzIQLkF2YXRhclNraWxsVHJlZRILCgNleHAYCSABKA0SJQoKcmVs",
             "aWNfbGlzdBgIIAMoCzIRLkRpc3BsYXlSZWxpY0luZm8SKAoJZXF1aXBtZW50",
@@ -35,7 +35,7 @@ namespace EggLink.DanhengServer.Proto {
             "KA0SCwoDcG9zGAMgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJv",
             "dG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.DisplayRelicInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.AvatarSkillTreeReflection.Descriptor, global::EggLink.DanhengServer.Proto.DisplayEquipmentInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.AvatarSkillTreeReflection.Descriptor, global::EggLink.DanhengServer.Proto.DisplayEquipmentInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.DisplayRelicInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.DisplayAvatarDetailInfo), global::EggLink.DanhengServer.Proto.DisplayAvatarDetailInfo.Parser, new[]{ "Rank", "Level", "SkilltreeList", "Exp", "RelicList", "Equipment", "AvatarId", "Promotion", "DressedSkinId", "Pos" }, null, null, null, null)
           }));

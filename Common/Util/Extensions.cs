@@ -96,6 +96,11 @@ public static class Extensions
         return DateTimeOffset.UtcNow.ToUnixTimeSeconds();
     }
 
+    public static long ToUnixSec(this DateTime dt)
+    {
+        return new DateTimeOffset(dt).ToUnixTimeSeconds();
+    }
+
     public static long GetUnixMs()
     {
         return DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();

@@ -24,16 +24,16 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueStartCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChpDaGVzc1JvZ3VlU3RhcnRDc1JlcS5wcm90byKkAQoUQ2hlc3NSb2d1ZVN0",
-            "YXJ0Q3NSZXESEwoLT0xHSENNQUdHS0wYDSADKA0SEwoLTUNBS0ZJSkZPR08Y",
-            "BCADKA0SGwoTYmFzZV9hdmF0YXJfaWRfbGlzdBgMIAMoDRIKCgJpZBgGIAEo",
-            "DRITCgtHTUlNTkpDQ05MTxgIIAMoDRITCgtKUEdGT0lFTklGQRgCIAEoDRIP",
-            "CgdhZW9uX2lkGAkgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJv",
-            "dG9iBnByb3RvMw=="));
+            "ChpDaGVzc1JvZ3VlU3RhcnRDc1JlcS5wcm90byKtAQoUQ2hlc3NSb2d1ZVN0",
+            "YXJ0Q3NSZXESEwoLT0xHSENNQUdHS0wYDSADKA0SHAoUZGlzYWJsZV9hZW9u",
+            "X2lkX2xpc3QYBCADKA0SGwoTYmFzZV9hdmF0YXJfaWRfbGlzdBgMIAMoDRIK",
+            "CgJpZBgGIAEoDRITCgtHTUlNTkpDQ05MTxgIIAMoDRITCgtKUEdGT0lFTklG",
+            "QRgCIAEoDRIPCgdhZW9uX2lkGAkgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdT",
+            "ZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueStartCsReq), global::EggLink.DanhengServer.Proto.ChessRogueStartCsReq.Parser, new[]{ "OLGHCMAGGKL", "MCAKFIJFOGO", "BaseAvatarIdList", "Id", "GMIMNJCCNLO", "JPGFOIENIFA", "AeonId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueStartCsReq), global::EggLink.DanhengServer.Proto.ChessRogueStartCsReq.Parser, new[]{ "OLGHCMAGGKL", "DisableAeonIdList", "BaseAvatarIdList", "Id", "GMIMNJCCNLO", "JPGFOIENIFA", "AeonId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -76,7 +76,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ChessRogueStartCsReq(ChessRogueStartCsReq other) : this() {
       oLGHCMAGGKL_ = other.oLGHCMAGGKL_.Clone();
-      mCAKFIJFOGO_ = other.mCAKFIJFOGO_.Clone();
+      disableAeonIdList_ = other.disableAeonIdList_.Clone();
       baseAvatarIdList_ = other.baseAvatarIdList_.Clone();
       id_ = other.id_;
       gMIMNJCCNLO_ = other.gMIMNJCCNLO_.Clone();
@@ -102,15 +102,15 @@ namespace EggLink.DanhengServer.Proto {
       get { return oLGHCMAGGKL_; }
     }
 
-    /// <summary>Field number for the "MCAKFIJFOGO" field.</summary>
-    public const int MCAKFIJFOGOFieldNumber = 4;
-    private static readonly pb::FieldCodec<uint> _repeated_mCAKFIJFOGO_codec
+    /// <summary>Field number for the "disable_aeon_id_list" field.</summary>
+    public const int DisableAeonIdListFieldNumber = 4;
+    private static readonly pb::FieldCodec<uint> _repeated_disableAeonIdList_codec
         = pb::FieldCodec.ForUInt32(34);
-    private readonly pbc::RepeatedField<uint> mCAKFIJFOGO_ = new pbc::RepeatedField<uint>();
+    private readonly pbc::RepeatedField<uint> disableAeonIdList_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<uint> MCAKFIJFOGO {
-      get { return mCAKFIJFOGO_; }
+    public pbc::RepeatedField<uint> DisableAeonIdList {
+      get { return disableAeonIdList_; }
     }
 
     /// <summary>Field number for the "base_avatar_id_list" field.</summary>
@@ -187,7 +187,7 @@ namespace EggLink.DanhengServer.Proto {
         return true;
       }
       if(!oLGHCMAGGKL_.Equals(other.oLGHCMAGGKL_)) return false;
-      if(!mCAKFIJFOGO_.Equals(other.mCAKFIJFOGO_)) return false;
+      if(!disableAeonIdList_.Equals(other.disableAeonIdList_)) return false;
       if(!baseAvatarIdList_.Equals(other.baseAvatarIdList_)) return false;
       if (Id != other.Id) return false;
       if(!gMIMNJCCNLO_.Equals(other.gMIMNJCCNLO_)) return false;
@@ -201,7 +201,7 @@ namespace EggLink.DanhengServer.Proto {
     public override int GetHashCode() {
       int hash = 1;
       hash ^= oLGHCMAGGKL_.GetHashCode();
-      hash ^= mCAKFIJFOGO_.GetHashCode();
+      hash ^= disableAeonIdList_.GetHashCode();
       hash ^= baseAvatarIdList_.GetHashCode();
       if (Id != 0) hash ^= Id.GetHashCode();
       hash ^= gMIMNJCCNLO_.GetHashCode();
@@ -229,7 +229,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(16);
         output.WriteUInt32(JPGFOIENIFA);
       }
-      mCAKFIJFOGO_.WriteTo(output, _repeated_mCAKFIJFOGO_codec);
+      disableAeonIdList_.WriteTo(output, _repeated_disableAeonIdList_codec);
       if (Id != 0) {
         output.WriteRawTag(48);
         output.WriteUInt32(Id);
@@ -255,7 +255,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(16);
         output.WriteUInt32(JPGFOIENIFA);
       }
-      mCAKFIJFOGO_.WriteTo(ref output, _repeated_mCAKFIJFOGO_codec);
+      disableAeonIdList_.WriteTo(ref output, _repeated_disableAeonIdList_codec);
       if (Id != 0) {
         output.WriteRawTag(48);
         output.WriteUInt32(Id);
@@ -278,7 +278,7 @@ namespace EggLink.DanhengServer.Proto {
     public int CalculateSize() {
       int size = 0;
       size += oLGHCMAGGKL_.CalculateSize(_repeated_oLGHCMAGGKL_codec);
-      size += mCAKFIJFOGO_.CalculateSize(_repeated_mCAKFIJFOGO_codec);
+      size += disableAeonIdList_.CalculateSize(_repeated_disableAeonIdList_codec);
       size += baseAvatarIdList_.CalculateSize(_repeated_baseAvatarIdList_codec);
       if (Id != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Id);
@@ -303,7 +303,7 @@ namespace EggLink.DanhengServer.Proto {
         return;
       }
       oLGHCMAGGKL_.Add(other.oLGHCMAGGKL_);
-      mCAKFIJFOGO_.Add(other.mCAKFIJFOGO_);
+      disableAeonIdList_.Add(other.disableAeonIdList_);
       baseAvatarIdList_.Add(other.baseAvatarIdList_);
       if (other.Id != 0) {
         Id = other.Id;
@@ -336,7 +336,7 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 34:
           case 32: {
-            mCAKFIJFOGO_.AddEntriesFrom(input, _repeated_mCAKFIJFOGO_codec);
+            disableAeonIdList_.AddEntriesFrom(input, _repeated_disableAeonIdList_codec);
             break;
           }
           case 48: {
@@ -383,7 +383,7 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 34:
           case 32: {
-            mCAKFIJFOGO_.AddEntriesFrom(ref input, _repeated_mCAKFIJFOGO_codec);
+            disableAeonIdList_.AddEntriesFrom(ref input, _repeated_disableAeonIdList_codec);
             break;
           }
           case 48: {

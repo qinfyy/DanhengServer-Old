@@ -24,16 +24,16 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueEnterNextLayerScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiNDaGVzc1JvZ3VlRW50ZXJOZXh0TGF5ZXJTY1JzcC5wcm90bxoRQ05IR0pE",
-            "TEFFSEwucHJvdG8aEUVFUEdITEZOREtKLnByb3RvGhFBTk5OSk9MTkRIRS5w",
-            "cm90bxoRT0RGSUdOTUFESUYucHJvdG8ivwEKHUNoZXNzUm9ndWVFbnRlck5l",
+            "CiNDaGVzc1JvZ3VlRW50ZXJOZXh0TGF5ZXJTY1JzcC5wcm90bxoRT0RGSUdO",
+            "TUFESUYucHJvdG8aEUFOTk5KT0xOREhFLnByb3RvGhFFRVBHSExGTkRLSi5w",
+            "cm90bxoRQ05IR0pETEFFSEwucHJvdG8ivwEKHUNoZXNzUm9ndWVFbnRlck5l",
             "eHRMYXllclNjUnNwEiUKD3JvZ3VlX2dhbWVfaW5mbxgOIAEoCzIMLkFOTk5K",
             "T0xOREhFEiEKC1BBQUZBTE5KTEROGA8gASgLMgwuT0RGSUdOTUFESUYSIAoK",
             "cm9ndWVfaW5mbxgIIAEoCzIMLkVFUEdITEZOREtKEiEKC1BCSE9KTkxLS09M",
             "GAsgASgLMgwuQ05IR0pETEFFSEwSDwoHcmV0Y29kZRgEIAEoDUIeqgIbRWdn",
             "TGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.CNHGJDLAEHLReflection.Descriptor, global::EggLink.DanhengServer.Proto.EEPGHLFNDKJReflection.Descriptor, global::EggLink.DanhengServer.Proto.ANNNJOLNDHEReflection.Descriptor, global::EggLink.DanhengServer.Proto.ODFIGNMADIFReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ODFIGNMADIFReflection.Descriptor, global::EggLink.DanhengServer.Proto.ANNNJOLNDHEReflection.Descriptor, global::EggLink.DanhengServer.Proto.EEPGHLFNDKJReflection.Descriptor, global::EggLink.DanhengServer.Proto.CNHGJDLAEHLReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueEnterNextLayerScRsp), global::EggLink.DanhengServer.Proto.ChessRogueEnterNextLayerScRsp.Parser, new[]{ "RogueGameInfo", "PAAFALNJLDN", "RogueInfo", "PBHOJNLKKOL", "Retcode" }, null, null, null, null)
           }));
