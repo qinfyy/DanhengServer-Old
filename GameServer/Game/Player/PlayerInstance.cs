@@ -8,6 +8,7 @@ using EggLink.DanhengServer.Database.Tutorial;
 using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Game.Avatar;
 using EggLink.DanhengServer.Game.Battle;
+using EggLink.DanhengServer.Game.Friend;
 using EggLink.DanhengServer.Game.Gacha;
 using EggLink.DanhengServer.Game.Inventory;
 using EggLink.DanhengServer.Game.Lineup;
@@ -38,6 +39,8 @@ namespace EggLink.DanhengServer.Game.Player
         public MissionManager? MissionManager { get; private set; }
         public GachaManager? GachaManager { get; private set; }
         public MessageManager? MessageManager { get; private set; }
+
+        public FriendManager? FriendManager { get; private set; }
         public ShopService? ShopService { get; private set; }
 
         #endregion
@@ -88,6 +91,7 @@ namespace EggLink.DanhengServer.Game.Player
             MissionManager = new(this);
             GachaManager = new(this);
             MessageManager = new(this);
+            FriendManager = new(this);
             ShopService = new(this);
 
             PlayerUnlockData = InitializeDatabase<PlayerUnlockData>();

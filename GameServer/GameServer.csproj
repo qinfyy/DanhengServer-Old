@@ -19,7 +19,6 @@
     <Folder Include="Server\Packet\Recv\ChessRogue\" />
     <Folder Include="Server\Packet\Recv\Mail\" />
     <Folder Include="Server\Packet\Send\ChessRogue\" />
-    <Folder Include="Server\Packet\Send\Friend\" />
     <Folder Include="Server\Packet\Send\Mail\" />
     <Folder Include="Server\Packet\Send\Rogue\" />
   </ItemGroup>

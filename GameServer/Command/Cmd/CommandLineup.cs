@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EggLink.DanhengServer.Command.Cmd
 {
-    [CommandInfo("lineup", "manage the player's lineup", "/lineup")]
+    [CommandInfo("lineup", "Manage the player's lineup", "/lineup")]
     public class CommandLineup : ICommand
     {
         [CommandMethod("0 mp")]

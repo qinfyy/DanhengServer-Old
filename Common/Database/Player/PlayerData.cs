@@ -1,4 +1,5 @@
-﻿using EggLink.DanhengServer.Enums;
+﻿using EggLink.DanhengServer.Database.Account;
+using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Util;
 using SqlSugar;
@@ -29,6 +30,9 @@ namespace EggLink.DanhengServer.Database.Player
         public double StaminaReserve { get; set; } = 0;
         public long NextStaminaRecover { get; set; } = 0;
 
+        [SugarColumn(IsNullable = true)]
+        public FriendsData? Friends { get; set; }
+
         [SugarColumn(IsNullable = true, IsJson = true)]
         public Position? Pos { get; set; }
         [SugarColumn(IsNullable = true, IsJson = true)]
@@ -43,6 +47,22 @@ namespace EggLink.DanhengServer.Database.Player
         [SugarColumn(IsNullable = true)]
         public long LastActiveTime { get; set; }
 
+        public static PlayerData? GetPlayerByUid(long uid)
+        {
+            PlayerData? result = DatabaseHelper.Instance?.GetInstance<PlayerData>(uid);
+            return result;
+        }
+    }
 
+    public class FriendsData
+    {
+        [SugarColumn(IsNullable = true)]
+        public List<uint>? FriendList { get; set; }
+        [SugarColumn(IsNullable = true)]
+        public List<uint>? BlackList { get; set; }
+        [SugarColumn(IsNullable = true)]
+        public List<uint>? SendApplyList { get; set; }
+        [SugarColumn(IsNullable = true)]
+        public List<uint>? ReceiveApplyList { get; set; }
     }
 }
