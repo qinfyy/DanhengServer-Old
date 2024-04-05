@@ -2,7 +2,7 @@
 
 namespace EggLink.DanhengServer.Command.Cmd
 {
-    [CommandInfo("mission", "Manage the missions", "/mission <pass>")]
+    [CommandInfo("mission", "Get the running missions or finish the mission", "/mission <finish [submissionId]>/<running>")]
     public class CommandMission : ICommand
     {
         [CommandMethod("0 pass")]

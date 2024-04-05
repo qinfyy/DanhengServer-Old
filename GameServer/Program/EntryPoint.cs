@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using EggLink.DanhengServer.Command;
 using System.Runtime.InteropServices;
+using EggLink.DanhengServer.Handbook;
 
 namespace EggLink.DanhengServer.Program
 {
@@ -35,9 +36,11 @@ namespace EggLink.DanhengServer.Program
                     break;
                 }
             }
+
             Logger.SetLogFile(file);
             // Starting the server
             logger.Info("Starting DanhengServer...");
+
             // Load the config
             logger.Info("Loading config...");
             try
@@ -49,6 +52,7 @@ namespace EggLink.DanhengServer.Program
                 Console.ReadLine();
                 return;
             }
+
             // Load the game data
             logger.Info("Loading game data...");
             try
@@ -60,6 +64,7 @@ namespace EggLink.DanhengServer.Program
                 Console.ReadLine();
                 return;
             }
+
             // Initialize the database
             try
             {
@@ -70,6 +75,7 @@ namespace EggLink.DanhengServer.Program
                 Console.ReadLine();
                 return;
             }
+
             try
             {
                 CommandManager.RegisterCommand();
@@ -79,6 +85,10 @@ namespace EggLink.DanhengServer.Program
                 Console.ReadLine();
                 return;
             }
+            
+            // generate the handbook
+            HandbookGenerator.Generate();
+
             SetConsoleCtrlHandler(new ConsoleCtrlDelegate(ConsoleCtrlHandler), true);
             WebProgram.Main([$"--urls=http://{GetConfig().HttpServer.PublicAddress}:{GetConfig().HttpServer.PublicPort}/"]);
             logger.Info($"Dispatch Server is running on http://{GetConfig().HttpServer.PublicAddress}:{GetConfig().HttpServer.PublicPort}/");
