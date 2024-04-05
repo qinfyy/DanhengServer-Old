@@ -14,14 +14,24 @@ namespace EggLink.DanhengServer.Game.Mission.FinishType.Handler
 
         public override void HandleFinishType(PlayerInstance player, SubMissionInfo info, object? arg)
         {
-            var finish = false;
+            var finish = info.Operation == OperationEnum.And;
             foreach (var missionId in info.ParamIntList)
             {
                 var status = player.MissionManager!.GetSubMissionStatus(missionId);
-                if (status == MissionPhaseEnum.Finish || status == MissionPhaseEnum.Cancel)
+                if (status != MissionPhaseEnum.Finish && status != MissionPhaseEnum.Cancel)
                 {
-                    finish = true;
-                    break;
+                    if (info.Operation == OperationEnum.And)
+                    {
+                        finish = false;
+                        break;
+                    }
+                } else
+                {
+                    if (info.Operation == OperationEnum.Or)
+                    {
+                        finish = true;
+                        break;
+                    }
                 }
             }
             if (finish)

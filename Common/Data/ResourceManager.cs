@@ -232,6 +232,9 @@ namespace EggLink.DanhengServer.Data
                                         subMission.PropTask = mission;
                                         subMission.Loaded(2);
                                     }
+                                } else
+                                {
+                                    subMission.Loaded(0);
                                 }
                             } catch (Exception ex)
                             {

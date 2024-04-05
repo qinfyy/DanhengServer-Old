@@ -70,7 +70,6 @@ namespace EggLink.DanhengServer.Game.Player
 
             AddAvatar(8001);
             AddAvatar(1001);
-            LineupManager?.SetCurLineup(1);
             LineupManager?.AddSpecialAvatarToCurTeam(10010050);
 
             MissionManager!.AcceptMainMission(1000101);
@@ -340,6 +339,8 @@ namespace EggLink.DanhengServer.Game.Player
             AnchorInfo? anchor = floorInfo.GetAnchorInfo(StartGroup, StartAnchor);
 
             LoadScene(entrance.PlaneID, entrance.FloorID, entryId, anchor!.ToPositionProto(), anchor.ToRotationProto(), sendPacket);
+            
+            MissionManager?.HandleFinishType(MissionFinishTypeEnum.EnterMapByEntrance, entryId);
         }
 
         public void EnterMissionScene(int entranceId, int anchorGroupId, int anchorId, bool sendPacket)

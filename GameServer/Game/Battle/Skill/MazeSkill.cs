@@ -36,7 +36,7 @@ namespace EggLink.DanhengServer.Game.Battle.Skill
                 case Enums.TaskTypeEnum.None:
                     break;
                 case Enums.TaskTypeEnum.AddMazeBuff:
-                    Actions.Add(new MazeAddMazeBuff(task.ID, 20));
+                    Actions.Add(new MazeAddMazeBuff(task.ID, task.LifeTime.GetLifeTime()));
                     break;
                 case Enums.TaskTypeEnum.RemoveMazeBuff:
                     Actions.RemoveAll(a => a is MazeAddMazeBuff buff && buff.BuffId == task.ID);

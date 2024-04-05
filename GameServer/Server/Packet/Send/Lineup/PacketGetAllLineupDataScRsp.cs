@@ -9,9 +9,9 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Lineup
         {
             var proto = new GetAllLineupDataScRsp()
             {
-                CurIndex = (uint)(player.LineupManager!.LineupData.CurLineup - 1),
+                CurIndex = (uint)player.LineupManager!.LineupData.CurLineup,
             };
-            foreach (var lineup in player.LineupManager.LineupData.Lineups.Values)
+            foreach (var lineup in player.LineupManager.GetAllLineup())
             {
                 proto.LineupList.Add(lineup.ToProto());
             }

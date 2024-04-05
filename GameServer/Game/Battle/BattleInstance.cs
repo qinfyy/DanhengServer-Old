@@ -69,7 +69,7 @@ namespace EggLink.DanhengServer.Game.Battle
 
             foreach (var wave in Stages)
             {
-                proto.MonsterWaveList.Add(wave.ToProto());
+                proto.MonsterWaveList.AddRange(wave.ToProto());
             }
 
             foreach (var avatar in Lineup.BaseAvatars!)

@@ -1,4 +1,5 @@
-﻿using EggLink.DanhengServer.Enums;
+﻿using EggLink.DanhengServer.Data.Excel;
+using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -25,8 +26,12 @@ namespace EggLink.DanhengServer.Data.Config
         public int ParamInt2 { get; set; }
         public int ParamInt3 { get; set; }
         public List<int> ParamIntList { get; set; } = [];
+        public List<MaterialItem> ParamItemList { get; set; } = [];
         public List<FinishActionInfo> FinishActionList { get; set; } = [];
         public int Progress { get; set; }
+
+        [JsonIgnore]
+        public OperationEnum Operation { get; set; } = OperationEnum.And;
 
         [JsonIgnore]
         public SubMissionTask<EnterFloorTaskInfo> Task { get; set; } = new();
@@ -46,6 +51,10 @@ namespace EggLink.DanhengServer.Data.Config
 
         public void Loaded(int type)  // 1 for EnterFloor, 2 for PropState
         {
+            if (MainMissionID == 1000400)
+            {
+                Operation = OperationEnum.Or;  // hacky way to get the Operation
+            }
             if (type == 1)
             {
                 try
@@ -64,12 +73,12 @@ namespace EggLink.DanhengServer.Data.Config
                     }
                     if (MapEntranceID == 0)
                     {
-                        MapEntranceID = int.Parse(ParamInt2.ToString().Replace("00", "0"));  // this is a hacky way to get the MapEntranceID
+                        MapEntranceID = int.Parse(ParamInt2.ToString().Replace("00", "0"));  // a hacky way to get the MapEntranceID
                     }
                 }
                 catch
                 {
-                    MapEntranceID = int.Parse(ParamInt2.ToString().Replace("00", "0"));  // this is a hacky way to get the MapEntranceID
+                    MapEntranceID = int.Parse(ParamInt2.ToString().Replace("00", "0"));  // a hacky way to get the MapEntranceID
                 }
             } else if (type == 2)
             {

@@ -28,7 +28,7 @@ namespace EggLink.DanhengServer.Command
                     continue;
                 }
                 var character = arg[0];
-                if (!int.TryParse(character.ToString(), out var _))
+                if (!int.TryParse(character.ToString(), out var _) && character != '-')
                 {
                     try
                     {

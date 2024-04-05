@@ -24,17 +24,17 @@ namespace EggLink.DanhengServer.Proto {
     static RaidInfoNotifyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChRSYWlkSW5mb05vdGlmeS5wcm90bxoOSXRlbUxpc3QucHJvdG8aEUFPRktK",
-            "SUREQUZMLnByb3RvGhBSYWlkU3RhdHVzLnByb3RvIq0BCg5SYWlkSW5mb05v",
-            "dGlmeRITCgtITERFT0tGS0NCRxgKIAEoDRIbCgZzdGF0dXMYBCABKA4yCy5S",
-            "YWlkU3RhdHVzEiEKC05KQUhKS0ZDQ0JNGAcgAygLMgwuQU9GS0pJRERBRkwS",
-            "HAoJaXRlbV9saXN0GAIgASgLMgkuSXRlbUxpc3QSEwoLS0JPQ0NDUE5HTk4Y",
-            "ASABKAQSEwoLd29ybGRfbGV2ZWwYBiABKA1CHqoCG0VnZ0xpbmsuRGFuaGVu",
-            "Z1NlcnZlci5Qcm90b2IGcHJvdG8z"));
+            "ChRSYWlkSW5mb05vdGlmeS5wcm90bxoOSXRlbUxpc3QucHJvdG8aEFJhaWRT",
+            "dGF0dXMucHJvdG8aEUFPRktKSUREQUZMLnByb3RvIqkBCg5SYWlkSW5mb05v",
+            "dGlmeRIPCgdyYWlkX2lkGAogASgNEhsKBnN0YXR1cxgEIAEoDjILLlJhaWRT",
+            "dGF0dXMSIQoLTkpBSEpLRkNDQk0YByADKAsyDC5BT0ZLSklEREFGTBIcCglp",
+            "dGVtX2xpc3QYAiABKAsyCS5JdGVtTGlzdBITCgtLQk9DQ0NQTkdOThgBIAEo",
+            "BBITCgt3b3JsZF9sZXZlbBgGIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2Vy",
+            "dmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ItemListReflection.Descriptor, global::EggLink.DanhengServer.Proto.AOFKJIDDAFLReflection.Descriptor, global::EggLink.DanhengServer.Proto.RaidStatusReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ItemListReflection.Descriptor, global::EggLink.DanhengServer.Proto.RaidStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.AOFKJIDDAFLReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RaidInfoNotify), global::EggLink.DanhengServer.Proto.RaidInfoNotify.Parser, new[]{ "HLDEOKFKCBG", "Status", "NJAHJKFCCBM", "ItemList", "KBOCCCPNGNN", "WorldLevel" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RaidInfoNotify), global::EggLink.DanhengServer.Proto.RaidInfoNotify.Parser, new[]{ "RaidId", "Status", "NJAHJKFCCBM", "ItemList", "KBOCCCPNGNN", "WorldLevel" }, null, null, null, null)
           }));
     }
     #endregion
@@ -76,7 +76,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public RaidInfoNotify(RaidInfoNotify other) : this() {
-      hLDEOKFKCBG_ = other.hLDEOKFKCBG_;
+      raidId_ = other.raidId_;
       status_ = other.status_;
       nJAHJKFCCBM_ = other.nJAHJKFCCBM_.Clone();
       itemList_ = other.itemList_ != null ? other.itemList_.Clone() : null;
@@ -91,15 +91,15 @@ namespace EggLink.DanhengServer.Proto {
       return new RaidInfoNotify(this);
     }
 
-    /// <summary>Field number for the "HLDEOKFKCBG" field.</summary>
-    public const int HLDEOKFKCBGFieldNumber = 10;
-    private uint hLDEOKFKCBG_;
+    /// <summary>Field number for the "raid_id" field.</summary>
+    public const int RaidIdFieldNumber = 10;
+    private uint raidId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint HLDEOKFKCBG {
-      get { return hLDEOKFKCBG_; }
+    public uint RaidId {
+      get { return raidId_; }
       set {
-        hLDEOKFKCBG_ = value;
+        raidId_ = value;
       }
     }
 
@@ -177,7 +177,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (HLDEOKFKCBG != other.HLDEOKFKCBG) return false;
+      if (RaidId != other.RaidId) return false;
       if (Status != other.Status) return false;
       if(!nJAHJKFCCBM_.Equals(other.nJAHJKFCCBM_)) return false;
       if (!object.Equals(ItemList, other.ItemList)) return false;
@@ -190,7 +190,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (HLDEOKFKCBG != 0) hash ^= HLDEOKFKCBG.GetHashCode();
+      if (RaidId != 0) hash ^= RaidId.GetHashCode();
       if (Status != global::EggLink.DanhengServer.Proto.RaidStatus.None) hash ^= Status.GetHashCode();
       hash ^= nJAHJKFCCBM_.GetHashCode();
       if (itemList_ != null) hash ^= ItemList.GetHashCode();
@@ -231,9 +231,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteUInt32(WorldLevel);
       }
       nJAHJKFCCBM_.WriteTo(output, _repeated_nJAHJKFCCBM_codec);
-      if (HLDEOKFKCBG != 0) {
+      if (RaidId != 0) {
         output.WriteRawTag(80);
-        output.WriteUInt32(HLDEOKFKCBG);
+        output.WriteUInt32(RaidId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -262,9 +262,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteUInt32(WorldLevel);
       }
       nJAHJKFCCBM_.WriteTo(ref output, _repeated_nJAHJKFCCBM_codec);
-      if (HLDEOKFKCBG != 0) {
+      if (RaidId != 0) {
         output.WriteRawTag(80);
-        output.WriteUInt32(HLDEOKFKCBG);
+        output.WriteUInt32(RaidId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -276,8 +276,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (HLDEOKFKCBG != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(HLDEOKFKCBG);
+      if (RaidId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(RaidId);
       }
       if (Status != global::EggLink.DanhengServer.Proto.RaidStatus.None) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
@@ -304,8 +304,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.HLDEOKFKCBG != 0) {
-        HLDEOKFKCBG = other.HLDEOKFKCBG;
+      if (other.RaidId != 0) {
+        RaidId = other.RaidId;
       }
       if (other.Status != global::EggLink.DanhengServer.Proto.RaidStatus.None) {
         Status = other.Status;
@@ -362,7 +362,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 80: {
-            HLDEOKFKCBG = input.ReadUInt32();
+            RaidId = input.ReadUInt32();
             break;
           }
         }
@@ -404,7 +404,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 80: {
-            HLDEOKFKCBG = input.ReadUInt32();
+            RaidId = input.ReadUInt32();
             break;
           }
         }

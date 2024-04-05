@@ -31,14 +31,15 @@ namespace EggLink.DanhengServer.Data.Excel
             {
                 GameData.ItemConfigData.TryGetValue(item.ItemID, out var config);
                 if (config == null) continue;
-                double mod = config.Rarity switch
-                {
-                    Enums.ItemRarityEnum.NotNormal => 0.8,
-                    Enums.ItemRarityEnum.Rare => 0.3,
-                    Enums.ItemRarityEnum.VeryRare => 0.125,
-                    Enums.ItemRarityEnum.SuperRare => 0,
-                    _ => 1,
-                };
+                //double mod = config.Rarity switch
+                //{
+                //    Enums.ItemRarityEnum.NotNormal => 0.8,
+                //    Enums.ItemRarityEnum.Rare => 0.3,
+                //    Enums.ItemRarityEnum.VeryRare => 0.125,
+                //    Enums.ItemRarityEnum.SuperRare => 0,
+                //    _ => 1,
+                //};
+                double mod = 1; // TODO: Implement rarity
                 double count = WorldLevel + 3;
                 var maxCount = (int)(count * mod);
                 var minCount = (int)(count * mod * 0.5);

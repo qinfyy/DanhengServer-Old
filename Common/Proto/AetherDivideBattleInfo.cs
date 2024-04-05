@@ -24,9 +24,9 @@ namespace EggLink.DanhengServer.Proto {
     static AetherDivideBattleInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChxBZXRoZXJEaXZpZGVCYXR0bGVJbmZvLnByb3RvGhZTY2VuZU1vbnN0ZXJX",
-            "YXZlLnByb3RvGhhBZXRoZXJCYXR0bGVBdmF0YXIucHJvdG8aEEJhdHRsZUJ1",
-            "ZmYucHJvdG8i7AEKFkFldGhlckRpdmlkZUJhdHRsZUluZm8SLwoSYmF0dGxl",
+            "ChxBZXRoZXJEaXZpZGVCYXR0bGVJbmZvLnByb3RvGhBCYXR0bGVCdWZmLnBy",
+            "b3RvGhZTY2VuZU1vbnN0ZXJXYXZlLnByb3RvGhhBZXRoZXJCYXR0bGVBdmF0",
+            "YXIucHJvdG8i7AEKFkFldGhlckRpdmlkZUJhdHRsZUluZm8SLwoSYmF0dGxl",
             "X2F2YXRhcl9saXN0GAcgAygLMhMuQWV0aGVyQmF0dGxlQXZhdGFyEhEKCWJh",
             "dHRsZV9pZBgPIAEoDRIZChFsb2dpY19yYW5kb21fc2VlZBgOIAEoDRITCgtN",
             "T0xORk5CTEtCTBgEIAEoCBIsChFtb25zdGVyX3dhdmVfbGlzdBgNIAMoCzIR",
@@ -34,7 +34,7 @@ namespace EggLink.DanhengServer.Proto {
             "aXN0GAMgAygLMgsuQmF0dGxlQnVmZkIeqgIbRWdnTGluay5EYW5oZW5nU2Vy",
             "dmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.SceneMonsterWaveReflection.Descriptor, global::EggLink.DanhengServer.Proto.AetherBattleAvatarReflection.Descriptor, global::EggLink.DanhengServer.Proto.BattleBuffReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.BattleBuffReflection.Descriptor, global::EggLink.DanhengServer.Proto.SceneMonsterWaveReflection.Descriptor, global::EggLink.DanhengServer.Proto.AetherBattleAvatarReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.AetherDivideBattleInfo), global::EggLink.DanhengServer.Proto.AetherDivideBattleInfo.Parser, new[]{ "BattleAvatarList", "BattleId", "LogicRandomSeed", "MOLNFNBLKBL", "MonsterWaveList", "StageId", "BuffList" }, null, null, null, null)
           }));

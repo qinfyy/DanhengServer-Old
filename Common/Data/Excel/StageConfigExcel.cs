@@ -20,15 +20,17 @@ namespace EggLink.DanhengServer.Data.Excel
             GameData.StageConfigData.Add(StageID, this);
         }
 
-        public SceneMonsterWave ToProto()
+        public List<SceneMonsterWave> ToProto()
         {
-            var proto = new SceneMonsterWave()
-            {
-                WaveId = 1,
-                StageId = (uint)StageID,
-            };
+            var result = new List<SceneMonsterWave>();
+            var waveId = 1;
             foreach (var monsters in MonsterList)
             {
+                var proto = new SceneMonsterWave()
+                {
+                    WaveId = (uint)waveId++,
+                    StageId = (uint)StageID,
+                };
                 proto.MonsterList.Add(new SceneMonster()
                 {
                     MonsterId = (uint)monsters.Monster0,
@@ -49,8 +51,9 @@ namespace EggLink.DanhengServer.Data.Excel
                 {
                     MonsterId = (uint)monsters.Monster4,
                 });
+                result.Add(proto);
             }
-            return proto;
+            return result;
         }
     }
 

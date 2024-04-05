@@ -24,8 +24,8 @@ namespace EggLink.DanhengServer.Proto {
     static SceneMapInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChJTY2VuZU1hcEluZm8ucHJvdG8aEUFKS0ZCQ0xOTUxDLnByb3RvGg9DaGVz",
-            "dEluZm8ucHJvdG8aE01hemVQcm9wU3RhdGUucHJvdG8aD01hemVHcm91cC5w",
+            "ChJTY2VuZU1hcEluZm8ucHJvdG8aD0NoZXN0SW5mby5wcm90bxoPTWF6ZUdy",
+            "b3VwLnByb3RvGhFBSktGQkNMTk1MQy5wcm90bxoTTWF6ZVByb3BTdGF0ZS5w",
             "cm90byKsAgoMU2NlbmVNYXBJbmZvEiMKD21hemVfZ3JvdXBfbGlzdBgBIAMo",
             "CzIKLk1hemVHcm91cBImCg5tYXplX3Byb3BfbGlzdBgKIAMoCzIOLk1hemVQ",
             "cm9wU3RhdGUSHAoUbGlnaHRlbl9zZWN0aW9uX2xpc3QYCSADKA0SGAoQY3Vy",
@@ -35,7 +35,7 @@ namespace EggLink.DanhengServer.Proto {
             "AiADKA0SHgoKY2hlc3RfbGlzdBgNIAMoCzIKLkNoZXN0SW5mb0IeqgIbRWdn",
             "TGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.AJKFBCLNMLCReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChestInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.MazePropStateReflection.Descriptor, global::EggLink.DanhengServer.Proto.MazeGroupReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChestInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.MazeGroupReflection.Descriptor, global::EggLink.DanhengServer.Proto.AJKFBCLNMLCReflection.Descriptor, global::EggLink.DanhengServer.Proto.MazePropStateReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SceneMapInfo), global::EggLink.DanhengServer.Proto.SceneMapInfo.Parser, new[]{ "MazeGroupList", "MazePropList", "LightenSectionList", "CurMapEntryId", "EntryId", "Retcode", "IKBKPJCANEA", "KIGLLKIBNLI", "UnlockTeleportList", "ChestList" }, null, null, null, null)
           }));

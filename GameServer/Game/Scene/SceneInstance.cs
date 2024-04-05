@@ -73,9 +73,14 @@ namespace EggLink.DanhengServer.Game.Scene
             {
                 if (avatar == null) continue;
                 avatar.AvatarInfo.PlayerData = Player.Data;
-                if (forceSetEntityId)
+                if (forceSetEntityId && avatar.AvatarInfo.EntityId != 0)
                 {
-                    avatar.AvatarInfo.EntityId = ++LastEntityId;
+                    RemoveAvatar.Add(new AvatarSceneInfo(new()
+                    {
+                        EntityId = avatar.AvatarInfo.EntityId,
+                    }, AvatarType.AvatarFormalType, Player));
+                    avatar.AvatarInfo.EntityId = 0;
+                    sendPacket = true;
                 }
                 var avatarInstance = oldAvatarInfo.Find(x => x.AvatarInfo.AvatarId == avatar.AvatarInfo.AvatarId);
                 if (avatarInstance == null)
@@ -96,8 +101,11 @@ namespace EggLink.DanhengServer.Game.Scene
             {
                 if (AvatarInfo.Values.ToList().FindIndex(x => x.AvatarInfo.AvatarId == avatar.AvatarInfo.AvatarId) == -1)
                 {
+                    RemoveAvatar.Add(new AvatarSceneInfo(new()
+                    {
+                        EntityId = avatar.AvatarInfo.EntityId,
+                    }, AvatarType.AvatarFormalType, Player));
                     avatar.AvatarInfo.EntityId = 0;
-                    RemoveAvatar.Add(avatar);
                     sendPacket = true;
                 }
             }

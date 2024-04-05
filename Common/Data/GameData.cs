@@ -15,6 +15,7 @@ namespace EggLink.DanhengServer.Data
 
         public static Dictionary<int, CocoonConfigExcel> CocoonConfigData { get; private set; } = [];
         public static Dictionary<int, StageConfigExcel> StageConfigData { get; private set; } = [];
+        public static Dictionary<int, RaidConfigExcel> RaidConfigData { get; private set; } = [];
         public static Dictionary<int, MazeBuffExcel> MazeBuffData { get; private set; } = [];
         public static Dictionary<int, InteractConfigExcel> InteractConfigData { get; private set; } = [];
         public static Dictionary<int, NPCMonsterDataExcel> NpcMonsterDataData { get; private set; } = [];
@@ -51,6 +52,7 @@ namespace EggLink.DanhengServer.Data
         public static Dictionary<int, MessageItemConfigExcel> MessageItemConfigData { get; private set; } = [];
 
         public static Dictionary<int, ShopConfigExcel> ShopConfigData { get; private set; } = [];
+        public static Dictionary<int, ItemComposeConfigExcel> ItemComposeConfigData { get; private set; } = [];
 
         public static BannersConfig BannersConfig { get; set; } = new();
 
@@ -110,6 +112,11 @@ namespace EggLink.DanhengServer.Data
         {
             EquipmentExpTypeData.TryGetValue((group * 100) + level, out var expType);
             return expType?.Exp ?? 0;
+        }
+
+        public static int GetMinPromotionForLevel(int level)
+        {
+            return Math.Max(Math.Min((int)((level - 11) / 10D), 6), 0);
         }
     }
 }

@@ -102,12 +102,19 @@ namespace EggLink.DanhengServer.Util
 
         public static void WriteToFile(string message)
         {
-            if (LogFile == null)
+            try
             {
-                throw new Exception("LogFile is not set");
+                if (LogFile == null)
+                {
+                    throw new Exception("LogFile is not set");
+                }
+                using StreamWriter sw = LogFile.AppendText();
+                sw.WriteLine(message);
             }
-            using StreamWriter sw = LogFile.AppendText();
-            sw.WriteLine(message);
+            catch
+            {
+
+            }
         }
 
 #pragma warning disable CS8602 

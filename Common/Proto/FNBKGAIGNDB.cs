@@ -24,16 +24,16 @@ namespace EggLink.DanhengServer.Proto {
     static FNBKGAIGNDBReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFGTkJLR0FJR05EQi5wcm90bxoRSEdERlBCTEtMREMucHJvdG8aEUFEUE1H",
-            "SEFJSlBCLnByb3RvGhFQRk5IT0hPT0VORC5wcm90bxoRTFBQQ0VGQ0dKSU8u",
-            "cHJvdG8aEUNMTUxETERHSEJFLnByb3RvIsoBCgtGTkJLR0FJR05EQhIlCg9y",
+            "ChFGTkJLR0FJR05EQi5wcm90bxoRQURQTUdIQUlKUEIucHJvdG8aEUhHREZQ",
+            "QkxLTERDLnByb3RvGhFDTE1MRExER0hCRS5wcm90bxoRUEZOSE9IT09FTkQu",
+            "cHJvdG8aEUxQUENFRkNHSklPLnByb3RvIsoBCgtGTkJLR0FJR05EQhIlCg9y",
             "b2d1ZV9idWZmX2luZm8YDyABKAsyDC5DTE1MRExER0hCRRInChFnYW1lX21p",
             "cmFjbGVfaW5mbxgHIAEoCzIMLlBGTkhPSE9PRU5EEiEKC0dBTkhNQUVJRklC",
             "GAQgASgLMgwuTFBQQ0VGQ0dKSU8SJQoPcm9ndWVfYWVvbl9pbmZvGAggASgL",
             "MgwuQURQTUdIQUlKUEISIQoLUENPSU5HQU1PTUwYCSABKAsyDC5IR0RGUEJM",
             "S0xEQ0IeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.HGDFPBLKLDCReflection.Descriptor, global::EggLink.DanhengServer.Proto.ADPMGHAIJPBReflection.Descriptor, global::EggLink.DanhengServer.Proto.PFNHOHOOENDReflection.Descriptor, global::EggLink.DanhengServer.Proto.LPPCEFCGJIOReflection.Descriptor, global::EggLink.DanhengServer.Proto.CLMLDLDGHBEReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ADPMGHAIJPBReflection.Descriptor, global::EggLink.DanhengServer.Proto.HGDFPBLKLDCReflection.Descriptor, global::EggLink.DanhengServer.Proto.CLMLDLDGHBEReflection.Descriptor, global::EggLink.DanhengServer.Proto.PFNHOHOOENDReflection.Descriptor, global::EggLink.DanhengServer.Proto.LPPCEFCGJIOReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.FNBKGAIGNDB), global::EggLink.DanhengServer.Proto.FNBKGAIGNDB.Parser, new[]{ "RogueBuffInfo", "GameMiracleInfo", "GANHMAEIFIB", "RogueAeonInfo", "PCOINGAMOML" }, null, null, null, null)
           }));

@@ -169,7 +169,7 @@ namespace EggLink.DanhengServer.Database.Inventory
         {
             Id = excel.AffixID;
             Count = count;
-            Step = Extensions.RandomInt(0, excel.StepNum * count);
+            Step = Extensions.RandomInt(0, excel.StepNum * count + 1);
         }
 
         public ItemSubAffix(int id, int count, int step)

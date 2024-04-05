@@ -16,6 +16,22 @@ namespace EggLink.DanhengServer.Game.Inventory
     {
         public InventoryData Data = DatabaseHelper.Instance!.GetInstanceOrCreateNew<InventoryData>(player.Uid);
 
+        public void AddItem(ItemData itemData, bool notify = true)
+        {
+            PutItem(itemData.ItemId, itemData.Count, 
+                itemData.Rank, itemData.Promotion, 
+                itemData.Level, itemData.Exp, itemData.TotalExp, 
+                itemData.MainAffix, itemData.SubAffixes,
+                itemData.UniqueId);
+            
+            Player.SendPacket(new PacketPlayerSyncScNotify(itemData));
+            if (notify)
+            {
+                Player.SendPacket(new PacketScenePlaneEventScNotify(itemData));
+            }
+            DatabaseHelper.Instance?.UpdateInstance(Data);
+        }
+
         public void AddItems(List<ItemData> items, bool notify = true)
         {
             foreach (var item in items)
@@ -30,7 +46,7 @@ namespace EggLink.DanhengServer.Game.Inventory
             DatabaseHelper.Instance?.UpdateInstance(Data);
         }
 
-        public ItemData? AddItem(int itemId, int count, bool notify = true, bool save = true)
+        public ItemData? AddItem(int itemId, int count, bool notify = true, bool save = true, int rank = 1, int level = 1)
         {
             GameData.ItemConfigData.TryGetValue(itemId, out var itemConfig);
             if (itemConfig == null) return null;
@@ -40,7 +56,7 @@ namespace EggLink.DanhengServer.Game.Inventory
             switch (itemConfig.ItemMainType)
             {
                 case ItemMainTypeEnum.Equipment:
-                    itemData = PutItem(itemId, 1, rank: 1, level: 1, uniqueId: ++Data.NextUniqueId);
+                    itemData = PutItem(itemId, 1, rank: rank, level: level, uniqueId: ++Data.NextUniqueId);
                     break;
                 case ItemMainTypeEnum.Usable:
                     switch (itemConfig.ItemSubType)
@@ -54,8 +70,11 @@ namespace EggLink.DanhengServer.Game.Inventory
                         case ItemSubTypeEnum.PhoneTheme:
                             Player.PlayerUnlockData!.PhoneThemes.Add(itemId);
                             break;
+                        case ItemSubTypeEnum.Food:
+                            itemData = PutItem(itemId, count);
+                            break;
                     }
-                    itemData = new()
+                    itemData ??= new()
                     {
                         ItemId = itemId,
                         Count = count,
@@ -127,6 +146,7 @@ namespace EggLink.DanhengServer.Game.Inventory
                 Player.SendPacket(new PacketPlayerSyncScNotify(itemData));
                 if (notify)
                 {
+                    itemData.Count = count;  // only notify the increase count
                     Player.SendPacket(new PacketScenePlaneEventScNotify(itemData));
                 }
             }
@@ -139,6 +159,10 @@ namespace EggLink.DanhengServer.Game.Inventory
 
         public ItemData PutItem(int itemId, int count, int rank = 0, int promotion = 0, int level = 0, int exp = 0, int totalExp = 0, int mainAffix = 0, List<ItemSubAffix>? subAffixes = null, int uniqueId = 0)
         {
+            if (promotion == 0 && level > 10)
+            {
+                promotion = GameData.GetMinPromotionForLevel(level);
+            }
             var item = new ItemData()
             {
                 ItemId = itemId,
@@ -160,7 +184,9 @@ namespace EggLink.DanhengServer.Game.Inventory
             switch (GameData.ItemConfigData[itemId].ItemMainType)
             {
                 case ItemMainTypeEnum.Material:
-
+                case ItemMainTypeEnum.Virtual:
+                case ItemMainTypeEnum.Usable:
+                case ItemMainTypeEnum.Mission:
                     var oldItem = Data.MaterialItems.Find(x => x.ItemId == itemId);
                     if (oldItem != null)
                     {
@@ -189,6 +215,7 @@ namespace EggLink.DanhengServer.Game.Inventory
             switch (itemConfig.ItemMainType)
             {
                 case ItemMainTypeEnum.Material:
+                case ItemMainTypeEnum.Mission:
                     var item = Data.MaterialItems.Find(x => x.ItemId == itemId);
                     if (item == null) return;
                     item.Count -= count;
@@ -298,6 +325,20 @@ namespace EggLink.DanhengServer.Game.Inventory
             rewardData.GetItems().ForEach(x => AddItem(x.Item1, x.Item2));
         }
 
+        public ItemData? ComposeItem(int composeId, int count)
+        {
+            GameData.ItemComposeConfigData.TryGetValue(composeId, out var composeConfig);
+            if (composeConfig == null) return null;
+            foreach (var cost in composeConfig.MaterialCost)
+            {
+                RemoveItem(cost.ItemID, cost.ItemNum * count);
+            }
+
+            RemoveItem(2, composeConfig.CoinCost * count);
+
+            return AddItem(composeConfig.ItemID, count, false);
+        }
+
         #region Equip
 
         public void EquipAvatar(int baseAvatarId, int equipmentUniqueId)
@@ -375,7 +416,7 @@ namespace EggLink.DanhengServer.Game.Inventory
             itemData.EquipAvatar = 0;
             DatabaseHelper.Instance!.UpdateInstance(Data);
             DatabaseHelper.Instance!.UpdateInstance(Player.AvatarManager.AvatarData!);
-            Player.SendPacket(new PacketPlayerSyncScNotify(avatarData));
+            Player.SendPacket(new PacketPlayerSyncScNotify(avatarData, itemData));
         }
 
         public List<ItemData> LevelUpAvatar(int baseAvatarId, ItemCostData item)

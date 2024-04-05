@@ -187,8 +187,17 @@ namespace EggLink.DanhengServer.Game.Scene
 
             var prop = new EntityProp(scene, excel, group, info);
 
-            scene.AddEntity(prop, sendPacket);
-
+            if (prop.PropInfo.PropID == 1003)
+            {
+                if (prop.PropInfo.MappingInfoID == 2220)
+                {
+                    prop.SetState(PropStateEnum.Open);
+                    scene.AddEntity(prop, sendPacket);
+                }
+            } else
+            {
+                scene.AddEntity(prop, sendPacket);
+            }
             if (excel.PropType == PropTypeEnum.PROP_SPRING)
             {
                 scene.HealingSprings.Add(prop);

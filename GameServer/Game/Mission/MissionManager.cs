@@ -59,12 +59,11 @@ namespace EggLink.DanhengServer.Game.Mission
 
             var list = new List<Proto.MissionSync?>();
             mission.MissionInfo?.StartSubMissionList.ForEach(i => list.Add(AcceptSubMission(i, sendPacket)));
-            if (missionId == 4030001)
+            if (missionId == 4030001 || missionId == 4030002)
             {
                 // skip  not implemented
-                mission.MissionInfo?.StartSubMissionList.ForEach(FinishSubMission);
-                mission.MissionInfo?.FinishSubMissionList.ForEach(AcceptSubMission);
-                mission.MissionInfo?.FinishSubMissionList.ForEach(FinishSubMission);
+                mission.MissionInfo?.SubMissionList.ForEach(x=> AcceptSubMission(x.ID));
+                mission.MissionInfo?.SubMissionList.ForEach(x => FinishSubMission(x.ID));
             }
             return list;
         }
@@ -131,6 +130,11 @@ namespace EggLink.DanhengServer.Game.Mission
                             MissionId = mission,
                             Status = MissionPhaseEnum.Cancel
                         };
+                        sync.MissionList.Add(new Proto.Mission()
+                        {
+                            Id = (uint)mission,
+                            Status = Proto.MissionStatus.MissionFinish,
+                        });
                     }
                 }
             }

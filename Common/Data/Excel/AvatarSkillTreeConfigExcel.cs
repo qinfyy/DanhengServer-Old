@@ -22,6 +22,10 @@
             {
                 excel.DefaultSkillTree.Add(this);
             }
+            if (excel != null)
+            {
+                excel.SkillTree.Add(this);
+            }
             GameData.AvatarSkillTreeConfigData.Add(GetId(), this);
         }
     }

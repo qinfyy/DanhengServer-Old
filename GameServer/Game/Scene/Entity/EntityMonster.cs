@@ -56,7 +56,7 @@ namespace EggLink.DanhengServer.Game.Scene.Entity
             return Info.EventID * 10 + scene.Player.Data.WorldLevel;
         }
 
-        public List<ItemData> Kill()
+        public List<ItemData> Kill(bool sendPacket = true)
         {
             scene.RemoveEntity(this);
             IsAlive = false;
@@ -64,7 +64,7 @@ namespace EggLink.DanhengServer.Game.Scene.Entity
             GameData.MonsterDropData.TryGetValue(MonsterData.ID * 10 + scene.Player.Data.WorldLevel, out var dropData);
             if (dropData == null) return [];
             var dropItems = dropData.CalculateDrop();
-            scene.Player.InventoryManager!.AddItems(dropItems);
+            scene.Player.InventoryManager!.AddItems(dropItems, sendPacket);
 
             // TODO: Rogue support
             // call mission handler

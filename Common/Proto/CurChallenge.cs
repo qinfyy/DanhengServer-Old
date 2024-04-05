@@ -24,8 +24,8 @@ namespace EggLink.DanhengServer.Proto {
     static CurChallengeReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChJDdXJDaGFsbGVuZ2UucHJvdG8aFUV4dHJhTGluZXVwVHlwZS5wcm90bxoV",
-            "S2lsbE1vbnN0ZXJJbmZvLnByb3RvGhVDaGFsbGVuZ2VTdGF0dXMucHJvdG8a",
+            "ChJDdXJDaGFsbGVuZ2UucHJvdG8aFUNoYWxsZW5nZVN0YXR1cy5wcm90bxoV",
+            "RXh0cmFMaW5ldXBUeXBlLnByb3RvGhVLaWxsTW9uc3RlckluZm8ucHJvdG8a",
             "EUdDR0FORE9PTE9FLnByb3RvIpoCCgxDdXJDaGFsbGVuZ2USIQoLUEJIT0pO",
             "TEtLT0wYAyABKAsyDC5HQ0dBTkRPT0xPRRIgCgZzdGF0dXMYCyABKA4yEC5D",
             "aGFsbGVuZ2VTdGF0dXMSFAoMY2hhbGxlbmdlX2lkGAkgASgNEisKEWV4dHJh",
@@ -35,7 +35,7 @@ namespace EggLink.DanhengServer.Proto {
             "cl9pZF9saXN0GA4gAygLMhAuS2lsbE1vbnN0ZXJJbmZvQh6qAhtFZ2dMaW5r",
             "LkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ExtraLineupTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.KillMonsterInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChallengeStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.GCGANDOOLOEReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChallengeStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.ExtraLineupTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.KillMonsterInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.GCGANDOOLOEReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.CurChallenge), global::EggLink.DanhengServer.Proto.CurChallenge.Parser, new[]{ "PBHOJNLKKOL", "Status", "ChallengeId", "ExtraLineupType", "HPADJIPKGHJ", "LNPONGBLBMC", "NILNMPEBGCA", "ScoreId", "ArchiveMonsterIdList" }, null, null, null, null)
           }));

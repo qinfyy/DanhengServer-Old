@@ -46,6 +46,25 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Player
 
             SetData(proto);
         }
+
+        public PacketPlayerSyncScNotify(List<AvatarInfo> avatars) : base(CmdIds.PlayerSyncScNotify)
+        {
+            var proto = new PlayerSyncScNotify
+            {
+                AvatarSync = new()
+            };
+
+            foreach (var avatar in avatars)
+            {
+                proto.AvatarSync.AvatarList.Add(avatar.ToProto());
+                if (avatar.HeroId > 0)
+                {
+                    proto.BasicTypeInfoList.Add(avatar.ToHeroProto());
+                }
+            }
+
+            SetData(proto);
+        }
         
         public PacketPlayerSyncScNotify(AvatarInfo avatar, ItemData item) : base(CmdIds.PlayerSyncScNotify)
         {
@@ -133,7 +152,9 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Player
                         notify.DelRelicList.Add((uint)item.UniqueId);
                     }
                     break;
+                case ItemMainTypeEnum.Mission:
                 case ItemMainTypeEnum.Material:
+                case ItemMainTypeEnum.Usable:
                     notify.MaterialList.Add(item.ToMaterialProto());
                     break;
             }

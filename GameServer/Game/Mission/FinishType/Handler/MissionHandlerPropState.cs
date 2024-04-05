@@ -19,7 +19,13 @@ namespace EggLink.DanhengServer.Game.Mission.FinishType.Handler
                 {
                     if (info.ParamInt3 != 0)
                     {
-                        p.SetState(info.SourceState);
+                        if (p.PropInfo.PropID == 101007)
+                        {
+                            p.SetState(PropStateEnum.Elevator1);  // elevator
+                        } else
+                        {
+                            p.SetState(info.SourceState);
+                        }
                     }
                 }
             }

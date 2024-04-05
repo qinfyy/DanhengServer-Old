@@ -87,6 +87,11 @@ namespace EggLink.DanhengServer.Database.Avatar
             return (Rewards & (1 << promotion)) != 0;
         }
 
+        public void TakeReward(int promotion)
+        {
+            Rewards |= 1 << promotion;
+        }
+
         public int GetCurHp(bool isExtraLineup)
         {
             return isExtraLineup ? ExtraLineupHp : CurrentHp;

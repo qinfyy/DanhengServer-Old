@@ -82,6 +82,7 @@ namespace EggLink.DanhengServer.Game.Battle
                 } else if (prop.Excel.IsHpRecover)
                 {
                     Player.LineupManager!.GetCurLineup()!.Heal(2000, false);
+                    Player.SendPacket(new PacketSyncLineupNotify(Player.LineupManager!.GetCurLineup()!));
                 }
             }
 
@@ -247,14 +248,14 @@ namespace EggLink.DanhengServer.Game.Battle
             bool updateStatus = true;
             bool teleportToAnchor = false;
             var minimumHp = 0;
-
+            var dropItems = new List<ItemData>();
             switch (req.EndStatus)
             {
                 case BattleEndStatus.BattleEndWin:
                     // Drops
                     foreach (var monster in battle.EntityMonsters)
                     {
-                        monster.Kill();
+                        dropItems.AddRange(monster.Kill(false));
                     }
                     // Spend stamina
                     if (battle.StaminaCost > 0)
@@ -315,6 +316,7 @@ namespace EggLink.DanhengServer.Game.Battle
             }
             // call battle end
             Player.MissionManager!.OnBattleFinish(req);
+            battle.MonsterDropItems = dropItems;
 
             Player.BattleInstance = null;
             Player.SendPacket(new PacketPVEBattleResultScRsp(req, Player, battle));

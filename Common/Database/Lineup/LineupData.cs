@@ -81,27 +81,26 @@ namespace EggLink.DanhengServer.Database.Lineup
                 ExtraLineupType = (ExtraLineupType)LineupType,
                 Index = (uint)(LineupData?.Lineups?.Values.ToList().IndexOf(this) ?? 0),
             };
-            if (BaseAvatars?.Find(item => item.BaseAvatarId == LeaderAvatarId) != null)
+            if (BaseAvatars?.Find(item => item.BaseAvatarId == LeaderAvatarId) != null)  // find leader,if not exist,set to 0
             {
                 info.LeaderSlot = (uint)BaseAvatars.IndexOf(BaseAvatars.Find(item => item.BaseAvatarId == LeaderAvatarId)!);
             } else
             {
                 info.LeaderSlot = 0;
             }
-            var isVirtual = true;
+
             if (BaseAvatars != null)
             {
                 foreach (var avatar in BaseAvatars)
                 {
-                    if (avatar.AssistUid != 0)
+                    if (avatar.AssistUid != 0)  // assist avatar
                     {
                         var assistPlayer = DatabaseHelper.Instance?.GetInstance<AvatarData>(avatar.AssistUid);
                         if (assistPlayer != null)
                         {
-                            info.AvatarList.Add(assistPlayer?.Avatars?.Find(item => item.GetAvatarId() == avatar.BaseAvatarId)?.ToLineupInfo(BaseAvatars.IndexOf(avatar), this, AvatarType.AvatarAssistType));
-                            isVirtual = false;
+                            info.AvatarList.Add(assistPlayer?.Avatars?.Find(item => item.GetAvatarId() == avatar.BaseAvatarId)?.ToLineupInfo(BaseAvatars.IndexOf(avatar), this, AvatarType.AvatarAssistType));  // assist avatar may not work
                         }
-                    } else if (avatar.SpecialAvatarId != 0)
+                    } else if (avatar.SpecialAvatarId != 0)  // special avatar
                     {
                         var specialAvatar = GameData.SpecialAvatarData[avatar.SpecialAvatarId];
                         if (specialAvatar != null)
@@ -109,18 +108,11 @@ namespace EggLink.DanhengServer.Database.Lineup
                             info.AvatarList.Add(specialAvatar.ToAvatarData(LineupData!.Uid).ToLineupInfo(BaseAvatars.IndexOf(avatar), this, AvatarType.AvatarTrialType));
                             info.TrialAvatarIdList.Add((uint)avatar.BaseAvatarId);
                         }
-                    } else
+                    } else  // normal avatar
                     {
                         info.AvatarList.Add(AvatarData?.Avatars?.Find(item => item.AvatarId == avatar.BaseAvatarId)?.ToLineupInfo(BaseAvatars.IndexOf(avatar), this));
-                        isVirtual = false;
                     }
                 }
-            }
-
-            if (isVirtual)
-            {
-                info.IsVirtual = true;
-                info.PlaneId = (uint)(DatabaseHelper.Instance?.GetInstance<PlayerData>(LineupData?.Uid ?? 0)?.PlaneId ?? 0);
             }
 
             return info;

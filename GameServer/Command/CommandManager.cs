@@ -79,11 +79,13 @@ namespace EggLink.DanhengServer.Command
                         var arg = new CommandArg(split.JoinFormat(" ", ""), new ConsoleCommandSender(Logger), Target);
                         // find the proper method with attribute CommandMethod
                         var isFound = false;
+                        CommandInfo? info = null;
                         foreach (var method in command.GetType().GetMethods())
                         {
                             var attr = method.GetCustomAttribute<CommandMethod>();
                             if (attr != null)
                             {
+                                info = CommandInfo[cmd];
                                 var canRun = true;
                                 foreach (var condition in attr.Conditions)
                                 {
@@ -114,8 +116,19 @@ namespace EggLink.DanhengServer.Command
                                 var attr = method.GetCustomAttribute<CommandDefault>();
                                 if (attr != null)
                                 {
+                                    isFound = true;
                                     method.Invoke(command, [arg]);
                                     break;
+                                }
+                            }
+                            if (!isFound)
+                            {
+                                if (info != null)
+                                {
+                                    Logger.Info($"Usage: {info.Usage}");
+                                } else
+                                {
+                                    Logger.Info($"Command \"{cmd}\" not found.");
                                 }
                             }
                         }

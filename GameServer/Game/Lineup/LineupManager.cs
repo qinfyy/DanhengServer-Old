@@ -4,6 +4,7 @@ using EggLink.DanhengServer.Database.Lineup;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Game.Scene;
 using EggLink.DanhengServer.Server.Packet.Send.Lineup;
+using EggLink.DanhengServer.Util;
 
 namespace EggLink.DanhengServer.Game.Lineup
 {
@@ -21,6 +22,8 @@ namespace EggLink.DanhengServer.Game.Lineup
             }
         }
 
+        #region Detail
+
         public LineupInfo? GetLineup(int lineupIndex)
         {
             LineupData.Lineups.TryGetValue(lineupIndex, out var lineup);
@@ -32,14 +35,103 @@ namespace EggLink.DanhengServer.Game.Lineup
             return GetLineup(LineupData.CurLineup);
         }
 
-        public void SetCurLineup(int lineupIndex)
+        public List<AvatarSceneInfo> GetAvatarsFromTeam(int index)
+        {
+            var lineup = GetLineup(index);
+            if (lineup == null)
+            {
+                return [];
+            }
+
+            var avatarList = new List<AvatarSceneInfo>();
+            foreach (var avatar in lineup.BaseAvatars!)
+            {
+                Proto.AvatarType avatarType = Proto.AvatarType.AvatarFormalType;
+                Database.Avatar.AvatarInfo? avatarInfo = null;
+                if (avatar.SpecialAvatarId > 0)
+                {
+                    GameData.SpecialAvatarData.TryGetValue(avatar.SpecialAvatarId, out var specialAvatar);
+                    if (specialAvatar == null) continue;
+                    avatarType = Proto.AvatarType.AvatarTrialType;
+                    avatarInfo = specialAvatar.ToAvatarData(Player.Uid);
+                }
+                else if (avatar.AssistUid > 0)
+                {
+                    var avatarStorage = DatabaseHelper.Instance?.GetInstance<Database.Avatar.AvatarData>(avatar.AssistUid);
+                    avatarType = Proto.AvatarType.AvatarAssistType;
+                    if (avatarStorage == null) continue;
+                    foreach (var avatarData in avatarStorage.Avatars!)
+                    {
+                        if (avatarData.AvatarId == avatar.BaseAvatarId)
+                        {
+                            avatarInfo = avatarData;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    avatarInfo = Player.AvatarManager!.GetAvatar(avatar.BaseAvatarId);
+                }
+                if (avatarInfo == null) continue;
+                avatarList.Add(new AvatarSceneInfo(avatarInfo, avatarType, Player));
+            }
+
+            return avatarList;
+        }
+
+        public List<AvatarSceneInfo> GetAvatarsFromCurTeam()
+        {
+            return GetAvatarsFromTeam(LineupData.CurLineup);
+        }
+
+        public List<LineupInfo> GetAllLineup()
+        {
+            var lineupList = new List<LineupInfo>();
+            foreach (var lineupInfo in LineupData.Lineups.Values)
+            {
+                lineupList.Add(lineupInfo);
+            }
+            if (lineupList.Count < GameConstants.MAX_LINEUP_COUNT)
+            {
+                for (int i = lineupList.Count; i < GameConstants.MAX_LINEUP_COUNT; i++)
+                {
+                    var lineup = new LineupInfo()
+                    {
+                        Name = "",
+                        LineupType = 0,
+                        BaseAvatars = [],
+                        LineupData = LineupData,
+                        AvatarData = Player.AvatarManager!.AvatarData,
+                    };
+                    lineupList.Add(lineup);
+                    LineupData.Lineups.Add(i, lineup);
+                }
+            }
+            return lineupList;
+        }
+
+        #endregion
+
+        #region Management
+
+        public bool SetCurLineup(int lineupIndex)
         {
             if (lineupIndex < 0 || !LineupData.Lineups.ContainsKey(lineupIndex))
             {
-                return;
+                return false;
+            }
+            if (GetLineup(lineupIndex)!.BaseAvatars!.Count == 0)
+            {
+                return false;
             }
             LineupData.CurLineup = lineupIndex;
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
+
+            Player.SceneInstance?.SyncLineup();
+            Player.SendPacket(new PacketSyncLineupNotify(GetCurLineup()!));
+
+            return true;
         }
 
         public void AddAvatar(int lineupIndex, int avatarId, bool sendPacket = true)
@@ -173,57 +265,10 @@ namespace EggLink.DanhengServer.Game.Lineup
             Player.SendPacket(new PacketSyncLineupNotify(lineup));
         }
 
-        public List<AvatarSceneInfo> GetAvatarsFromTeam(int index)
-        {
-            var lineup = GetLineup(index);
-            if (lineup == null)
-            {
-                return [];
-            }
-
-            var avatarList = new List<AvatarSceneInfo>();
-            foreach (var avatar in lineup.BaseAvatars!)
-            {
-                Proto.AvatarType avatarType = Proto.AvatarType.AvatarFormalType;
-                Database.Avatar.AvatarInfo? avatarInfo = null;
-                if (avatar.SpecialAvatarId > 0)
-                {
-                    GameData.SpecialAvatarData.TryGetValue(avatar.SpecialAvatarId, out var specialAvatar);
-                    if (specialAvatar == null) continue;
-                    avatarType = Proto.AvatarType.AvatarTrialType;
-                    avatarInfo = specialAvatar.ToAvatarData(Player.Uid);
-                } else if (avatar.AssistUid > 0)
-                {
-                    var avatarStorage = DatabaseHelper.Instance?.GetInstance<Database.Avatar.AvatarData>(avatar.AssistUid);
-                    avatarType = Proto.AvatarType.AvatarAssistType;
-                    if (avatarStorage == null) continue;
-                    foreach (var avatarData in avatarStorage.Avatars!)
-                    {
-                        if (avatarData.AvatarId == avatar.BaseAvatarId)
-                        {
-                            avatarInfo = avatarData;
-                            break;
-                        }
-                    }
-                } else
-                {
-                    avatarInfo = Player.AvatarManager!.GetAvatar(avatar.BaseAvatarId);
-                }
-                if (avatarInfo == null) continue;
-                avatarList.Add(new AvatarSceneInfo(avatarInfo, avatarType, Player));
-            }
-
-            return avatarList;
-        }
-
-        public List<AvatarSceneInfo> GetAvatarsFromCurTeam()
-        {
-            return GetAvatarsFromTeam(LineupData.CurLineup);
-        }
-
         public void CostMp(uint entityId, int count)
         {
             LineupData.Mp -= count;
+            LineupData.Mp = Math.Min(Math.Max(0, LineupData.Mp), 5);
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
             Player.SendPacket(new PacketSceneCastSkillMpUpdateScNotify(entityId, LineupData.Mp));
         }
@@ -231,8 +276,11 @@ namespace EggLink.DanhengServer.Game.Lineup
         public void GainMp(int count)
         {
             LineupData.Mp += count;
+            LineupData.Mp = Math.Min(Math.Max(0, LineupData.Mp), 5);
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
             Player.SendPacket(new PacketSyncLineupNotify(GetCurLineup()!));
         }
+
+        #endregion
     }
 }

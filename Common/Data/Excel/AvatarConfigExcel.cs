@@ -24,6 +24,9 @@ namespace EggLink.DanhengServer.Data.Excel
         [JsonIgnore()]
         public List<AvatarSkillTreeConfigExcel> DefaultSkillTree = [];
 
+        [JsonIgnore]
+        public List<AvatarSkillTreeConfigExcel> SkillTree = [];
+
         [JsonIgnore()]
         public int RankUpItemId { get; set; }
 
