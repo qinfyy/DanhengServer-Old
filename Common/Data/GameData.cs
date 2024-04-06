@@ -90,15 +90,19 @@ namespace EggLink.DanhengServer.Data
         #region Rogue
 
         public static Dictionary<int, RogueAeonExcel> RogueAeonData { get; private set; } = [];
+        public static Dictionary<int, RogueAreaConfigExcel> RogueAreaConfigData { get; private set; } = [];
         public static Dictionary<int, RogueBonusExcel> RogueBonusData { get; private set; } = [];
         public static Dictionary<int, RogueBuffExcel> RogueBuffData { get; private set; } = [];
         public static Dictionary<int, RogueBuffGroupExcel> RogueBuffGroupData { get; private set; } = [];
         public static Dictionary<int, RogueHandBookEventExcel> RogueHandBookEventData { get; private set; } = [];
         public static Dictionary<int, RogueHandbookMiracleExcel> RogueHandbookMiracleData { get; private set; } = [];
         public static Dictionary<int, RogueManagerExcel> RogueManagerData { get; private set; } = [];
+        public static Dictionary<int, Dictionary<int, RogueMapExcel>> RogueMapData { get; private set; } = [];
+        public static Dictionary<int, List<int>> RogueMapGenData { get; set; } = [];
         public static Dictionary<int, RogueMazeBuffExcel> RogueMazeBuffData { get; private set; } = [];
         public static Dictionary<int, RogueMiracleDisplayExcel> RogueMiracleDisplayData { get; private set; } = [];
         public static Dictionary<int, RogueMiracleEffectExcel> RogueMiracleEffectData { get; private set; } = [];
+        public static Dictionary<int, RogueRoomExcel> RogueRoomData { get; private set; } = [];
 
         #endregion
 

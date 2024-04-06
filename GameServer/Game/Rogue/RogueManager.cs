@@ -2,6 +2,7 @@
 using EggLink.DanhengServer.Data.Excel;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Proto;
+using EggLink.DanhengServer.Server.Packet.Send.Rogue;
 using EggLink.DanhengServer.Util;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace EggLink.DanhengServer.Game.Rogue
     {
         #region Properties
 
-        public RogueInstance? RogueInstances { get; set; }
+        public RogueInstance? RogueInstance { get; set; }
 
         #endregion
 
@@ -49,6 +50,36 @@ namespace EggLink.DanhengServer.Game.Rogue
 
         #endregion
 
+        #region Actions
+
+        public void StartRogue(int areaId, int aeonId, List<int> disableAeonId, List<int> baseAvatarIds)
+        {
+            GameData.RogueAreaConfigData.TryGetValue(areaId, out var area);
+            GameData.RogueAeonData.TryGetValue(aeonId, out var aeon);
+
+            if (area == null || aeon == null)
+            {
+
+                return;
+            }
+
+            Player.LineupManager!.SetExtraLineup(ExtraLineupType.LineupRogue, baseAvatarIds);
+            Player.LineupManager!.GainMp(5, false);
+
+            foreach (var id in baseAvatarIds)
+            {
+                Player.AvatarManager!.GetAvatar(id)?.SetCurHp(10000, true);
+                Player.AvatarManager!.GetAvatar(id)?.SetCurSp(5000, true);
+            }
+
+            RogueInstance = new RogueInstance(area, aeon, Player);
+            RogueInstance.EnterRoom(RogueInstance.StartSiteId);
+
+            Player.SendPacket(new PacketStartRogueScRsp(Player));
+        }
+
+        #endregion
+
         #region Serialization
 
         public RogueInfo ToProto()
@@ -58,9 +89,9 @@ namespace EggLink.DanhengServer.Game.Rogue
                 RogueGetInfo = ToGetProto()
             };
 
-            if (RogueInstances != null)
+            if (RogueInstance != null)
             {
-                proto.RogueCurrentInfo = RogueInstances.ToProto();
+                proto.RogueCurrentInfo = RogueInstance.ToProto();
             }
 
             return proto;

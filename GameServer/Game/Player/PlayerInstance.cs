@@ -106,6 +106,11 @@ namespace EggLink.DanhengServer.Game.Player
             {
                 EnterScene(2000101, 0, false);
             }
+
+            if (LineupManager!.GetCurLineup()!.IsExtraLineup())
+            {
+                LineupManager!.SetCurLineup(0);
+            }
         }
 
         public T? InitializeDatabase<T>() where T : class, new()
@@ -385,6 +390,12 @@ namespace EggLink.DanhengServer.Game.Player
         {
             GameData.MazePlaneData.TryGetValue(planeId, out var plane);
             if (plane == null) return;
+
+            if (plane.PlaneType == PlaneTypeEnum.Rogue && RogueManager!.RogueInstance == null)
+            {
+                EnterScene(801120102, 0, sendPacket);
+                return;
+            }
 
             // TODO: Sanify check
             Data.Pos = pos;

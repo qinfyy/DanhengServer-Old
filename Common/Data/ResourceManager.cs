@@ -22,6 +22,7 @@ namespace EggLink.DanhengServer.Data
             LoadMissionInfo();
             LoadMazeSkill();
             LoadBanner();
+            LoadRogueMapGen();
         }
 
         public static void LoadExcel()
@@ -305,6 +306,31 @@ namespace EggLink.DanhengServer.Data
                 Logger.Warn("Maze skill infos are missing, please check your resources folder: " + ConfigManager.Config.Path.ResourcePath + "/Config/ConfigAdventureAbility/LocalPlayer. Maze skills may not work!");
             }
             Logger.Info("Loaded " + count + " maze skill infos.");
+        }
+
+        public static void LoadRogueMapGen()
+        {
+            var path = ConfigManager.Config.Path.ConfigPath + "/RogueMapGen.json";
+            var file = new FileInfo(path);
+            if (!file.Exists)
+            {
+                Logger.Warn($"Rogue map gen infos are missing, please check your resources folder: {ConfigManager.Config.Path.ResourcePath}/Config/RogueMapGen.json. Rogue map gen may not work!");
+                return;
+            }
+            try
+            {
+                using var reader = file.OpenRead();
+                using StreamReader reader2 = new(reader);
+                var text = reader2.ReadToEnd();
+                var rogueMapGen = JsonConvert.DeserializeObject<Dictionary<int, List<int>>>(text);
+                if (rogueMapGen != null)
+                {
+                    GameData.RogueMapGenData = rogueMapGen;
+                }
+            } catch (Exception ex)
+            {
+                Logger.Error("Error in reading" + file.Name, ex);
+            }
         }
     }
 }

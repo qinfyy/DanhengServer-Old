@@ -134,6 +134,30 @@ namespace EggLink.DanhengServer.Game.Lineup
             return true;
         }
 
+        public void SetExtraLineup(Proto.ExtraLineupType type, List<int> baseAvatarIds)
+        {
+            var index = (int)type + 9;
+            // destroy old lineup
+            LineupData.Lineups.Remove(index);
+            // create new lineup
+            var lineup = new LineupInfo()
+            {
+                Name = "",
+                LineupType = (int)type,
+                BaseAvatars = [],
+                LineupData = LineupData,
+                AvatarData = Player.AvatarManager!.AvatarData,
+            };
+
+            foreach (var avatarId in baseAvatarIds)
+            {
+                lineup.BaseAvatars!.Add(new() { BaseAvatarId = avatarId });
+            }
+
+            LineupData.Lineups.Add(index, lineup);
+            DatabaseHelper.Instance?.UpdateInstance(LineupData);
+        }
+
         public void AddAvatar(int lineupIndex, int avatarId, bool sendPacket = true)
         {
             if (lineupIndex < 0)
@@ -273,12 +297,15 @@ namespace EggLink.DanhengServer.Game.Lineup
             Player.SendPacket(new PacketSceneCastSkillMpUpdateScNotify(entityId, LineupData.Mp));
         }
 
-        public void GainMp(int count)
+        public void GainMp(int count, bool sendPacket = true)
         {
             LineupData.Mp += count;
             LineupData.Mp = Math.Min(Math.Max(0, LineupData.Mp), 5);
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
-            Player.SendPacket(new PacketSyncLineupNotify(GetCurLineup()!));
+            if (sendPacket)
+            {
+                Player.SendPacket(new PacketSyncLineupNotify(GetCurLineup()!));
+            }
         }
 
         #endregion

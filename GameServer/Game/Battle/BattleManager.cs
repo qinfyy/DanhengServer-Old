@@ -155,6 +155,10 @@ namespace EggLink.DanhengServer.Game.Battle
                 }
 
                 battleInstance.AvatarInfo = avatarList;
+
+                // call battle start
+                Player.RogueManager!.RogueInstance?.OnBattleStart(battleInstance);
+
                 Player.BattleInstance = battleInstance;
                 Player.SendPacket(new PacketSceneCastSkillScRsp(req.CastEntityId, battleInstance));
             } else
@@ -182,6 +186,9 @@ namespace EggLink.DanhengServer.Game.Battle
             {
                 WorldLevel = Player.Data.WorldLevel,
             };
+
+            // call battle start
+            Player.RogueManager!.RogueInstance?.OnBattleStart(battleInstance);
 
             Player.BattleInstance = battleInstance;
 
@@ -316,6 +323,8 @@ namespace EggLink.DanhengServer.Game.Battle
             }
             // call battle end
             Player.MissionManager!.OnBattleFinish(req);
+            Player.RogueManager!.RogueInstance?.OnBattleEnd(battle, req);
+
             battle.MonsterDropItems = dropItems;
 
             Player.BattleInstance = null;

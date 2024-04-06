@@ -31,26 +31,33 @@ namespace EggLink.DanhengServer.Data.Excel
                     WaveId = (uint)waveId++,
                     StageId = (uint)StageID,
                 };
+
                 proto.MonsterList.Add(new SceneMonster()
                 {
                     MonsterId = (uint)monsters.Monster0,
                 });
+
                 proto.MonsterList.Add(new SceneMonster()
                 {
                     MonsterId = (uint)monsters.Monster1,
                 });
+
                 proto.MonsterList.Add(new SceneMonster()
                 {
                     MonsterId = (uint)monsters.Monster2,
                 });
+
                 proto.MonsterList.Add(new SceneMonster()
                 {
                     MonsterId = (uint)monsters.Monster3,
                 });
+
                 proto.MonsterList.Add(new SceneMonster()
                 {
                     MonsterId = (uint)monsters.Monster4,
                 });
+
+                proto.MonsterParam = new();
                 result.Add(proto);
             }
             return result;

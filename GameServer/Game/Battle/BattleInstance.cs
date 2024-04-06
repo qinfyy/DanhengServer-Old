@@ -19,6 +19,7 @@ namespace EggLink.DanhengServer.Game.Battle
         public int MappingInfoId { get; set; }
         public int RoundLimit { get; set; }
         public int StageId { get; set; } = stages.Count > 0 ? stages[0].StageID : 0;  // Set to 0 when hit monster
+        public int CustomLevel { get; set; }
         public BattleEndStatus BattleEndStatus { get; set; }
 
         public List<ItemData> MonsterDropItems { get; set; } = [];
@@ -69,7 +70,15 @@ namespace EggLink.DanhengServer.Game.Battle
 
             foreach (var wave in Stages)
             {
-                proto.MonsterWaveList.AddRange(wave.ToProto());
+                var protoWave = wave.ToProto();
+                if (CustomLevel > 0)
+                {
+                    foreach (var item in protoWave)
+                    {
+                        item.MonsterParam.Level = (uint)CustomLevel;
+                    }
+                }
+                proto.MonsterWaveList.AddRange(protoWave);
             }
 
             foreach (var avatar in Lineup.BaseAvatars!)

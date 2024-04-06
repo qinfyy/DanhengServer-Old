@@ -1,4 +1,5 @@
-﻿using EggLink.DanhengServer.Proto;
+﻿using EggLink.DanhengServer.Game.Battle;
+using EggLink.DanhengServer.Proto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,14 @@ namespace EggLink.DanhengServer.Game.Rogue.Buff
     {
         public int BuffId { get; set; } = buffId;
         public int BuffLevel { get; set; } = buffLevel;
+
+        public void OnStartBattle(BattleInstance battle)
+        {
+            battle.Buffs.Add(new(BuffId, BuffLevel, -1)
+            {
+                WaveFlag = -1
+            });
+        }
 
         public RogueBuff ToProto() => new()
         {
