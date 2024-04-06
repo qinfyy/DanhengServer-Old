@@ -1,5 +1,6 @@
 ﻿using EggLink.DanhengServer.Database.Mission;
 using EggLink.DanhengServer.Enums;
+using EggLink.DanhengServer.Enums.Scene;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using static System.Formats.Asn1.AsnWriter;

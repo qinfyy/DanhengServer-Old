@@ -1,4 +1,4 @@
-﻿namespace EggLink.DanhengServer.Enums
+﻿namespace EggLink.DanhengServer.Enums.Avatar
 {
     public enum RelicTypeEnum
     {

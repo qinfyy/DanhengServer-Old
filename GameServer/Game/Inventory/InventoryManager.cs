@@ -1,7 +1,7 @@
 ﻿using EggLink.DanhengServer.Data;
 using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Database.Inventory;
-using EggLink.DanhengServer.Enums;
+using EggLink.DanhengServer.Enums.Item;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Server.Packet.Send.Avatar;

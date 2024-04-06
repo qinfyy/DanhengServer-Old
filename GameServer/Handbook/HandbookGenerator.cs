@@ -56,6 +56,16 @@ namespace EggLink.DanhengServer.Handbook
             GenerateSubMissionId(builder, textMap);
 
             builder.AppendLine();
+            builder.AppendLine("#RogueBuff");
+            builder.AppendLine();
+            GenerateRogueBuff(builder, textMap);
+
+            builder.AppendLine();
+            builder.AppendLine("#RogueMiracle");
+            builder.AppendLine();
+            GenerateRogueMiracleDisplay(builder, textMap);
+
+            builder.AppendLine();
             WriteToFile(builder.ToString());
 
             Logger.GetByClassName().Info("Handbook generated successfully.");
@@ -105,6 +115,24 @@ namespace EggLink.DanhengServer.Handbook
             {
                 var name = map.TryGetValue(mission.TargetText.Hash, out var value) ? value : $"[{mission.TargetText.Hash}]";
                 builder.AppendLine(mission.SubMissionID + ": " + name);
+            }
+        }
+
+        public static void GenerateRogueBuff(StringBuilder builder, Dictionary<long, string> map)
+        {
+            foreach (var buff in GameData.RogueMazeBuffData)
+            {
+                var name = map.TryGetValue(buff.Value.BuffName.Hash, out var value) ? value : $"[{buff.Value.BuffName.Hash}]";
+                builder.AppendLine(buff.Key + ": " + name + " --- Level:" + buff.Value.Lv);
+            }
+        }
+
+        public static void GenerateRogueMiracleDisplay(StringBuilder builder, Dictionary<long, string> map)
+        {
+            foreach (var display in GameData.RogueMiracleDisplayData.Values)
+            {
+                var name = map.TryGetValue(display.MiracleName.Hash, out var value) ? value : $"[{display.MiracleName.Hash}]";
+                builder.AppendLine(display.MiracleDisplayID + ": " + name);
             }
         }
 

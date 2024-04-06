@@ -2,7 +2,7 @@
 using EggLink.DanhengServer.Database.Avatar;
 using EggLink.DanhengServer.Database.Inventory;
 using EggLink.DanhengServer.Database.Message;
-using EggLink.DanhengServer.Enums;
+using EggLink.DanhengServer.Enums.Item;
 using EggLink.DanhengServer.Proto;
 using System;
 using System.Collections.Generic;

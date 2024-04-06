@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EggLink.DanhengServer.Enums
+namespace EggLink.DanhengServer.Enums.Scene
 {
-    public enum SpecialAvatarTypeEnum
+    public enum GroupLoadSideEnum
     {
-        TYPE_TRIAL = 1,
-        TYPE_PLOT = 2,  // mission
+        Client = 0,
+        Server = 1,
     }
 }

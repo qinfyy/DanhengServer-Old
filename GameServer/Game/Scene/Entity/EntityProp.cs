@@ -1,6 +1,6 @@
 ﻿using EggLink.DanhengServer.Data.Config;
 using EggLink.DanhengServer.Data.Excel;
-using EggLink.DanhengServer.Enums;
+using EggLink.DanhengServer.Enums.Scene;
 using EggLink.DanhengServer.Game.Battle;
 using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Server.Packet.Send.Scene;

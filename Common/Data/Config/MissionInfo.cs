@@ -1,5 +1,6 @@
 ﻿using EggLink.DanhengServer.Data.Excel;
 using EggLink.DanhengServer.Enums;
+using EggLink.DanhengServer.Enums.Scene;
 using EggLink.DanhengServer.Util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;

@@ -1,6 +1,7 @@
 ﻿using EggLink.DanhengServer.Data;
 using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Database.Inventory;
+using EggLink.DanhengServer.Enums.Item;
 using EggLink.DanhengServer.Game.Player;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace EggLink.DanhengServer.Game.Shop
                 Player.InventoryManager!.RemoveItem(cost.Key, cost.Value * count);
             }
             var items = new List<ItemData>();
-            if (itemConfig.ItemMainType == Enums.ItemMainTypeEnum.Equipment || itemConfig.ItemMainType == Enums.ItemMainTypeEnum.Relic)
+            if (itemConfig.ItemMainType == ItemMainTypeEnum.Equipment || itemConfig.ItemMainType == ItemMainTypeEnum.Relic)
             {
                 for (int i = 0; i < count; i++)
                 {

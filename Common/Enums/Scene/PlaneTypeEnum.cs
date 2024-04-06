@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EggLink.DanhengServer.Enums
+namespace EggLink.DanhengServer.Enums.Scene
 {
     public enum PlaneTypeEnum
     {

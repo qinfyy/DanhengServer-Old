@@ -13,12 +13,19 @@ namespace EggLink.DanhengServer.Game.Rogue
 {
     public class RogueManager(PlayerInstance player) : BasePlayerManager(player)
     {
+        #region Properties
+
+        public RogueInstance? RogueInstances { get; set; }
+
+        #endregion
+
+        #region Information
 
         /// <summary>
         /// Get the begin time and end time
         /// </summary>
         /// <returns></returns>
-        public (long, long) GetCurrentRogueTime()
+        public static (long, long) GetCurrentRogueTime()
         {
             // get the first day of the week
             var beginTime = DateTime.Now.AddDays(-(int)DateTime.Now.DayOfWeek).AddHours(4);
@@ -28,7 +35,7 @@ namespace EggLink.DanhengServer.Game.Rogue
 
         public int GetRogueScore() => 0;  // TODO: Implement
 
-        public RogueManagerExcel? GetCurrentManager()
+        public static RogueManagerExcel? GetCurrentManager()
         {
             foreach (var manager in GameData.RogueManagerData.Values)
             {
@@ -40,17 +47,35 @@ namespace EggLink.DanhengServer.Game.Rogue
             return null;
         }
 
-        public RogueGetInfo ToProto()
+        #endregion
+
+        #region Serialization
+
+        public RogueInfo ToProto()
         {
-            var proto = new RogueGetInfo()
+            var proto = new RogueInfo()
+            {
+                RogueGetInfo = ToGetProto()
+            };
+
+            if (RogueInstances != null)
+            {
+                proto.RogueCurrentInfo = RogueInstances.ToProto();
+            }
+
+            return proto;
+        }
+
+        public RogueGetInfo ToGetProto()
+        {
+            return new()
             {
                 RogueScoreRewardInfo = ToRewardProto(),
                 RogueAeonInfo = ToAeonInfo(),
                 RogueSeasonInfo = ToSeasonProto(),
                 RogueAreaInfo = ToAreaProto(),
+                RogueVirtualItemInfo = ToVirtualItemProto()
             };
-
-            return proto;
         }
 
         public RogueScoreRewardInfo ToRewardProto()
@@ -68,7 +93,7 @@ namespace EggLink.DanhengServer.Game.Rogue
             };
         }
 
-        public RogueAeonInfo ToAeonInfo()
+        public static RogueAeonInfo ToAeonInfo()
         {
             var proto = new RogueAeonInfo()
             {
@@ -82,7 +107,7 @@ namespace EggLink.DanhengServer.Game.Rogue
             return proto;
         }
 
-        public RogueSeasonInfo ToSeasonProto()
+        public static RogueSeasonInfo ToSeasonProto()
         {
             var manager = GetCurrentManager();
             if (manager == null)
@@ -98,7 +123,7 @@ namespace EggLink.DanhengServer.Game.Rogue
             };
         }
 
-        public RogueAreaInfo ToAreaProto()
+        public static RogueAreaInfo ToAreaProto()
         {
             var manager = GetCurrentManager();
             if (manager == null)
@@ -111,8 +136,19 @@ namespace EggLink.DanhengServer.Game.Rogue
                 {
                     AreaId = (uint)x,
                     AreaStatus = RogueAreaStatus.FirstPass,
+                    HasTakenReward = true
                 })}
             };
         }
+
+        public RogueVirtualItemInfo ToVirtualItemProto()
+        {
+            return new()
+            {
+                // TODO: Implement
+            };
+        }
+
+        #endregion
     }
 }

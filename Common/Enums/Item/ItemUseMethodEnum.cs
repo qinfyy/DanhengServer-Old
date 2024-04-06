@@ -1,4 +1,4 @@
-﻿namespace EggLink.DanhengServer.Enums
+﻿namespace EggLink.DanhengServer.Enums.Item
 {
     public enum ItemUseMethodEnum
     {

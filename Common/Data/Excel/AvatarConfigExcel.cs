@@ -1,5 +1,6 @@
 ﻿using EggLink.DanhengServer.Data.Config;
-using EggLink.DanhengServer.Enums;
+using EggLink.DanhengServer.Enums.Avatar;
+using EggLink.DanhengServer.Enums.Item;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Text.RegularExpressions;

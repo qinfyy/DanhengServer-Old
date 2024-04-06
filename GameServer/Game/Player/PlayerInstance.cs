@@ -6,6 +6,7 @@ using EggLink.DanhengServer.Database.Player;
 using EggLink.DanhengServer.Database.Scene;
 using EggLink.DanhengServer.Database.Tutorial;
 using EggLink.DanhengServer.Enums;
+using EggLink.DanhengServer.Enums.Scene;
 using EggLink.DanhengServer.Game.Avatar;
 using EggLink.DanhengServer.Game.Battle;
 using EggLink.DanhengServer.Game.Gacha;

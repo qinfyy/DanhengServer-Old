@@ -1,4 +1,4 @@
-﻿using EggLink.DanhengServer.Enums;
+﻿using EggLink.DanhengServer.Enums.Avatar;
 
 namespace EggLink.DanhengServer.Data.Excel
 {

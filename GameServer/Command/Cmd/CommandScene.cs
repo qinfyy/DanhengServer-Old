@@ -1,4 +1,5 @@
-﻿using EggLink.DanhengServer.Game.Scene.Entity;
+﻿using EggLink.DanhengServer.Enums.Scene;
+using EggLink.DanhengServer.Game.Scene.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,8 +54,8 @@ namespace EggLink.DanhengServer.Command.Cmd
                 arg.SendMsg("Prop not found");
                 return;
             }
-            prop.SetState((Enums.PropStateEnum)arg.GetInt(2));
-            arg.SendMsg($"Prop: {prop.EntityID} has been set to {(Enums.PropStateEnum)arg.GetInt(2)}");
+            prop.SetState((PropStateEnum)arg.GetInt(2));
+            arg.SendMsg($"Prop: {prop.EntityID} has been set to {(PropStateEnum)arg.GetInt(2)}");
         }
     }
 }
