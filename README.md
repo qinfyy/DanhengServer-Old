@@ -9,6 +9,24 @@
   <a href="https://discord.gg/xRtZsmHBVj"><img src="https://img.shields.io/badge/Discord%20Server-000000.svg?style=for-the-badge&logo=Discord&logoColor=white" /></a>
 </p>
 
+## Features
+- Scene (Walking Simulator,Interaction,Correct entity loading)
+- Friend (Developing)
+- Battle (Some bugs in Scene skills)
+- Lineup
+- Rogue (Means Simulated Universe) (Developing)
+- **Mission** (Many missions can work now) (To the first temporary mission scene) (if choose the woman, maybe u will get stuck in some missions - need to be fixed)
+
+## How to Use?
+- Download the executable file in [Action](https://github.com/StopWuyu/DanhengServer/actions) or build it by urself
+- Unzip it to a single folder
+- Download the Dim's Resources and LunarCore's Resources.Do it as well as LunarCore
+- Download the file in Config folder in this repo(Preparing),And move the files to Config/ folder
+- Run it.
+
+## Need Help
+- Support for Android
+
 ## Thanks
 - Weedwacker - Provide a kcp implementation for C#
 - [SqlSugar](https://github.com/donet5/SqlSugar) - Provide a ORM for C#
