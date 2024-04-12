@@ -16,6 +16,9 @@
 - Lineup
 - Rogue (Means Simulated Universe) (Developing)
 - **Mission** (Many missions can work now) (To the first temporary mission scene) (if choose the woman, maybe u will get stuck in some missions - need to be fixed)
+- Gacha (Custom chance)
+- Shop
+- Basic Avatar Promoting (some bugs)
 
 ## How to Use?
 - Download the executable file in [Action](https://github.com/StopWuyu/DanhengServer/actions) or build it by urself
