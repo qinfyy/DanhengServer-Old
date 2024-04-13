@@ -24,8 +24,8 @@ namespace EggLink.DanhengServer.Proto {
     static FNBKGAIGNDBReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFGTkJLR0FJR05EQi5wcm90bxoRQURQTUdIQUlKUEIucHJvdG8aEVBGTkhP",
-            "SE9PRU5ELnByb3RvGhFIR0RGUEJMS0xEQy5wcm90bxoRTFBQQ0VGQ0dKSU8u",
+            "ChFGTkJLR0FJR05EQi5wcm90bxoRTFBQQ0VGQ0dKSU8ucHJvdG8aEUhHREZQ",
+            "QkxLTERDLnByb3RvGhFQRk5IT0hPT0VORC5wcm90bxoRQURQTUdIQUlKUEIu",
             "cHJvdG8aEUNMTUxETERHSEJFLnByb3RvIsoBCgtGTkJLR0FJR05EQhIlCg9y",
             "b2d1ZV9idWZmX2luZm8YDyABKAsyDC5DTE1MRExER0hCRRInChFnYW1lX21p",
             "cmFjbGVfaW5mbxgHIAEoCzIMLlBGTkhPSE9PRU5EEiEKC0dBTkhNQUVJRklC",
@@ -33,7 +33,7 @@ namespace EggLink.DanhengServer.Proto {
             "MgwuQURQTUdIQUlKUEISIQoLUENPSU5HQU1PTUwYCSABKAsyDC5IR0RGUEJM",
             "S0xEQ0IeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ADPMGHAIJPBReflection.Descriptor, global::EggLink.DanhengServer.Proto.PFNHOHOOENDReflection.Descriptor, global::EggLink.DanhengServer.Proto.HGDFPBLKLDCReflection.Descriptor, global::EggLink.DanhengServer.Proto.LPPCEFCGJIOReflection.Descriptor, global::EggLink.DanhengServer.Proto.CLMLDLDGHBEReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.LPPCEFCGJIOReflection.Descriptor, global::EggLink.DanhengServer.Proto.HGDFPBLKLDCReflection.Descriptor, global::EggLink.DanhengServer.Proto.PFNHOHOOENDReflection.Descriptor, global::EggLink.DanhengServer.Proto.ADPMGHAIJPBReflection.Descriptor, global::EggLink.DanhengServer.Proto.CLMLDLDGHBEReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.FNBKGAIGNDB), global::EggLink.DanhengServer.Proto.FNBKGAIGNDB.Parser, new[]{ "RogueBuffInfo", "GameMiracleInfo", "GANHMAEIFIB", "RogueAeonInfo", "PCOINGAMOML" }, null, null, null, null)
           }));

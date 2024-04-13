@@ -5,6 +5,7 @@ using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Database.Avatar;
 using EggLink.DanhengServer.Game.Battle;
 using EggLink.DanhengServer.Game.Player;
+using EggLink.DanhengServer.Game.Rogue.Scene;
 using EggLink.DanhengServer.Game.Scene.Entity;
 using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Server.Packet;
@@ -50,6 +51,9 @@ namespace EggLink.DanhengServer.Game.Scene
 
             switch (Excel.PlaneType)
             {
+                case Enums.Scene.PlaneTypeEnum.Rogue:
+                    EntityLoader = new RogueEntityLoader(this, Player);
+                    break;
                 default:
                     EntityLoader = new(this);
                     break;

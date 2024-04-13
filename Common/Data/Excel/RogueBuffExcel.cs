@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EggLink.DanhengServer.Proto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,15 @@ namespace EggLink.DanhengServer.Data.Excel
         public override void Loaded()
         {
             GameData.RogueBuffData.Add(GetId(), this);
+        }
+
+        public RogueCommonBuff ToProto()
+        {
+            return new()
+            {
+                BuffId = (uint)MazeBuffID,
+                BuffLevel = (uint)MazeBuffLevel,
+            };
         }
     }
 }

@@ -3,7 +3,7 @@ using EggLink.DanhengServer.Data.Excel;
 using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Util;
 
-namespace EggLink.DanhengServer.Game.Rogue.Map
+namespace EggLink.DanhengServer.Game.Rogue.Scene
 {
     public class RogueRoomInstance
     {

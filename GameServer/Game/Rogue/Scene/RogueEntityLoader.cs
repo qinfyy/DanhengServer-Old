@@ -1,0 +1,168 @@
+﻿using EggLink.DanhengServer.Data;
+using EggLink.DanhengServer.Data.Config;
+using EggLink.DanhengServer.Enums.Scene;
+using EggLink.DanhengServer.Game.Player;
+using EggLink.DanhengServer.Game.Rogue.Scene.Entity;
+using EggLink.DanhengServer.Game.Scene;
+using EggLink.DanhengServer.Game.Scene.Entity;
+using EggLink.DanhengServer.Server.Packet.Send.Scene;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EggLink.DanhengServer.Game.Rogue.Scene
+{
+    public class RogueEntityLoader(SceneInstance scene, PlayerInstance player) : SceneEntityLoader(scene)
+    {
+        public PlayerInstance Player = player;
+        public SceneInstance Scene = scene;
+        public List<int> RogueDoorPropIds = [1000, 1021, 1022, 1023];
+
+        public override void LoadEntity()
+        {
+            if (Scene.IsLoaded) return;
+
+            var excel = Player.RogueManager?.RogueInstance?.CurRoom?.Excel;
+            if (excel == null) return;
+
+            foreach (var group in excel.GroupWithContent)
+            {
+                Scene.FloorInfo!.Groups.TryGetValue(group.Key, out var groupData);
+                if (groupData == null) continue;
+                LoadGroup(groupData);
+            }
+
+            Scene.IsLoaded = true;
+        }
+
+        public override List<IGameEntity>? LoadGroup(GroupInfo info)
+        {
+            var entityList = new List<IGameEntity>();
+            foreach (var npc in info.NPCList)
+            {
+                try
+                {
+                    if (LoadNpc(npc, info) is EntityNpc entity)
+                    {
+                        entityList.Add(entity);
+                    }
+                }
+                catch { }
+            }
+
+            foreach (var monster in info.MonsterList)
+            {
+                try
+                {
+                    if (LoadMonster(monster, info) is EntityMonster entity)
+                    {
+                        entityList.Add(entity);
+                    }
+                }
+                catch { }
+            }
+
+            foreach (var prop in info.PropList)
+            {
+                try
+                {
+                    if (LoadProp(prop, info) is EntityProp entity)
+                    {
+                        entityList.Add(entity);
+                    }
+                }
+                catch { }
+            }
+
+            return entityList;
+        }
+
+        public override EntityMonster? LoadMonster(MonsterInfo info, GroupInfo group, bool sendPacket = false)
+        {
+            if (info.IsClientOnly || info.IsDelete)
+            {
+                return null;
+            }
+            var room = Player.RogueManager?.RogueInstance?.CurRoom;
+            if (room == null) return null;
+
+            var content = room.Excel?.GroupWithContent[group.Id];
+            if (content == null) return null;
+
+            GameData.RogueMonsterData.TryGetValue((int)((content * 10) + 1), out var rogueMonster);
+            if (rogueMonster == null) return null;
+
+            GameData.NpcMonsterDataData.TryGetValue(rogueMonster.NpcMonsterID, out var excel);
+            if (excel == null) return null;
+
+            EntityMonster entity = new(scene, info.ToPositionProto(), info.ToRotationProto(), group.Id, info.ID, excel, info)
+            {
+                EventID = rogueMonster.EventID,
+                CustomStageID = rogueMonster.EventID
+            };
+            scene.AddEntity(entity, sendPacket);
+
+            return entity;
+        }
+
+        public override EntityProp? LoadProp(PropInfo info, GroupInfo group, bool sendPacket = false)
+        {
+            var room = Player.RogueManager?.RogueInstance?.CurRoom;
+            if (room == null) return null;
+            var excel = room.Excel;
+            if (excel == null) return null;
+
+            GameData.MazePropData.TryGetValue(info.PropID, out var propExcel);
+            if (propExcel == null)
+            {
+                return null;
+            }
+
+            var prop = new RogueProp(Scene, propExcel, group, info);
+
+            if (RogueDoorPropIds.Contains(prop.PropInfo.PropID))
+            {
+                int index = 0;
+                var nextSiteIds = room.NextSiteIds;
+
+                if (prop.PropInfo.Name == "Door2")
+                {
+                    index = 1;
+                }
+                if (nextSiteIds.Count == 0)
+                {
+                    // exit
+                    prop.CustomPropID = 1000;
+                } else
+                {
+                    index = Math.Min(index, nextSiteIds.Count - 1);  // Sanity check
+                    var nextRoom = Player.RogueManager?.RogueInstance?.RogueRooms[nextSiteIds[index]];
+                    prop.NextSiteID = nextSiteIds[index];
+                    prop.NextRoomID = nextRoom!.Excel?.RogueRoomID ?? 0;
+
+                    prop.CustomPropID = nextRoom!.Excel!.RogueRoomType switch  // door style
+                    {
+                        3 => 1022,
+                        8 => 1022,
+                        5 => 1023,
+                        _ => 1021
+                    };
+                }
+
+                prop.SetState(PropStateEnum.Open);
+            } else
+            {
+                if (prop.PropInfo.InitLevelGraph?.Contains("Door") == true)
+                {
+                    prop.SetState(PropStateEnum.Open);
+                }
+            }
+
+            Scene.AddEntity(prop, sendPacket);
+
+            return null;
+        }
+    }
+}

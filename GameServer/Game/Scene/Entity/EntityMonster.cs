@@ -22,16 +22,20 @@ namespace EggLink.DanhengServer.Game.Scene.Entity
         public Position Position { get; set; } = pos;
         public Position Rotation { get; set; } = rot;
         public int InstID { get; set; } = InstID;
+        public SceneInstance Scene { get; set; } = scene;
         public NPCMonsterDataExcel MonsterData { get; set; } = excel;
         public MonsterInfo Info { get; set; } = info;
         public List<SceneBuff> BuffList { get; set; } = [];
         public SceneBuff? TempBuff { get; set; }
         public bool IsAlive { get; private set; } = true;
 
+        public int EventID { get; set; } = info.EventID;
+        public int CustomStageID { get; set; } = 0;
+
         public void AddBuff(SceneBuff buff)
         {
             BuffList.Add(buff);
-            scene.Player.SendPacket(new PacketSyncEntityBuffChangeListScNotify(this, buff));
+            Scene.Player.SendPacket(new PacketSyncEntityBuffChangeListScNotify(this, buff));
         }
 
         public void ApplyBuff(BattleInstance instance)
@@ -53,22 +57,26 @@ namespace EggLink.DanhengServer.Game.Scene.Entity
 
         public int GetStageId()
         {
-            return Info.EventID * 10 + scene.Player.Data.WorldLevel;
+            if (CustomStageID > 0)
+            {
+                return CustomStageID;
+            }
+            return Info.EventID * 10 + Scene.Player.Data.WorldLevel;
         }
 
         public List<ItemData> Kill(bool sendPacket = true)
         {
-            scene.RemoveEntity(this);
+            Scene.RemoveEntity(this);
             IsAlive = false;
 
-            GameData.MonsterDropData.TryGetValue(MonsterData.ID * 10 + scene.Player.Data.WorldLevel, out var dropData);
+            GameData.MonsterDropData.TryGetValue(MonsterData.ID * 10 + Scene.Player.Data.WorldLevel, out var dropData);
             if (dropData == null) return [];
             var dropItems = dropData.CalculateDrop();
-            scene.Player.InventoryManager!.AddItems(dropItems, sendPacket);
+            Scene.Player.InventoryManager!.AddItems(dropItems, sendPacket);
 
             // TODO: Rogue support
             // call mission handler
-            scene.Player.MissionManager!.HandleFinishType(MissionFinishTypeEnum.KillMonster, this);
+            Scene.Player.MissionManager!.HandleFinishType(MissionFinishTypeEnum.KillMonster, this);
             return dropItems;
         }
 
@@ -86,9 +94,9 @@ namespace EggLink.DanhengServer.Game.Scene.Entity
                 },
                 NpcMonster = new()
                 {
-                    EventId = (uint)Info.EventID,
+                    EventId = (uint)EventID,
                     MonsterId = (uint)MonsterData.ID,
-                    WorldLevel = (uint)scene.Player.Data.WorldLevel,
+                    WorldLevel = (uint)Scene.Player.Data.WorldLevel,
                 }
             };
         }

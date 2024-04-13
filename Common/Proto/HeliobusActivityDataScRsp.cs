@@ -25,8 +25,8 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Ch9IZWxpb2J1c0FjdGl2aXR5RGF0YVNjUnNwLnByb3RvGhFKUE1DTkZEQURM",
-            "SC5wcm90bxodSGVsaW9idXNDaGFsbGVuZ2VMaW5ldXAucHJvdG8aEUVHS01I",
-            "S0xNTktJLnByb3RvGhFMRFBBT0NCSk9HQi5wcm90byKjAgoZSGVsaW9idXNB",
+            "SC5wcm90bxoRTERQQU9DQkpPR0IucHJvdG8aHUhlbGlvYnVzQ2hhbGxlbmdl",
+            "TGluZXVwLnByb3RvGhFFR0tNSEtMTU5LSS5wcm90byKjAgoZSGVsaW9idXNB",
             "Y3Rpdml0eURhdGFTY1JzcBITCgtCRE1KQkNBUE5OQxgCIAEoDRIkCg5jaGFs",
             "bGVuZ2VfbGlzdBgBIAMoCzIMLkxEUEFPQ0JKT0dCEg0KBWxldmVsGAYgASgN",
             "EiEKC0JOQ01KQURKTUxOGAUgAygLMgwuRUdLTUhLTE1OS0kSLQoLSE9DTEdI",
@@ -36,7 +36,7 @@ namespace EggLink.DanhengServer.Proto {
             "Y29kZRgOIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZw",
             "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.JPMCNFDADLHReflection.Descriptor, global::EggLink.DanhengServer.Proto.HeliobusChallengeLineupReflection.Descriptor, global::EggLink.DanhengServer.Proto.EGKMHKLMNKIReflection.Descriptor, global::EggLink.DanhengServer.Proto.LDPAOCBJOGBReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.JPMCNFDADLHReflection.Descriptor, global::EggLink.DanhengServer.Proto.LDPAOCBJOGBReflection.Descriptor, global::EggLink.DanhengServer.Proto.HeliobusChallengeLineupReflection.Descriptor, global::EggLink.DanhengServer.Proto.EGKMHKLMNKIReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.HeliobusActivityDataScRsp), global::EggLink.DanhengServer.Proto.HeliobusActivityDataScRsp.Parser, new[]{ "BDMJBCAPNNC", "ChallengeList", "Level", "BNCMJADJMLN", "HOCLGHOHCCB", "Phase", "FBDADANKEPE", "SkillInfo", "GPDPDGFCECB", "Retcode" }, null, null, null, null)
           }));

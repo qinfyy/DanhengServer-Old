@@ -1,6 +1,5 @@
 ﻿using EggLink.DanhengServer.Data.Config;
 using EggLink.DanhengServer.Enums;
-using EggLink.DanhengServer.Enums.Scene;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Game.Scene.Entity;
 
@@ -11,23 +10,15 @@ namespace EggLink.DanhengServer.Game.Mission.FinishType.Handler
     {
         public override void Init(PlayerInstance player, SubMissionInfo info, object? arg)
         {
-            var prop = player.SceneInstance!.GetEntitiesInGroup<EntityProp>(info.ParamInt1);
+            if (player.SceneInstance?.Excel.WorldID != 101) return;  // only set in Herta's Space
+            var prop = player.SceneInstance.GetEntitiesInGroup<EntityProp>(info.ParamInt1);
             if (prop == null) return;
-
+            
             foreach (var p in prop)
             {
-                if (p.PropInfo.ID == info.ParamInt2 && p.State != PropStateEnum.Open)
+                if (p.PropInfo.ID == info.ParamInt2)
                 {
-                    if (info.ParamInt3 != 0)
-                    {
-                        if (p.PropInfo.PropID == 101007)
-                        {
-                            p.SetState(PropStateEnum.Elevator1);  // elevator
-                        } else
-                        {
-                            p.SetState(info.SourceState);
-                        }
-                    }
+                    p.SetState(info.SourceState);
                 }
             }
         }

@@ -24,9 +24,9 @@ namespace EggLink.DanhengServer.Proto {
     static GetAetherDivideInfoScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Ch5HZXRBZXRoZXJEaXZpZGVJbmZvU2NSc3AucHJvdG8aFUFldGhlclNraWxs",
-            "SW5mby5wcm90bxocQWV0aGVyRGl2aWRlTGluZXVwSW5mby5wcm90bxocQWV0",
-            "aGVyRGl2aWRlU3Bpcml0SW5mby5wcm90byKXAgoYR2V0QWV0aGVyRGl2aWRl",
+            "Ch5HZXRBZXRoZXJEaXZpZGVJbmZvU2NSc3AucHJvdG8aHEFldGhlckRpdmlk",
+            "ZUxpbmV1cEluZm8ucHJvdG8aHEFldGhlckRpdmlkZVNwaXJpdEluZm8ucHJv",
+            "dG8aFUFldGhlclNraWxsSW5mby5wcm90byKXAgoYR2V0QWV0aGVyRGl2aWRl",
             "SW5mb1NjUnNwEhMKC0pHUEhMSktHQUZDGAEgASgNEhMKC0RMRlBPREtHQkxI",
             "GAggASgNEhMKC0ZFQ0lIQkRDS0tFGAMgASgNEiUKC0VQTURGRkFLUE1CGAkg",
             "AygLMhAuQWV0aGVyU2tpbGxJbmZvEhMKC0lGQkpKT09PR09IGA4gASgNEiwK",
@@ -35,7 +35,7 @@ namespace EggLink.DanhengServer.Proto {
             "DwoHcmV0Y29kZRgCIAEoDRITCgtLQUlBTktMS05ETRgMIAEoDUIeqgIbRWdn",
             "TGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.AetherSkillInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.AetherDivideLineupInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.AetherDivideSpiritInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.AetherDivideLineupInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.AetherDivideSpiritInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.AetherSkillInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetAetherDivideInfoScRsp), global::EggLink.DanhengServer.Proto.GetAetherDivideInfoScRsp.Parser, new[]{ "JGPHLJKGAFC", "DLFPODKGBLH", "FECIHBDCKKE", "EPMDFFAKPMB", "IFBJJOOOGOH", "DGPFDNLPMEF", "LineupList", "Retcode", "KAIANKLKNDM" }, null, null, null, null)
           }));

@@ -26,5 +26,18 @@ namespace EggLink.DanhengServer.Game.Rogue.Buff
             BuffId = (uint)BuffId,
             Level = (uint)BuffLevel
         };
+
+        public RogueCommonActionResult ToResultProto(RogueActionSource source) => new()
+        {
+            RogueAction = new()
+            {
+                GetBuffList = new()
+                {
+                    BuffId = (uint)BuffId,
+                    BuffLevel = (uint)BuffLevel
+                }
+            },
+            Source = source
+        };
     }
 }

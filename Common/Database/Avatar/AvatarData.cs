@@ -104,7 +104,7 @@ namespace EggLink.DanhengServer.Database.Avatar
 
         public int GetAvatarId()
         {
-            return HeroId > 0 ? HeroId : AvatarId;
+            return HeroId > 0 ? 8001 : AvatarId;
         }
 
         public int GetSpecialAvatarId()

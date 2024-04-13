@@ -109,6 +109,10 @@ namespace EggLink.DanhengServer.Data.Config
             {
                 return 20;  // find a better way to get the value
             }
+            if (FixedValue.Value < 0)
+            {
+                return -1;  // infinite
+            }
             return (int)(FixedValue.Value * 10);
         }
     }

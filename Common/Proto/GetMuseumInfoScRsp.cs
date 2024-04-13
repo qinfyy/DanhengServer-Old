@@ -24,9 +24,9 @@ namespace EggLink.DanhengServer.Proto {
     static GetMuseumInfoScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChhHZXRNdXNldW1JbmZvU2NSc3AucHJvdG8aEUhIQ05IUEVCSUNGLnByb3Rv",
-            "GhFNQkVNRUdPREVKTS5wcm90bxoRQ0NGT0tESU5BQ0sucHJvdG8aEUNNT0ZC",
-            "R1BCR0RELnByb3RvIuACChJHZXRNdXNldW1JbmZvU2NSc3ASEwoLQkdMSkdH",
+            "ChhHZXRNdXNldW1JbmZvU2NSc3AucHJvdG8aEUNDRk9LRElOQUNLLnByb3Rv",
+            "GhFDTU9GQkdQQkdERC5wcm90bxoRTUJFTUVHT0RFSk0ucHJvdG8aEUhIQ05I",
+            "UEVCSUNGLnByb3RvIuACChJHZXRNdXNldW1JbmZvU2NSc3ASEwoLQkdMSkdH",
             "TVBPT0gYDyABKA0SDQoFbGV2ZWwYDCABKA0SDwoHcmV0Y29kZRgFIAEoDRIT",
             "CgtESkpDR0RQR0NDSRgDIAEoDRITCgtMSUNMRERHSUxMRhgNIAMoDRIhCgtB",
             "Tk1ERUtPT0FGShgGIAMoCzIMLkNNT0ZCR1BCR0REEiEKC0ZHT0VEREJHTERH",
@@ -37,7 +37,7 @@ namespace EggLink.DanhengServer.Proto {
             "ThgKIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90",
             "bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.HHCNHPEBICFReflection.Descriptor, global::EggLink.DanhengServer.Proto.MBEMEGODEJMReflection.Descriptor, global::EggLink.DanhengServer.Proto.CCFOKDINACKReflection.Descriptor, global::EggLink.DanhengServer.Proto.CMOFBGPBGDDReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.CCFOKDINACKReflection.Descriptor, global::EggLink.DanhengServer.Proto.CMOFBGPBGDDReflection.Descriptor, global::EggLink.DanhengServer.Proto.MBEMEGODEJMReflection.Descriptor, global::EggLink.DanhengServer.Proto.HHCNHPEBICFReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetMuseumInfoScRsp), global::EggLink.DanhengServer.Proto.GetMuseumInfoScRsp.Parser, new[]{ "BGLJGGMPOOH", "Level", "Retcode", "DJJCGDPGCCI", "LICLDDGILLF", "ANMDEKOOAFJ", "FGOEDDBGLDG", "GBNIKNKPAAD", "OFNBEEEEBLD", "JMNOMIELAGB", "CAPPOHALLCL", "PFKKBGJOEKJ", "Exp", "KPKBKKDNEHN" }, null, null, null, null)
           }));

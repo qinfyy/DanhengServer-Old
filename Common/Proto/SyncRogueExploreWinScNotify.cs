@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static SyncRogueExploreWinScNotifyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiFTeW5jUm9ndWVFeHBsb3JlV2luU2NOb3RpZnkucHJvdG8iMgobU3luY1Jv",
-            "Z3VlRXhwbG9yZVdpblNjTm90aWZ5EhMKC0FMSU1DRUtOUE9LGAMgASgIQh6q",
-            "AhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "CiFTeW5jUm9ndWVFeHBsb3JlV2luU2NOb3RpZnkucHJvdG8iLQobU3luY1Jv",
+            "Z3VlRXhwbG9yZVdpblNjTm90aWZ5Eg4KBmlzX3dpbhgDIAEoCEIeqgIbRWdn",
+            "TGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SyncRogueExploreWinScNotify), global::EggLink.DanhengServer.Proto.SyncRogueExploreWinScNotify.Parser, new[]{ "ALIMCEKNPOK" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SyncRogueExploreWinScNotify), global::EggLink.DanhengServer.Proto.SyncRogueExploreWinScNotify.Parser, new[]{ "IsWin" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,7 +72,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SyncRogueExploreWinScNotify(SyncRogueExploreWinScNotify other) : this() {
-      aLIMCEKNPOK_ = other.aLIMCEKNPOK_;
+      isWin_ = other.isWin_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -82,15 +82,15 @@ namespace EggLink.DanhengServer.Proto {
       return new SyncRogueExploreWinScNotify(this);
     }
 
-    /// <summary>Field number for the "ALIMCEKNPOK" field.</summary>
-    public const int ALIMCEKNPOKFieldNumber = 3;
-    private bool aLIMCEKNPOK_;
+    /// <summary>Field number for the "is_win" field.</summary>
+    public const int IsWinFieldNumber = 3;
+    private bool isWin_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool ALIMCEKNPOK {
-      get { return aLIMCEKNPOK_; }
+    public bool IsWin {
+      get { return isWin_; }
       set {
-        aLIMCEKNPOK_ = value;
+        isWin_ = value;
       }
     }
 
@@ -109,7 +109,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (ALIMCEKNPOK != other.ALIMCEKNPOK) return false;
+      if (IsWin != other.IsWin) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -117,7 +117,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (ALIMCEKNPOK != false) hash ^= ALIMCEKNPOK.GetHashCode();
+      if (IsWin != false) hash ^= IsWin.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -136,9 +136,9 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (ALIMCEKNPOK != false) {
+      if (IsWin != false) {
         output.WriteRawTag(24);
-        output.WriteBool(ALIMCEKNPOK);
+        output.WriteBool(IsWin);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -150,9 +150,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (ALIMCEKNPOK != false) {
+      if (IsWin != false) {
         output.WriteRawTag(24);
-        output.WriteBool(ALIMCEKNPOK);
+        output.WriteBool(IsWin);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -164,7 +164,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (ALIMCEKNPOK != false) {
+      if (IsWin != false) {
         size += 1 + 1;
       }
       if (_unknownFields != null) {
@@ -179,8 +179,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.ALIMCEKNPOK != false) {
-        ALIMCEKNPOK = other.ALIMCEKNPOK;
+      if (other.IsWin != false) {
+        IsWin = other.IsWin;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -198,7 +198,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 24: {
-            ALIMCEKNPOK = input.ReadBool();
+            IsWin = input.ReadBool();
             break;
           }
         }
@@ -217,7 +217,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 24: {
-            ALIMCEKNPOK = input.ReadBool();
+            IsWin = input.ReadBool();
             break;
           }
         }

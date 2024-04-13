@@ -67,6 +67,8 @@ namespace EggLink.DanhengServer.Game.Player
         {
             // new player
             IsNewPlayer = true;
+            Data.NextStaminaRecover = Extensions.GetUnixSec() + GameConstants.STAMINA_RESERVE_RECOVERY_TIME;
+
             DatabaseHelper.Instance?.SaveInstance(Data);
 
             InitialPlayerManager();
@@ -107,9 +109,23 @@ namespace EggLink.DanhengServer.Game.Player
                 EnterScene(2000101, 0, false);
             }
 
-            if (LineupManager!.GetCurLineup()!.IsExtraLineup())
+            if (LineupManager!.GetCurLineup()!.IsExtraLineup())  // do not use extra lineup when login
             {
-                LineupManager!.SetCurLineup(0);
+                LineupManager!.SetExtraLineup(ExtraLineupType.LineupNone, []);
+                if (LineupManager!.GetCurLineup()!.IsExtraLineup())
+                {
+                    LineupManager!.SetCurLineup(0);
+                }
+            }
+
+            foreach (var avatar in LineupManager.GetCurLineup()!.BaseAvatars!)
+            {
+                var avatarData = AvatarManager.GetAvatar(avatar.BaseAvatarId);
+                if (avatarData != null && avatarData.CurrentHp <= 0)
+                {
+                    // revive
+                    avatarData.CurrentHp = 2000;
+                }
             }
         }
 
@@ -219,6 +235,33 @@ namespace EggLink.DanhengServer.Game.Player
             }
         }
 
+        public void OnStaminaRecover()
+        {
+            var sendPacket = false;
+            while (Data.NextStaminaRecover <= Extensions.GetUnixSec())
+            {
+                if (Data.Stamina >= GameConstants.MAX_STAMINA)
+                {
+                    if (Data.StaminaReserve >= GameConstants.MAX_STAMINA_RESERVE)  // needn't recover
+                    {
+                        break;
+                    }
+                    Data.StaminaReserve = Math.Min(Data.StaminaReserve + 1, GameConstants.MAX_STAMINA_RESERVE);
+                }
+                else
+                {
+                    Data.Stamina++;
+                }
+                Data.NextStaminaRecover = Extensions.GetUnixSec() + (Data.Stamina >= GameConstants.MAX_STAMINA ? GameConstants.STAMINA_RESERVE_RECOVERY_TIME : GameConstants.STAMINA_RECOVERY_TIME);
+                sendPacket = true;
+            }
+
+            if (sendPacket)
+            {
+                SendPacket(new PacketStaminaInfoScNotify(this));
+            }
+        }
+
         #endregion
 
         #region Scene Actions
@@ -239,6 +282,8 @@ namespace EggLink.DanhengServer.Game.Player
                     }
                 }
             }
+
+            OnStaminaRecover();
         }
 
         public EntityProp? InteractProp(int propEntityId, int interactId)

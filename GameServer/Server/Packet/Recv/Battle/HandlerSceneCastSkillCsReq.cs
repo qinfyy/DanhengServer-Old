@@ -32,17 +32,10 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Battle
                 {
                     // didnt hit any target
                     connection.SendPacket(new PacketSceneCastSkillScRsp(req.CastEntityId));
-                    if (mazeSkill != null && req.SkillIndex > 0)
-                    {
-                        if (mazeSkill.Actions.FindIndex(a => a is MazeSetTargetMonsterDie) < 0)
-                        {
-                            connection.Player!.LineupManager!.CostMp(req.AttackedByEntityId, 1);
-                        }
-                    }
                 }
-                else 
+                else
                 {
-                    connection.Player!.BattleManager!.StartBattle(req, mazeSkill); 
+                    connection.Player!.BattleManager!.StartBattle(req, mazeSkill);
                 }
             }
         }

@@ -32,7 +32,7 @@ namespace EggLink.DanhengServer.Game.Lineup
 
         public LineupInfo? GetCurLineup()
         {
-            return GetLineup(LineupData.CurLineup);
+            return GetLineup(LineupData.GetCurLineupIndex());
         }
 
         public List<AvatarSceneInfo> GetAvatarsFromTeam(int index)
@@ -82,7 +82,7 @@ namespace EggLink.DanhengServer.Game.Lineup
 
         public List<AvatarSceneInfo> GetAvatarsFromCurTeam()
         {
-            return GetAvatarsFromTeam(LineupData.CurLineup);
+            return GetAvatarsFromTeam(LineupData.GetCurLineupIndex());
         }
 
         public List<LineupInfo> GetAllLineup()
@@ -126,6 +126,7 @@ namespace EggLink.DanhengServer.Game.Lineup
                 return false;
             }
             LineupData.CurLineup = lineupIndex;
+            LineupData.CurExtraLineup = -1;
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
 
             Player.SceneInstance?.SyncLineup();
@@ -136,9 +137,18 @@ namespace EggLink.DanhengServer.Game.Lineup
 
         public void SetExtraLineup(Proto.ExtraLineupType type, List<int> baseAvatarIds)
         {
-            var index = (int)type + 9;
+            if (type == Proto.ExtraLineupType.LineupNone)
+            {
+                // reset lineup
+                LineupData.CurExtraLineup = -1;
+                DatabaseHelper.Instance?.UpdateInstance(LineupData);
+                return;
+            }
+            var index = (int)type + 10;
+
             // destroy old lineup
             LineupData.Lineups.Remove(index);
+
             // create new lineup
             var lineup = new LineupInfo()
             {
@@ -155,6 +165,7 @@ namespace EggLink.DanhengServer.Game.Lineup
             }
 
             LineupData.Lineups.Add(index, lineup);
+            LineupData.CurExtraLineup = index;
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
         }
 
@@ -184,7 +195,7 @@ namespace EggLink.DanhengServer.Game.Lineup
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
             if (sendPacket)
             {
-                if (lineupIndex == LineupData.CurLineup)
+                if (lineupIndex == LineupData.GetCurLineupIndex())
                 {
                     Player.SceneInstance?.SyncLineup();
                 }
@@ -194,12 +205,12 @@ namespace EggLink.DanhengServer.Game.Lineup
 
         public void AddAvatarToCurTeam(int avatarId, bool sendPacket = true)
         {
-            AddAvatar(LineupData.CurLineup, avatarId, sendPacket);
+            AddAvatar(LineupData.GetCurLineupIndex(), avatarId, sendPacket);
         }
 
         public void AddSpecialAvatarToCurTeam(int specialAvatarId, bool sendPacket = true)
         {
-            LineupData.Lineups.TryGetValue(LineupData.CurLineup, out LineupInfo? lineup);
+            LineupData.Lineups.TryGetValue(LineupData.GetCurLineupIndex(), out LineupInfo? lineup);
             GameData.SpecialAvatarData.TryGetValue(specialAvatarId, out var specialAvatar);
             if (specialAvatar == null)
             {
@@ -215,11 +226,11 @@ namespace EggLink.DanhengServer.Game.Lineup
                     LineupData = LineupData,
                     AvatarData = Player.AvatarManager!.AvatarData,
                 };
-                LineupData.Lineups.Add(LineupData.CurLineup, lineup);
+                LineupData.Lineups.Add(LineupData.GetCurLineupIndex(), lineup);
             } else
             {
                 lineup.BaseAvatars?.Add(new() { BaseAvatarId = specialAvatar.AvatarID, SpecialAvatarId = specialAvatarId });
-                LineupData.Lineups[LineupData.CurLineup] = lineup;
+                LineupData.Lineups[LineupData.GetCurLineupIndex()] = lineup;
             }
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
             if (sendPacket)
@@ -243,7 +254,7 @@ namespace EggLink.DanhengServer.Game.Lineup
             lineup.BaseAvatars?.RemoveAll(avatar => avatar.BaseAvatarId == avatarId);
             LineupData.Lineups[lineupIndex] = lineup;
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
-            if (lineupIndex == LineupData.CurLineup)
+            if (lineupIndex == LineupData.GetCurLineupIndex())
             {
                 Player.SceneInstance?.SyncLineup();
             }
@@ -252,18 +263,18 @@ namespace EggLink.DanhengServer.Game.Lineup
 
         public void RemoveAvatarFromCurTeam(int avatarId)
         {
-            RemoveAvatar(LineupData.CurLineup, avatarId);
+            RemoveAvatar(LineupData.GetCurLineupIndex(), avatarId);
         }
 
         public void RemoveSpecialAvatarFromCurTeam(int specialAvatarId)
         {
-            LineupData.Lineups.TryGetValue(LineupData.CurLineup, out LineupInfo? lineup);
+            LineupData.Lineups.TryGetValue(LineupData.GetCurLineupIndex(), out LineupInfo? lineup);
             if (lineup == null)
             {
                 return;
             }
             lineup.BaseAvatars?.RemoveAll(avatar => avatar.SpecialAvatarId == specialAvatarId);
-            LineupData.Lineups[LineupData.CurLineup] = lineup;
+            LineupData.Lineups[LineupData.GetCurLineupIndex()] = lineup;
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
             Player.SceneInstance?.SyncLineup();
             Player.SendPacket(new PacketSyncLineupNotify(lineup));
@@ -271,36 +282,44 @@ namespace EggLink.DanhengServer.Game.Lineup
 
         public void ReplaceLineup(Proto.ReplaceLineupCsReq req)
         {
-            if (req.Index < 0 || !LineupData.Lineups.ContainsKey((int)req.Index))
+            LineupInfo lineup;
+            if (LineupData.CurExtraLineup != -1)
+            {
+                lineup = LineupData.Lineups[LineupData.CurExtraLineup];  // Extra lineup
+            } else if (req.Index < 0 || !LineupData.Lineups.ContainsKey((int)req.Index))
             {
                 return;
+            } else
+            {
+                lineup = LineupData.Lineups[(int)req.Index];
             }
-            var lineup = LineupData.Lineups[(int)(req.Index)];
             lineup.BaseAvatars = [];
+            var index = lineup.LineupType == 0 ? (int)req.Index : LineupData.GetCurLineupIndex();
             foreach (var avatar in req.LineupSlotList)
             {
-                AddAvatar((int)req.Index, (int)avatar.Id, false);
+                AddAvatar(index, (int)avatar.Id, false);
             }
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
-            if (req.Index == LineupData.CurLineup)
+            if (index == LineupData.GetCurLineupIndex())
             {
                 Player.SceneInstance?.SyncLineup();
             }
             Player.SendPacket(new PacketSyncLineupNotify(lineup));
         }
 
-        public void CostMp(uint entityId, int count)
+        public void CostMp(int count)
         {
-            LineupData.Mp -= count;
-            LineupData.Mp = Math.Min(Math.Max(0, LineupData.Mp), 5);
+            var curLineup = GetCurLineup()!;
+            curLineup.Mp -= count;
+            curLineup.Mp = Math.Min(Math.Max(0, curLineup.Mp), 5);
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
-            Player.SendPacket(new PacketSceneCastSkillMpUpdateScNotify(entityId, LineupData.Mp));
         }
 
         public void GainMp(int count, bool sendPacket = true)
         {
-            LineupData.Mp += count;
-            LineupData.Mp = Math.Min(Math.Max(0, LineupData.Mp), 5);
+            var curLineup = GetCurLineup()!;
+            curLineup.Mp += count;
+            curLineup.Mp = Math.Min(Math.Max(0, curLineup.Mp), 5);
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
             if (sendPacket)
             {

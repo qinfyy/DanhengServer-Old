@@ -13,6 +13,7 @@ namespace EggLink.DanhengServer.Data.Excel
         public int RogueRoomType { get; set; }
         public int MapEntrance { get; set; }
         public int GroupID { get; set; }
+        public Dictionary<int, int> GroupWithContent { get; set; } = [];
 
         public override int GetId()
         {

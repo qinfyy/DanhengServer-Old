@@ -24,15 +24,15 @@ namespace EggLink.DanhengServer.Proto {
     static RaidInfoNotifyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChRSYWlkSW5mb05vdGlmeS5wcm90bxoOSXRlbUxpc3QucHJvdG8aEFJhaWRT",
-            "dGF0dXMucHJvdG8aEUFPRktKSUREQUZMLnByb3RvIqkBCg5SYWlkSW5mb05v",
+            "ChRSYWlkSW5mb05vdGlmeS5wcm90bxoQUmFpZFN0YXR1cy5wcm90bxoRQU9G",
+            "S0pJRERBRkwucHJvdG8aDkl0ZW1MaXN0LnByb3RvIqkBCg5SYWlkSW5mb05v",
             "dGlmeRIPCgdyYWlkX2lkGAogASgNEhsKBnN0YXR1cxgEIAEoDjILLlJhaWRT",
             "dGF0dXMSIQoLTkpBSEpLRkNDQk0YByADKAsyDC5BT0ZLSklEREFGTBIcCglp",
             "dGVtX2xpc3QYAiABKAsyCS5JdGVtTGlzdBITCgtLQk9DQ0NQTkdOThgBIAEo",
             "BBITCgt3b3JsZF9sZXZlbBgGIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2Vy",
             "dmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ItemListReflection.Descriptor, global::EggLink.DanhengServer.Proto.RaidStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.AOFKJIDDAFLReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RaidStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.AOFKJIDDAFLReflection.Descriptor, global::EggLink.DanhengServer.Proto.ItemListReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RaidInfoNotify), global::EggLink.DanhengServer.Proto.RaidInfoNotify.Parser, new[]{ "RaidId", "Status", "NJAHJKFCCBM", "ItemList", "KBOCCCPNGNN", "WorldLevel" }, null, null, null, null)
           }));

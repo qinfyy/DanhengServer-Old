@@ -24,8 +24,8 @@ namespace EggLink.DanhengServer.Proto {
     static JPDHONPICIDReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFKUERIT05QSUNJRC5wcm90bxoRQ1BFRUxMQ0pDTUQucHJvdG8aEUJDTEtO",
-            "QktFUENPLnByb3RvGhFQQkhDRkhKSEdOSy5wcm90bxoRQ0VMQk1BSUtPTEUu",
+            "ChFKUERIT05QSUNJRC5wcm90bxoRQ1BFRUxMQ0pDTUQucHJvdG8aEUNFTEJN",
+            "QUlLT0xFLnByb3RvGhFCQ0xLTkJLRVBDTy5wcm90bxoRUEJIQ0ZISkhHTksu",
             "cHJvdG8aEU9NRkZGRktQSk1HLnByb3RvIvgBCgtKUERIT05QSUNJRBInChFy",
             "b2d1ZV90YWxlbnRfaW5mbxgFIAEoCzIMLk9NRkZGRktQSk1HEiEKC0VETEhD",
             "T0RBQklQGAkgASgLMgwuQ1BFRUxMQ0pDTUQSEwoLR0xBRExLR0FPSEkYCCAD",
@@ -34,7 +34,7 @@ namespace EggLink.DanhengServer.Proto {
             "R05LEi0KF3JvZ3VlX3ZpcnR1YWxfaXRlbV9pbmZvGAMgASgLMgwuQ0VMQk1B",
             "SUtPTEVCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.CPEELLCJCMDReflection.Descriptor, global::EggLink.DanhengServer.Proto.BCLKNBKEPCOReflection.Descriptor, global::EggLink.DanhengServer.Proto.PBHCFHJHGNKReflection.Descriptor, global::EggLink.DanhengServer.Proto.CELBMAIKOLEReflection.Descriptor, global::EggLink.DanhengServer.Proto.OMFFFFKPJMGReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.CPEELLCJCMDReflection.Descriptor, global::EggLink.DanhengServer.Proto.CELBMAIKOLEReflection.Descriptor, global::EggLink.DanhengServer.Proto.BCLKNBKEPCOReflection.Descriptor, global::EggLink.DanhengServer.Proto.PBHCFHJHGNKReflection.Descriptor, global::EggLink.DanhengServer.Proto.OMFFFFKPJMGReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.JPDHONPICID), global::EggLink.DanhengServer.Proto.JPDHONPICID.Parser, new[]{ "RogueTalentInfo", "EDLHCODABIP", "GLADLKGAOHI", "PCOINGAMOML", "NBFJPOJDGDO", "BDHMAABBMLN", "RogueVirtualItemInfo" }, null, null, null, null)
           }));

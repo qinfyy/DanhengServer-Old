@@ -16,9 +16,14 @@ namespace EggLink.DanhengServer.Database.Lineup
     public class LineupData : BaseDatabaseData
     {
         public int CurLineup { get; set; }  // index of current lineup
+        public int CurExtraLineup { get; set; } = -1;  // index of current extra lineup
         [SugarColumn(IsJson = true)]
         public Dictionary<int, LineupInfo> Lineups { get; set; } = [];  // 9 * 4
-        public int Mp { get; set; } = 5;
+
+        public int GetCurLineupIndex()
+        {
+            return CurExtraLineup == -1 ? CurLineup : CurExtraLineup;
+        }
     }
 
     public class LineupInfo
@@ -27,6 +32,7 @@ namespace EggLink.DanhengServer.Database.Lineup
         public int LineupType { get; set; }
         public int LeaderAvatarId { get; set; }
         public List<AvatarInfo>? BaseAvatars { get; set; }
+        public int Mp { get; set; } = 5;
 
         [JsonIgnore()]
         public LineupData? LineupData { get; set; }
@@ -77,10 +83,14 @@ namespace EggLink.DanhengServer.Database.Lineup
             {
                 Name = Name,
                 MaxMp = 5,
-                Mp = (uint)(LineupData?.Mp ?? 0),
+                Mp = (uint)Mp,
                 ExtraLineupType = (ExtraLineupType)LineupType,
                 Index = (uint)(LineupData?.Lineups?.Values.ToList().IndexOf(this) ?? 0),
             };
+            if (LineupType != (int)ExtraLineupType.LineupNone)
+            {
+                info.Index = 0;
+            }
             if (BaseAvatars?.Find(item => item.BaseAvatarId == LeaderAvatarId) != null)  // find leader,if not exist,set to 0
             {
                 info.LeaderSlot = (uint)BaseAvatars.IndexOf(BaseAvatars.Find(item => item.BaseAvatarId == LeaderAvatarId)!);

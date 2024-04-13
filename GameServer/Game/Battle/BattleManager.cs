@@ -90,8 +90,6 @@ namespace EggLink.DanhengServer.Game.Battle
             {
                 if (castAvatar != null && req.SkillIndex > 0)
                 {
-                    // cost Mp
-                    Player!.LineupManager!.CostMp(req.AttackedByEntityId, 1);
                     skill.OnCast(castAvatar);
                 }
                 // Skill handle

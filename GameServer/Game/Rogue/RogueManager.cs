@@ -2,6 +2,7 @@
 using EggLink.DanhengServer.Data.Excel;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Proto;
+using EggLink.DanhengServer.Server.Packet.Send.Lineup;
 using EggLink.DanhengServer.Server.Packet.Send.Rogue;
 using EggLink.DanhengServer.Util;
 using System;
@@ -65,6 +66,7 @@ namespace EggLink.DanhengServer.Game.Rogue
 
             Player.LineupManager!.SetExtraLineup(ExtraLineupType.LineupRogue, baseAvatarIds);
             Player.LineupManager!.GainMp(5, false);
+            Player.SendPacket(new PacketSyncLineupNotify(Player.LineupManager!.GetCurLineup()!));
 
             foreach (var id in baseAvatarIds)
             {
