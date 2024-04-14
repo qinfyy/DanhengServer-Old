@@ -29,6 +29,7 @@
 
 ## Need Help
 - Support for Android
+- Support for 100040119 (can not be finished automatically) (use /mission finish 100040119 to fix it)
 
 ## Thanks
 - Weedwacker - Provide a kcp implementation for C#

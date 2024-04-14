@@ -84,6 +84,7 @@ namespace EggLink.DanhengServer.Game.Battle
                     Player.LineupManager!.GetCurLineup()!.Heal(2000, false);
                     Player.SendPacket(new PacketSyncLineupNotify(Player.LineupManager!.GetCurLineup()!));
                 }
+                Player.RogueManager!.RogueInstance?.OnPropDestruct(prop);
             }
 
             if (targetList.Count > 0)
@@ -185,6 +186,19 @@ namespace EggLink.DanhengServer.Game.Battle
                 WorldLevel = Player.Data.WorldLevel,
             };
 
+            var avatarList = new List<AvatarSceneInfo>();
+
+            foreach (var item in Player.LineupManager!.GetCurLineup()!.BaseAvatars!)  // get all avatars in the lineup and add them to the battle instance
+            {
+                var avatar = Player.SceneInstance!.AvatarInfo.Values.FirstOrDefault(x => x.AvatarInfo.AvatarId == item.BaseAvatarId);
+                if (avatar != null)
+                {
+                    avatarList.Add(avatar);
+                }
+            }
+
+            battleInstance.AvatarInfo = avatarList;
+
             // call battle start
             Player.RogueManager!.RogueInstance?.OnBattleStart(battleInstance);
 
@@ -235,6 +249,19 @@ namespace EggLink.DanhengServer.Game.Battle
                 CocoonWave = wave,
                 MappingInfoId = config.MappingInfoID,
             };
+
+            var avatarList = new List<AvatarSceneInfo>();
+
+            foreach (var item in Player.LineupManager!.GetCurLineup()!.BaseAvatars!)  // get all avatars in the lineup and add them to the battle instance
+            {
+                var avatar = Player.SceneInstance!.AvatarInfo.Values.FirstOrDefault(x => x.AvatarInfo.AvatarId == item.BaseAvatarId);
+                if (avatar != null)
+                {
+                    avatarList.Add(avatar);
+                }
+            }
+
+            battleInstance.AvatarInfo = avatarList;
 
             Player.BattleInstance = battleInstance;
 

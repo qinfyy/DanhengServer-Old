@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static GameplayCounterCountDownCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiNHYW1lcGxheUNvdW50ZXJDb3VudERvd25Dc1JlcS5wcm90byJJCh1HYW1l",
-            "cGxheUNvdW50ZXJDb3VudERvd25Dc1JlcRITCgtHT0lKT0lCQkJDUBgOIAEo",
-            "DRITCgtLT1BORkZJQ0JDSRgHIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2Vy",
-            "dmVyLlByb3RvYgZwcm90bzM="));
+            "CiNHYW1lcGxheUNvdW50ZXJDb3VudERvd25Dc1JlcS5wcm90byJICh1HYW1l",
+            "cGxheUNvdW50ZXJDb3VudERvd25Dc1JlcRISCgp1c2VkX3RpbWVzGA4gASgN",
+            "EhMKC0tPUE5GRklDQkNJGAcgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2",
+            "ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GameplayCounterCountDownCsReq), global::EggLink.DanhengServer.Proto.GameplayCounterCountDownCsReq.Parser, new[]{ "GOIJOIBBBCP", "KOPNFFICBCI" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GameplayCounterCountDownCsReq), global::EggLink.DanhengServer.Proto.GameplayCounterCountDownCsReq.Parser, new[]{ "UsedTimes", "KOPNFFICBCI" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GameplayCounterCountDownCsReq(GameplayCounterCountDownCsReq other) : this() {
-      gOIJOIBBBCP_ = other.gOIJOIBBBCP_;
+      usedTimes_ = other.usedTimes_;
       kOPNFFICBCI_ = other.kOPNFFICBCI_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -84,15 +84,15 @@ namespace EggLink.DanhengServer.Proto {
       return new GameplayCounterCountDownCsReq(this);
     }
 
-    /// <summary>Field number for the "GOIJOIBBBCP" field.</summary>
-    public const int GOIJOIBBBCPFieldNumber = 14;
-    private uint gOIJOIBBBCP_;
+    /// <summary>Field number for the "used_times" field.</summary>
+    public const int UsedTimesFieldNumber = 14;
+    private uint usedTimes_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint GOIJOIBBBCP {
-      get { return gOIJOIBBBCP_; }
+    public uint UsedTimes {
+      get { return usedTimes_; }
       set {
-        gOIJOIBBBCP_ = value;
+        usedTimes_ = value;
       }
     }
 
@@ -123,7 +123,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (GOIJOIBBBCP != other.GOIJOIBBBCP) return false;
+      if (UsedTimes != other.UsedTimes) return false;
       if (KOPNFFICBCI != other.KOPNFFICBCI) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -132,7 +132,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (GOIJOIBBBCP != 0) hash ^= GOIJOIBBBCP.GetHashCode();
+      if (UsedTimes != 0) hash ^= UsedTimes.GetHashCode();
       if (KOPNFFICBCI != 0) hash ^= KOPNFFICBCI.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -156,9 +156,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(56);
         output.WriteUInt32(KOPNFFICBCI);
       }
-      if (GOIJOIBBBCP != 0) {
+      if (UsedTimes != 0) {
         output.WriteRawTag(112);
-        output.WriteUInt32(GOIJOIBBBCP);
+        output.WriteUInt32(UsedTimes);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -174,9 +174,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(56);
         output.WriteUInt32(KOPNFFICBCI);
       }
-      if (GOIJOIBBBCP != 0) {
+      if (UsedTimes != 0) {
         output.WriteRawTag(112);
-        output.WriteUInt32(GOIJOIBBBCP);
+        output.WriteUInt32(UsedTimes);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -188,8 +188,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (GOIJOIBBBCP != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GOIJOIBBBCP);
+      if (UsedTimes != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(UsedTimes);
       }
       if (KOPNFFICBCI != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(KOPNFFICBCI);
@@ -206,8 +206,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.GOIJOIBBBCP != 0) {
-        GOIJOIBBBCP = other.GOIJOIBBBCP;
+      if (other.UsedTimes != 0) {
+        UsedTimes = other.UsedTimes;
       }
       if (other.KOPNFFICBCI != 0) {
         KOPNFFICBCI = other.KOPNFFICBCI;
@@ -232,7 +232,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 112: {
-            GOIJOIBBBCP = input.ReadUInt32();
+            UsedTimes = input.ReadUInt32();
             break;
           }
         }
@@ -255,7 +255,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 112: {
-            GOIJOIBBBCP = input.ReadUInt32();
+            UsedTimes = input.ReadUInt32();
             break;
           }
         }

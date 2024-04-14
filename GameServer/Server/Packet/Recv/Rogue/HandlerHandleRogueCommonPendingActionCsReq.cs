@@ -21,7 +21,7 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Rogue
 
             if (req.BuffRerollSelectResult != null)
             {
-                Logger.GetByClassName().Debug("BuffRerollSelectResult");
+                rogue.HandleRerollBuff();
             }
 
             if (req.BonusSelectResult != null)

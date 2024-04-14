@@ -1,9 +1,7 @@
-﻿using EggLink.DanhengServer.Proto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EggLink.DanhengServer.Enums.Rogue;
+using EggLink.DanhengServer.Proto;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace EggLink.DanhengServer.Data.Excel
 {
@@ -15,6 +13,10 @@ namespace EggLink.DanhengServer.Data.Excel
         public int RogueBuffType { get; set; }
         public int RogueBuffRarity { get; set; }
         public int RogueBuffTag { get; set; }
+        public int AeonID { get; set; }
+
+        [JsonConverter(typeof(StringEnumConverter))]
+        public RogueBuffAeonTypeEnum BattleEventBuffType { get; set; } = RogueBuffAeonTypeEnum.Normal;
 
         public override int GetId()
         {
@@ -24,6 +26,21 @@ namespace EggLink.DanhengServer.Data.Excel
         public override void Loaded()
         {
             GameData.RogueBuffData.Add(GetId(), this);
+
+            if (BattleEventBuffType == RogueBuffAeonTypeEnum.BattleEventBuff)
+            {
+                GameData.RogueAeonBuffData.Add(AeonID, this);
+            } else if (BattleEventBuffType == RogueBuffAeonTypeEnum.BattleEventBuffEnhance)
+            {
+                if (GameData.RogueAeonEnhanceData.TryGetValue(AeonID, out var aeonBuff))
+                {
+                    aeonBuff.Add(this);
+                }
+                else
+                {
+                    GameData.RogueAeonEnhanceData.Add(AeonID, [this]);
+                }
+            }
         }
 
         public RogueCommonBuff ToProto()
@@ -34,5 +51,7 @@ namespace EggLink.DanhengServer.Data.Excel
                 BuffLevel = (uint)MazeBuffLevel,
             };
         }
+
+        public bool IsAeonBuff => BattleEventBuffType != RogueBuffAeonTypeEnum.Normal;
     }
 }

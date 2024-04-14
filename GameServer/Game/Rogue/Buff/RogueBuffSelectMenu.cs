@@ -31,7 +31,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Buff
             {
                 if (buff.RogueBuffType == rogue.AeonExcel.RogueBuffType)
                 {
-                    list.Add(buff, 20 / buff.RogueBuffRarity * 2);
+                    list.Add(buff, (int)(20 / buff.RogueBuffRarity * 2.5));
                 } else
                 {
                     list.Add(buff, (int)(20 / buff.RogueBuffRarity * 0.7));
@@ -45,7 +45,9 @@ namespace EggLink.DanhengServer.Game.Rogue.Buff
                 if (buff != null)
                 {
                     result.Add(buff);
+                    list.Remove(buff);
                 }
+                if (list.GetCount() == 0) break;  // No more buffs to roll
             }
 
             Buffs = result;
@@ -71,7 +73,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Buff
             rogue.CurActionQueuePosition += QueueAppend;
             return new()
             {
-                QueuePosition = rogue.CurActionQueuePosition - QueueAppend,
+                QueuePosition = rogue.CurActionQueuePosition,
                 RogueBuffSelectMenu = this
             };
         }

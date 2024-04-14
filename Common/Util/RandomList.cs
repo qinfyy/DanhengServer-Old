@@ -10,7 +10,7 @@ namespace EggLink.DanhengServer.Util
     /// A list that can be used to randomly select an element with a certain weight from it.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class RandomList<T> : List<T>
+    public class RandomList<T>
     {
         private readonly List<T> _List = [];
 
@@ -20,7 +20,7 @@ namespace EggLink.DanhengServer.Util
 
         public RandomList(IEnumerable<T> collection)
         {
-            AddRange(collection);
+            _List.AddRange(collection);
         }
 
         public void Add(T item, int weight)
@@ -28,6 +28,19 @@ namespace EggLink.DanhengServer.Util
             for (int i = 0; i < weight; i++)
             {
                 _List.Add(item);
+            }
+        }
+
+        public void Remove(T item)
+        {
+            var temp = _List.ToList();
+            _List.Clear();
+            foreach (var i in temp)
+            {
+                if (i?.Equals(item) == false)
+                {
+                    _List.Add(i);
+                }
             }
         }
 
@@ -47,6 +60,16 @@ namespace EggLink.DanhengServer.Util
                 return default;
             }
             return _List[Random.Shared.Next(_List.Count)];
+        }
+
+        public void Clear()
+        {
+            _List.Clear();
+        }
+
+        public int GetCount()
+        {
+            return _List.Count;
         }
     }
 }

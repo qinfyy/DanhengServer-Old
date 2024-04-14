@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static EEPGHLFNDKJReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFFRVBHSExGTkRLSi5wcm90bxoRRUVPR05OR0FBSU8ucHJvdG8aEU9ITU9F",
-            "R0lPT0ZKLnByb3RvGh5Sb2d1ZUNvbW1vblBlbmRpbmdBY3Rpb24ucHJvdG8a",
-            "EUNFTEJNQUlLT0xFLnByb3RvGhFBTEtLUEdPR0JDSy5wcm90bxoWUm9ndWVW",
-            "aXJ0dWFsSXRlbS5wcm90bxoRQVBDS09CS0RHRkcucHJvdG8aEUFJS0FLQUFN",
-            "RE9OLnByb3RvGhFGTkJLR0FJR05EQi5wcm90bxoRUEZOSE9IT09FTkQucHJv",
-            "dG8aEUhGUEpDTUNNRklFLnByb3RvGhFPTEhDSE1QTEpQRS5wcm90bxoRRERB",
-            "T0xEQ1BNREkucHJvdG8aEUNMTUxETERHSEJFLnByb3RvIs4ECgtFRVBHSExG",
+            "ChFFRVBHSExGTkRLSi5wcm90bxoRSEZQSkNNQ01GSUUucHJvdG8aEUFJS0FL",
+            "QUFNRE9OLnByb3RvGhFBUENLT0JLREdGRy5wcm90bxoRRk5CS0dBSUdOREIu",
+            "cHJvdG8aEUNFTEJNQUlLT0xFLnByb3RvGhFPSE1PRUdJT09GSi5wcm90bxoR",
+            "T0xIQ0hNUExKUEUucHJvdG8aEUREQU9MRENQTURJLnByb3RvGhFFRU9HTk5H",
+            "QUFJTy5wcm90bxoRQUxLS1BHT0dCQ0sucHJvdG8aHlJvZ3VlQ29tbW9uUGVu",
+            "ZGluZ0FjdGlvbi5wcm90bxoWUm9ndWVWaXJ0dWFsSXRlbS5wcm90bxoRUEZO",
+            "SE9IT09FTkQucHJvdG8aEUNMTUxETERHSEJFLnByb3RvIs4ECgtFRVBHSExG",
             "TkRLShIlCg9yb2d1ZV9idWZmX2luZm8YDiABKAsyDC5DTE1MRExER0hCRRIh",
             "CgtOTEhHR0lMQklOUBgGIAEoCzIMLkVFT0dOTkdBQUlPEiIKC1BDT0lOR0FN",
             "T01MGKAIIAEoCzIMLkhGUEpDTUNNRklFEhgKEHJvZ3VlX3ZlcnNpb25faWQY",
@@ -46,7 +46,7 @@ namespace EggLink.DanhengServer.Proto {
             "EicKEXJvZ3VlX2xpbmV1cF9pbmZvGAEgASgLMgwuT0xIQ0hNUExKUEVCHqoC",
             "G0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.EEOGNNGAAIOReflection.Descriptor, global::EggLink.DanhengServer.Proto.OHMOEGIOOFJReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueCommonPendingActionReflection.Descriptor, global::EggLink.DanhengServer.Proto.CELBMAIKOLEReflection.Descriptor, global::EggLink.DanhengServer.Proto.ALKKPGOGBCKReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueVirtualItemReflection.Descriptor, global::EggLink.DanhengServer.Proto.APCKOBKDGFGReflection.Descriptor, global::EggLink.DanhengServer.Proto.AIKAKAAMDONReflection.Descriptor, global::EggLink.DanhengServer.Proto.FNBKGAIGNDBReflection.Descriptor, global::EggLink.DanhengServer.Proto.PFNHOHOOENDReflection.Descriptor, global::EggLink.DanhengServer.Proto.HFPJCMCMFIEReflection.Descriptor, global::EggLink.DanhengServer.Proto.OLHCHMPLJPEReflection.Descriptor, global::EggLink.DanhengServer.Proto.DDAOLDCPMDIReflection.Descriptor, global::EggLink.DanhengServer.Proto.CLMLDLDGHBEReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.HFPJCMCMFIEReflection.Descriptor, global::EggLink.DanhengServer.Proto.AIKAKAAMDONReflection.Descriptor, global::EggLink.DanhengServer.Proto.APCKOBKDGFGReflection.Descriptor, global::EggLink.DanhengServer.Proto.FNBKGAIGNDBReflection.Descriptor, global::EggLink.DanhengServer.Proto.CELBMAIKOLEReflection.Descriptor, global::EggLink.DanhengServer.Proto.OHMOEGIOOFJReflection.Descriptor, global::EggLink.DanhengServer.Proto.OLHCHMPLJPEReflection.Descriptor, global::EggLink.DanhengServer.Proto.DDAOLDCPMDIReflection.Descriptor, global::EggLink.DanhengServer.Proto.EEOGNNGAAIOReflection.Descriptor, global::EggLink.DanhengServer.Proto.ALKKPGOGBCKReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueCommonPendingActionReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueVirtualItemReflection.Descriptor, global::EggLink.DanhengServer.Proto.PFNHOHOOENDReflection.Descriptor, global::EggLink.DanhengServer.Proto.CLMLDLDGHBEReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.EEPGHLFNDKJ), global::EggLink.DanhengServer.Proto.EEPGHLFNDKJ.Parser, new[]{ "RogueBuffInfo", "NLHGGILBINP", "PCOINGAMOML", "RogueVersionId", "KBODBDDMDEK", "RogueVirtualItemInfo", "RogueAeonInfo", "JGEPPAKNCIP", "PendingAction", "AFDKPFLBFJI", "IGIIGLJHPIA", "GameMiracleInfo", "RogueVirtualItem", "LEHDEMMDOIM", "RogueLineupInfo" }, null, null, null, null)
           }));

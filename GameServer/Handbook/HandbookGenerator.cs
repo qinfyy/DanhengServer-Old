@@ -129,10 +129,10 @@ namespace EggLink.DanhengServer.Handbook
 
         public static void GenerateRogueMiracleDisplay(StringBuilder builder, Dictionary<long, string> map)
         {
-            foreach (var display in GameData.RogueMiracleDisplayData.Values)
+            foreach (var display in GameData.RogueMiracleData.Values)
             {
                 var name = map.TryGetValue(display.MiracleName.Hash, out var value) ? value : $"[{display.MiracleName.Hash}]";
-                builder.AppendLine(display.MiracleDisplayID + ": " + name);
+                builder.AppendLine(display.MiracleID + ": " + name);
             }
         }
 

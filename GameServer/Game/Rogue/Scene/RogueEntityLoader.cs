@@ -19,6 +19,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Scene
         public PlayerInstance Player = player;
         public SceneInstance Scene = scene;
         public List<int> RogueDoorPropIds = [1000, 1021, 1022, 1023];
+        public List<int> NextRoomIds = [];
 
         public override void LoadEntity()
         {
@@ -79,6 +80,48 @@ namespace EggLink.DanhengServer.Game.Rogue.Scene
             return entityList;
         }
 
+        public override EntityNpc? LoadNpc(NpcInfo info, GroupInfo group, bool sendPacket = false)
+        {
+            if (info.IsClientOnly || info.IsDelete)
+            {
+                return null;
+            }
+            if (!GameData.NpcDataData.ContainsKey(info.NPCID))
+            {
+                return null;
+            }
+
+            bool hasDuplicateNpcId = false;
+            foreach (IGameEntity entity in scene.Entities.Values)
+            {
+                if (entity is EntityNpc eNpc && eNpc.NpcId == info.NPCID)
+                {
+                    hasDuplicateNpcId = true;
+                    break;
+                }
+            }
+            if (hasDuplicateNpcId)
+            {
+                return null;
+            }
+
+            RogueNpc npc = new(scene, group, info);
+            if (info.NPCID == 3013)
+            {
+                // generate event
+                var instance = Player.RogueManager?.RogueInstance?.GenerateEvent(npc);
+                if (instance != null)
+                {
+                    npc.RogueEvent = instance;
+                    npc.RogueNpcId = instance.EventId;
+                    npc.UniqueId = instance.EventUniqueId;
+                }
+            }
+            scene.AddEntity(npc, sendPacket);
+
+            return npc;
+        }
+
         public override EntityMonster? LoadMonster(MonsterInfo info, GroupInfo group, bool sendPacket = false)
         {
             if (info.IsClientOnly || info.IsDelete)
@@ -102,6 +145,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Scene
                 EventID = rogueMonster.EventID,
                 CustomStageID = rogueMonster.EventID
             };
+
             scene.AddEntity(entity, sendPacket);
 
             return entity;
@@ -124,13 +168,8 @@ namespace EggLink.DanhengServer.Game.Rogue.Scene
 
             if (RogueDoorPropIds.Contains(prop.PropInfo.PropID))
             {
-                int index = 0;
+                int index = NextRoomIds.Count;
                 var nextSiteIds = room.NextSiteIds;
-
-                if (prop.PropInfo.Name == "Door2")
-                {
-                    index = 1;
-                }
                 if (nextSiteIds.Count == 0)
                 {
                     // exit
@@ -141,6 +180,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Scene
                     var nextRoom = Player.RogueManager?.RogueInstance?.RogueRooms[nextSiteIds[index]];
                     prop.NextSiteID = nextSiteIds[index];
                     prop.NextRoomID = nextRoom!.Excel?.RogueRoomID ?? 0;
+                    NextRoomIds.Add(prop.NextRoomID);
 
                     prop.CustomPropID = nextRoom!.Excel!.RogueRoomType switch  // door style
                     {
@@ -154,10 +194,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Scene
                 prop.SetState(PropStateEnum.Open);
             } else
             {
-                if (prop.PropInfo.InitLevelGraph?.Contains("Door") == true)
-                {
-                    prop.SetState(PropStateEnum.Open);
-                }
+                prop.SetState(info.State);
             }
 
             Scene.AddEntity(prop, sendPacket);

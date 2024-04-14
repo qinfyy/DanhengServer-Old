@@ -7,7 +7,6 @@ using System.Xml.Linq;
 using EggLink.DanhengServer.Util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using EggLink.DanhengServer.Data.Custom;
 
 namespace EggLink.DanhengServer.Data
@@ -21,6 +20,7 @@ namespace EggLink.DanhengServer.Data
             LoadFloorInfo();
             LoadMissionInfo();
             LoadMazeSkill();
+            LoadDialogueInfo();
             LoadBanner();
             LoadRogueMapGen();
         }
@@ -169,7 +169,7 @@ namespace EggLink.DanhengServer.Data
                         }
                     } catch (Exception ex)
                     {
-                        Logger.Error("Error in reading" + file.Name, ex);
+                        Logger.Error("Error in reading " + file.Name, ex);
                     }
                     if (info.Groups.Count == 0)
                     {
@@ -239,7 +239,7 @@ namespace EggLink.DanhengServer.Data
                                 }
                             } catch (Exception ex)
                             {
-                                Logger.Error("Error in reading" + missionJsonPath, ex);
+                                Logger.Error("Error in reading " + missionJsonPath, ex);
                             }
                         }
                     }
@@ -275,7 +275,7 @@ namespace EggLink.DanhengServer.Data
                 }
             } catch (Exception ex)
             {
-                Logger.Error("Error in reading" + file.Name, ex);
+                Logger.Error("Error in reading " + file.Name, ex);
             }
             Logger.Info("Loaded " + GameData.BannersConfig.Banners.Count + " banner infos.");
         }
@@ -298,7 +298,7 @@ namespace EggLink.DanhengServer.Data
                     count += skillAbilityInfo == null ? 0 : 1;
                 } catch (Exception ex)
                 {
-                    Logger.Error("Error in reading" + file.Name, ex);
+                    Logger.Error("Error in reading " + file.Name, ex);
                 }
             }
             if (count < GameData.AvatarConfigData.Count)
@@ -329,8 +329,48 @@ namespace EggLink.DanhengServer.Data
                 }
             } catch (Exception ex)
             {
-                Logger.Error("Error in reading" + file.Name, ex);
+                Logger.Error("Error in reading " + file.Name, ex);
             }
+        }
+
+        public static void LoadDialogueInfo()
+        {
+            var count = 0;
+            foreach (var dialogue in GameData.RogueNPCDialogueData)
+            {
+                var path = ConfigManager.Config.Path.ResourcePath + "/" + dialogue.Value.DialoguePath;
+                var file = new FileInfo(path);
+                if (!file.Exists) continue;
+                try
+                {
+                    using var reader = file.OpenRead();
+                    using StreamReader reader2 = new(reader);
+                    var text = reader2.ReadToEnd().Replace("$type", "Type");
+                    var dialogueInfo = JsonConvert.DeserializeObject<DialogueInfo>(text);
+                    if (dialogueInfo != null)
+                    {
+                        dialogue.Value.DialogueInfo = dialogueInfo;
+                        dialogueInfo.Loaded();
+                        if (dialogueInfo.DialogueIds.Count == 0)
+                        {
+                            // set to invalid
+                            dialogue.Value.DialogueInfo = null;
+                        }
+                        count++;
+                    }
+                } catch (Exception ex)
+                {
+                    Logger.Error("Error in reading " + file.Name, ex);
+                }
+
+            }
+
+            if (count < GameData.RogueNPCDialogueData.Count)
+            {
+                Logger.Warn("Dialogue infos are missing, please check your resources folder: " + ConfigManager.Config.Path.ResourcePath + "/Config/Level/RogueDialogue/RogueDialogueEvent. Dialogues may not work!");
+            }
+
+            Logger.Info("Loaded " + count + " dialogue infos.");
         }
     }
 }

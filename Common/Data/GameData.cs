@@ -89,7 +89,12 @@ namespace EggLink.DanhengServer.Data
 
         #region Rogue
 
+        public static Dictionary<int, DialogueEventExcel> DialogueEventData { get; private set; } = [];
+        public static Dictionary<int, Dictionary<int, DialogueDynamicContentExcel>> DialogueDynamicContentData { get; private set; } = [];
         public static Dictionary<int, RogueAeonExcel> RogueAeonData { get; private set; } = [];
+        public static Dictionary<int, RogueBuffExcel> RogueAeonBuffData { get; private set; } = [];
+        public static Dictionary<int, BattleEventDataExcel> RogueBattleEventData { get; private set; } = [];
+        public static Dictionary<int, List<RogueBuffExcel>> RogueAeonEnhanceData { get; private set; } = [];
         public static Dictionary<int, RogueAreaConfigExcel> RogueAreaConfigData { get; private set; } = [];
         public static Dictionary<int, RogueBonusExcel> RogueBonusData { get; private set; } = [];
         public static Dictionary<int, RogueBuffExcel> RogueBuffData { get; private set; } = [];
@@ -100,9 +105,11 @@ namespace EggLink.DanhengServer.Data
         public static Dictionary<int, Dictionary<int, RogueMapExcel>> RogueMapData { get; private set; } = [];
         public static Dictionary<int, List<int>> RogueMapGenData { get; set; } = [];
         public static Dictionary<int, RogueMazeBuffExcel> RogueMazeBuffData { get; private set; } = [];
+        public static Dictionary<int, RogueMiracleExcel> RogueMiracleData { get; private set; } = [];
         public static Dictionary<int, RogueMiracleDisplayExcel> RogueMiracleDisplayData { get; private set; } = [];
         public static Dictionary<int, RogueMiracleEffectExcel> RogueMiracleEffectData { get; private set; } = [];
         public static Dictionary<int, RogueMonsterExcel> RogueMonsterData { get; private set; } = [];
+        public static Dictionary<int, RogueNPCDialogueExcel> RogueNPCDialogueData { get; private set; } = [];
         public static Dictionary<int, RogueRoomExcel> RogueRoomData { get; private set; } = [];
 
         #endregion

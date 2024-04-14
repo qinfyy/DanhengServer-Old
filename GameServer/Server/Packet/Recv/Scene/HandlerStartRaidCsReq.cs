@@ -22,7 +22,16 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Scene
                 {
                     player.MissionManager!.AcceptMainMission(missionId);
                 });
-                player.EnterScene(raidConfig.FinishEntranceID, 0, true);
+                var entranceId = 0;
+                if (raidConfig.RaidID == 1)
+                {
+                    // set
+                    entranceId = 2013301;
+                } else
+                {
+                    entranceId = raidConfig.RaidID;
+                }
+                player.EnterScene(entranceId, 0, true);
             }
             connection.SendPacket(CmdIds.StartRaidScRsp);
         }

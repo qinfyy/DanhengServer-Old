@@ -375,7 +375,7 @@ namespace EggLink.DanhengServer.Game.Mission
                 var subMission = GetSubMissionInfo(mission);
                 if (subMission != null && (subMission.FinishType == MissionFinishTypeEnum.StageWin && req.EndStatus == Proto.BattleEndStatus.BattleEndWin))  // TODO: Move to handler
                 {
-                    if (req.StageId.ToString().StartsWith(subMission.ParamInt1.ToString()))
+                    if (req.StageId.ToString().StartsWith(subMission.ParamInt1.ToString()[..^5]))
                     {
                         FinishSubMission(mission);
                     }

@@ -57,5 +57,24 @@ namespace EggLink.DanhengServer.Command.Cmd
             prop.SetState((PropStateEnum)arg.GetInt(2));
             arg.SendMsg($"Prop: {prop.EntityID} has been set to {(PropStateEnum)arg.GetInt(2)}");
         }
+
+        [CommandMethod("0 remove")]
+        public void RemoveEntity(CommandArg arg)
+        {
+            if (arg.Target == null)
+            {
+                arg.SendMsg("Player not found");
+                return;
+            }
+            var scene = arg.Target!.Player!.SceneInstance!;
+            scene.Entities.TryGetValue(arg.GetInt(0), out var entity);
+            if (entity == null)
+            {
+                arg.SendMsg("Entity not found");
+                return;
+            }
+            scene.RemoveEntity(entity);
+            arg.SendMsg($"Entity {entity.EntityID} has been removed");
+        }
     }
 }

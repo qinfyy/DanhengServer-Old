@@ -24,11 +24,12 @@ namespace EggLink.DanhengServer.Proto {
     static BOGHDAECFKLReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFCT0dIREFFQ0ZLTC5wcm90bxoRR0FJRU5HREpBUEYucHJvdG8iMQoLQk9H",
-            "SERBRUNGS0wSIgoMbWlyYWNsZV9saXN0GA4gAygLMgwuR0FJRU5HREpBUEZC",
-            "HqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
+            "ChFCT0dIREFFQ0ZLTC5wcm90bxoWR2FtZVJvZ3VlTWlyYWNsZS5wcm90byI2",
+            "CgtCT0dIREFFQ0ZLTBInCgxtaXJhY2xlX2xpc3QYDiADKAsyES5HYW1lUm9n",
+            "dWVNaXJhY2xlQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.GAIENGDJAPFReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.GameRogueMiracleReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.BOGHDAECFKL), global::EggLink.DanhengServer.Proto.BOGHDAECFKL.Parser, new[]{ "MiracleList" }, null, null, null, null)
           }));
@@ -84,12 +85,12 @@ namespace EggLink.DanhengServer.Proto {
 
     /// <summary>Field number for the "miracle_list" field.</summary>
     public const int MiracleListFieldNumber = 14;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.GAIENGDJAPF> _repeated_miracleList_codec
-        = pb::FieldCodec.ForMessage(114, global::EggLink.DanhengServer.Proto.GAIENGDJAPF.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GAIENGDJAPF> miracleList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GAIENGDJAPF>();
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.GameRogueMiracle> _repeated_miracleList_codec
+        = pb::FieldCodec.ForMessage(114, global::EggLink.DanhengServer.Proto.GameRogueMiracle.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GameRogueMiracle> miracleList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GameRogueMiracle>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GAIENGDJAPF> MiracleList {
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.GameRogueMiracle> MiracleList {
       get { return miracleList_; }
     }
 

@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static ICGNMHHBHMJReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFJQ0dOTUhIQkhNSi5wcm90bxoRT0pLQkJJRUVHSUYucHJvdG8iMAoLSUNH",
-            "Tk1ISEJITUoSIQoLTkFISFBHT0VPT00YCyADKAsyDC5PSktCQklFRUdJRkIe",
-            "qgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "ChFJQ0dOTUhIQkhNSi5wcm90bxoRT0pLQkJJRUVHSUYucHJvdG8iMQoLSUNH",
+            "Tk1ISEJITUoSIgoMZW5oYW5jZV9pbmZvGAsgAygLMgwuT0pLQkJJRUVHSUZC",
+            "HqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.OJKBBIEEGIFReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ICGNMHHBHMJ), global::EggLink.DanhengServer.Proto.ICGNMHHBHMJ.Parser, new[]{ "NAHHPGOEOOM" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ICGNMHHBHMJ), global::EggLink.DanhengServer.Proto.ICGNMHHBHMJ.Parser, new[]{ "EnhanceInfo" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,7 +72,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ICGNMHHBHMJ(ICGNMHHBHMJ other) : this() {
-      nAHHPGOEOOM_ = other.nAHHPGOEOOM_.Clone();
+      enhanceInfo_ = other.enhanceInfo_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -82,15 +82,15 @@ namespace EggLink.DanhengServer.Proto {
       return new ICGNMHHBHMJ(this);
     }
 
-    /// <summary>Field number for the "NAHHPGOEOOM" field.</summary>
-    public const int NAHHPGOEOOMFieldNumber = 11;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.OJKBBIEEGIF> _repeated_nAHHPGOEOOM_codec
+    /// <summary>Field number for the "enhance_info" field.</summary>
+    public const int EnhanceInfoFieldNumber = 11;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.OJKBBIEEGIF> _repeated_enhanceInfo_codec
         = pb::FieldCodec.ForMessage(90, global::EggLink.DanhengServer.Proto.OJKBBIEEGIF.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.OJKBBIEEGIF> nAHHPGOEOOM_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.OJKBBIEEGIF>();
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.OJKBBIEEGIF> enhanceInfo_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.OJKBBIEEGIF>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.OJKBBIEEGIF> NAHHPGOEOOM {
-      get { return nAHHPGOEOOM_; }
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.OJKBBIEEGIF> EnhanceInfo {
+      get { return enhanceInfo_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -108,7 +108,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!nAHHPGOEOOM_.Equals(other.nAHHPGOEOOM_)) return false;
+      if(!enhanceInfo_.Equals(other.enhanceInfo_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -116,7 +116,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= nAHHPGOEOOM_.GetHashCode();
+      hash ^= enhanceInfo_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -135,7 +135,7 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      nAHHPGOEOOM_.WriteTo(output, _repeated_nAHHPGOEOOM_codec);
+      enhanceInfo_.WriteTo(output, _repeated_enhanceInfo_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -146,7 +146,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      nAHHPGOEOOM_.WriteTo(ref output, _repeated_nAHHPGOEOOM_codec);
+      enhanceInfo_.WriteTo(ref output, _repeated_enhanceInfo_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -157,7 +157,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += nAHHPGOEOOM_.CalculateSize(_repeated_nAHHPGOEOOM_codec);
+      size += enhanceInfo_.CalculateSize(_repeated_enhanceInfo_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -170,7 +170,7 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      nAHHPGOEOOM_.Add(other.nAHHPGOEOOM_);
+      enhanceInfo_.Add(other.enhanceInfo_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -187,7 +187,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 90: {
-            nAHHPGOEOOM_.AddEntriesFrom(input, _repeated_nAHHPGOEOOM_codec);
+            enhanceInfo_.AddEntriesFrom(input, _repeated_enhanceInfo_codec);
             break;
           }
         }
@@ -206,7 +206,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 90: {
-            nAHHPGOEOOM_.AddEntriesFrom(ref input, _repeated_nAHHPGOEOOM_codec);
+            enhanceInfo_.AddEntriesFrom(ref input, _repeated_enhanceInfo_codec);
             break;
           }
         }

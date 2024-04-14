@@ -55,15 +55,38 @@ namespace EggLink.DanhengServer.Database.Lineup
                     var avatarInfo = AvatarData?.Avatars?.Find(item => item.GetAvatarId() == avatar.BaseAvatarId);
                     if (avatarInfo != null)
                     {
-                        if (avatarInfo.CurrentHp <= 0 && !allowRevive)
+                        if (avatarInfo.GetCurHp(IsExtraLineup()) <= 0 && !allowRevive)
                         {
                             continue;
                         }
-                        if (avatarInfo.CurrentHp >= 10000)
+                        if (avatarInfo.GetCurHp(IsExtraLineup()) >= 10000)
                         {
                             continue;
                         }
-                        avatarInfo.CurrentHp = Math.Min(avatarInfo.GetCurHp(LineupType != 0) + count, 10000);
+                        avatarInfo.SetCurHp(Math.Min(avatarInfo.GetCurHp(IsExtraLineup()) + count, 10000), IsExtraLineup());
+                        result = true;
+                    }
+                }
+                DatabaseHelper.Instance?.UpdateInstance(AvatarData!);
+            }
+            return result;
+        }
+
+        public bool CostNowPercentHp(double count)
+        {
+            bool result = false;
+            if (BaseAvatars != null && AvatarData != null)
+            {
+                foreach (var avatar in BaseAvatars)
+                {
+                    var avatarInfo = AvatarData?.Avatars?.Find(item => item.GetAvatarId() == avatar.BaseAvatarId);
+                    if (avatarInfo != null)
+                    {
+                        if (avatarInfo.CurrentHp <= 0)
+                        {
+                            continue;
+                        }
+                        avatarInfo.SetCurHp((int)Math.Max(avatarInfo.GetCurHp(IsExtraLineup()) * (1 - count), 100), IsExtraLineup());
                         result = true;
                     }
                 }

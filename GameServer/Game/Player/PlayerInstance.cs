@@ -109,22 +109,25 @@ namespace EggLink.DanhengServer.Game.Player
                 EnterScene(2000101, 0, false);
             }
 
-            if (LineupManager!.GetCurLineup()!.IsExtraLineup())  // do not use extra lineup when login
+            if (LineupManager!.GetCurLineup() != null)  // null -> ignore(new player)
             {
-                LineupManager!.SetExtraLineup(ExtraLineupType.LineupNone, []);
-                if (LineupManager!.GetCurLineup()!.IsExtraLineup())
+                if (LineupManager!.GetCurLineup()!.IsExtraLineup())  // do not use extra lineup when login
                 {
-                    LineupManager!.SetCurLineup(0);
+                    LineupManager!.SetExtraLineup(ExtraLineupType.LineupNone, []);
+                    if (LineupManager!.GetCurLineup()!.IsExtraLineup())
+                    {
+                        LineupManager!.SetCurLineup(0);
+                    }
                 }
-            }
 
-            foreach (var avatar in LineupManager.GetCurLineup()!.BaseAvatars!)
-            {
-                var avatarData = AvatarManager.GetAvatar(avatar.BaseAvatarId);
-                if (avatarData != null && avatarData.CurrentHp <= 0)
+                foreach (var avatar in LineupManager.GetCurLineup()!.BaseAvatars!)
                 {
-                    // revive
-                    avatarData.CurrentHp = 2000;
+                    var avatarData = AvatarManager.GetAvatar(avatar.BaseAvatarId);
+                    if (avatarData != null && avatarData.CurrentHp <= 0)
+                    {
+                        // revive
+                        avatarData.CurrentHp = 2000;
+                    }
                 }
             }
         }
@@ -252,7 +255,7 @@ namespace EggLink.DanhengServer.Game.Player
                 {
                     Data.Stamina++;
                 }
-                Data.NextStaminaRecover = Extensions.GetUnixSec() + (Data.Stamina >= GameConstants.MAX_STAMINA ? GameConstants.STAMINA_RESERVE_RECOVERY_TIME : GameConstants.STAMINA_RECOVERY_TIME);
+                Data.NextStaminaRecover = Data.NextStaminaRecover + (Data.Stamina >= GameConstants.MAX_STAMINA ? GameConstants.STAMINA_RESERVE_RECOVERY_TIME : GameConstants.STAMINA_RECOVERY_TIME);
                 sendPacket = true;
             }
 

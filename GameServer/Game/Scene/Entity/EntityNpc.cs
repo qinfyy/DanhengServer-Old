@@ -13,20 +13,13 @@ namespace EggLink.DanhengServer.Game.Scene.Entity
 {
     public class EntityNpc(SceneInstance scene, GroupInfo group, NpcInfo npcInfo) : IGameEntity
     {
+        public SceneInstance Scene { get; set; } = scene;
         public int EntityID { get; set; }
         public int GroupID { get; set; } = group.Id;
         public Position Position { get; set; } = npcInfo.ToPositionProto();
         public Position Rotation { get; set; } = npcInfo.ToRotationProto();
         public int NpcId { get; set; } = npcInfo.NPCID;
         public int InstId { get; set; } = npcInfo.ID;
-
-        #region For Rogue
-
-        public int RogueNpcId { get; set; }
-        public bool IsFinishedTalk { get; set; }
-        public int EventUniqueId { get; set; }
-
-        #endregion
 
         public void AddBuff(SceneBuff buff)
         {
@@ -36,23 +29,12 @@ namespace EggLink.DanhengServer.Game.Scene.Entity
         {
         }
 
-        public SceneEntityInfo ToProto()
+        public virtual SceneEntityInfo ToProto()
         {
             SceneNpcInfo npc = new()
             {
                 NpcId = (uint)NpcId,
             };
-            if (RogueNpcId > 0)
-            {
-                //var rogue = new NpcRogueInfo()  // wait to update
-                //{
-                //    EventId = (uint)RogueNpcId,
-                //    IsFinished = IsFinishedTalk,
-                //    EventUniqueId = (uint)EventUniqueId,
-                //};
-
-                //npc.ExtraInfo.RogueInfo = rogue;
-            }
 
             return new SceneEntityInfo()
             {

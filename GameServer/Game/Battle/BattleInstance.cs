@@ -29,6 +29,7 @@ namespace EggLink.DanhengServer.Game.Battle
         public List<EntityMonster> EntityMonsters { get; set; } = [];
         public List<AvatarSceneInfo> AvatarInfo { get; set; } = [];
         public List<MazeBuff> Buffs { get; set; } = [];
+        public Dictionary<int, BattleEventInstance> BattleEvents { get; set; } = [];
 
         public BattleInstance(PlayerInstance player, Database.Lineup.LineupInfo lineup, List<EntityMonster> monsters) : this(player, lineup, new List<StageConfigExcel>())
         {
@@ -118,6 +119,11 @@ namespace EggLink.DanhengServer.Game.Battle
             foreach (var avatar in AvatarInfo)
             {
                 avatar.ApplyBuff(this);
+            }
+
+            foreach (var eventInstance in BattleEvents.Values)
+            {
+                proto.BattleEvent.Add(eventInstance.ToProto());
             }
 
             proto.BuffList.AddRange(Buffs.Select(buff => buff.ToProto(this)));

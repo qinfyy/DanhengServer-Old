@@ -1,5 +1,6 @@
 ﻿using EggLink.DanhengServer.Data;
 using EggLink.DanhengServer.Data.Config;
+using EggLink.DanhengServer.Data.Excel;
 using EggLink.DanhengServer.Enums.Scene;
 using EggLink.DanhengServer.Game.Scene.Entity;
 using EggLink.DanhengServer.Server.Packet.Send.Scene;
@@ -213,6 +214,10 @@ namespace EggLink.DanhengServer.Game.Scene
             else
             {
                 prop.SetState(info.State);
+                if (excel.PropStateList.Contains(PropStateEnum.Closed) && info.State == PropStateEnum.Locked)
+                {
+                    prop.SetState(PropStateEnum.Closed);
+                }
             }
             return prop;
         }

@@ -26,15 +26,18 @@ namespace EggLink.DanhengServer.Game.Rogue.Scene.Entity
         {
             var proto = base.ToProto();
 
-            proto.Prop.ExtraInfo = new()
+            if (NextRoomID != 0 || NextSiteID != 0 || ChestCanUseTimes != 0)  // do not set if all are 0
             {
-                RogueInfo = new()
+                proto.Prop.ExtraInfo = new()
                 {
-                    RoomId = (uint)NextRoomID,
-                    SiteId = (uint)NextSiteID,
-                    CanUseCount = (uint)ChestCanUseTimes,
-                }
-            };
+                    RogueInfo = new()
+                    {
+                        RoomId = (uint)NextRoomID,
+                        SiteId = (uint)NextSiteID,
+                        CanUseCount = (uint)ChestCanUseTimes,
+                    }
+                };
+            }
 
             if (CustomPropID != 0)
             {

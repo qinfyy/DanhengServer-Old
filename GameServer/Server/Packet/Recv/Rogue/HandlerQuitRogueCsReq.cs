@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EggLink.DanhengServer.Server.Packet.Send.Rogue;
 
 namespace EggLink.DanhengServer.Server.Packet.Recv.Rogue
 {
@@ -11,8 +7,8 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Rogue
     {
         public override void OnHandle(Connection connection, byte[] header, byte[] data)
         {
-
-            connection.SendPacket(CmdIds.QuitRogueScRsp);
+            connection.Player!.RogueManager!.RogueInstance?.QuitRogue();
+            connection.SendPacket(new PacketQuitRogueScRsp(connection.Player!));
         }
     }
 }
