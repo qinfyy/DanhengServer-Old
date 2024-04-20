@@ -17,7 +17,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Tutorial
                 {
                     Id = tutorialId,
                     Status = TutorialStatus.TutorialFinish,
-                }
+                },
             };
 
             SetData(rsp);

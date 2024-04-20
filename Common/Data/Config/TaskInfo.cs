@@ -101,7 +101,7 @@ namespace EggLink.DanhengServer.Data.Config
     public class LifeTimeInfo
     {
         public bool IsDynamic { get; set; } = false;
-        public FixedValueInfo FixedValue { get; set; } = new();
+        public FixedValueInfo<float> FixedValue { get; set; } = new();
 
         public int GetLifeTime()
         {
@@ -117,8 +117,8 @@ namespace EggLink.DanhengServer.Data.Config
         }
     }
 
-    public class FixedValueInfo
+    public class FixedValueInfo<T>
     {
-        public float Value { get; set; }
+        public T Value { get; set; } = default!;
     }
 }

@@ -101,7 +101,10 @@ namespace EggLink.DanhengServer.Program
 #if DEBUG
             JsonConvert.DeserializeObject<JObject>(File.ReadAllText("LogMap.json"))!.Properties().ToList().ForEach(x => Connection.LogMap.Add(x.Name, x.Value.ToString()));
 #endif
-
+            if (GetConfig().ServerOption.EnableMission)
+            {
+                logger.Warn("Mission system is enabled. This is a feature that is still in development and may not work as expected. If you encounter any issues, please report them to the developers.");
+            }
             CommandManager.Start();
         }
 

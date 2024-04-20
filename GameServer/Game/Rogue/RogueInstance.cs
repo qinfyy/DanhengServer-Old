@@ -47,6 +47,7 @@ namespace EggLink.DanhengServer.Game.Rogue
 
         public int CurAeonBuffCount { get; set; } = 0;
         public int CurAeonEnhanceCount { get; set; } = 0;
+        public bool AeonBuffPending { get; set; } = false;  // prevent multiple aeon buff
 
         public RogueEventManager EventManager { get; set; }
 
@@ -104,9 +105,26 @@ namespace EggLink.DanhengServer.Game.Rogue
             var buffGroup = GameData.RogueBuffGroupData[buffGroupId];
             var buffList = buffGroup.BuffList;
 
+            foreach (var buff in buffList)
+            {
+                if (RogueBuffs.Exists(x => x.BuffExcel.MazeBuffID == buff.MazeBuffID))
+                {
+                    buffList.Remove(buff);  // remove existing buffs
+                }
+            }
+
+            if (buffList.Count == 0)
+            {
+                return;  // no buffs to roll
+            }
+
             for (int i = 0; i < amount; i++)
             {
-                var menu = new RogueBuffSelectMenu(this);
+                var menu = new RogueBuffSelectMenu(this)
+                {
+                    CurCount = i + 1,
+                    TotalCount = amount,
+                };
                 menu.RollBuff(buffList);
                 menu.HintId = buffHintType;
                 var action = menu.GetActionInstance();
@@ -116,37 +134,47 @@ namespace EggLink.DanhengServer.Game.Rogue
             UpdateMenu();
         }
 
-        public void AddBuff(int buffId, int level = 1, RogueActionSource source = RogueActionSource.RogueCommonActionResultSourceTypeDialogue, RogueActionDisplayType displayType = RogueActionDisplayType.RogueCommonActionResultDisplayTypeSingle, bool updateMenu = true)
+        public RogueCommonActionResult? AddBuff(int buffId, int level = 1, RogueActionSource source = RogueActionSource.RogueCommonActionResultSourceTypeDialogue, RogueActionDisplayType displayType = RogueActionDisplayType.RogueCommonActionResultDisplayTypeSingle, bool updateMenu = true)
         {
             if (RogueBuffs.Exists(x => x.BuffExcel.MazeBuffID == buffId))
             {
-                return;
+                return null;
             }
             GameData.RogueBuffData.TryGetValue(buffId * 100 + level, out var excel);
-            if (excel == null) return;
+            if (excel == null) return null;
             if (CurAeonBuffCount > 0)  // check if aeon buff exists
             {
                 if (excel.IsAeonBuff)
                 {
-                    return;
+                    return null;
                 }
             }
             var buff = new RogueBuffInstance(buffId, level);
             RogueBuffs.Add(buff);
-            Player.SendPacket(new PacketSyncRogueCommonActionResultScNotify(RogueVersionId, buff.ToResultProto(source), displayType));
+            var result = buff.ToResultProto(source);
+            Player.SendPacket(new PacketSyncRogueCommonActionResultScNotify(RogueVersionId, result, displayType));
             
             if (updateMenu)
             {
                 UpdateMenu();
             }
+
+            return result;
         }
 
         public void AddBuffList(List<RogueBuffExcel> excel)
         {
+            List<RogueCommonActionResult> resultList = [];
             foreach (var buff in excel)
             {
-                AddBuff(buff.MazeBuffID, buff.MazeBuffLevel, updateMenu: false);
+                var res = AddBuff(buff.MazeBuffID, buff.MazeBuffLevel, displayType: RogueActionDisplayType.RogueCommonActionResultDisplayTypeMulti, updateMenu: false);
+                if (res != null)
+                {
+                    resultList.Add(res);
+                }
             }
+
+            Player.SendPacket(new PacketSyncRogueCommonActionResultScNotify(RogueVersionId, resultList, RogueActionDisplayType.RogueCommonActionResultDisplayTypeMulti));
 
             UpdateMenu();
         }
@@ -215,6 +243,10 @@ namespace EggLink.DanhengServer.Game.Rogue
 
             // call event
             EventManager.OnNextRoom();
+            foreach (var miracle in RogueMiracles.Values)
+            {
+                miracle.OnEnterNextRoom();
+            }
 
             return CurRoom;
         }
@@ -224,38 +256,34 @@ namespace EggLink.DanhengServer.Game.Rogue
             Player.RogueManager!.RogueInstance = null;
             Player.EnterScene(801120102, 0, false);
             Player.LineupManager!.SetExtraLineup(ExtraLineupType.LineupNone, []);
-
-            // TODO: calculate score
         }
 
         public void QuitRogue()
         {
             Status = RogueStatus.Finish;
-            Player.SendPacket(new PacketSyncRogueStatusScNotify());
+            Player.SendPacket(new PacketSyncRogueStatusScNotify(Status));
         }
 
-        public void CostMoney(int amount, bool notify = false)
+        public void CostMoney(int amount, RogueActionDisplayType displayType = RogueActionDisplayType.RogueCommonActionResultDisplayTypeNone)
         {
             CurMoney -= amount;
             Player.SendPacket(new PacketSyncRogueVirtualItemScNotify(this));
 
-            if (notify)
+            Player.SendPacket(new PacketSyncRogueCommonActionResultScNotify(RogueVersionId, new RogueCommonActionResult()
             {
-                Player.SendPacket(new PacketSyncRogueCommonActionResultScNotify(RogueVersionId, new()
+                Source = RogueActionSource.RogueCommonActionResultSourceTypeDialogue,
+                RogueAction = new()
                 {
-                    Source = RogueActionSource.RogueCommonActionResultSourceTypeDialogue,
-                    RogueAction = new()
+                    RemoveItemList = new()
                     {
-                        RemoveItemList = new()
-                        {
-                            Num = (uint)amount,
-                        },
+                        Num = (uint)amount,
+                        DisplayType = (uint)displayType + 1,
                     },
-                }, RogueActionDisplayType.RogueCommonActionResultDisplayTypeSingle));
-            }
+                },
+            }, displayType));
         }
 
-        public void GainMoney(int amount, int displayType = 2, bool notify = false)
+        public void GainMoney(int amount, int displayType = 2, RogueActionDisplayType display = RogueActionDisplayType.RogueCommonActionResultDisplayTypeNone)
         {
             CurMoney += amount;
             Player.SendPacket(new PacketSyncRogueVirtualItemScNotify(this));
@@ -265,21 +293,18 @@ namespace EggLink.DanhengServer.Game.Rogue
                 Count = amount,
             }));
 
-            if (notify)
+            Player.SendPacket(new PacketSyncRogueCommonActionResultScNotify(RogueVersionId, new RogueCommonActionResult()
             {
-                Player.SendPacket(new PacketSyncRogueCommonActionResultScNotify(RogueVersionId, new()
+                Source = RogueActionSource.RogueCommonActionResultSourceTypeDialogue,
+                RogueAction = new()
                 {
-                    Source = RogueActionSource.RogueCommonActionResultSourceTypeDialogue,
-                    RogueAction = new()
+                    GetItemList = new()
                     {
-                        GetItemList = new()
-                        {
-                            Num = (uint)amount,
-                            DisplayType = (uint)displayType,
-                        },
+                        Num = (uint)amount,
+                        DisplayType = (uint)displayType,
                     },
-                }, RogueActionDisplayType.RogueCommonActionResultDisplayTypeSingle));
-            }
+                },
+            }, display));
         }
 
         public void HandleBuffSelect(int buffId)
@@ -307,6 +332,10 @@ namespace EggLink.DanhengServer.Game.Rogue
                     }
                 }
                 RogueActions.Remove(action.QueuePosition);
+                if (action.RogueBuffSelectMenu.IsAeonBuff)
+                {
+                    AeonBuffPending = false;  // aeon buff added
+                }
             }
 
             UpdateMenu();
@@ -352,6 +381,7 @@ namespace EggLink.DanhengServer.Game.Rogue
 
         public void AddAeonBuff()
         {
+            if (AeonBuffPending) return;
             if (CurAeonBuffCount + CurAeonEnhanceCount >= 4)
             {
                 // max aeon buff count
@@ -403,6 +433,7 @@ namespace EggLink.DanhengServer.Game.Rogue
                     HintId = hintId,
                     RollMaxCount = 0,
                     RollFreeCount = 0,
+                    IsAeonBuff = true,
                 };
                 if (CurAeonBuffCount < 1)
                 {
@@ -419,6 +450,7 @@ namespace EggLink.DanhengServer.Game.Rogue
                 var action = menu.GetActionInstance();
                 RogueActions.Add(action.QueuePosition, action);
 
+                AeonBuffPending = true;
                 UpdateMenu();
             }
         }
@@ -607,7 +639,17 @@ namespace EggLink.DanhengServer.Game.Rogue
 
             proto.ReviveInfo = new()
             {
-                // need to implement
+                ReviveCost = new()
+                {
+                    ItemList = {
+                        new ItemCost() {
+                            PileItem = new PileItem() {
+                                ItemId = 31,
+                                ItemNum = (uint)CurReviveCost
+                            }
+                        },
+                    }
+                }
             };
 
             return proto;
@@ -661,6 +703,29 @@ namespace EggLink.DanhengServer.Game.Rogue
             }
 
             return proto;
+        }
+
+        public RogueFinishInfo ToFinishInfo()
+        {
+            AreaExcel.ScoreMap.TryGetValue(CurReachedRoom, out var score);
+            var prev = Player.RogueManager!.ToRewardProto();
+            Player.RogueManager!.AddRogueScore(score);
+            var next = Player.RogueManager!.ToRewardProto();
+
+            return new()
+            {
+                ScoreId = (uint)score,
+                TotalScore = (uint)score,
+                PrevRewardInfo = prev,
+                NextRewardInfo = next,
+                AreaId = (uint)AreaExcel.RogueAreaID,
+                FinishedRoomCount = (uint)CurReachedRoom,
+                ReachedRoomCount = (uint)CurReachedRoom,
+                RecordInfo = new()
+                {
+                    Id = 2
+                }
+            };
         }
 
         #endregion

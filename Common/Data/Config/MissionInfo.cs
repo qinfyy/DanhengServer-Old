@@ -38,6 +38,8 @@ namespace EggLink.DanhengServer.Data.Config
         public SubMissionTask<EnterFloorTaskInfo> Task { get; set; } = new();
         [JsonIgnore]
         public SubMissionTask<PropStateTaskInfo> PropTask { get; set; } = new();
+        [JsonIgnore]
+        public SubMissionTask<StageWinTaskInfo> StageWinTask { get; set; } = new();
 
         [JsonIgnore]
         public int MapEntranceID { get; set; }
@@ -48,6 +50,9 @@ namespace EggLink.DanhengServer.Data.Config
         public int AnchorID { get; set; }
 
         [JsonIgnore]
+        public List<int> StageList { get; set; } = [];
+
+        [JsonIgnore]
         public PropStateEnum SourceState { get; set; } = PropStateEnum.Closed;
 
         public void Loaded(int type)  // 1 for EnterFloor, 2 for PropState
@@ -56,6 +61,7 @@ namespace EggLink.DanhengServer.Data.Config
             {
                 Operation = OperationEnum.Or;  // hacky way to get the Operation
             }
+
             if (type == 1)
             {
                 try
@@ -104,6 +110,21 @@ namespace EggLink.DanhengServer.Data.Config
                         }
                     }
                 }
+            } else if (type == 3)
+            {
+                foreach (var task in StageWinTask.OnStartSequece)
+                {
+                    foreach (var stageWinTask in task.TaskList)
+                    {
+                        if (stageWinTask.Type == "RPG.GameCore.TriggerBattle")
+                        {
+                            if (stageWinTask.EventID.GetValue() > 0)
+                            {
+                                StageList.Add(stageWinTask.EventID.GetValue());
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -140,5 +161,22 @@ namespace EggLink.DanhengServer.Data.Config
         public PropStateEnum State { get; set; } = PropStateEnum.Closed;
 
         public List<PropStateTaskInfo>? ButtonCallBack { get; set; }
+    }
+
+    public class StageWinTaskInfo
+    {
+        public string Type { get; set; } = "";
+        public StageWinTaskEventInfo EventID { get; set; } = new();
+    }
+
+    public class StageWinTaskEventInfo
+    {
+        public bool IsDynamic { get; set; }
+        public FixedValueInfo<int> FixedValue { get; set; } = new();
+
+        public int GetValue()
+        {
+            return IsDynamic ? 0 : FixedValue.Value;
+        }
     }
 }

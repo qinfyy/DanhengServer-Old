@@ -1,6 +1,5 @@
 ﻿using EggLink.DanhengServer.Data;
 using EggLink.DanhengServer.Data.Config;
-using EggLink.DanhengServer.Data.Excel;
 using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Database.Player;
 using EggLink.DanhengServer.Database.Scene;
@@ -75,9 +74,15 @@ namespace EggLink.DanhengServer.Game.Player
 
             AddAvatar(8001);
             AddAvatar(1001);
-            LineupManager?.AddSpecialAvatarToCurTeam(10010050);
-
-            MissionManager!.AcceptMainMission(1000101);
+            
+            if (ConfigManager.Config.ServerOption.EnableMission)
+            {
+                LineupManager?.AddSpecialAvatarToCurTeam(10010050);
+                MissionManager!.AcceptMainMission(1000101);
+            } else
+            {
+                LineupManager?.AddAvatarToCurTeam(8001);
+            }
 
             Initialized = true;
         }

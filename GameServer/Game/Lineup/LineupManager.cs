@@ -313,6 +313,8 @@ namespace EggLink.DanhengServer.Game.Lineup
             curLineup.Mp -= count;
             curLineup.Mp = Math.Min(Math.Max(0, curLineup.Mp), 5);
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
+
+            Player.SendPacket(new PacketSceneCastSkillMpUpdateScNotify(1, curLineup.Mp));
         }
 
         public void GainMp(int count, bool sendPacket = true)

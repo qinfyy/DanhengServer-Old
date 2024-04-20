@@ -1,4 +1,5 @@
 ﻿using EggLink.DanhengServer.Data;
+using EggLink.DanhengServer.Data.Custom;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace EggLink.DanhengServer.Command.Cmd
         public void Reload(CommandArg arg)
         {
             // Reload the banners
-            ResourceManager.LoadBanner();
+            GameData.BannersConfig = ResourceManager.LoadCustomFile<BannersConfig>("Banner", "Banners") ?? new();
             arg.SendMsg("Banners reloaded");
         }
     }

@@ -76,5 +76,25 @@ namespace EggLink.DanhengServer.Command.Cmd
             scene.RemoveEntity(entity);
             arg.SendMsg($"Entity {entity.EntityID} has been removed");
         }
+
+        [CommandMethod("0 unlockall")]
+        public void UnlockAll(CommandArg arg)
+        {
+            if (arg.Target == null)
+            {
+                arg.SendMsg("Player not found");
+                return;
+            }
+            var scene = arg.Target!.Player!.SceneInstance!;
+            foreach (var entity in scene.Entities.Values)
+            {
+                if (entity is EntityProp prop)
+                {
+                    if (prop.Excel.PropStateList.Contains(PropStateEnum.Open))
+                        prop.SetState(PropStateEnum.Open);
+                }
+            }
+            arg.SendMsg("All props have been unlocked");
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Event.EffectHandler
             GameData.RogueBuffGroupData.TryGetValue(group, out var buffGroup);
             if (buffGroup == null) return;
             rogue.AddBuffList(buffGroup.BuffList);
-            rogue.GainMoney(ParamList[2], ParamList[3], true);
+            rogue.GainMoney(ParamList[2], ParamList[3], Proto.RogueActionDisplayType.RogueCommonActionResultDisplayTypeSingle);
         }
     }
 }

@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static RestoreWolfBroGameArchiveCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiRSZXN0b3JlV29sZkJyb0dhbWVBcmNoaXZlQ3NSZXEucHJvdG8aEE1vdGlv",
-            "bkluZm8ucHJvdG8aFEdyb3VwU3RhdGVJbmZvLnByb3RvIokBCh5SZXN0b3Jl",
+            "CiRSZXN0b3JlV29sZkJyb0dhbWVBcmNoaXZlQ3NSZXEucHJvdG8aFEdyb3Vw",
+            "U3RhdGVJbmZvLnByb3RvGhBNb3Rpb25JbmZvLnByb3RvIokBCh5SZXN0b3Jl",
             "V29sZkJyb0dhbWVBcmNoaXZlQ3NSZXESKQoQZ3JvdXBfc3RhdGVfaW5mbxgM",
             "IAEoCzIPLkdyb3VwU3RhdGVJbmZvEhMKC0tMQlBJTk9FTERHGA0gASgIEgoK",
             "AmlkGAsgASgNEhsKBm1vdGlvbhgEIAEoCzILLk1vdGlvbkluZm9CHqoCG0Vn",
             "Z0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MotionInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.GroupStateInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.GroupStateInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.MotionInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RestoreWolfBroGameArchiveCsReq), global::EggLink.DanhengServer.Proto.RestoreWolfBroGameArchiveCsReq.Parser, new[]{ "GroupStateInfo", "KLBPINOELDG", "Id", "Motion" }, null, null, null, null)
           }));

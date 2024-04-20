@@ -71,6 +71,7 @@ namespace EggLink.DanhengServer.Game.Inventory
                             Player.PlayerUnlockData!.PhoneThemes.Add(itemId);
                             break;
                         case ItemSubTypeEnum.Food:
+                        case ItemSubTypeEnum.Book:
                             itemData = PutItem(itemId, count);
                             break;
                     }

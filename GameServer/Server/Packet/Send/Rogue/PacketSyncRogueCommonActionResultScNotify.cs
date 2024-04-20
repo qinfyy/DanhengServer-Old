@@ -21,5 +21,18 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Rogue
 
             SetData(proto);
         }
+
+        public PacketSyncRogueCommonActionResultScNotify(int versionId, List<RogueCommonActionResult> results, RogueActionDisplayType displayType = RogueActionDisplayType.RogueCommonActionResultDisplayTypeNone) : base(CmdIds.SyncRogueCommonActionResultScNotify)
+        {
+            var proto = new SyncRogueCommonActionResultScNotify
+            {
+                RogueVersionId = (uint)versionId,
+                DisplayType = displayType
+            };
+
+            proto.ActionResult.AddRange(results);
+
+            SetData(proto);
+        }
     }
 }

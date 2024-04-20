@@ -9,11 +9,11 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Rogue
 {
     public class PacketSyncRogueStatusScNotify : BasePacket
     {
-        public PacketSyncRogueStatusScNotify() : base(CmdIds.SyncRogueStatusScNotify)
+        public PacketSyncRogueStatusScNotify(RogueStatus status) : base(CmdIds.SyncRogueStatusScNotify)
         {
             var proto = new SyncRogueStatusScNotify()
             {
-                Status = RogueStatus.Finish,
+                Status = status,
             };
 
             SetData(proto);

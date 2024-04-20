@@ -25,12 +25,12 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChFHRU9GSklFR0FESi5wcm90bxoSSXRlbUNvc3REYXRhLnByb3RvIjEKC0dF",
-            "T0ZKSUVHQURKEiIKC0xNTEVBRVBMQVBOGAMgASgLMg0uSXRlbUNvc3REYXRh",
+            "T0ZKSUVHQURKEiIKC3Jldml2ZV9jb3N0GAMgASgLMg0uSXRlbUNvc3REYXRh",
             "Qh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ItemCostDataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GEOFJIEGADJ), global::EggLink.DanhengServer.Proto.GEOFJIEGADJ.Parser, new[]{ "LMLEAEPLAPN" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GEOFJIEGADJ), global::EggLink.DanhengServer.Proto.GEOFJIEGADJ.Parser, new[]{ "ReviveCost" }, null, null, null, null)
           }));
     }
     #endregion
@@ -72,7 +72,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public GEOFJIEGADJ(GEOFJIEGADJ other) : this() {
-      lMLEAEPLAPN_ = other.lMLEAEPLAPN_ != null ? other.lMLEAEPLAPN_.Clone() : null;
+      reviveCost_ = other.reviveCost_ != null ? other.reviveCost_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -82,15 +82,15 @@ namespace EggLink.DanhengServer.Proto {
       return new GEOFJIEGADJ(this);
     }
 
-    /// <summary>Field number for the "LMLEAEPLAPN" field.</summary>
-    public const int LMLEAEPLAPNFieldNumber = 3;
-    private global::EggLink.DanhengServer.Proto.ItemCostData lMLEAEPLAPN_;
+    /// <summary>Field number for the "revive_cost" field.</summary>
+    public const int ReviveCostFieldNumber = 3;
+    private global::EggLink.DanhengServer.Proto.ItemCostData reviveCost_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.ItemCostData LMLEAEPLAPN {
-      get { return lMLEAEPLAPN_; }
+    public global::EggLink.DanhengServer.Proto.ItemCostData ReviveCost {
+      get { return reviveCost_; }
       set {
-        lMLEAEPLAPN_ = value;
+        reviveCost_ = value;
       }
     }
 
@@ -109,7 +109,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(LMLEAEPLAPN, other.LMLEAEPLAPN)) return false;
+      if (!object.Equals(ReviveCost, other.ReviveCost)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -117,7 +117,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (lMLEAEPLAPN_ != null) hash ^= LMLEAEPLAPN.GetHashCode();
+      if (reviveCost_ != null) hash ^= ReviveCost.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -136,9 +136,9 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (lMLEAEPLAPN_ != null) {
+      if (reviveCost_ != null) {
         output.WriteRawTag(26);
-        output.WriteMessage(LMLEAEPLAPN);
+        output.WriteMessage(ReviveCost);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -150,9 +150,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (lMLEAEPLAPN_ != null) {
+      if (reviveCost_ != null) {
         output.WriteRawTag(26);
-        output.WriteMessage(LMLEAEPLAPN);
+        output.WriteMessage(ReviveCost);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -164,8 +164,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (lMLEAEPLAPN_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(LMLEAEPLAPN);
+      if (reviveCost_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ReviveCost);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -179,11 +179,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.lMLEAEPLAPN_ != null) {
-        if (lMLEAEPLAPN_ == null) {
-          LMLEAEPLAPN = new global::EggLink.DanhengServer.Proto.ItemCostData();
+      if (other.reviveCost_ != null) {
+        if (reviveCost_ == null) {
+          ReviveCost = new global::EggLink.DanhengServer.Proto.ItemCostData();
         }
-        LMLEAEPLAPN.MergeFrom(other.LMLEAEPLAPN);
+        ReviveCost.MergeFrom(other.ReviveCost);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -201,10 +201,10 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 26: {
-            if (lMLEAEPLAPN_ == null) {
-              LMLEAEPLAPN = new global::EggLink.DanhengServer.Proto.ItemCostData();
+            if (reviveCost_ == null) {
+              ReviveCost = new global::EggLink.DanhengServer.Proto.ItemCostData();
             }
-            input.ReadMessage(LMLEAEPLAPN);
+            input.ReadMessage(ReviveCost);
             break;
           }
         }
@@ -223,10 +223,10 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 26: {
-            if (lMLEAEPLAPN_ == null) {
-              LMLEAEPLAPN = new global::EggLink.DanhengServer.Proto.ItemCostData();
+            if (reviveCost_ == null) {
+              ReviveCost = new global::EggLink.DanhengServer.Proto.ItemCostData();
             }
-            input.ReadMessage(LMLEAEPLAPN);
+            input.ReadMessage(ReviveCost);
             break;
           }
         }

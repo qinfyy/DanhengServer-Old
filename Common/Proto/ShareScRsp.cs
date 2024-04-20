@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static ShareScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChBTaGFyZVNjUnNwLnByb3RvGg5JdGVtTGlzdC5wcm90bxoPU2hhcmVEYXRh",
+            "ChBTaGFyZVNjUnNwLnByb3RvGg9TaGFyZURhdGEucHJvdG8aDkl0ZW1MaXN0",
             "LnByb3RvIlkKClNoYXJlU2NSc3ASDwoHcmV0Y29kZRgOIAEoDRIZCgZyZXdh",
             "cmQYBCABKAsyCS5JdGVtTGlzdBIfCgtGQkFJS0JHRUpPTxgFIAEoCzIKLlNo",
             "YXJlRGF0YUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90",
             "bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ItemListReflection.Descriptor, global::EggLink.DanhengServer.Proto.ShareDataReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ShareDataReflection.Descriptor, global::EggLink.DanhengServer.Proto.ItemListReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ShareScRsp), global::EggLink.DanhengServer.Proto.ShareScRsp.Parser, new[]{ "Retcode", "Reward", "FBAIKBGEJOO" }, null, null, null, null)
           }));

@@ -5,6 +5,7 @@ using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Server.Packet.Send.Lineup;
 using EggLink.DanhengServer.Server.Packet.Send.Rogue;
 using EggLink.DanhengServer.Util;
+using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,11 @@ namespace EggLink.DanhengServer.Game.Rogue
         }
 
         public int GetRogueScore() => 0;  // TODO: Implement
+
+        public void AddRogueScore(int score)
+        {
+
+        }
 
         public static RogueManagerExcel? GetCurrentManager()
         {
@@ -77,6 +83,7 @@ namespace EggLink.DanhengServer.Game.Rogue
             RogueInstance = new RogueInstance(area, aeon, Player);
             RogueInstance.EnterRoom(RogueInstance.StartSiteId);
 
+            Player.SendPacket(new PacketSyncRogueStatusScNotify(RogueInstance.Status));
             Player.SendPacket(new PacketStartRogueScRsp(Player));
         }
 
@@ -174,12 +181,28 @@ namespace EggLink.DanhengServer.Game.Rogue
             };
         }
 
-        public RogueVirtualItemInfo ToVirtualItemProto()
+        public static RogueVirtualItemInfo ToVirtualItemProto()
         {
             return new()
             {
                 // TODO: Implement
             };
+        }
+
+        public static RogueTalentInfo ToTalentProto()
+        {
+            var proto = new RogueTalentInfo();
+
+            foreach (var talent in GameData.RogueTalentData)
+            {
+                proto.RogueTalent.Add(new EPDOAOEEGBD()
+                {
+                    TalentId = (uint)talent.Key,
+                    Status = RogueTalentStatus.Enable
+                });
+            }
+
+            return proto;
         }
 
         #endregion

@@ -214,10 +214,10 @@ namespace EggLink.DanhengServer.Game.Scene
             else
             {
                 prop.SetState(info.State);
-                if (excel.PropStateList.Contains(PropStateEnum.Closed) && info.State == PropStateEnum.Locked)
-                {
-                    prop.SetState(PropStateEnum.Closed);
-                }
+                //if (excel.PropStateList.Contains(PropStateEnum.Closed) && info.State == PropStateEnum.Locked)
+                //{
+                //    prop.SetState(PropStateEnum.Closed);
+                //}
             }
             return prop;
         }

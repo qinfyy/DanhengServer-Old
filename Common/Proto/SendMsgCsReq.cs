@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static SendMsgCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChJTZW5kTXNnQ3NSZXEucHJvdG8aDU1zZ1R5cGUucHJvdG8aDkNoYXRUeXBl",
+            "ChJTZW5kTXNnQ3NSZXEucHJvdG8aDkNoYXRUeXBlLnByb3RvGg1Nc2dUeXBl",
             "LnByb3RvIokBCgxTZW5kTXNnQ3NSZXESFAoMbWVzc2FnZV90ZXh0GAIgASgJ",
             "Eh4KDG1lc3NhZ2VfdHlwZRgLIAEoDjIILk1zZ1R5cGUSHAoJY2hhdF90eXBl",
             "GA8gASgOMgkuQ2hhdFR5cGUSEwoLUFBEUE1GUEpGUEIYCiADKA0SEAoIZXh0",
             "cmFfaWQYDCABKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IG",
             "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MsgTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChatTypeReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChatTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.MsgTypeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SendMsgCsReq), global::EggLink.DanhengServer.Proto.SendMsgCsReq.Parser, new[]{ "MessageText", "MessageType", "ChatType", "PPDPMFPJFPB", "ExtraId" }, null, null, null, null)
           }));

@@ -12,7 +12,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Event.EffectHandler
     {
         public override void Handle(RogueInstance rogue, RogueEventInstance? eventInstance, List<int> ParamList)
         {
-            rogue.GainMoney(ParamList[1], ParamList[2], true);
+            rogue.GainMoney(ParamList[1], ParamList[2], Proto.RogueActionDisplayType.RogueCommonActionResultDisplayTypeSingle);
         }
     }
 }

@@ -19,21 +19,25 @@ namespace EggLink.DanhengServer.Game.Mission.FinishType.Handler
             {
                 if (p.PropInfo.ID == info.ParamInt2)
                 {
-                    if (player.SceneInstance?.Excel.WorldID != 101)
-                    {
-                        if (p.PropInfo.State == PropStateEnum.Locked && info.SourceState == PropStateEnum.Closed)
-                        {
-                            GameData.MazePropData.TryGetValue(p.PropInfo.PropID, out var propData);
-                            if (propData != null && propData.PropStateList.Contains(PropStateEnum.Closed))
-                            {
-                                p.SetState(PropStateEnum.Closed);
-                            }
-                            else
-                            {
-                                p.SetState(info.SourceState);
-                            }
-                        }
-                    } else
+                    //if (player.SceneInstance?.Excel.WorldID != 101)
+                    //{
+                    //    if (p.PropInfo.State == PropStateEnum.Locked && info.SourceState == PropStateEnum.Closed)
+                    //    {
+                    //        GameData.MazePropData.TryGetValue(p.PropInfo.PropID, out var propData);
+                    //        if (propData != null && propData.PropStateList.Contains(PropStateEnum.Closed))
+                    //        {
+                    //            p.SetState(PropStateEnum.Closed);
+                    //        }
+                    //        else
+                    //        {
+                    //        }
+                    //    }
+                    //} else
+                    //{
+                    //    p.SetState(info.SourceState);
+                    //}
+                    GameData.MazePropData.TryGetValue(p.PropInfo.PropID, out var data);
+                    if (data?.PropStateList.Contains(info.SourceState) == true)
                     {
                         p.SetState(info.SourceState);
                     }

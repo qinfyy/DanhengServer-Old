@@ -106,11 +106,13 @@ namespace EggLink.DanhengServer.Data
         public static Dictionary<int, List<int>> RogueMapGenData { get; set; } = [];
         public static Dictionary<int, RogueMazeBuffExcel> RogueMazeBuffData { get; private set; } = [];
         public static Dictionary<int, RogueMiracleExcel> RogueMiracleData { get; private set; } = [];
+        public static Dictionary<int, RogueMiracleEffectConfig> RogueMiracleEffectData { get; private set; } = [];
+        public static Dictionary<int, List<int>> RogueMiracleGroupData { get; set; } = [];
         public static Dictionary<int, RogueMiracleDisplayExcel> RogueMiracleDisplayData { get; private set; } = [];
-        public static Dictionary<int, RogueMiracleEffectExcel> RogueMiracleEffectData { get; private set; } = [];
         public static Dictionary<int, RogueMonsterExcel> RogueMonsterData { get; private set; } = [];
         public static Dictionary<int, RogueNPCDialogueExcel> RogueNPCDialogueData { get; private set; } = [];
         public static Dictionary<int, RogueRoomExcel> RogueRoomData { get; private set; } = [];
+        public static Dictionary<int, RogueTalentExcel> RogueTalentData { get; private set; } = [];
 
         #endregion
 

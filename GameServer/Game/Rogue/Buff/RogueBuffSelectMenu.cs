@@ -18,6 +18,9 @@ namespace EggLink.DanhengServer.Game.Rogue.Buff
         public int RollFreeCount { get; set; } = rogue.BaseRerollFreeCount;
         public int RollCost { get; set; } = rogue.CurRerollCost;
         public int QueueAppend { get; set; } = 3;
+        public bool IsAeonBuff { get; set; } = false;
+        public int CurCount { get; set; } = 1;
+        public int TotalCount { get; set; } = 1;
         public List<RogueBuffExcel> BuffPool { get; set; } = [];
 
         public void RollBuff(List<RogueBuffExcel> buffs, int count = 3)
@@ -86,8 +89,8 @@ namespace EggLink.DanhengServer.Game.Rogue.Buff
                 RollBuffCount = (uint)RollCount,
                 RollBuffFreeCount = (uint)RollFreeCount,
                 RollBuffMaxCount = (uint)RollMaxCount,
-                SourceCurCount = 1,
-                SourceTotalCount = 1,
+                SourceCurCount = (uint)CurCount,
+                SourceTotalCount = (uint)TotalCount,
                 RollBuffCostData = new ItemCostData()
                 {
                     ItemList = { new ItemCost()

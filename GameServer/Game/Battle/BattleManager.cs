@@ -347,12 +347,13 @@ namespace EggLink.DanhengServer.Game.Battle
                 }
             }
             // call battle end
-            Player.MissionManager!.OnBattleFinish(req);
-            Player.RogueManager!.RogueInstance?.OnBattleEnd(battle, req);
-
             battle.MonsterDropItems = dropItems;
 
             Player.BattleInstance = null;
+
+            Player.MissionManager!.OnBattleFinish(req);
+            Player.RogueManager!.RogueInstance?.OnBattleEnd(battle, req);
+
             Player.SendPacket(new PacketPVEBattleResultScRsp(req, Player, battle));
         }
     }

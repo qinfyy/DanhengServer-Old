@@ -15,13 +15,13 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Tutorial
             {
                 if (res != TutorialStatus.TutorialFinish)
                 {
-                    player.InventoryManager!.AddItem(1, 1);
+                    player.InventoryManager!.AddItem(1, 1, false);
                     player.TutorialGuideData!.Tutorials[(int)req.GroupId] = TutorialStatus.TutorialFinish;
                     DatabaseHelper.Instance?.UpdateInstance(player.TutorialGuideData!);
                 }
             }
 
-            connection.SendPacket(new PacketFinishTutorialScRsp(req.GroupId));
+            connection.SendPacket(new PacketFinishTutorialGuideScRsp(req.GroupId));
         }
     }
 }

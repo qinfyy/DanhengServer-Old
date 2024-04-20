@@ -21,8 +21,9 @@ namespace EggLink.DanhengServer.Data
             LoadMissionInfo();
             LoadMazeSkill();
             LoadDialogueInfo();
-            LoadBanner();
-            LoadRogueMapGen();
+            GameData.BannersConfig = LoadCustomFile<BannersConfig>("Banner", "Banners") ?? new();
+            GameData.RogueMapGenData = LoadCustomFile<Dictionary<int, List<int>>>("Rogue Map", "RogueMapGen") ?? [];
+            GameData.RogueMiracleGroupData = LoadCustomFile<Dictionary<int, List<int>>>("Rogue Miracle Group", "RogueMiracleGroup") ?? [];
         }
 
         public static void LoadExcel()
@@ -233,7 +234,16 @@ namespace EggLink.DanhengServer.Data
                                         subMission.PropTask = mission;
                                         subMission.Loaded(2);
                                     }
-                                } else
+                                } else if (subMission.FinishType == Enums.MissionFinishTypeEnum.StageWin)
+                                {
+                                    var mission = JsonConvert.DeserializeObject<SubMissionTask<StageWinTaskInfo>>(missionJson);
+                                    if (mission != null)
+                                    {
+                                        subMission.StageWinTask = mission;
+                                        subMission.Loaded(3);
+                                    }
+                                }
+                                else
                                 {
                                     subMission.Loaded(0);
                                 }
@@ -254,30 +264,44 @@ namespace EggLink.DanhengServer.Data
             Logger.Info("Loaded " + count + " mission infos.");
         }
 
-        public static void LoadBanner()
+        public static T? LoadCustomFile<T>(string filetype, string filename)
         {
-            Logger.Info("Loading banner files...");
-            FileInfo file = new(ConfigManager.Config.Path.ConfigPath + "/Banners.json");
+            Logger.Info($"Loading {filetype} files...");
+            FileInfo file = new(ConfigManager.Config.Path.ConfigPath + $"/{filename}.json");
+            T? customFile = default;
             if (!file.Exists)
             {
-                Logger.Warn($"Banner infos are missing, please check your resources folder: {ConfigManager.Config.Path.ConfigPath}/Banner.json. Banners may not work!");
-                return;
+                Logger.Warn($"Banner infos are missing, please check your resources folder: {ConfigManager.Config.Path.ConfigPath}/{filename}.json. {filetype} may not work!");
+                return customFile;
             }
             try
             {
                 using var reader = file.OpenRead();
                 using StreamReader reader2 = new(reader);
                 var text = reader2.ReadToEnd();
-                var banners = JsonConvert.DeserializeObject<BannersConfig>(text);
-                if (banners != null)
-                {
-                    GameData.BannersConfig = banners;
-                }
+                var json = JsonConvert.DeserializeObject<T>(text);
+                customFile = json;
             } catch (Exception ex)
             {
                 Logger.Error("Error in reading " + file.Name, ex);
             }
-            Logger.Info("Loaded " + GameData.BannersConfig.Banners.Count + " banner infos.");
+
+            if (customFile is Dictionary<int, int> d)
+            {
+                Logger.Info("Loaded " + d.Count + $" {filetype}s.");
+            } else if (customFile is Dictionary<int, List<int>> di)
+            {
+                Logger.Info("Loaded " + di.Count + $" {filetype}s.");
+            } else if (customFile is BannersConfig c)
+            {
+                Logger.Info("Loaded " + c.Banners.Count + $" {filetype}s.");
+            }
+            else
+            {
+                Logger.Info("Loaded " + filetype + " file.");
+            }
+
+            return customFile;
         }
 
         public static void LoadMazeSkill()
@@ -306,31 +330,6 @@ namespace EggLink.DanhengServer.Data
                 Logger.Warn("Maze skill infos are missing, please check your resources folder: " + ConfigManager.Config.Path.ResourcePath + "/Config/ConfigAdventureAbility/LocalPlayer. Maze skills may not work!");
             }
             Logger.Info("Loaded " + count + " maze skill infos.");
-        }
-
-        public static void LoadRogueMapGen()
-        {
-            var path = ConfigManager.Config.Path.ConfigPath + "/RogueMapGen.json";
-            var file = new FileInfo(path);
-            if (!file.Exists)
-            {
-                Logger.Warn($"Rogue map gen infos are missing, please check your resources folder: {ConfigManager.Config.Path.ResourcePath}/Config/RogueMapGen.json. Rogue map gen may not work!");
-                return;
-            }
-            try
-            {
-                using var reader = file.OpenRead();
-                using StreamReader reader2 = new(reader);
-                var text = reader2.ReadToEnd();
-                var rogueMapGen = JsonConvert.DeserializeObject<Dictionary<int, List<int>>>(text);
-                if (rogueMapGen != null)
-                {
-                    GameData.RogueMapGenData = rogueMapGen;
-                }
-            } catch (Exception ex)
-            {
-                Logger.Error("Error in reading " + file.Name, ex);
-            }
         }
 
         public static void LoadDialogueInfo()

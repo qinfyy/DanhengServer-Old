@@ -1,4 +1,5 @@
 ﻿using EggLink.DanhengServer.Enums.Rogue;
+using EggLink.DanhengServer.Proto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Event.CostHandler
         public override void Handle(RogueInstance rogue, RogueEventInstance? eventInstance, List<int> ParamList)
         {
             int decreaseMoney = ParamList[1];
-            rogue.CostMoney(decreaseMoney, true);
+            rogue.CostMoney(decreaseMoney, RogueActionDisplayType.RogueCommonActionResultDisplayTypeSingle);
         }
     }
 }
