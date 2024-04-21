@@ -23,6 +23,16 @@ namespace EggLink.DanhengServer.Program
 
         public static void Main(string[] args)
         {
+            AppDomain.CurrentDomain.ProcessExit += (sender, eventArgs) => {
+                Console.WriteLine("Shutting down...");
+                PerformCleanup();
+            };
+            Console.CancelKeyPress += (sender, eventArgs) => {
+                Console.WriteLine("Cancel key pressed. Shutting down...");
+                eventArgs.Cancel = true;
+                PerformCleanup();
+                Environment.Exit(0);
+            };
             var time = DateTime.Now;
             // Initialize the logfile
             var counter = 0;
@@ -89,7 +99,6 @@ namespace EggLink.DanhengServer.Program
             // generate the handbook
             HandbookGenerator.Generate();
 
-            SetConsoleCtrlHandler(new ConsoleCtrlDelegate(ConsoleCtrlHandler), true);
             WebProgram.Main([$"--urls=http://{GetConfig().HttpServer.PublicAddress}:{GetConfig().HttpServer.PublicPort}/"]);
             logger.Info($"Dispatch Server is running on http://{GetConfig().HttpServer.PublicAddress}:{GetConfig().HttpServer.PublicPort}/");
 
@@ -113,18 +122,9 @@ namespace EggLink.DanhengServer.Program
             return ConfigManager.Config;
         }
 
-        private delegate bool ConsoleCtrlDelegate(int ctrlType);
-
-        [LibraryImport("Kernel32")]  // Windows only  try to find a way to do this on linux
-        [return: MarshalAs(UnmanagedType.Bool)]
-        private static partial bool SetConsoleCtrlHandler(ConsoleCtrlDelegate handler, [MarshalAs(UnmanagedType.Bool)] bool add);
-
-        private static bool ConsoleCtrlHandler(int ctrlType)
+        private static void PerformCleanup()
         {
-            logger.Info("Shutting down...");
             Listener.Connections.Values.ToList().ForEach(x => x.Stop());
-            Environment.Exit(0);
-            return false;
         }
     }
 }
