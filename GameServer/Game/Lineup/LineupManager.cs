@@ -325,7 +325,7 @@ namespace EggLink.DanhengServer.Game.Lineup
             DatabaseHelper.Instance?.UpdateInstance(LineupData);
             if (sendPacket)
             {
-                Player.SendPacket(new PacketSyncLineupNotify(GetCurLineup()!));
+                Player.SendPacket(new PacketSyncLineupNotify(GetCurLineup()!, Proto.SyncLineupReason.SyncReasonMpAddPropHit));
             }
         }
 

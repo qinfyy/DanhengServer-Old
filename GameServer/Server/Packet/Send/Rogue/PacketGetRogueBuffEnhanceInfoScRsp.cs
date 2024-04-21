@@ -20,6 +20,8 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Rogue
                 return;
             }
             proto.BuffEnhanceInfo = player.RogueManager.RogueInstance.ToEnhanceInfo();
+
+            SetData(proto);
         }
     }
 }

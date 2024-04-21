@@ -32,13 +32,13 @@ namespace EggLink.DanhengServer.Enums.Rogue
         CostDurability = 19,
         GetRogueBuffByAeon = 20,
         ChangeItemNumByArg = 21,
-        RankupInBattle = 22,
+        ChangeItemRatioAndSetVar = 22,
 
         // events
 
         OnGetMiracle = 100,
-        OnStartBattle = 101,
-        OnEndBattle = 102,
+        OnBattleStart = 101,
+        OnBattleEnd = 102,
         OnEnterNextRoom = 103,
         OnDestroy = 104,
         OnGainMoney = 105,
@@ -49,6 +49,9 @@ namespace EggLink.DanhengServer.Enums.Rogue
 
         CurMoney = 200,
         CurDestroyCount = 201,
-        AvatarWithLeastHP = 202,
+        CurBrokenMiracleCount = 202,
+        AvatarWithLeastHP = 203,
+        UseMoney = 204,
+        BuffTypeNum = 205,
     }
 }

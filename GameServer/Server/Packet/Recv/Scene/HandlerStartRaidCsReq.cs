@@ -18,6 +18,8 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Scene
             GameData.RaidConfigData.TryGetValue((int)(req.RaidId * 100 + req.WorldLevel), out var raidConfig);
             if (raidConfig != null)
             {
+                player.OldEntryId = player.Data.EntryId;
+                player.CurRaidId = raidConfig.RaidID;
                 raidConfig.MainMissionIDList.ForEach(missionId =>
                 {
                     player.MissionManager!.AcceptMainMission(missionId);

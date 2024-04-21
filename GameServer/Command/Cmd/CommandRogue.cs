@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EggLink.DanhengServer.Command.Cmd
 {
-    [CommandInfo("rogue", "Manage the resource in rogue", "/rogue <money [money]>/<buff [id/-1]>/<miracle [id/-1]>/<enhance [id/-1]>")]
+    [CommandInfo("rogue", "Manage the resource in rogue", "/rogue <money [money]>/<buff [id/-1]>/<miracle [id]>/<enhance [id/-1]>")]
     public class CommandRogue : ICommand
     {
         [CommandMethod("0 money")]
@@ -60,21 +60,10 @@ namespace EggLink.DanhengServer.Command.Cmd
                 return;
             }
             var id = arg.GetInt(0);
-            //if (id == -1)
-            //{
-            //    var miracleList = new List<RogueMiracleExcel>();
-            //    foreach (var miracle in GameData.RogueMiracleData.Values)
-            //    {
-            //        miracleList.Add(miracle);
-            //    }
-            //    arg.Target.Player!.RogueManager!.RogueInstance?.AddMiracleList(miracleList);
-            //    arg.SendMsg("Player has gained all miracles");
-            //}
-            //else
-            //{
-            //    arg.Target.Player!.RogueManager!.RogueInstance?.AddMiracle(id);
-            //    arg.SendMsg($"Player has gained miracle {id}");
-            //}
+            
+            arg.Target.Player!.RogueManager!.RogueInstance?.AddMiracle(id);
+            arg.SendMsg($"Player has gained miracle {id}");
+            
         }
 
         [CommandMethod("0 enhance")]

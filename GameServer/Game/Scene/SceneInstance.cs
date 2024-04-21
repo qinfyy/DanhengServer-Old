@@ -273,12 +273,21 @@ namespace EggLink.DanhengServer.Game.Scene
             }
 
             // unlock section
-            Player.SceneData!.UnlockSectionIdList.TryGetValue(FloorId, out var unlockSectionList);
-            if (unlockSectionList != null)
+            if (!ConfigManager.Config.ServerOption.AutoLightSection)
             {
-                foreach (var sectionId in unlockSectionList)
+                Player.SceneData!.UnlockSectionIdList.TryGetValue(FloorId, out var unlockSectionList);
+                if (unlockSectionList != null)
                 {
-                    sceneInfo.LightenSectionList.Add((uint)sectionId);
+                    foreach (var sectionId in unlockSectionList)
+                    {
+                        sceneInfo.LightenSectionList.Add((uint)sectionId);
+                    }
+                }
+            } else
+            {
+                for (uint i = 1; i <= 100; i++)
+                {
+                    sceneInfo.LightenSectionList.Add(i);
                 }
             }
 

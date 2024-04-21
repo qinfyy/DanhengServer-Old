@@ -23,6 +23,8 @@ namespace EggLink.DanhengServer.Data.Custom
         [JsonConverter(typeof(StringEnumConverter))]
         public RogueMiracleEffectTypeEnum Type { get; set; }
 
+        public string DynamicKey { get; set; } = "";  // for arguments
+
         public List<int> Params { get; set; } = [];
     }
 }

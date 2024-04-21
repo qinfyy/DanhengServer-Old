@@ -24,6 +24,7 @@ namespace EggLink.DanhengServer.Data
             GameData.BannersConfig = LoadCustomFile<BannersConfig>("Banner", "Banners") ?? new();
             GameData.RogueMapGenData = LoadCustomFile<Dictionary<int, List<int>>>("Rogue Map", "RogueMapGen") ?? [];
             GameData.RogueMiracleGroupData = LoadCustomFile<Dictionary<int, List<int>>>("Rogue Miracle Group", "RogueMiracleGroup") ?? [];
+            GameData.RogueMiracleEffectData = LoadCustomFile<RogueMiracleEffectConfig>("Rogue Miracle Effect", "RogueMiracleEffectGen") ?? new();
         }
 
         public static void LoadExcel()
@@ -295,6 +296,9 @@ namespace EggLink.DanhengServer.Data
             } else if (customFile is BannersConfig c)
             {
                 Logger.Info("Loaded " + c.Banners.Count + $" {filetype}s.");
+            } else if (customFile is RogueMiracleEffectConfig r)
+            {
+                Logger.Info("Loaded " + r.Miracles.Count + $" {filetype}s.");
             }
             else
             {

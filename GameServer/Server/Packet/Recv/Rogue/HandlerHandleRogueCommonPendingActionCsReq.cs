@@ -28,6 +28,11 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Rogue
             {
                 rogue.HandleBonusSelect((int)req.BonusSelectResult.BonusId);
             }
+
+            if (req.MiracleSelectResult != null)
+            {
+                rogue.HandleMiracleSelect(req.MiracleSelectResult.MiracleId);
+            }
         }
     }
 }

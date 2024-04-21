@@ -1,5 +1,6 @@
 ﻿using EggLink.DanhengServer.Data.Excel;
 using EggLink.DanhengServer.Game.Rogue.Buff;
+using EggLink.DanhengServer.Game.Rogue.Miracle;
 using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Util;
 using System;
@@ -14,7 +15,7 @@ namespace EggLink.DanhengServer.Game.Rogue
     {
         public int QueuePosition { get; set; } = 0;
         public RogueBuffSelectMenu? RogueBuffSelectMenu { get; set; }
-        public RogueMiracleSelectInfo? RogueMiracleSelectInfo { get; set; }
+        public RogueMiracleSelectMenu? RogueMiracleSelectMenu { get; set; }
         public RogueBonusSelectInfo? RogueBonusSelectInfo { get; set; }
 
         public void SetBonus()
@@ -34,9 +35,9 @@ namespace EggLink.DanhengServer.Game.Rogue
                 action.BuffSelectInfo = RogueBuffSelectMenu.ToProto();
             }
 
-            if (RogueMiracleSelectInfo != null)
+            if (RogueMiracleSelectMenu != null)
             {
-                action.MiracleSelectInfo = RogueMiracleSelectInfo;
+                action.MiracleSelectInfo = RogueMiracleSelectMenu.ToProto();
             }
 
             if (RogueBonusSelectInfo != null)

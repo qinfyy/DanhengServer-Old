@@ -4,6 +4,7 @@ using EggLink.DanhengServer.Server.Packet.Send.Player;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,6 +26,8 @@ namespace EggLink.DanhengServer.Command.Cmd
                 arg.SendMsg("Invalid arguments");
                 return;
             }
+            var Player = arg.Target.Player!;
+            // change basic type
             var avatarId = arg.GetInt(0);
             var level = arg.GetInt(1);
             if (level < 0 || level > 10)
@@ -37,10 +40,22 @@ namespace EggLink.DanhengServer.Command.Cmd
             {
                 player.AvatarManager!.AvatarData.Avatars.ForEach(avatar =>
                 {
-                    avatar.Excel?.SkillTree.ForEach(talent =>
+                    if (avatar.HeroId > 0)
                     {
-                        avatar.SkillTree![talent.PointID] = Math.Min(level, talent.MaxLevel);
-                    });
+                        avatar.SkillTreeExtra.TryGetValue(avatar.HeroId, out var hero);
+                        hero ??= [];
+                        var excel = GameData.AvatarConfigData[avatar.HeroId];
+                        excel.SkillTree.ForEach(talent =>
+                        {
+                            hero[talent.PointID] = Math.Min(level, talent.MaxLevel);
+                        });
+                    } else
+                    {
+                        avatar.Excel?.SkillTree.ForEach(talent =>
+                        {
+                            avatar.SkillTree![talent.PointID] = Math.Min(level, talent.MaxLevel);
+                        });
+                    }
                 });
                 arg.SendMsg($"Player has set all avatars' talents to level {level}");
 

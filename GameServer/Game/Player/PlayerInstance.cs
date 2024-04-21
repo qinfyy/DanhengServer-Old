@@ -57,6 +57,8 @@ namespace EggLink.DanhengServer.Game.Player
         public bool Initialized { get; set; } = false;
         public bool IsNewPlayer { get; set; } = false;
         public int NextBattleId { get; set; } = 0;
+        public int CurRaidId { get; set; } = 0;
+        public int OldEntryId { get; set; } = 0;
 
         #endregion
 
@@ -82,6 +84,8 @@ namespace EggLink.DanhengServer.Game.Player
             } else
             {
                 LineupManager?.AddAvatarToCurTeam(8001);
+                Data.CurrentGender = Gender.Man;
+                Data.CurBasicType = 8001;
             }
 
             Initialized = true;
@@ -448,6 +452,10 @@ namespace EggLink.DanhengServer.Game.Player
             {
                 EnterScene(801120102, 0, sendPacket);
                 return;
+            } else if (plane.PlaneType == PlaneTypeEnum.Raid && CurRaidId == 0)
+            {
+                EnterScene(OldEntryId > 0 ? OldEntryId : 2000101, 0, sendPacket);
+                return;
             }
 
             // TODO: Sanify check
@@ -546,6 +554,24 @@ namespace EggLink.DanhengServer.Game.Player
                 entryData[groupId] = data;
                 DatabaseHelper.Instance?.UpdateInstance(SceneData);
             }
+        }
+
+        public void LeaveRaid()
+        {
+            if (CurRaidId == 0) return;
+            GameData.RaidConfigData.TryGetValue(CurRaidId, out var config);
+            if (config == null) return;
+            if (config.FinishEntranceID > 0)
+            {
+                EnterScene(config.FinishEntranceID, 0, true);
+            }
+            else
+            {
+                EnterScene(OldEntryId, 0, true);
+            }
+
+            CurRaidId = 0;
+            OldEntryId = 0;
         }
 
         #endregion

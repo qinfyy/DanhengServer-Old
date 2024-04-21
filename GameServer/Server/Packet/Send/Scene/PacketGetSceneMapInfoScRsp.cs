@@ -3,6 +3,7 @@ using EggLink.DanhengServer.Data.Config;
 using EggLink.DanhengServer.Enums.Scene;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Proto;
+using EggLink.DanhengServer.Util;
 
 namespace EggLink.DanhengServer.Server.Packet.Send.Scene
 {
@@ -74,11 +75,19 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Scene
                     mazeMap.MazePropList.Add(mazeProp);
                 }
 
-                player.SceneData!.UnlockSectionIdList.TryGetValue(mapData.FloorID, out var sections);
-                foreach (var section in sections ?? [])
+                if (!ConfigManager.Config.ServerOption.AutoLightSection)
                 {
-                    mazeMap.LightenSectionList.Add((uint)section);
+                    player.SceneData!.UnlockSectionIdList.TryGetValue(mapData.FloorID, out var sections);
+                    foreach (var section in sections ?? [])
+                    {
+                        mazeMap.LightenSectionList.Add((uint)section);
+                    }
+                } else
+                {
+                    for (uint i = 0; i < 100; i++)
+                        mazeMap.LightenSectionList.Add(i);
                 }
+
                 rsp.SceneMapInfo.Add(mazeMap);
             }
             SetData(rsp);

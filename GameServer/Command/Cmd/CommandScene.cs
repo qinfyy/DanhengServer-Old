@@ -96,5 +96,23 @@ namespace EggLink.DanhengServer.Command.Cmd
             }
             arg.SendMsg("All props have been unlocked");
         }
+
+        [CommandMethod("0 move")]
+        public void ChangeScene(CommandArg arg)
+        {
+            if (arg.Target == null)
+            {
+                arg.SendMsg("Player not found");
+                return;
+            }
+            if (arg.GetInt(0) == 0)
+            {
+                arg.SendMsg("Invalid scene ID");
+                return;
+            }
+
+            var player = arg.Target!.Player!;
+            player.EnterScene(arg.GetInt(0), 0, true);
+        }
     }
 }

@@ -50,6 +50,7 @@ namespace EggLink.DanhengServer.Game.Mission
 
         public List<Proto.MissionSync?> AcceptMainMission(int missionId, bool sendPacket = true)
         {
+            if (!ConfigManager.Config.ServerOption.EnableMission) return [];
             if (Data.MissionInfo.ContainsKey(missionId)) return [];
             // Get entry sub mission
             GameData.MainMissionData.TryGetValue(missionId, out var mission);
@@ -71,11 +72,13 @@ namespace EggLink.DanhengServer.Game.Mission
 
         public void AcceptSubMission(int missionId)
         {
+            if (!ConfigManager.Config.ServerOption.EnableMission) return;
             AcceptSubMission(missionId, true);
         }
 
         public Proto.MissionSync? AcceptSubMission(int missionId, bool sendPacket, bool doFinishTypeAction = true)
         {
+            if (!ConfigManager.Config.ServerOption.EnableMission) return null;
             GameData.SubMissionData.TryGetValue(missionId, out var subMission);
             if (subMission == null) return null;
             var mainMissionId = subMission.MainMissionID;
@@ -112,6 +115,7 @@ namespace EggLink.DanhengServer.Game.Mission
 
         public void FinishMainMission(int missionId)
         {
+            if (!ConfigManager.Config.ServerOption.EnableMission) return;
             if (!Data.MainMissionInfo.TryGetValue(missionId, out var value)) return;
             if (!GameData.MainMissionData.TryGetValue(missionId, out var mainMission)) return;
             if (value != MissionPhaseEnum.Doing) return;
@@ -139,6 +143,7 @@ namespace EggLink.DanhengServer.Game.Mission
                     }
                 }
             }
+
             foreach (var nextMission in GameData.MainMissionData.Values)
             {
                 if (!nextMission.IsEqual(Data)) continue;
@@ -158,10 +163,28 @@ namespace EggLink.DanhengServer.Game.Mission
             HandleFinishType(MissionFinishTypeEnum.FinishMission);
 
             DatabaseHelper.Instance?.UpdateInstance(Data);
+
+            GameData.RaidConfigData.TryGetValue(Player.CurRaidId, out var raidConfig);
+            if (raidConfig != null)
+            {
+                bool leave = true;
+                foreach (var id in raidConfig.MainMissionIDList)
+                {
+                    if (GetMainMissionStatus(id) != MissionPhaseEnum.Finish)
+                    {
+                        leave = false;
+                    }
+                }
+                if (leave)
+                {
+                    Player.LeaveRaid();
+                }
+            }
         }
 
         public void FinishSubMission(int missionId)
         {
+            if (!ConfigManager.Config.ServerOption.EnableMission) return;
             GameData.SubMissionData.TryGetValue(missionId, out var subMission);
             if (subMission == null) return;
             var mainMissionId = subMission.MainMissionID;
@@ -231,6 +254,17 @@ namespace EggLink.DanhengServer.Game.Mission
             }
 
             DatabaseHelper.Instance?.UpdateInstance(Data);
+
+            // Hotfix  for mission 101140201
+            if (missionId == 101140201)
+            {
+                // change basic type
+                Player.Data.CurBasicType += 2;
+                DatabaseHelper.Instance?.UpdateInstance(Player.Data);
+                Player.AvatarManager!.GetHero()!.HeroId += 2;
+                DatabaseHelper.Instance?.UpdateInstance(Player.AvatarManager!.AvatarData);
+                Player.SendPacket(new PacketPlayerSyncScNotify(Player.AvatarManager!.GetHero()!));
+            }
         }
 
         public void HandleFinishAction(Data.Config.MissionInfo info, int subMissionId)
