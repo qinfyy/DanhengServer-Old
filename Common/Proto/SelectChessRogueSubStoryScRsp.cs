@@ -24,15 +24,15 @@ namespace EggLink.DanhengServer.Proto {
     static SelectChessRogueSubStoryScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiNTZWxlY3RDaGVzc1JvZ3VlU3ViU3RvcnlTY1JzcC5wcm90byKKAQodU2Vs",
+            "CiNTZWxlY3RDaGVzc1JvZ3VlU3ViU3RvcnlTY1JzcC5wcm90byKLAQodU2Vs",
             "ZWN0Q2hlc3NSb2d1ZVN1YlN0b3J5U2NSc3ASDwoHcmV0Y29kZRgFIAEoDRIT",
             "CgtHS0FJT0dOQ0RORRgPIAEoDRITCgtIRUlFT0ZITUFDQRgJIAEoDRIZChFk",
-            "aWFsb2d1ZV9ldmVudF9pZBgEIAEoDRITCgtPR0FET0RLR0xOTBgDIAEoDUIe",
-            "qgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "aWFsb2d1ZV9ldmVudF9pZBgEIAEoDRIUCgxzdWJfc3RvcnlfaWQYAyABKA1C",
+            "HqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SelectChessRogueSubStoryScRsp), global::EggLink.DanhengServer.Proto.SelectChessRogueSubStoryScRsp.Parser, new[]{ "Retcode", "GKAIOGNCDNE", "HEIEOFHMACA", "DialogueEventId", "OGADODKGLNL" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SelectChessRogueSubStoryScRsp), global::EggLink.DanhengServer.Proto.SelectChessRogueSubStoryScRsp.Parser, new[]{ "Retcode", "GKAIOGNCDNE", "HEIEOFHMACA", "DialogueEventId", "SubStoryId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -78,7 +78,7 @@ namespace EggLink.DanhengServer.Proto {
       gKAIOGNCDNE_ = other.gKAIOGNCDNE_;
       hEIEOFHMACA_ = other.hEIEOFHMACA_;
       dialogueEventId_ = other.dialogueEventId_;
-      oGADODKGLNL_ = other.oGADODKGLNL_;
+      subStoryId_ = other.subStoryId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -136,15 +136,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "OGADODKGLNL" field.</summary>
-    public const int OGADODKGLNLFieldNumber = 3;
-    private uint oGADODKGLNL_;
+    /// <summary>Field number for the "sub_story_id" field.</summary>
+    public const int SubStoryIdFieldNumber = 3;
+    private uint subStoryId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint OGADODKGLNL {
-      get { return oGADODKGLNL_; }
+    public uint SubStoryId {
+      get { return subStoryId_; }
       set {
-        oGADODKGLNL_ = value;
+        subStoryId_ = value;
       }
     }
 
@@ -167,7 +167,7 @@ namespace EggLink.DanhengServer.Proto {
       if (GKAIOGNCDNE != other.GKAIOGNCDNE) return false;
       if (HEIEOFHMACA != other.HEIEOFHMACA) return false;
       if (DialogueEventId != other.DialogueEventId) return false;
-      if (OGADODKGLNL != other.OGADODKGLNL) return false;
+      if (SubStoryId != other.SubStoryId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -179,7 +179,7 @@ namespace EggLink.DanhengServer.Proto {
       if (GKAIOGNCDNE != 0) hash ^= GKAIOGNCDNE.GetHashCode();
       if (HEIEOFHMACA != 0) hash ^= HEIEOFHMACA.GetHashCode();
       if (DialogueEventId != 0) hash ^= DialogueEventId.GetHashCode();
-      if (OGADODKGLNL != 0) hash ^= OGADODKGLNL.GetHashCode();
+      if (SubStoryId != 0) hash ^= SubStoryId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -198,9 +198,9 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (OGADODKGLNL != 0) {
+      if (SubStoryId != 0) {
         output.WriteRawTag(24);
-        output.WriteUInt32(OGADODKGLNL);
+        output.WriteUInt32(SubStoryId);
       }
       if (DialogueEventId != 0) {
         output.WriteRawTag(32);
@@ -228,9 +228,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (OGADODKGLNL != 0) {
+      if (SubStoryId != 0) {
         output.WriteRawTag(24);
-        output.WriteUInt32(OGADODKGLNL);
+        output.WriteUInt32(SubStoryId);
       }
       if (DialogueEventId != 0) {
         output.WriteRawTag(32);
@@ -270,8 +270,8 @@ namespace EggLink.DanhengServer.Proto {
       if (DialogueEventId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DialogueEventId);
       }
-      if (OGADODKGLNL != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OGADODKGLNL);
+      if (SubStoryId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SubStoryId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -297,8 +297,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other.DialogueEventId != 0) {
         DialogueEventId = other.DialogueEventId;
       }
-      if (other.OGADODKGLNL != 0) {
-        OGADODKGLNL = other.OGADODKGLNL;
+      if (other.SubStoryId != 0) {
+        SubStoryId = other.SubStoryId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -316,7 +316,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 24: {
-            OGADODKGLNL = input.ReadUInt32();
+            SubStoryId = input.ReadUInt32();
             break;
           }
           case 32: {
@@ -351,7 +351,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 24: {
-            OGADODKGLNL = input.ReadUInt32();
+            SubStoryId = input.ReadUInt32();
             break;
           }
           case 32: {

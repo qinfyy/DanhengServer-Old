@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueUpdateActionPointScNotifyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CilDaGVzc1JvZ3VlVXBkYXRlQWN0aW9uUG9pbnRTY05vdGlmeS5wcm90byI6",
-            "CiNDaGVzc1JvZ3VlVXBkYXRlQWN0aW9uUG9pbnRTY05vdGlmeRITCgtHUEJD",
-            "RkFOQVBERhgGIAEoBUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3Rv",
-            "YgZwcm90bzM="));
+            "CilDaGVzc1JvZ3VlVXBkYXRlQWN0aW9uUG9pbnRTY05vdGlmeS5wcm90byI7",
+            "CiNDaGVzc1JvZ3VlVXBkYXRlQWN0aW9uUG9pbnRTY05vdGlmeRIUCgxhY3Rp",
+            "b25fcG9pbnQYBiABKAVCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90",
+            "b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueUpdateActionPointScNotify), global::EggLink.DanhengServer.Proto.ChessRogueUpdateActionPointScNotify.Parser, new[]{ "GPBCFANAPDF" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueUpdateActionPointScNotify), global::EggLink.DanhengServer.Proto.ChessRogueUpdateActionPointScNotify.Parser, new[]{ "ActionPoint" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ChessRogueUpdateActionPointScNotify(ChessRogueUpdateActionPointScNotify other) : this() {
-      gPBCFANAPDF_ = other.gPBCFANAPDF_;
+      actionPoint_ = other.actionPoint_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,15 +83,15 @@ namespace EggLink.DanhengServer.Proto {
       return new ChessRogueUpdateActionPointScNotify(this);
     }
 
-    /// <summary>Field number for the "GPBCFANAPDF" field.</summary>
-    public const int GPBCFANAPDFFieldNumber = 6;
-    private int gPBCFANAPDF_;
+    /// <summary>Field number for the "action_point" field.</summary>
+    public const int ActionPointFieldNumber = 6;
+    private int actionPoint_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int GPBCFANAPDF {
-      get { return gPBCFANAPDF_; }
+    public int ActionPoint {
+      get { return actionPoint_; }
       set {
-        gPBCFANAPDF_ = value;
+        actionPoint_ = value;
       }
     }
 
@@ -110,7 +110,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (GPBCFANAPDF != other.GPBCFANAPDF) return false;
+      if (ActionPoint != other.ActionPoint) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -118,7 +118,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (GPBCFANAPDF != 0) hash ^= GPBCFANAPDF.GetHashCode();
+      if (ActionPoint != 0) hash ^= ActionPoint.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -137,9 +137,9 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (GPBCFANAPDF != 0) {
+      if (ActionPoint != 0) {
         output.WriteRawTag(48);
-        output.WriteInt32(GPBCFANAPDF);
+        output.WriteInt32(ActionPoint);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -151,9 +151,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (GPBCFANAPDF != 0) {
+      if (ActionPoint != 0) {
         output.WriteRawTag(48);
-        output.WriteInt32(GPBCFANAPDF);
+        output.WriteInt32(ActionPoint);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -165,8 +165,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (GPBCFANAPDF != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(GPBCFANAPDF);
+      if (ActionPoint != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ActionPoint);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -180,8 +180,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.GPBCFANAPDF != 0) {
-        GPBCFANAPDF = other.GPBCFANAPDF;
+      if (other.ActionPoint != 0) {
+        ActionPoint = other.ActionPoint;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -199,7 +199,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 48: {
-            GPBCFANAPDF = input.ReadInt32();
+            ActionPoint = input.ReadInt32();
             break;
           }
         }
@@ -218,7 +218,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 48: {
-            GPBCFANAPDF = input.ReadInt32();
+            ActionPoint = input.ReadInt32();
             break;
           }
         }

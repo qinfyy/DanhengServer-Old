@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static FinishChessRogueSubStoryCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiNGaW5pc2hDaGVzc1JvZ3VlU3ViU3RvcnlDc1JlcS5wcm90byJeCh1GaW5p",
+            "CiNGaW5pc2hDaGVzc1JvZ3VlU3ViU3RvcnlDc1JlcS5wcm90byJfCh1GaW5p",
             "c2hDaGVzc1JvZ3VlU3ViU3RvcnlDc1JlcRITCgtIRUlFT0ZITUFDQRgCIAEo",
-            "DRITCgtPR0FET0RLR0xOTBgEIAEoDRITCgtHS0FJT0dOQ0RORRgLIAEoDUIe",
-            "qgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "DRIUCgxzdWJfc3RvcnlfaWQYBCABKA0SEwoLR0tBSU9HTkNETkUYCyABKA1C",
+            "HqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.FinishChessRogueSubStoryCsReq), global::EggLink.DanhengServer.Proto.FinishChessRogueSubStoryCsReq.Parser, new[]{ "HEIEOFHMACA", "OGADODKGLNL", "GKAIOGNCDNE" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.FinishChessRogueSubStoryCsReq), global::EggLink.DanhengServer.Proto.FinishChessRogueSubStoryCsReq.Parser, new[]{ "HEIEOFHMACA", "SubStoryId", "GKAIOGNCDNE" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,7 +74,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public FinishChessRogueSubStoryCsReq(FinishChessRogueSubStoryCsReq other) : this() {
       hEIEOFHMACA_ = other.hEIEOFHMACA_;
-      oGADODKGLNL_ = other.oGADODKGLNL_;
+      subStoryId_ = other.subStoryId_;
       gKAIOGNCDNE_ = other.gKAIOGNCDNE_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -97,15 +97,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "OGADODKGLNL" field.</summary>
-    public const int OGADODKGLNLFieldNumber = 4;
-    private uint oGADODKGLNL_;
+    /// <summary>Field number for the "sub_story_id" field.</summary>
+    public const int SubStoryIdFieldNumber = 4;
+    private uint subStoryId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint OGADODKGLNL {
-      get { return oGADODKGLNL_; }
+    public uint SubStoryId {
+      get { return subStoryId_; }
       set {
-        oGADODKGLNL_ = value;
+        subStoryId_ = value;
       }
     }
 
@@ -137,7 +137,7 @@ namespace EggLink.DanhengServer.Proto {
         return true;
       }
       if (HEIEOFHMACA != other.HEIEOFHMACA) return false;
-      if (OGADODKGLNL != other.OGADODKGLNL) return false;
+      if (SubStoryId != other.SubStoryId) return false;
       if (GKAIOGNCDNE != other.GKAIOGNCDNE) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -147,7 +147,7 @@ namespace EggLink.DanhengServer.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (HEIEOFHMACA != 0) hash ^= HEIEOFHMACA.GetHashCode();
-      if (OGADODKGLNL != 0) hash ^= OGADODKGLNL.GetHashCode();
+      if (SubStoryId != 0) hash ^= SubStoryId.GetHashCode();
       if (GKAIOGNCDNE != 0) hash ^= GKAIOGNCDNE.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -171,9 +171,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(16);
         output.WriteUInt32(HEIEOFHMACA);
       }
-      if (OGADODKGLNL != 0) {
+      if (SubStoryId != 0) {
         output.WriteRawTag(32);
-        output.WriteUInt32(OGADODKGLNL);
+        output.WriteUInt32(SubStoryId);
       }
       if (GKAIOGNCDNE != 0) {
         output.WriteRawTag(88);
@@ -193,9 +193,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(16);
         output.WriteUInt32(HEIEOFHMACA);
       }
-      if (OGADODKGLNL != 0) {
+      if (SubStoryId != 0) {
         output.WriteRawTag(32);
-        output.WriteUInt32(OGADODKGLNL);
+        output.WriteUInt32(SubStoryId);
       }
       if (GKAIOGNCDNE != 0) {
         output.WriteRawTag(88);
@@ -214,8 +214,8 @@ namespace EggLink.DanhengServer.Proto {
       if (HEIEOFHMACA != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(HEIEOFHMACA);
       }
-      if (OGADODKGLNL != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OGADODKGLNL);
+      if (SubStoryId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SubStoryId);
       }
       if (GKAIOGNCDNE != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GKAIOGNCDNE);
@@ -235,8 +235,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other.HEIEOFHMACA != 0) {
         HEIEOFHMACA = other.HEIEOFHMACA;
       }
-      if (other.OGADODKGLNL != 0) {
-        OGADODKGLNL = other.OGADODKGLNL;
+      if (other.SubStoryId != 0) {
+        SubStoryId = other.SubStoryId;
       }
       if (other.GKAIOGNCDNE != 0) {
         GKAIOGNCDNE = other.GKAIOGNCDNE;
@@ -261,7 +261,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 32: {
-            OGADODKGLNL = input.ReadUInt32();
+            SubStoryId = input.ReadUInt32();
             break;
           }
           case 88: {
@@ -288,7 +288,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 32: {
-            OGADODKGLNL = input.ReadUInt32();
+            SubStoryId = input.ReadUInt32();
             break;
           }
           case 88: {

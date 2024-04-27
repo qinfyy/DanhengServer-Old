@@ -7,6 +7,12 @@ namespace EggLink.DanhengServer.Data
 {
     public static class GameData
     {
+        #region Activity
+
+        public static ActivityConfig ActivityConfig { get; set; } = new();
+
+        #endregion
+
         #region Avatar
 
         public static Dictionary<int, AvatarConfigExcel> AvatarConfigData { get; private set; } = [];
@@ -27,6 +33,19 @@ namespace EggLink.DanhengServer.Data
         public static Dictionary<int, NPCMonsterDataExcel> NpcMonsterDataData { get; private set; } = [];
         public static Dictionary<int, MonsterConfigExcel> MonsterConfigData { get; private set; } = [];
         public static Dictionary<int, MonsterDropExcel> MonsterDropData { get; private set; } = [];
+
+        #endregion
+
+        #region ChessRogue
+
+        public static Dictionary<int, RogueDLCAreaExcel> RogueDLCAreaData { get; private set; } = [];
+        public static Dictionary<int, RogueNousAeonExcel> RogueNousAeonData { get; private set; } = [];
+        public static Dictionary<int, RogueNousDiceBranchExcel> RogueNousDiceBranchData { get; private set; } = [];
+        public static Dictionary<int, RogueNousDiceSurfaceExcel> RogueNousDiceSurfaceData { get; private set; } = [];
+        public static Dictionary<int, RogueNousDifficultyLevelExcel> RogueNousDifficultyLevelData { get; private set; } = [];
+        public static Dictionary<int, RogueNousMainStoryExcel> RogueNousMainStoryData { get; private set; } = [];
+        public static Dictionary<int, RogueNousSubStoryExcel> RogueNousSubStoryData { get; private set; } = [];
+        public static Dictionary<int, RogueNousTalentExcel> RogueNousTalentData { get; private set; } = [];
 
         #endregion
 

@@ -26,7 +26,7 @@ namespace EggLink.DanhengServer.Game.Rogue
         public Database.Lineup.LineupInfo CurLineup { get; set; } = new();
         public int CurReviveCost { get; set; } = 80;
         public int CurRerollCost { get; set; } = 30;
-        public int BaseRerollCount { get; set; } = 0;
+        public int BaseRerollCount { get; set; } = 1;
         public int BaseRerollFreeCount { get; set; } = 0;
         public int CurReachedRoom { get; set; } = 0;
         public int CurMoney { get; set; } = 100;
@@ -679,6 +679,9 @@ namespace EggLink.DanhengServer.Game.Rogue
             if (RogueActions.Count > 0)
             {
                 proto.PendingAction = RogueActions.First().Value.ToProto();
+            } else
+            {
+                proto.PendingAction = new();
             }
 
             return proto;
@@ -693,10 +696,12 @@ namespace EggLink.DanhengServer.Game.Rogue
                     MiracleList = { },  // for the client serialization
                 }
             };
+
             foreach (var miracle in RogueMiracles.Values)
             {
                 proto.GameMiracleInfo_.MiracleList.Add(miracle.ToProto());
             }
+
             return proto;
         }
 
@@ -739,7 +744,10 @@ namespace EggLink.DanhengServer.Game.Rogue
 
         public RogueBuffInfo ToBuffInfo()
         {
-            var proto = new RogueBuffInfo();
+            var proto = new RogueBuffInfo()
+            {
+                MazeBuffList = { }
+            };
 
             foreach (var buff in RogueBuffs)
             {

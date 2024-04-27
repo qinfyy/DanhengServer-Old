@@ -25,11 +25,12 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CipDaGVzc1JvZ3VlQ2hhbmdleUFlb25EaW1lbnNpb25Ob3RpZnkucHJvdG8a",
-            "EU1BR0hNSU5DTklELnByb3RvIkIKJENoZXNzUm9ndWVDaGFuZ2V5QWVvbkRp",
-            "bWVuc2lvbk5vdGlmeRIaCgRpbmZvGAggASgLMgwuTUFHSE1JTkNOSURCHqoC",
-            "G0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
+            "GUNoZXNzUm9ndWVRdWVyeUFlb24ucHJvdG8iSgokQ2hlc3NSb2d1ZUNoYW5n",
+            "ZXlBZW9uRGltZW5zaW9uTm90aWZ5EiIKBGluZm8YCCABKAsyFC5DaGVzc1Jv",
+            "Z3VlUXVlcnlBZW9uQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9i",
+            "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MAGHMINCNIDReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChessRogueQueryAeonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueChangeyAeonDimensionNotify), global::EggLink.DanhengServer.Proto.ChessRogueChangeyAeonDimensionNotify.Parser, new[]{ "Info" }, null, null, null, null)
           }));
@@ -85,10 +86,10 @@ namespace EggLink.DanhengServer.Proto {
 
     /// <summary>Field number for the "info" field.</summary>
     public const int InfoFieldNumber = 8;
-    private global::EggLink.DanhengServer.Proto.MAGHMINCNID info_;
+    private global::EggLink.DanhengServer.Proto.ChessRogueQueryAeon info_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.MAGHMINCNID Info {
+    public global::EggLink.DanhengServer.Proto.ChessRogueQueryAeon Info {
       get { return info_; }
       set {
         info_ = value;
@@ -182,7 +183,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (other.info_ != null) {
         if (info_ == null) {
-          Info = new global::EggLink.DanhengServer.Proto.MAGHMINCNID();
+          Info = new global::EggLink.DanhengServer.Proto.ChessRogueQueryAeon();
         }
         Info.MergeFrom(other.Info);
       }
@@ -203,7 +204,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           case 66: {
             if (info_ == null) {
-              Info = new global::EggLink.DanhengServer.Proto.MAGHMINCNID();
+              Info = new global::EggLink.DanhengServer.Proto.ChessRogueQueryAeon();
             }
             input.ReadMessage(Info);
             break;
@@ -225,7 +226,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           case 66: {
             if (info_ == null) {
-              Info = new global::EggLink.DanhengServer.Proto.MAGHMINCNID();
+              Info = new global::EggLink.DanhengServer.Proto.ChessRogueQueryAeon();
             }
             input.ReadMessage(Info);
             break;

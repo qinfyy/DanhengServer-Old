@@ -25,13 +25,13 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Ci9DaGVzc1JvZ3VlVXBkYXRlQWxsb3dlZFNlbGVjdENlbGxTY05vdGlmeS5w",
-            "cm90byJVCilDaGVzc1JvZ3VlVXBkYXRlQWxsb3dlZFNlbGVjdENlbGxTY05v",
-            "dGlmeRITCgtOQ05HT0dIQVBQThgHIAEoDRITCgtISkNGRlBOSE9BSRgKIAMo",
-            "DUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "cm90byJSCilDaGVzc1JvZ3VlVXBkYXRlQWxsb3dlZFNlbGVjdENlbGxTY05v",
+            "dGlmeRIQCghib2FyZF9pZBgHIAEoDRITCgtISkNGRlBOSE9BSRgKIAMoDUIe",
+            "qgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueUpdateAllowedSelectCellScNotify), global::EggLink.DanhengServer.Proto.ChessRogueUpdateAllowedSelectCellScNotify.Parser, new[]{ "NCNGOGHAPPN", "HJCFFPNHOAI" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueUpdateAllowedSelectCellScNotify), global::EggLink.DanhengServer.Proto.ChessRogueUpdateAllowedSelectCellScNotify.Parser, new[]{ "BoardId", "HJCFFPNHOAI" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ChessRogueUpdateAllowedSelectCellScNotify(ChessRogueUpdateAllowedSelectCellScNotify other) : this() {
-      nCNGOGHAPPN_ = other.nCNGOGHAPPN_;
+      boardId_ = other.boardId_;
       hJCFFPNHOAI_ = other.hJCFFPNHOAI_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -84,15 +84,15 @@ namespace EggLink.DanhengServer.Proto {
       return new ChessRogueUpdateAllowedSelectCellScNotify(this);
     }
 
-    /// <summary>Field number for the "NCNGOGHAPPN" field.</summary>
-    public const int NCNGOGHAPPNFieldNumber = 7;
-    private uint nCNGOGHAPPN_;
+    /// <summary>Field number for the "board_id" field.</summary>
+    public const int BoardIdFieldNumber = 7;
+    private uint boardId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint NCNGOGHAPPN {
-      get { return nCNGOGHAPPN_; }
+    public uint BoardId {
+      get { return boardId_; }
       set {
-        nCNGOGHAPPN_ = value;
+        boardId_ = value;
       }
     }
 
@@ -122,7 +122,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (NCNGOGHAPPN != other.NCNGOGHAPPN) return false;
+      if (BoardId != other.BoardId) return false;
       if(!hJCFFPNHOAI_.Equals(other.hJCFFPNHOAI_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -131,7 +131,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (NCNGOGHAPPN != 0) hash ^= NCNGOGHAPPN.GetHashCode();
+      if (BoardId != 0) hash ^= BoardId.GetHashCode();
       hash ^= hJCFFPNHOAI_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -151,9 +151,9 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (NCNGOGHAPPN != 0) {
+      if (BoardId != 0) {
         output.WriteRawTag(56);
-        output.WriteUInt32(NCNGOGHAPPN);
+        output.WriteUInt32(BoardId);
       }
       hJCFFPNHOAI_.WriteTo(output, _repeated_hJCFFPNHOAI_codec);
       if (_unknownFields != null) {
@@ -166,9 +166,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (NCNGOGHAPPN != 0) {
+      if (BoardId != 0) {
         output.WriteRawTag(56);
-        output.WriteUInt32(NCNGOGHAPPN);
+        output.WriteUInt32(BoardId);
       }
       hJCFFPNHOAI_.WriteTo(ref output, _repeated_hJCFFPNHOAI_codec);
       if (_unknownFields != null) {
@@ -181,8 +181,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (NCNGOGHAPPN != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NCNGOGHAPPN);
+      if (BoardId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BoardId);
       }
       size += hJCFFPNHOAI_.CalculateSize(_repeated_hJCFFPNHOAI_codec);
       if (_unknownFields != null) {
@@ -197,8 +197,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.NCNGOGHAPPN != 0) {
-        NCNGOGHAPPN = other.NCNGOGHAPPN;
+      if (other.BoardId != 0) {
+        BoardId = other.BoardId;
       }
       hJCFFPNHOAI_.Add(other.hJCFFPNHOAI_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -217,7 +217,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 56: {
-            NCNGOGHAPPN = input.ReadUInt32();
+            BoardId = input.ReadUInt32();
             break;
           }
           case 82:
@@ -241,7 +241,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 56: {
-            NCNGOGHAPPN = input.ReadUInt32();
+            BoardId = input.ReadUInt32();
             break;
           }
           case 82:

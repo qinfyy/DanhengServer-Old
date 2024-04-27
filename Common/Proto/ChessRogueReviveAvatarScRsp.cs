@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueReviveAvatarScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiFDaGVzc1JvZ3VlUmV2aXZlQXZhdGFyU2NSc3AucHJvdG8aEUdFT0ZKSUVH",
-            "QURKLnByb3RvIm4KG0NoZXNzUm9ndWVSZXZpdmVBdmF0YXJTY1JzcBIPCgdy",
-            "ZXRjb2RlGAUgASgNEiEKC3Jldml2ZV9pbmZvGAIgASgLMgwuR0VPRkpJRUdB",
-            "REoSGwoTYmFzZV9hdmF0YXJfaWRfbGlzdBgKIAMoDUIeqgIbRWdnTGluay5E",
-            "YW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "CiFDaGVzc1JvZ3VlUmV2aXZlQXZhdGFyU2NSc3AucHJvdG8aGkNoZXNzUm9n",
+            "dWVSZXZpdmVJbmZvLnByb3RvIncKG0NoZXNzUm9ndWVSZXZpdmVBdmF0YXJT",
+            "Y1JzcBIPCgdyZXRjb2RlGAUgASgNEioKC3Jldml2ZV9pbmZvGAIgASgLMhUu",
+            "Q2hlc3NSb2d1ZVJldml2ZUluZm8SGwoTYmFzZV9hdmF0YXJfaWRfbGlzdBgK",
+            "IAMoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.GEOFJIEGADJReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChessRogueReviveInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueReviveAvatarScRsp), global::EggLink.DanhengServer.Proto.ChessRogueReviveAvatarScRsp.Parser, new[]{ "Retcode", "ReviveInfo", "BaseAvatarIdList" }, null, null, null, null)
           }));
@@ -100,10 +100,10 @@ namespace EggLink.DanhengServer.Proto {
 
     /// <summary>Field number for the "revive_info" field.</summary>
     public const int ReviveInfoFieldNumber = 2;
-    private global::EggLink.DanhengServer.Proto.GEOFJIEGADJ reviveInfo_;
+    private global::EggLink.DanhengServer.Proto.ChessRogueReviveInfo reviveInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.GEOFJIEGADJ ReviveInfo {
+    public global::EggLink.DanhengServer.Proto.ChessRogueReviveInfo ReviveInfo {
       get { return reviveInfo_; }
       set {
         reviveInfo_ = value;
@@ -229,7 +229,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (other.reviveInfo_ != null) {
         if (reviveInfo_ == null) {
-          ReviveInfo = new global::EggLink.DanhengServer.Proto.GEOFJIEGADJ();
+          ReviveInfo = new global::EggLink.DanhengServer.Proto.ChessRogueReviveInfo();
         }
         ReviveInfo.MergeFrom(other.ReviveInfo);
       }
@@ -251,7 +251,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           case 18: {
             if (reviveInfo_ == null) {
-              ReviveInfo = new global::EggLink.DanhengServer.Proto.GEOFJIEGADJ();
+              ReviveInfo = new global::EggLink.DanhengServer.Proto.ChessRogueReviveInfo();
             }
             input.ReadMessage(ReviveInfo);
             break;
@@ -282,7 +282,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           case 18: {
             if (reviveInfo_ == null) {
-              ReviveInfo = new global::EggLink.DanhengServer.Proto.GEOFJIEGADJ();
+              ReviveInfo = new global::EggLink.DanhengServer.Proto.ChessRogueReviveInfo();
             }
             input.ReadMessage(ReviveInfo);
             break;

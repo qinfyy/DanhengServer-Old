@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static HPMAFPGNLPHReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFIUE1BRlBHTkxQSC5wcm90bxoXSGVhcnREaWFsU3RlcFR5cGUucHJvdG8a",
-            "GkhlYXJ0RGlhbEVtb3Rpb25UeXBlLnByb3RvIpoBCgtIUE1BRlBHTkxQSBIT",
+            "ChFIUE1BRlBHTkxQSC5wcm90bxoaSGVhcnREaWFsRW1vdGlvblR5cGUucHJv",
+            "dG8aF0hlYXJ0RGlhbFN0ZXBUeXBlLnByb3RvIpoBCgtIUE1BRlBHTkxQSBIT",
             "CgtPSklMS0lFQk1NQxgEIAEoCBIqCgtKUEVLRkxKQ1BNTBgPIAEoDjIVLkhl",
             "YXJ0RGlhbEVtb3Rpb25UeXBlEhMKC0dDQk5HR0tMTEdMGAsgASgIEiAKBHN0",
             "ZXAYDiABKA4yEi5IZWFydERpYWxTdGVwVHlwZRITCgtITE9DS0VMRkZGShgM",
             "IAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.HeartDialStepTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.HeartDialEmotionTypeReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.HeartDialEmotionTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.HeartDialStepTypeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.HPMAFPGNLPH), global::EggLink.DanhengServer.Proto.HPMAFPGNLPH.Parser, new[]{ "OJILKIEBMMC", "JPEKFLJCPML", "GCBNGGKLLGL", "Step", "HLOCKELFFFJ" }, null, null, null, null)
           }));

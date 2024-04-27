@@ -21,6 +21,7 @@ namespace EggLink.DanhengServer.Data
             LoadMissionInfo();
             LoadMazeSkill();
             LoadDialogueInfo();
+            GameData.ActivityConfig = LoadCustomFile<ActivityConfig>("Activity", "ActivityConfig") ?? new();
             GameData.BannersConfig = LoadCustomFile<BannersConfig>("Banner", "Banners") ?? new();
             GameData.RogueMapGenData = LoadCustomFile<Dictionary<int, List<int>>>("Rogue Map", "RogueMapGen") ?? [];
             GameData.RogueMiracleGroupData = LoadCustomFile<Dictionary<int, List<int>>>("Rogue Miracle Group", "RogueMiracleGroup") ?? [];
@@ -299,6 +300,9 @@ namespace EggLink.DanhengServer.Data
             } else if (customFile is RogueMiracleEffectConfig r)
             {
                 Logger.Info("Loaded " + r.Miracles.Count + $" {filetype}s.");
+            } else if (customFile is ActivityConfig a)
+            {
+                Logger.Info("Loaded " + a.ScheduleData.Count + $" {filetype}s.");
             }
             else
             {

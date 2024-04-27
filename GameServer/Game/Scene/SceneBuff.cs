@@ -21,7 +21,7 @@ namespace EggLink.DanhengServer.Game.Scene
         public bool IsExpired()
         {
             if (Duration == -1)
-                return true;  // Permanent buff
+                return false;  // Permanent buff
             return Extensions.GetUnixMs() - CreatedTime >= Duration;
         }
 

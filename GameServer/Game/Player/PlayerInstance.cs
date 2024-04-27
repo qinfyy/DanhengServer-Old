@@ -6,8 +6,10 @@ using EggLink.DanhengServer.Database.Scene;
 using EggLink.DanhengServer.Database.Tutorial;
 using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Enums.Scene;
+using EggLink.DanhengServer.Game.Activity;
 using EggLink.DanhengServer.Game.Avatar;
 using EggLink.DanhengServer.Game.Battle;
+using EggLink.DanhengServer.Game.ChessRogue;
 using EggLink.DanhengServer.Game.Gacha;
 using EggLink.DanhengServer.Game.Inventory;
 using EggLink.DanhengServer.Game.Lineup;
@@ -31,6 +33,7 @@ namespace EggLink.DanhengServer.Game.Player
     {
         #region Managers
 
+        public ActivityManager? ActivityManager { get; private set; }
         public AvatarManager? AvatarManager { get; private set; }
         public LineupManager? LineupManager { get; private set; }
         public InventoryManager? InventoryManager { get; private set; }
@@ -40,6 +43,7 @@ namespace EggLink.DanhengServer.Game.Player
         public GachaManager? GachaManager { get; private set; }
         public MessageManager? MessageManager { get; private set; }
         public RogueManager? RogueManager { get; private set; }
+        public ChessRogueManager? ChessRogueManager { get; private set; }
         public ShopService? ShopService { get; private set; }
 
         #endregion
@@ -94,6 +98,7 @@ namespace EggLink.DanhengServer.Game.Player
         private void InitialPlayerManager()
         {
             Uid = (ushort)Data.Uid;
+            ActivityManager = new(this);
             AvatarManager = new(this);
             LineupManager = new(this);
             InventoryManager = new(this);
@@ -103,6 +108,7 @@ namespace EggLink.DanhengServer.Game.Player
             MessageManager = new(this);
             RogueManager = new(this);
             ShopService = new(this);
+            ChessRogueManager = new(this);
 
             PlayerUnlockData = InitializeDatabase<PlayerUnlockData>();
             SceneData = InitializeDatabase<SceneData>();
@@ -569,6 +575,8 @@ namespace EggLink.DanhengServer.Game.Player
             {
                 EnterScene(OldEntryId, 0, true);
             }
+
+            SendPacket(new PacketRaidInfoNotify((uint)CurRaidId, RaidStatus.Finish));
 
             CurRaidId = 0;
             OldEntryId = 0;

@@ -195,10 +195,10 @@ namespace EggLink.DanhengServer.Game.Rogue
 
             foreach (var talent in GameData.RogueTalentData)
             {
-                proto.RogueTalent.Add(new EPDOAOEEGBD()
+                proto.RogueTalent.Add(new RogueTalent()
                 {
                     TalentId = (uint)talent.Key,
-                    Status = RogueTalentStatus.Enable
+                    Status = RogueTalentStatus.Enable,
                 });
             }
 

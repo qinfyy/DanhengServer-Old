@@ -1,5 +1,6 @@
 ﻿using EggLink.DanhengServer.Data;
 using EggLink.DanhengServer.Proto;
+using EggLink.DanhengServer.Server.Packet.Send.Scene;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,7 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Scene
                     entranceId = raidConfig.RaidID;
                 }
                 player.EnterScene(entranceId, 0, true);
+                connection.SendPacket(new PacketRaidInfoNotify((uint)raidConfig.RaidID));
             }
             connection.SendPacket(CmdIds.StartRaidScRsp);
         }

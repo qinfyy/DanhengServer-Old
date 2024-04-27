@@ -24,15 +24,15 @@ namespace EggLink.DanhengServer.Proto {
     static FinishChessRogueSubStoryScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiNGaW5pc2hDaGVzc1JvZ3VlU3ViU3RvcnlTY1JzcC5wcm90byKEAQodRmlu",
+            "CiNGaW5pc2hDaGVzc1JvZ3VlU3ViU3RvcnlTY1JzcC5wcm90byKHAQodRmlu",
             "aXNoQ2hlc3NSb2d1ZVN1YlN0b3J5U2NSc3ASDwoHcmV0Y29kZRgFIAEoDRIT",
-            "CgtHS0FJT0dOQ0RORRgNIAEoDRITCgtIQ0hNT0hIS01GUBgHIAEoDRITCgtI",
-            "RUlFT0ZITUFDQRgDIAEoDRITCgtPR0FET0RLR0xOTBgGIAEoDUIeqgIbRWdn",
-            "TGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "CgtHS0FJT0dOQ0RORRgNIAEoDRIVCg1tYWluX3N0b3J5X2lkGAcgASgNEhMK",
+            "C0hFSUVPRkhNQUNBGAMgASgNEhQKDHN1Yl9zdG9yeV9pZBgGIAEoDUIeqgIb",
+            "RWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.FinishChessRogueSubStoryScRsp), global::EggLink.DanhengServer.Proto.FinishChessRogueSubStoryScRsp.Parser, new[]{ "Retcode", "GKAIOGNCDNE", "HCHMOHHKMFP", "HEIEOFHMACA", "OGADODKGLNL" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.FinishChessRogueSubStoryScRsp), global::EggLink.DanhengServer.Proto.FinishChessRogueSubStoryScRsp.Parser, new[]{ "Retcode", "GKAIOGNCDNE", "MainStoryId", "HEIEOFHMACA", "SubStoryId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -76,9 +76,9 @@ namespace EggLink.DanhengServer.Proto {
     public FinishChessRogueSubStoryScRsp(FinishChessRogueSubStoryScRsp other) : this() {
       retcode_ = other.retcode_;
       gKAIOGNCDNE_ = other.gKAIOGNCDNE_;
-      hCHMOHHKMFP_ = other.hCHMOHHKMFP_;
+      mainStoryId_ = other.mainStoryId_;
       hEIEOFHMACA_ = other.hEIEOFHMACA_;
-      oGADODKGLNL_ = other.oGADODKGLNL_;
+      subStoryId_ = other.subStoryId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -112,15 +112,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "HCHMOHHKMFP" field.</summary>
-    public const int HCHMOHHKMFPFieldNumber = 7;
-    private uint hCHMOHHKMFP_;
+    /// <summary>Field number for the "main_story_id" field.</summary>
+    public const int MainStoryIdFieldNumber = 7;
+    private uint mainStoryId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint HCHMOHHKMFP {
-      get { return hCHMOHHKMFP_; }
+    public uint MainStoryId {
+      get { return mainStoryId_; }
       set {
-        hCHMOHHKMFP_ = value;
+        mainStoryId_ = value;
       }
     }
 
@@ -136,15 +136,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "OGADODKGLNL" field.</summary>
-    public const int OGADODKGLNLFieldNumber = 6;
-    private uint oGADODKGLNL_;
+    /// <summary>Field number for the "sub_story_id" field.</summary>
+    public const int SubStoryIdFieldNumber = 6;
+    private uint subStoryId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint OGADODKGLNL {
-      get { return oGADODKGLNL_; }
+    public uint SubStoryId {
+      get { return subStoryId_; }
       set {
-        oGADODKGLNL_ = value;
+        subStoryId_ = value;
       }
     }
 
@@ -165,9 +165,9 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (Retcode != other.Retcode) return false;
       if (GKAIOGNCDNE != other.GKAIOGNCDNE) return false;
-      if (HCHMOHHKMFP != other.HCHMOHHKMFP) return false;
+      if (MainStoryId != other.MainStoryId) return false;
       if (HEIEOFHMACA != other.HEIEOFHMACA) return false;
-      if (OGADODKGLNL != other.OGADODKGLNL) return false;
+      if (SubStoryId != other.SubStoryId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -177,9 +177,9 @@ namespace EggLink.DanhengServer.Proto {
       int hash = 1;
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
       if (GKAIOGNCDNE != 0) hash ^= GKAIOGNCDNE.GetHashCode();
-      if (HCHMOHHKMFP != 0) hash ^= HCHMOHHKMFP.GetHashCode();
+      if (MainStoryId != 0) hash ^= MainStoryId.GetHashCode();
       if (HEIEOFHMACA != 0) hash ^= HEIEOFHMACA.GetHashCode();
-      if (OGADODKGLNL != 0) hash ^= OGADODKGLNL.GetHashCode();
+      if (SubStoryId != 0) hash ^= SubStoryId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -206,13 +206,13 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(40);
         output.WriteUInt32(Retcode);
       }
-      if (OGADODKGLNL != 0) {
+      if (SubStoryId != 0) {
         output.WriteRawTag(48);
-        output.WriteUInt32(OGADODKGLNL);
+        output.WriteUInt32(SubStoryId);
       }
-      if (HCHMOHHKMFP != 0) {
+      if (MainStoryId != 0) {
         output.WriteRawTag(56);
-        output.WriteUInt32(HCHMOHHKMFP);
+        output.WriteUInt32(MainStoryId);
       }
       if (GKAIOGNCDNE != 0) {
         output.WriteRawTag(104);
@@ -236,13 +236,13 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(40);
         output.WriteUInt32(Retcode);
       }
-      if (OGADODKGLNL != 0) {
+      if (SubStoryId != 0) {
         output.WriteRawTag(48);
-        output.WriteUInt32(OGADODKGLNL);
+        output.WriteUInt32(SubStoryId);
       }
-      if (HCHMOHHKMFP != 0) {
+      if (MainStoryId != 0) {
         output.WriteRawTag(56);
-        output.WriteUInt32(HCHMOHHKMFP);
+        output.WriteUInt32(MainStoryId);
       }
       if (GKAIOGNCDNE != 0) {
         output.WriteRawTag(104);
@@ -264,14 +264,14 @@ namespace EggLink.DanhengServer.Proto {
       if (GKAIOGNCDNE != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GKAIOGNCDNE);
       }
-      if (HCHMOHHKMFP != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(HCHMOHHKMFP);
+      if (MainStoryId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MainStoryId);
       }
       if (HEIEOFHMACA != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(HEIEOFHMACA);
       }
-      if (OGADODKGLNL != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OGADODKGLNL);
+      if (SubStoryId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SubStoryId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -291,14 +291,14 @@ namespace EggLink.DanhengServer.Proto {
       if (other.GKAIOGNCDNE != 0) {
         GKAIOGNCDNE = other.GKAIOGNCDNE;
       }
-      if (other.HCHMOHHKMFP != 0) {
-        HCHMOHHKMFP = other.HCHMOHHKMFP;
+      if (other.MainStoryId != 0) {
+        MainStoryId = other.MainStoryId;
       }
       if (other.HEIEOFHMACA != 0) {
         HEIEOFHMACA = other.HEIEOFHMACA;
       }
-      if (other.OGADODKGLNL != 0) {
-        OGADODKGLNL = other.OGADODKGLNL;
+      if (other.SubStoryId != 0) {
+        SubStoryId = other.SubStoryId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -324,11 +324,11 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 48: {
-            OGADODKGLNL = input.ReadUInt32();
+            SubStoryId = input.ReadUInt32();
             break;
           }
           case 56: {
-            HCHMOHHKMFP = input.ReadUInt32();
+            MainStoryId = input.ReadUInt32();
             break;
           }
           case 104: {
@@ -359,11 +359,11 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 48: {
-            OGADODKGLNL = input.ReadUInt32();
+            SubStoryId = input.ReadUInt32();
             break;
           }
           case 56: {
-            HCHMOHHKMFP = input.ReadUInt32();
+            MainStoryId = input.ReadUInt32();
             break;
           }
           case 104: {

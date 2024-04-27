@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueUpdateUnlockLevelScNotifyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CilDaGVzc1JvZ3VlVXBkYXRlVW5sb2NrTGV2ZWxTY05vdGlmeS5wcm90byI6",
-            "CiNDaGVzc1JvZ3VlVXBkYXRlVW5sb2NrTGV2ZWxTY05vdGlmeRITCgtOQkZK",
-            "UE9KREdETxgEIAMoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3Rv",
-            "YgZwcm90bzM="));
+            "CilDaGVzc1JvZ3VlVXBkYXRlVW5sb2NrTGV2ZWxTY05vdGlmeS5wcm90byJE",
+            "CiNDaGVzc1JvZ3VlVXBkYXRlVW5sb2NrTGV2ZWxTY05vdGlmeRIdChVleHBs",
+            "b3JlZF9hcmVhX2lkX2xpc3QYBCADKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1Nl",
+            "cnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueUpdateUnlockLevelScNotify), global::EggLink.DanhengServer.Proto.ChessRogueUpdateUnlockLevelScNotify.Parser, new[]{ "NBFJPOJDGDO" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueUpdateUnlockLevelScNotify), global::EggLink.DanhengServer.Proto.ChessRogueUpdateUnlockLevelScNotify.Parser, new[]{ "ExploredAreaIdList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ChessRogueUpdateUnlockLevelScNotify(ChessRogueUpdateUnlockLevelScNotify other) : this() {
-      nBFJPOJDGDO_ = other.nBFJPOJDGDO_.Clone();
+      exploredAreaIdList_ = other.exploredAreaIdList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,15 +83,15 @@ namespace EggLink.DanhengServer.Proto {
       return new ChessRogueUpdateUnlockLevelScNotify(this);
     }
 
-    /// <summary>Field number for the "NBFJPOJDGDO" field.</summary>
-    public const int NBFJPOJDGDOFieldNumber = 4;
-    private static readonly pb::FieldCodec<uint> _repeated_nBFJPOJDGDO_codec
+    /// <summary>Field number for the "explored_area_id_list" field.</summary>
+    public const int ExploredAreaIdListFieldNumber = 4;
+    private static readonly pb::FieldCodec<uint> _repeated_exploredAreaIdList_codec
         = pb::FieldCodec.ForUInt32(34);
-    private readonly pbc::RepeatedField<uint> nBFJPOJDGDO_ = new pbc::RepeatedField<uint>();
+    private readonly pbc::RepeatedField<uint> exploredAreaIdList_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<uint> NBFJPOJDGDO {
-      get { return nBFJPOJDGDO_; }
+    public pbc::RepeatedField<uint> ExploredAreaIdList {
+      get { return exploredAreaIdList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -109,7 +109,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!nBFJPOJDGDO_.Equals(other.nBFJPOJDGDO_)) return false;
+      if(!exploredAreaIdList_.Equals(other.exploredAreaIdList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -117,7 +117,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= nBFJPOJDGDO_.GetHashCode();
+      hash ^= exploredAreaIdList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -136,7 +136,7 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      nBFJPOJDGDO_.WriteTo(output, _repeated_nBFJPOJDGDO_codec);
+      exploredAreaIdList_.WriteTo(output, _repeated_exploredAreaIdList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -147,7 +147,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      nBFJPOJDGDO_.WriteTo(ref output, _repeated_nBFJPOJDGDO_codec);
+      exploredAreaIdList_.WriteTo(ref output, _repeated_exploredAreaIdList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -158,7 +158,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += nBFJPOJDGDO_.CalculateSize(_repeated_nBFJPOJDGDO_codec);
+      size += exploredAreaIdList_.CalculateSize(_repeated_exploredAreaIdList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -171,7 +171,7 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      nBFJPOJDGDO_.Add(other.nBFJPOJDGDO_);
+      exploredAreaIdList_.Add(other.exploredAreaIdList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -189,7 +189,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           case 34:
           case 32: {
-            nBFJPOJDGDO_.AddEntriesFrom(input, _repeated_nBFJPOJDGDO_codec);
+            exploredAreaIdList_.AddEntriesFrom(input, _repeated_exploredAreaIdList_codec);
             break;
           }
         }
@@ -209,7 +209,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           case 34:
           case 32: {
-            nBFJPOJDGDO_.AddEntriesFrom(ref input, _repeated_nBFJPOJDGDO_codec);
+            exploredAreaIdList_.AddEntriesFrom(ref input, _repeated_exploredAreaIdList_codec);
             break;
           }
         }

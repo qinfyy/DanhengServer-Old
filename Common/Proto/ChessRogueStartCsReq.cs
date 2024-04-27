@@ -24,16 +24,16 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueStartCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChpDaGVzc1JvZ3VlU3RhcnRDc1JlcS5wcm90byKtAQoUQ2hlc3NSb2d1ZVN0",
+            "ChpDaGVzc1JvZ3VlU3RhcnRDc1JlcS5wcm90byKrAQoUQ2hlc3NSb2d1ZVN0",
             "YXJ0Q3NSZXESEwoLT0xHSENNQUdHS0wYDSADKA0SHAoUZGlzYWJsZV9hZW9u",
             "X2lkX2xpc3QYBCADKA0SGwoTYmFzZV9hdmF0YXJfaWRfbGlzdBgMIAMoDRIK",
-            "CgJpZBgGIAEoDRITCgtHTUlNTkpDQ05MTxgIIAMoDRITCgtKUEdGT0lFTklG",
-            "QRgCIAEoDRIPCgdhZW9uX2lkGAkgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdT",
-            "ZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "CgJpZBgGIAEoDRITCgtHTUlNTkpDQ05MTxgIIAMoDRIRCglicmFuY2hfaWQY",
+            "AiABKA0SDwoHYWVvbl9pZBgJIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2Vy",
+            "dmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueStartCsReq), global::EggLink.DanhengServer.Proto.ChessRogueStartCsReq.Parser, new[]{ "OLGHCMAGGKL", "DisableAeonIdList", "BaseAvatarIdList", "Id", "GMIMNJCCNLO", "JPGFOIENIFA", "AeonId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueStartCsReq), global::EggLink.DanhengServer.Proto.ChessRogueStartCsReq.Parser, new[]{ "OLGHCMAGGKL", "DisableAeonIdList", "BaseAvatarIdList", "Id", "GMIMNJCCNLO", "BranchId", "AeonId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -80,7 +80,7 @@ namespace EggLink.DanhengServer.Proto {
       baseAvatarIdList_ = other.baseAvatarIdList_.Clone();
       id_ = other.id_;
       gMIMNJCCNLO_ = other.gMIMNJCCNLO_.Clone();
-      jPGFOIENIFA_ = other.jPGFOIENIFA_;
+      branchId_ = other.branchId_;
       aeonId_ = other.aeonId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -147,15 +147,15 @@ namespace EggLink.DanhengServer.Proto {
       get { return gMIMNJCCNLO_; }
     }
 
-    /// <summary>Field number for the "JPGFOIENIFA" field.</summary>
-    public const int JPGFOIENIFAFieldNumber = 2;
-    private uint jPGFOIENIFA_;
+    /// <summary>Field number for the "branch_id" field.</summary>
+    public const int BranchIdFieldNumber = 2;
+    private uint branchId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint JPGFOIENIFA {
-      get { return jPGFOIENIFA_; }
+    public uint BranchId {
+      get { return branchId_; }
       set {
-        jPGFOIENIFA_ = value;
+        branchId_ = value;
       }
     }
 
@@ -191,7 +191,7 @@ namespace EggLink.DanhengServer.Proto {
       if(!baseAvatarIdList_.Equals(other.baseAvatarIdList_)) return false;
       if (Id != other.Id) return false;
       if(!gMIMNJCCNLO_.Equals(other.gMIMNJCCNLO_)) return false;
-      if (JPGFOIENIFA != other.JPGFOIENIFA) return false;
+      if (BranchId != other.BranchId) return false;
       if (AeonId != other.AeonId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -205,7 +205,7 @@ namespace EggLink.DanhengServer.Proto {
       hash ^= baseAvatarIdList_.GetHashCode();
       if (Id != 0) hash ^= Id.GetHashCode();
       hash ^= gMIMNJCCNLO_.GetHashCode();
-      if (JPGFOIENIFA != 0) hash ^= JPGFOIENIFA.GetHashCode();
+      if (BranchId != 0) hash ^= BranchId.GetHashCode();
       if (AeonId != 0) hash ^= AeonId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -225,9 +225,9 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (JPGFOIENIFA != 0) {
+      if (BranchId != 0) {
         output.WriteRawTag(16);
-        output.WriteUInt32(JPGFOIENIFA);
+        output.WriteUInt32(BranchId);
       }
       disableAeonIdList_.WriteTo(output, _repeated_disableAeonIdList_codec);
       if (Id != 0) {
@@ -251,9 +251,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (JPGFOIENIFA != 0) {
+      if (BranchId != 0) {
         output.WriteRawTag(16);
-        output.WriteUInt32(JPGFOIENIFA);
+        output.WriteUInt32(BranchId);
       }
       disableAeonIdList_.WriteTo(ref output, _repeated_disableAeonIdList_codec);
       if (Id != 0) {
@@ -284,8 +284,8 @@ namespace EggLink.DanhengServer.Proto {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Id);
       }
       size += gMIMNJCCNLO_.CalculateSize(_repeated_gMIMNJCCNLO_codec);
-      if (JPGFOIENIFA != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(JPGFOIENIFA);
+      if (BranchId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BranchId);
       }
       if (AeonId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(AeonId);
@@ -309,8 +309,8 @@ namespace EggLink.DanhengServer.Proto {
         Id = other.Id;
       }
       gMIMNJCCNLO_.Add(other.gMIMNJCCNLO_);
-      if (other.JPGFOIENIFA != 0) {
-        JPGFOIENIFA = other.JPGFOIENIFA;
+      if (other.BranchId != 0) {
+        BranchId = other.BranchId;
       }
       if (other.AeonId != 0) {
         AeonId = other.AeonId;
@@ -331,7 +331,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 16: {
-            JPGFOIENIFA = input.ReadUInt32();
+            BranchId = input.ReadUInt32();
             break;
           }
           case 34:
@@ -378,7 +378,7 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 16: {
-            JPGFOIENIFA = input.ReadUInt32();
+            BranchId = input.ReadUInt32();
             break;
           }
           case 34:
