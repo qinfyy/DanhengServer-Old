@@ -24,15 +24,15 @@ namespace EggLink.DanhengServer.Proto {
     static HKJIDCGMKOGReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFIS0pJRENHTUtPRy5wcm90bxoRQUFLT0FJTk5HSEsucHJvdG8aFUNlbGxN",
-            "b25zdGVySW5mby5wcm90byJVCgtIS0pJRENHTUtPRxIhCgtJT0hNTU9NTUdB",
-            "UBgGIAEoCzIMLkFBS09BSU5OR0hLEiMKCWJvc3NfaW5mbxgFIAEoCzIQLkNl",
-            "bGxNb25zdGVySW5mb0IeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3Rv",
-            "YgZwcm90bzM="));
+            "ChFIS0pJRENHTUtPRy5wcm90bxobQ2VsbE1vbnN0ZXJTZWxlY3RJbmZvLnBy",
+            "b3RvGhVDZWxsTW9uc3RlckluZm8ucHJvdG8iZAoLSEtKSURDR01LT0cSMAoQ",
+            "c2VsZWN0X2Jvc3NfaW5mbxgGIAEoCzIWLkNlbGxNb25zdGVyU2VsZWN0SW5m",
+            "bxIjCglib3NzX2luZm8YBSABKAsyEC5DZWxsTW9uc3RlckluZm9CHqoCG0Vn",
+            "Z0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.AAKOAINNGHKReflection.Descriptor, global::EggLink.DanhengServer.Proto.CellMonsterInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.CellMonsterSelectInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.CellMonsterInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.HKJIDCGMKOG), global::EggLink.DanhengServer.Proto.HKJIDCGMKOG.Parser, new[]{ "IOHMMOMMGAP", "BossInfo" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.HKJIDCGMKOG), global::EggLink.DanhengServer.Proto.HKJIDCGMKOG.Parser, new[]{ "SelectBossInfo", "BossInfo" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,7 +74,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public HKJIDCGMKOG(HKJIDCGMKOG other) : this() {
-      iOHMMOMMGAP_ = other.iOHMMOMMGAP_ != null ? other.iOHMMOMMGAP_.Clone() : null;
+      selectBossInfo_ = other.selectBossInfo_ != null ? other.selectBossInfo_.Clone() : null;
       bossInfo_ = other.bossInfo_ != null ? other.bossInfo_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -85,15 +85,15 @@ namespace EggLink.DanhengServer.Proto {
       return new HKJIDCGMKOG(this);
     }
 
-    /// <summary>Field number for the "IOHMMOMMGAP" field.</summary>
-    public const int IOHMMOMMGAPFieldNumber = 6;
-    private global::EggLink.DanhengServer.Proto.AAKOAINNGHK iOHMMOMMGAP_;
+    /// <summary>Field number for the "select_boss_info" field.</summary>
+    public const int SelectBossInfoFieldNumber = 6;
+    private global::EggLink.DanhengServer.Proto.CellMonsterSelectInfo selectBossInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.AAKOAINNGHK IOHMMOMMGAP {
-      get { return iOHMMOMMGAP_; }
+    public global::EggLink.DanhengServer.Proto.CellMonsterSelectInfo SelectBossInfo {
+      get { return selectBossInfo_; }
       set {
-        iOHMMOMMGAP_ = value;
+        selectBossInfo_ = value;
       }
     }
 
@@ -124,7 +124,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(IOHMMOMMGAP, other.IOHMMOMMGAP)) return false;
+      if (!object.Equals(SelectBossInfo, other.SelectBossInfo)) return false;
       if (!object.Equals(BossInfo, other.BossInfo)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -133,7 +133,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (iOHMMOMMGAP_ != null) hash ^= IOHMMOMMGAP.GetHashCode();
+      if (selectBossInfo_ != null) hash ^= SelectBossInfo.GetHashCode();
       if (bossInfo_ != null) hash ^= BossInfo.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -157,9 +157,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(42);
         output.WriteMessage(BossInfo);
       }
-      if (iOHMMOMMGAP_ != null) {
+      if (selectBossInfo_ != null) {
         output.WriteRawTag(50);
-        output.WriteMessage(IOHMMOMMGAP);
+        output.WriteMessage(SelectBossInfo);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -175,9 +175,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(42);
         output.WriteMessage(BossInfo);
       }
-      if (iOHMMOMMGAP_ != null) {
+      if (selectBossInfo_ != null) {
         output.WriteRawTag(50);
-        output.WriteMessage(IOHMMOMMGAP);
+        output.WriteMessage(SelectBossInfo);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -189,8 +189,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (iOHMMOMMGAP_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(IOHMMOMMGAP);
+      if (selectBossInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SelectBossInfo);
       }
       if (bossInfo_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(BossInfo);
@@ -207,11 +207,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.iOHMMOMMGAP_ != null) {
-        if (iOHMMOMMGAP_ == null) {
-          IOHMMOMMGAP = new global::EggLink.DanhengServer.Proto.AAKOAINNGHK();
+      if (other.selectBossInfo_ != null) {
+        if (selectBossInfo_ == null) {
+          SelectBossInfo = new global::EggLink.DanhengServer.Proto.CellMonsterSelectInfo();
         }
-        IOHMMOMMGAP.MergeFrom(other.IOHMMOMMGAP);
+        SelectBossInfo.MergeFrom(other.SelectBossInfo);
       }
       if (other.bossInfo_ != null) {
         if (bossInfo_ == null) {
@@ -242,10 +242,10 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 50: {
-            if (iOHMMOMMGAP_ == null) {
-              IOHMMOMMGAP = new global::EggLink.DanhengServer.Proto.AAKOAINNGHK();
+            if (selectBossInfo_ == null) {
+              SelectBossInfo = new global::EggLink.DanhengServer.Proto.CellMonsterSelectInfo();
             }
-            input.ReadMessage(IOHMMOMMGAP);
+            input.ReadMessage(SelectBossInfo);
             break;
           }
         }
@@ -271,10 +271,10 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 50: {
-            if (iOHMMOMMGAP_ == null) {
-              IOHMMOMMGAP = new global::EggLink.DanhengServer.Proto.AAKOAINNGHK();
+            if (selectBossInfo_ == null) {
+              SelectBossInfo = new global::EggLink.DanhengServer.Proto.CellMonsterSelectInfo();
             }
-            input.ReadMessage(IOHMMOMMGAP);
+            input.ReadMessage(SelectBossInfo);
             break;
           }
         }

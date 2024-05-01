@@ -61,12 +61,15 @@ namespace EggLink.DanhengServer.Game.Rogue
 
         public void StartRogue(int areaId, int aeonId, List<int> disableAeonId, List<int> baseAvatarIds)
         {
+            if (GetRogueInstance() != null)
+            {
+                return;
+            }
             GameData.RogueAreaConfigData.TryGetValue(areaId, out var area);
             GameData.RogueAeonData.TryGetValue(aeonId, out var aeon);
 
             if (area == null || aeon == null)
             {
-
                 return;
             }
 
@@ -85,6 +88,17 @@ namespace EggLink.DanhengServer.Game.Rogue
 
             Player.SendPacket(new PacketSyncRogueStatusScNotify(RogueInstance.Status));
             Player.SendPacket(new PacketStartRogueScRsp(Player));
+        }
+
+        public BaseRogueInstance? GetRogueInstance()
+        {
+            if (RogueInstance != null)
+            {
+                return RogueInstance;
+            } else
+            {
+                return Player.ChessRogueManager!.RogueInstance;
+            }
         }
 
         #endregion

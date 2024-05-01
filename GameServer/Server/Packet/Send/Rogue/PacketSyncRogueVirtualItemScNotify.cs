@@ -10,7 +10,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Rogue
 {
     public class PacketSyncRogueVirtualItemScNotify : BasePacket
     {
-        public PacketSyncRogueVirtualItemScNotify(RogueInstance instance): base(CmdIds.SyncRogueVirtualItemInfoScNotify)
+        public PacketSyncRogueVirtualItemScNotify(BaseRogueInstance instance): base(CmdIds.SyncRogueVirtualItemInfoScNotify)
         {
             var proto = new SyncRogueVirtualItemInfoScNotify
             {

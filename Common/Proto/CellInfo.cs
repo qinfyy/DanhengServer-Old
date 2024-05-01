@@ -25,20 +25,20 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cg5DZWxsSW5mby5wcm90bxoVQ2VsbEFkdmFuY2VJbmZvLnByb3RvGh9DaGVz",
-            "c1JvZ3VlQ2VsbFNwZWNpYWxUeXBlLnByb3RvGh9DaGVzc1JvZ3VlQm9hcmRD",
-            "ZWxsU3RhdHVzLnByb3RvIrgCCghDZWxsSW5mbxIRCgltYXJrX3R5cGUYDSAB",
+            "c1JvZ3VlQm9hcmRDZWxsU3RhdHVzLnByb3RvGh9DaGVzc1JvZ3VlQ2VsbFNw",
+            "ZWNpYWxUeXBlLnByb3RvIrECCghDZWxsSW5mbxIRCgltYXJrX3R5cGUYDSAB",
             "KA0SDwoHcm9vbV9pZBgIIAEoDRIKCgJpZBgJIAEoDRITCgtMSUxCREJGT0dE",
-            "UBgGIAMoDRIQCghpc192YWxpZBgBIAEoCBIvCgtPRU1BQ05PSUpOTRgCIAEo",
-            "DjIaLkNoZXNzUm9ndWVDZWxsU3BlY2lhbFR5cGUSDgoGY29sdW1uGAQgASgN",
-            "EhMKC0RHQkZJR0tIQVBOGAMgASgIEiYKDGFkdmFuY2VfaW5mbxgKIAEoCzIQ",
-            "LkNlbGxBZHZhbmNlSW5mbxITCgtHTkJOREpCTlBNTxgOIAEoDRIvCgtjZWxs",
-            "X3N0YXR1cxgFIAEoDjIaLkNoZXNzUm9ndWVCb2FyZENlbGxTdGF0dXMSEQoJ",
-            "Y2VsbF90eXBlGAsgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJv",
-            "dG9iBnByb3RvMw=="));
+            "UBgGIAMoDRIQCghpc192YWxpZBgBIAEoCBIwCgxzcGVjaWFsX3R5cGUYAiAB",
+            "KA4yGi5DaGVzc1JvZ3VlQ2VsbFNwZWNpYWxUeXBlEg4KBmNvbHVtbhgEIAEo",
+            "DRITCgtER0JGSUdLSEFQThgDIAEoCBImCgxhZHZhbmNlX2luZm8YCiABKAsy",
+            "EC5DZWxsQWR2YW5jZUluZm8SCwoDcm93GA4gASgNEi8KC2NlbGxfc3RhdHVz",
+            "GAUgASgOMhouQ2hlc3NSb2d1ZUJvYXJkQ2VsbFN0YXR1cxIRCgljZWxsX3R5",
+            "cGUYCyABKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJv",
+            "dG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.CellAdvanceInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueBoardCellStatusReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.CellAdvanceInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueBoardCellStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialTypeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.CellInfo), global::EggLink.DanhengServer.Proto.CellInfo.Parser, new[]{ "MarkType", "RoomId", "Id", "LILBDBFOGDP", "IsValid", "OEMACNOIJNM", "Column", "DGBFIGKHAPN", "AdvanceInfo", "GNBNDJBNPMO", "CellStatus", "CellType" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.CellInfo), global::EggLink.DanhengServer.Proto.CellInfo.Parser, new[]{ "MarkType", "RoomId", "Id", "LILBDBFOGDP", "IsValid", "SpecialType", "Column", "DGBFIGKHAPN", "AdvanceInfo", "Row", "CellStatus", "CellType" }, null, null, null, null)
           }));
     }
     #endregion
@@ -85,11 +85,11 @@ namespace EggLink.DanhengServer.Proto {
       id_ = other.id_;
       lILBDBFOGDP_ = other.lILBDBFOGDP_.Clone();
       isValid_ = other.isValid_;
-      oEMACNOIJNM_ = other.oEMACNOIJNM_;
+      specialType_ = other.specialType_;
       column_ = other.column_;
       dGBFIGKHAPN_ = other.dGBFIGKHAPN_;
       advanceInfo_ = other.advanceInfo_ != null ? other.advanceInfo_.Clone() : null;
-      gNBNDJBNPMO_ = other.gNBNDJBNPMO_;
+      row_ = other.row_;
       cellStatus_ = other.cellStatus_;
       cellType_ = other.cellType_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -160,15 +160,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "OEMACNOIJNM" field.</summary>
-    public const int OEMACNOIJNMFieldNumber = 2;
-    private global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialType oEMACNOIJNM_ = global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialType.None;
+    /// <summary>Field number for the "special_type" field.</summary>
+    public const int SpecialTypeFieldNumber = 2;
+    private global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialType specialType_ = global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialType.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialType OEMACNOIJNM {
-      get { return oEMACNOIJNM_; }
+    public global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialType SpecialType {
+      get { return specialType_; }
       set {
-        oEMACNOIJNM_ = value;
+        specialType_ = value;
       }
     }
 
@@ -208,15 +208,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "GNBNDJBNPMO" field.</summary>
-    public const int GNBNDJBNPMOFieldNumber = 14;
-    private uint gNBNDJBNPMO_;
+    /// <summary>Field number for the "row" field.</summary>
+    public const int RowFieldNumber = 14;
+    private uint row_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint GNBNDJBNPMO {
-      get { return gNBNDJBNPMO_; }
+    public uint Row {
+      get { return row_; }
       set {
-        gNBNDJBNPMO_ = value;
+        row_ = value;
       }
     }
 
@@ -264,11 +264,11 @@ namespace EggLink.DanhengServer.Proto {
       if (Id != other.Id) return false;
       if(!lILBDBFOGDP_.Equals(other.lILBDBFOGDP_)) return false;
       if (IsValid != other.IsValid) return false;
-      if (OEMACNOIJNM != other.OEMACNOIJNM) return false;
+      if (SpecialType != other.SpecialType) return false;
       if (Column != other.Column) return false;
       if (DGBFIGKHAPN != other.DGBFIGKHAPN) return false;
       if (!object.Equals(AdvanceInfo, other.AdvanceInfo)) return false;
-      if (GNBNDJBNPMO != other.GNBNDJBNPMO) return false;
+      if (Row != other.Row) return false;
       if (CellStatus != other.CellStatus) return false;
       if (CellType != other.CellType) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -283,11 +283,11 @@ namespace EggLink.DanhengServer.Proto {
       if (Id != 0) hash ^= Id.GetHashCode();
       hash ^= lILBDBFOGDP_.GetHashCode();
       if (IsValid != false) hash ^= IsValid.GetHashCode();
-      if (OEMACNOIJNM != global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialType.None) hash ^= OEMACNOIJNM.GetHashCode();
+      if (SpecialType != global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialType.None) hash ^= SpecialType.GetHashCode();
       if (Column != 0) hash ^= Column.GetHashCode();
       if (DGBFIGKHAPN != false) hash ^= DGBFIGKHAPN.GetHashCode();
       if (advanceInfo_ != null) hash ^= AdvanceInfo.GetHashCode();
-      if (GNBNDJBNPMO != 0) hash ^= GNBNDJBNPMO.GetHashCode();
+      if (Row != 0) hash ^= Row.GetHashCode();
       if (CellStatus != global::EggLink.DanhengServer.Proto.ChessRogueBoardCellStatus.Idle) hash ^= CellStatus.GetHashCode();
       if (CellType != 0) hash ^= CellType.GetHashCode();
       if (_unknownFields != null) {
@@ -312,9 +312,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(8);
         output.WriteBool(IsValid);
       }
-      if (OEMACNOIJNM != global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialType.None) {
+      if (SpecialType != global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialType.None) {
         output.WriteRawTag(16);
-        output.WriteEnum((int) OEMACNOIJNM);
+        output.WriteEnum((int) SpecialType);
       }
       if (DGBFIGKHAPN != false) {
         output.WriteRawTag(24);
@@ -349,9 +349,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(104);
         output.WriteUInt32(MarkType);
       }
-      if (GNBNDJBNPMO != 0) {
+      if (Row != 0) {
         output.WriteRawTag(112);
-        output.WriteUInt32(GNBNDJBNPMO);
+        output.WriteUInt32(Row);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -367,9 +367,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(8);
         output.WriteBool(IsValid);
       }
-      if (OEMACNOIJNM != global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialType.None) {
+      if (SpecialType != global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialType.None) {
         output.WriteRawTag(16);
-        output.WriteEnum((int) OEMACNOIJNM);
+        output.WriteEnum((int) SpecialType);
       }
       if (DGBFIGKHAPN != false) {
         output.WriteRawTag(24);
@@ -404,9 +404,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(104);
         output.WriteUInt32(MarkType);
       }
-      if (GNBNDJBNPMO != 0) {
+      if (Row != 0) {
         output.WriteRawTag(112);
-        output.WriteUInt32(GNBNDJBNPMO);
+        output.WriteUInt32(Row);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -431,8 +431,8 @@ namespace EggLink.DanhengServer.Proto {
       if (IsValid != false) {
         size += 1 + 1;
       }
-      if (OEMACNOIJNM != global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialType.None) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) OEMACNOIJNM);
+      if (SpecialType != global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialType.None) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) SpecialType);
       }
       if (Column != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Column);
@@ -443,8 +443,8 @@ namespace EggLink.DanhengServer.Proto {
       if (advanceInfo_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(AdvanceInfo);
       }
-      if (GNBNDJBNPMO != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GNBNDJBNPMO);
+      if (Row != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Row);
       }
       if (CellStatus != global::EggLink.DanhengServer.Proto.ChessRogueBoardCellStatus.Idle) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) CellStatus);
@@ -477,8 +477,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other.IsValid != false) {
         IsValid = other.IsValid;
       }
-      if (other.OEMACNOIJNM != global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialType.None) {
-        OEMACNOIJNM = other.OEMACNOIJNM;
+      if (other.SpecialType != global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialType.None) {
+        SpecialType = other.SpecialType;
       }
       if (other.Column != 0) {
         Column = other.Column;
@@ -492,8 +492,8 @@ namespace EggLink.DanhengServer.Proto {
         }
         AdvanceInfo.MergeFrom(other.AdvanceInfo);
       }
-      if (other.GNBNDJBNPMO != 0) {
-        GNBNDJBNPMO = other.GNBNDJBNPMO;
+      if (other.Row != 0) {
+        Row = other.Row;
       }
       if (other.CellStatus != global::EggLink.DanhengServer.Proto.ChessRogueBoardCellStatus.Idle) {
         CellStatus = other.CellStatus;
@@ -521,7 +521,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 16: {
-            OEMACNOIJNM = (global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialType) input.ReadEnum();
+            SpecialType = (global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialType) input.ReadEnum();
             break;
           }
           case 24: {
@@ -565,7 +565,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 112: {
-            GNBNDJBNPMO = input.ReadUInt32();
+            Row = input.ReadUInt32();
             break;
           }
         }
@@ -588,7 +588,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 16: {
-            OEMACNOIJNM = (global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialType) input.ReadEnum();
+            SpecialType = (global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialType) input.ReadEnum();
             break;
           }
           case 24: {
@@ -632,7 +632,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 112: {
-            GNBNDJBNPMO = input.ReadUInt32();
+            Row = input.ReadUInt32();
             break;
           }
         }

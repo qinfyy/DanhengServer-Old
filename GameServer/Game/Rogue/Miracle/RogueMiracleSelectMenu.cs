@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EggLink.DanhengServer.Game.Rogue.Miracle
 {
-    public class RogueMiracleSelectMenu(RogueInstance instance)
+    public class RogueMiracleSelectMenu(BaseRogueInstance instance)
     {
         public List<int> Pools { get; set; } = [];
 

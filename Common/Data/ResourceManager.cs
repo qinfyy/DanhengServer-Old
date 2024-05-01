@@ -26,6 +26,10 @@ namespace EggLink.DanhengServer.Data
             GameData.RogueMapGenData = LoadCustomFile<Dictionary<int, List<int>>>("Rogue Map", "RogueMapGen") ?? [];
             GameData.RogueMiracleGroupData = LoadCustomFile<Dictionary<int, List<int>>>("Rogue Miracle Group", "RogueMiracleGroup") ?? [];
             GameData.RogueMiracleEffectData = LoadCustomFile<RogueMiracleEffectConfig>("Rogue Miracle Effect", "RogueMiracleEffectGen") ?? new();
+            GameData.ChessRogueLayerGenData = LoadCustomFile<Dictionary<int, Dictionary<int, List<int>>>>("Chess Rogue Layer", "ChessRogueLayerGen") ?? [];
+            GameData.ChessRogueRoomGenData = LoadCustomFile<Dictionary<int, ChessRogueRoomConfig>>("Chess Rogue Map", "ChessRogueMapGen") ?? [];
+            GameData.ChessRogueContentGenData = LoadCustomFile<Dictionary<int, List<int>>>("Chess Rogue Content", "ChessRogueContentGen") ?? [];
+            GameData.ChessRogueCellGenData = LoadCustomFile<Dictionary<int, ChessRogueCellConfig>>("Chess Rogue Cell", "ChessRogueRoomGen") ?? [];
         }
 
         public static void LoadExcel()

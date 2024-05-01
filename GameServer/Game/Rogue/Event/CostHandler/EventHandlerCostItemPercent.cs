@@ -11,7 +11,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Event.CostHandler
     [RogueEvent(costType: DialogueEventCostTypeEnum.CostItemPercent)]
     public class EventHandlerCostItemPercent : RogueEventCostHandler
     {
-        public override void Handle(RogueInstance rogue, RogueEventInstance? eventInstance, List<int> ParamList)
+        public override void Handle(BaseRogueInstance rogue, RogueEventInstance? eventInstance, List<int> ParamList)
         {
             rogue.CostMoney((int)(rogue.CurMoney * (ParamList[1] / 100f)), RogueActionDisplayType.RogueCommonActionResultDisplayTypeSingle);
         }

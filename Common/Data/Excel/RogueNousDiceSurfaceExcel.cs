@@ -11,6 +11,7 @@ namespace EggLink.DanhengServer.Data.Excel
     {
         public int SurfaceID { get; set; }
         public int ItemID { get; set; }
+        public int Sort { get; set; }
 
         public override int GetId()
         {

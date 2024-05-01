@@ -24,18 +24,18 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueEnterCellScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Ch5DaGVzc1JvZ3VlRW50ZXJDZWxsU2NSc3AucHJvdG8aG0NoZXNzUm9ndWVD",
-            "dXJyZW50SW5mby5wcm90bxoaQ2hlc3NSb2d1ZVBsYXllckluZm8ucHJvdG8a",
-            "HUNoZXNzUm9ndWVRdWVyeUdhbWVJbmZvLnByb3RvIsUBChhDaGVzc1JvZ3Vl",
+            "Ch5DaGVzc1JvZ3VlRW50ZXJDZWxsU2NSc3AucHJvdG8aHUNoZXNzUm9ndWVR",
+            "dWVyeUdhbWVJbmZvLnByb3RvGhtDaGVzc1JvZ3VlQ3VycmVudEluZm8ucHJv",
+            "dG8aGkNoZXNzUm9ndWVQbGF5ZXJJbmZvLnByb3RvIsEBChhDaGVzc1JvZ3Vl",
             "RW50ZXJDZWxsU2NSc3ASKgoLcGxheWVyX2luZm8YDSABKAsyFS5DaGVzc1Jv",
             "Z3VlUGxheWVySW5mbxIPCgdyZXRjb2RlGAMgASgNEiQKBGluZm8YCyABKAsy",
             "Fi5DaGVzc1JvZ3VlQ3VycmVudEluZm8SMQoPcm9ndWVfZ2FtZV9pbmZvGAIg",
-            "ASgLMhguQ2hlc3NSb2d1ZVF1ZXJ5R2FtZUluZm8SEwoLT0ZBS0xGTEFPTFAY",
-            "DCABKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
+            "ASgLMhguQ2hlc3NSb2d1ZVF1ZXJ5R2FtZUluZm8SDwoHY2VsbF9pZBgMIAEo",
+            "DUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChessRogueCurrentInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRoguePlayerInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueQueryGameInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChessRogueQueryGameInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueCurrentInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRoguePlayerInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueEnterCellScRsp), global::EggLink.DanhengServer.Proto.ChessRogueEnterCellScRsp.Parser, new[]{ "PlayerInfo", "Retcode", "Info", "RogueGameInfo", "OFAKLFLAOLP" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueEnterCellScRsp), global::EggLink.DanhengServer.Proto.ChessRogueEnterCellScRsp.Parser, new[]{ "PlayerInfo", "Retcode", "Info", "RogueGameInfo", "CellId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -81,7 +81,7 @@ namespace EggLink.DanhengServer.Proto {
       retcode_ = other.retcode_;
       info_ = other.info_ != null ? other.info_.Clone() : null;
       rogueGameInfo_ = other.rogueGameInfo_ != null ? other.rogueGameInfo_.Clone() : null;
-      oFAKLFLAOLP_ = other.oFAKLFLAOLP_;
+      cellId_ = other.cellId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -139,15 +139,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "OFAKLFLAOLP" field.</summary>
-    public const int OFAKLFLAOLPFieldNumber = 12;
-    private uint oFAKLFLAOLP_;
+    /// <summary>Field number for the "cell_id" field.</summary>
+    public const int CellIdFieldNumber = 12;
+    private uint cellId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint OFAKLFLAOLP {
-      get { return oFAKLFLAOLP_; }
+    public uint CellId {
+      get { return cellId_; }
       set {
-        oFAKLFLAOLP_ = value;
+        cellId_ = value;
       }
     }
 
@@ -170,7 +170,7 @@ namespace EggLink.DanhengServer.Proto {
       if (Retcode != other.Retcode) return false;
       if (!object.Equals(Info, other.Info)) return false;
       if (!object.Equals(RogueGameInfo, other.RogueGameInfo)) return false;
-      if (OFAKLFLAOLP != other.OFAKLFLAOLP) return false;
+      if (CellId != other.CellId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -182,7 +182,7 @@ namespace EggLink.DanhengServer.Proto {
       if (Retcode != 0) hash ^= Retcode.GetHashCode();
       if (info_ != null) hash ^= Info.GetHashCode();
       if (rogueGameInfo_ != null) hash ^= RogueGameInfo.GetHashCode();
-      if (OFAKLFLAOLP != 0) hash ^= OFAKLFLAOLP.GetHashCode();
+      if (CellId != 0) hash ^= CellId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -213,9 +213,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(90);
         output.WriteMessage(Info);
       }
-      if (OFAKLFLAOLP != 0) {
+      if (CellId != 0) {
         output.WriteRawTag(96);
-        output.WriteUInt32(OFAKLFLAOLP);
+        output.WriteUInt32(CellId);
       }
       if (playerInfo_ != null) {
         output.WriteRawTag(106);
@@ -243,9 +243,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(90);
         output.WriteMessage(Info);
       }
-      if (OFAKLFLAOLP != 0) {
+      if (CellId != 0) {
         output.WriteRawTag(96);
-        output.WriteUInt32(OFAKLFLAOLP);
+        output.WriteUInt32(CellId);
       }
       if (playerInfo_ != null) {
         output.WriteRawTag(106);
@@ -273,8 +273,8 @@ namespace EggLink.DanhengServer.Proto {
       if (rogueGameInfo_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(RogueGameInfo);
       }
-      if (OFAKLFLAOLP != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OFAKLFLAOLP);
+      if (CellId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(CellId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -309,8 +309,8 @@ namespace EggLink.DanhengServer.Proto {
         }
         RogueGameInfo.MergeFrom(other.RogueGameInfo);
       }
-      if (other.OFAKLFLAOLP != 0) {
-        OFAKLFLAOLP = other.OFAKLFLAOLP;
+      if (other.CellId != 0) {
+        CellId = other.CellId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -346,7 +346,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 96: {
-            OFAKLFLAOLP = input.ReadUInt32();
+            CellId = input.ReadUInt32();
             break;
           }
           case 106: {
@@ -390,7 +390,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 96: {
-            OFAKLFLAOLP = input.ReadUInt32();
+            CellId = input.ReadUInt32();
             break;
           }
           case 106: {

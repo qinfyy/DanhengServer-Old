@@ -1,16 +1,11 @@
 ﻿using EggLink.DanhengServer.Data;
 using EggLink.DanhengServer.Data.Config;
 using EggLink.DanhengServer.Enums.Scene;
+using EggLink.DanhengServer.Game.ChessRogue;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Game.Rogue.Scene.Entity;
 using EggLink.DanhengServer.Game.Scene;
 using EggLink.DanhengServer.Game.Scene.Entity;
-using EggLink.DanhengServer.Server.Packet.Send.Scene;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EggLink.DanhengServer.Game.Rogue.Scene
 {
@@ -25,14 +20,21 @@ namespace EggLink.DanhengServer.Game.Rogue.Scene
         {
             if (Scene.IsLoaded) return;
 
-            var excel = Player.RogueManager?.RogueInstance?.CurRoom?.Excel;
-            if (excel == null) return;
-
-            foreach (var group in excel.GroupWithContent)
+            var instance = Player.RogueManager?.GetRogueInstance();
+            if (instance is RogueInstance rogue)
             {
-                Scene.FloorInfo!.Groups.TryGetValue(group.Key, out var groupData);
-                if (groupData == null) continue;
-                LoadGroup(groupData);
+                var excel = rogue.CurRoom?.Excel;
+                if (excel == null) return;
+
+                foreach (var group in excel.GroupWithContent)
+                {
+                    Scene.FloorInfo!.Groups.TryGetValue(group.Key, out var groupData);
+                    if (groupData == null) continue;
+                    LoadGroup(groupData);
+                }
+            } else if (instance is ChessRogueInstance chess)
+            {
+
             }
 
             Scene.IsLoaded = true;
@@ -109,7 +111,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Scene
             if (info.NPCID == 3013)
             {
                 // generate event
-                var instance = Player.RogueManager?.RogueInstance?.GenerateEvent(npc);
+                var instance = Player.RogueManager?.GetRogueInstance()?.GenerateEvent(npc);
                 if (instance != null)
                 {
                     npc.RogueEvent = instance;
@@ -128,27 +130,32 @@ namespace EggLink.DanhengServer.Game.Rogue.Scene
             {
                 return null;
             }
-            var room = Player.RogueManager?.RogueInstance?.CurRoom;
-            if (room == null) return null;
-
-            var content = room.Excel?.GroupWithContent[group.Id];
-            if (content == null) return null;
-
-            GameData.RogueMonsterData.TryGetValue((int)((content * 10) + 1), out var rogueMonster);
-            if (rogueMonster == null) return null;
-
-            GameData.NpcMonsterDataData.TryGetValue(rogueMonster.NpcMonsterID, out var excel);
-            if (excel == null) return null;
-
-            EntityMonster entity = new(scene, info.ToPositionProto(), info.ToRotationProto(), group.Id, info.ID, excel, info)
+            var instance = Player.RogueManager?.GetRogueInstance();
+            if (instance is RogueInstance rogueInstance)
             {
-                EventID = rogueMonster.EventID,
-                CustomStageID = rogueMonster.EventID
-            };
+                var room = rogueInstance.CurRoom;
+                if (room == null) return null;
 
-            scene.AddEntity(entity, sendPacket);
+                var content = room.Excel?.GroupWithContent[group.Id];
+                if (content == null) return null;
 
-            return entity;
+                GameData.RogueMonsterData.TryGetValue((int)((content * 10) + 1), out var rogueMonster);
+                if (rogueMonster == null) return null;
+
+                GameData.NpcMonsterDataData.TryGetValue(rogueMonster.NpcMonsterID, out var excel);
+                if (excel == null) return null;
+
+                EntityMonster entity = new(scene, info.ToPositionProto(), info.ToRotationProto(), group.Id, info.ID, excel, info)
+                {
+                    EventID = rogueMonster.EventID,
+                    CustomStageID = rogueMonster.EventID
+                };
+
+                scene.AddEntity(entity, sendPacket);
+
+                return entity;
+            }
+            return null;
         }
 
         public override EntityProp? LoadProp(PropInfo info, GroupInfo group, bool sendPacket = false)

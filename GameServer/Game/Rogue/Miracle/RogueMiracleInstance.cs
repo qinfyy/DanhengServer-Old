@@ -14,7 +14,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Miracle
 {
     public class RogueMiracleInstance
     {
-        public RogueInstance Instance { get; }
+        public BaseRogueInstance Instance { get; }
         public int MiracleId { get; private set; }
         public int Durability { get; private set; }
         public int UsedTimes { get; set; }
@@ -22,7 +22,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Miracle
         public bool IsDestroyed { get; set; } = false;
         public RogueMiracleEffect? MiracleEffect { get; private set; }
 
-        public RogueMiracleInstance(RogueInstance instance, int miracleId)
+        public RogueMiracleInstance(BaseRogueInstance instance, int miracleId)
         {
             Instance = instance;
             MiracleId = miracleId;

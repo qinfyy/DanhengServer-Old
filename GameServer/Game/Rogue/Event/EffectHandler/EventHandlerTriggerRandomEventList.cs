@@ -6,7 +6,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Event.EffectHandler
     [RogueEvent(DialogueEventTypeEnum.TriggerRandomEventList)]
     public class EventHandlerTriggerRandomEventList : RogueEventEffectHandler
     {
-        public override void Handle(RogueInstance rogue, RogueEventInstance? eventInstance, List<int> ParamList)
+        public override void Handle(BaseRogueInstance rogue, RogueEventInstance? eventInstance, List<int> ParamList)
         {
             var list = new RandomList<int>();
             for (int i = 0; i < ParamList.Count; i += 2)

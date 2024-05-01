@@ -18,6 +18,9 @@ namespace EggLink.DanhengServer.Game.Rogue.Scene.Entity
         public int ChestCanUseTimes { get; set; }
         public int CustomPropID { get; set; }
 
+        public bool IsChessRogue { get; set; } = false;
+        public bool IsLastRoom { get; set; } = false;
+
         public RogueProp(EntityProp prop) : this(prop.Scene, prop.Excel, prop.Group, prop.PropInfo)
         {
         }
@@ -35,6 +38,17 @@ namespace EggLink.DanhengServer.Game.Rogue.Scene.Entity
                         RoomId = (uint)NextRoomID,
                         SiteId = (uint)NextSiteID,
                         CanUseCount = (uint)ChestCanUseTimes,
+                    }
+                };
+            }
+
+            if (IsChessRogue)
+            {
+                proto.Prop.ExtraInfo = new()
+                {
+                    ChessRogueInfo = new()
+                    {
+                        EnterNextLayer = IsLastRoom,
                     }
                 };
             }

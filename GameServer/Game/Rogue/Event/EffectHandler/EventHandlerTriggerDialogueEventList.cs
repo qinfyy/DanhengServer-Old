@@ -10,7 +10,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Event.EffectHandler
     [RogueEvent(DialogueEventTypeEnum.TriggerDialogueEventList)]
     public class EventHandlerTriggerDialogueEventList : RogueEventEffectHandler
     {
-        public override void Handle(RogueInstance rogue, RogueEventInstance? eventInstance, List<int> ParamList)
+        public override void Handle(BaseRogueInstance rogue, RogueEventInstance? eventInstance, List<int> ParamList)
         {
             foreach (var param in ParamList)
             {

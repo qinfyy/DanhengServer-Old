@@ -41,6 +41,12 @@ namespace EggLink.DanhengServer.Game.Rogue.Buff
             Level = (uint)BuffLevel
         };
 
+        public RogueCommonBuff ToCommonProto() => new()
+        {
+            BuffId = (uint)BuffId,
+            BuffLevel = (uint)BuffLevel
+        };
+
         public RogueCommonActionResult ToResultProto(RogueActionSource source) => new()
         {
             RogueAction = new()
@@ -55,6 +61,22 @@ namespace EggLink.DanhengServer.Game.Rogue.Buff
         };
 
         public RogueBuffEnhance ToEnhanceProto() => new()
+        {
+            BuffId = (uint)BuffId,
+            CostData = new()
+            {
+                ItemList = { new ItemCost() 
+                {
+                    PileItem = new()
+                    {
+                        ItemId = 31,
+                        ItemNum = (uint)EnhanceCost
+                    }
+                } }
+            }
+        };
+
+        public ChessRogueBuffEnhance ToChessEnhanceProto() => new()
         {
             BuffId = (uint)BuffId,
             CostData = new()

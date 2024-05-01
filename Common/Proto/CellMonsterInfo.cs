@@ -24,14 +24,15 @@ namespace EggLink.DanhengServer.Proto {
     static CellMonsterInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVDZWxsTW9uc3RlckluZm8ucHJvdG8aEUNlbGxNb25zdGVyLnByb3RvIl8K",
+            "ChVDZWxsTW9uc3RlckluZm8ucHJvdG8aEUNlbGxNb25zdGVyLnByb3RvImIK",
             "D0NlbGxNb25zdGVySW5mbxIiCgxtb25zdGVyX2xpc3QYAiADKAsyDC5DZWxs",
-            "TW9uc3RlchITCgtQREFCUENCR0hPThgHIAEoCBITCgtMQ0pHUEpNSk1GRxgE",
-            "IAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "TW9uc3RlchITCgtQREFCUENCR0hPThgHIAEoCBIWCg5zZWxlY3RfYm9zc19p",
+            "ZBgEIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90",
+            "bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.CellMonsterReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.CellMonsterInfo), global::EggLink.DanhengServer.Proto.CellMonsterInfo.Parser, new[]{ "MonsterList", "PDABPCBGHON", "LCJGPJMJMFG" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.CellMonsterInfo), global::EggLink.DanhengServer.Proto.CellMonsterInfo.Parser, new[]{ "MonsterList", "PDABPCBGHON", "SelectBossId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -75,7 +76,7 @@ namespace EggLink.DanhengServer.Proto {
     public CellMonsterInfo(CellMonsterInfo other) : this() {
       monsterList_ = other.monsterList_.Clone();
       pDABPCBGHON_ = other.pDABPCBGHON_;
-      lCJGPJMJMFG_ = other.lCJGPJMJMFG_;
+      selectBossId_ = other.selectBossId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -108,15 +109,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "LCJGPJMJMFG" field.</summary>
-    public const int LCJGPJMJMFGFieldNumber = 4;
-    private uint lCJGPJMJMFG_;
+    /// <summary>Field number for the "select_boss_id" field.</summary>
+    public const int SelectBossIdFieldNumber = 4;
+    private uint selectBossId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint LCJGPJMJMFG {
-      get { return lCJGPJMJMFG_; }
+    public uint SelectBossId {
+      get { return selectBossId_; }
       set {
-        lCJGPJMJMFG_ = value;
+        selectBossId_ = value;
       }
     }
 
@@ -137,7 +138,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if(!monsterList_.Equals(other.monsterList_)) return false;
       if (PDABPCBGHON != other.PDABPCBGHON) return false;
-      if (LCJGPJMJMFG != other.LCJGPJMJMFG) return false;
+      if (SelectBossId != other.SelectBossId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -147,7 +148,7 @@ namespace EggLink.DanhengServer.Proto {
       int hash = 1;
       hash ^= monsterList_.GetHashCode();
       if (PDABPCBGHON != false) hash ^= PDABPCBGHON.GetHashCode();
-      if (LCJGPJMJMFG != 0) hash ^= LCJGPJMJMFG.GetHashCode();
+      if (SelectBossId != 0) hash ^= SelectBossId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -167,9 +168,9 @@ namespace EggLink.DanhengServer.Proto {
       output.WriteRawMessage(this);
     #else
       monsterList_.WriteTo(output, _repeated_monsterList_codec);
-      if (LCJGPJMJMFG != 0) {
+      if (SelectBossId != 0) {
         output.WriteRawTag(32);
-        output.WriteUInt32(LCJGPJMJMFG);
+        output.WriteUInt32(SelectBossId);
       }
       if (PDABPCBGHON != false) {
         output.WriteRawTag(56);
@@ -186,9 +187,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       monsterList_.WriteTo(ref output, _repeated_monsterList_codec);
-      if (LCJGPJMJMFG != 0) {
+      if (SelectBossId != 0) {
         output.WriteRawTag(32);
-        output.WriteUInt32(LCJGPJMJMFG);
+        output.WriteUInt32(SelectBossId);
       }
       if (PDABPCBGHON != false) {
         output.WriteRawTag(56);
@@ -208,8 +209,8 @@ namespace EggLink.DanhengServer.Proto {
       if (PDABPCBGHON != false) {
         size += 1 + 1;
       }
-      if (LCJGPJMJMFG != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LCJGPJMJMFG);
+      if (SelectBossId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SelectBossId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -227,8 +228,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other.PDABPCBGHON != false) {
         PDABPCBGHON = other.PDABPCBGHON;
       }
-      if (other.LCJGPJMJMFG != 0) {
-        LCJGPJMJMFG = other.LCJGPJMJMFG;
+      if (other.SelectBossId != 0) {
+        SelectBossId = other.SelectBossId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -250,7 +251,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 32: {
-            LCJGPJMJMFG = input.ReadUInt32();
+            SelectBossId = input.ReadUInt32();
             break;
           }
           case 56: {
@@ -277,7 +278,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 32: {
-            LCJGPJMJMFG = input.ReadUInt32();
+            SelectBossId = input.ReadUInt32();
             break;
           }
           case 56: {

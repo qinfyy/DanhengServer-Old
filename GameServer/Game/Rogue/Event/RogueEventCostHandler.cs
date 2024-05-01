@@ -8,6 +8,6 @@ namespace EggLink.DanhengServer.Game.Rogue.Event
 {
     public abstract class RogueEventCostHandler
     {
-        public abstract void Handle(RogueInstance rogue, RogueEventInstance? eventInstance, List<int> ParamList);
+        public abstract void Handle(BaseRogueInstance rogue, RogueEventInstance? eventInstance, List<int> ParamList);
     }
 }

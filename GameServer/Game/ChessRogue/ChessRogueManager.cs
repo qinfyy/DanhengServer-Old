@@ -3,17 +3,51 @@ using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Database.ChessRogue;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Proto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using EggLink.DanhengServer.Server.Packet.Send.ChessRogue;
+using EggLink.DanhengServer.Server.Packet.Send.Lineup;
 
 namespace EggLink.DanhengServer.Game.ChessRogue
 {
     public class ChessRogueManager(PlayerInstance player) : BasePlayerManager(player)
     {
         public ChessRogueNousData ChessRogueNousData { get; private set; } = DatabaseHelper.Instance!.GetInstanceOrCreateNew<ChessRogueNousData>(player.Uid);
+
+        public ChessRogueInstance? RogueInstance { get; set; }
+
+        #region Game Management
+
+        public void StartRogue(int aeonId, List<uint> avatarIds, int areaId, int branchId, List<int> difficultyIds, List<int> disableAeonIdList)
+        {
+            GameData.RogueNousAeonData.TryGetValue(aeonId, out var aeonData);
+            GameData.RogueDLCAreaData.TryGetValue(areaId, out var areaData);
+            if (aeonData == null || areaData == null) return;
+
+            Player.LineupManager!.SetExtraLineup(ExtraLineupType.LineupChessRogue, avatarIds.Select(x => (int)x).ToList());
+            Player.LineupManager!.GainMp(5, false);
+            Player.SendPacket(new PacketSyncLineupNotify(Player.LineupManager!.GetCurLineup()!));
+
+            foreach (var id in avatarIds)
+            {
+                Player.AvatarManager!.GetAvatar((int)id)?.SetCurHp(10000, true);
+                Player.AvatarManager!.GetAvatar((int)id)?.SetCurSp(10000, true);
+            }
+
+            var difficultyLevel = difficultyIds.Select(x => GameData.RogueNousDifficultyLevelData[x]).ToList();
+
+            var instance = new ChessRogueInstance(Player, areaData, aeonData, areaData.RogueVersionId, branchId)
+            {
+                DisableAeonIds = disableAeonIdList,
+                DifficultyLevel = difficultyLevel,
+            };
+
+            RogueInstance = instance;
+
+            instance.EnterCell(instance.StartCell);
+
+            Player.SendPacket(new PacketChessRogueStartScRsp(Player));
+        }
+
+        #endregion
 
         #region Dice Management
 
@@ -75,6 +109,36 @@ namespace EggLink.DanhengServer.Game.ChessRogue
             }
         }
 
+        public ChessRogueNousDiceData SetDice(ChessRogueDice dice)
+        {
+            var branchId = (int)dice.BranchId;
+            ChessRogueNousData.RogueDiceData.TryGetValue(branchId, out var diceData);
+            if (diceData == null)
+            {
+                // set to default
+                var branch = GameData.RogueNousDiceBranchData[branchId];
+                var surface = branch.GetDefaultSurfaceList();
+
+                foreach (var d in dice.SurfaceList)
+                {
+                    surface[(int)d.Index - 1] = (int)d.SurfaceId;
+                }
+
+                return SetDice(branchId, surface.Select((id, i) => new { id, i }).ToDictionary(x => x.i + 1, x => x.id));  // convert to dictionary
+            }
+            else
+            {
+                foreach (var d in dice.SurfaceList)
+                {
+                    diceData.Surfaces[(int)d.Index] = (int)d.SurfaceId;
+                }
+
+                DatabaseHelper.Instance!.UpdateInstance(ChessRogueNousData);
+
+                return diceData;
+            }
+        }
+
         #endregion
 
         #region Serialization
@@ -95,7 +159,6 @@ namespace EggLink.DanhengServer.Game.ChessRogue
                 info.ExploredAreaIdList.Add((uint)area);
             }
 
-
             foreach (var item in GameData.RogueNousDifficultyLevelData.Keys)
             {
                 info.RogueDifficultyInfo.DifficultyId.Add((uint)item);
@@ -106,6 +169,7 @@ namespace EggLink.DanhengServer.Game.ChessRogue
 
         public ChessRogueCurrentInfo ToCurrentInfo()
         {
+            if (RogueInstance != null) return RogueInstance.ToProto();
             var info = new ChessRogueCurrentInfo
             {
                 RogueVersionId = 201,
@@ -113,15 +177,13 @@ namespace EggLink.DanhengServer.Game.ChessRogue
                 RogueAeonInfo = ToRogueAeonInfo(),
                 RogueDiceInfo = ToRogueDiceInfo(),
                 RogueDifficultyInfo = new(),
-                StoryInfo = new(),
-                GameMiracleInfo = new(),
-                RogueBuffInfo = new(),
+                LEHDEMMDOIM = new(),
+                GameMiracleInfo = new() { MiracleInfo = new() },  // needed for avoiding null reference exception （below 4 lines）
+                RogueBuffInfo = new() { BuffInfo = new() },
+                PendingAction = new(),
+                RogueLineupInfo = ToLineupInfo(),
+                RogueVirtualItem = new(),
             };
-
-            foreach (var item in GameData.RogueNousDifficultyLevelData.Keys)
-            {
-                info.RogueDifficultyInfo.DifficultyId.Add((uint)item);
-            }
 
             info.RogueGameInfo.AddRange(ToGameInfo());
 
@@ -135,6 +197,7 @@ namespace EggLink.DanhengServer.Game.ChessRogue
                 AeonInfo = ToAeonInfo(),
                 RogueTalentInfo = ToTalentInfo(),
                 RogueDifficultyInfo = new(),
+                DiceInfo = ToDiceInfo(),
             };
 
             foreach (var area in GameData.RogueDLCAreaData.Keys)
@@ -177,6 +240,7 @@ namespace EggLink.DanhengServer.Game.ChessRogue
 
             foreach (var aeon in GameData.RogueNousAeonData.Values)
             {
+                if (aeon.AeonID > 7) continue;
                 proto.AeonList.Add(new ChessRogueQueryAeon()
                 {
                     AeonId = (uint)aeon.AeonID,
@@ -196,6 +260,7 @@ namespace EggLink.DanhengServer.Game.ChessRogue
 
             foreach (var aeon in GameData.RogueNousAeonData.Values)
             {
+                if (aeon.AeonID > 8) continue;
                 proto.AeonIdList.Add((uint)aeon.AeonID);
             }
 
@@ -233,7 +298,6 @@ namespace EggLink.DanhengServer.Game.ChessRogue
             var proto = new ChessRogueDiceInfo()
             {
                 IsValid = true,
-                LIEILGBCKPI = 10
             };
 
             return proto;
@@ -286,6 +350,19 @@ namespace EggLink.DanhengServer.Game.ChessRogue
             var proto = new ChessRogueTalentInfo()
             {
                 TalentInfo = talentInfo,
+            };
+
+            return proto;
+        }
+
+        public ChessRogueLineupInfo ToLineupInfo()
+        {
+            var proto = new ChessRogueLineupInfo()
+            {
+                ReviveInfo = new()
+                {
+                    ReviveCost = new()
+                }
             };
 
             return proto;

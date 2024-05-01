@@ -11,7 +11,7 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Rogue
         {
             var req = HandleRogueCommonPendingActionCsReq.Parser.ParseFrom(data);
 
-            var rogue = connection.Player!.RogueManager?.RogueInstance;
+            var rogue = connection.Player!.RogueManager?.GetRogueInstance();
             if (rogue == null) return;
 
             if (req.BuffSelectResult != null)

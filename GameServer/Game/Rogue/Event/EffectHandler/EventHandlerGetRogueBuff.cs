@@ -12,7 +12,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Event.EffectHandler
     [RogueEvent(DialogueEventTypeEnum.GetRogueBuff)]
     public class EventHandlerGetRogueBuff : RogueEventEffectHandler
     {
-        public override void Handle(RogueInstance rogue, RogueEventInstance? eventInstance, List<int> ParamList)
+        public override void Handle(BaseRogueInstance rogue, RogueEventInstance? eventInstance, List<int> ParamList)
         {
             var groupId = ParamList[0];
             GameData.RogueBuffGroupData.TryGetValue(groupId, out var buffGroup);

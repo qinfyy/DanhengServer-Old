@@ -16,15 +16,15 @@ namespace EggLink.DanhengServer.Game.Rogue.Event
     public class RogueEventManager
     {
         public PlayerInstance Player;
-        public RogueInstance Rogue;
+        public BaseRogueInstance Rogue;
         public List<RogueEventInstance> RunningEvent = [];
         public Dictionary<DialogueEventTypeEnum, RogueEventEffectHandler> EffectHandler = [];
         public Dictionary<DialogueEventCostTypeEnum, RogueEventCostHandler> CostHandler = [];
 
-        public RogueEventManager(PlayerInstance player, RogueInstance rogue)
+        public RogueEventManager(PlayerInstance player, BaseRogueInstance rogueInstance)
         {
             Player = player;
-            Rogue = rogue;
+            Rogue = rogueInstance;
 
             var types = Assembly.GetExecutingAssembly().GetTypes();
             foreach (var type in types)

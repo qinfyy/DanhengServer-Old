@@ -4,6 +4,7 @@ using EggLink.DanhengServer.Data.Excel;
 using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Database.Avatar;
 using EggLink.DanhengServer.Game.Battle;
+using EggLink.DanhengServer.Game.ChessRogue.Cell;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Game.Rogue.Scene;
 using EggLink.DanhengServer.Game.Scene.Entity;
@@ -36,6 +37,8 @@ namespace EggLink.DanhengServer.Game.Scene
 
         public SceneEntityLoader? EntityLoader;
 
+        public int CustomGameModeId = 0;
+
         public SceneInstance(PlayerInstance player, MazePlaneExcel excel, int floorId, int entryId)
         {
             Player = player;
@@ -52,7 +55,14 @@ namespace EggLink.DanhengServer.Game.Scene
             switch (Excel.PlaneType)
             {
                 case Enums.Scene.PlaneTypeEnum.Rogue:
-                    EntityLoader = new RogueEntityLoader(this, Player);
+                    if (Player.ChessRogueManager!.RogueInstance != null)
+                    {
+                        EntityLoader = new ChessRogueEntityLoader(this);
+                        CustomGameModeId = 16;
+                    } else
+                    {
+                        EntityLoader = new RogueEntityLoader(this, Player);
+                    }
                     break;
                 default:
                     EntityLoader = new(this);
@@ -213,7 +223,7 @@ namespace EggLink.DanhengServer.Game.Scene
             SceneInfo sceneInfo = new()
             {
                 WorldId = (uint)Excel.WorldID,
-                GameModeType = (uint)Excel.PlaneType,
+                GameModeType = (uint)(CustomGameModeId > 0 ? CustomGameModeId : (int)Excel.PlaneType),
                 PlaneId = (uint)PlaneId,
                 FloorId = (uint)FloorId,
                 EntryId = (uint)EntryId,

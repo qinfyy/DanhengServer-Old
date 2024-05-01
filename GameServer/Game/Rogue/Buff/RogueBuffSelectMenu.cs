@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EggLink.DanhengServer.Game.Rogue.Buff
 {
-    public class RogueBuffSelectMenu(RogueInstance rogue)
+    public class RogueBuffSelectMenu(BaseRogueInstance rogue)
     {
         public int HintId { get; set; } = 1;
         public List<RogueBuffExcel> Buffs { get; set; } = [];
@@ -32,7 +32,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Buff
 
             foreach (var buff in buffs)
             {
-                if (buff.RogueBuffType == rogue.AeonExcel.RogueBuffType)
+                if (buff.RogueBuffType == rogue.RogueBuffType)
                 {
                     list.Add(buff, (int)(20 / buff.RogueBuffRarity * 2.5));
                 } else

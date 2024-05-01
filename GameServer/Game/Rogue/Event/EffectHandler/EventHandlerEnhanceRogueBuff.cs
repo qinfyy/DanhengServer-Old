@@ -12,7 +12,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Event.EffectHandler
     [RogueEvent(DialogueEventTypeEnum.EnhanceRogueBuff)]
     public class EventHandlerEnhanceRogueBuff : RogueEventEffectHandler
     {
-        public override void Handle(RogueInstance rogue, RogueEventInstance? eventInstance, List<int> ParamList)
+        public override void Handle(BaseRogueInstance rogue, RogueEventInstance? eventInstance, List<int> ParamList)
         {
             var group = ParamList[0];
             GameData.RogueBuffGroupData.TryGetValue(group, out var buffGroup);
@@ -24,8 +24,9 @@ namespace EggLink.DanhengServer.Game.Rogue.Event.EffectHandler
 
             for (int i = 0; i < count;)
             {
+                if (buffs.Count == 0) break;  // No more buffs to enhance
                 var buff = buffs.RandomElement();
-                if (buff == null || buffs.Count == 0) break;  // No more buffs to enhance
+                if (buff == null) break;
                 if (buff.BuffLevel == 2) 
                 {
                     // Buff is already at max level

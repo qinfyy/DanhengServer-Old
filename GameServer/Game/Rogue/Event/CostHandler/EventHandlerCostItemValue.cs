@@ -11,7 +11,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Event.CostHandler
     [RogueEvent(costType: DialogueEventCostTypeEnum.CostItemValue)]
     public class EventHandlerCostItemValue : RogueEventCostHandler
     {
-        public override void Handle(RogueInstance rogue, RogueEventInstance? eventInstance, List<int> ParamList)
+        public override void Handle(BaseRogueInstance rogue, RogueEventInstance? eventInstance, List<int> ParamList)
         {
             int decreaseMoney = ParamList[1];
             rogue.CostMoney(decreaseMoney, RogueActionDisplayType.RogueCommonActionResultDisplayTypeSingle);

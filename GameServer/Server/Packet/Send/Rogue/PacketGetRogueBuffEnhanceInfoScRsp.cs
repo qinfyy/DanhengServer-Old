@@ -13,13 +13,13 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Rogue
         public PacketGetRogueBuffEnhanceInfoScRsp(PlayerInstance player) : base(CmdIds.GetRogueBuffEnhanceInfoScRsp)
         {
             var proto = new GetRogueBuffEnhanceInfoScRsp();
-            if (player.RogueManager!.RogueInstance == null)
+            if (player.RogueManager!.GetRogueInstance() == null)
             {
                 proto.Retcode = 1;
                 SetData(proto);
                 return;
             }
-            proto.BuffEnhanceInfo = player.RogueManager.RogueInstance.ToEnhanceInfo();
+            proto.BuffEnhanceInfo = player.RogueManager.GetRogueInstance()!.ToEnhanceInfo();
 
             SetData(proto);
         }

@@ -19,8 +19,8 @@ namespace EggLink.DanhengServer.Game.Battle.Skill.Action
                     entity.Kill();
 
                     entity.Scene.Player.LineupManager!.CostMp(1);
-                    entity.Scene.Player.RogueManager!.RogueInstance?.RollBuff(1);
-                    entity.Scene.Player.RogueManager!.RogueInstance?.GainMoney(Random.Shared.Next(20, 60));
+                    entity.Scene.Player.RogueManager!.GetRogueInstance()?.RollBuff(1);
+                    entity.Scene.Player.RogueManager!.GetRogueInstance()?.GainMoney(Random.Shared.Next(20, 60));
                 }
             }
         }

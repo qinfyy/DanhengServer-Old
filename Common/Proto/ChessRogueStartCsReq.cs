@@ -24,16 +24,16 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueStartCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChpDaGVzc1JvZ3VlU3RhcnRDc1JlcS5wcm90byKrAQoUQ2hlc3NSb2d1ZVN0",
+            "ChpDaGVzc1JvZ3VlU3RhcnRDc1JlcS5wcm90byKyAQoUQ2hlc3NSb2d1ZVN0",
             "YXJ0Q3NSZXESEwoLT0xHSENNQUdHS0wYDSADKA0SHAoUZGlzYWJsZV9hZW9u",
             "X2lkX2xpc3QYBCADKA0SGwoTYmFzZV9hdmF0YXJfaWRfbGlzdBgMIAMoDRIK",
-            "CgJpZBgGIAEoDRITCgtHTUlNTkpDQ05MTxgIIAMoDRIRCglicmFuY2hfaWQY",
-            "AiABKA0SDwoHYWVvbl9pZBgJIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2Vy",
-            "dmVyLlByb3RvYgZwcm90bzM="));
+            "CgJpZBgGIAEoDRIaChJkaWZmaWN1bHR5X2lkX2xpc3QYCCADKA0SEQoJYnJh",
+            "bmNoX2lkGAIgASgNEg8KB2Flb25faWQYCSABKA1CHqoCG0VnZ0xpbmsuRGFu",
+            "aGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueStartCsReq), global::EggLink.DanhengServer.Proto.ChessRogueStartCsReq.Parser, new[]{ "OLGHCMAGGKL", "DisableAeonIdList", "BaseAvatarIdList", "Id", "GMIMNJCCNLO", "BranchId", "AeonId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueStartCsReq), global::EggLink.DanhengServer.Proto.ChessRogueStartCsReq.Parser, new[]{ "OLGHCMAGGKL", "DisableAeonIdList", "BaseAvatarIdList", "Id", "DifficultyIdList", "BranchId", "AeonId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -79,7 +79,7 @@ namespace EggLink.DanhengServer.Proto {
       disableAeonIdList_ = other.disableAeonIdList_.Clone();
       baseAvatarIdList_ = other.baseAvatarIdList_.Clone();
       id_ = other.id_;
-      gMIMNJCCNLO_ = other.gMIMNJCCNLO_.Clone();
+      difficultyIdList_ = other.difficultyIdList_.Clone();
       branchId_ = other.branchId_;
       aeonId_ = other.aeonId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -136,15 +136,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "GMIMNJCCNLO" field.</summary>
-    public const int GMIMNJCCNLOFieldNumber = 8;
-    private static readonly pb::FieldCodec<uint> _repeated_gMIMNJCCNLO_codec
+    /// <summary>Field number for the "difficulty_id_list" field.</summary>
+    public const int DifficultyIdListFieldNumber = 8;
+    private static readonly pb::FieldCodec<uint> _repeated_difficultyIdList_codec
         = pb::FieldCodec.ForUInt32(66);
-    private readonly pbc::RepeatedField<uint> gMIMNJCCNLO_ = new pbc::RepeatedField<uint>();
+    private readonly pbc::RepeatedField<uint> difficultyIdList_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<uint> GMIMNJCCNLO {
-      get { return gMIMNJCCNLO_; }
+    public pbc::RepeatedField<uint> DifficultyIdList {
+      get { return difficultyIdList_; }
     }
 
     /// <summary>Field number for the "branch_id" field.</summary>
@@ -190,7 +190,7 @@ namespace EggLink.DanhengServer.Proto {
       if(!disableAeonIdList_.Equals(other.disableAeonIdList_)) return false;
       if(!baseAvatarIdList_.Equals(other.baseAvatarIdList_)) return false;
       if (Id != other.Id) return false;
-      if(!gMIMNJCCNLO_.Equals(other.gMIMNJCCNLO_)) return false;
+      if(!difficultyIdList_.Equals(other.difficultyIdList_)) return false;
       if (BranchId != other.BranchId) return false;
       if (AeonId != other.AeonId) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -204,7 +204,7 @@ namespace EggLink.DanhengServer.Proto {
       hash ^= disableAeonIdList_.GetHashCode();
       hash ^= baseAvatarIdList_.GetHashCode();
       if (Id != 0) hash ^= Id.GetHashCode();
-      hash ^= gMIMNJCCNLO_.GetHashCode();
+      hash ^= difficultyIdList_.GetHashCode();
       if (BranchId != 0) hash ^= BranchId.GetHashCode();
       if (AeonId != 0) hash ^= AeonId.GetHashCode();
       if (_unknownFields != null) {
@@ -234,7 +234,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(48);
         output.WriteUInt32(Id);
       }
-      gMIMNJCCNLO_.WriteTo(output, _repeated_gMIMNJCCNLO_codec);
+      difficultyIdList_.WriteTo(output, _repeated_difficultyIdList_codec);
       if (AeonId != 0) {
         output.WriteRawTag(72);
         output.WriteUInt32(AeonId);
@@ -260,7 +260,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(48);
         output.WriteUInt32(Id);
       }
-      gMIMNJCCNLO_.WriteTo(ref output, _repeated_gMIMNJCCNLO_codec);
+      difficultyIdList_.WriteTo(ref output, _repeated_difficultyIdList_codec);
       if (AeonId != 0) {
         output.WriteRawTag(72);
         output.WriteUInt32(AeonId);
@@ -283,7 +283,7 @@ namespace EggLink.DanhengServer.Proto {
       if (Id != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Id);
       }
-      size += gMIMNJCCNLO_.CalculateSize(_repeated_gMIMNJCCNLO_codec);
+      size += difficultyIdList_.CalculateSize(_repeated_difficultyIdList_codec);
       if (BranchId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BranchId);
       }
@@ -308,7 +308,7 @@ namespace EggLink.DanhengServer.Proto {
       if (other.Id != 0) {
         Id = other.Id;
       }
-      gMIMNJCCNLO_.Add(other.gMIMNJCCNLO_);
+      difficultyIdList_.Add(other.difficultyIdList_);
       if (other.BranchId != 0) {
         BranchId = other.BranchId;
       }
@@ -345,7 +345,7 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 66:
           case 64: {
-            gMIMNJCCNLO_.AddEntriesFrom(input, _repeated_gMIMNJCCNLO_codec);
+            difficultyIdList_.AddEntriesFrom(input, _repeated_difficultyIdList_codec);
             break;
           }
           case 72: {
@@ -392,7 +392,7 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 66:
           case 64: {
-            gMIMNJCCNLO_.AddEntriesFrom(ref input, _repeated_gMIMNJCCNLO_codec);
+            difficultyIdList_.AddEntriesFrom(ref input, _repeated_difficultyIdList_codec);
             break;
           }
           case 72: {

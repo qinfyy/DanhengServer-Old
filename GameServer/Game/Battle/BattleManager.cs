@@ -84,7 +84,7 @@ namespace EggLink.DanhengServer.Game.Battle
                     Player.LineupManager!.GetCurLineup()!.Heal(2000, false);
                     Player.SendPacket(new PacketSyncLineupNotify(Player.LineupManager!.GetCurLineup()!));
                 }
-                Player.RogueManager!.RogueInstance?.OnPropDestruct(prop);
+                Player.RogueManager!.GetRogueInstance()?.OnPropDestruct(prop);
             }
 
             if (targetList.Count > 0)
@@ -156,7 +156,7 @@ namespace EggLink.DanhengServer.Game.Battle
                 battleInstance.AvatarInfo = avatarList;
 
                 // call battle start
-                Player.RogueManager!.RogueInstance?.OnBattleStart(battleInstance);
+                Player.RogueManager!.GetRogueInstance()?.OnBattleStart(battleInstance);
 
                 Player.BattleInstance = battleInstance;
                 Player.SendPacket(new PacketSceneCastSkillScRsp(req.CastEntityId, battleInstance));
@@ -200,7 +200,7 @@ namespace EggLink.DanhengServer.Game.Battle
             battleInstance.AvatarInfo = avatarList;
 
             // call battle start
-            Player.RogueManager!.RogueInstance?.OnBattleStart(battleInstance);
+            Player.RogueManager!.GetRogueInstance()?.OnBattleStart(battleInstance);
 
             Player.BattleInstance = battleInstance;
 
@@ -352,7 +352,7 @@ namespace EggLink.DanhengServer.Game.Battle
             Player.BattleInstance = null;
 
             Player.MissionManager!.OnBattleFinish(req);
-            Player.RogueManager!.RogueInstance?.OnBattleEnd(battle, req);
+            Player.RogueManager!.GetRogueInstance()?.OnBattleEnd(battle, req);
 
             Player.SendPacket(new PacketPVEBattleResultScRsp(req, Player, battle));
         }

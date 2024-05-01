@@ -410,9 +410,9 @@ namespace EggLink.DanhengServer.Game.Player
             }
             AnchorInfo? anchor = floorInfo.GetAnchorInfo(StartGroup, StartAnchor);
 
-            LoadScene(entrance.PlaneID, entrance.FloorID, entryId, anchor!.ToPositionProto(), anchor.ToRotationProto(), sendPacket);
-            
             MissionManager?.HandleFinishType(MissionFinishTypeEnum.EnterMapByEntrance, entryId);
+
+            LoadScene(entrance.PlaneID, entrance.FloorID, entryId, anchor!.ToPositionProto(), anchor.ToRotationProto(), sendPacket);
         }
 
         public void EnterMissionScene(int entranceId, int anchorGroupId, int anchorId, bool sendPacket)
@@ -454,7 +454,7 @@ namespace EggLink.DanhengServer.Game.Player
             GameData.MazePlaneData.TryGetValue(planeId, out var plane);
             if (plane == null) return;
 
-            if (plane.PlaneType == PlaneTypeEnum.Rogue && RogueManager!.RogueInstance == null)
+            if (plane.PlaneType == PlaneTypeEnum.Rogue && RogueManager!.GetRogueInstance() == null)
             {
                 EnterScene(801120102, 0, sendPacket);
                 return;

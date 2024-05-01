@@ -12,7 +12,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Event.EffectHandler
     [RogueEvent(DialogueEventTypeEnum.GetRogueMiracle)]
     public class EventHandlerGetRogueMiracle : RogueEventEffectHandler
     {
-        public override void Handle(RogueInstance rogue, RogueEventInstance? eventInstance, List<int> ParamList)
+        public override void Handle(BaseRogueInstance rogue, RogueEventInstance? eventInstance, List<int> ParamList)
         {
             var miracleGroupId = ParamList[0];
             GameData.RogueMiracleGroupData.TryGetValue(miracleGroupId, out var miracleGroup);
@@ -32,6 +32,8 @@ namespace EggLink.DanhengServer.Game.Rogue.Event.EffectHandler
 
             for (int i = 0; i < ParamList[1]; i++)
             {
+                if (list.Count == 0) break;  // If the player has all the miracles in the group, break
+
                 var miracleId = list.RandomElement();
                 rogue.AddMiracle(miracleId);
 

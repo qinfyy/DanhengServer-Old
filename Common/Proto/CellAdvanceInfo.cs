@@ -24,16 +24,17 @@ namespace EggLink.DanhengServer.Proto {
     static CellAdvanceInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVDZWxsQWR2YW5jZUluZm8ucHJvdG8aFUNlbGxNb25zdGVySW5mby5wcm90",
-            "bxoRSEtKSURDR01LT0cucHJvdG8aEUFBS09BSU5OR0hLLnByb3RvInwKD0Nl",
-            "bGxBZHZhbmNlSW5mbxIjCglib3NzX2luZm8YCSABKAsyEC5DZWxsTW9uc3Rl",
-            "ckluZm8SIQoLSU9ITU1PTU1HQVAYAiABKAsyDC5BQUtPQUlOTkdISxIhCgtF",
-            "RkpISUlMRUNHQRgLIAEoCzIMLkhLSklEQ0dNS09HQh6qAhtFZ2dMaW5rLkRh",
-            "bmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "ChVDZWxsQWR2YW5jZUluZm8ucHJvdG8aG0NlbGxNb25zdGVyU2VsZWN0SW5m",
+            "by5wcm90bxoRSEtKSURDR01LT0cucHJvdG8aFUNlbGxNb25zdGVySW5mby5w",
+            "cm90byKLAQoPQ2VsbEFkdmFuY2VJbmZvEiMKCWJvc3NfaW5mbxgJIAEoCzIQ",
+            "LkNlbGxNb25zdGVySW5mbxIwChBzZWxlY3RfYm9zc19pbmZvGAIgASgLMhYu",
+            "Q2VsbE1vbnN0ZXJTZWxlY3RJbmZvEiEKC0VGSkhJSUxFQ0dBGAsgASgLMgwu",
+            "SEtKSURDR01LT0dCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.CellMonsterInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.HKJIDCGMKOGReflection.Descriptor, global::EggLink.DanhengServer.Proto.AAKOAINNGHKReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.CellMonsterSelectInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.HKJIDCGMKOGReflection.Descriptor, global::EggLink.DanhengServer.Proto.CellMonsterInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.CellAdvanceInfo), global::EggLink.DanhengServer.Proto.CellAdvanceInfo.Parser, new[]{ "BossInfo", "IOHMMOMMGAP", "EFJHIILECGA" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.CellAdvanceInfo), global::EggLink.DanhengServer.Proto.CellAdvanceInfo.Parser, new[]{ "BossInfo", "SelectBossInfo", "EFJHIILECGA" }, null, null, null, null)
           }));
     }
     #endregion
@@ -76,7 +77,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CellAdvanceInfo(CellAdvanceInfo other) : this() {
       bossInfo_ = other.bossInfo_ != null ? other.bossInfo_.Clone() : null;
-      iOHMMOMMGAP_ = other.iOHMMOMMGAP_ != null ? other.iOHMMOMMGAP_.Clone() : null;
+      selectBossInfo_ = other.selectBossInfo_ != null ? other.selectBossInfo_.Clone() : null;
       eFJHIILECGA_ = other.eFJHIILECGA_ != null ? other.eFJHIILECGA_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -99,15 +100,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "IOHMMOMMGAP" field.</summary>
-    public const int IOHMMOMMGAPFieldNumber = 2;
-    private global::EggLink.DanhengServer.Proto.AAKOAINNGHK iOHMMOMMGAP_;
+    /// <summary>Field number for the "select_boss_info" field.</summary>
+    public const int SelectBossInfoFieldNumber = 2;
+    private global::EggLink.DanhengServer.Proto.CellMonsterSelectInfo selectBossInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.AAKOAINNGHK IOHMMOMMGAP {
-      get { return iOHMMOMMGAP_; }
+    public global::EggLink.DanhengServer.Proto.CellMonsterSelectInfo SelectBossInfo {
+      get { return selectBossInfo_; }
       set {
-        iOHMMOMMGAP_ = value;
+        selectBossInfo_ = value;
       }
     }
 
@@ -139,7 +140,7 @@ namespace EggLink.DanhengServer.Proto {
         return true;
       }
       if (!object.Equals(BossInfo, other.BossInfo)) return false;
-      if (!object.Equals(IOHMMOMMGAP, other.IOHMMOMMGAP)) return false;
+      if (!object.Equals(SelectBossInfo, other.SelectBossInfo)) return false;
       if (!object.Equals(EFJHIILECGA, other.EFJHIILECGA)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -149,7 +150,7 @@ namespace EggLink.DanhengServer.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (bossInfo_ != null) hash ^= BossInfo.GetHashCode();
-      if (iOHMMOMMGAP_ != null) hash ^= IOHMMOMMGAP.GetHashCode();
+      if (selectBossInfo_ != null) hash ^= SelectBossInfo.GetHashCode();
       if (eFJHIILECGA_ != null) hash ^= EFJHIILECGA.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -169,9 +170,9 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (iOHMMOMMGAP_ != null) {
+      if (selectBossInfo_ != null) {
         output.WriteRawTag(18);
-        output.WriteMessage(IOHMMOMMGAP);
+        output.WriteMessage(SelectBossInfo);
       }
       if (bossInfo_ != null) {
         output.WriteRawTag(74);
@@ -191,9 +192,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (iOHMMOMMGAP_ != null) {
+      if (selectBossInfo_ != null) {
         output.WriteRawTag(18);
-        output.WriteMessage(IOHMMOMMGAP);
+        output.WriteMessage(SelectBossInfo);
       }
       if (bossInfo_ != null) {
         output.WriteRawTag(74);
@@ -216,8 +217,8 @@ namespace EggLink.DanhengServer.Proto {
       if (bossInfo_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(BossInfo);
       }
-      if (iOHMMOMMGAP_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(IOHMMOMMGAP);
+      if (selectBossInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SelectBossInfo);
       }
       if (eFJHIILECGA_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(EFJHIILECGA);
@@ -240,11 +241,11 @@ namespace EggLink.DanhengServer.Proto {
         }
         BossInfo.MergeFrom(other.BossInfo);
       }
-      if (other.iOHMMOMMGAP_ != null) {
-        if (iOHMMOMMGAP_ == null) {
-          IOHMMOMMGAP = new global::EggLink.DanhengServer.Proto.AAKOAINNGHK();
+      if (other.selectBossInfo_ != null) {
+        if (selectBossInfo_ == null) {
+          SelectBossInfo = new global::EggLink.DanhengServer.Proto.CellMonsterSelectInfo();
         }
-        IOHMMOMMGAP.MergeFrom(other.IOHMMOMMGAP);
+        SelectBossInfo.MergeFrom(other.SelectBossInfo);
       }
       if (other.eFJHIILECGA_ != null) {
         if (eFJHIILECGA_ == null) {
@@ -268,10 +269,10 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 18: {
-            if (iOHMMOMMGAP_ == null) {
-              IOHMMOMMGAP = new global::EggLink.DanhengServer.Proto.AAKOAINNGHK();
+            if (selectBossInfo_ == null) {
+              SelectBossInfo = new global::EggLink.DanhengServer.Proto.CellMonsterSelectInfo();
             }
-            input.ReadMessage(IOHMMOMMGAP);
+            input.ReadMessage(SelectBossInfo);
             break;
           }
           case 74: {
@@ -304,10 +305,10 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 18: {
-            if (iOHMMOMMGAP_ == null) {
-              IOHMMOMMGAP = new global::EggLink.DanhengServer.Proto.AAKOAINNGHK();
+            if (selectBossInfo_ == null) {
+              SelectBossInfo = new global::EggLink.DanhengServer.Proto.CellMonsterSelectInfo();
             }
-            input.ReadMessage(IOHMMOMMGAP);
+            input.ReadMessage(SelectBossInfo);
             break;
           }
           case 74: {

@@ -24,17 +24,18 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueLayerAccountInfoNotifyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiZDaGVzc1JvZ3VlTGF5ZXJBY2NvdW50SW5mb05vdGlmeS5wcm90bxoRS09H",
-            "SkpNQkVEREUucHJvdG8aGUNoZXNzUm9ndWVMZXZlbEluZm8ucHJvdG8iqwEK",
-            "IENoZXNzUm9ndWVMYXllckFjY291bnRJbmZvTm90aWZ5EigKCmxldmVsX2lu",
-            "Zm8YByABKAsyFC5DaGVzc1JvZ3VlTGV2ZWxJbmZvEhMKC0pQSlBEQ0xQR0tP",
-            "GAIgASgNEiEKC0NHRUJLT0ZCS0pPGAMgASgLMgwuS09HSkpNQkVEREUSEwoL",
-            "REhQRUlKT0tPREMYCCADKA0SEAoIbGF5ZXJfaWQYBSABKA1CHqoCG0VnZ0xp",
-            "bmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
+            "CiZDaGVzc1JvZ3VlTGF5ZXJBY2NvdW50SW5mb05vdGlmeS5wcm90bxoaQ2hl",
+            "c3NSb2d1ZUZpbmlzaEluZm8ucHJvdG8aGUNoZXNzUm9ndWVMZXZlbEluZm8u",
+            "cHJvdG8itAEKIENoZXNzUm9ndWVMYXllckFjY291bnRJbmZvTm90aWZ5EigK",
+            "CmxldmVsX2luZm8YByABKAsyFC5DaGVzc1JvZ3VlTGV2ZWxJbmZvEhMKC0pQ",
+            "SlBEQ0xQR0tPGAIgASgNEioKC2ZpbmlzaF9pbmZvGAMgASgLMhUuQ2hlc3NS",
+            "b2d1ZUZpbmlzaEluZm8SEwoLREhQRUlKT0tPREMYCCADKA0SEAoIbGF5ZXJf",
+            "aWQYBSABKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJv",
+            "dG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.KOGJJMBEDDEReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueLevelInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChessRogueFinishInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueLevelInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueLayerAccountInfoNotify), global::EggLink.DanhengServer.Proto.ChessRogueLayerAccountInfoNotify.Parser, new[]{ "LevelInfo", "JPJPDCLPGKO", "CGEBKOFBKJO", "DHPEIJOKODC", "LayerId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueLayerAccountInfoNotify), global::EggLink.DanhengServer.Proto.ChessRogueLayerAccountInfoNotify.Parser, new[]{ "LevelInfo", "JPJPDCLPGKO", "FinishInfo", "DHPEIJOKODC", "LayerId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -78,7 +79,7 @@ namespace EggLink.DanhengServer.Proto {
     public ChessRogueLayerAccountInfoNotify(ChessRogueLayerAccountInfoNotify other) : this() {
       levelInfo_ = other.levelInfo_ != null ? other.levelInfo_.Clone() : null;
       jPJPDCLPGKO_ = other.jPJPDCLPGKO_;
-      cGEBKOFBKJO_ = other.cGEBKOFBKJO_ != null ? other.cGEBKOFBKJO_.Clone() : null;
+      finishInfo_ = other.finishInfo_ != null ? other.finishInfo_.Clone() : null;
       dHPEIJOKODC_ = other.dHPEIJOKODC_.Clone();
       layerId_ = other.layerId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -114,15 +115,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "CGEBKOFBKJO" field.</summary>
-    public const int CGEBKOFBKJOFieldNumber = 3;
-    private global::EggLink.DanhengServer.Proto.KOGJJMBEDDE cGEBKOFBKJO_;
+    /// <summary>Field number for the "finish_info" field.</summary>
+    public const int FinishInfoFieldNumber = 3;
+    private global::EggLink.DanhengServer.Proto.ChessRogueFinishInfo finishInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.KOGJJMBEDDE CGEBKOFBKJO {
-      get { return cGEBKOFBKJO_; }
+    public global::EggLink.DanhengServer.Proto.ChessRogueFinishInfo FinishInfo {
+      get { return finishInfo_; }
       set {
-        cGEBKOFBKJO_ = value;
+        finishInfo_ = value;
       }
     }
 
@@ -166,7 +167,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (!object.Equals(LevelInfo, other.LevelInfo)) return false;
       if (JPJPDCLPGKO != other.JPJPDCLPGKO) return false;
-      if (!object.Equals(CGEBKOFBKJO, other.CGEBKOFBKJO)) return false;
+      if (!object.Equals(FinishInfo, other.FinishInfo)) return false;
       if(!dHPEIJOKODC_.Equals(other.dHPEIJOKODC_)) return false;
       if (LayerId != other.LayerId) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -178,7 +179,7 @@ namespace EggLink.DanhengServer.Proto {
       int hash = 1;
       if (levelInfo_ != null) hash ^= LevelInfo.GetHashCode();
       if (JPJPDCLPGKO != 0) hash ^= JPJPDCLPGKO.GetHashCode();
-      if (cGEBKOFBKJO_ != null) hash ^= CGEBKOFBKJO.GetHashCode();
+      if (finishInfo_ != null) hash ^= FinishInfo.GetHashCode();
       hash ^= dHPEIJOKODC_.GetHashCode();
       if (LayerId != 0) hash ^= LayerId.GetHashCode();
       if (_unknownFields != null) {
@@ -203,9 +204,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(16);
         output.WriteUInt32(JPJPDCLPGKO);
       }
-      if (cGEBKOFBKJO_ != null) {
+      if (finishInfo_ != null) {
         output.WriteRawTag(26);
-        output.WriteMessage(CGEBKOFBKJO);
+        output.WriteMessage(FinishInfo);
       }
       if (LayerId != 0) {
         output.WriteRawTag(40);
@@ -230,9 +231,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(16);
         output.WriteUInt32(JPJPDCLPGKO);
       }
-      if (cGEBKOFBKJO_ != null) {
+      if (finishInfo_ != null) {
         output.WriteRawTag(26);
-        output.WriteMessage(CGEBKOFBKJO);
+        output.WriteMessage(FinishInfo);
       }
       if (LayerId != 0) {
         output.WriteRawTag(40);
@@ -259,8 +260,8 @@ namespace EggLink.DanhengServer.Proto {
       if (JPJPDCLPGKO != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(JPJPDCLPGKO);
       }
-      if (cGEBKOFBKJO_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CGEBKOFBKJO);
+      if (finishInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(FinishInfo);
       }
       size += dHPEIJOKODC_.CalculateSize(_repeated_dHPEIJOKODC_codec);
       if (LayerId != 0) {
@@ -287,11 +288,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other.JPJPDCLPGKO != 0) {
         JPJPDCLPGKO = other.JPJPDCLPGKO;
       }
-      if (other.cGEBKOFBKJO_ != null) {
-        if (cGEBKOFBKJO_ == null) {
-          CGEBKOFBKJO = new global::EggLink.DanhengServer.Proto.KOGJJMBEDDE();
+      if (other.finishInfo_ != null) {
+        if (finishInfo_ == null) {
+          FinishInfo = new global::EggLink.DanhengServer.Proto.ChessRogueFinishInfo();
         }
-        CGEBKOFBKJO.MergeFrom(other.CGEBKOFBKJO);
+        FinishInfo.MergeFrom(other.FinishInfo);
       }
       dHPEIJOKODC_.Add(other.dHPEIJOKODC_);
       if (other.LayerId != 0) {
@@ -317,10 +318,10 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 26: {
-            if (cGEBKOFBKJO_ == null) {
-              CGEBKOFBKJO = new global::EggLink.DanhengServer.Proto.KOGJJMBEDDE();
+            if (finishInfo_ == null) {
+              FinishInfo = new global::EggLink.DanhengServer.Proto.ChessRogueFinishInfo();
             }
-            input.ReadMessage(CGEBKOFBKJO);
+            input.ReadMessage(FinishInfo);
             break;
           }
           case 40: {
@@ -359,10 +360,10 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 26: {
-            if (cGEBKOFBKJO_ == null) {
-              CGEBKOFBKJO = new global::EggLink.DanhengServer.Proto.KOGJJMBEDDE();
+            if (finishInfo_ == null) {
+              FinishInfo = new global::EggLink.DanhengServer.Proto.ChessRogueFinishInfo();
             }
-            input.ReadMessage(CGEBKOFBKJO);
+            input.ReadMessage(FinishInfo);
             break;
           }
           case 40: {

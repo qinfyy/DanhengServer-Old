@@ -25,13 +25,14 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Ci9DaGVzc1JvZ3VlVXBkYXRlQWxsb3dlZFNlbGVjdENlbGxTY05vdGlmeS5w",
-            "cm90byJSCilDaGVzc1JvZ3VlVXBkYXRlQWxsb3dlZFNlbGVjdENlbGxTY05v",
-            "dGlmeRIQCghib2FyZF9pZBgHIAEoDRITCgtISkNGRlBOSE9BSRgKIAMoDUIe",
-            "qgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "cm90byJiCilDaGVzc1JvZ3VlVXBkYXRlQWxsb3dlZFNlbGVjdENlbGxTY05v",
+            "dGlmeRIQCghib2FyZF9pZBgHIAEoDRIjChthbGxvd2VkX3NlbGVjdF9jZWxs",
+            "X2lkX2xpc3QYCiADKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90",
+            "b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueUpdateAllowedSelectCellScNotify), global::EggLink.DanhengServer.Proto.ChessRogueUpdateAllowedSelectCellScNotify.Parser, new[]{ "BoardId", "HJCFFPNHOAI" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueUpdateAllowedSelectCellScNotify), global::EggLink.DanhengServer.Proto.ChessRogueUpdateAllowedSelectCellScNotify.Parser, new[]{ "BoardId", "AllowedSelectCellIdList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,7 +75,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ChessRogueUpdateAllowedSelectCellScNotify(ChessRogueUpdateAllowedSelectCellScNotify other) : this() {
       boardId_ = other.boardId_;
-      hJCFFPNHOAI_ = other.hJCFFPNHOAI_.Clone();
+      allowedSelectCellIdList_ = other.allowedSelectCellIdList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -96,15 +97,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "HJCFFPNHOAI" field.</summary>
-    public const int HJCFFPNHOAIFieldNumber = 10;
-    private static readonly pb::FieldCodec<uint> _repeated_hJCFFPNHOAI_codec
+    /// <summary>Field number for the "allowed_select_cell_id_list" field.</summary>
+    public const int AllowedSelectCellIdListFieldNumber = 10;
+    private static readonly pb::FieldCodec<uint> _repeated_allowedSelectCellIdList_codec
         = pb::FieldCodec.ForUInt32(82);
-    private readonly pbc::RepeatedField<uint> hJCFFPNHOAI_ = new pbc::RepeatedField<uint>();
+    private readonly pbc::RepeatedField<uint> allowedSelectCellIdList_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<uint> HJCFFPNHOAI {
-      get { return hJCFFPNHOAI_; }
+    public pbc::RepeatedField<uint> AllowedSelectCellIdList {
+      get { return allowedSelectCellIdList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -123,7 +124,7 @@ namespace EggLink.DanhengServer.Proto {
         return true;
       }
       if (BoardId != other.BoardId) return false;
-      if(!hJCFFPNHOAI_.Equals(other.hJCFFPNHOAI_)) return false;
+      if(!allowedSelectCellIdList_.Equals(other.allowedSelectCellIdList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -132,7 +133,7 @@ namespace EggLink.DanhengServer.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (BoardId != 0) hash ^= BoardId.GetHashCode();
-      hash ^= hJCFFPNHOAI_.GetHashCode();
+      hash ^= allowedSelectCellIdList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -155,7 +156,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(56);
         output.WriteUInt32(BoardId);
       }
-      hJCFFPNHOAI_.WriteTo(output, _repeated_hJCFFPNHOAI_codec);
+      allowedSelectCellIdList_.WriteTo(output, _repeated_allowedSelectCellIdList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -170,7 +171,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(56);
         output.WriteUInt32(BoardId);
       }
-      hJCFFPNHOAI_.WriteTo(ref output, _repeated_hJCFFPNHOAI_codec);
+      allowedSelectCellIdList_.WriteTo(ref output, _repeated_allowedSelectCellIdList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -184,7 +185,7 @@ namespace EggLink.DanhengServer.Proto {
       if (BoardId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BoardId);
       }
-      size += hJCFFPNHOAI_.CalculateSize(_repeated_hJCFFPNHOAI_codec);
+      size += allowedSelectCellIdList_.CalculateSize(_repeated_allowedSelectCellIdList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -200,7 +201,7 @@ namespace EggLink.DanhengServer.Proto {
       if (other.BoardId != 0) {
         BoardId = other.BoardId;
       }
-      hJCFFPNHOAI_.Add(other.hJCFFPNHOAI_);
+      allowedSelectCellIdList_.Add(other.allowedSelectCellIdList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -222,7 +223,7 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 82:
           case 80: {
-            hJCFFPNHOAI_.AddEntriesFrom(input, _repeated_hJCFFPNHOAI_codec);
+            allowedSelectCellIdList_.AddEntriesFrom(input, _repeated_allowedSelectCellIdList_codec);
             break;
           }
         }
@@ -246,7 +247,7 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 82:
           case 80: {
-            hJCFFPNHOAI_.AddEntriesFrom(ref input, _repeated_hJCFFPNHOAI_codec);
+            allowedSelectCellIdList_.AddEntriesFrom(ref input, _repeated_allowedSelectCellIdList_codec);
             break;
           }
         }

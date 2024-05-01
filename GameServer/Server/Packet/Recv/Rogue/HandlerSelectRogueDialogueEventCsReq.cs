@@ -14,7 +14,7 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Rogue
         {
             var req = SelectRogueDialogueEventCsReq.Parser.ParseFrom(data);
 
-            var rogue = connection.Player!.RogueManager?.RogueInstance;
+            var rogue = connection.Player!.RogueManager?.GetRogueInstance();
             if (rogue == null) return;
 
             rogue.HandleSelectOption((int)req.DialogueEventId, (int)req.MonsterId);
