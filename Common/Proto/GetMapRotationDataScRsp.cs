@@ -25,8 +25,8 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Ch1HZXRNYXBSb3RhdGlvbkRhdGFTY1JzcC5wcm90bxoRRE1BT01DQkVBTkku",
-            "cHJvdG8aEU5DUENPS0NJQk9GLnByb3RvGhFDaGFyZ2VySW5mby5wcm90bxoR",
-            "T0RJRlBHRERLSEwucHJvdG8i8gEKF0dldE1hcFJvdGF0aW9uRGF0YVNjUnNw",
+            "cHJvdG8aEU9ESUZQR0RES0hMLnByb3RvGhFDaGFyZ2VySW5mby5wcm90bxoR",
+            "TkNQQ09LQ0lCT0YucHJvdG8i8gEKF0dldE1hcFJvdGF0aW9uRGF0YVNjUnNw",
             "EhMKC0tISUhEUEhPR0FMGA8gASgNEg8KB3JldGNvZGUYDSABKA0SEwoLTUNM",
             "S0VISEhMUEUYASABKAgSIQoLSE9LTUVJSUVHQVAYDCADKAsyDC5DaGFyZ2Vy",
             "SW5mbxITCgtIUEFBR0xKQUVERBgCIAEoBRIhCgtMTUZCTElFSUhKSxgIIAMo",
@@ -34,7 +34,7 @@ namespace EggLink.DanhengServer.Proto {
             "T0YSIQoLSkhGREJJTklQRkUYDiABKAsyDC5PRElGUEdEREtITEIeqgIbRWdn",
             "TGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.DMAOMCBEANIReflection.Descriptor, global::EggLink.DanhengServer.Proto.NCPCOKCIBOFReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChargerInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ODIFPGDDKHLReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.DMAOMCBEANIReflection.Descriptor, global::EggLink.DanhengServer.Proto.ODIFPGDDKHLReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChargerInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.NCPCOKCIBOFReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetMapRotationDataScRsp), global::EggLink.DanhengServer.Proto.GetMapRotationDataScRsp.Parser, new[]{ "KHIHDPHOGAL", "Retcode", "MCLKEHHHLPE", "HOKMEIIEGAP", "HPAAGLJAEDD", "LMFBLIEIHJK", "MapInfo", "JHFDBINIPFE" }, null, null, null, null)
           }));

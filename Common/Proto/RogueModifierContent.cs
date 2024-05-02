@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static RogueModifierContentReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChpSb2d1ZU1vZGlmaWVyQ29udGVudC5wcm90byJdChRSb2d1ZU1vZGlmaWVy",
+            "ChpSb2d1ZU1vZGlmaWVyQ29udGVudC5wcm90byJZChRSb2d1ZU1vZGlmaWVy",
             "Q29udGVudBIZChFjYW5fc2VsZWN0ZWRfY2VsbBgDIAMoDRIVCg1zZWxlY3Rl",
-            "ZF9jZWxsGAggASgNEhMKC1BEQUJQQ0JHSE9OGAsgASgIQh6qAhtFZ2dMaW5r",
-            "LkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "ZF9jZWxsGAggASgNEg8KB2lzX2RvbmUYCyABKAhCHqoCG0VnZ0xpbmsuRGFu",
+            "aGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueModifierContent), global::EggLink.DanhengServer.Proto.RogueModifierContent.Parser, new[]{ "CanSelectedCell", "SelectedCell", "PDABPCBGHON" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueModifierContent), global::EggLink.DanhengServer.Proto.RogueModifierContent.Parser, new[]{ "CanSelectedCell", "SelectedCell", "IsDone" }, null, null, null, null)
           }));
     }
     #endregion
@@ -75,7 +75,7 @@ namespace EggLink.DanhengServer.Proto {
     public RogueModifierContent(RogueModifierContent other) : this() {
       canSelectedCell_ = other.canSelectedCell_.Clone();
       selectedCell_ = other.selectedCell_;
-      pDABPCBGHON_ = other.pDABPCBGHON_;
+      isDone_ = other.isDone_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -108,15 +108,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "PDABPCBGHON" field.</summary>
-    public const int PDABPCBGHONFieldNumber = 11;
-    private bool pDABPCBGHON_;
+    /// <summary>Field number for the "is_done" field.</summary>
+    public const int IsDoneFieldNumber = 11;
+    private bool isDone_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool PDABPCBGHON {
-      get { return pDABPCBGHON_; }
+    public bool IsDone {
+      get { return isDone_; }
       set {
-        pDABPCBGHON_ = value;
+        isDone_ = value;
       }
     }
 
@@ -137,7 +137,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if(!canSelectedCell_.Equals(other.canSelectedCell_)) return false;
       if (SelectedCell != other.SelectedCell) return false;
-      if (PDABPCBGHON != other.PDABPCBGHON) return false;
+      if (IsDone != other.IsDone) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -147,7 +147,7 @@ namespace EggLink.DanhengServer.Proto {
       int hash = 1;
       hash ^= canSelectedCell_.GetHashCode();
       if (SelectedCell != 0) hash ^= SelectedCell.GetHashCode();
-      if (PDABPCBGHON != false) hash ^= PDABPCBGHON.GetHashCode();
+      if (IsDone != false) hash ^= IsDone.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -171,9 +171,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(64);
         output.WriteUInt32(SelectedCell);
       }
-      if (PDABPCBGHON != false) {
+      if (IsDone != false) {
         output.WriteRawTag(88);
-        output.WriteBool(PDABPCBGHON);
+        output.WriteBool(IsDone);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -190,9 +190,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(64);
         output.WriteUInt32(SelectedCell);
       }
-      if (PDABPCBGHON != false) {
+      if (IsDone != false) {
         output.WriteRawTag(88);
-        output.WriteBool(PDABPCBGHON);
+        output.WriteBool(IsDone);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -208,7 +208,7 @@ namespace EggLink.DanhengServer.Proto {
       if (SelectedCell != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SelectedCell);
       }
-      if (PDABPCBGHON != false) {
+      if (IsDone != false) {
         size += 1 + 1;
       }
       if (_unknownFields != null) {
@@ -227,8 +227,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other.SelectedCell != 0) {
         SelectedCell = other.SelectedCell;
       }
-      if (other.PDABPCBGHON != false) {
-        PDABPCBGHON = other.PDABPCBGHON;
+      if (other.IsDone != false) {
+        IsDone = other.IsDone;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -255,7 +255,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 88: {
-            PDABPCBGHON = input.ReadBool();
+            IsDone = input.ReadBool();
             break;
           }
         }
@@ -283,7 +283,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 88: {
-            PDABPCBGHON = input.ReadBool();
+            IsDone = input.ReadBool();
             break;
           }
         }

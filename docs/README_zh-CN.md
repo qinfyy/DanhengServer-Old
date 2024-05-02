@@ -66,7 +66,6 @@ cd DanhengServer
 获取常见问题的解决方案或寻求帮助，请加入[我们的Discord服务器](https://discord.gg/xRtZsmHBVj)
 
 ## 🙌鸣谢
-
 - Weedwacker - 提供 kcp 实现
 - [SqlSugar](https://github.com/donet5/SqlSugar) - 提供 ORM
 - [LunarCore](https://github.com/Melledy/LunarCore) - 一些数据结构和算法

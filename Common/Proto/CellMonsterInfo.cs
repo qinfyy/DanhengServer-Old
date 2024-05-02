@@ -24,15 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static CellMonsterInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVDZWxsTW9uc3RlckluZm8ucHJvdG8aEUNlbGxNb25zdGVyLnByb3RvImIK",
+            "ChVDZWxsTW9uc3RlckluZm8ucHJvdG8aEUNlbGxNb25zdGVyLnByb3RvIl4K",
             "D0NlbGxNb25zdGVySW5mbxIiCgxtb25zdGVyX2xpc3QYAiADKAsyDC5DZWxs",
-            "TW9uc3RlchITCgtQREFCUENCR0hPThgHIAEoCBIWCg5zZWxlY3RfYm9zc19p",
-            "ZBgEIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90",
-            "bzM="));
+            "TW9uc3RlchIPCgdpc19kb25lGAcgASgIEhYKDnNlbGVjdF9ib3NzX2lkGAQg",
+            "ASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.CellMonsterReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.CellMonsterInfo), global::EggLink.DanhengServer.Proto.CellMonsterInfo.Parser, new[]{ "MonsterList", "PDABPCBGHON", "SelectBossId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.CellMonsterInfo), global::EggLink.DanhengServer.Proto.CellMonsterInfo.Parser, new[]{ "MonsterList", "IsDone", "SelectBossId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -75,7 +74,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CellMonsterInfo(CellMonsterInfo other) : this() {
       monsterList_ = other.monsterList_.Clone();
-      pDABPCBGHON_ = other.pDABPCBGHON_;
+      isDone_ = other.isDone_;
       selectBossId_ = other.selectBossId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -97,15 +96,15 @@ namespace EggLink.DanhengServer.Proto {
       get { return monsterList_; }
     }
 
-    /// <summary>Field number for the "PDABPCBGHON" field.</summary>
-    public const int PDABPCBGHONFieldNumber = 7;
-    private bool pDABPCBGHON_;
+    /// <summary>Field number for the "is_done" field.</summary>
+    public const int IsDoneFieldNumber = 7;
+    private bool isDone_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool PDABPCBGHON {
-      get { return pDABPCBGHON_; }
+    public bool IsDone {
+      get { return isDone_; }
       set {
-        pDABPCBGHON_ = value;
+        isDone_ = value;
       }
     }
 
@@ -137,7 +136,7 @@ namespace EggLink.DanhengServer.Proto {
         return true;
       }
       if(!monsterList_.Equals(other.monsterList_)) return false;
-      if (PDABPCBGHON != other.PDABPCBGHON) return false;
+      if (IsDone != other.IsDone) return false;
       if (SelectBossId != other.SelectBossId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -147,7 +146,7 @@ namespace EggLink.DanhengServer.Proto {
     public override int GetHashCode() {
       int hash = 1;
       hash ^= monsterList_.GetHashCode();
-      if (PDABPCBGHON != false) hash ^= PDABPCBGHON.GetHashCode();
+      if (IsDone != false) hash ^= IsDone.GetHashCode();
       if (SelectBossId != 0) hash ^= SelectBossId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -172,9 +171,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(32);
         output.WriteUInt32(SelectBossId);
       }
-      if (PDABPCBGHON != false) {
+      if (IsDone != false) {
         output.WriteRawTag(56);
-        output.WriteBool(PDABPCBGHON);
+        output.WriteBool(IsDone);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -191,9 +190,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(32);
         output.WriteUInt32(SelectBossId);
       }
-      if (PDABPCBGHON != false) {
+      if (IsDone != false) {
         output.WriteRawTag(56);
-        output.WriteBool(PDABPCBGHON);
+        output.WriteBool(IsDone);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -206,7 +205,7 @@ namespace EggLink.DanhengServer.Proto {
     public int CalculateSize() {
       int size = 0;
       size += monsterList_.CalculateSize(_repeated_monsterList_codec);
-      if (PDABPCBGHON != false) {
+      if (IsDone != false) {
         size += 1 + 1;
       }
       if (SelectBossId != 0) {
@@ -225,8 +224,8 @@ namespace EggLink.DanhengServer.Proto {
         return;
       }
       monsterList_.Add(other.monsterList_);
-      if (other.PDABPCBGHON != false) {
-        PDABPCBGHON = other.PDABPCBGHON;
+      if (other.IsDone != false) {
+        IsDone = other.IsDone;
       }
       if (other.SelectBossId != 0) {
         SelectBossId = other.SelectBossId;
@@ -255,7 +254,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 56: {
-            PDABPCBGHON = input.ReadBool();
+            IsDone = input.ReadBool();
             break;
           }
         }
@@ -282,7 +281,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 56: {
-            PDABPCBGHON = input.ReadBool();
+            IsDone = input.ReadBool();
             break;
           }
         }
