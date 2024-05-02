@@ -4,7 +4,7 @@ using EggLink.DanhengServer.Server.Packet.Send.Player;
 
 namespace EggLink.DanhengServer.Command.Cmd
 {
-    [CommandInfo("unlockall", "unlock all the things in that category", "/unlockall <mission/scene>")]
+    [CommandInfo("unlockall", "Unlock all the things in that category", "/unlockall <mission/scene>")]
     public class CommandUnlockAll : ICommand
     {
         [CommandMethod("0 mission")]

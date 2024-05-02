@@ -1,4 +1,5 @@
-﻿using EggLink.DanhengServer.Enums;
+﻿using EggLink.DanhengServer.Database.Account;
+using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Util;
 using SqlSugar;
@@ -43,6 +44,10 @@ namespace EggLink.DanhengServer.Database.Player
         [SugarColumn(IsNullable = true)]
         public long LastActiveTime { get; set; }
 
-
+        public static PlayerData? GetPlayerByUid(long uid)
+        {
+            PlayerData? result = DatabaseHelper.Instance?.GetInstance<PlayerData>(uid);
+            return result;
+        }
     }
 }

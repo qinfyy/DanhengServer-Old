@@ -9,6 +9,7 @@ using EggLink.DanhengServer.Enums.Scene;
 using EggLink.DanhengServer.Game.Activity;
 using EggLink.DanhengServer.Game.Avatar;
 using EggLink.DanhengServer.Game.Battle;
+using EggLink.DanhengServer.Game.Friend;
 using EggLink.DanhengServer.Game.ChessRogue;
 using EggLink.DanhengServer.Game.Gacha;
 using EggLink.DanhengServer.Game.Inventory;
@@ -42,6 +43,8 @@ namespace EggLink.DanhengServer.Game.Player
         public MissionManager? MissionManager { get; private set; }
         public GachaManager? GachaManager { get; private set; }
         public MessageManager? MessageManager { get; private set; }
+
+        public FriendManager? FriendManager { get; private set; }
         public RogueManager? RogueManager { get; private set; }
         public ChessRogueManager? ChessRogueManager { get; private set; }
         public ShopService? ShopService { get; private set; }
@@ -106,6 +109,7 @@ namespace EggLink.DanhengServer.Game.Player
             MissionManager = new(this);
             GachaManager = new(this);
             MessageManager = new(this);
+            FriendManager = new(this);
             RogueManager = new(this);
             ShopService = new(this);
             ChessRogueManager = new(this);
