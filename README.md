@@ -41,7 +41,7 @@
 
 Danheng server is built using Dotnet
 
-**Preposition: **
+**Requirement: **
 
 - [.NET](https://dotnet.microsoft.com/)
 - [Git](https://git-scm.com/downloads)
