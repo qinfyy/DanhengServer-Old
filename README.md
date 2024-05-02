@@ -22,7 +22,7 @@
 - [√] **Scene** - Walking simulator, interaction, correct loading of entities
 - [√] **Basic character development** - Some minor bugs that don't significantly affect the experience
 - [√] **Quests** - Many quests involving the male protagonist have been completed. If you choose the female protagonist, you may get stuck in certain quests and need to be repaired
-- [-] **Friends** - under development
+- [-] **Friends** - Under development
 - [-] **Simulated Universe** - Under development
 
 - [ ] **More**  - Comming soon
@@ -57,7 +57,7 @@ dotnet build # compile
 ## ❓ Help
 
 - Support Android system
-- 100040119 (cannot be completed automatically) (use /mission finish 100040119 to fix it)
+- Mission 100040119 (cannot be completed automatically) (use /mission finish 100040119 to fix it)
 
 ## ❕️ Troubleshooting
 
