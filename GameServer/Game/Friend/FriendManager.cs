@@ -1,4 +1,5 @@
-﻿using EggLink.DanhengServer.Database.Player;
+﻿using EggLink.DanhengServer.Database.Friend;
+using EggLink.DanhengServer.Database.Player;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Proto;
 
@@ -6,6 +7,7 @@ namespace EggLink.DanhengServer.Game.Friend
 {
     public class FriendManager(PlayerInstance player) : BasePlayerManager(player)
     {
+        public FriendData FriendData { get; set; } = new();
         // TODO: add friend and remove friend
         public void AddFriend()
         {
@@ -16,18 +18,15 @@ namespace EggLink.DanhengServer.Game.Friend
 
         public List<PlayerData> GetFriendList()
         {
-            List<PlayerData> list = new List<PlayerData>();
+            List<PlayerData> list = [];
 
-            if (Player.Data.Friends?.FriendList != null)
+            foreach (var friend in FriendData.FriendList)
             {
-                foreach (var friend in Player.Data.Friends?.FriendList!)
-                {
-                    var player = PlayerData.GetPlayerByUid(friend)!;
+                var player = PlayerData.GetPlayerByUid(friend);
 
-                    if (player != null)
-                    {
-                        list.Add(player);
-                    }
+                if (player != null)
+                {
+                    list.Add(player);
                 }
             }
 
@@ -36,18 +35,15 @@ namespace EggLink.DanhengServer.Game.Friend
 
         public List<PlayerData> GetBlackList()
         {
-            List<PlayerData> list = new List<PlayerData>();
+            List<PlayerData> list = [];
 
-            if (Player.Data.Friends?.BlackList != null)
+            foreach (var friend in FriendData.BlackList)
             {
-                foreach (var friend in Player.Data.Friends?.BlackList!)
-                {
-                    var player = PlayerData.GetPlayerByUid(friend)!;
+                var player = PlayerData.GetPlayerByUid(friend);
 
-                    if (player != null)
-                    {
-                        list.Add(player);
-                    }
+                if (player != null)
+                {
+                    list.Add(player);
                 }
             }
 
@@ -56,18 +52,15 @@ namespace EggLink.DanhengServer.Game.Friend
 
         public List<PlayerData> GetSendApplyList()
         {
-            List<PlayerData> list = new List<PlayerData>();
+            List<PlayerData> list = [];
 
-            if (Player.Data.Friends?.SendApplyList != null)
+            foreach (var friend in FriendData.SendApplyList)
             {
-                foreach (var friend in Player.Data.Friends?.SendApplyList!)
-                {
-                    var player = PlayerData.GetPlayerByUid(friend)!;
+                var player = PlayerData.GetPlayerByUid(friend);
 
-                    if (player != null)
-                    {
-                        list.Add(player);
-                    }
+                if (player != null)
+                {
+                    list.Add(player);
                 }
             }
 
@@ -76,18 +69,15 @@ namespace EggLink.DanhengServer.Game.Friend
 
         public List<PlayerData> GetReceiveApplyList()
         {
-            List<PlayerData> list = new List<PlayerData>();
+            List<PlayerData> list = [];
 
-            if (Player.Data.Friends?.ReceiveApplyList != null)
+            foreach (var friend in FriendData.ReceiveApplyList)
             {
-                foreach (var friend in Player.Data.Friends?.ReceiveApplyList!)
-                {
-                    var player = PlayerData.GetPlayerByUid(friend)!;
+                var player = PlayerData.GetPlayerByUid(friend);
 
-                    if (player != null)
-                    {
-                        list.Add(player);
-                    }
+                if (player != null)
+                {
+                    list.Add(player);
                 }
             }
 
