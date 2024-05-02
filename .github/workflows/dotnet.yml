@@ -30,13 +30,13 @@ jobs:
       run: dotnet restore
 
     - name: Publish win-x64
-      run: dotnet --no-restore publish -o Release\win-x64 -r win-x64 --framework net8.0 -p:PublishSingleFile=true
+      run: dotnet publish -o Release\win-x64 -r win-x64 --framework net8.0 -p:PublishSingleFile=true
 
     - name: Publish linux-x64
-      run: dotnet --no-restore publish -o Release\linux-x64 -r linux-x64 --framework net8.0 -p:PublishSingleFile=true
+      run: dotnet publish -o Release\linux-x64 -r linux-x64 --framework net8.0 -p:PublishSingleFile=true
 
     - name: Publish linux-arm64
-      run: dotnet --no-restore publish -o Release\linux-arm64 -r linux-arm64 --framework net8.0 -p:PublishSingleFile=true
+      run: dotnet publish -o Release\linux-arm64 -r linux-arm64 --framework net8.0 -p:PublishSingleFile=true
 
     - name: Upload win-x64 Build Artifact
       uses: actions/upload-artifact@v4.3.1
