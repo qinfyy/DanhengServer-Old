@@ -65,6 +65,13 @@ namespace EggLink.DanhengServer.Handbook
             builder.AppendLine();
             GenerateRogueMiracleDisplay(builder, textMap);
 
+#if DEBUG
+            builder.AppendLine();
+            builder.AppendLine("#RogueDiceSurface");
+            builder.AppendLine();
+            GenerateRogueDiceSurfaceDisplay(builder, textMap);
+#endif
+
             builder.AppendLine();
             WriteToFile(builder.ToString());
 
@@ -135,6 +142,18 @@ namespace EggLink.DanhengServer.Handbook
                 builder.AppendLine(display.MiracleID + ": " + name);
             }
         }
+
+#if DEBUG
+        public static void GenerateRogueDiceSurfaceDisplay(StringBuilder builder, Dictionary<long, string> map)
+        {
+            foreach (var display in GameData.RogueNousDiceSurfaceData.Values)
+            {
+                var name = map.TryGetValue(display.SurfaceName.Hash, out var value) ? value : $"[{display.SurfaceName.Hash}]";
+                var desc = map.TryGetValue(display.SurfaceDesc.Hash, out var c) ? c : $"[{display.SurfaceDesc.Hash}]";
+                builder.AppendLine(display.SurfaceID + ": " + name + "\n" + "Desc: " + desc);
+            }
+        }
+#endif
 
         public static void WriteToFile(string content)
         {
