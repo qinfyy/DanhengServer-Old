@@ -10,11 +10,13 @@ namespace EggLink.DanhengServer.Game.Scene
 {
     public class SceneEntityLoader(SceneInstance scene)
     {
+        public SceneInstance Scene { get; set; } = scene;
+
         public virtual void LoadEntity()
         {
-            if (scene.IsLoaded) return;
+            if (Scene.IsLoaded) return;
 
-            foreach (var group in scene?.FloorInfo?.Groups.Values!)  // Sanity check in SceneInstance
+            foreach (var group in Scene?.FloorInfo?.Groups.Values!)  // Sanity check in SceneInstance
             {
                 if (group.LoadSide == GroupLoadSideEnum.Client)
                 {
@@ -26,14 +28,14 @@ namespace EggLink.DanhengServer.Game.Scene
                 }
                 LoadGroup(group);
             }
-            scene.IsLoaded = true;
+            Scene.IsLoaded = true;
         }
 
         public void SyncEntity()
         {
             bool refreshed = false;
             var oldGroupId = new List<int>();
-            foreach (var entity in scene.Entities.Values)
+            foreach (var entity in Scene.Entities.Values)
             {
                 if (!oldGroupId.Contains(entity.GroupID))
                     oldGroupId.Add(entity.GroupID);
@@ -42,7 +44,7 @@ namespace EggLink.DanhengServer.Game.Scene
             var removeList = new List<IGameEntity>();
             var addList = new List<IGameEntity>();
 
-            foreach (var group in scene.FloorInfo!.Groups.Values)
+            foreach (var group in Scene.FloorInfo!.Groups.Values)
             {
                 if (group.LoadSide == GroupLoadSideEnum.Client)
                 {
@@ -56,13 +58,13 @@ namespace EggLink.DanhengServer.Game.Scene
 
                 if (oldGroupId.Contains(group.Id))  // check if it should be unloaded
                 {
-                    if (group.UnloadCondition.IsTrue(scene.Player.MissionManager!.Data, false) || group.ForceUnloadCondition.IsTrue(scene.Player.MissionManager!.Data, false))
+                    if (group.UnloadCondition.IsTrue(Scene.Player.MissionManager!.Data, false) || group.ForceUnloadCondition.IsTrue(Scene.Player.MissionManager!.Data, false))
                     {
-                        foreach (var entity in scene.Entities.Values)
+                        foreach (var entity in Scene.Entities.Values)
                         {
                             if (entity.GroupID == group.Id)
                             {
-                                scene.RemoveEntity(entity);
+                                Scene.RemoveEntity(entity);
                                 removeList.Add(entity);
                                 refreshed = true;
                             }
@@ -77,13 +79,13 @@ namespace EggLink.DanhengServer.Game.Scene
             }
             if (refreshed)
             {
-                scene.Player.SendPacket(new PacketSceneGroupRefreshScNotify(addList, removeList));
+                Scene.Player.SendPacket(new PacketSceneGroupRefreshScNotify(addList, removeList));
             }
         }
 
         public virtual List<IGameEntity>? LoadGroup(GroupInfo info)
         {
-            var missionData = scene.Player.MissionManager!.Data;
+            var missionData = Scene.Player.MissionManager!.Data;
             if (!info.LoadCondition.IsTrue(missionData) || info.UnloadCondition.IsTrue(missionData, false) || info.ForceUnloadCondition.IsTrue(missionData, false))
             {
                 return null;
@@ -137,7 +139,7 @@ namespace EggLink.DanhengServer.Game.Scene
                 return null;
             }
             bool hasDuplicateNpcId = false;
-            foreach (IGameEntity entity in scene.Entities.Values)
+            foreach (IGameEntity entity in Scene.Entities.Values)
             {
                 if (entity is EntityNpc eNpc && eNpc.NpcId == info.NPCID)
                 {
@@ -149,8 +151,8 @@ namespace EggLink.DanhengServer.Game.Scene
             {
                 return null;
             }
-            EntityNpc npc = new(scene, group, info);
-            scene.AddEntity(npc, sendPacket);
+            EntityNpc npc = new(Scene, group, info);
+            Scene.AddEntity(npc, sendPacket);
 
             return npc;
         }
@@ -168,8 +170,8 @@ namespace EggLink.DanhengServer.Game.Scene
                 return null;
             }
 
-            EntityMonster entity = new(scene, info.ToPositionProto(), info.ToRotationProto(), group.Id, info.ID, excel, info);
-            scene.AddEntity(entity, sendPacket);
+            EntityMonster entity = new(Scene, info.ToPositionProto(), info.ToRotationProto(), group.Id, info.ID, excel, info);
+            Scene.AddEntity(entity, sendPacket);
             return entity;
         }
 
@@ -186,27 +188,27 @@ namespace EggLink.DanhengServer.Game.Scene
                 return null;
             }
 
-            var prop = new EntityProp(scene, excel, group, info);
+            var prop = new EntityProp(Scene, excel, group, info);
 
             if (prop.PropInfo.PropID == 1003)
             {
                 if (prop.PropInfo.MappingInfoID == 2220)
                 {
                     prop.SetState(PropStateEnum.Open);
-                    scene.AddEntity(prop, sendPacket);
+                    Scene.AddEntity(prop, sendPacket);
                 }
             } else
             {
-                scene.AddEntity(prop, sendPacket);
+                Scene.AddEntity(prop, sendPacket);
             }
             if (excel.PropType == PropTypeEnum.PROP_SPRING)
             {
-                scene.HealingSprings.Add(prop);
+                Scene.HealingSprings.Add(prop);
                 prop.SetState(PropStateEnum.CheckPointEnable);
             }
 
             // load from database
-            var propData = scene.Player.GetScenePropData(scene.FloorId, group.Id, info.ID);
+            var propData = Scene.Player.GetScenePropData(Scene.FloorId, group.Id, info.ID);
             if (propData != null)
             {
                 prop.SetState(propData.State);

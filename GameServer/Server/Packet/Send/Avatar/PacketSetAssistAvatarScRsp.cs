@@ -13,14 +13,5 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Avatar
 
             SetData(proto);
         }
-        public PacketSetAssistAvatarScRsp() : base(CmdIds.SetAssistAvatarScRsp)
-        {
-            var proto = new SetAssistAvatarScRsp
-            {
-                Retcode = 1,
-            };
-
-            SetData(proto);
-        }
     }
 }

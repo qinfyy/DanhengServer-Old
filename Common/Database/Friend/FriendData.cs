@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace EggLink.DanhengServer.Database.Friend
 {
     [SugarTable("Friend")]
-    public class FriendData
+    public class FriendData : BaseDatabaseData
     {
         [SugarColumn(IsJson = true)]
         public List<int> FriendList { get; set; } = [];

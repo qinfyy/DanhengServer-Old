@@ -14,8 +14,8 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Friend
             RevcMsgScNotify proto = new RevcMsgScNotify()
             {
                 ChatType = ChatType.Private,
-                LOHNNLGAJAA = fromUid,
-                LJEJJLDOHGA = toUid,
+                SourceUid = fromUid,
+                TargetUid = toUid,
                 MessageText = msg,
                 MessageType = MsgType.CustomText,
             };
@@ -28,8 +28,8 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Friend
             RevcMsgScNotify proto = new RevcMsgScNotify()
             {
                 ChatType = ChatType.Private,
-                LOHNNLGAJAA = fromUid,
-                LJEJJLDOHGA = toUid,
+                SourceUid = fromUid,
+                TargetUid = toUid,
                 ExtraId = extraId,
                 MessageType = MsgType.Emoji
             };

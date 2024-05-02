@@ -592,27 +592,12 @@ namespace EggLink.DanhengServer.Game.Player
 
         public PlayerBasicInfo ToProto()
         {
-            return new()
-            {
-                Nickname = Data.Name,
-                Level = (uint)Data.Level,
-                Exp = (uint)Data.Exp,
-                WorldLevel = (uint)Data.WorldLevel,
-                Scoin = (uint)Data.Scoin,
-                Hcoin = (uint)Data.Hcoin,
-                Mcoin = (uint)Data.Mcoin,
-                Stamina = (uint)Data.Stamina,
-            };
+            return Data.ToProto();
         }
 
         public PlayerSimpleInfo ToSimpleProto()
         {
-            return new()
-            {
-                Nickname = Data.Name,
-                Level = (uint)Data.Level,
-                Signature = Data.Signature,
-            };
+            return Data.ToSimpleProto();
         }
 
         #endregion

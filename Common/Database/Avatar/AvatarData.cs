@@ -370,5 +370,42 @@ namespace EggLink.DanhengServer.Database.Avatar
 
             return res;
         }
+
+        public DisplayAvatarDetailInfo ToDetailProto(int pos)
+        {
+            var proto = new DisplayAvatarDetailInfo()
+            {
+                AvatarId = (uint)GetAvatarId(),
+                Level = (uint)Level,
+                Exp = (uint)Exp,
+                Promotion = (uint)Promotion,
+                Rank = (uint)Rank,
+                Pos = (uint)pos,
+            };
+
+            var inventory = DatabaseHelper.Instance!.GetInstance<InventoryData>(PlayerData!.Uid)!;
+            foreach (var item in Relic)
+            {
+                var relic = inventory.RelicItems.Find(x => x.UniqueId == item.Value)!;
+                proto.RelicList.Add(relic.ToDisplayRelicProto());
+            }
+
+            if (EquipId != 0)
+            {
+                var equip = inventory.EquipmentItems.Find(x => x.UniqueId == EquipId)!;
+                proto.Equipment = equip.ToDisplayEquipmentProto();
+            }
+
+            foreach (var skill in GetSkillTree())
+            {
+                proto.SkilltreeList.Add(new AvatarSkillTree()
+                {
+                    PointId = (uint)skill.Key,
+                    Level = (uint)skill.Value
+                });
+            }
+
+            return proto;
+        }
     }
 }

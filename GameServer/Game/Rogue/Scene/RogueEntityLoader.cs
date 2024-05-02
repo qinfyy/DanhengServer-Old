@@ -1,7 +1,6 @@
 ﻿using EggLink.DanhengServer.Data;
 using EggLink.DanhengServer.Data.Config;
 using EggLink.DanhengServer.Enums.Scene;
-using EggLink.DanhengServer.Game.ChessRogue;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Game.Rogue.Scene.Entity;
 using EggLink.DanhengServer.Game.Scene;
@@ -12,7 +11,6 @@ namespace EggLink.DanhengServer.Game.Rogue.Scene
     public class RogueEntityLoader(SceneInstance scene, PlayerInstance player) : SceneEntityLoader(scene)
     {
         public PlayerInstance Player = player;
-        public SceneInstance Scene = scene;
         public List<int> RogueDoorPropIds = [1000, 1021, 1022, 1023];
         public List<int> NextRoomIds = [];
 
@@ -32,9 +30,6 @@ namespace EggLink.DanhengServer.Game.Rogue.Scene
                     if (groupData == null) continue;
                     LoadGroup(groupData);
                 }
-            } else if (instance is ChessRogueInstance chess)
-            {
-
             }
 
             Scene.IsLoaded = true;
@@ -94,7 +89,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Scene
             }
 
             bool hasDuplicateNpcId = false;
-            foreach (IGameEntity entity in scene.Entities.Values)
+            foreach (IGameEntity entity in Scene.Entities.Values)
             {
                 if (entity is EntityNpc eNpc && eNpc.NpcId == info.NPCID)
                 {
@@ -107,7 +102,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Scene
                 return null;
             }
 
-            RogueNpc npc = new(scene, group, info);
+            RogueNpc npc = new(Scene, group, info);
             if (info.NPCID == 3013)
             {
                 // generate event
@@ -119,7 +114,7 @@ namespace EggLink.DanhengServer.Game.Rogue.Scene
                     npc.UniqueId = instance.EventUniqueId;
                 }
             }
-            scene.AddEntity(npc, sendPacket);
+            Scene.AddEntity(npc, sendPacket);
 
             return npc;
         }
@@ -145,13 +140,13 @@ namespace EggLink.DanhengServer.Game.Rogue.Scene
                 GameData.NpcMonsterDataData.TryGetValue(rogueMonster.NpcMonsterID, out var excel);
                 if (excel == null) return null;
 
-                EntityMonster entity = new(scene, info.ToPositionProto(), info.ToRotationProto(), group.Id, info.ID, excel, info)
+                EntityMonster entity = new(Scene, info.ToPositionProto(), info.ToRotationProto(), group.Id, info.ID, excel, info)
                 {
                     EventID = rogueMonster.EventID,
                     CustomStageID = rogueMonster.EventID
                 };
 
-                scene.AddEntity(entity, sendPacket);
+                Scene.AddEntity(entity, sendPacket);
 
                 return entity;
             }

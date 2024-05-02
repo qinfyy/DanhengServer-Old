@@ -153,6 +153,39 @@ namespace EggLink.DanhengServer.Database.Inventory
             };
         }
 
+        public DisplayEquipmentInfo ToDisplayEquipmentProto()
+        {
+            return new()
+            {
+                Tid = (uint)ItemId,
+                Level = (uint)Level,
+                Exp = (uint)Exp,
+                Promotion = (uint)Promotion,
+                Rank = (uint)Rank,
+            };
+        }
+
+        public DisplayRelicInfo ToDisplayRelicProto()
+        {
+            DisplayRelicInfo relic = new()
+            {
+                Tid = (uint)ItemId,
+                Level = (uint)Level,
+                Type = (uint)GameData.RelicConfigData[ItemId].Type,
+                MainAffixId = (uint)MainAffix,
+            };
+
+            if (SubAffixes.Count >= 1)
+            {
+                foreach (var subAffix in SubAffixes)
+                {
+                    relic.SubAffixList.Add(subAffix.ToProto());
+                }
+            }
+
+            return relic;
+        }
+
         #endregion
     }
 

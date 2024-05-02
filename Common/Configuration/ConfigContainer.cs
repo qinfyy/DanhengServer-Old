@@ -69,6 +69,7 @@ namespace EggLink.DanhengServer.Configuration
     public class ServerProfile
     {
         public string Name { get; set; } = "Server";
+        public int Uid { get; set; } = 80;
         public string Signature { get; set; } = "Type /help for a list of commands";
         public int Level { get; set; } = 1;
         public int HeadIcon { get; set; } = 201001;

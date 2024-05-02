@@ -1,4 +1,6 @@
-﻿using EggLink.DanhengServer.Database.Account;
+﻿using EggLink.DanhengServer.Data;
+using EggLink.DanhengServer.Database.Account;
+using EggLink.DanhengServer.Database.Avatar;
 using EggLink.DanhengServer.Enums;
 using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Util;
@@ -48,6 +50,100 @@ namespace EggLink.DanhengServer.Database.Player
         {
             PlayerData? result = DatabaseHelper.Instance?.GetInstance<PlayerData>(uid);
             return result;
+        }
+
+        public PlayerBasicInfo ToProto()
+        {
+            return new()
+            {
+                Nickname = Name,
+                Level = (uint)Level,
+                Exp = (uint)Exp,
+                WorldLevel = (uint)WorldLevel,
+                Scoin = (uint)Scoin,
+                Hcoin = (uint)Hcoin,
+                Mcoin = (uint)Mcoin,
+                Stamina = (uint)Stamina,
+            };
+        }
+
+        public PlayerSimpleInfo ToSimpleProto()
+        {
+            var AvatarInfo = DatabaseHelper.Instance!.GetInstance<AvatarData>(Uid)!;
+
+            foreach (var avatar in AvatarInfo.Avatars)
+            {
+                avatar.PlayerData = this;
+                avatar.Excel = GameData.AvatarConfigData[avatar.AvatarId];
+            }
+
+            var info = new PlayerSimpleInfo()
+            {
+                Nickname = Name,
+                Level = (uint)Level,
+                Signature = Signature,
+                Uid = (uint)Uid,
+                OnlineStatus = FriendOnlineStatus.Online,
+                HeadIcon = (uint)HeadIcon,
+                Platform = PlatformType.Pc,
+                LastActiveTime = LastActiveTime
+            };
+
+            var pos = 0;
+            foreach (var assist in AvatarInfo.AssistAvatars)
+            {
+                var avatar = AvatarInfo.Avatars.Find(x => x.AvatarId == assist)!;
+                info.AssistInfo.Add(new AssistSimpleInfo()
+                {
+                    AvatarId = (uint)avatar.AvatarId,
+                    Level = (uint)avatar.Level,
+                    Pos = (uint)pos++
+                });
+            }
+
+            return info;
+        }
+
+        public PlayerDetailInfo ToDetailProto()
+        {
+            var info = new PlayerDetailInfo()
+            {
+                Nickname = Name,
+                Level = (uint)Level,
+                Signature = Signature,
+                IsBanned = false,
+                HeadIcon = (uint)HeadIcon,
+                Platform = PlatformType.Pc,
+                Uid = (uint)Uid,
+                WorldLevel = (uint)WorldLevel,
+                RecordInfo = new(),
+            };
+
+            var AvatarInfo = DatabaseHelper.Instance!.GetInstance<AvatarData>(Uid);
+
+            if (AvatarInfo != null)
+            {
+                foreach (var avatar in AvatarInfo.Avatars)
+                {
+                    avatar.PlayerData = this;
+                    avatar.Excel = GameData.AvatarConfigData[avatar.AvatarId];
+                }
+                var pos = 0;
+                foreach (var assist in AvatarInfo.AssistAvatars)
+                {
+                    var avatar = AvatarInfo.Avatars.Find(x => x.AvatarId == assist)!;
+                    info.AssistAvatarList.Add(avatar.ToDetailProto(pos++));
+                }
+
+                pos = 0;
+                foreach (var display in AvatarInfo.DisplayAvatars)
+                {
+                    var avatar = AvatarInfo.Avatars.Find(x => x.AvatarId == display)!;
+                    info.DisplayAvatarList.Add(avatar.ToDetailProto(pos++));
+                }
+            }
+
+            return info;
         }
     }
 }

@@ -24,9 +24,9 @@ namespace EggLink.DanhengServer.Proto {
     static UpdateMapRotationDataScNotifyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiNVcGRhdGVNYXBSb3RhdGlvbkRhdGFTY05vdGlmeS5wcm90bxoRRE1BT01D",
-            "QkVBTkkucHJvdG8aEU9ESUZQR0RES0hMLnByb3RvGhFDaGFyZ2VySW5mby5w",
-            "cm90bxoRTkNQQ09LQ0lCT0YucHJvdG8i5wEKHVVwZGF0ZU1hcFJvdGF0aW9u",
+            "CiNVcGRhdGVNYXBSb3RhdGlvbkRhdGFTY05vdGlmeS5wcm90bxoRT0RJRlBH",
+            "RERLSEwucHJvdG8aEUNoYXJnZXJJbmZvLnByb3RvGhFOQ1BDT0tDSUJPRi5w",
+            "cm90bxoRRE1BT01DQkVBTkkucHJvdG8i5wEKHVVwZGF0ZU1hcFJvdGF0aW9u",
             "RGF0YVNjTm90aWZ5EiEKC0pIRkRCSU5JUEZFGAkgASgLMgwuT0RJRlBHRERL",
             "SEwSIQoLSE9LTUVJSUVHQVAYDyADKAsyDC5DaGFyZ2VySW5mbxIhCgtMTUZC",
             "TElFSUhKSxgMIAMoCzIMLkRNQU9NQ0JFQU5JEhMKC0hQQUFHTEpBRUREGAQg",
@@ -34,7 +34,7 @@ namespace EggLink.DanhengServer.Proto {
             "TkNQQ09LQ0lCT0YSEwoLTUNMS0VISEhMUEUYCiABKAhCHqoCG0VnZ0xpbmsu",
             "RGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.DMAOMCBEANIReflection.Descriptor, global::EggLink.DanhengServer.Proto.ODIFPGDDKHLReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChargerInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.NCPCOKCIBOFReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ODIFPGDDKHLReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChargerInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.NCPCOKCIBOFReflection.Descriptor, global::EggLink.DanhengServer.Proto.DMAOMCBEANIReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.UpdateMapRotationDataScNotify), global::EggLink.DanhengServer.Proto.UpdateMapRotationDataScNotify.Parser, new[]{ "JHFDBINIPFE", "HOKMEIIEGAP", "LMFBLIEIHJK", "HPAAGLJAEDD", "KHIHDPHOGAL", "MapInfo", "MCLKEHHHLPE" }, null, null, null, null)
           }));

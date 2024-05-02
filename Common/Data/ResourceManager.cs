@@ -53,15 +53,8 @@ namespace EggLink.DanhengServer.Data
                             var file = new FileInfo(path);
                             if (!file.Exists)
                             {
-                                if (attribute.IsCritical)
-                                {
-                                    throw new FileNotFoundException($"File {path} not found");
-                                }
-                                else
-                                {
-                                    Logger.Warn($"File {path} not found");
-                                    continue;
-                                }
+                                Logger.Warn($"File {path} not found");
+                                continue;
                             }
                             var json = file.OpenText().ReadToEnd();
                             using (var reader = new JsonTextReader(new StringReader(json)))

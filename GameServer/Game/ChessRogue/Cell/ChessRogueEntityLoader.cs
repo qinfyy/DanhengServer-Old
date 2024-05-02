@@ -20,9 +20,9 @@ namespace EggLink.DanhengServer.Game.ChessRogue.Cell
 
         public override void LoadEntity()
         {
-            if (scene.IsLoaded) return;
+            if (Scene.IsLoaded) return;
 
-            foreach (var group in scene?.FloorInfo?.Groups.Values!)  // Sanity check in SceneInstance
+            foreach (var group in Scene?.FloorInfo?.Groups.Values!)  // Sanity check in SceneInstance
             {
                 if (group.LoadSide == GroupLoadSideEnum.Client)
                 {
@@ -33,7 +33,7 @@ namespace EggLink.DanhengServer.Game.ChessRogue.Cell
                     LoadGroup(group);
                 }
             }
-            scene.IsLoaded = true;
+            Scene.IsLoaded = true;
         }
 
 
@@ -49,7 +49,7 @@ namespace EggLink.DanhengServer.Game.ChessRogue.Cell
             }
 
             bool hasDuplicateNpcId = false;
-            foreach (IGameEntity entity in scene.Entities.Values)
+            foreach (IGameEntity entity in Scene.Entities.Values)
             {
                 if (entity is EntityNpc eNpc && eNpc.NpcId == info.NPCID)
                 {
@@ -62,7 +62,7 @@ namespace EggLink.DanhengServer.Game.ChessRogue.Cell
                 return null;
             }
 
-            RogueNpc npc = new(scene, group, info);
+            RogueNpc npc = new(Scene, group, info);
             if (info.NPCID == 3013)
             {
                 // generate event
@@ -74,7 +74,7 @@ namespace EggLink.DanhengServer.Game.ChessRogue.Cell
                     npc.UniqueId = eventInstance.EventUniqueId;
                 }
             }
-            scene.AddEntity(npc, sendPacket);
+            Scene.AddEntity(npc, sendPacket);
 
             return npc;
         }
@@ -107,13 +107,13 @@ namespace EggLink.DanhengServer.Game.ChessRogue.Cell
             GameData.NpcMonsterDataData.TryGetValue(rogueMonster.NpcMonsterID, out var excel);
             if (excel == null) return null;
 
-            EntityMonster entity = new(scene, info.ToPositionProto(), info.ToRotationProto(), group.Id, info.ID, excel, info)
+            EntityMonster entity = new(Scene, info.ToPositionProto(), info.ToRotationProto(), group.Id, info.ID, excel, info)
             {
                 EventID = rogueMonster.EventID,
                 CustomStageID = rogueMonster.EventID
             };
 
-            scene.AddEntity(entity, sendPacket);
+            Scene.AddEntity(entity, sendPacket);
 
             return entity;
         }
@@ -126,7 +126,7 @@ namespace EggLink.DanhengServer.Game.ChessRogue.Cell
                 return null;
             }
 
-            var prop = new RogueProp(scene, propExcel, group, info);
+            var prop = new RogueProp(Scene, propExcel, group, info);
 
             if (prop.PropInfo.PropID == 1026)
             {
@@ -146,7 +146,7 @@ namespace EggLink.DanhengServer.Game.ChessRogue.Cell
                 prop.SetState(info.State);
             }
 
-            scene.AddEntity(prop, sendPacket);
+            Scene.AddEntity(prop, sendPacket);
 
             return null;
         }

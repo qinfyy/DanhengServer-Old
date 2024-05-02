@@ -36,11 +36,11 @@ namespace EggLink.DanhengServer.WebServer.Controllers
 
         // === AUTHENTICATION ===
         [HttpPost("/hkrpg_global/mdk/shield/api/login")]
-        public JsonResult Login([FromBody] LoginReqJson req) => new UsernameLoginHandler().Handle(req.account, req.password, req.is_crypto);
+        public JsonResult Login([FromBody] LoginReqJson req) => new UsernameLoginHandler().Handle(req.account!, req.password!, req.is_crypto);
         [HttpPost("/hkrpg_global/mdk/shield/api/verify")]
-        public JsonResult Verify([FromBody] VerifyReqJson req) => new TokenLoginHandler().Handle(req.uid, req.token);
+        public JsonResult Verify([FromBody] VerifyReqJson req) => new TokenLoginHandler().Handle(req.uid!, req.token!);
         [HttpPost("/hkrpg_global/combo/granter/login/v2/login")]
-        public JsonResult LoginV2([FromBody] LoginV2ReqJson req) => new ComboTokenGranterHandler().Handle(req.app_id, req.channel_id, req.data, req.device, req.sign);
+        public JsonResult LoginV2([FromBody] LoginV2ReqJson req) => new ComboTokenGranterHandler().Handle(req.app_id, req.channel_id, req.data!, req.device!, req.sign!);
 
         [HttpGet("/hkrpg_global/combo/granter/api/getConfig")]
         public string GetConfig() => "{\"retcode\":0,\"message\":\"OK\",\"data\":{\"protocol\":true,\"qr_enabled\":false,\"log_level\":\"INFO\",\"announce_url\":\"\",\"push_alias_type\":0,\"disable_ysdk_guard\":true,\"enable_announce_pic_popup\":false,\"app_name\":\"崩�??RPG\",\"qr_enabled_apps\":{\"bbs\":false,\"cloud\":false},\"qr_app_icons\":{\"app\":\"\",\"bbs\":\"\",\"cloud\":\"\"},\"qr_cloud_display_name\":\"\",\"enable_user_center\":true,\"functional_switch_configs\":{}}}";

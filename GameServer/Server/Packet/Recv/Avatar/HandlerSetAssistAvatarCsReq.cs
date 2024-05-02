@@ -12,11 +12,6 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Avatar
             var req = SetAssistAvatarCsReq.Parser.ParseFrom(data);
             var player = connection.Player!;
             var avatars = player.AvatarManager!.AvatarData!.AssistAvatars;
-            if (avatars.Count >= 3)
-            {
-                connection.SendPacket(new PacketSetAssistAvatarScRsp());
-                return;
-            }
             avatars.Clear();
             foreach (var id in req.AvatarIdList)
             {

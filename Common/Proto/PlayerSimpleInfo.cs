@@ -24,21 +24,21 @@ namespace EggLink.DanhengServer.Proto {
     static PlayerSimpleInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChZQbGF5ZXJTaW1wbGVJbmZvLnByb3RvGhhGcmllbmRPbmxpbmVTdGF0dXMu",
-            "cHJvdG8aElBsYXRmb3JtVHlwZS5wcm90bxoWQXNzaXN0U2ltcGxlSW5mby5w",
-            "cm90byLBAgoQUGxheWVyU2ltcGxlSW5mbxIfCghwbGF0Zm9ybRgOIAEoDjIN",
-            "LlBsYXRmb3JtVHlwZRImCgtFTkNGSk1CUE9HTxgIIAMoCzIRLkFzc2lzdFNp",
+            "ChZQbGF5ZXJTaW1wbGVJbmZvLnByb3RvGhJQbGF0Zm9ybVR5cGUucHJvdG8a",
+            "GEZyaWVuZE9ubGluZVN0YXR1cy5wcm90bxoWQXNzaXN0U2ltcGxlSW5mby5w",
+            "cm90byLGAgoQUGxheWVyU2ltcGxlSW5mbxIfCghwbGF0Zm9ybRgOIAEoDjIN",
+            "LlBsYXRmb3JtVHlwZRImCgthc3Npc3RfaW5mbxgIIAMoCzIRLkFzc2lzdFNp",
             "bXBsZUluZm8SEQoJc2lnbmF0dXJlGAYgASgJEg0KBWxldmVsGAEgASgNEikK",
             "DG9ubGluZVN0YXR1cxgJIAEoDjITLkZyaWVuZE9ubGluZVN0YXR1cxIQCghu",
             "aWNrbmFtZRgHIAEoCRITCgtGSklMUE9KUEhCThgDIAEoCRITCgtCTkdHSEhF",
-            "RENDRxgCIAEoCRILCgN1aWQYBCABKA0SEQoJaXNfYmFubmVkGA8gASgIEhMK",
-            "C09DRUVEREhQT0pNGA0gASgDEhEKCWhlYWRfaWNvbhgFIAEoDRITCgtFTEhP",
-            "QkJEQ0pDQRgLIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3Rv",
-            "YgZwcm90bzM="));
+            "RENDRxgCIAEoCRILCgN1aWQYBCABKA0SEQoJaXNfYmFubmVkGA8gASgIEhgK",
+            "EGxhc3RfYWN0aXZlX3RpbWUYDSABKAMSEQoJaGVhZF9pY29uGAUgASgNEhMK",
+            "C0VMSE9CQkRDSkNBGAsgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIu",
+            "UHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.FriendOnlineStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.PlatformTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.AssistSimpleInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.PlatformTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.FriendOnlineStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.AssistSimpleInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.PlayerSimpleInfo), global::EggLink.DanhengServer.Proto.PlayerSimpleInfo.Parser, new[]{ "Platform", "ENCFJMBPOGO", "Signature", "Level", "OnlineStatus", "Nickname", "FJILPOJPHBN", "BNGGHHEDCCG", "Uid", "IsBanned", "OCEEDDHPOJM", "HeadIcon", "ELHOBBDCJCA" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.PlayerSimpleInfo), global::EggLink.DanhengServer.Proto.PlayerSimpleInfo.Parser, new[]{ "Platform", "AssistInfo", "Signature", "Level", "OnlineStatus", "Nickname", "FJILPOJPHBN", "BNGGHHEDCCG", "Uid", "IsBanned", "LastActiveTime", "HeadIcon", "ELHOBBDCJCA" }, null, null, null, null)
           }));
     }
     #endregion
@@ -81,7 +81,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PlayerSimpleInfo(PlayerSimpleInfo other) : this() {
       platform_ = other.platform_;
-      eNCFJMBPOGO_ = other.eNCFJMBPOGO_.Clone();
+      assistInfo_ = other.assistInfo_.Clone();
       signature_ = other.signature_;
       level_ = other.level_;
       onlineStatus_ = other.onlineStatus_;
@@ -90,7 +90,7 @@ namespace EggLink.DanhengServer.Proto {
       bNGGHHEDCCG_ = other.bNGGHHEDCCG_;
       uid_ = other.uid_;
       isBanned_ = other.isBanned_;
-      oCEEDDHPOJM_ = other.oCEEDDHPOJM_;
+      lastActiveTime_ = other.lastActiveTime_;
       headIcon_ = other.headIcon_;
       eLHOBBDCJCA_ = other.eLHOBBDCJCA_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -114,15 +114,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "ENCFJMBPOGO" field.</summary>
-    public const int ENCFJMBPOGOFieldNumber = 8;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.AssistSimpleInfo> _repeated_eNCFJMBPOGO_codec
+    /// <summary>Field number for the "assist_info" field.</summary>
+    public const int AssistInfoFieldNumber = 8;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.AssistSimpleInfo> _repeated_assistInfo_codec
         = pb::FieldCodec.ForMessage(66, global::EggLink.DanhengServer.Proto.AssistSimpleInfo.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AssistSimpleInfo> eNCFJMBPOGO_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AssistSimpleInfo>();
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AssistSimpleInfo> assistInfo_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AssistSimpleInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AssistSimpleInfo> ENCFJMBPOGO {
-      get { return eNCFJMBPOGO_; }
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.AssistSimpleInfo> AssistInfo {
+      get { return assistInfo_; }
     }
 
     /// <summary>Field number for the "signature" field.</summary>
@@ -221,15 +221,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "OCEEDDHPOJM" field.</summary>
-    public const int OCEEDDHPOJMFieldNumber = 13;
-    private long oCEEDDHPOJM_;
+    /// <summary>Field number for the "last_active_time" field.</summary>
+    public const int LastActiveTimeFieldNumber = 13;
+    private long lastActiveTime_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public long OCEEDDHPOJM {
-      get { return oCEEDDHPOJM_; }
+    public long LastActiveTime {
+      get { return lastActiveTime_; }
       set {
-        oCEEDDHPOJM_ = value;
+        lastActiveTime_ = value;
       }
     }
 
@@ -273,7 +273,7 @@ namespace EggLink.DanhengServer.Proto {
         return true;
       }
       if (Platform != other.Platform) return false;
-      if(!eNCFJMBPOGO_.Equals(other.eNCFJMBPOGO_)) return false;
+      if(!assistInfo_.Equals(other.assistInfo_)) return false;
       if (Signature != other.Signature) return false;
       if (Level != other.Level) return false;
       if (OnlineStatus != other.OnlineStatus) return false;
@@ -282,7 +282,7 @@ namespace EggLink.DanhengServer.Proto {
       if (BNGGHHEDCCG != other.BNGGHHEDCCG) return false;
       if (Uid != other.Uid) return false;
       if (IsBanned != other.IsBanned) return false;
-      if (OCEEDDHPOJM != other.OCEEDDHPOJM) return false;
+      if (LastActiveTime != other.LastActiveTime) return false;
       if (HeadIcon != other.HeadIcon) return false;
       if (ELHOBBDCJCA != other.ELHOBBDCJCA) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -293,7 +293,7 @@ namespace EggLink.DanhengServer.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (Platform != global::EggLink.DanhengServer.Proto.PlatformType.Editor) hash ^= Platform.GetHashCode();
-      hash ^= eNCFJMBPOGO_.GetHashCode();
+      hash ^= assistInfo_.GetHashCode();
       if (Signature.Length != 0) hash ^= Signature.GetHashCode();
       if (Level != 0) hash ^= Level.GetHashCode();
       if (OnlineStatus != global::EggLink.DanhengServer.Proto.FriendOnlineStatus.Offline) hash ^= OnlineStatus.GetHashCode();
@@ -302,7 +302,7 @@ namespace EggLink.DanhengServer.Proto {
       if (BNGGHHEDCCG.Length != 0) hash ^= BNGGHHEDCCG.GetHashCode();
       if (Uid != 0) hash ^= Uid.GetHashCode();
       if (IsBanned != false) hash ^= IsBanned.GetHashCode();
-      if (OCEEDDHPOJM != 0L) hash ^= OCEEDDHPOJM.GetHashCode();
+      if (LastActiveTime != 0L) hash ^= LastActiveTime.GetHashCode();
       if (HeadIcon != 0) hash ^= HeadIcon.GetHashCode();
       if (ELHOBBDCJCA != 0) hash ^= ELHOBBDCJCA.GetHashCode();
       if (_unknownFields != null) {
@@ -351,7 +351,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(58);
         output.WriteString(Nickname);
       }
-      eNCFJMBPOGO_.WriteTo(output, _repeated_eNCFJMBPOGO_codec);
+      assistInfo_.WriteTo(output, _repeated_assistInfo_codec);
       if (OnlineStatus != global::EggLink.DanhengServer.Proto.FriendOnlineStatus.Offline) {
         output.WriteRawTag(72);
         output.WriteEnum((int) OnlineStatus);
@@ -360,9 +360,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(88);
         output.WriteUInt32(ELHOBBDCJCA);
       }
-      if (OCEEDDHPOJM != 0L) {
+      if (LastActiveTime != 0L) {
         output.WriteRawTag(104);
-        output.WriteInt64(OCEEDDHPOJM);
+        output.WriteInt64(LastActiveTime);
       }
       if (Platform != global::EggLink.DanhengServer.Proto.PlatformType.Editor) {
         output.WriteRawTag(112);
@@ -410,7 +410,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(58);
         output.WriteString(Nickname);
       }
-      eNCFJMBPOGO_.WriteTo(ref output, _repeated_eNCFJMBPOGO_codec);
+      assistInfo_.WriteTo(ref output, _repeated_assistInfo_codec);
       if (OnlineStatus != global::EggLink.DanhengServer.Proto.FriendOnlineStatus.Offline) {
         output.WriteRawTag(72);
         output.WriteEnum((int) OnlineStatus);
@@ -419,9 +419,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(88);
         output.WriteUInt32(ELHOBBDCJCA);
       }
-      if (OCEEDDHPOJM != 0L) {
+      if (LastActiveTime != 0L) {
         output.WriteRawTag(104);
-        output.WriteInt64(OCEEDDHPOJM);
+        output.WriteInt64(LastActiveTime);
       }
       if (Platform != global::EggLink.DanhengServer.Proto.PlatformType.Editor) {
         output.WriteRawTag(112);
@@ -444,7 +444,7 @@ namespace EggLink.DanhengServer.Proto {
       if (Platform != global::EggLink.DanhengServer.Proto.PlatformType.Editor) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Platform);
       }
-      size += eNCFJMBPOGO_.CalculateSize(_repeated_eNCFJMBPOGO_codec);
+      size += assistInfo_.CalculateSize(_repeated_assistInfo_codec);
       if (Signature.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Signature);
       }
@@ -469,8 +469,8 @@ namespace EggLink.DanhengServer.Proto {
       if (IsBanned != false) {
         size += 1 + 1;
       }
-      if (OCEEDDHPOJM != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(OCEEDDHPOJM);
+      if (LastActiveTime != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(LastActiveTime);
       }
       if (HeadIcon != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(HeadIcon);
@@ -493,7 +493,7 @@ namespace EggLink.DanhengServer.Proto {
       if (other.Platform != global::EggLink.DanhengServer.Proto.PlatformType.Editor) {
         Platform = other.Platform;
       }
-      eNCFJMBPOGO_.Add(other.eNCFJMBPOGO_);
+      assistInfo_.Add(other.assistInfo_);
       if (other.Signature.Length != 0) {
         Signature = other.Signature;
       }
@@ -518,8 +518,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other.IsBanned != false) {
         IsBanned = other.IsBanned;
       }
-      if (other.OCEEDDHPOJM != 0L) {
-        OCEEDDHPOJM = other.OCEEDDHPOJM;
+      if (other.LastActiveTime != 0L) {
+        LastActiveTime = other.LastActiveTime;
       }
       if (other.HeadIcon != 0) {
         HeadIcon = other.HeadIcon;
@@ -571,7 +571,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 66: {
-            eNCFJMBPOGO_.AddEntriesFrom(input, _repeated_eNCFJMBPOGO_codec);
+            assistInfo_.AddEntriesFrom(input, _repeated_assistInfo_codec);
             break;
           }
           case 72: {
@@ -583,7 +583,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 104: {
-            OCEEDDHPOJM = input.ReadInt64();
+            LastActiveTime = input.ReadInt64();
             break;
           }
           case 112: {
@@ -638,7 +638,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 66: {
-            eNCFJMBPOGO_.AddEntriesFrom(ref input, _repeated_eNCFJMBPOGO_codec);
+            assistInfo_.AddEntriesFrom(ref input, _repeated_assistInfo_codec);
             break;
           }
           case 72: {
@@ -650,7 +650,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 104: {
-            OCEEDDHPOJM = input.ReadInt64();
+            LastActiveTime = input.ReadInt64();
             break;
           }
           case 112: {

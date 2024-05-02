@@ -24,9 +24,9 @@ namespace EggLink.DanhengServer.Proto {
     static CellInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg5DZWxsSW5mby5wcm90bxoVQ2VsbEFkdmFuY2VJbmZvLnByb3RvGh9DaGVz",
-            "c1JvZ3VlQm9hcmRDZWxsU3RhdHVzLnByb3RvGh9DaGVzc1JvZ3VlQ2VsbFNw",
-            "ZWNpYWxUeXBlLnByb3RvIrECCghDZWxsSW5mbxIRCgltYXJrX3R5cGUYDSAB",
+            "Cg5DZWxsSW5mby5wcm90bxofQ2hlc3NSb2d1ZUNlbGxTcGVjaWFsVHlwZS5w",
+            "cm90bxoVQ2VsbEFkdmFuY2VJbmZvLnByb3RvGh9DaGVzc1JvZ3VlQm9hcmRD",
+            "ZWxsU3RhdHVzLnByb3RvIrECCghDZWxsSW5mbxIRCgltYXJrX3R5cGUYDSAB",
             "KA0SDwoHcm9vbV9pZBgIIAEoDRIKCgJpZBgJIAEoDRITCgtMSUxCREJGT0dE",
             "UBgGIAMoDRIQCghpc192YWxpZBgBIAEoCBIwCgxzcGVjaWFsX3R5cGUYAiAB",
             "KA4yGi5DaGVzc1JvZ3VlQ2VsbFNwZWNpYWxUeXBlEg4KBmNvbHVtbhgEIAEo",
@@ -36,7 +36,7 @@ namespace EggLink.DanhengServer.Proto {
             "cGUYCyABKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJv",
             "dG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.CellAdvanceInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueBoardCellStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialTypeReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChessRogueCellSpecialTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.CellAdvanceInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChessRogueBoardCellStatusReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.CellInfo), global::EggLink.DanhengServer.Proto.CellInfo.Parser, new[]{ "MarkType", "RoomId", "Id", "LILBDBFOGDP", "IsValid", "SpecialType", "Column", "DGBFIGKHAPN", "AdvanceInfo", "Row", "CellStatus", "CellType" }, null, null, null, null)
           }));

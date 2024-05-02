@@ -1,17 +1,21 @@
-﻿using EggLink.DanhengServer.Database.Friend;
+﻿using EggLink.DanhengServer.Database;
+using EggLink.DanhengServer.Database.Friend;
+using EggLink.DanhengServer.Database.Inventory;
 using EggLink.DanhengServer.Database.Player;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Proto;
+using EggLink.DanhengServer.Util;
 
 namespace EggLink.DanhengServer.Game.Friend
 {
     public class FriendManager(PlayerInstance player) : BasePlayerManager(player)
     {
-        public FriendData FriendData { get; set; } = new();
-        // TODO: add friend and remove friend
+        public FriendData FriendData { get; set; } = DatabaseHelper.Instance!.GetInstanceOrCreateNew<FriendData>(player.Uid);
+
         public void AddFriend()
         {
         }
+
         public void RemoveFriend()
         {
         }
@@ -86,25 +90,24 @@ namespace EggLink.DanhengServer.Game.Friend
 
         public GetFriendListInfoScRsp ToProto()
         {
-            var proto = new GetFriendListInfoScRsp()
-            {
-                Retcode = 0
-            };
-            
+            var proto = new GetFriendListInfoScRsp();
+
+            var serverProfile = ConfigManager.Config.ServerOption.ServerProfile;
+
             proto.FriendList.Add(new FriendSimpleInfo()
             {
                 PlayerInfo = new PlayerSimpleInfo()
                 {
-                    Uid = 7121310, // TODO: UID is always 0 now
-                    HeadIcon = 201002,
+                    Uid = (uint)serverProfile.Uid, // TODO: UID is always 0 now
+                    HeadIcon = (uint)serverProfile.HeadIcon,
                     IsBanned = false,
-                    Level = 70,
-                    Nickname = "Server",
+                    Level = (uint)serverProfile.Level,
+                    Nickname = serverProfile.Name,
                     OnlineStatus = FriendOnlineStatus.Online,
                     Platform = PlatformType.Pc,
                     Signature = "DanhengServer command executor",
                 },
-                OBOJFJPCEHE = false, // IsMarked
+                IsRemarked = false, // IsMarked
                 RemarkName = ""
             });
 
@@ -112,31 +115,15 @@ namespace EggLink.DanhengServer.Game.Friend
             {
                 proto.FriendList.Add(new FriendSimpleInfo()
                 {
-                    PlayerInfo = new PlayerSimpleInfo()
-                    {
-                        HeadIcon = (uint)player.HeadIcon,
-                        Level = (uint)player.Level,
-                        Nickname = player.Name,
-                        Uid = (uint)player.Uid,
-                        Signature = player.Signature,
-                        IsBanned = false
-                    },
-                    OBOJFJPCEHE = false, // IsMarked
+                    PlayerInfo = player.ToSimpleProto(),
+                    IsRemarked = false, // IsMarked
                     RemarkName = ""
                 });
             }
 
             foreach (var player in GetBlackList())
             {
-                proto.BlackList.Add(new PlayerSimpleInfo()
-                {
-                    HeadIcon = (uint)player.HeadIcon,
-                    Level = (uint)player.Level,
-                    Nickname = player.Name,
-                    Uid = (uint)player.Uid,
-                    Signature = player.Signature,
-                    IsBanned = false
-                });
+                proto.BlackList.Add(player.ToSimpleProto());
             }
 
             return proto;
@@ -155,15 +142,7 @@ namespace EggLink.DanhengServer.Game.Friend
             {
                 proto.ReceiveApplyList.Add(new FriendApplyInfo()
                 {
-                    PlayerInfo = new PlayerSimpleInfo()
-                    {
-                        HeadIcon = (uint)player.HeadIcon,
-                        Level = (uint)player.Level,
-                        Nickname = player.Name,
-                        Uid = (uint)player.Uid,
-                        Signature = player.Signature,
-                        IsBanned = false
-                    }
+                    PlayerInfo = player.ToSimpleProto()
                 });
             }
 

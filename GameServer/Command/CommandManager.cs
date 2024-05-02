@@ -43,13 +43,29 @@ namespace EggLink.DanhengServer.Command
             {
                 try
                 {
-
                     string? input = AnsiConsole.Ask<string>("> ");
                     if (string.IsNullOrEmpty(input))
                     {
                         continue;
                     }
-                    var cmd = input.Split(' ')[0];
+                    HandleCommand(input, new ConsoleCommandSender(Logger));
+                }
+                catch
+                {
+                    Logger.Error($"An error happened when execute command");
+                }
+            }
+        }
+
+        public void HandleCommand(string input, ICommandSender sender)
+        {
+            try
+            {
+                var cmd = input.Split(' ')[0];
+
+                var tempTarget = Target;
+                if (sender is ConsoleCommandSender)
+                {
                     if (cmd.StartsWith('@'))
                     {
                         var target = cmd[1..];
@@ -57,91 +73,98 @@ namespace EggLink.DanhengServer.Command
                         if (con != null)
                         {
                             Target = con;
-                            Logger.Info($"Online player {target}({con.Player!.Data.Name}) is found, the next command will target it by default.");
+                            sender.SendMsg($"Online player {target}({con.Player!.Data.Name}) is found, the next command will target it by default.");
                         }
                         else
                         {
                             // offline or not exist
-                            Logger.Warn($"Target {target} is offline or not found.");
+                            sender.SendMsg($"Target {target} is offline or not found.");
                         }
-                        continue;
+                        return;
                     }
-                    if (Target != null && !Target.IsOnline)
-                    {
-                        Logger.Warn($"Target {Target.Player!.Uid}({Target.Player!.Data.Name}) is offline.");
-                        Target = null;
-                    }
-                    if (Commands.TryGetValue(cmd, out var command))
-                    {
-                        var split = input.Split(' ').ToList();
-                        split.RemoveAt(0);
+                } else if (sender is PlayerCommandSender player)
+                {
+                    // player
+                    tempTarget = player.Player.Connection;
+                }
 
-                        var arg = new CommandArg(split.JoinFormat(" ", ""), new ConsoleCommandSender(Logger), Target);
-                        // find the proper method with attribute CommandMethod
-                        var isFound = false;
-                        CommandInfo? info = null;
-                        foreach (var method in command.GetType().GetMethods())
+                if (tempTarget != null && !tempTarget.IsOnline)
+                {
+                    sender.SendMsg($"Target {tempTarget.Player!.Uid}({tempTarget.Player!.Data.Name}) is offline.");
+                    tempTarget = null;
+                }
+
+                if (Commands.TryGetValue(cmd, out var command))
+                {
+                    var split = input.Split(' ').ToList();
+                    split.RemoveAt(0);
+
+                    var arg = new CommandArg(split.JoinFormat(" ", ""), sender, tempTarget);
+                    // find the proper method with attribute CommandMethod
+                    var isFound = false;
+                    CommandInfo? info = null;
+                    foreach (var method in command.GetType().GetMethods())
+                    {
+                        var attr = method.GetCustomAttribute<CommandMethod>();
+                        if (attr != null)
                         {
-                            var attr = method.GetCustomAttribute<CommandMethod>();
-                            if (attr != null)
+                            info = CommandInfo[cmd];
+                            var canRun = true;
+                            foreach (var condition in attr.Conditions)
                             {
-                                info = CommandInfo[cmd];
-                                var canRun = true;
-                                foreach (var condition in attr.Conditions)
+                                if (split.Count <= condition.Index)
                                 {
-                                    if (split.Count <= condition.Index)
-                                    {
-                                        canRun = false;
-                                        break;
-                                    }
-                                    if (!split[condition.Index].Equals(condition.ShouldBe))
-                                    {
-                                        canRun = false;
-                                        break;
-                                    }
-                                }
-                                if (canRun)
-                                {
-                                    isFound = true;
-                                    method.Invoke(command, [arg]);
+                                    canRun = false;
                                     break;
                                 }
+                                if (!split[condition.Index].Equals(condition.ShouldBe))
+                                {
+                                    canRun = false;
+                                    break;
+                                }
+                            }
+                            if (canRun)
+                            {
+                                isFound = true;
+                                method.Invoke(command, [arg]);
+                                break;
+                            }
+                        }
+                    }
+                    if (!isFound)
+                    {
+                        // find the default method with attribute CommandDefault
+                        foreach (var method in command.GetType().GetMethods())
+                        {
+                            var attr = method.GetCustomAttribute<CommandDefault>();
+                            if (attr != null)
+                            {
+                                isFound = true;
+                                method.Invoke(command, [arg]);
+                                break;
                             }
                         }
                         if (!isFound)
                         {
-                            // find the default method with attribute CommandDefault
-                            foreach (var method in command.GetType().GetMethods())
+                            if (info != null)
                             {
-                                var attr = method.GetCustomAttribute<CommandDefault>();
-                                if (attr != null)
-                                {
-                                    isFound = true;
-                                    method.Invoke(command, [arg]);
-                                    break;
-                                }
+                                sender.SendMsg($"Usage: {info.Usage}");
                             }
-                            if (!isFound)
+                            else
                             {
-                                if (info != null)
-                                {
-                                    Logger.Info($"Usage: {info.Usage}");
-                                } else
-                                {
-                                    Logger.Info($"Command \"{cmd}\" not found.");
-                                }
+                                sender.SendMsg($"Command \"{cmd}\" not found.");
                             }
                         }
                     }
-                    else
-                    {
-                        Logger.Info($"Command \"{cmd}\" not found.");
-                    }
                 }
-                catch
+                else
                 {
-                    Logger.Error($"An error happened when execute command");
+                    sender.SendMsg($"Command \"{cmd}\" not found.");
                 }
+            }
+            catch
+            {
+                sender.SendMsg($"An error happened when execute command");
             }
         }
     }
