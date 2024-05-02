@@ -11,13 +11,13 @@
   <a href="https://discord.gg/xRtZsmHBVj"><img src="https://img.shields.io/badge/Discord%20Server-000000.svg?style=for-the-badge&logo=Discord&logoColor=white" /></a>
 </p>
 
-[EN](../README.md) | [簡中](README_zh-CN.md) | [繁中](README_zh-CN.md) | [JP](README_ja-JP.md)
+[EN](README.md) | [簡中](docs/README_zh-CN.md) | [繁中](docs/README_zh-CN.md) | [JP](docs/README_ja-JP.md)
 
 ## 💡 Function
 
 - [√] **Shop**
 - [√] **Formation**
-- [√] **Card Draw** - Custom Probability: )
+- [√] **Gacha** - Custom Probability: )
 - [√] **Battle** - There are some errors in the scene skills
 - [√] **Scene** - Walking simulator, interaction, correct loading of entities
 - [√] **Basic character development** - Some minor bugs that don't significantly affect the experience
