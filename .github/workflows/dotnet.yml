@@ -20,17 +20,41 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+  
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 8.0.x
+
     - name: Restore dependencies
       run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore --configuration Release
-    - name: Upload a Build Artifact
+
+    - name: Publish win-x64
+      run: dotnet --no-restore publish -o Release\win-x64 -r win-x64 --framework net8.0 -p:PublishSingleFile=true
+
+    - name: Publish linux-x64
+      run: dotnet --no-restore publish -o Release\linux-x64 -r linux-x64 --framework net8.0 -p:PublishSingleFile=true
+
+    - name: Publish linux-arm64
+      run: dotnet --no-restore publish -o Release\linux-arm64 -r linux-arm64 --framework net8.0 -p:PublishSingleFile=true
+
+    - name: Upload win-x64 Build Artifact
       uses: actions/upload-artifact@v4.3.1
       with:
-        name: DanhengServer
-        path: GameServer/bin/Release/net8.0/
+        name: DanhengServer-win-64
+        path: Release\win-x64
+
+    - name: Upload linux-x64 Build Artifact
+      uses: actions/upload-artifact@v4.3.1
+      with:
+        name: DanhengServer-linux-x64
+        path: Release\linux-x64
+
+    - name: Upload linux-arm64 Build Artifact
+      uses: actions/upload-artifact@v4.3.1
+      with:
+        name: DanhengServer-linux-arm64
+        path: Release\linux-arm64
+
+
           
