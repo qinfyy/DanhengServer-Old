@@ -105,7 +105,7 @@ namespace EggLink.DanhengServer.Command.Cmd
             {
                 if (npc is RogueNpc rNpc)
                 {
-                    if (rNpc.RogueNpcId == 3013)
+                    if (rNpc.RogueNpcId > 0)
                     {
                         player.SceneInstance!.RemoveEntity(rNpc);
                     }
