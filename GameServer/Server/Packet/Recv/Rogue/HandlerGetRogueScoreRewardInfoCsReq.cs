@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EggLink.DanhengServer.Server.Packet.Send.Rogue;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Rogue
     {
         public override void OnHandle(Connection connection, byte[] header, byte[] data)
         {
-            connection.SendPacket(CmdIds.GetRogueScoreRewardInfoScRsp);
+            connection.SendPacket(new PacketGetRogueScoreRewardInfoScRsp(connection.Player!));
         }
     }
 }

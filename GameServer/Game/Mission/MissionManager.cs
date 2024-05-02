@@ -9,6 +9,7 @@ using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Server.Packet.Send.Mission;
 using EggLink.DanhengServer.Server.Packet.Send.Player;
 using EggLink.DanhengServer.Server.Packet.Send.Scene;
+using EggLink.DanhengServer.Util;
 using System.Reflection;
 
 namespace EggLink.DanhengServer.Game.Mission
@@ -49,6 +50,7 @@ namespace EggLink.DanhengServer.Game.Mission
 
         public List<Proto.MissionSync?> AcceptMainMission(int missionId, bool sendPacket = true)
         {
+            if (!ConfigManager.Config.ServerOption.EnableMission) return [];
             if (Data.MissionInfo.ContainsKey(missionId)) return [];
             // Get entry sub mission
             GameData.MainMissionData.TryGetValue(missionId, out var mission);
@@ -59,23 +61,24 @@ namespace EggLink.DanhengServer.Game.Mission
 
             var list = new List<Proto.MissionSync?>();
             mission.MissionInfo?.StartSubMissionList.ForEach(i => list.Add(AcceptSubMission(i, sendPacket)));
-            if (missionId == 4030001)
+            if (missionId == 4030001 || missionId == 4030002)
             {
                 // skip  not implemented
-                mission.MissionInfo?.StartSubMissionList.ForEach(FinishSubMission);
-                mission.MissionInfo?.FinishSubMissionList.ForEach(AcceptSubMission);
-                mission.MissionInfo?.FinishSubMissionList.ForEach(FinishSubMission);
+                mission.MissionInfo?.SubMissionList.ForEach(x=> AcceptSubMission(x.ID));
+                mission.MissionInfo?.SubMissionList.ForEach(x => FinishSubMission(x.ID));
             }
             return list;
         }
 
         public void AcceptSubMission(int missionId)
         {
+            if (!ConfigManager.Config.ServerOption.EnableMission) return;
             AcceptSubMission(missionId, true);
         }
 
         public Proto.MissionSync? AcceptSubMission(int missionId, bool sendPacket, bool doFinishTypeAction = true)
         {
+            if (!ConfigManager.Config.ServerOption.EnableMission) return null;
             GameData.SubMissionData.TryGetValue(missionId, out var subMission);
             if (subMission == null) return null;
             var mainMissionId = subMission.MainMissionID;
@@ -112,6 +115,7 @@ namespace EggLink.DanhengServer.Game.Mission
 
         public void FinishMainMission(int missionId)
         {
+            if (!ConfigManager.Config.ServerOption.EnableMission) return;
             if (!Data.MainMissionInfo.TryGetValue(missionId, out var value)) return;
             if (!GameData.MainMissionData.TryGetValue(missionId, out var mainMission)) return;
             if (value != MissionPhaseEnum.Doing) return;
@@ -131,9 +135,15 @@ namespace EggLink.DanhengServer.Game.Mission
                             MissionId = mission,
                             Status = MissionPhaseEnum.Cancel
                         };
+                        sync.MissionList.Add(new Proto.Mission()
+                        {
+                            Id = (uint)mission,
+                            Status = Proto.MissionStatus.MissionFinish,
+                        });
                     }
                 }
             }
+
             foreach (var nextMission in GameData.MainMissionData.Values)
             {
                 if (!nextMission.IsEqual(Data)) continue;
@@ -153,10 +163,28 @@ namespace EggLink.DanhengServer.Game.Mission
             HandleFinishType(MissionFinishTypeEnum.FinishMission);
 
             DatabaseHelper.Instance?.UpdateInstance(Data);
+
+            GameData.RaidConfigData.TryGetValue(Player.CurRaidId, out var raidConfig);
+            if (raidConfig != null)
+            {
+                bool leave = true;
+                foreach (var id in raidConfig.MainMissionIDList)
+                {
+                    if (GetMainMissionStatus(id) != MissionPhaseEnum.Finish)
+                    {
+                        leave = false;
+                    }
+                }
+                if (leave)
+                {
+                    Player.LeaveRaid();
+                }
+            }
         }
 
         public void FinishSubMission(int missionId)
         {
+            if (!ConfigManager.Config.ServerOption.EnableMission) return;
             GameData.SubMissionData.TryGetValue(missionId, out var subMission);
             if (subMission == null) return;
             var mainMissionId = subMission.MainMissionID;
@@ -226,6 +254,17 @@ namespace EggLink.DanhengServer.Game.Mission
             }
 
             DatabaseHelper.Instance?.UpdateInstance(Data);
+
+            // Hotfix  for mission 101140201
+            if (missionId == 101140201)
+            {
+                // change basic type
+                Player.Data.CurBasicType += 2;
+                DatabaseHelper.Instance?.UpdateInstance(Player.Data);
+                Player.AvatarManager!.GetHero()!.HeroId += 2;
+                DatabaseHelper.Instance?.UpdateInstance(Player.AvatarManager!.AvatarData);
+                Player.SendPacket(new PacketPlayerSyncScNotify(Player.AvatarManager!.GetHero()!));
+            }
         }
 
         public void HandleFinishAction(Data.Config.MissionInfo info, int subMissionId)
@@ -295,6 +334,8 @@ namespace EggLink.DanhengServer.Game.Mission
 
         public MissionPhaseEnum GetMainMissionStatus(int missionId)
         {
+            if (!ConfigManager.Config.ServerOption.EnableMission) return MissionPhaseEnum.Finish;
+
             if (Data.MainMissionInfo.TryGetValue(missionId, out var info))
             {
                 return info!;
@@ -304,6 +345,8 @@ namespace EggLink.DanhengServer.Game.Mission
 
         public MissionPhaseEnum GetSubMissionStatus(int missionId)
         {
+            if (!ConfigManager.Config.ServerOption.EnableMission) return MissionPhaseEnum.Finish;
+
             GameData.SubMissionData.TryGetValue(missionId, out var subMission);
             if (subMission == null) return MissionPhaseEnum.None;
             var mainMissionId = subMission.MainMissionID;
@@ -326,6 +369,8 @@ namespace EggLink.DanhengServer.Game.Mission
 
         public List<int> GetRunningSubMissionIdList()
         {
+            if (!ConfigManager.Config.ServerOption.EnableMission) return [];
+
             var list = new List<int>();
             foreach (var mainMission in Data.MissionInfo.Values)
             {
@@ -342,6 +387,8 @@ namespace EggLink.DanhengServer.Game.Mission
 
         public List<Data.Config.SubMissionInfo> GetRunningSubMissionList()
         {
+            if (!ConfigManager.Config.ServerOption.EnableMission) return [];
+
             var list = new List<Data.Config.SubMissionInfo>();
             foreach (var mainMission in Data.MissionInfo.Values)
             {
@@ -369,9 +416,31 @@ namespace EggLink.DanhengServer.Game.Mission
             foreach (var mission in GetRunningSubMissionIdList())
             {
                 var subMission = GetSubMissionInfo(mission);
-                if (subMission != null && (subMission.FinishType == MissionFinishTypeEnum.StageWin && req.EndStatus == Proto.BattleEndStatus.BattleEndWin))  // TODO: Move to handler
+                if (subMission != null && subMission.FinishType == MissionFinishTypeEnum.StageWin && req.EndStatus == Proto.BattleEndStatus.BattleEndWin)  // TODO: Move to handler
                 {
-                    FinishSubMission(mission);
+                    if (req.StageId.ToString().StartsWith(subMission.ParamInt1.ToString()))
+                    {
+                        FinishSubMission(mission);
+                    } else
+                    {
+                        // may be a boss stage
+                        foreach (var id in subMission.StageList)
+                        {
+                            if (req.StageId.ToString().StartsWith(id.ToString()))
+                            {
+                                var nextStageId = subMission.StageList.Find(x => x > id);
+                                if (nextStageId == 0)
+                                {
+                                    FinishSubMission(mission);
+                                } else
+                                {
+                                    Player.BattleManager!.StartStage(nextStageId);  // need to improve
+                                }
+
+                                break;
+                            }
+                        }
+                    }
                 }
             }
         }

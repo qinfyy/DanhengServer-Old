@@ -1,5 +1,7 @@
-﻿using EggLink.DanhengServer.Data.Config;
+﻿using EggLink.DanhengServer.Data;
+using EggLink.DanhengServer.Data.Config;
 using EggLink.DanhengServer.Enums;
+using EggLink.DanhengServer.Enums.Scene;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Game.Scene.Entity;
 
@@ -10,14 +12,32 @@ namespace EggLink.DanhengServer.Game.Mission.FinishType.Handler
     {
         public override void Init(PlayerInstance player, SubMissionInfo info, object? arg)
         {
-            var prop = player.SceneInstance!.GetEntitiesInGroup<EntityProp>(info.ParamInt1);
+            var prop = player.SceneInstance?.GetEntitiesInGroup<EntityProp>(info.ParamInt1);
             if (prop == null) return;
-
+            
             foreach (var p in prop)
             {
-                if (p.PropInfo.ID == info.ParamInt2 && p.State != PropStateEnum.Open)
+                if (p.PropInfo.ID == info.ParamInt2)
                 {
-                    if (info.ParamInt3 != 0)
+                    //if (player.SceneInstance?.Excel.WorldID != 101)
+                    //{
+                    //    if (p.PropInfo.State == PropStateEnum.Locked && info.SourceState == PropStateEnum.Closed)
+                    //    {
+                    //        GameData.MazePropData.TryGetValue(p.PropInfo.PropID, out var propData);
+                    //        if (propData != null && propData.PropStateList.Contains(PropStateEnum.Closed))
+                    //        {
+                    //            p.SetState(PropStateEnum.Closed);
+                    //        }
+                    //        else
+                    //        {
+                    //        }
+                    //    }
+                    //} else
+                    //{
+                    //    p.SetState(info.SourceState);
+                    //}
+                    GameData.MazePropData.TryGetValue(p.PropInfo.PropID, out var data);
+                    if (data?.PropStateList.Contains(info.SourceState) == true)
                     {
                         p.SetState(info.SourceState);
                     }

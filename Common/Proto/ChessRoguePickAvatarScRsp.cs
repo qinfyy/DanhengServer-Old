@@ -24,13 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRoguePickAvatarScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Ch9DaGVzc1JvZ3VlUGlja0F2YXRhclNjUnNwLnByb3RvGhFPTEhDSE1QTEpQ",
-            "RS5wcm90byJyChlDaGVzc1JvZ3VlUGlja0F2YXRhclNjUnNwEhsKE2Jhc2Vf",
-            "YXZhdGFyX2lkX2xpc3QYBCADKA0SDwoHcmV0Y29kZRgFIAEoDRInChFyb2d1",
-            "ZV9saW5ldXBfaW5mbxgHIAEoCzIMLk9MSENITVBMSlBFQh6qAhtFZ2dMaW5r",
-            "LkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "Ch9DaGVzc1JvZ3VlUGlja0F2YXRhclNjUnNwLnByb3RvGhpDaGVzc1JvZ3Vl",
+            "TGluZXVwSW5mby5wcm90byJ7ChlDaGVzc1JvZ3VlUGlja0F2YXRhclNjUnNw",
+            "EhsKE2Jhc2VfYXZhdGFyX2lkX2xpc3QYBCADKA0SDwoHcmV0Y29kZRgFIAEo",
+            "DRIwChFyb2d1ZV9saW5ldXBfaW5mbxgHIAEoCzIVLkNoZXNzUm9ndWVMaW5l",
+            "dXBJbmZvQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.OLHCHMPLJPEReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChessRogueLineupInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRoguePickAvatarScRsp), global::EggLink.DanhengServer.Proto.ChessRoguePickAvatarScRsp.Parser, new[]{ "BaseAvatarIdList", "Retcode", "RogueLineupInfo" }, null, null, null, null)
           }));
@@ -111,10 +112,10 @@ namespace EggLink.DanhengServer.Proto {
 
     /// <summary>Field number for the "rogue_lineup_info" field.</summary>
     public const int RogueLineupInfoFieldNumber = 7;
-    private global::EggLink.DanhengServer.Proto.OLHCHMPLJPE rogueLineupInfo_;
+    private global::EggLink.DanhengServer.Proto.ChessRogueLineupInfo rogueLineupInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.OLHCHMPLJPE RogueLineupInfo {
+    public global::EggLink.DanhengServer.Proto.ChessRogueLineupInfo RogueLineupInfo {
       get { return rogueLineupInfo_; }
       set {
         rogueLineupInfo_ = value;
@@ -230,7 +231,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (other.rogueLineupInfo_ != null) {
         if (rogueLineupInfo_ == null) {
-          RogueLineupInfo = new global::EggLink.DanhengServer.Proto.OLHCHMPLJPE();
+          RogueLineupInfo = new global::EggLink.DanhengServer.Proto.ChessRogueLineupInfo();
         }
         RogueLineupInfo.MergeFrom(other.RogueLineupInfo);
       }
@@ -260,7 +261,7 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 58: {
             if (rogueLineupInfo_ == null) {
-              RogueLineupInfo = new global::EggLink.DanhengServer.Proto.OLHCHMPLJPE();
+              RogueLineupInfo = new global::EggLink.DanhengServer.Proto.ChessRogueLineupInfo();
             }
             input.ReadMessage(RogueLineupInfo);
             break;
@@ -291,7 +292,7 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 58: {
             if (rogueLineupInfo_ == null) {
-              RogueLineupInfo = new global::EggLink.DanhengServer.Proto.OLHCHMPLJPE();
+              RogueLineupInfo = new global::EggLink.DanhengServer.Proto.ChessRogueLineupInfo();
             }
             input.ReadMessage(RogueLineupInfo);
             break;

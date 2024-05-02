@@ -24,12 +24,12 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueUpdateBoardScNotifyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiNDaGVzc1JvZ3VlVXBkYXRlQm9hcmRTY05vdGlmeS5wcm90bxoRQUNJUERE",
-            "QUpLS04ucHJvdG8iQgodQ2hlc3NSb2d1ZVVwZGF0ZUJvYXJkU2NOb3RpZnkS",
-            "IQoLQVBBSENPRU1BSU4YCSABKAsyDC5BQ0lQRERBSktLTkIeqgIbRWdnTGlu",
-            "ay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "CiNDaGVzc1JvZ3VlVXBkYXRlQm9hcmRTY05vdGlmeS5wcm90bxoYQ2hlc3NS",
+            "b2d1ZUNlbGxJbmZvLnByb3RvIkkKHUNoZXNzUm9ndWVVcGRhdGVCb2FyZFNj",
+            "Tm90aWZ5EigKC0FQQUhDT0VNQUlOGAkgASgLMhMuQ2hlc3NSb2d1ZUNlbGxJ",
+            "bmZvQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ACIPDDAJKKNReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChessRogueCellInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueUpdateBoardScNotify), global::EggLink.DanhengServer.Proto.ChessRogueUpdateBoardScNotify.Parser, new[]{ "APAHCOEMAIN" }, null, null, null, null)
           }));
@@ -85,10 +85,10 @@ namespace EggLink.DanhengServer.Proto {
 
     /// <summary>Field number for the "APAHCOEMAIN" field.</summary>
     public const int APAHCOEMAINFieldNumber = 9;
-    private global::EggLink.DanhengServer.Proto.ACIPDDAJKKN aPAHCOEMAIN_;
+    private global::EggLink.DanhengServer.Proto.ChessRogueCellInfo aPAHCOEMAIN_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.ACIPDDAJKKN APAHCOEMAIN {
+    public global::EggLink.DanhengServer.Proto.ChessRogueCellInfo APAHCOEMAIN {
       get { return aPAHCOEMAIN_; }
       set {
         aPAHCOEMAIN_ = value;
@@ -182,7 +182,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (other.aPAHCOEMAIN_ != null) {
         if (aPAHCOEMAIN_ == null) {
-          APAHCOEMAIN = new global::EggLink.DanhengServer.Proto.ACIPDDAJKKN();
+          APAHCOEMAIN = new global::EggLink.DanhengServer.Proto.ChessRogueCellInfo();
         }
         APAHCOEMAIN.MergeFrom(other.APAHCOEMAIN);
       }
@@ -203,7 +203,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           case 74: {
             if (aPAHCOEMAIN_ == null) {
-              APAHCOEMAIN = new global::EggLink.DanhengServer.Proto.ACIPDDAJKKN();
+              APAHCOEMAIN = new global::EggLink.DanhengServer.Proto.ChessRogueCellInfo();
             }
             input.ReadMessage(APAHCOEMAIN);
             break;
@@ -225,7 +225,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           case 74: {
             if (aPAHCOEMAIN_ == null) {
-              APAHCOEMAIN = new global::EggLink.DanhengServer.Proto.ACIPDDAJKKN();
+              APAHCOEMAIN = new global::EggLink.DanhengServer.Proto.ChessRogueCellInfo();
             }
             input.ReadMessage(APAHCOEMAIN);
             break;

@@ -8,6 +8,8 @@ namespace EggLink.DanhengServer.Data.Excel
     {
         public int SubMissionID { get; set; }
 
+        public HashName TargetText { get; set; } = new();
+
         [JsonIgnore()]
         public int MainMissionID { get; set; }
         [JsonIgnore()]

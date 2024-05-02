@@ -1,5 +1,6 @@
 ﻿using EggLink.DanhengServer.Data.Config;
 using EggLink.DanhengServer.Data.Excel;
+using EggLink.DanhengServer.Enums.Avatar;
 using EggLink.DanhengServer.Game.Battle.Skill.Action;
 using EggLink.DanhengServer.Game.Scene;
 using EggLink.DanhengServer.Game.Scene.Entity;
@@ -33,30 +34,30 @@ namespace EggLink.DanhengServer.Game.Battle.Skill
         {
             switch (task.TaskType)
             {
-                case Enums.TaskTypeEnum.None:
+                case TaskTypeEnum.None:
                     break;
-                case Enums.TaskTypeEnum.AddMazeBuff:
-                    Actions.Add(new MazeAddMazeBuff(task.ID, 20));
+                case TaskTypeEnum.AddMazeBuff:
+                    Actions.Add(new MazeAddMazeBuff(task.ID, task.LifeTime.GetLifeTime()));
                     break;
-                case Enums.TaskTypeEnum.RemoveMazeBuff:
+                case TaskTypeEnum.RemoveMazeBuff:
                     Actions.RemoveAll(a => a is MazeAddMazeBuff buff && buff.BuffId == task.ID);
                     break;
-                case Enums.TaskTypeEnum.AdventureModifyTeamPlayerHP:
+                case TaskTypeEnum.AdventureModifyTeamPlayerHP:
                     break;
-                case Enums.TaskTypeEnum.AdventureModifyTeamPlayerSP:
+                case TaskTypeEnum.AdventureModifyTeamPlayerSP:
                     break;
-                case Enums.TaskTypeEnum.CreateSummonUnit:
+                case TaskTypeEnum.CreateSummonUnit:
                     break;
-                case Enums.TaskTypeEnum.AdventureSetAttackTargetMonsterDie:
+                case TaskTypeEnum.AdventureSetAttackTargetMonsterDie:
                     Actions.Add(new MazeSetTargetMonsterDie());
                     break;
-                case Enums.TaskTypeEnum.SuccessTaskList:
+                case TaskTypeEnum.SuccessTaskList:
                     foreach (var t in task.SuccessTaskList)
                     {
                         AddAction(t);
                     }
                     break;
-                case Enums.TaskTypeEnum.AdventureTriggerAttack:
+                case TaskTypeEnum.AdventureTriggerAttack:
                     if (IsMazeSkill)
                     {
                         TriggerBattle = task.TriggerBattle;
@@ -67,7 +68,7 @@ namespace EggLink.DanhengServer.Game.Battle.Skill
                         AddAction(t);
                     }
                     break;
-                case Enums.TaskTypeEnum.AdventureFireProjectile:
+                case TaskTypeEnum.AdventureFireProjectile:
                     foreach (var t in task.OnProjectileHit)
                     {
                         AddAction(t);

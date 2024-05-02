@@ -24,12 +24,12 @@ namespace EggLink.DanhengServer.Proto {
     static RogueTalentInfoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVSb2d1ZVRhbGVudEluZm8ucHJvdG8aEUVQRE9BT0VFR0JELnByb3RvIjUK",
-            "D1JvZ3VlVGFsZW50SW5mbxIiCgxyb2d1ZV90YWxlbnQYBCADKAsyDC5FUERP",
-            "QU9FRUdCREIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90",
+            "ChVSb2d1ZVRhbGVudEluZm8ucHJvdG8aEVJvZ3VlVGFsZW50LnByb3RvIjUK",
+            "D1JvZ3VlVGFsZW50SW5mbxIiCgxyb2d1ZV90YWxlbnQYBCADKAsyDC5Sb2d1",
+            "ZVRhbGVudEIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90",
             "bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.EPDOAOEEGBDReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RogueTalentReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueTalentInfo), global::EggLink.DanhengServer.Proto.RogueTalentInfo.Parser, new[]{ "RogueTalent" }, null, null, null, null)
           }));
@@ -85,12 +85,12 @@ namespace EggLink.DanhengServer.Proto {
 
     /// <summary>Field number for the "rogue_talent" field.</summary>
     public const int RogueTalentFieldNumber = 4;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.EPDOAOEEGBD> _repeated_rogueTalent_codec
-        = pb::FieldCodec.ForMessage(34, global::EggLink.DanhengServer.Proto.EPDOAOEEGBD.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.EPDOAOEEGBD> rogueTalent_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.EPDOAOEEGBD>();
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.RogueTalent> _repeated_rogueTalent_codec
+        = pb::FieldCodec.ForMessage(34, global::EggLink.DanhengServer.Proto.RogueTalent.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RogueTalent> rogueTalent_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RogueTalent>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.EPDOAOEEGBD> RogueTalent {
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RogueTalent> RogueTalent {
       get { return rogueTalent_; }
     }
 

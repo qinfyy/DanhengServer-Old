@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using EggLink.DanhengServer.Command;
 using System.Runtime.InteropServices;
+using EggLink.DanhengServer.Handbook;
 
 namespace EggLink.DanhengServer.Program
 {
@@ -22,6 +23,16 @@ namespace EggLink.DanhengServer.Program
 
         public static void Main(string[] args)
         {
+            AppDomain.CurrentDomain.ProcessExit += (sender, eventArgs) => {
+                Console.WriteLine("Shutting down...");
+                PerformCleanup();
+            };
+            Console.CancelKeyPress += (sender, eventArgs) => {
+                Console.WriteLine("Cancel key pressed. Shutting down...");
+                eventArgs.Cancel = true;
+                PerformCleanup();
+                Environment.Exit(0);
+            };
             var time = DateTime.Now;
             // Initialize the logfile
             var counter = 0;
@@ -35,9 +46,11 @@ namespace EggLink.DanhengServer.Program
                     break;
                 }
             }
+
             Logger.SetLogFile(file);
             // Starting the server
             logger.Info("Starting DanhengServer...");
+
             // Load the config
             logger.Info("Loading config...");
             try
@@ -49,6 +62,7 @@ namespace EggLink.DanhengServer.Program
                 Console.ReadLine();
                 return;
             }
+
             // Load the game data
             logger.Info("Loading game data...");
             try
@@ -60,6 +74,7 @@ namespace EggLink.DanhengServer.Program
                 Console.ReadLine();
                 return;
             }
+
             // Initialize the database
             try
             {
@@ -70,6 +85,7 @@ namespace EggLink.DanhengServer.Program
                 Console.ReadLine();
                 return;
             }
+
             try
             {
                 CommandManager.RegisterCommand();
@@ -79,7 +95,10 @@ namespace EggLink.DanhengServer.Program
                 Console.ReadLine();
                 return;
             }
-            SetConsoleCtrlHandler(new ConsoleCtrlDelegate(ConsoleCtrlHandler), true);
+            
+            // generate the handbook
+            HandbookGenerator.Generate();
+
             WebProgram.Main([$"--urls=http://{GetConfig().HttpServer.PublicAddress}:{GetConfig().HttpServer.PublicPort}/"]);
             logger.Info($"Dispatch Server is running on http://{GetConfig().HttpServer.PublicAddress}:{GetConfig().HttpServer.PublicPort}/");
 
@@ -91,7 +110,10 @@ namespace EggLink.DanhengServer.Program
 #if DEBUG
             JsonConvert.DeserializeObject<JObject>(File.ReadAllText("LogMap.json"))!.Properties().ToList().ForEach(x => Connection.LogMap.Add(x.Name, x.Value.ToString()));
 #endif
-
+            if (GetConfig().ServerOption.EnableMission)
+            {
+                logger.Warn("Mission system is enabled. This is a feature that is still in development and may not work as expected. If you encounter any issues, please report them to the developers.");
+            }
             CommandManager.Start();
         }
 
@@ -100,18 +122,9 @@ namespace EggLink.DanhengServer.Program
             return ConfigManager.Config;
         }
 
-        private delegate bool ConsoleCtrlDelegate(int ctrlType);
-
-        [LibraryImport("Kernel32")]  // Windows only  try to find a way to do this on linux
-        [return: MarshalAs(UnmanagedType.Bool)]
-        private static partial bool SetConsoleCtrlHandler(ConsoleCtrlDelegate handler, [MarshalAs(UnmanagedType.Bool)] bool add);
-
-        private static bool ConsoleCtrlHandler(int ctrlType)
+        private static void PerformCleanup()
         {
-            logger.Info("Shutting down...");
             Listener.Connections.Values.ToList().ForEach(x => x.Stop());
-            Environment.Exit(0);
-            return false;
         }
     }
 }

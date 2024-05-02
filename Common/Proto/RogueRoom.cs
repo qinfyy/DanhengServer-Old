@@ -24,16 +24,16 @@ namespace EggLink.DanhengServer.Proto {
     static RogueRoomReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg9Sb2d1ZVJvb20ucHJvdG8aFVJvZ3VlUm9vbVN0YXR1cy5wcm90byKQAQoJ",
-            "Um9ndWVSb29tEhMKC0xGTkJNREZHT09DGAsgASgNEiUKC0hIQ09MS1BIQkpB",
-            "GAwgASgOMhAuUm9ndWVSb29tU3RhdHVzEg8KB3NpdGVfaWQYAiABKA0SJQoL",
-            "UEpOS0RIRUVFR0UYBSABKA4yEC5Sb2d1ZVJvb21TdGF0dXMSDwoHcm9vbV9p",
-            "ZBgHIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90",
-            "bzM="));
+            "Cg9Sb2d1ZVJvb20ucHJvdG8aFVJvZ3VlUm9vbVN0YXR1cy5wcm90byKPAQoJ",
+            "Um9ndWVSb29tEhMKC0xGTkJNREZHT09DGAsgASgNEiQKCmN1cl9zdGF0dXMY",
+            "DCABKA4yEC5Sb2d1ZVJvb21TdGF0dXMSDwoHc2l0ZV9pZBgCIAEoDRIlCgtQ",
+            "Sk5LREhFRUVHRRgFIAEoDjIQLlJvZ3VlUm9vbVN0YXR1cxIPCgdyb29tX2lk",
+            "GAcgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RogueRoomStatusReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueRoom), global::EggLink.DanhengServer.Proto.RogueRoom.Parser, new[]{ "LFNBMDFGOOC", "HHCOLKPHBJA", "SiteId", "PJNKDHEEEGE", "RoomId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueRoom), global::EggLink.DanhengServer.Proto.RogueRoom.Parser, new[]{ "LFNBMDFGOOC", "CurStatus", "SiteId", "PJNKDHEEEGE", "RoomId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -76,7 +76,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public RogueRoom(RogueRoom other) : this() {
       lFNBMDFGOOC_ = other.lFNBMDFGOOC_;
-      hHCOLKPHBJA_ = other.hHCOLKPHBJA_;
+      curStatus_ = other.curStatus_;
       siteId_ = other.siteId_;
       pJNKDHEEEGE_ = other.pJNKDHEEEGE_;
       roomId_ = other.roomId_;
@@ -101,15 +101,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "HHCOLKPHBJA" field.</summary>
-    public const int HHCOLKPHBJAFieldNumber = 12;
-    private global::EggLink.DanhengServer.Proto.RogueRoomStatus hHCOLKPHBJA_ = global::EggLink.DanhengServer.Proto.RogueRoomStatus.None;
+    /// <summary>Field number for the "cur_status" field.</summary>
+    public const int CurStatusFieldNumber = 12;
+    private global::EggLink.DanhengServer.Proto.RogueRoomStatus curStatus_ = global::EggLink.DanhengServer.Proto.RogueRoomStatus.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.RogueRoomStatus HHCOLKPHBJA {
-      get { return hHCOLKPHBJA_; }
+    public global::EggLink.DanhengServer.Proto.RogueRoomStatus CurStatus {
+      get { return curStatus_; }
       set {
-        hHCOLKPHBJA_ = value;
+        curStatus_ = value;
       }
     }
 
@@ -165,7 +165,7 @@ namespace EggLink.DanhengServer.Proto {
         return true;
       }
       if (LFNBMDFGOOC != other.LFNBMDFGOOC) return false;
-      if (HHCOLKPHBJA != other.HHCOLKPHBJA) return false;
+      if (CurStatus != other.CurStatus) return false;
       if (SiteId != other.SiteId) return false;
       if (PJNKDHEEEGE != other.PJNKDHEEEGE) return false;
       if (RoomId != other.RoomId) return false;
@@ -177,7 +177,7 @@ namespace EggLink.DanhengServer.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (LFNBMDFGOOC != 0) hash ^= LFNBMDFGOOC.GetHashCode();
-      if (HHCOLKPHBJA != global::EggLink.DanhengServer.Proto.RogueRoomStatus.None) hash ^= HHCOLKPHBJA.GetHashCode();
+      if (CurStatus != global::EggLink.DanhengServer.Proto.RogueRoomStatus.None) hash ^= CurStatus.GetHashCode();
       if (SiteId != 0) hash ^= SiteId.GetHashCode();
       if (PJNKDHEEEGE != global::EggLink.DanhengServer.Proto.RogueRoomStatus.None) hash ^= PJNKDHEEEGE.GetHashCode();
       if (RoomId != 0) hash ^= RoomId.GetHashCode();
@@ -215,9 +215,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(88);
         output.WriteUInt32(LFNBMDFGOOC);
       }
-      if (HHCOLKPHBJA != global::EggLink.DanhengServer.Proto.RogueRoomStatus.None) {
+      if (CurStatus != global::EggLink.DanhengServer.Proto.RogueRoomStatus.None) {
         output.WriteRawTag(96);
-        output.WriteEnum((int) HHCOLKPHBJA);
+        output.WriteEnum((int) CurStatus);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -245,9 +245,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(88);
         output.WriteUInt32(LFNBMDFGOOC);
       }
-      if (HHCOLKPHBJA != global::EggLink.DanhengServer.Proto.RogueRoomStatus.None) {
+      if (CurStatus != global::EggLink.DanhengServer.Proto.RogueRoomStatus.None) {
         output.WriteRawTag(96);
-        output.WriteEnum((int) HHCOLKPHBJA);
+        output.WriteEnum((int) CurStatus);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -262,8 +262,8 @@ namespace EggLink.DanhengServer.Proto {
       if (LFNBMDFGOOC != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LFNBMDFGOOC);
       }
-      if (HHCOLKPHBJA != global::EggLink.DanhengServer.Proto.RogueRoomStatus.None) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) HHCOLKPHBJA);
+      if (CurStatus != global::EggLink.DanhengServer.Proto.RogueRoomStatus.None) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) CurStatus);
       }
       if (SiteId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SiteId);
@@ -289,8 +289,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other.LFNBMDFGOOC != 0) {
         LFNBMDFGOOC = other.LFNBMDFGOOC;
       }
-      if (other.HHCOLKPHBJA != global::EggLink.DanhengServer.Proto.RogueRoomStatus.None) {
-        HHCOLKPHBJA = other.HHCOLKPHBJA;
+      if (other.CurStatus != global::EggLink.DanhengServer.Proto.RogueRoomStatus.None) {
+        CurStatus = other.CurStatus;
       }
       if (other.SiteId != 0) {
         SiteId = other.SiteId;
@@ -333,7 +333,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 96: {
-            HHCOLKPHBJA = (global::EggLink.DanhengServer.Proto.RogueRoomStatus) input.ReadEnum();
+            CurStatus = (global::EggLink.DanhengServer.Proto.RogueRoomStatus) input.ReadEnum();
             break;
           }
         }
@@ -368,7 +368,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 96: {
-            HHCOLKPHBJA = (global::EggLink.DanhengServer.Proto.RogueRoomStatus) input.ReadEnum();
+            CurStatus = (global::EggLink.DanhengServer.Proto.RogueRoomStatus) input.ReadEnum();
             break;
           }
         }

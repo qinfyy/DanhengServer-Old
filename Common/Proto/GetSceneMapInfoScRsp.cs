@@ -24,9 +24,9 @@ namespace EggLink.DanhengServer.Proto {
     static GetSceneMapInfoScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChpHZXRTY2VuZU1hcEluZm9TY1JzcC5wcm90bxoPTWF6ZUdyb3VwLnByb3Rv",
-            "GhNNYXplUHJvcFN0YXRlLnByb3RvGhJTY2VuZU1hcEluZm8ucHJvdG8aD0No",
-            "ZXN0SW5mby5wcm90byLNAgoUR2V0U2NlbmVNYXBJbmZvU2NSc3ASEAoIZW50",
+            "ChpHZXRTY2VuZU1hcEluZm9TY1JzcC5wcm90bxoTTWF6ZVByb3BTdGF0ZS5w",
+            "cm90bxoPTWF6ZUdyb3VwLnByb3RvGg9DaGVzdEluZm8ucHJvdG8aElNjZW5l",
+            "TWFwSW5mby5wcm90byLNAgoUR2V0U2NlbmVNYXBJbmZvU2NSc3ASEAoIZW50",
             "cnlfaWQYDyABKA0SEwoLSE5PSExBRkhJQUUYBSABKA0SHAoUbGlnaHRlbl9z",
             "ZWN0aW9uX2xpc3QYASADKA0SJgoObWF6ZV9wcm9wX2xpc3QYBCADKAsyDi5N",
             "YXplUHJvcFN0YXRlEh4KCmNoZXN0X2xpc3QYCiADKAsyCi5DaGVzdEluZm8S",
@@ -36,7 +36,7 @@ namespace EggLink.DanhengServer.Proto {
             "KAsyDS5TY2VuZU1hcEluZm8SDwoHcmV0Y29kZRgIIAEoDUIeqgIbRWdnTGlu",
             "ay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MazeGroupReflection.Descriptor, global::EggLink.DanhengServer.Proto.MazePropStateReflection.Descriptor, global::EggLink.DanhengServer.Proto.SceneMapInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChestInfoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MazePropStateReflection.Descriptor, global::EggLink.DanhengServer.Proto.MazeGroupReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChestInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.SceneMapInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetSceneMapInfoScRsp), global::EggLink.DanhengServer.Proto.GetSceneMapInfoScRsp.Parser, new[]{ "EntryId", "HNOHLAFHIAE", "LightenSectionList", "MazePropList", "ChestList", "UnlockTeleportList", "DEOJKHFMBHK", "MazeGroupList", "CurMapEntryId", "SceneMapInfo", "Retcode" }, null, null, null, null)
           }));

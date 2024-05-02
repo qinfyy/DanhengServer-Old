@@ -82,15 +82,15 @@ namespace EggLink.DanhengServer.Game.Battle
                 } else if (prop.Excel.IsHpRecover)
                 {
                     Player.LineupManager!.GetCurLineup()!.Heal(2000, false);
+                    Player.SendPacket(new PacketSyncLineupNotify(Player.LineupManager!.GetCurLineup()!));
                 }
+                Player.RogueManager!.GetRogueInstance()?.OnPropDestruct(prop);
             }
 
             if (targetList.Count > 0)
             {
                 if (castAvatar != null && req.SkillIndex > 0)
                 {
-                    // cost Mp
-                    Player!.LineupManager!.CostMp(req.AttackedByEntityId, 1);
                     skill.OnCast(castAvatar);
                 }
                 // Skill handle
@@ -154,6 +154,10 @@ namespace EggLink.DanhengServer.Game.Battle
                 }
 
                 battleInstance.AvatarInfo = avatarList;
+
+                // call battle start
+                Player.RogueManager!.GetRogueInstance()?.OnBattleStart(battleInstance);
+
                 Player.BattleInstance = battleInstance;
                 Player.SendPacket(new PacketSceneCastSkillScRsp(req.CastEntityId, battleInstance));
             } else
@@ -181,6 +185,22 @@ namespace EggLink.DanhengServer.Game.Battle
             {
                 WorldLevel = Player.Data.WorldLevel,
             };
+
+            var avatarList = new List<AvatarSceneInfo>();
+
+            foreach (var item in Player.LineupManager!.GetCurLineup()!.BaseAvatars!)  // get all avatars in the lineup and add them to the battle instance
+            {
+                var avatar = Player.SceneInstance!.AvatarInfo.Values.FirstOrDefault(x => x.AvatarInfo.AvatarId == item.BaseAvatarId);
+                if (avatar != null)
+                {
+                    avatarList.Add(avatar);
+                }
+            }
+
+            battleInstance.AvatarInfo = avatarList;
+
+            // call battle start
+            Player.RogueManager!.GetRogueInstance()?.OnBattleStart(battleInstance);
 
             Player.BattleInstance = battleInstance;
 
@@ -230,6 +250,19 @@ namespace EggLink.DanhengServer.Game.Battle
                 MappingInfoId = config.MappingInfoID,
             };
 
+            var avatarList = new List<AvatarSceneInfo>();
+
+            foreach (var item in Player.LineupManager!.GetCurLineup()!.BaseAvatars!)  // get all avatars in the lineup and add them to the battle instance
+            {
+                var avatar = Player.SceneInstance!.AvatarInfo.Values.FirstOrDefault(x => x.AvatarInfo.AvatarId == item.BaseAvatarId);
+                if (avatar != null)
+                {
+                    avatarList.Add(avatar);
+                }
+            }
+
+            battleInstance.AvatarInfo = avatarList;
+
             Player.BattleInstance = battleInstance;
 
             Player.SendPacket(new PacketStartCocoonStageScRsp(battleInstance, cocoonId, wave));
@@ -247,14 +280,14 @@ namespace EggLink.DanhengServer.Game.Battle
             bool updateStatus = true;
             bool teleportToAnchor = false;
             var minimumHp = 0;
-
+            var dropItems = new List<ItemData>();
             switch (req.EndStatus)
             {
                 case BattleEndStatus.BattleEndWin:
                     // Drops
                     foreach (var monster in battle.EntityMonsters)
                     {
-                        monster.Kill();
+                        dropItems.AddRange(monster.Kill(false));
                     }
                     // Spend stamina
                     if (battle.StaminaCost > 0)
@@ -314,9 +347,13 @@ namespace EggLink.DanhengServer.Game.Battle
                 }
             }
             // call battle end
-            Player.MissionManager!.OnBattleFinish(req);
+            battle.MonsterDropItems = dropItems;
 
             Player.BattleInstance = null;
+
+            Player.MissionManager!.OnBattleFinish(req);
+            Player.RogueManager!.GetRogueInstance()?.OnBattleEnd(battle, req);
+
             Player.SendPacket(new PacketPVEBattleResultScRsp(req, Player, battle));
         }
     }

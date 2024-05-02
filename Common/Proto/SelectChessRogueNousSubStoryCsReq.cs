@@ -24,15 +24,15 @@ namespace EggLink.DanhengServer.Proto {
     static SelectChessRogueNousSubStoryCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CidTZWxlY3RDaGVzc1JvZ3VlTm91c1N1YlN0b3J5Q3NSZXEucHJvdG8iaAoh",
-            "U2VsZWN0Q2hlc3NSb2d1ZU5vdXNTdWJTdG9yeUNzUmVxEhMKC09HQURPREtH",
-            "TE5MGAsgASgNEhMKC0dLQUlPR05DRE5FGAIgASgNEhkKEWRpYWxvZ3VlX2V2",
-            "ZW50X2lkGAogASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9i",
-            "BnByb3RvMw=="));
+            "CidTZWxlY3RDaGVzc1JvZ3VlTm91c1N1YlN0b3J5Q3NSZXEucHJvdG8iaQoh",
+            "U2VsZWN0Q2hlc3NSb2d1ZU5vdXNTdWJTdG9yeUNzUmVxEhQKDHN1Yl9zdG9y",
+            "eV9pZBgLIAEoDRITCgtHS0FJT0dOQ0RORRgCIAEoDRIZChFkaWFsb2d1ZV9l",
+            "dmVudF9pZBgKIAEoDUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3Rv",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SelectChessRogueNousSubStoryCsReq), global::EggLink.DanhengServer.Proto.SelectChessRogueNousSubStoryCsReq.Parser, new[]{ "OGADODKGLNL", "GKAIOGNCDNE", "DialogueEventId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SelectChessRogueNousSubStoryCsReq), global::EggLink.DanhengServer.Proto.SelectChessRogueNousSubStoryCsReq.Parser, new[]{ "SubStoryId", "GKAIOGNCDNE", "DialogueEventId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,7 +74,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SelectChessRogueNousSubStoryCsReq(SelectChessRogueNousSubStoryCsReq other) : this() {
-      oGADODKGLNL_ = other.oGADODKGLNL_;
+      subStoryId_ = other.subStoryId_;
       gKAIOGNCDNE_ = other.gKAIOGNCDNE_;
       dialogueEventId_ = other.dialogueEventId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -86,15 +86,15 @@ namespace EggLink.DanhengServer.Proto {
       return new SelectChessRogueNousSubStoryCsReq(this);
     }
 
-    /// <summary>Field number for the "OGADODKGLNL" field.</summary>
-    public const int OGADODKGLNLFieldNumber = 11;
-    private uint oGADODKGLNL_;
+    /// <summary>Field number for the "sub_story_id" field.</summary>
+    public const int SubStoryIdFieldNumber = 11;
+    private uint subStoryId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint OGADODKGLNL {
-      get { return oGADODKGLNL_; }
+    public uint SubStoryId {
+      get { return subStoryId_; }
       set {
-        oGADODKGLNL_ = value;
+        subStoryId_ = value;
       }
     }
 
@@ -137,7 +137,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (OGADODKGLNL != other.OGADODKGLNL) return false;
+      if (SubStoryId != other.SubStoryId) return false;
       if (GKAIOGNCDNE != other.GKAIOGNCDNE) return false;
       if (DialogueEventId != other.DialogueEventId) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -147,7 +147,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (OGADODKGLNL != 0) hash ^= OGADODKGLNL.GetHashCode();
+      if (SubStoryId != 0) hash ^= SubStoryId.GetHashCode();
       if (GKAIOGNCDNE != 0) hash ^= GKAIOGNCDNE.GetHashCode();
       if (DialogueEventId != 0) hash ^= DialogueEventId.GetHashCode();
       if (_unknownFields != null) {
@@ -176,9 +176,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(80);
         output.WriteUInt32(DialogueEventId);
       }
-      if (OGADODKGLNL != 0) {
+      if (SubStoryId != 0) {
         output.WriteRawTag(88);
-        output.WriteUInt32(OGADODKGLNL);
+        output.WriteUInt32(SubStoryId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -198,9 +198,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(80);
         output.WriteUInt32(DialogueEventId);
       }
-      if (OGADODKGLNL != 0) {
+      if (SubStoryId != 0) {
         output.WriteRawTag(88);
-        output.WriteUInt32(OGADODKGLNL);
+        output.WriteUInt32(SubStoryId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -212,8 +212,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (OGADODKGLNL != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OGADODKGLNL);
+      if (SubStoryId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SubStoryId);
       }
       if (GKAIOGNCDNE != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GKAIOGNCDNE);
@@ -233,8 +233,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.OGADODKGLNL != 0) {
-        OGADODKGLNL = other.OGADODKGLNL;
+      if (other.SubStoryId != 0) {
+        SubStoryId = other.SubStoryId;
       }
       if (other.GKAIOGNCDNE != 0) {
         GKAIOGNCDNE = other.GKAIOGNCDNE;
@@ -266,7 +266,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 88: {
-            OGADODKGLNL = input.ReadUInt32();
+            SubStoryId = input.ReadUInt32();
             break;
           }
         }
@@ -293,7 +293,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 88: {
-            OGADODKGLNL = input.ReadUInt32();
+            SubStoryId = input.ReadUInt32();
             break;
           }
         }

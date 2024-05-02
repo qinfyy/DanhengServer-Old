@@ -12,6 +12,7 @@ namespace EggLink.DanhengServer.Data.Excel
         public int EventID { get; set; }
         public int WorldLevel { get; set; }
         public int Reward { get; set; }
+        public int StageID { get; set; }
 
         public override int GetId()
         {

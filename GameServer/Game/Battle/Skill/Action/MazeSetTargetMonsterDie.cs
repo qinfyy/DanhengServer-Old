@@ -17,6 +17,10 @@ namespace EggLink.DanhengServer.Game.Battle.Skill.Action
                 if (entity.MonsterData.Rank < Enums.MonsterRankEnum.Elite)
                 {
                     entity.Kill();
+
+                    entity.Scene.Player.LineupManager!.CostMp(1);
+                    entity.Scene.Player.RogueManager!.GetRogueInstance()?.RollBuff(1);
+                    entity.Scene.Player.RogueManager!.GetRogueInstance()?.GainMoney(Random.Shared.Next(20, 60));
                 }
             }
         }

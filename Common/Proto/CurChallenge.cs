@@ -24,10 +24,10 @@ namespace EggLink.DanhengServer.Proto {
     static CurChallengeReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChJDdXJDaGFsbGVuZ2UucHJvdG8aFUV4dHJhTGluZXVwVHlwZS5wcm90bxoV",
-            "S2lsbE1vbnN0ZXJJbmZvLnByb3RvGhVDaGFsbGVuZ2VTdGF0dXMucHJvdG8a",
-            "EUdDR0FORE9PTE9FLnByb3RvIpoCCgxDdXJDaGFsbGVuZ2USIQoLUEJIT0pO",
-            "TEtLT0wYAyABKAsyDC5HQ0dBTkRPT0xPRRIgCgZzdGF0dXMYCyABKA4yEC5D",
+            "ChJDdXJDaGFsbGVuZ2UucHJvdG8aEUdDR0FORE9PTE9FLnByb3RvGhVFeHRy",
+            "YUxpbmV1cFR5cGUucHJvdG8aFUtpbGxNb25zdGVySW5mby5wcm90bxoVQ2hh",
+            "bGxlbmdlU3RhdHVzLnByb3RvIpoCCgxDdXJDaGFsbGVuZ2USIQoLcGxheWVy",
+            "X2luZm8YAyABKAsyDC5HQ0dBTkRPT0xPRRIgCgZzdGF0dXMYCyABKA4yEC5D",
             "aGFsbGVuZ2VTdGF0dXMSFAoMY2hhbGxlbmdlX2lkGAkgASgNEisKEWV4dHJh",
             "X2xpbmV1cF90eXBlGAEgASgOMhAuRXh0cmFMaW5ldXBUeXBlEhMKC0hQQURK",
             "SVBLR0hKGA0gASgNEhMKC0xOUE9OR0JMQk1DGAQgASgNEhMKC05JTE5NUEVC",
@@ -35,9 +35,9 @@ namespace EggLink.DanhengServer.Proto {
             "cl9pZF9saXN0GA4gAygLMhAuS2lsbE1vbnN0ZXJJbmZvQh6qAhtFZ2dMaW5r",
             "LkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ExtraLineupTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.KillMonsterInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChallengeStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.GCGANDOOLOEReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.GCGANDOOLOEReflection.Descriptor, global::EggLink.DanhengServer.Proto.ExtraLineupTypeReflection.Descriptor, global::EggLink.DanhengServer.Proto.KillMonsterInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.ChallengeStatusReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.CurChallenge), global::EggLink.DanhengServer.Proto.CurChallenge.Parser, new[]{ "PBHOJNLKKOL", "Status", "ChallengeId", "ExtraLineupType", "HPADJIPKGHJ", "LNPONGBLBMC", "NILNMPEBGCA", "ScoreId", "ArchiveMonsterIdList" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.CurChallenge), global::EggLink.DanhengServer.Proto.CurChallenge.Parser, new[]{ "PlayerInfo", "Status", "ChallengeId", "ExtraLineupType", "HPADJIPKGHJ", "LNPONGBLBMC", "NILNMPEBGCA", "ScoreId", "ArchiveMonsterIdList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -79,7 +79,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CurChallenge(CurChallenge other) : this() {
-      pBHOJNLKKOL_ = other.pBHOJNLKKOL_ != null ? other.pBHOJNLKKOL_.Clone() : null;
+      playerInfo_ = other.playerInfo_ != null ? other.playerInfo_.Clone() : null;
       status_ = other.status_;
       challengeId_ = other.challengeId_;
       extraLineupType_ = other.extraLineupType_;
@@ -97,15 +97,15 @@ namespace EggLink.DanhengServer.Proto {
       return new CurChallenge(this);
     }
 
-    /// <summary>Field number for the "PBHOJNLKKOL" field.</summary>
-    public const int PBHOJNLKKOLFieldNumber = 3;
-    private global::EggLink.DanhengServer.Proto.GCGANDOOLOE pBHOJNLKKOL_;
+    /// <summary>Field number for the "player_info" field.</summary>
+    public const int PlayerInfoFieldNumber = 3;
+    private global::EggLink.DanhengServer.Proto.GCGANDOOLOE playerInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.GCGANDOOLOE PBHOJNLKKOL {
-      get { return pBHOJNLKKOL_; }
+    public global::EggLink.DanhengServer.Proto.GCGANDOOLOE PlayerInfo {
+      get { return playerInfo_; }
       set {
-        pBHOJNLKKOL_ = value;
+        playerInfo_ = value;
       }
     }
 
@@ -219,7 +219,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(PBHOJNLKKOL, other.PBHOJNLKKOL)) return false;
+      if (!object.Equals(PlayerInfo, other.PlayerInfo)) return false;
       if (Status != other.Status) return false;
       if (ChallengeId != other.ChallengeId) return false;
       if (ExtraLineupType != other.ExtraLineupType) return false;
@@ -235,7 +235,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (pBHOJNLKKOL_ != null) hash ^= PBHOJNLKKOL.GetHashCode();
+      if (playerInfo_ != null) hash ^= PlayerInfo.GetHashCode();
       if (Status != global::EggLink.DanhengServer.Proto.ChallengeStatus.ChallengeUnknown) hash ^= Status.GetHashCode();
       if (ChallengeId != 0) hash ^= ChallengeId.GetHashCode();
       if (ExtraLineupType != global::EggLink.DanhengServer.Proto.ExtraLineupType.LineupNone) hash ^= ExtraLineupType.GetHashCode();
@@ -266,9 +266,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(8);
         output.WriteEnum((int) ExtraLineupType);
       }
-      if (pBHOJNLKKOL_ != null) {
+      if (playerInfo_ != null) {
         output.WriteRawTag(26);
-        output.WriteMessage(PBHOJNLKKOL);
+        output.WriteMessage(PlayerInfo);
       }
       if (LNPONGBLBMC != 0) {
         output.WriteRawTag(32);
@@ -309,9 +309,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(8);
         output.WriteEnum((int) ExtraLineupType);
       }
-      if (pBHOJNLKKOL_ != null) {
+      if (playerInfo_ != null) {
         output.WriteRawTag(26);
-        output.WriteMessage(PBHOJNLKKOL);
+        output.WriteMessage(PlayerInfo);
       }
       if (LNPONGBLBMC != 0) {
         output.WriteRawTag(32);
@@ -348,8 +348,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (pBHOJNLKKOL_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(PBHOJNLKKOL);
+      if (playerInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(PlayerInfo);
       }
       if (Status != global::EggLink.DanhengServer.Proto.ChallengeStatus.ChallengeUnknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
@@ -385,11 +385,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.pBHOJNLKKOL_ != null) {
-        if (pBHOJNLKKOL_ == null) {
-          PBHOJNLKKOL = new global::EggLink.DanhengServer.Proto.GCGANDOOLOE();
+      if (other.playerInfo_ != null) {
+        if (playerInfo_ == null) {
+          PlayerInfo = new global::EggLink.DanhengServer.Proto.GCGANDOOLOE();
         }
-        PBHOJNLKKOL.MergeFrom(other.PBHOJNLKKOL);
+        PlayerInfo.MergeFrom(other.PlayerInfo);
       }
       if (other.Status != global::EggLink.DanhengServer.Proto.ChallengeStatus.ChallengeUnknown) {
         Status = other.Status;
@@ -433,10 +433,10 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 26: {
-            if (pBHOJNLKKOL_ == null) {
-              PBHOJNLKKOL = new global::EggLink.DanhengServer.Proto.GCGANDOOLOE();
+            if (playerInfo_ == null) {
+              PlayerInfo = new global::EggLink.DanhengServer.Proto.GCGANDOOLOE();
             }
-            input.ReadMessage(PBHOJNLKKOL);
+            input.ReadMessage(PlayerInfo);
             break;
           }
           case 32: {
@@ -487,10 +487,10 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 26: {
-            if (pBHOJNLKKOL_ == null) {
-              PBHOJNLKKOL = new global::EggLink.DanhengServer.Proto.GCGANDOOLOE();
+            if (playerInfo_ == null) {
+              PlayerInfo = new global::EggLink.DanhengServer.Proto.GCGANDOOLOE();
             }
-            input.ReadMessage(PBHOJNLKKOL);
+            input.ReadMessage(PlayerInfo);
             break;
           }
           case 32: {

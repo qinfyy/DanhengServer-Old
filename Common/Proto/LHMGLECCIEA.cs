@@ -24,11 +24,11 @@ namespace EggLink.DanhengServer.Proto {
     static LHMGLECCIEAReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFMSE1HTEVDQ0lFQS5wcm90bxoRRUNIRkFQTU5MSUYucHJvdG8iMAoLTEhN",
-            "R0xFQ0NJRUESIQoLSkNCTVBMSUhDRkMYBCADKAsyDC5FQ0hGQVBNTkxJRkIe",
-            "qgIbRWdnTGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
+            "ChFMSE1HTEVDQ0lFQS5wcm90bxoTUm9ndWVNb2RpZmllci5wcm90byIyCgtM",
+            "SE1HTEVDQ0lFQRIjCgtKQ0JNUExJSENGQxgEIAMoCzIOLlJvZ3VlTW9kaWZp",
+            "ZXJCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ECHFAPMNLIFReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.RogueModifierReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.LHMGLECCIEA), global::EggLink.DanhengServer.Proto.LHMGLECCIEA.Parser, new[]{ "JCBMPLIHCFC" }, null, null, null, null)
           }));
@@ -84,12 +84,12 @@ namespace EggLink.DanhengServer.Proto {
 
     /// <summary>Field number for the "JCBMPLIHCFC" field.</summary>
     public const int JCBMPLIHCFCFieldNumber = 4;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.ECHFAPMNLIF> _repeated_jCBMPLIHCFC_codec
-        = pb::FieldCodec.ForMessage(34, global::EggLink.DanhengServer.Proto.ECHFAPMNLIF.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ECHFAPMNLIF> jCBMPLIHCFC_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ECHFAPMNLIF>();
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.RogueModifier> _repeated_jCBMPLIHCFC_codec
+        = pb::FieldCodec.ForMessage(34, global::EggLink.DanhengServer.Proto.RogueModifier.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RogueModifier> jCBMPLIHCFC_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RogueModifier>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.ECHFAPMNLIF> JCBMPLIHCFC {
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.RogueModifier> JCBMPLIHCFC {
       get { return jCBMPLIHCFC_; }
     }
 

@@ -24,25 +24,26 @@ namespace EggLink.DanhengServer.Proto {
     static RogueActionReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFSb2d1ZUFjdGlvbi5wcm90bxoRT01HRkFQT0FPQUgucHJvdG8aEUxNSUVP",
-            "TUFPR0dHLnByb3RvGhFGQUFNR0FOS0xQRS5wcm90bxoRT0lBQ05CQ0JHS0gu",
-            "cHJvdG8aEURQR0lFR0JJQk9MLnByb3RvGhFJRERCUEhGREJCSS5wcm90bxoR",
-            "TklEQUtQRU9EQkgucHJvdG8aH1JvZ3VlQ29tbW9uQnVmZlNlbGVjdEluZm8u",
-            "cHJvdG8aEUtNTkVISkhMQ0FOLnByb3RvGhFLTE5ORktCRUVKTi5wcm90byKH",
-            "AwoLUm9ndWVBY3Rpb24SNQoQYnVmZl9zZWxlY3RfaW5mbxi6DyABKAsyGi5S",
-            "b2d1ZUNvbW1vbkJ1ZmZTZWxlY3RJbmZvEiIKC0RJREhLQURFUElIGK0GIAEo",
-            "CzIMLkZBQU1HQU5LTFBFEiIKC0lJQ0tPTkNIRUhHGPMDIAEoCzIMLktNTkVI",
-            "SkhMQ0FOEiIKC0NPQ09MR0FCS0dGGOsOIAEoCzIMLkxNSUVPTUFPR0dHEiIK",
-            "C01DS01PTktKTEJJGP4FIAEoCzIMLk9NR0ZBUE9BT0FIEiIKC09DSkRIT0xN",
-            "S0JQGPkHIAEoCzIMLktMTk5GS0JFRUpOEiEKC1BHQ0tHSUVGR01HGFogASgL",
-            "MgwuSUREQlBIRkRCQkkSIgoLQkVNRkpKT0FFSk8YiwkgASgLMgwuTklEQUtQ",
-            "RU9EQkgSIgoLRERKUExFTU5BUE4Y2wEgASgLMgwuT0lBQ05CQ0JHS0gSIgoL",
-            "QkNOR0tQREpOQkkYuQ4gASgLMgwuRFBHSUVHQklCT0xCHqoCG0VnZ0xpbmsu",
-            "RGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
+            "ChFSb2d1ZUFjdGlvbi5wcm90bxoRS01ORUhKSExDQU4ucHJvdG8aEUZBQU1H",
+            "QU5LTFBFLnByb3RvGhFLTE5ORktCRUVKTi5wcm90bxofUm9ndWVDb21tb25C",
+            "dWZmU2VsZWN0SW5mby5wcm90bxoRTklEQUtQRU9EQkgucHJvdG8aEU9JQUNO",
+            "QkNCR0tILnByb3RvGhFPTUdGQVBPQU9BSC5wcm90bxoaUm9ndWVCb251c1Nl",
+            "bGVjdEluZm8ucHJvdG8aHFJvZ3VlTWlyYWNsZVNlbGVjdEluZm8ucHJvdG8a",
+            "EUlEREJQSEZEQkJJLnByb3RvIqkDCgtSb2d1ZUFjdGlvbhI1ChBidWZmX3Nl",
+            "bGVjdF9pbmZvGLoPIAEoCzIaLlJvZ3VlQ29tbW9uQnVmZlNlbGVjdEluZm8S",
+            "IgoLRElESEtBREVQSUgYrQYgASgLMgwuRkFBTUdBTktMUEUSIgoLSUlDS09O",
+            "Q0hFSEcY8wMgASgLMgwuS01ORUhKSExDQU4SNQoTbWlyYWNsZV9zZWxlY3Rf",
+            "aW5mbxjrDiABKAsyFy5Sb2d1ZU1pcmFjbGVTZWxlY3RJbmZvEiIKC01DS01P",
+            "TktKTEJJGP4FIAEoCzIMLk9NR0ZBUE9BT0FIEiIKC09DSkRIT0xNS0JQGPkH",
+            "IAEoCzIMLktMTk5GS0JFRUpOEiEKC1BHQ0tHSUVGR01HGFogASgLMgwuSURE",
+            "QlBIRkRCQkkSIgoLQkVNRkpKT0FFSk8YiwkgASgLMgwuTklEQUtQRU9EQkgS",
+            "IgoLRERKUExFTU5BUE4Y2wEgASgLMgwuT0lBQ05CQ0JHS0gSMQoRYm9udXNf",
+            "c2VsZWN0X2luZm8YuQ4gASgLMhUuUm9ndWVCb251c1NlbGVjdEluZm9CHqoC",
+            "G0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.OMGFAPOAOAHReflection.Descriptor, global::EggLink.DanhengServer.Proto.LMIEOMAOGGGReflection.Descriptor, global::EggLink.DanhengServer.Proto.FAAMGANKLPEReflection.Descriptor, global::EggLink.DanhengServer.Proto.OIACNBCBGKHReflection.Descriptor, global::EggLink.DanhengServer.Proto.DPGIEGBIBOLReflection.Descriptor, global::EggLink.DanhengServer.Proto.IDDBPHFDBBIReflection.Descriptor, global::EggLink.DanhengServer.Proto.NIDAKPEODBHReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueCommonBuffSelectInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.KMNEHJHLCANReflection.Descriptor, global::EggLink.DanhengServer.Proto.KLNNFKBEEJNReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.KMNEHJHLCANReflection.Descriptor, global::EggLink.DanhengServer.Proto.FAAMGANKLPEReflection.Descriptor, global::EggLink.DanhengServer.Proto.KLNNFKBEEJNReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueCommonBuffSelectInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.NIDAKPEODBHReflection.Descriptor, global::EggLink.DanhengServer.Proto.OIACNBCBGKHReflection.Descriptor, global::EggLink.DanhengServer.Proto.OMGFAPOAOAHReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueBonusSelectInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.RogueMiracleSelectInfoReflection.Descriptor, global::EggLink.DanhengServer.Proto.IDDBPHFDBBIReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueAction), global::EggLink.DanhengServer.Proto.RogueAction.Parser, new[]{ "BuffSelectInfo", "DIDHKADEPIH", "IICKONCHEHG", "COCOLGABKGF", "MCKMONKJLBI", "OCJDHOLMKBP", "PGCKGIEFGMG", "BEMFJJOAEJO", "DDJPLEMNAPN", "BCNGKPDJNBI" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueAction), global::EggLink.DanhengServer.Proto.RogueAction.Parser, new[]{ "BuffSelectInfo", "DIDHKADEPIH", "IICKONCHEHG", "MiracleSelectInfo", "MCKMONKJLBI", "OCJDHOLMKBP", "PGCKGIEFGMG", "BEMFJJOAEJO", "DDJPLEMNAPN", "BonusSelectInfo" }, null, null, null, null)
           }));
     }
     #endregion
@@ -87,13 +88,13 @@ namespace EggLink.DanhengServer.Proto {
       buffSelectInfo_ = other.buffSelectInfo_ != null ? other.buffSelectInfo_.Clone() : null;
       dIDHKADEPIH_ = other.dIDHKADEPIH_ != null ? other.dIDHKADEPIH_.Clone() : null;
       iICKONCHEHG_ = other.iICKONCHEHG_ != null ? other.iICKONCHEHG_.Clone() : null;
-      cOCOLGABKGF_ = other.cOCOLGABKGF_ != null ? other.cOCOLGABKGF_.Clone() : null;
+      miracleSelectInfo_ = other.miracleSelectInfo_ != null ? other.miracleSelectInfo_.Clone() : null;
       mCKMONKJLBI_ = other.mCKMONKJLBI_ != null ? other.mCKMONKJLBI_.Clone() : null;
       oCJDHOLMKBP_ = other.oCJDHOLMKBP_ != null ? other.oCJDHOLMKBP_.Clone() : null;
       pGCKGIEFGMG_ = other.pGCKGIEFGMG_ != null ? other.pGCKGIEFGMG_.Clone() : null;
       bEMFJJOAEJO_ = other.bEMFJJOAEJO_ != null ? other.bEMFJJOAEJO_.Clone() : null;
       dDJPLEMNAPN_ = other.dDJPLEMNAPN_ != null ? other.dDJPLEMNAPN_.Clone() : null;
-      bCNGKPDJNBI_ = other.bCNGKPDJNBI_ != null ? other.bCNGKPDJNBI_.Clone() : null;
+      bonusSelectInfo_ = other.bonusSelectInfo_ != null ? other.bonusSelectInfo_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -139,15 +140,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "COCOLGABKGF" field.</summary>
-    public const int COCOLGABKGFFieldNumber = 1899;
-    private global::EggLink.DanhengServer.Proto.LMIEOMAOGGG cOCOLGABKGF_;
+    /// <summary>Field number for the "miracle_select_info" field.</summary>
+    public const int MiracleSelectInfoFieldNumber = 1899;
+    private global::EggLink.DanhengServer.Proto.RogueMiracleSelectInfo miracleSelectInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.LMIEOMAOGGG COCOLGABKGF {
-      get { return cOCOLGABKGF_; }
+    public global::EggLink.DanhengServer.Proto.RogueMiracleSelectInfo MiracleSelectInfo {
+      get { return miracleSelectInfo_; }
       set {
-        cOCOLGABKGF_ = value;
+        miracleSelectInfo_ = value;
       }
     }
 
@@ -211,15 +212,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "BCNGKPDJNBI" field.</summary>
-    public const int BCNGKPDJNBIFieldNumber = 1849;
-    private global::EggLink.DanhengServer.Proto.DPGIEGBIBOL bCNGKPDJNBI_;
+    /// <summary>Field number for the "bonus_select_info" field.</summary>
+    public const int BonusSelectInfoFieldNumber = 1849;
+    private global::EggLink.DanhengServer.Proto.RogueBonusSelectInfo bonusSelectInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.DPGIEGBIBOL BCNGKPDJNBI {
-      get { return bCNGKPDJNBI_; }
+    public global::EggLink.DanhengServer.Proto.RogueBonusSelectInfo BonusSelectInfo {
+      get { return bonusSelectInfo_; }
       set {
-        bCNGKPDJNBI_ = value;
+        bonusSelectInfo_ = value;
       }
     }
 
@@ -241,13 +242,13 @@ namespace EggLink.DanhengServer.Proto {
       if (!object.Equals(BuffSelectInfo, other.BuffSelectInfo)) return false;
       if (!object.Equals(DIDHKADEPIH, other.DIDHKADEPIH)) return false;
       if (!object.Equals(IICKONCHEHG, other.IICKONCHEHG)) return false;
-      if (!object.Equals(COCOLGABKGF, other.COCOLGABKGF)) return false;
+      if (!object.Equals(MiracleSelectInfo, other.MiracleSelectInfo)) return false;
       if (!object.Equals(MCKMONKJLBI, other.MCKMONKJLBI)) return false;
       if (!object.Equals(OCJDHOLMKBP, other.OCJDHOLMKBP)) return false;
       if (!object.Equals(PGCKGIEFGMG, other.PGCKGIEFGMG)) return false;
       if (!object.Equals(BEMFJJOAEJO, other.BEMFJJOAEJO)) return false;
       if (!object.Equals(DDJPLEMNAPN, other.DDJPLEMNAPN)) return false;
-      if (!object.Equals(BCNGKPDJNBI, other.BCNGKPDJNBI)) return false;
+      if (!object.Equals(BonusSelectInfo, other.BonusSelectInfo)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -258,13 +259,13 @@ namespace EggLink.DanhengServer.Proto {
       if (buffSelectInfo_ != null) hash ^= BuffSelectInfo.GetHashCode();
       if (dIDHKADEPIH_ != null) hash ^= DIDHKADEPIH.GetHashCode();
       if (iICKONCHEHG_ != null) hash ^= IICKONCHEHG.GetHashCode();
-      if (cOCOLGABKGF_ != null) hash ^= COCOLGABKGF.GetHashCode();
+      if (miracleSelectInfo_ != null) hash ^= MiracleSelectInfo.GetHashCode();
       if (mCKMONKJLBI_ != null) hash ^= MCKMONKJLBI.GetHashCode();
       if (oCJDHOLMKBP_ != null) hash ^= OCJDHOLMKBP.GetHashCode();
       if (pGCKGIEFGMG_ != null) hash ^= PGCKGIEFGMG.GetHashCode();
       if (bEMFJJOAEJO_ != null) hash ^= BEMFJJOAEJO.GetHashCode();
       if (dDJPLEMNAPN_ != null) hash ^= DDJPLEMNAPN.GetHashCode();
-      if (bCNGKPDJNBI_ != null) hash ^= BCNGKPDJNBI.GetHashCode();
+      if (bonusSelectInfo_ != null) hash ^= BonusSelectInfo.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -311,13 +312,13 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(218, 72);
         output.WriteMessage(BEMFJJOAEJO);
       }
-      if (bCNGKPDJNBI_ != null) {
+      if (bonusSelectInfo_ != null) {
         output.WriteRawTag(202, 115);
-        output.WriteMessage(BCNGKPDJNBI);
+        output.WriteMessage(BonusSelectInfo);
       }
-      if (cOCOLGABKGF_ != null) {
+      if (miracleSelectInfo_ != null) {
         output.WriteRawTag(218, 118);
-        output.WriteMessage(COCOLGABKGF);
+        output.WriteMessage(MiracleSelectInfo);
       }
       if (buffSelectInfo_ != null) {
         output.WriteRawTag(210, 123);
@@ -361,13 +362,13 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(218, 72);
         output.WriteMessage(BEMFJJOAEJO);
       }
-      if (bCNGKPDJNBI_ != null) {
+      if (bonusSelectInfo_ != null) {
         output.WriteRawTag(202, 115);
-        output.WriteMessage(BCNGKPDJNBI);
+        output.WriteMessage(BonusSelectInfo);
       }
-      if (cOCOLGABKGF_ != null) {
+      if (miracleSelectInfo_ != null) {
         output.WriteRawTag(218, 118);
-        output.WriteMessage(COCOLGABKGF);
+        output.WriteMessage(MiracleSelectInfo);
       }
       if (buffSelectInfo_ != null) {
         output.WriteRawTag(210, 123);
@@ -392,8 +393,8 @@ namespace EggLink.DanhengServer.Proto {
       if (iICKONCHEHG_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(IICKONCHEHG);
       }
-      if (cOCOLGABKGF_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(COCOLGABKGF);
+      if (miracleSelectInfo_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(MiracleSelectInfo);
       }
       if (mCKMONKJLBI_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(MCKMONKJLBI);
@@ -410,8 +411,8 @@ namespace EggLink.DanhengServer.Proto {
       if (dDJPLEMNAPN_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(DDJPLEMNAPN);
       }
-      if (bCNGKPDJNBI_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(BCNGKPDJNBI);
+      if (bonusSelectInfo_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(BonusSelectInfo);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -443,11 +444,11 @@ namespace EggLink.DanhengServer.Proto {
         }
         IICKONCHEHG.MergeFrom(other.IICKONCHEHG);
       }
-      if (other.cOCOLGABKGF_ != null) {
-        if (cOCOLGABKGF_ == null) {
-          COCOLGABKGF = new global::EggLink.DanhengServer.Proto.LMIEOMAOGGG();
+      if (other.miracleSelectInfo_ != null) {
+        if (miracleSelectInfo_ == null) {
+          MiracleSelectInfo = new global::EggLink.DanhengServer.Proto.RogueMiracleSelectInfo();
         }
-        COCOLGABKGF.MergeFrom(other.COCOLGABKGF);
+        MiracleSelectInfo.MergeFrom(other.MiracleSelectInfo);
       }
       if (other.mCKMONKJLBI_ != null) {
         if (mCKMONKJLBI_ == null) {
@@ -479,11 +480,11 @@ namespace EggLink.DanhengServer.Proto {
         }
         DDJPLEMNAPN.MergeFrom(other.DDJPLEMNAPN);
       }
-      if (other.bCNGKPDJNBI_ != null) {
-        if (bCNGKPDJNBI_ == null) {
-          BCNGKPDJNBI = new global::EggLink.DanhengServer.Proto.DPGIEGBIBOL();
+      if (other.bonusSelectInfo_ != null) {
+        if (bonusSelectInfo_ == null) {
+          BonusSelectInfo = new global::EggLink.DanhengServer.Proto.RogueBonusSelectInfo();
         }
-        BCNGKPDJNBI.MergeFrom(other.BCNGKPDJNBI);
+        BonusSelectInfo.MergeFrom(other.BonusSelectInfo);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -550,17 +551,17 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 14794: {
-            if (bCNGKPDJNBI_ == null) {
-              BCNGKPDJNBI = new global::EggLink.DanhengServer.Proto.DPGIEGBIBOL();
+            if (bonusSelectInfo_ == null) {
+              BonusSelectInfo = new global::EggLink.DanhengServer.Proto.RogueBonusSelectInfo();
             }
-            input.ReadMessage(BCNGKPDJNBI);
+            input.ReadMessage(BonusSelectInfo);
             break;
           }
           case 15194: {
-            if (cOCOLGABKGF_ == null) {
-              COCOLGABKGF = new global::EggLink.DanhengServer.Proto.LMIEOMAOGGG();
+            if (miracleSelectInfo_ == null) {
+              MiracleSelectInfo = new global::EggLink.DanhengServer.Proto.RogueMiracleSelectInfo();
             }
-            input.ReadMessage(COCOLGABKGF);
+            input.ReadMessage(MiracleSelectInfo);
             break;
           }
           case 15826: {
@@ -635,17 +636,17 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 14794: {
-            if (bCNGKPDJNBI_ == null) {
-              BCNGKPDJNBI = new global::EggLink.DanhengServer.Proto.DPGIEGBIBOL();
+            if (bonusSelectInfo_ == null) {
+              BonusSelectInfo = new global::EggLink.DanhengServer.Proto.RogueBonusSelectInfo();
             }
-            input.ReadMessage(BCNGKPDJNBI);
+            input.ReadMessage(BonusSelectInfo);
             break;
           }
           case 15194: {
-            if (cOCOLGABKGF_ == null) {
-              COCOLGABKGF = new global::EggLink.DanhengServer.Proto.LMIEOMAOGGG();
+            if (miracleSelectInfo_ == null) {
+              MiracleSelectInfo = new global::EggLink.DanhengServer.Proto.RogueMiracleSelectInfo();
             }
-            input.ReadMessage(COCOLGABKGF);
+            input.ReadMessage(MiracleSelectInfo);
             break;
           }
           case 15826: {

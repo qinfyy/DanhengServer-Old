@@ -7,7 +7,6 @@ using System.Xml.Linq;
 using EggLink.DanhengServer.Util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using EggLink.DanhengServer.Data.Custom;
 
 namespace EggLink.DanhengServer.Data
@@ -21,7 +20,16 @@ namespace EggLink.DanhengServer.Data
             LoadFloorInfo();
             LoadMissionInfo();
             LoadMazeSkill();
-            LoadBanner();
+            LoadDialogueInfo();
+            GameData.ActivityConfig = LoadCustomFile<ActivityConfig>("Activity", "ActivityConfig") ?? new();
+            GameData.BannersConfig = LoadCustomFile<BannersConfig>("Banner", "Banners") ?? new();
+            GameData.RogueMapGenData = LoadCustomFile<Dictionary<int, List<int>>>("Rogue Map", "RogueMapGen") ?? [];
+            GameData.RogueMiracleGroupData = LoadCustomFile<Dictionary<int, List<int>>>("Rogue Miracle Group", "RogueMiracleGroup") ?? [];
+            GameData.RogueMiracleEffectData = LoadCustomFile<RogueMiracleEffectConfig>("Rogue Miracle Effect", "RogueMiracleEffectGen") ?? new();
+            GameData.ChessRogueLayerGenData = LoadCustomFile<Dictionary<int, Dictionary<int, List<int>>>>("Chess Rogue Layer", "ChessRogueLayerGen") ?? [];
+            GameData.ChessRogueRoomGenData = LoadCustomFile<Dictionary<int, ChessRogueRoomConfig>>("Chess Rogue Map", "ChessRogueMapGen") ?? [];
+            GameData.ChessRogueContentGenData = LoadCustomFile<Dictionary<int, List<int>>>("Chess Rogue Content", "ChessRogueContentGen") ?? [];
+            GameData.ChessRogueCellGenData = LoadCustomFile<Dictionary<int, ChessRogueCellConfig>>("Chess Rogue Cell", "ChessRogueRoomGen") ?? [];
         }
 
         public static void LoadExcel()
@@ -168,7 +176,7 @@ namespace EggLink.DanhengServer.Data
                         }
                     } catch (Exception ex)
                     {
-                        Logger.Error("Error in reading" + file.Name, ex);
+                        Logger.Error("Error in reading " + file.Name, ex);
                     }
                     if (info.Groups.Count == 0)
                     {
@@ -232,10 +240,22 @@ namespace EggLink.DanhengServer.Data
                                         subMission.PropTask = mission;
                                         subMission.Loaded(2);
                                     }
+                                } else if (subMission.FinishType == Enums.MissionFinishTypeEnum.StageWin)
+                                {
+                                    var mission = JsonConvert.DeserializeObject<SubMissionTask<StageWinTaskInfo>>(missionJson);
+                                    if (mission != null)
+                                    {
+                                        subMission.StageWinTask = mission;
+                                        subMission.Loaded(3);
+                                    }
+                                }
+                                else
+                                {
+                                    subMission.Loaded(0);
                                 }
                             } catch (Exception ex)
                             {
-                                Logger.Error("Error in reading" + missionJsonPath, ex);
+                                Logger.Error("Error in reading " + missionJsonPath, ex);
                             }
                         }
                     }
@@ -250,30 +270,50 @@ namespace EggLink.DanhengServer.Data
             Logger.Info("Loaded " + count + " mission infos.");
         }
 
-        public static void LoadBanner()
+        public static T? LoadCustomFile<T>(string filetype, string filename)
         {
-            Logger.Info("Loading banner files...");
-            FileInfo file = new(ConfigManager.Config.Path.ConfigPath + "/Banners.json");
+            Logger.Info($"Loading {filetype} files...");
+            FileInfo file = new(ConfigManager.Config.Path.ConfigPath + $"/{filename}.json");
+            T? customFile = default;
             if (!file.Exists)
             {
-                Logger.Warn($"Banner infos are missing, please check your resources folder: {ConfigManager.Config.Path.ConfigPath}/Banner.json. Banners may not work!");
-                return;
+                Logger.Warn($"Banner infos are missing, please check your resources folder: {ConfigManager.Config.Path.ConfigPath}/{filename}.json. {filetype} may not work!");
+                return customFile;
             }
             try
             {
                 using var reader = file.OpenRead();
                 using StreamReader reader2 = new(reader);
                 var text = reader2.ReadToEnd();
-                var banners = JsonConvert.DeserializeObject<BannersConfig>(text);
-                if (banners != null)
-                {
-                    GameData.BannersConfig = banners;
-                }
+                var json = JsonConvert.DeserializeObject<T>(text);
+                customFile = json;
             } catch (Exception ex)
             {
-                Logger.Error("Error in reading" + file.Name, ex);
+                Logger.Error("Error in reading " + file.Name, ex);
             }
-            Logger.Info("Loaded " + GameData.BannersConfig.Banners.Count + " banner infos.");
+
+            if (customFile is Dictionary<int, int> d)
+            {
+                Logger.Info("Loaded " + d.Count + $" {filetype}s.");
+            } else if (customFile is Dictionary<int, List<int>> di)
+            {
+                Logger.Info("Loaded " + di.Count + $" {filetype}s.");
+            } else if (customFile is BannersConfig c)
+            {
+                Logger.Info("Loaded " + c.Banners.Count + $" {filetype}s.");
+            } else if (customFile is RogueMiracleEffectConfig r)
+            {
+                Logger.Info("Loaded " + r.Miracles.Count + $" {filetype}s.");
+            } else if (customFile is ActivityConfig a)
+            {
+                Logger.Info("Loaded " + a.ScheduleData.Count + $" {filetype}s.");
+            }
+            else
+            {
+                Logger.Info("Loaded " + filetype + " file.");
+            }
+
+            return customFile;
         }
 
         public static void LoadMazeSkill()
@@ -294,7 +334,7 @@ namespace EggLink.DanhengServer.Data
                     count += skillAbilityInfo == null ? 0 : 1;
                 } catch (Exception ex)
                 {
-                    Logger.Error("Error in reading" + file.Name, ex);
+                    Logger.Error("Error in reading " + file.Name, ex);
                 }
             }
             if (count < GameData.AvatarConfigData.Count)
@@ -302,6 +342,46 @@ namespace EggLink.DanhengServer.Data
                 Logger.Warn("Maze skill infos are missing, please check your resources folder: " + ConfigManager.Config.Path.ResourcePath + "/Config/ConfigAdventureAbility/LocalPlayer. Maze skills may not work!");
             }
             Logger.Info("Loaded " + count + " maze skill infos.");
+        }
+
+        public static void LoadDialogueInfo()
+        {
+            var count = 0;
+            foreach (var dialogue in GameData.RogueNPCDialogueData)
+            {
+                var path = ConfigManager.Config.Path.ResourcePath + "/" + dialogue.Value.DialoguePath;
+                var file = new FileInfo(path);
+                if (!file.Exists) continue;
+                try
+                {
+                    using var reader = file.OpenRead();
+                    using StreamReader reader2 = new(reader);
+                    var text = reader2.ReadToEnd().Replace("$type", "Type");
+                    var dialogueInfo = JsonConvert.DeserializeObject<DialogueInfo>(text);
+                    if (dialogueInfo != null)
+                    {
+                        dialogue.Value.DialogueInfo = dialogueInfo;
+                        dialogueInfo.Loaded();
+                        if (dialogueInfo.DialogueIds.Count == 0)
+                        {
+                            // set to invalid
+                            dialogue.Value.DialogueInfo = null;
+                        }
+                        count++;
+                    }
+                } catch (Exception ex)
+                {
+                    Logger.Error("Error in reading " + file.Name, ex);
+                }
+
+            }
+
+            if (count < GameData.RogueNPCDialogueData.Count)
+            {
+                Logger.Warn("Dialogue infos are missing, please check your resources folder: " + ConfigManager.Config.Path.ResourcePath + "/Config/Level/RogueDialogue/RogueDialogueEvent. Dialogues may not work!");
+            }
+
+            Logger.Info("Loaded " + count + " dialogue infos.");
         }
     }
 }

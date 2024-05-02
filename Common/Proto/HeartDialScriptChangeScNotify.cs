@@ -24,16 +24,16 @@ namespace EggLink.DanhengServer.Proto {
     static HeartDialScriptChangeScNotifyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiNIZWFydERpYWxTY3JpcHRDaGFuZ2VTY05vdGlmeS5wcm90bxoRQkhFSERO",
-            "R09QRkIucHJvdG8aEUdNRk5ITkdMT1BHLnByb3RvGhFIUE1BRlBHTkxQSC5w",
-            "cm90bxobSGVhcnREaWFsVW5sb2NrU3RhdHVzLnByb3RvIrUBCh1IZWFydERp",
+            "CiNIZWFydERpYWxTY3JpcHRDaGFuZ2VTY05vdGlmeS5wcm90bxoRR01GTkhO",
+            "R0xPUEcucHJvdG8aG0hlYXJ0RGlhbFVubG9ja1N0YXR1cy5wcm90bxoRQkhF",
+            "SEROR09QRkIucHJvdG8aEUhQTUFGUEdOTFBILnByb3RvIrUBCh1IZWFydERp",
             "YWxTY3JpcHRDaGFuZ2VTY05vdGlmeRIrCgtFSEhORkhLT0dKSxgMIAEoDjIW",
             "LkhlYXJ0RGlhbFVubG9ja1N0YXR1cxIhCgtIQ0xPUEROTElDRBgBIAMoCzIM",
             "LkhQTUFGUEdOTFBIEiEKC0lHQlBGS09IRkRKGAsgAygLMgwuQkhFSEROR09Q",
             "RkISIQoLTUpBQ05OSEhDUFAYByADKAsyDC5HTUZOSE5HTE9QR0IeqgIbRWdn",
             "TGluay5EYW5oZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.BHEHDNGOPFBReflection.Descriptor, global::EggLink.DanhengServer.Proto.GMFNHNGLOPGReflection.Descriptor, global::EggLink.DanhengServer.Proto.HPMAFPGNLPHReflection.Descriptor, global::EggLink.DanhengServer.Proto.HeartDialUnlockStatusReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.GMFNHNGLOPGReflection.Descriptor, global::EggLink.DanhengServer.Proto.HeartDialUnlockStatusReflection.Descriptor, global::EggLink.DanhengServer.Proto.BHEHDNGOPFBReflection.Descriptor, global::EggLink.DanhengServer.Proto.HPMAFPGNLPHReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.HeartDialScriptChangeScNotify), global::EggLink.DanhengServer.Proto.HeartDialScriptChangeScNotify.Parser, new[]{ "EHHNFHKOGJK", "HCLOPDNLICD", "IGBPFKOHFDJ", "MJACNNHHCPP" }, null, null, null, null)
           }));

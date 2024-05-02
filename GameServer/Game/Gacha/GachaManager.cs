@@ -4,6 +4,7 @@ using EggLink.DanhengServer.Database.Gacha;
 using EggLink.DanhengServer.Database.Inventory;
 using EggLink.DanhengServer.Database.Message;
 using EggLink.DanhengServer.Enums;
+using EggLink.DanhengServer.Enums.Item;
 using EggLink.DanhengServer.Game.Player;
 using EggLink.DanhengServer.Proto;
 using System.Numerics;

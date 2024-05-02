@@ -16,9 +16,14 @@ namespace EggLink.DanhengServer.Database.Lineup
     public class LineupData : BaseDatabaseData
     {
         public int CurLineup { get; set; }  // index of current lineup
+        public int CurExtraLineup { get; set; } = -1;  // index of current extra lineup
         [SugarColumn(IsJson = true)]
         public Dictionary<int, LineupInfo> Lineups { get; set; } = [];  // 9 * 4
-        public int Mp { get; set; } = 5;
+
+        public int GetCurLineupIndex()
+        {
+            return CurExtraLineup == -1 ? CurLineup : CurExtraLineup;
+        }
     }
 
     public class LineupInfo
@@ -27,6 +32,7 @@ namespace EggLink.DanhengServer.Database.Lineup
         public int LineupType { get; set; }
         public int LeaderAvatarId { get; set; }
         public List<AvatarInfo>? BaseAvatars { get; set; }
+        public int Mp { get; set; } = 5;
 
         [JsonIgnore()]
         public LineupData? LineupData { get; set; }
@@ -49,15 +55,38 @@ namespace EggLink.DanhengServer.Database.Lineup
                     var avatarInfo = AvatarData?.Avatars?.Find(item => item.GetAvatarId() == avatar.BaseAvatarId);
                     if (avatarInfo != null)
                     {
-                        if (avatarInfo.CurrentHp <= 0 && !allowRevive)
+                        if (avatarInfo.GetCurHp(IsExtraLineup()) <= 0 && !allowRevive)
                         {
                             continue;
                         }
-                        if (avatarInfo.CurrentHp >= 10000)
+                        if (avatarInfo.GetCurHp(IsExtraLineup()) >= 10000)
                         {
                             continue;
                         }
-                        avatarInfo.CurrentHp = Math.Min(avatarInfo.GetCurHp(LineupType != 0) + count, 10000);
+                        avatarInfo.SetCurHp(Math.Min(avatarInfo.GetCurHp(IsExtraLineup()) + count, 10000), IsExtraLineup());
+                        result = true;
+                    }
+                }
+                DatabaseHelper.Instance?.UpdateInstance(AvatarData!);
+            }
+            return result;
+        }
+
+        public bool CostNowPercentHp(double count)
+        {
+            bool result = false;
+            if (BaseAvatars != null && AvatarData != null)
+            {
+                foreach (var avatar in BaseAvatars)
+                {
+                    var avatarInfo = AvatarData?.Avatars?.Find(item => item.GetAvatarId() == avatar.BaseAvatarId);
+                    if (avatarInfo != null)
+                    {
+                        if (avatarInfo.CurrentHp <= 0)
+                        {
+                            continue;
+                        }
+                        avatarInfo.SetCurHp((int)Math.Max(avatarInfo.GetCurHp(IsExtraLineup()) * (1 - count), 100), IsExtraLineup());
                         result = true;
                     }
                 }
@@ -77,31 +106,34 @@ namespace EggLink.DanhengServer.Database.Lineup
             {
                 Name = Name,
                 MaxMp = 5,
-                Mp = (uint)(LineupData?.Mp ?? 0),
+                Mp = (uint)Mp,
                 ExtraLineupType = (ExtraLineupType)LineupType,
                 Index = (uint)(LineupData?.Lineups?.Values.ToList().IndexOf(this) ?? 0),
             };
-            if (BaseAvatars?.Find(item => item.BaseAvatarId == LeaderAvatarId) != null)
+            if (LineupType != (int)ExtraLineupType.LineupNone)
+            {
+                info.Index = 0;
+            }
+            if (BaseAvatars?.Find(item => item.BaseAvatarId == LeaderAvatarId) != null)  // find leader,if not exist,set to 0
             {
                 info.LeaderSlot = (uint)BaseAvatars.IndexOf(BaseAvatars.Find(item => item.BaseAvatarId == LeaderAvatarId)!);
             } else
             {
                 info.LeaderSlot = 0;
             }
-            var isVirtual = true;
+
             if (BaseAvatars != null)
             {
                 foreach (var avatar in BaseAvatars)
                 {
-                    if (avatar.AssistUid != 0)
+                    if (avatar.AssistUid != 0)  // assist avatar
                     {
                         var assistPlayer = DatabaseHelper.Instance?.GetInstance<AvatarData>(avatar.AssistUid);
                         if (assistPlayer != null)
                         {
-                            info.AvatarList.Add(assistPlayer?.Avatars?.Find(item => item.GetAvatarId() == avatar.BaseAvatarId)?.ToLineupInfo(BaseAvatars.IndexOf(avatar), this, AvatarType.AvatarAssistType));
-                            isVirtual = false;
+                            info.AvatarList.Add(assistPlayer?.Avatars?.Find(item => item.GetAvatarId() == avatar.BaseAvatarId)?.ToLineupInfo(BaseAvatars.IndexOf(avatar), this, AvatarType.AvatarAssistType));  // assist avatar may not work
                         }
-                    } else if (avatar.SpecialAvatarId != 0)
+                    } else if (avatar.SpecialAvatarId != 0)  // special avatar
                     {
                         var specialAvatar = GameData.SpecialAvatarData[avatar.SpecialAvatarId];
                         if (specialAvatar != null)
@@ -109,18 +141,11 @@ namespace EggLink.DanhengServer.Database.Lineup
                             info.AvatarList.Add(specialAvatar.ToAvatarData(LineupData!.Uid).ToLineupInfo(BaseAvatars.IndexOf(avatar), this, AvatarType.AvatarTrialType));
                             info.TrialAvatarIdList.Add((uint)avatar.BaseAvatarId);
                         }
-                    } else
+                    } else  // normal avatar
                     {
                         info.AvatarList.Add(AvatarData?.Avatars?.Find(item => item.AvatarId == avatar.BaseAvatarId)?.ToLineupInfo(BaseAvatars.IndexOf(avatar), this));
-                        isVirtual = false;
                     }
                 }
-            }
-
-            if (isVirtual)
-            {
-                info.IsVirtual = true;
-                info.PlaneId = (uint)(DatabaseHelper.Instance?.GetInstance<PlayerData>(LineupData?.Uid ?? 0)?.PlaneId ?? 0);
             }
 
             return info;

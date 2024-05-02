@@ -24,12 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueNousDiceUpdateNotifyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiRDaGVzc1JvZ3VlTm91c0RpY2VVcGRhdGVOb3RpZnkucHJvdG8aEUNQRUVM",
-            "TENKQ01ELnByb3RvIkMKHkNoZXNzUm9ndWVOb3VzRGljZVVwZGF0ZU5vdGlm",
-            "eRIhCgtBSUVFRkJNRUNGTRgNIAEoCzIMLkNQRUVMTENKQ01EQh6qAhtFZ2dM",
-            "aW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "CiRDaGVzc1JvZ3VlTm91c0RpY2VVcGRhdGVOb3RpZnkucHJvdG8aHUNoZXNz",
+            "Um9ndWVRdWVyeURpY2VJbmZvLnByb3RvIk8KHkNoZXNzUm9ndWVOb3VzRGlj",
+            "ZVVwZGF0ZU5vdGlmeRItCgtBSUVFRkJNRUNGTRgNIAEoCzIYLkNoZXNzUm9n",
+            "dWVRdWVyeURpY2VJbmZvQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJv",
+            "dG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.CPEELLCJCMDReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChessRogueQueryDiceInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueNousDiceUpdateNotify), global::EggLink.DanhengServer.Proto.ChessRogueNousDiceUpdateNotify.Parser, new[]{ "AIEEFBMECFM" }, null, null, null, null)
           }));
@@ -85,10 +86,10 @@ namespace EggLink.DanhengServer.Proto {
 
     /// <summary>Field number for the "AIEEFBMECFM" field.</summary>
     public const int AIEEFBMECFMFieldNumber = 13;
-    private global::EggLink.DanhengServer.Proto.CPEELLCJCMD aIEEFBMECFM_;
+    private global::EggLink.DanhengServer.Proto.ChessRogueQueryDiceInfo aIEEFBMECFM_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.CPEELLCJCMD AIEEFBMECFM {
+    public global::EggLink.DanhengServer.Proto.ChessRogueQueryDiceInfo AIEEFBMECFM {
       get { return aIEEFBMECFM_; }
       set {
         aIEEFBMECFM_ = value;
@@ -182,7 +183,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (other.aIEEFBMECFM_ != null) {
         if (aIEEFBMECFM_ == null) {
-          AIEEFBMECFM = new global::EggLink.DanhengServer.Proto.CPEELLCJCMD();
+          AIEEFBMECFM = new global::EggLink.DanhengServer.Proto.ChessRogueQueryDiceInfo();
         }
         AIEEFBMECFM.MergeFrom(other.AIEEFBMECFM);
       }
@@ -203,7 +204,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           case 106: {
             if (aIEEFBMECFM_ == null) {
-              AIEEFBMECFM = new global::EggLink.DanhengServer.Proto.CPEELLCJCMD();
+              AIEEFBMECFM = new global::EggLink.DanhengServer.Proto.ChessRogueQueryDiceInfo();
             }
             input.ReadMessage(AIEEFBMECFM);
             break;
@@ -225,7 +226,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           case 106: {
             if (aIEEFBMECFM_ == null) {
-              AIEEFBMECFM = new global::EggLink.DanhengServer.Proto.CPEELLCJCMD();
+              AIEEFBMECFM = new global::EggLink.DanhengServer.Proto.ChessRogueQueryDiceInfo();
             }
             input.ReadMessage(AIEEFBMECFM);
             break;

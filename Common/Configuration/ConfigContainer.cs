@@ -15,8 +15,6 @@ namespace EggLink.DanhengServer.Configuration
 
     public class HttpServerConfig
     {
-        public string BindAddress { get; set; } = "127.0.0.1";
-        public int Port { get; set; } = 443;
         public string PublicAddress { get; set; } = "127.0.0.1";
         public int PublicPort { get; set; } = 443;
         public bool UseSSL { get; set; } = true;
@@ -34,8 +32,6 @@ namespace EggLink.DanhengServer.Configuration
 
     public class GameServerConfig
     {
-        public string BindAddress { get; set; } = "127.0.0.1";
-        public int Port { get; set; } = 23301;
         public string PublicAddress { get; set; } = "127.0.0.1";
         public uint PublicPort { get; set; } = 23301;
         public string GameServerId { get; set; } = "dan_heng";
@@ -62,6 +58,8 @@ namespace EggLink.DanhengServer.Configuration
     {
         public int StartTrailblazerLevel { get; set; } = 1;
         public bool AutoUpgradeWorldLevel { get; set; } = true;
+        public bool EnableMission { get; set; } = true;  // experimental
+        public bool AutoLightSection { get; set; } = true;
         public string Language { get; set; } = "EN";
         public List<string> DefaultPermissions { get; set; } = ["*"];
         public ServerProfile ServerProfile { get; set; } = new ServerProfile();

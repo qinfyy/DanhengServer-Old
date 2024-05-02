@@ -19,6 +19,7 @@ namespace EggLink.DanhengServer.Game.Battle
         public int MappingInfoId { get; set; }
         public int RoundLimit { get; set; }
         public int StageId { get; set; } = stages.Count > 0 ? stages[0].StageID : 0;  // Set to 0 when hit monster
+        public int CustomLevel { get; set; }
         public BattleEndStatus BattleEndStatus { get; set; }
 
         public List<ItemData> MonsterDropItems { get; set; } = [];
@@ -28,6 +29,7 @@ namespace EggLink.DanhengServer.Game.Battle
         public List<EntityMonster> EntityMonsters { get; set; } = [];
         public List<AvatarSceneInfo> AvatarInfo { get; set; } = [];
         public List<MazeBuff> Buffs { get; set; } = [];
+        public Dictionary<int, BattleEventInstance> BattleEvents { get; set; } = [];
 
         public BattleInstance(PlayerInstance player, Database.Lineup.LineupInfo lineup, List<EntityMonster> monsters) : this(player, lineup, new List<StageConfigExcel>())
         {
@@ -69,7 +71,15 @@ namespace EggLink.DanhengServer.Game.Battle
 
             foreach (var wave in Stages)
             {
-                proto.MonsterWaveList.Add(wave.ToProto());
+                var protoWave = wave.ToProto();
+                if (CustomLevel > 0)
+                {
+                    foreach (var item in protoWave)
+                    {
+                        item.MonsterParam.Level = (uint)CustomLevel;
+                    }
+                }
+                proto.MonsterWaveList.AddRange(protoWave);
             }
 
             foreach (var avatar in Lineup.BaseAvatars!)
@@ -109,6 +119,11 @@ namespace EggLink.DanhengServer.Game.Battle
             foreach (var avatar in AvatarInfo)
             {
                 avatar.ApplyBuff(this);
+            }
+
+            foreach (var eventInstance in BattleEvents.Values)
+            {
+                proto.BattleEvent.Add(eventInstance.ToProto());
             }
 
             proto.BuffList.AddRange(Buffs.Select(buff => buff.ToProto(this)));

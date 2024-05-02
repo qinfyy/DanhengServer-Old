@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueQueryAeonDimensionsScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CihDaGVzc1JvZ3VlUXVlcnlBZW9uRGltZW5zaW9uc1NjUnNwLnByb3RvGhFQ",
-            "QkhDRkhKSEdOSy5wcm90byJRCiJDaGVzc1JvZ3VlUXVlcnlBZW9uRGltZW5z",
-            "aW9uc1NjUnNwEg8KB3JldGNvZGUYAiABKA0SGgoEaW5mbxgDIAEoCzIMLlBC",
-            "SENGSEpIR05LQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnBy",
-            "b3RvMw=="));
+            "CihDaGVzc1JvZ3VlUXVlcnlBZW9uRGltZW5zaW9uc1NjUnNwLnByb3RvGh1D",
+            "aGVzc1JvZ3VlUXVlcnlBZW9uSW5mby5wcm90byJdCiJDaGVzc1JvZ3VlUXVl",
+            "cnlBZW9uRGltZW5zaW9uc1NjUnNwEg8KB3JldGNvZGUYAiABKA0SJgoEaW5m",
+            "bxgDIAEoCzIYLkNoZXNzUm9ndWVRdWVyeUFlb25JbmZvQh6qAhtFZ2dMaW5r",
+            "LkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.PBHCFHJHGNKReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChessRogueQueryAeonInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueQueryAeonDimensionsScRsp), global::EggLink.DanhengServer.Proto.ChessRogueQueryAeonDimensionsScRsp.Parser, new[]{ "Retcode", "Info" }, null, null, null, null)
           }));
@@ -99,10 +99,10 @@ namespace EggLink.DanhengServer.Proto {
 
     /// <summary>Field number for the "info" field.</summary>
     public const int InfoFieldNumber = 3;
-    private global::EggLink.DanhengServer.Proto.PBHCFHJHGNK info_;
+    private global::EggLink.DanhengServer.Proto.ChessRogueQueryAeonInfo info_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.PBHCFHJHGNK Info {
+    public global::EggLink.DanhengServer.Proto.ChessRogueQueryAeonInfo Info {
       get { return info_; }
       set {
         info_ = value;
@@ -212,7 +212,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (other.info_ != null) {
         if (info_ == null) {
-          Info = new global::EggLink.DanhengServer.Proto.PBHCFHJHGNK();
+          Info = new global::EggLink.DanhengServer.Proto.ChessRogueQueryAeonInfo();
         }
         Info.MergeFrom(other.Info);
       }
@@ -237,7 +237,7 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 26: {
             if (info_ == null) {
-              Info = new global::EggLink.DanhengServer.Proto.PBHCFHJHGNK();
+              Info = new global::EggLink.DanhengServer.Proto.ChessRogueQueryAeonInfo();
             }
             input.ReadMessage(Info);
             break;
@@ -263,7 +263,7 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 26: {
             if (info_ == null) {
-              Info = new global::EggLink.DanhengServer.Proto.PBHCFHJHGNK();
+              Info = new global::EggLink.DanhengServer.Proto.ChessRogueQueryAeonInfo();
             }
             input.ReadMessage(Info);
             break;

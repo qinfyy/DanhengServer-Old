@@ -1,4 +1,4 @@
-﻿using EggLink.DanhengServer.Enums;
+﻿using EggLink.DanhengServer.Enums.Scene;
 using Newtonsoft.Json.Converters;
 using System.Text.Json.Serialization;
 

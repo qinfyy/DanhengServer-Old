@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static ODFIGNMADIFReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFPREZJR05NQURJRi5wcm90bxoRRExCRkxGT0pJTUUucHJvdG8iRQoLT0RG",
-            "SUdOTUFESUYSEwoLQU5LQ0xCR0RLSEUYBiABKA0SIQoLSkhPQ01DUE9FTkIY",
-            "DCADKAsyDC5ETEJGTEZPSklNRUIeqgIbRWdnTGluay5EYW5oZW5nU2VydmVy",
-            "LlByb3RvYgZwcm90bzM="));
+            "ChFPREZJR05NQURJRi5wcm90bxoOQ2VsbEluZm8ucHJvdG8iQAoLT0RGSUdO",
+            "TUFESUYSEwoLQU5LQ0xCR0RLSEUYBiABKA0SHAoJY2VsbF9saXN0GAwgAygL",
+            "MgkuQ2VsbEluZm9CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.DLBFLFOJIMEReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.CellInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ODFIGNMADIF), global::EggLink.DanhengServer.Proto.ODFIGNMADIF.Parser, new[]{ "ANKCLBGDKHE", "JHOCMCPOENB" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ODFIGNMADIF), global::EggLink.DanhengServer.Proto.ODFIGNMADIF.Parser, new[]{ "ANKCLBGDKHE", "CellList" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,7 +74,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ODFIGNMADIF(ODFIGNMADIF other) : this() {
       aNKCLBGDKHE_ = other.aNKCLBGDKHE_;
-      jHOCMCPOENB_ = other.jHOCMCPOENB_.Clone();
+      cellList_ = other.cellList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -96,15 +96,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "JHOCMCPOENB" field.</summary>
-    public const int JHOCMCPOENBFieldNumber = 12;
-    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.DLBFLFOJIME> _repeated_jHOCMCPOENB_codec
-        = pb::FieldCodec.ForMessage(98, global::EggLink.DanhengServer.Proto.DLBFLFOJIME.Parser);
-    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DLBFLFOJIME> jHOCMCPOENB_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DLBFLFOJIME>();
+    /// <summary>Field number for the "cell_list" field.</summary>
+    public const int CellListFieldNumber = 12;
+    private static readonly pb::FieldCodec<global::EggLink.DanhengServer.Proto.CellInfo> _repeated_cellList_codec
+        = pb::FieldCodec.ForMessage(98, global::EggLink.DanhengServer.Proto.CellInfo.Parser);
+    private readonly pbc::RepeatedField<global::EggLink.DanhengServer.Proto.CellInfo> cellList_ = new pbc::RepeatedField<global::EggLink.DanhengServer.Proto.CellInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.DLBFLFOJIME> JHOCMCPOENB {
-      get { return jHOCMCPOENB_; }
+    public pbc::RepeatedField<global::EggLink.DanhengServer.Proto.CellInfo> CellList {
+      get { return cellList_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -123,7 +123,7 @@ namespace EggLink.DanhengServer.Proto {
         return true;
       }
       if (ANKCLBGDKHE != other.ANKCLBGDKHE) return false;
-      if(!jHOCMCPOENB_.Equals(other.jHOCMCPOENB_)) return false;
+      if(!cellList_.Equals(other.cellList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -132,7 +132,7 @@ namespace EggLink.DanhengServer.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (ANKCLBGDKHE != 0) hash ^= ANKCLBGDKHE.GetHashCode();
-      hash ^= jHOCMCPOENB_.GetHashCode();
+      hash ^= cellList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -155,7 +155,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(48);
         output.WriteUInt32(ANKCLBGDKHE);
       }
-      jHOCMCPOENB_.WriteTo(output, _repeated_jHOCMCPOENB_codec);
+      cellList_.WriteTo(output, _repeated_cellList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -170,7 +170,7 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(48);
         output.WriteUInt32(ANKCLBGDKHE);
       }
-      jHOCMCPOENB_.WriteTo(ref output, _repeated_jHOCMCPOENB_codec);
+      cellList_.WriteTo(ref output, _repeated_cellList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -184,7 +184,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ANKCLBGDKHE != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ANKCLBGDKHE);
       }
-      size += jHOCMCPOENB_.CalculateSize(_repeated_jHOCMCPOENB_codec);
+      size += cellList_.CalculateSize(_repeated_cellList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -200,7 +200,7 @@ namespace EggLink.DanhengServer.Proto {
       if (other.ANKCLBGDKHE != 0) {
         ANKCLBGDKHE = other.ANKCLBGDKHE;
       }
-      jHOCMCPOENB_.Add(other.jHOCMCPOENB_);
+      cellList_.Add(other.cellList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -221,7 +221,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 98: {
-            jHOCMCPOENB_.AddEntriesFrom(input, _repeated_jHOCMCPOENB_codec);
+            cellList_.AddEntriesFrom(input, _repeated_cellList_codec);
             break;
           }
         }
@@ -244,7 +244,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 98: {
-            jHOCMCPOENB_.AddEntriesFrom(ref input, _repeated_jHOCMCPOENB_codec);
+            cellList_.AddEntriesFrom(ref input, _repeated_cellList_codec);
             break;
           }
         }

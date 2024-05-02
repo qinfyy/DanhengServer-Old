@@ -24,14 +24,15 @@ namespace EggLink.DanhengServer.Proto {
     static SyncChessRogueNousValueScNotifyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiVTeW5jQ2hlc3NSb2d1ZU5vdXNWYWx1ZVNjTm90aWZ5LnByb3RvGhFEREFP",
-            "TERDUE1ESS5wcm90byJECh9TeW5jQ2hlc3NSb2d1ZU5vdXNWYWx1ZVNjTm90",
-            "aWZ5EiEKC0tCT0RCRERNREVLGAEgASgLMgwuRERBT0xEQ1BNRElCHqoCG0Vn",
-            "Z0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
+            "CiVTeW5jQ2hlc3NSb2d1ZU5vdXNWYWx1ZVNjTm90aWZ5LnByb3RvGhlDaGVz",
+            "c1JvZ3VlTm91c1ZhbHVlLnByb3RvIksKH1N5bmNDaGVzc1JvZ3VlTm91c1Zh",
+            "bHVlU2NOb3RpZnkSKAoKbm91c192YWx1ZRgBIAEoCzIULkNoZXNzUm9ndWVO",
+            "b3VzVmFsdWVCHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJv",
+            "dG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.DDAOLDCPMDIReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChessRogueNousValueReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SyncChessRogueNousValueScNotify), global::EggLink.DanhengServer.Proto.SyncChessRogueNousValueScNotify.Parser, new[]{ "KBODBDDMDEK" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.SyncChessRogueNousValueScNotify), global::EggLink.DanhengServer.Proto.SyncChessRogueNousValueScNotify.Parser, new[]{ "NousValue" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +74,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SyncChessRogueNousValueScNotify(SyncChessRogueNousValueScNotify other) : this() {
-      kBODBDDMDEK_ = other.kBODBDDMDEK_ != null ? other.kBODBDDMDEK_.Clone() : null;
+      nousValue_ = other.nousValue_ != null ? other.nousValue_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -83,15 +84,15 @@ namespace EggLink.DanhengServer.Proto {
       return new SyncChessRogueNousValueScNotify(this);
     }
 
-    /// <summary>Field number for the "KBODBDDMDEK" field.</summary>
-    public const int KBODBDDMDEKFieldNumber = 1;
-    private global::EggLink.DanhengServer.Proto.DDAOLDCPMDI kBODBDDMDEK_;
+    /// <summary>Field number for the "nous_value" field.</summary>
+    public const int NousValueFieldNumber = 1;
+    private global::EggLink.DanhengServer.Proto.ChessRogueNousValue nousValue_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.DDAOLDCPMDI KBODBDDMDEK {
-      get { return kBODBDDMDEK_; }
+    public global::EggLink.DanhengServer.Proto.ChessRogueNousValue NousValue {
+      get { return nousValue_; }
       set {
-        kBODBDDMDEK_ = value;
+        nousValue_ = value;
       }
     }
 
@@ -110,7 +111,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(KBODBDDMDEK, other.KBODBDDMDEK)) return false;
+      if (!object.Equals(NousValue, other.NousValue)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -118,7 +119,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (kBODBDDMDEK_ != null) hash ^= KBODBDDMDEK.GetHashCode();
+      if (nousValue_ != null) hash ^= NousValue.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -137,9 +138,9 @@ namespace EggLink.DanhengServer.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (kBODBDDMDEK_ != null) {
+      if (nousValue_ != null) {
         output.WriteRawTag(10);
-        output.WriteMessage(KBODBDDMDEK);
+        output.WriteMessage(NousValue);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -151,9 +152,9 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (kBODBDDMDEK_ != null) {
+      if (nousValue_ != null) {
         output.WriteRawTag(10);
-        output.WriteMessage(KBODBDDMDEK);
+        output.WriteMessage(NousValue);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -165,8 +166,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (kBODBDDMDEK_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(KBODBDDMDEK);
+      if (nousValue_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(NousValue);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -180,11 +181,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.kBODBDDMDEK_ != null) {
-        if (kBODBDDMDEK_ == null) {
-          KBODBDDMDEK = new global::EggLink.DanhengServer.Proto.DDAOLDCPMDI();
+      if (other.nousValue_ != null) {
+        if (nousValue_ == null) {
+          NousValue = new global::EggLink.DanhengServer.Proto.ChessRogueNousValue();
         }
-        KBODBDDMDEK.MergeFrom(other.KBODBDDMDEK);
+        NousValue.MergeFrom(other.NousValue);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -202,10 +203,10 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            if (kBODBDDMDEK_ == null) {
-              KBODBDDMDEK = new global::EggLink.DanhengServer.Proto.DDAOLDCPMDI();
+            if (nousValue_ == null) {
+              NousValue = new global::EggLink.DanhengServer.Proto.ChessRogueNousValue();
             }
-            input.ReadMessage(KBODBDDMDEK);
+            input.ReadMessage(NousValue);
             break;
           }
         }
@@ -224,10 +225,10 @@ namespace EggLink.DanhengServer.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            if (kBODBDDMDEK_ == null) {
-              KBODBDDMDEK = new global::EggLink.DanhengServer.Proto.DDAOLDCPMDI();
+            if (nousValue_ == null) {
+              NousValue = new global::EggLink.DanhengServer.Proto.ChessRogueNousValue();
             }
-            input.ReadMessage(KBODBDDMDEK);
+            input.ReadMessage(NousValue);
             break;
           }
         }

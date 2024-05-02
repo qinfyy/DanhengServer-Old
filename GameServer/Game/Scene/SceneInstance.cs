@@ -4,7 +4,9 @@ using EggLink.DanhengServer.Data.Excel;
 using EggLink.DanhengServer.Database;
 using EggLink.DanhengServer.Database.Avatar;
 using EggLink.DanhengServer.Game.Battle;
+using EggLink.DanhengServer.Game.ChessRogue.Cell;
 using EggLink.DanhengServer.Game.Player;
+using EggLink.DanhengServer.Game.Rogue.Scene;
 using EggLink.DanhengServer.Game.Scene.Entity;
 using EggLink.DanhengServer.Proto;
 using EggLink.DanhengServer.Server.Packet;
@@ -35,6 +37,8 @@ namespace EggLink.DanhengServer.Game.Scene
 
         public SceneEntityLoader? EntityLoader;
 
+        public int CustomGameModeId = 0;
+
         public SceneInstance(PlayerInstance player, MazePlaneExcel excel, int floorId, int entryId)
         {
             Player = player;
@@ -50,6 +54,16 @@ namespace EggLink.DanhengServer.Game.Scene
 
             switch (Excel.PlaneType)
             {
+                case Enums.Scene.PlaneTypeEnum.Rogue:
+                    if (Player.ChessRogueManager!.RogueInstance != null)
+                    {
+                        EntityLoader = new ChessRogueEntityLoader(this);
+                        CustomGameModeId = 16;
+                    } else
+                    {
+                        EntityLoader = new RogueEntityLoader(this, Player);
+                    }
+                    break;
                 default:
                     EntityLoader = new(this);
                     break;
@@ -73,9 +87,14 @@ namespace EggLink.DanhengServer.Game.Scene
             {
                 if (avatar == null) continue;
                 avatar.AvatarInfo.PlayerData = Player.Data;
-                if (forceSetEntityId)
+                if (forceSetEntityId && avatar.AvatarInfo.EntityId != 0)
                 {
-                    avatar.AvatarInfo.EntityId = ++LastEntityId;
+                    RemoveAvatar.Add(new AvatarSceneInfo(new()
+                    {
+                        EntityId = avatar.AvatarInfo.EntityId,
+                    }, AvatarType.AvatarFormalType, Player));
+                    avatar.AvatarInfo.EntityId = 0;
+                    sendPacket = true;
                 }
                 var avatarInstance = oldAvatarInfo.Find(x => x.AvatarInfo.AvatarId == avatar.AvatarInfo.AvatarId);
                 if (avatarInstance == null)
@@ -96,8 +115,11 @@ namespace EggLink.DanhengServer.Game.Scene
             {
                 if (AvatarInfo.Values.ToList().FindIndex(x => x.AvatarInfo.AvatarId == avatar.AvatarInfo.AvatarId) == -1)
                 {
+                    RemoveAvatar.Add(new AvatarSceneInfo(new()
+                    {
+                        EntityId = avatar.AvatarInfo.EntityId,
+                    }, AvatarType.AvatarFormalType, Player));
                     avatar.AvatarInfo.EntityId = 0;
-                    RemoveAvatar.Add(avatar);
                     sendPacket = true;
                 }
             }
@@ -201,7 +223,7 @@ namespace EggLink.DanhengServer.Game.Scene
             SceneInfo sceneInfo = new()
             {
                 WorldId = (uint)Excel.WorldID,
-                GameModeType = (uint)Excel.PlaneType,
+                GameModeType = (uint)(CustomGameModeId > 0 ? CustomGameModeId : (int)Excel.PlaneType),
                 PlaneId = (uint)PlaneId,
                 FloorId = (uint)FloorId,
                 EntryId = (uint)EntryId,
@@ -261,12 +283,21 @@ namespace EggLink.DanhengServer.Game.Scene
             }
 
             // unlock section
-            Player.SceneData!.UnlockSectionIdList.TryGetValue(FloorId, out var unlockSectionList);
-            if (unlockSectionList != null)
+            if (!ConfigManager.Config.ServerOption.AutoLightSection)
             {
-                foreach (var sectionId in unlockSectionList)
+                Player.SceneData!.UnlockSectionIdList.TryGetValue(FloorId, out var unlockSectionList);
+                if (unlockSectionList != null)
                 {
-                    sceneInfo.LightenSectionList.Add((uint)sectionId);
+                    foreach (var sectionId in unlockSectionList)
+                    {
+                        sceneInfo.LightenSectionList.Add((uint)sectionId);
+                    }
+                }
+            } else
+            {
+                for (uint i = 1; i <= 100; i++)
+                {
+                    sceneInfo.LightenSectionList.Add(i);
                 }
             }
 

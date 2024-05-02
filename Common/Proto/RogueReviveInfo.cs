@@ -26,13 +26,13 @@ namespace EggLink.DanhengServer.Proto {
           string.Concat(
             "ChVSb2d1ZVJldml2ZUluZm8ucHJvdG8aEkl0ZW1Db3N0RGF0YS5wcm90byJ0",
             "Cg9Sb2d1ZVJldml2ZUluZm8SEwoLSUhDQUtGRkxMUFAYCiABKA0SEwoLTUJI",
-            "RUtGQU9ORUIYBiADKA0SIgoLTE1MRUFFUExBUE4YDCABKAsyDS5JdGVtQ29z",
+            "RUtGQU9ORUIYBiADKA0SIgoLcmV2aXZlX2Nvc3QYDCABKAsyDS5JdGVtQ29z",
             "dERhdGESEwoLTElFUERIRk1GQ0cYASABKA1CHqoCG0VnZ0xpbmsuRGFuaGVu",
             "Z1NlcnZlci5Qcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ItemCostDataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueReviveInfo), global::EggLink.DanhengServer.Proto.RogueReviveInfo.Parser, new[]{ "IHCAKFFLLPP", "MBHEKFAONEB", "LMLEAEPLAPN", "LIEPDHFMFCG" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.RogueReviveInfo), global::EggLink.DanhengServer.Proto.RogueReviveInfo.Parser, new[]{ "IHCAKFFLLPP", "MBHEKFAONEB", "ReviveCost", "LIEPDHFMFCG" }, null, null, null, null)
           }));
     }
     #endregion
@@ -76,7 +76,7 @@ namespace EggLink.DanhengServer.Proto {
     public RogueReviveInfo(RogueReviveInfo other) : this() {
       iHCAKFFLLPP_ = other.iHCAKFFLLPP_;
       mBHEKFAONEB_ = other.mBHEKFAONEB_.Clone();
-      lMLEAEPLAPN_ = other.lMLEAEPLAPN_ != null ? other.lMLEAEPLAPN_.Clone() : null;
+      reviveCost_ = other.reviveCost_ != null ? other.reviveCost_.Clone() : null;
       lIEPDHFMFCG_ = other.lIEPDHFMFCG_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -110,15 +110,15 @@ namespace EggLink.DanhengServer.Proto {
       get { return mBHEKFAONEB_; }
     }
 
-    /// <summary>Field number for the "LMLEAEPLAPN" field.</summary>
-    public const int LMLEAEPLAPNFieldNumber = 12;
-    private global::EggLink.DanhengServer.Proto.ItemCostData lMLEAEPLAPN_;
+    /// <summary>Field number for the "revive_cost" field.</summary>
+    public const int ReviveCostFieldNumber = 12;
+    private global::EggLink.DanhengServer.Proto.ItemCostData reviveCost_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.ItemCostData LMLEAEPLAPN {
-      get { return lMLEAEPLAPN_; }
+    public global::EggLink.DanhengServer.Proto.ItemCostData ReviveCost {
+      get { return reviveCost_; }
       set {
-        lMLEAEPLAPN_ = value;
+        reviveCost_ = value;
       }
     }
 
@@ -151,7 +151,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (IHCAKFFLLPP != other.IHCAKFFLLPP) return false;
       if(!mBHEKFAONEB_.Equals(other.mBHEKFAONEB_)) return false;
-      if (!object.Equals(LMLEAEPLAPN, other.LMLEAEPLAPN)) return false;
+      if (!object.Equals(ReviveCost, other.ReviveCost)) return false;
       if (LIEPDHFMFCG != other.LIEPDHFMFCG) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -162,7 +162,7 @@ namespace EggLink.DanhengServer.Proto {
       int hash = 1;
       if (IHCAKFFLLPP != 0) hash ^= IHCAKFFLLPP.GetHashCode();
       hash ^= mBHEKFAONEB_.GetHashCode();
-      if (lMLEAEPLAPN_ != null) hash ^= LMLEAEPLAPN.GetHashCode();
+      if (reviveCost_ != null) hash ^= ReviveCost.GetHashCode();
       if (LIEPDHFMFCG != 0) hash ^= LIEPDHFMFCG.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -191,9 +191,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(80);
         output.WriteUInt32(IHCAKFFLLPP);
       }
-      if (lMLEAEPLAPN_ != null) {
+      if (reviveCost_ != null) {
         output.WriteRawTag(98);
-        output.WriteMessage(LMLEAEPLAPN);
+        output.WriteMessage(ReviveCost);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -214,9 +214,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(80);
         output.WriteUInt32(IHCAKFFLLPP);
       }
-      if (lMLEAEPLAPN_ != null) {
+      if (reviveCost_ != null) {
         output.WriteRawTag(98);
-        output.WriteMessage(LMLEAEPLAPN);
+        output.WriteMessage(ReviveCost);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -232,8 +232,8 @@ namespace EggLink.DanhengServer.Proto {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(IHCAKFFLLPP);
       }
       size += mBHEKFAONEB_.CalculateSize(_repeated_mBHEKFAONEB_codec);
-      if (lMLEAEPLAPN_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(LMLEAEPLAPN);
+      if (reviveCost_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ReviveCost);
       }
       if (LIEPDHFMFCG != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LIEPDHFMFCG);
@@ -254,11 +254,11 @@ namespace EggLink.DanhengServer.Proto {
         IHCAKFFLLPP = other.IHCAKFFLLPP;
       }
       mBHEKFAONEB_.Add(other.mBHEKFAONEB_);
-      if (other.lMLEAEPLAPN_ != null) {
-        if (lMLEAEPLAPN_ == null) {
-          LMLEAEPLAPN = new global::EggLink.DanhengServer.Proto.ItemCostData();
+      if (other.reviveCost_ != null) {
+        if (reviveCost_ == null) {
+          ReviveCost = new global::EggLink.DanhengServer.Proto.ItemCostData();
         }
-        LMLEAEPLAPN.MergeFrom(other.LMLEAEPLAPN);
+        ReviveCost.MergeFrom(other.ReviveCost);
       }
       if (other.LIEPDHFMFCG != 0) {
         LIEPDHFMFCG = other.LIEPDHFMFCG;
@@ -292,10 +292,10 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 98: {
-            if (lMLEAEPLAPN_ == null) {
-              LMLEAEPLAPN = new global::EggLink.DanhengServer.Proto.ItemCostData();
+            if (reviveCost_ == null) {
+              ReviveCost = new global::EggLink.DanhengServer.Proto.ItemCostData();
             }
-            input.ReadMessage(LMLEAEPLAPN);
+            input.ReadMessage(ReviveCost);
             break;
           }
         }
@@ -327,10 +327,10 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 98: {
-            if (lMLEAEPLAPN_ == null) {
-              LMLEAEPLAPN = new global::EggLink.DanhengServer.Proto.ItemCostData();
+            if (reviveCost_ == null) {
+              ReviveCost = new global::EggLink.DanhengServer.Proto.ItemCostData();
             }
-            input.ReadMessage(LMLEAEPLAPN);
+            input.ReadMessage(ReviveCost);
             break;
           }
         }

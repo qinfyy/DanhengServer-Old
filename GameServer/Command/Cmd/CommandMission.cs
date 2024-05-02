@@ -2,7 +2,7 @@
 
 namespace EggLink.DanhengServer.Command.Cmd
 {
-    [CommandInfo("mission", "Manage the missions", "/mission <pass>")]
+    [CommandInfo("mission", "Get the running missions or finish the mission", "/mission <finish [submissionId]>/<running>")]
     public class CommandMission : ICommand
     {
         [CommandMethod("0 pass")]
@@ -40,7 +40,7 @@ namespace EggLink.DanhengServer.Command.Cmd
             }
 
             var mission = arg.Target!.Player!.MissionManager!;
-            //mission.AcceptSubMission(missionId);
+            //mission.AcceptSubMission(missionId);  // if not accepted, the mission will not be finished
             mission.FinishSubMission(missionId);
             arg.SendMsg("Finish mission.");
         }

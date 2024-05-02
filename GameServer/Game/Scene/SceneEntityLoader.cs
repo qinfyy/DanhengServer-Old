@@ -1,6 +1,7 @@
 ﻿using EggLink.DanhengServer.Data;
 using EggLink.DanhengServer.Data.Config;
-using EggLink.DanhengServer.Enums;
+using EggLink.DanhengServer.Data.Excel;
+using EggLink.DanhengServer.Enums.Scene;
 using EggLink.DanhengServer.Game.Scene.Entity;
 using EggLink.DanhengServer.Server.Packet.Send.Scene;
 using EggLink.DanhengServer.Util;
@@ -9,7 +10,7 @@ namespace EggLink.DanhengServer.Game.Scene
 {
     public class SceneEntityLoader(SceneInstance scene)
     {
-        public void LoadEntity()
+        public virtual void LoadEntity()
         {
             if (scene.IsLoaded) return;
 
@@ -80,7 +81,7 @@ namespace EggLink.DanhengServer.Game.Scene
             }
         }
 
-        public List<IGameEntity>? LoadGroup(GroupInfo info)
+        public virtual List<IGameEntity>? LoadGroup(GroupInfo info)
         {
             var missionData = scene.Player.MissionManager!.Data;
             if (!info.LoadCondition.IsTrue(missionData) || info.UnloadCondition.IsTrue(missionData, false) || info.ForceUnloadCondition.IsTrue(missionData, false))
@@ -125,7 +126,7 @@ namespace EggLink.DanhengServer.Game.Scene
             return entityList;
         }
 
-        public EntityNpc? LoadNpc(NpcInfo info, GroupInfo group, bool sendPacket = false)
+        public virtual EntityNpc? LoadNpc(NpcInfo info, GroupInfo group, bool sendPacket = false)
         {
             if (info.IsClientOnly || info.IsDelete)
             {
@@ -154,7 +155,7 @@ namespace EggLink.DanhengServer.Game.Scene
             return npc;
         }
 
-        public EntityMonster? LoadMonster(MonsterInfo info, GroupInfo group, bool sendPacket = false)
+        public virtual EntityMonster? LoadMonster(MonsterInfo info, GroupInfo group, bool sendPacket = false)
         {
             if (info.IsClientOnly || info.IsDelete)
             {
@@ -172,7 +173,7 @@ namespace EggLink.DanhengServer.Game.Scene
             return entity;
         }
 
-        public EntityProp? LoadProp(PropInfo info, GroupInfo group, bool sendPacket = false)
+        public virtual EntityProp? LoadProp(PropInfo info, GroupInfo group, bool sendPacket = false)
         {
             if (info.IsClientOnly || info.IsDelete)
             {
@@ -187,8 +188,17 @@ namespace EggLink.DanhengServer.Game.Scene
 
             var prop = new EntityProp(scene, excel, group, info);
 
-            scene.AddEntity(prop, sendPacket);
-
+            if (prop.PropInfo.PropID == 1003)
+            {
+                if (prop.PropInfo.MappingInfoID == 2220)
+                {
+                    prop.SetState(PropStateEnum.Open);
+                    scene.AddEntity(prop, sendPacket);
+                }
+            } else
+            {
+                scene.AddEntity(prop, sendPacket);
+            }
             if (excel.PropType == PropTypeEnum.PROP_SPRING)
             {
                 scene.HealingSprings.Add(prop);
@@ -203,10 +213,11 @@ namespace EggLink.DanhengServer.Game.Scene
             } 
             else
             {
-                if (info.State == PropStateEnum.Locked)
-                    prop.SetState(PropStateEnum.Closed);
-                else
-                    prop.SetState(info.State);
+                prop.SetState(info.State);
+                //if (excel.PropStateList.Contains(PropStateEnum.Closed) && info.State == PropStateEnum.Locked)
+                //{
+                //    prop.SetState(PropStateEnum.Closed);
+                //}
             }
             return prop;
         }

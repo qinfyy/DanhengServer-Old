@@ -25,14 +25,14 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChFHREpCQU5JRkhEQS5wcm90bxoXTW9ub3BvbHlDZWxsU3RhdGUucHJvdG8i",
-            "eQoLR0RKQkFOSUZIREESDgoGbWFwX2lkGAogASgNEhMKC0pIQ09HQUdEQ05Q",
-            "GAQgASgIEhMKC09GQUtMRkxBT0xQGAkgASgNEjAKFG1vbm9wb2x5X2NlbGxf",
-            "c3RhdHVzGAIgASgOMhIuTW9ub3BvbHlDZWxsU3RhdGVCHqoCG0VnZ0xpbmsu",
-            "RGFuaGVuZ1NlcnZlci5Qcm90b2IGcHJvdG8z"));
+            "dQoLR0RKQkFOSUZIREESDgoGbWFwX2lkGAogASgNEhMKC0pIQ09HQUdEQ05Q",
+            "GAQgASgIEg8KB2NlbGxfaWQYCSABKA0SMAoUbW9ub3BvbHlfY2VsbF9zdGF0",
+            "dXMYAiABKA4yEi5Nb25vcG9seUNlbGxTdGF0ZUIeqgIbRWdnTGluay5EYW5o",
+            "ZW5nU2VydmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.MonopolyCellStateReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GDJBANIFHDA), global::EggLink.DanhengServer.Proto.GDJBANIFHDA.Parser, new[]{ "MapId", "JHCOGAGDCNP", "OFAKLFLAOLP", "MonopolyCellStatus" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GDJBANIFHDA), global::EggLink.DanhengServer.Proto.GDJBANIFHDA.Parser, new[]{ "MapId", "JHCOGAGDCNP", "CellId", "MonopolyCellStatus" }, null, null, null, null)
           }));
     }
     #endregion
@@ -76,7 +76,7 @@ namespace EggLink.DanhengServer.Proto {
     public GDJBANIFHDA(GDJBANIFHDA other) : this() {
       mapId_ = other.mapId_;
       jHCOGAGDCNP_ = other.jHCOGAGDCNP_;
-      oFAKLFLAOLP_ = other.oFAKLFLAOLP_;
+      cellId_ = other.cellId_;
       monopolyCellStatus_ = other.monopolyCellStatus_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -111,15 +111,15 @@ namespace EggLink.DanhengServer.Proto {
       }
     }
 
-    /// <summary>Field number for the "OFAKLFLAOLP" field.</summary>
-    public const int OFAKLFLAOLPFieldNumber = 9;
-    private uint oFAKLFLAOLP_;
+    /// <summary>Field number for the "cell_id" field.</summary>
+    public const int CellIdFieldNumber = 9;
+    private uint cellId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint OFAKLFLAOLP {
-      get { return oFAKLFLAOLP_; }
+    public uint CellId {
+      get { return cellId_; }
       set {
-        oFAKLFLAOLP_ = value;
+        cellId_ = value;
       }
     }
 
@@ -152,7 +152,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (MapId != other.MapId) return false;
       if (JHCOGAGDCNP != other.JHCOGAGDCNP) return false;
-      if (OFAKLFLAOLP != other.OFAKLFLAOLP) return false;
+      if (CellId != other.CellId) return false;
       if (MonopolyCellStatus != other.MonopolyCellStatus) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -163,7 +163,7 @@ namespace EggLink.DanhengServer.Proto {
       int hash = 1;
       if (MapId != 0) hash ^= MapId.GetHashCode();
       if (JHCOGAGDCNP != false) hash ^= JHCOGAGDCNP.GetHashCode();
-      if (OFAKLFLAOLP != 0) hash ^= OFAKLFLAOLP.GetHashCode();
+      if (CellId != 0) hash ^= CellId.GetHashCode();
       if (MonopolyCellStatus != global::EggLink.DanhengServer.Proto.MonopolyCellState.Idle) hash ^= MonopolyCellStatus.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -191,9 +191,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(32);
         output.WriteBool(JHCOGAGDCNP);
       }
-      if (OFAKLFLAOLP != 0) {
+      if (CellId != 0) {
         output.WriteRawTag(72);
-        output.WriteUInt32(OFAKLFLAOLP);
+        output.WriteUInt32(CellId);
       }
       if (MapId != 0) {
         output.WriteRawTag(80);
@@ -217,9 +217,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(32);
         output.WriteBool(JHCOGAGDCNP);
       }
-      if (OFAKLFLAOLP != 0) {
+      if (CellId != 0) {
         output.WriteRawTag(72);
-        output.WriteUInt32(OFAKLFLAOLP);
+        output.WriteUInt32(CellId);
       }
       if (MapId != 0) {
         output.WriteRawTag(80);
@@ -241,8 +241,8 @@ namespace EggLink.DanhengServer.Proto {
       if (JHCOGAGDCNP != false) {
         size += 1 + 1;
       }
-      if (OFAKLFLAOLP != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OFAKLFLAOLP);
+      if (CellId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(CellId);
       }
       if (MonopolyCellStatus != global::EggLink.DanhengServer.Proto.MonopolyCellState.Idle) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) MonopolyCellStatus);
@@ -265,8 +265,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other.JHCOGAGDCNP != false) {
         JHCOGAGDCNP = other.JHCOGAGDCNP;
       }
-      if (other.OFAKLFLAOLP != 0) {
-        OFAKLFLAOLP = other.OFAKLFLAOLP;
+      if (other.CellId != 0) {
+        CellId = other.CellId;
       }
       if (other.MonopolyCellStatus != global::EggLink.DanhengServer.Proto.MonopolyCellState.Idle) {
         MonopolyCellStatus = other.MonopolyCellStatus;
@@ -295,7 +295,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 72: {
-            OFAKLFLAOLP = input.ReadUInt32();
+            CellId = input.ReadUInt32();
             break;
           }
           case 80: {
@@ -326,7 +326,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 72: {
-            OFAKLFLAOLP = input.ReadUInt32();
+            CellId = input.ReadUInt32();
             break;
           }
           case 80: {

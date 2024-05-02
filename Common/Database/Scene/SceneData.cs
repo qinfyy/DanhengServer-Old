@@ -1,4 +1,4 @@
-﻿using EggLink.DanhengServer.Enums;
+﻿using EggLink.DanhengServer.Enums.Scene;
 using SqlSugar;
 
 namespace EggLink.DanhengServer.Database.Scene

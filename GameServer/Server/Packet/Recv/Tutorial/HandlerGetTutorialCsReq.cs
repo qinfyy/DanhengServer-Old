@@ -1,4 +1,5 @@
 ﻿using EggLink.DanhengServer.Server.Packet.Send.Tutorial;
+using EggLink.DanhengServer.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,8 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Tutorial
     {
         public override void OnHandle(Connection connection, byte[] header, byte[] data)
         {
-            connection.SendPacket(new PacketGetTutorialScRsp(connection.Player!));
+            if (ConfigManager.Config.ServerOption.EnableMission)  // If missions are enabled
+                connection.SendPacket(new PacketGetTutorialScRsp(connection.Player!));
         }
     }
 }

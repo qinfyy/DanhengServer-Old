@@ -17,8 +17,15 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Tutorial
                 {
                     Id = tutorialId,
                     Status = TutorialStatus.TutorialFinish,
-                }
+                },
+                Reward = new (),
             };
+
+            rsp.Reward.ItemList_.Add(new Item
+            {
+                ItemId = 1,
+                Num = 1,
+            });
 
             SetData(rsp);
         }

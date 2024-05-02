@@ -7,8 +7,11 @@ namespace EggLink.DanhengServer.Data
     internal class ResourceEntity : Attribute
     {
         public List<string> FileName { get; private set; }
-        public bool IsCritical { get; private set; }  // If the resource is critical, the server will not start if it is not found
 
+        [Obsolete("No effect")]
+        public bool IsCritical { get; private set; }  // deprecated
+
+        [Obsolete("No effect")]
         public ResourceEntity(string fileName, bool isCritical = false, bool isMultifile = false)
         {
             if (isMultifile)
@@ -18,6 +21,22 @@ namespace EggLink.DanhengServer.Data
             else
                 FileName = [fileName];
             IsCritical = isCritical;
+        }
+
+        
+        public ResourceEntity(string fileName, bool isMultifile = false)
+        {
+            if (isMultifile)
+            {
+                FileName = new List<string>(fileName.Split(','));
+            }
+            else
+                FileName = [fileName];
+        }
+
+        public ResourceEntity(string fileName)
+        {
+             FileName = [fileName];
         }
     }
 }

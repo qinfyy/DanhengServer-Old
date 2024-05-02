@@ -76,15 +76,43 @@ namespace EggLink.DanhengServer.Database.Avatar
         {
             Excel = excel;
             SkillTree = [];
-            excel.DefaultSkillTree.ForEach(skill =>
+            if (AvatarId == 8001)
             {
-                SkillTree.Add(skill.PointID, skill.Level);
-            });
+                //bool isMan = HeroId % 2 != 0;
+                //SkillTreeExtra.Add(isMan ? 8001: 8002, []);
+                //SkillTreeExtra.Add(isMan ? 8003 : 8004, []);
+
+                //var warriorExcel = GameData.AvatarConfigData[8001];
+                //var defenseExcel = GameData.AvatarConfigData[8003];
+
+                //warriorExcel.DefaultSkillTree.ForEach(skill =>
+                //{
+                //    SkillTreeExtra[isMan ? 8001 : 8002].Add(skill.PointID, skill.Level);
+                //});
+
+                //defenseExcel.DefaultSkillTree.ForEach(skill =>
+                //{
+                //    SkillTreeExtra[isMan ? 8003 : 8004].Add(skill.PointID, skill.Level);
+                //});
+                // create them in GetSkillTree
+            }
+            else
+            {
+                excel.DefaultSkillTree.ForEach(skill =>
+                {
+                    SkillTree.Add(skill.PointID, skill.Level);
+                });
+            }
         }
 
         public bool HasTakenReward(int promotion)
         {
             return (Rewards & (1 << promotion)) != 0;
+        }
+
+        public void TakeReward(int promotion)
+        {
+            Rewards |= 1 << promotion;
         }
 
         public int GetCurHp(bool isExtraLineup)
@@ -105,6 +133,26 @@ namespace EggLink.DanhengServer.Database.Avatar
         public int GetSpecialAvatarId()
         {
             return SpecialBaseAvatarId > 0 ? SpecialBaseAvatarId : GetAvatarId();
+        }
+
+        public Dictionary<int, int> GetSkillTree()
+        {
+            var value = SkillTree;
+            if (HeroId > 0)
+            {
+                if (!SkillTreeExtra.TryGetValue(HeroId, out value))
+                {
+                    value = ([]);
+                    // for old data
+                    SkillTreeExtra[HeroId] = value;
+                    var excel = GameData.AvatarConfigData[HeroId];
+                    excel.DefaultSkillTree.ForEach(skill =>
+                    {
+                        SkillTreeExtra[HeroId].Add(skill.PointID, skill.Level);
+                    });
+                }
+            }
+            return value;
         }
 
         public void SetCurHp(int value, bool isExtraLineup)
@@ -233,7 +281,7 @@ namespace EggLink.DanhengServer.Database.Avatar
                 WorldLevel = (uint)(PlayerData?.WorldLevel ?? 0),
             };
 
-            foreach (var skill in SkillTree)
+            foreach (var skill in GetSkillTree())
             {
                 proto.SkilltreeList.Add(new AvatarSkillTree()
                 {
@@ -294,24 +342,33 @@ namespace EggLink.DanhengServer.Database.Avatar
             return proto;
         }
 
-        public PlayerHeroBasicTypeInfo ToHeroProto()
+        public List<PlayerHeroBasicTypeInfo> ToHeroProto()
         {
-            var proto = new PlayerHeroBasicTypeInfo()
-            {
-                BasicType = (HeroBasicType)HeroId,
-                Rank = (uint)Rank,
-            };
+            var res = new List<PlayerHeroBasicTypeInfo>();
 
-            foreach (var skill in SkillTree)
+            GetSkillTree();
+
+            foreach (var hero in SkillTreeExtra)
             {
-                proto.SkillTreeList.Add(new AvatarSkillTree()
+                var proto = new PlayerHeroBasicTypeInfo()
                 {
-                    PointId = (uint)skill.Key,
-                    Level = (uint)skill.Value
-                });
+                    BasicType = (HeroBasicType)hero.Key,
+                    Rank = (uint)Rank,
+                };
+
+                foreach (var skill in hero.Value)
+                {
+                    proto.SkillTreeList.Add(new AvatarSkillTree()
+                    {
+                        PointId = (uint)skill.Key,
+                        Level = (uint)skill.Value
+                    });
+                }
+
+                res.Add(proto);
             }
 
-            return proto;
+            return res;
         }
     }
 }

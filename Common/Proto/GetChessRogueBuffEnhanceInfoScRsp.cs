@@ -24,13 +24,13 @@ namespace EggLink.DanhengServer.Proto {
     static GetChessRogueBuffEnhanceInfoScRspReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CidHZXRDaGVzc1JvZ3VlQnVmZkVuaGFuY2VJbmZvU2NSc3AucHJvdG8aEUlD",
-            "R05NSEhCSE1KLnByb3RvIl0KIUdldENoZXNzUm9ndWVCdWZmRW5oYW5jZUlu",
-            "Zm9TY1JzcBInChFidWZmX2VuaGFuY2VfaW5mbxgGIAEoCzIMLklDR05NSEhC",
-            "SE1KEg8KB3JldGNvZGUYBCABKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZl",
-            "ci5Qcm90b2IGcHJvdG8z"));
+            "CidHZXRDaGVzc1JvZ3VlQnVmZkVuaGFuY2VJbmZvU2NSc3AucHJvdG8aH0No",
+            "ZXNzUm9ndWVCdWZmRW5oYW5jZUluZm8ucHJvdG8iawohR2V0Q2hlc3NSb2d1",
+            "ZUJ1ZmZFbmhhbmNlSW5mb1NjUnNwEjUKEWJ1ZmZfZW5oYW5jZV9pbmZvGAYg",
+            "ASgLMhouQ2hlc3NSb2d1ZUJ1ZmZFbmhhbmNlSW5mbxIPCgdyZXRjb2RlGAQg",
+            "ASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ICGNMHHBHMJReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.ChessRogueBuffEnhanceInfoReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.GetChessRogueBuffEnhanceInfoScRsp), global::EggLink.DanhengServer.Proto.GetChessRogueBuffEnhanceInfoScRsp.Parser, new[]{ "BuffEnhanceInfo", "Retcode" }, null, null, null, null)
           }));
@@ -87,10 +87,10 @@ namespace EggLink.DanhengServer.Proto {
 
     /// <summary>Field number for the "buff_enhance_info" field.</summary>
     public const int BuffEnhanceInfoFieldNumber = 6;
-    private global::EggLink.DanhengServer.Proto.ICGNMHHBHMJ buffEnhanceInfo_;
+    private global::EggLink.DanhengServer.Proto.ChessRogueBuffEnhanceInfo buffEnhanceInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::EggLink.DanhengServer.Proto.ICGNMHHBHMJ BuffEnhanceInfo {
+    public global::EggLink.DanhengServer.Proto.ChessRogueBuffEnhanceInfo BuffEnhanceInfo {
       get { return buffEnhanceInfo_; }
       set {
         buffEnhanceInfo_ = value;
@@ -209,7 +209,7 @@ namespace EggLink.DanhengServer.Proto {
       }
       if (other.buffEnhanceInfo_ != null) {
         if (buffEnhanceInfo_ == null) {
-          BuffEnhanceInfo = new global::EggLink.DanhengServer.Proto.ICGNMHHBHMJ();
+          BuffEnhanceInfo = new global::EggLink.DanhengServer.Proto.ChessRogueBuffEnhanceInfo();
         }
         BuffEnhanceInfo.MergeFrom(other.BuffEnhanceInfo);
       }
@@ -237,7 +237,7 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 50: {
             if (buffEnhanceInfo_ == null) {
-              BuffEnhanceInfo = new global::EggLink.DanhengServer.Proto.ICGNMHHBHMJ();
+              BuffEnhanceInfo = new global::EggLink.DanhengServer.Proto.ChessRogueBuffEnhanceInfo();
             }
             input.ReadMessage(BuffEnhanceInfo);
             break;
@@ -263,7 +263,7 @@ namespace EggLink.DanhengServer.Proto {
           }
           case 50: {
             if (buffEnhanceInfo_ == null) {
-              BuffEnhanceInfo = new global::EggLink.DanhengServer.Proto.ICGNMHHBHMJ();
+              BuffEnhanceInfo = new global::EggLink.DanhengServer.Proto.ChessRogueBuffEnhanceInfo();
             }
             input.ReadMessage(BuffEnhanceInfo);
             break;

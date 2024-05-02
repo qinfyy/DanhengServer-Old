@@ -1,5 +1,7 @@
 ﻿using EggLink.DanhengServer.Database.Mission;
 using EggLink.DanhengServer.Enums;
+using EggLink.DanhengServer.Enums.Scene;
+using EggLink.DanhengServer.Util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using static System.Formats.Asn1.AsnWriter;
@@ -56,6 +58,7 @@ namespace EggLink.DanhengServer.Data.Config
                     {
                         info = MissionPhaseEnum.None;
                     }
+                    if (!ConfigManager.Config.ServerOption.EnableMission) info = MissionPhaseEnum.Finish;
                     if (info != condition.Phase)
                     {
                         if (Operation == OperationEnum.And)
@@ -79,6 +82,7 @@ namespace EggLink.DanhengServer.Data.Config
                     if (subMission == null) continue;
                     var mainMissionId = subMission.MainMissionID;
                     mission.MissionInfo.TryGetValue(mainMissionId, out var info);
+                    if (!ConfigManager.Config.ServerOption.EnableMission) info = new(){ { condition.ID, new() { Status = MissionPhaseEnum.Finish } } };
                     if (info?.TryGetValue(condition.ID, out var missionInfo) == true)
                     {
                         if (missionInfo.Status != condition.Phase)

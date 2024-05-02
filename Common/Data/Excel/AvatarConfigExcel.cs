@@ -1,5 +1,6 @@
 ﻿using EggLink.DanhengServer.Data.Config;
-using EggLink.DanhengServer.Enums;
+using EggLink.DanhengServer.Enums.Avatar;
+using EggLink.DanhengServer.Enums.Item;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Text.RegularExpressions;
@@ -23,6 +24,9 @@ namespace EggLink.DanhengServer.Data.Excel
 
         [JsonIgnore()]
         public List<AvatarSkillTreeConfigExcel> DefaultSkillTree = [];
+
+        [JsonIgnore]
+        public List<AvatarSkillTreeConfigExcel> SkillTree = [];
 
         [JsonIgnore()]
         public int RankUpItemId { get; set; }

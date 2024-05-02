@@ -24,14 +24,14 @@ namespace EggLink.DanhengServer.Proto {
     static ChessRogueCheatRollCsReqReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Ch5DaGVzc1JvZ3VlQ2hlYXRSb2xsQ3NSZXEucHJvdG8iRAoYQ2hlc3NSb2d1",
-            "ZUNoZWF0Um9sbENzUmVxEhMKC0xBQ0tQQk5QREZPGAcgASgNEhMKC0ZERUpL",
-            "RkNPRUNKGAIgASgNQh6qAhtFZ2dMaW5rLkRhbmhlbmdTZXJ2ZXIuUHJvdG9i",
-            "BnByb3RvMw=="));
+            "Ch5DaGVzc1JvZ3VlQ2hlYXRSb2xsQ3NSZXEucHJvdG8iQwoYQ2hlc3NSb2d1",
+            "ZUNoZWF0Um9sbENzUmVxEhIKCnN1cmZhY2VfaWQYByABKA0SEwoLRkRFSktG",
+            "Q09FQ0oYAiABKA1CHqoCG0VnZ0xpbmsuRGFuaGVuZ1NlcnZlci5Qcm90b2IG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueCheatRollCsReq), global::EggLink.DanhengServer.Proto.ChessRogueCheatRollCsReq.Parser, new[]{ "LACKPBNPDFO", "FDEJKFCOECJ" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.ChessRogueCheatRollCsReq), global::EggLink.DanhengServer.Proto.ChessRogueCheatRollCsReq.Parser, new[]{ "SurfaceId", "FDEJKFCOECJ" }, null, null, null, null)
           }));
     }
     #endregion
@@ -73,7 +73,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ChessRogueCheatRollCsReq(ChessRogueCheatRollCsReq other) : this() {
-      lACKPBNPDFO_ = other.lACKPBNPDFO_;
+      surfaceId_ = other.surfaceId_;
       fDEJKFCOECJ_ = other.fDEJKFCOECJ_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -84,15 +84,15 @@ namespace EggLink.DanhengServer.Proto {
       return new ChessRogueCheatRollCsReq(this);
     }
 
-    /// <summary>Field number for the "LACKPBNPDFO" field.</summary>
-    public const int LACKPBNPDFOFieldNumber = 7;
-    private uint lACKPBNPDFO_;
+    /// <summary>Field number for the "surface_id" field.</summary>
+    public const int SurfaceIdFieldNumber = 7;
+    private uint surfaceId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint LACKPBNPDFO {
-      get { return lACKPBNPDFO_; }
+    public uint SurfaceId {
+      get { return surfaceId_; }
       set {
-        lACKPBNPDFO_ = value;
+        surfaceId_ = value;
       }
     }
 
@@ -123,7 +123,7 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (LACKPBNPDFO != other.LACKPBNPDFO) return false;
+      if (SurfaceId != other.SurfaceId) return false;
       if (FDEJKFCOECJ != other.FDEJKFCOECJ) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -132,7 +132,7 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (LACKPBNPDFO != 0) hash ^= LACKPBNPDFO.GetHashCode();
+      if (SurfaceId != 0) hash ^= SurfaceId.GetHashCode();
       if (FDEJKFCOECJ != 0) hash ^= FDEJKFCOECJ.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -156,9 +156,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(16);
         output.WriteUInt32(FDEJKFCOECJ);
       }
-      if (LACKPBNPDFO != 0) {
+      if (SurfaceId != 0) {
         output.WriteRawTag(56);
-        output.WriteUInt32(LACKPBNPDFO);
+        output.WriteUInt32(SurfaceId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -174,9 +174,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(16);
         output.WriteUInt32(FDEJKFCOECJ);
       }
-      if (LACKPBNPDFO != 0) {
+      if (SurfaceId != 0) {
         output.WriteRawTag(56);
-        output.WriteUInt32(LACKPBNPDFO);
+        output.WriteUInt32(SurfaceId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -188,8 +188,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (LACKPBNPDFO != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LACKPBNPDFO);
+      if (SurfaceId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SurfaceId);
       }
       if (FDEJKFCOECJ != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(FDEJKFCOECJ);
@@ -206,8 +206,8 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
-      if (other.LACKPBNPDFO != 0) {
-        LACKPBNPDFO = other.LACKPBNPDFO;
+      if (other.SurfaceId != 0) {
+        SurfaceId = other.SurfaceId;
       }
       if (other.FDEJKFCOECJ != 0) {
         FDEJKFCOECJ = other.FDEJKFCOECJ;
@@ -232,7 +232,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 56: {
-            LACKPBNPDFO = input.ReadUInt32();
+            SurfaceId = input.ReadUInt32();
             break;
           }
         }
@@ -255,7 +255,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 56: {
-            LACKPBNPDFO = input.ReadUInt32();
+            SurfaceId = input.ReadUInt32();
             break;
           }
         }

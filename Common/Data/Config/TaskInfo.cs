@@ -1,4 +1,4 @@
-﻿using EggLink.DanhengServer.Enums;
+﻿using EggLink.DanhengServer.Enums.Avatar;
 using EggLink.DanhengServer.Util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -25,6 +25,8 @@ namespace EggLink.DanhengServer.Data.Config
         public List<TaskInfo> SuccessTaskList { get; set; } = [];
         public List<TaskInfo> OnProjectileHit { get; set; } = [];
         public List<TaskInfo> OnProjectileLifetimeFinish { get; set; } = [];
+
+        public LifeTimeInfo LifeTime { get; set; } = new();
 
         [JsonIgnore]
         public TaskTypeEnum TaskType { get; set; } = TaskTypeEnum.None;
@@ -94,5 +96,29 @@ namespace EggLink.DanhengServer.Data.Config
             attackInfo.AddRange(OnBattle);
             return attackInfo;
         }
+    }
+
+    public class LifeTimeInfo
+    {
+        public bool IsDynamic { get; set; } = false;
+        public FixedValueInfo<double> FixedValue { get; set; } = new();
+
+        public int GetLifeTime()
+        {
+            if (IsDynamic)
+            {
+                return 20;  // find a better way to get the value
+            }
+            if (FixedValue.Value <= 0)
+            {
+                return -1;  // infinite
+            }
+            return (int)(FixedValue.Value * 10);
+        }
+    }
+
+    public class FixedValueInfo<T>
+    {
+        public T Value { get; set; } = default!;
     }
 }

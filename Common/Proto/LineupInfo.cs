@@ -25,18 +25,18 @@ namespace EggLink.DanhengServer.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChBMaW5ldXBJbmZvLnByb3RvGhJMaW5ldXBBdmF0YXIucHJvdG8aFUV4dHJh",
-            "TGluZXVwVHlwZS5wcm90byKZAgoKTGluZXVwSW5mbxITCgtsZWFkZXJfc2xv",
-            "dBgMIAEoDRITCgtOS01QSEVKS0dKTBgDIAEoDRIQCghwbGFuZV9pZBgBIAEo",
-            "DRITCgtFQkZLQ01CQkxQTBgEIAEoCBISCgppc192aXJ0dWFsGAIgASgIEg4K",
-            "Bm1heF9tcBgJIAEoDRIiCgthdmF0YXJfbGlzdBgLIAMoCzINLkxpbmV1cEF2",
-            "YXRhchIrChFleHRyYV9saW5ldXBfdHlwZRgGIAEoDjIQLkV4dHJhTGluZXVw",
-            "VHlwZRINCgVpbmRleBgHIAEoDRIcChR0cmlhbF9hdmF0YXJfaWRfbGlzdBgN",
-            "IAMoDRIKCgJtcBgIIAEoDRIMCgRuYW1lGA8gASgJQh6qAhtFZ2dMaW5rLkRh",
-            "bmhlbmdTZXJ2ZXIuUHJvdG9iBnByb3RvMw=="));
+            "TGluZXVwVHlwZS5wcm90byKRAgoKTGluZXVwSW5mbxILCgNzdXMYDCABKA0S",
+            "EwoLbGVhZGVyX3Nsb3QYAyABKA0SEAoIcGxhbmVfaWQYASABKA0SEwoLRUJG",
+            "S0NNQkJMUEwYBCABKAgSEgoKaXNfdmlydHVhbBgCIAEoCBIOCgZtYXhfbXAY",
+            "CSABKA0SIgoLYXZhdGFyX2xpc3QYCyADKAsyDS5MaW5ldXBBdmF0YXISKwoR",
+            "ZXh0cmFfbGluZXVwX3R5cGUYBiABKA4yEC5FeHRyYUxpbmV1cFR5cGUSDQoF",
+            "aW5kZXgYByABKA0SHAoUdHJpYWxfYXZhdGFyX2lkX2xpc3QYDSADKA0SCgoC",
+            "bXAYCCABKA0SDAoEbmFtZRgPIAEoCUIeqgIbRWdnTGluay5EYW5oZW5nU2Vy",
+            "dmVyLlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::EggLink.DanhengServer.Proto.LineupAvatarReflection.Descriptor, global::EggLink.DanhengServer.Proto.ExtraLineupTypeReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.LineupInfo), global::EggLink.DanhengServer.Proto.LineupInfo.Parser, new[]{ "LeaderSlot", "NKMPHEJKGJL", "PlaneId", "EBFKCMBBLPL", "IsVirtual", "MaxMp", "AvatarList", "ExtraLineupType", "Index", "TrialAvatarIdList", "Mp", "Name" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::EggLink.DanhengServer.Proto.LineupInfo), global::EggLink.DanhengServer.Proto.LineupInfo.Parser, new[]{ "Sus", "LeaderSlot", "PlaneId", "EBFKCMBBLPL", "IsVirtual", "MaxMp", "AvatarList", "ExtraLineupType", "Index", "TrialAvatarIdList", "Mp", "Name" }, null, null, null, null)
           }));
     }
     #endregion
@@ -78,8 +78,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public LineupInfo(LineupInfo other) : this() {
+      sus_ = other.sus_;
       leaderSlot_ = other.leaderSlot_;
-      nKMPHEJKGJL_ = other.nKMPHEJKGJL_;
       planeId_ = other.planeId_;
       eBFKCMBBLPL_ = other.eBFKCMBBLPL_;
       isVirtual_ = other.isVirtual_;
@@ -99,8 +99,20 @@ namespace EggLink.DanhengServer.Proto {
       return new LineupInfo(this);
     }
 
+    /// <summary>Field number for the "sus" field.</summary>
+    public const int SusFieldNumber = 12;
+    private uint sus_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Sus {
+      get { return sus_; }
+      set {
+        sus_ = value;
+      }
+    }
+
     /// <summary>Field number for the "leader_slot" field.</summary>
-    public const int LeaderSlotFieldNumber = 12;
+    public const int LeaderSlotFieldNumber = 3;
     private uint leaderSlot_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -108,18 +120,6 @@ namespace EggLink.DanhengServer.Proto {
       get { return leaderSlot_; }
       set {
         leaderSlot_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "NKMPHEJKGJL" field.</summary>
-    public const int NKMPHEJKGJLFieldNumber = 3;
-    private uint nKMPHEJKGJL_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint NKMPHEJKGJL {
-      get { return nKMPHEJKGJL_; }
-      set {
-        nKMPHEJKGJL_ = value;
       }
     }
 
@@ -256,8 +256,8 @@ namespace EggLink.DanhengServer.Proto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (Sus != other.Sus) return false;
       if (LeaderSlot != other.LeaderSlot) return false;
-      if (NKMPHEJKGJL != other.NKMPHEJKGJL) return false;
       if (PlaneId != other.PlaneId) return false;
       if (EBFKCMBBLPL != other.EBFKCMBBLPL) return false;
       if (IsVirtual != other.IsVirtual) return false;
@@ -275,8 +275,8 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (Sus != 0) hash ^= Sus.GetHashCode();
       if (LeaderSlot != 0) hash ^= LeaderSlot.GetHashCode();
-      if (NKMPHEJKGJL != 0) hash ^= NKMPHEJKGJL.GetHashCode();
       if (PlaneId != 0) hash ^= PlaneId.GetHashCode();
       if (EBFKCMBBLPL != false) hash ^= EBFKCMBBLPL.GetHashCode();
       if (IsVirtual != false) hash ^= IsVirtual.GetHashCode();
@@ -313,9 +313,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(16);
         output.WriteBool(IsVirtual);
       }
-      if (NKMPHEJKGJL != 0) {
+      if (LeaderSlot != 0) {
         output.WriteRawTag(24);
-        output.WriteUInt32(NKMPHEJKGJL);
+        output.WriteUInt32(LeaderSlot);
       }
       if (EBFKCMBBLPL != false) {
         output.WriteRawTag(32);
@@ -338,9 +338,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteUInt32(MaxMp);
       }
       avatarList_.WriteTo(output, _repeated_avatarList_codec);
-      if (LeaderSlot != 0) {
+      if (Sus != 0) {
         output.WriteRawTag(96);
-        output.WriteUInt32(LeaderSlot);
+        output.WriteUInt32(Sus);
       }
       trialAvatarIdList_.WriteTo(output, _repeated_trialAvatarIdList_codec);
       if (Name.Length != 0) {
@@ -365,9 +365,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteRawTag(16);
         output.WriteBool(IsVirtual);
       }
-      if (NKMPHEJKGJL != 0) {
+      if (LeaderSlot != 0) {
         output.WriteRawTag(24);
-        output.WriteUInt32(NKMPHEJKGJL);
+        output.WriteUInt32(LeaderSlot);
       }
       if (EBFKCMBBLPL != false) {
         output.WriteRawTag(32);
@@ -390,9 +390,9 @@ namespace EggLink.DanhengServer.Proto {
         output.WriteUInt32(MaxMp);
       }
       avatarList_.WriteTo(ref output, _repeated_avatarList_codec);
-      if (LeaderSlot != 0) {
+      if (Sus != 0) {
         output.WriteRawTag(96);
-        output.WriteUInt32(LeaderSlot);
+        output.WriteUInt32(Sus);
       }
       trialAvatarIdList_.WriteTo(ref output, _repeated_trialAvatarIdList_codec);
       if (Name.Length != 0) {
@@ -409,11 +409,11 @@ namespace EggLink.DanhengServer.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (Sus != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Sus);
+      }
       if (LeaderSlot != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LeaderSlot);
-      }
-      if (NKMPHEJKGJL != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NKMPHEJKGJL);
       }
       if (PlaneId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PlaneId);
@@ -453,11 +453,11 @@ namespace EggLink.DanhengServer.Proto {
       if (other == null) {
         return;
       }
+      if (other.Sus != 0) {
+        Sus = other.Sus;
+      }
       if (other.LeaderSlot != 0) {
         LeaderSlot = other.LeaderSlot;
-      }
-      if (other.NKMPHEJKGJL != 0) {
-        NKMPHEJKGJL = other.NKMPHEJKGJL;
       }
       if (other.PlaneId != 0) {
         PlaneId = other.PlaneId;
@@ -509,7 +509,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 24: {
-            NKMPHEJKGJL = input.ReadUInt32();
+            LeaderSlot = input.ReadUInt32();
             break;
           }
           case 32: {
@@ -537,7 +537,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 96: {
-            LeaderSlot = input.ReadUInt32();
+            Sus = input.ReadUInt32();
             break;
           }
           case 106:
@@ -573,7 +573,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 24: {
-            NKMPHEJKGJL = input.ReadUInt32();
+            LeaderSlot = input.ReadUInt32();
             break;
           }
           case 32: {
@@ -601,7 +601,7 @@ namespace EggLink.DanhengServer.Proto {
             break;
           }
           case 96: {
-            LeaderSlot = input.ReadUInt32();
+            Sus = input.ReadUInt32();
             break;
           }
           case 106:

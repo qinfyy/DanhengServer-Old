@@ -6,6 +6,8 @@ namespace EggLink.DanhengServer.Util;
 
 public static class Extensions
 {
+    #region Kcp Utils
+
     public static string JoinFormat<T>(this IEnumerable<T> list, string separator,
                                string formatString)
     {
@@ -70,6 +72,8 @@ public static class Extensions
         bw.Write(data);
     }
 
+    #endregion
+
     public static Position ToPosition(this Vector vector)
     {
         return new Position
@@ -91,9 +95,30 @@ public static class Extensions
         return new Random().Next(from, to);
     }
 
+    public static void SafeAdd<T>(this List<T> list, T item)
+    {
+        if (!list.Contains(item))
+        {
+            list.Add(item);
+        }
+    }
+
+    public static void SafeAddRange<T>(this List<T> list, List<T> item)
+    {
+        foreach (var i in item)
+        {
+            list.SafeAdd(i);
+        }
+    }
+
     public static long GetUnixSec()
     {
         return DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+    }
+
+    public static long ToUnixSec(this DateTime dt)
+    {
+        return new DateTimeOffset(dt).ToUnixTimeSeconds();
     }
 
     public static long GetUnixMs()
