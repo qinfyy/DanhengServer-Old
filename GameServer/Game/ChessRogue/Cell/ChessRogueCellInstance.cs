@@ -36,9 +36,10 @@ namespace EggLink.DanhengServer.Game.ChessRogue.Cell
 
             var list = new RandomList<int>();
             list.Add(3, 8);
-            list.Add(7, 2);
+            list.Add(7, 4);
             list.Add(8, 6);
-            list.Add(17, 2);
+            list.Add(17, 4);
+            list.Add(16, 2);
 
             CellType = list.GetRandom();
         }

@@ -320,18 +320,18 @@ namespace EggLink.DanhengServer.Game.ChessRogue
             Player.SendPacket(new PacketChessRogueUpdateDiceInfoScNotify(DiceInstance));
             Player.SendPacket(new PacketChessRogueConfirmRollScRsp(DiceInstance));
 
-            var cellIds = new List<int>();
+            //var cellIds = new List<int>();
 
-            foreach (var cell in RogueCells)
-            {
-                if (cell.Key == CurCell!.GetCellId() || cell.Value.CellStatus == ChessRogueBoardCellStatus.Finish)
-                {
-                    continue;
-                }
-                cellIds.Add(cell.Key);
-            }
+            //foreach (var cell in RogueCells)
+            //{
+            //    if (cell.Key == CurCell!.GetCellId() || cell.Value.CellStatus == ChessRogueBoardCellStatus.Finish)
+            //    {
+            //        continue;
+            //    }
+            //    cellIds.Add(cell.Key);
+            //}
 
-            Player.SendPacket(new PacketChessRogueUpdateAllowedSelectCellScNotify(CurLayerData![-1][0], cellIds));
+            //Player.SendPacket(new PacketChessRogueUpdateAllowedSelectCellScNotify(CurLayerData![-1][0], cellIds));
         }
 
         #endregion
@@ -704,6 +704,21 @@ namespace EggLink.DanhengServer.Game.ChessRogue
 
         public ChessRogueLevelInfo ToLevelInfo()
         {
+            List<uint> canSelected = [];
+            foreach (var cell in RogueCells)
+            {
+                if (cell.Value.CellStatus == ChessRogueBoardCellStatus.Idle)
+                {
+                    if (cell.Value.Column == CurCell!.Column - 1 || cell.Value.Column == CurCell!.Column || cell.Value.Column == CurCell!.Column + 1)
+                    {
+                        if (cell.Value.Row == CurCell!.Row || cell.Value.Row == CurCell!.Row + 1)
+                        {
+                            canSelected.Add((uint)cell.Value.GetCellId());
+                        }
+                    }
+                }
+            }
+
             var proto = new ChessRogueLevelInfo()
             {
                 LevelStatus = CurLevelStatus,
@@ -719,7 +734,7 @@ namespace EggLink.DanhengServer.Game.ChessRogue
                     {
                         CellList = { RogueCells.Select(x => x.Value.ToProto()).ToList() }
                     },
-                    AllowedSelectCellIdList = { RogueCells.Where(x => x.Value.CellStatus == ChessRogueBoardCellStatus.Idle).Select(x => (uint)x.Key).ToList() },
+                    AllowedSelectCellIdList = { canSelected },
                     HistoryCell = { HistoryCell.Select(x => x.ToHistoryProto()).ToList() },
                 }
             };
