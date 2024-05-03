@@ -8,27 +8,29 @@ namespace EggLink.DanhengServer.WebServer
 {
     public class WebProgram
     {
-        public static void Main(string[] args)
+        public static void Main(string[] args, int port, string address)
         {
-            BuildWebHost(args).Start();
+            BuildWebHost(args, port, address).Start();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
+        public static IWebHost BuildWebHost(string[] args, int port, string address) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .UseKestrel(options =>//ÉèÖÃKestrel·þÎñÆ÷
+                .UseKestrel(options =>
                 {
-                    options.Listen(IPAddress.Any, 443, listenOptions =>
+                    options.Listen(IPAddress.Any, port, listenOptions =>
                     {
                         listenOptions.UseHttps(
                             ConfigManager.Config.KeyStore.KeyStorePath,
-                            ConfigManager.Config.KeyStore.KeyStorePassword);
+                            ConfigManager.Config.KeyStore.KeyStorePassword
+                        );
                     });
                 })
                 .ConfigureLogging((hostingContext, logging) => 
                 { 
                     logging.ClearProviders();
                 })
+                .UseUrls(address)
                 .Build();
     }
 

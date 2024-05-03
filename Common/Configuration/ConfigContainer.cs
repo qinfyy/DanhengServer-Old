@@ -72,8 +72,8 @@ namespace EggLink.DanhengServer.Configuration
         public int Uid { get; set; } = 80;
         public string Signature { get; set; } = "Type /help for a list of commands";
         public int Level { get; set; } = 1;
-        public int HeadIcon { get; set; } = 201001;
-        public int ChatBubbleId { get; set; } = 0;
+        public int HeadIcon { get; set; } = 200105;
+        public int ChatBubbleId { get; set; } = 220001;
         public int DisplayAvatarId { get; set; } = 1001;
         public int DisplayAvatarLevel { get; set; } = 1;
     }

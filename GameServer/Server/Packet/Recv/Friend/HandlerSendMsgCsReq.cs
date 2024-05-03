@@ -21,21 +21,11 @@ namespace EggLink.DanhengServer.Server.Packet.Recv.Friend
 
             if (req.MessageType == MsgType.CustomText)
             {
-                connection.SendPacket(new PacketRevcMsgScNotify(req.TargetList[0], connection.Player!.Uid, req.MessageText));
+                connection.Player!.FriendManager!.SendMessage(connection.Player!.Uid, (int)req.TargetList[0], req.MessageText);
             }
             else if (req.MessageType == MsgType.Emoji)
             {
-                connection.SendPacket(new PacketRevcMsgScNotify(req.TargetList[0], connection.Player!.Uid, req.ExtraId));
-            }
-
-            // TODO: command execution
-            if (req.TargetList[0] == ConfigManager.Config.ServerOption.ServerProfile.Uid)
-            {
-                if (req.MessageText.StartsWith('/'))
-                {
-                    var cmd = req.MessageText[1..];
-                    EntryPoint.CommandManager.HandleCommand(cmd, new PlayerCommandSender(connection.Player!));
-                }
+                connection.Player!.FriendManager!.SendMessage(connection.Player!.Uid, (int)req.TargetList[0], null, (int)req.ExtraId);
             }
 
             connection.SendPacket(CmdIds.SendMsgScRsp);

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EggLink.DanhengServer.Command.Cmd
 {
-    [CommandInfo("giveall", "Give all items in the category to player", "giveall <avatar/equipment> r<rank> l<level>")]
+    [CommandInfo("giveall", "Give all items in the category to player", "giveall <avatar/equipment> r<rank> l<level> x<amount>")]
     public class CommandGiveall : ICommand
     {
         [CommandMethod("0 avatar")]
@@ -99,6 +99,77 @@ namespace EggLink.DanhengServer.Command.Cmd
                 player.InventoryManager!.AddItem(lightcone.EquipmentID, 1, false, isLast, Math.Max(Math.Min(rank, 5), 0), Math.Max(Math.Min(level, 80), 0));
             }
             arg.SendMsg($"Give all lightcones to {player.Uid}");
+        }
+
+        [CommandMethod("0 material")]
+        public void GiveAllMaterial(CommandArg arg)
+        {
+            if (arg.Target == null)
+            {
+                arg.SendMsg("Target not found.");
+                return;
+            }
+
+            var player = arg.Target.Player;
+            if (player == null)
+            {
+                arg.SendMsg("Target not found.");
+                return;
+            }
+
+            arg.CharacterArgs.TryGetValue("x", out var amountStr);
+            amountStr ??= "1";
+            if (!int.TryParse(amountStr, out var amount))
+            {
+                arg.SendMsg("Invalid arguments.");
+                return;
+            }
+
+            var materialList = GameData.ItemConfigData.Values;
+            foreach (var material in materialList)
+            {
+                if (material.ItemMainType == Enums.Item.ItemMainTypeEnum.Material)
+                {
+                    player.InventoryManager!.AddItem(material.ID, amount, false, false);
+                }
+            }
+
+            DatabaseHelper.Instance?.UpdateInstance(player.InventoryManager!.Data);
+
+            arg.SendMsg($"Give all materials to {player.Uid}");
+        }
+
+        [CommandMethod("0 unlock")]
+        public void GiveAllUnlock(CommandArg arg)
+        {
+            if (arg.Target == null)
+            {
+                arg.SendMsg("Target not found.");
+                return;
+            }
+
+            var player = arg.Target.Player;
+            if (player == null)
+            {
+                arg.SendMsg("Target not found.");
+                return;
+            }
+
+            var materialList = GameData.ItemConfigData.Values;
+            foreach (var material in materialList)
+            {
+                if (material.ItemMainType == Enums.Item.ItemMainTypeEnum.Usable)
+                {
+                    if (material.ItemSubType == Enums.Item.ItemSubTypeEnum.HeadIcon || material.ItemSubType == Enums.Item.ItemSubTypeEnum.PhoneTheme || material.ItemSubType == Enums.Item.ItemSubTypeEnum.ChatBubble)
+                    {
+                        player.InventoryManager!.AddItem(material.ID, 1, false, false);
+                    }
+                }
+            }
+
+            DatabaseHelper.Instance?.UpdateInstance(player.InventoryManager!.Data);
+
+            arg.SendMsg($"Give all materials to {player.Uid}");
         }
     }
 }

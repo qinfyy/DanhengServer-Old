@@ -25,7 +25,7 @@ namespace EggLink.DanhengServer.Server.Packet.Send.Friend
             var proto = new SearchPlayerScRsp();
 
             proto.ANNLINIMFLI.AddRange(data.Select(x => (uint)x.Uid));
-            proto.SimpleInfoList.AddRange(data.Select(x => x.ToSimpleProto()));
+            proto.SimpleInfoList.AddRange(data.Select(x => x.ToSimpleProto(FriendOnlineStatus.Online)));
 
             SetData(proto);
         }

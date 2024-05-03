@@ -102,13 +102,19 @@ namespace EggLink.DanhengServer.Command
                     var arg = new CommandArg(split.JoinFormat(" ", ""), sender, tempTarget);
                     // find the proper method with attribute CommandMethod
                     var isFound = false;
-                    CommandInfo? info = null;
+                    CommandInfo info = CommandInfo[cmd];
+
+                    if (!sender.HasPermission(info.Permission))
+                    {
+                        sender.SendMsg("You don't have permission to execute this command.");
+                        return;
+                    }
+
                     foreach (var method in command.GetType().GetMethods())
                     {
                         var attr = method.GetCustomAttribute<CommandMethod>();
                         if (attr != null)
                         {
-                            info = CommandInfo[cmd];
                             var canRun = true;
                             foreach (var condition in attr.Conditions)
                             {

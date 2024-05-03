@@ -18,7 +18,7 @@ namespace EggLink.DanhengServer.Database.Player
         public int HeadIcon { get; set; } = 208001;
         public int PhoneTheme { get; set; } = 221000;
         public int ChatBubble { get; set; } = 222000;
-        public int CurrentBgm { get; set; } = 210000;
+        public int CurrentBgm { get; set; } = 210007;
         public Gender CurrentGender { get; set; } = Gender.Man;
         public int Level { get; set; } = 1;
         public int Exp { get; set; } = 0;
@@ -67,7 +67,7 @@ namespace EggLink.DanhengServer.Database.Player
             };
         }
 
-        public PlayerSimpleInfo ToSimpleProto()
+        public PlayerSimpleInfo ToSimpleProto(FriendOnlineStatus status)
         {
             var AvatarInfo = DatabaseHelper.Instance!.GetInstance<AvatarData>(Uid)!;
 
@@ -83,10 +83,10 @@ namespace EggLink.DanhengServer.Database.Player
                 Level = (uint)Level,
                 Signature = Signature,
                 Uid = (uint)Uid,
-                OnlineStatus = FriendOnlineStatus.Online,
+                OnlineStatus = status,
                 HeadIcon = (uint)HeadIcon,
                 Platform = PlatformType.Pc,
-                LastActiveTime = LastActiveTime
+                LastActiveTime = LastActiveTime,
             };
 
             var pos = 0;

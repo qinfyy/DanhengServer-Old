@@ -61,6 +61,7 @@ namespace EggLink.DanhengServer.Data
 
         public static Dictionary<int, QuestDataExcel> QuestDataData { get; private set; } = [];
         public static Dictionary<int, PlayerLevelConfigExcel> PlayerLevelConfigData { get; private set; } = [];
+        public static Dictionary<int, BackGroundMusicExcel> BackGroundMusicData { get; private set; } = [];
 
         #endregion
 

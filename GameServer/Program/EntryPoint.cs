@@ -39,7 +39,7 @@ namespace EggLink.DanhengServer.Program
             FileInfo file;
             while (true)
             {
-                file = new FileInfo(GetConfig().Path.LogPath + $"\\{DateTime.Now:yyyy-MM-dd}-{++counter}.log");
+                file = new FileInfo(GetConfig().Path.LogPath + $"/{DateTime.Now:yyyy-MM-dd}-{++counter}.log");
                 if (!file.Exists && file.Directory != null)
                 {
                     file.Directory.Create();
@@ -99,8 +99,8 @@ namespace EggLink.DanhengServer.Program
             // generate the handbook
             HandbookGenerator.Generate();
 
-            WebProgram.Main([$"--urls=http://{GetConfig().HttpServer.PublicAddress}:{GetConfig().HttpServer.PublicPort}/"]);
-            logger.Info($"Dispatch Server is running on http://{GetConfig().HttpServer.PublicAddress}:{GetConfig().HttpServer.PublicPort}/");
+            WebProgram.Main([], GetConfig().HttpServer.PublicPort, GetConfig().HttpServer.GetDisplayAddress());
+            logger.Info($"Dispatch Server is running on {GetConfig().HttpServer.GetDisplayAddress()}");
 
             Listener.StartListener();
 

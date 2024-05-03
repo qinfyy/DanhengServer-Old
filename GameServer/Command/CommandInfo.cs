@@ -1,9 +1,9 @@
 ﻿namespace EggLink.DanhengServer.Command
 {
     [AttributeUsage(AttributeTargets.Class)]
-    public class CommandInfo(string name, string description, string usage, string keyword = "") : Attribute
+    public class CommandInfo(string name, string description, string usage, string keyword = "", string permission = "") : Attribute
     {
-        public CommandInfo(string name, string description, string usage, List<string> alias, string keyword = "") : this(name, description, usage, keyword)
+        public CommandInfo(string name, string description, string usage, List<string> alias, string keyword = "", string permission = "") : this(name, description, usage, keyword, permission)
         {
             Alias = alias ?? [];
         }
@@ -12,6 +12,7 @@
         public string Description { get; } = description;
         public string Usage { get; } = usage;
         public string Keyword { get; } = keyword;
+        public string Permission { get; } = permission;
         public List<string> Alias { get; } = [];
     }
 

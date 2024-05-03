@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EggLink.DanhengServer.Command.Cmd
 {
-    [CommandInfo("reload", "Reload the banners", "/reload")]
+    [CommandInfo("reload", "Reload the banners", "/reload", permission:"egglink.manage")]
     public class CommandReload : ICommand
     {
         [CommandDefault]

@@ -8,14 +8,16 @@ using System.Threading.Tasks;
 
 namespace EggLink.DanhengServer.Server.Packet.Recv.Friend
 {
-    [Opcode(CmdIds.GetPrivateChatHistoryCsReq)]
-    public class HandlerGetPrivateChatHistoryCsReq : Handler
+    [Opcode(CmdIds.ApplyFriendCsReq)]
+    public class HandlerApplyFriendCsReq : Handler
     {
         public override void OnHandle(Connection connection, byte[] header, byte[] data)
         {
-            var req = GetPrivateChatHistoryCsReq.Parser.ParseFrom(data);
+            var req = ApplyFriendCsReq.Parser.ParseFrom(data);
 
-            connection.SendPacket(new PacketGetPrivateChatHistoryScRsp(req.ContactId, connection.Player!));
+            connection.Player!.FriendManager!.AddFriend((int)req.Uid);
+
+            connection.SendPacket(new PacketApplyFriendScRsp(req.Uid));
         }
     }
 }

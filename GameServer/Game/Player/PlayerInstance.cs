@@ -76,6 +76,7 @@ namespace EggLink.DanhengServer.Game.Player
             // new player
             IsNewPlayer = true;
             Data.NextStaminaRecover = Extensions.GetUnixSec() + GameConstants.STAMINA_RESERVE_RECOVERY_TIME;
+            Data.Level = ConfigManager.Config.ServerOption.StartTrailblazerLevel;
 
             DatabaseHelper.Instance?.SaveInstance(Data);
 
@@ -597,7 +598,7 @@ namespace EggLink.DanhengServer.Game.Player
 
         public PlayerSimpleInfo ToSimpleProto()
         {
-            return Data.ToSimpleProto();
+            return Data.ToSimpleProto(FriendOnlineStatus.Online);
         }
 
         #endregion
